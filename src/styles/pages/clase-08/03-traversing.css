@@ -8,18 +8,7 @@
     ---------------------------------------------------
 */
 
-/*
-.section__content--practica {
-    min-height: 70rem;
-}
 
-@media (min-width: 768px) {
-    
-    .section__content--practica {
-        min-height: 70rem;
-    }
-}
-*/
 .section__content--btns {
     display: flex;
     flex-direction: column;
@@ -35,7 +24,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 3rem;
+    width: 100%;
     height: 3rem;
     border-radius: 100px;
     font-size: 1rem;
@@ -48,11 +37,11 @@
     color: #333;    
 }
 
-.section__content--practica ul,
-.section__content--practica li {
+.main__section-practica ul,
+.main__section-practica li {
     list-style: disc;
 }
 
-.section__content--practica li {
+.main__section-practica li {
     margin-left: 2rem;
 }

@@ -27,7 +27,7 @@
         //  ---------------------------------
         
         /** @type {JQuery<HTMLParagraphElement>} - `Todos los párrafos <p> dentro de .main__section--practica`  */
-        const $p = $('.main__section--practica p');
+        const $p = $('.main__section-practica p');
 
         /** @type {JQuery<HTMLLIElement>} - `elementos li dentro de la lista <ul> con id="lista"`  */
         const $elemLis = $('#lista li');
@@ -45,7 +45,8 @@
         //  -----------------------------------------------------------------------
 
         //  -----  mostrar todos los párrafos en consola -----
-        console.log('$p => ', $p.text());
+        console.log('$p => ', $p.text(), '\n\n');
+
 
         /** @type {string[]} - `Arreglo para almacenar los textos de los párrafos` */
         let arrElemP = [];

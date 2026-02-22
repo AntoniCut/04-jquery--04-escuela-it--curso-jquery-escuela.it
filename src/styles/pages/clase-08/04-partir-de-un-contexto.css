@@ -8,13 +8,13 @@
     -----------------------------------------------------
 */
 
-.section__content--practica {
+.main-practica {
     min-height: 70rem;
 }
 
 @media (min-width: 768px) {
     
-    .section__content--practica {
+    .main-practica {
         min-height: 70rem;
     }
 }

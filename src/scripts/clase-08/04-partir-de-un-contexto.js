@@ -42,12 +42,12 @@
         /**  
          - Selecciona los elementos con la clase 'grande' 
            que sean hijos directos del elemento con id 'principal' 
-           y colorea de rojo  
+           y colorea de verde  
         */
         btn2: () => {
 
             $("#principal > .grande")
-                .css("color", "red");
+                .css("color", "green");
         },
 
 

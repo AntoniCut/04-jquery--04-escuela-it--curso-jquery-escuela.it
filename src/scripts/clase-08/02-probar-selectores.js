@@ -22,7 +22,7 @@
                 
         
         /** @type {string} - Selector ingresado por el usuario */
-        const selector = String(".section__content--practica " + $("#selector").val() || "");
+        const selector = String(".main__section-practica " + $("#selector").val() || "");
         
         /** @type {string} - Color de fondo ingresado por el usuario */
         const color = "#" + ($("#color").val() || "");

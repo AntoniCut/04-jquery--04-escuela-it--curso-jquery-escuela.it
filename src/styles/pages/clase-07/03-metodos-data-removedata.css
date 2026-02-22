@@ -1,25 +1,14 @@
 /*
-    ---------------------------------------------------
-    ----------  /jquery.antonydev.tech/  --------------
-    ----------  /04-escuela.it/  ----------------------
-    ----------  /curso-jquery-escuela.it/  ------------
-    ----------  /src/styles/pages/clase-07/  ----------
-    ----------  /02-formularios.css  ------------------
-    ---------------------------------------------------
+    -------------------------------------------------------
+    ----------  /jquery.antonydev.tech/  ------------------
+    ----------  /04-escuela.it/  --------------------------
+    ----------  /curso-jquery-escuela.it/  ----------------
+    ----------  /src/styles/pages/clase-07/  --------------
+    ----------  /03-metodos-data-removedata.css  ----------
+    -------------------------------------------------------
 */
 
-/*
-.section__content--practica {
-    min-height: 70rem;
-}
 
-@media (min-width: 768px) {
-    
-    .section__content--practica {
-        min-height: 70rem;
-    }
-}
-*/
 #capa,
 #acumula {
     width: 30rem;

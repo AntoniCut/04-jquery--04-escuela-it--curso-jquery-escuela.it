@@ -9,7 +9,7 @@
 */
 
 
-.section__content--practica {
+.section__content-practica {
     width: 100%;
     min-height: 84rem;
     max-width: 102.4rem;
@@ -25,6 +25,10 @@
     padding: 2rem;
     color: #fff;
     background-color: #8eafeb;
+}
+
+.section__content > span {
+    text-align: center;
 }
 
 #result {

@@ -8,13 +8,13 @@
     ---------------------------------------------------
 */
 
-.section__content--practica {
+.main__section-practica {
     min-height: 70rem;
 }
 
 @media (min-width: 768px) {
     
-    .section__content--practica {
+    .main__section-practica {
         min-height: 70rem;
     }
 }
@@ -22,13 +22,6 @@
 #btnHtml,
 #btnText {
     width: 10rem;
-}
-
-.description {
-    width: 90%;
-    padding: 2rem;
-    background-color: #eef2f7;
-    box-shadow: 10px 10px 15px rgba(0,0,0,0.2);
 }
 
 .info {

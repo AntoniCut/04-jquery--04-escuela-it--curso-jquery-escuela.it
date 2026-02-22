@@ -35,20 +35,25 @@
 }
 
 
+/*
+    -------------------------------------------------
+    -----  Sección de Información de la página  -----
+    -------------------------------------------------
+*/
 
-.main__section {
-    width: 90%;
+.main__section-info {
+    
+    width: 95%;
     max-width: 120rem;
     margin-top: 5rem;
     margin-bottom: 5rem;
-    /* padding: 0 2rem 5rem 2rem; */
-
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 3rem;
 
-    border-radius: 50px 50px 50px 50px;
+    border-radius: 50px 50px 10px 10px;
     background: var(--bg-main-section);
     box-shadow: 2px 2px 10px rgb(209, 220, 235);
 }
@@ -70,42 +75,54 @@
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
+.section__content {
+    width: 95%;
+    margin-bottom: 5rem;
+    padding: 2rem;
+    /* background-color: #eef2f7;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.2); */
+}
 
-/*  -----  Sección de Imágenes  -----  */
-.section__content--img {
+.content__description {
+    width: 90%;
+    padding: 2rem;
+    background-color: #eef2f7;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.2);
+}
 
+
+/*
+    ---------------------------------
+    -----  Sección de Imágenes  -----
+    ---------------------------------  
+*/
+
+.section__content-img {
     width: 100%;
     max-width: 120rem;
-    
+    column-gap: 3rem;
     margin-bottom: 5rem;
     padding: 3rem 2rem 5rem;
-    
-    /* border-radius: 0 0 50px 50px;
-    background: var(--bg-main-section);
-    box-shadow: 2px 2px 10px rgb(209, 220, 235); */
-
-    column-gap: 3rem;
 }
 
 
 @media (min-width: 480px) {
-    .section__content--img {
+    .section__content-img {
         column-count: 2;
     }
 }
 
 @media (min-width: 768px) {
-    .section__content--img {
+    .section__content-img {
         column-count: 3;
     }
 }
 
 @media (min-width: 1024px) {
-    .section__content--img {
+    .section__content-img {
         column-count: 4;
     }
 }
-
 
 .section__card-img {
     break-inside: avoid;
@@ -162,10 +179,9 @@
 
 
 /*  -----  Sección de Código  -----  */
-.main__section--practica,
-.section__content--practica {
+.main__section-practica {
     width: 95%;
-    max-width: 80rem;
+    max-width: 120rem;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -179,9 +195,7 @@
 
 @media (min-width: 768px) {
     
-    .main__section--practica,
-    .section__content--practica {
+    .main__section-practica {
         padding: 5rem;
     }
 }
-

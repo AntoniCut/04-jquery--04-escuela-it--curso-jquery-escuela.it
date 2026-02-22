@@ -19,7 +19,7 @@
 }
 
 @media (min-width: 1024px) {
-    .section__content--img {
+    .section__content-img {
         column-count: 3;
     }
 }

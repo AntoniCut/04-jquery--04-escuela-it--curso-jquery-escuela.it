@@ -4,22 +4,11 @@
     ----------  /04-escuela.it/  ----------------------
     ----------  /curso-jquery-escuela.it/  ------------
     ----------  /src/styles/pages/clase-07/  ----------
-    ----------  /02-formularios.css  ------------------
+    ----------  /02-metodos-attr-prop.css  ------------
     ---------------------------------------------------
 */
 
-/*
-.section__content--practica {
-    min-height: 70rem;
-}
 
-@media (min-width: 768px) {
-    
-    .section__content--practica {
-        min-height: 70rem;
-    }
-}
-*/
 .formulario {
     width: 90%;
     min-height: 30rem;
@@ -34,7 +23,7 @@
       #e88b80 100%
     );
 
-    box-shadow: 50px 50px 100px rgb(209, 220, 235);
+    box-shadow: 5px 5px 10px rgb(209, 220, 235);
     padding: 5rem;
     border-radius: 0.5rem;
 }

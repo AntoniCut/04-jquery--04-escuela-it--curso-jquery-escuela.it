@@ -13,8 +13,8 @@
 <div class="main__container">
 
 
-    <!--  -----  Sección 1  -----  -->
-    <section class="main__section">
+    <!--  -----  INFO  -----  -->
+    <section class="main__section-info">
 
 
         <!--  -----  Header de la Sección  -----  -->
@@ -28,51 +28,60 @@
 
         </header>
 
+        <!--  -----  Contenido de la sección  -----  -->
+        <section class="section__content">
 
-        <!--  -----  Práctica  -----  -->
-        <section class="main__section--practica">
-
-            
-            <div class="practica__container">
-                
-                <p class="description">
-                    En este ejemplo tenemos varios párrafos y una lista.
-                    <br>
-                    Usando jQuery, recorreremos los párrafos y los elementos de la lista para mostrar su contenido.
-                </p>
-                
-                <p class="miclase"> párrafo con clase = miclase </p>
-                
-                <p class="miclase"> párrafo con clase = miclase </p>
-
-                <ul id="lista">
-                    <li> elemento de la lista 1 </li>
-                    <li> elemento de la lista 2 </li>
-                    <li> elemento de la lista 3 </li>
-                    <li> elemento de la lista 4 </li>
-                    <li> elemento de la lista 5 </li>
-                </ul>
-                
-
-            </div>
-
-            <div class="enunciado">
-                Abajo, lógica creada con jQuery:
+            <p class="content__description">
+                En este ejemplo tenemos varios párrafos y una lista.
                 <br>
-                - 1. Muestra el contenido de los párrafos .
-                <br>
-                - 2. Muestra el contenido de los elementos de la lista,
-                <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eliminando elemento 2 de la lista
-
-            </div>
-
-            <div class="practica__container">
-                <div id="info1"> </div>
-                <div id="info2"> </div>
-            </div>
+                Usando jQuery, recorreremos los párrafos y los elementos de la lista para mostrar su contenido.
+            </p>
 
         </section>
+            
+    </section>
+
+
+    <!--  -----  PRACTICA  -----  ----->
+    <section class="main__section-practica">
+
+
+        <div class="practica__container">
+
+            <p>
+                Este es el contenido de un párrafo sin clase, solo para mostrar que no se selecciona con la clase "miclase".
+            </p>
+
+            <p class="miclase"> párrafo con clase = miclase </p>
+
+            <p class="miclase"> párrafo con clase = miclase </p>
+
+            <ul id="lista">
+                <li> elemento de la lista 1 </li>
+                <li> elemento de la lista 2 </li>
+                <li> elemento de la lista 3 </li>
+                <li> elemento de la lista 4 </li>
+                <li> elemento de la lista 5 </li>
+            </ul>
+
+
+        </div>
+
+        <div class="enunciado">
+            Abajo, lógica creada con jQuery:
+            <br>
+            - 1. Muestra el contenido de los párrafos .
+            <br>
+            - 2. Muestra el contenido de los elementos de la lista,
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eliminando elemento 2 de la lista
+
+        </div>
+
+        <div class="practica__container">
+            <div id="info1"> </div>
+            <div id="info2"> </div>
+        </div>
 
     </section>
 

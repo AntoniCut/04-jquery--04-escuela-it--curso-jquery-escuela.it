@@ -39,6 +39,28 @@ const {
 export const routesClase06 = [
 
     {
+        id: 'clase06',
+        favicon: favicon,
+        pageTitle: "Clase 6 - Primeros Pasos con jQuery",
+        path: "/clase6-primeros-pasos",
+        components: {
+            "#layoutHeader": layoutHeader,
+            "#btnNavbar": btnNavbar,
+            "#btnNavbarThemesJQueryUI": btnNavbarThemesJQueryUI,
+            "#layoutNavbar": layoutNavbar,
+            "#layoutNavbarThemesUI": layoutNavbarThemesUI,
+            "#layoutMain": `${pages}/clase-06-primeros-pasos-con-jquery/00-primeros-pasos-con-jquery.html`,
+            "#layoutFooter": layoutFooter,
+        },
+        headerTitle: "Clase 6 - Primeros Pasos con jQuery",
+        styles: [],
+        scripts: [
+            { src: `${scripts}/tooltips.js` }
+        ]
+    },
+
+
+    {
         id: 'clase06Ejemplo1',
         favicon: favicon,
         pageTitle: "Clase 6 - Primeros Pasos con jQuery - Ejemplo 1",
