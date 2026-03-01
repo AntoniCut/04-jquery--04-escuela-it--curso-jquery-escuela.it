@@ -1,0 +1,133 @@
+/*
+    --------------------------------------------------------------------------
+    -----  _layout.scss  --  /src/styles/components/layout/_layout.scss  -----
+    --------------------------------------------------------------------------
+*/
+
+
+@use '../../base/variables' as var;
+
+
+html {
+    font-size: 10px;
+}
+
+body {
+    min-width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var.$font-primary;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 1.6rem;
+    scroll-behavior: smooth;
+}
+
+
+/*  
+    --------------------------------------
+    -----  Loader Pantalla Completa  -----  
+    --------------------------------------
+*/
+
+.loader__container {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(125% 125% at 50% 10%, #fff 40%, #6366f1 100%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    z-index: 10000;
+    opacity: 1;
+    transition: opacity 1200ms ease-in-out;
+}
+
+/* .loader__container.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+} */
+
+.spinner {
+    width: 15rem;
+    height: 15rem;
+    border: 10px solid var.$color-primary;
+    border-top: 10px solid cornflowerblue;
+    border-radius: 100%;
+    animation: spin 1s linear infinite;
+}
+
+.loader__icon-jquery {
+    width: 30rem;
+    height: 30rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/*
+    ------------------------------
+    ----------  Layout  ----------
+    ------------------------------
+*/
+
+.layout {
+    
+    width: 100vw;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    inset: 0;
+    overflow-x: hidden;
+       
+    z-index: 0;
+
+    background: var.$bg-main;
+    transition: opacity 1200ms ease-in-out;
+}
+
+/* .layout.fade-in {
+     opacity: 1;
+    pointer-events: auto;
+} */
+
+
+//  -----  Estilos Globales  -----
+
+.btn__container {
+    margin-top: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+button,
+input[type="submit"] {
+    padding: 1rem 2rem;
+    background-color: cornflowerblue;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 300ms ease-in-out;
+    box-shadow: 1px 1px 10px #0b4ee833;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: rgb(24, 56, 116);
+}

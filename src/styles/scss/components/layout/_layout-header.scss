@@ -1,13 +1,11 @@
 /*
-    -------------------------------------------------------
-    ----------  /jquery.antonydev.tech/  ------------------
-    ----------  /04-escuela.it/  --------------------------
-    ----------  /curso-jquery-escuela.it/  ----------------
-    ----------  /src/styles/components/layout/  -----------
-    ----------  /layout-header.css  -----------------------
-    -------------------------------------------------------
+    ----------------------------------------------------------------------------------------
+    -----  _layout-header.scss  --  /src/styles/components/layout/_layout-header.scss  -----
+    ----------------------------------------------------------------------------------------
 */
 
+
+@use '../../base/variables' as var;
 
 
 .layout__header {
@@ -24,20 +22,23 @@
 
 .header__container,
 .footer__header {
+    
     width: 100vw;
     min-height: 30rem;
+    
     position: relative;
     z-index: 100;
     padding: 2rem;
+    
     display: grid;
     grid-template-rows: auto auto auto;
     justify-items: center;
 
-    /*  -----  background  -----  */
-    background-color: var(--bg-white);
-    background-image: var(--bg-grid-pattern-header);
-    background-size: var(--bg-grid-size-48x48);
-    background-repeat: var(--bg-grid-repeat);
+    //  -----  Background Gradiente Header  -----
+    background-color: var.$bg-white;
+    background-image: var.$bg-grid-pattern-header;
+    background-size: var.$bg-grid-size-48x48;
+    background-repeat: repeat;
 
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 
@@ -261,38 +262,57 @@
 }
 
 .container__title-main--first {
-    background: linear-gradient(to right, #ffffff 0%, #ffffff 30%, #036AAD 100%);
+    background: var.$bg-title-main-first;
 }
 
 .container__title-page {
-    background: linear-gradient(to right, #ffffff 0%, #ffffff 30%, #F89C15 100%);
+    background: var.$bg-title-page;
 }
 
 .container__title-main--last {
-    background: linear-gradient(to right, #ffffff 0%, #ffffff 30%, #D84737 100%);
+    background: var.$bg-title-main-last;
 }
 
 
 /*  -----  Título del Header  -----  */
 .header__title-main,
-.footer__title-main {
+.header__title-page,
+.header__subtitle-main,
+.footer__title-main,
+.footer__title-page,
+.footer__subtitle-main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    -webkit-text-stroke: 0.5px black;
+}
+
+.header__title-main,
+.footer__title-main {
     font-size: 1.8rem;
-    color: var(--color-primary);
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    color: var.$color-header-title;
 }
 
 .header__title-page,
 .footer__title-page {
     font-size: 1.6rem;
-    font-weight: bold;
-    color: var(--bg-light);
-    color: var(--color-main-title);
-    color: gold;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    color: var.$color-header-page;
+    //text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
+
+.header__subtitle-main,
+.footer__subtitle-main {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var.$color-header-subtitle;
+}
+
+
+
 
 @media (min-width: 768px) {
 
@@ -304,6 +324,11 @@
     .header__title-page,
     .footer__title-page {
         font-size: 2.6rem;
+    }
+
+    .header__subtitle-main,
+    .footer__subtitle-main {
+        font-size: 2.8rem;
     }
 
 }
@@ -318,6 +343,11 @@
     .header__title-page,
     .footer__title-page {
         font-size: 2.8rem;
+    }
+
+    .header__subtitle-main,
+    .footer__subtitle-main {
+        font-size: 3rem;
     }
 
 }

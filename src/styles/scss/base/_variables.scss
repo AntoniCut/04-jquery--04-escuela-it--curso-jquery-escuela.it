@@ -1,0 +1,71 @@
+/*
+    --------------------------------------------------------------------------
+    -----  _variables.scss  --  /src/styles/scss/base/_variables.scss  -------
+    --------------------------------------------------------------------------
+*/
+
+
+//  -----  Fuentes  -----
+$font-primary: "Montserrat", Arial, Helvetica, sans-serif;
+
+
+//  -----  Colores  -----
+
+$color-primary: #036AAD;
+
+
+
+$color-header-title: $color-primary;
+$color-header-page: gold;
+$color-header-subtitle: #D94D3D;
+
+$color-grid: #e5e7eb;
+
+//  -----  Fondos lisos  -----
+$bg-scrollbar: $color-header-subtitle;
+$bg-white: #ffffff;
+$bg-light: #F7E7C0;
+$bg-dark: #1E293B;
+$bg-dark-footer: #020617;
+
+
+//  -----  Background Principal  -----
+$bg-main: radial-gradient(125% 125% at 50% 10%, #fff 40%, #6366f1 100%);
+
+
+//  -----  Background Cuadricula  -----
+$bg-grid-light: linear-gradient(to right, $color-grid 1px, transparent 1px),
+    linear-gradient(to bottom, $color-grid 1px, transparent 1px);
+
+
+//  -----  Background Gradiente Header  -----
+$bg-grid-pattern-header: linear-gradient(to right, rgba(229, 231, 235, 0.8) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(229, 231, 235, 0.8) 1px, transparent 1px),
+    radial-gradient(circle 500px at 20% 100%, rgba(139, 92, 246, 0.3), transparent),
+    radial-gradient(circle 500px at 100% 80%, rgba(59, 130, 246, 0.3), transparent);
+
+
+//  -----  Background Gradiente Footer  -----
+$bg-grid-pattern-footer: linear-gradient(to right, rgba(71, 85, 105, 0.3) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(71, 85, 105, 0.3) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+
+
+//  -----  Backbround Titles Header y Footer  -----
+$bg-title-main-first: linear-gradient(to right, #ffffff 0%, #ffffff 30%, #036AAD 100%);
+$bg-title-page: linear-gradient(to right, #ffffff 0%, #ffffff 30%, #F89C15 100%);
+$bg-title-main-last: linear-gradient(to right, #ffffff 0%, #ffffff 30%, #D84737 100%);
+
+//  -----  Background Gradiente Main Section  -----
+$bg-main-section: radial-gradient(circle, rgb(255, 255, 255), rgb(219, 228, 240), rgb(176, 196, 236));
+
+//  -----  Background Cuadricula 48x48  -----
+$bg-grid-size-48x48: 48px 48px,
+    48px 48px,
+    100% 100%,
+    100% 100%;
+
+//  -----  Background Cuadricula 32x32  -----
+$bg-grid-size-32x32: 32px 32px,
+    32px 32px,
+    100% 100%;

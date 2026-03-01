@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "dev": "gulp dev",
     "build": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,12 +25,15 @@
   "license": "ISC",
   "packageManager": "pnpm@9.12.2+sha512.22721b3a11f81661ae1ec68ce1a7b879425a1ca5b991c975b074ac220b187ce56c708fe5db69f4c962c989452eee76c82877f4ee80f474cebd61ee13461b6228",
   "devDependencies": {
+    "@types/gulp": "^4.0.18",
     "@types/jquery": "^3.5.33",
     "@types/jqueryui": "^1.12.24",
     "del": "^8.0.1",
     "gulp": "^5.0.1",
     "gulp-clean-css": "^4.3.0",
     "gulp-htmlmin": "^5.0.1",
-    "gulp-terser": "^2.1.0"
+    "gulp-sass": "^6.0.1",
+    "gulp-terser": "^2.1.0",
+    "sass": "^1.97.3"
   }
 }

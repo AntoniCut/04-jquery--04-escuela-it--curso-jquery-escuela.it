@@ -1,0 +1,20 @@
+/*
+    -----------------------------------------------------
+    ----------  /jquery.antonydev.tech/  ----------------
+    ----------  /04-escuela.it/  ------------------------
+    ----------  /curso-jquery-escuela.it/  --------------
+    ----------  /src/styles/pages/clase-08/  ------------
+    ----------  /04-partir-de-un-contexto.css  ----------
+    -----------------------------------------------------
+*/
+
+.main-practica {
+    min-height: 70rem;
+}
+
+@media (min-width: 768px) {
+    
+    .main-practica {
+        min-height: 70rem;
+    }
+}

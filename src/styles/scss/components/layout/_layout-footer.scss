@@ -1,12 +1,11 @@
 /*
-    -------------------------------------------------------
-    ----------  /jquery.antonydev.tech/  ------------------
-    ----------  /04-escuela.it/  --------------------------
-    ----------  /curso-jquery-escuela.it/  ----------------
-    ----------  /src/styles/components/layout/  -----------
-    ----------  /layout-footer.css  -----------------------
-    -------------------------------------------------------
+    ----------------------------------------------------------------------------------------
+    -----  _layout-footer.scss  --  /src/styles/components/layout/_layout-footer.scss  -----
+    ----------------------------------------------------------------------------------------
 */
+
+
+@use '../../base/variables' as var;
 
 
 .layout__footer {
@@ -23,6 +22,7 @@
     ---------------------------
 */
 
+
 .footer__container {
     width: 100vw;
     padding-bottom: 5rem;
@@ -32,10 +32,10 @@
     z-index: 10;
 
     /*  -----  background  -----  */
-    background-color: var(--bg-dark-footer);
-    background-image: var(--bg-grid-pattern-footer);
-    background-size: var(--bg-grid-size-32x32);
-    background-repeat: var(--bg-grid-repeat);
+    background-color: var.$bg-dark;
+    background-image: var.$bg-grid-pattern-footer;
+    background-size: var.$bg-grid-size-32x32;
+    background-repeat: repeat;
 
     box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
 }

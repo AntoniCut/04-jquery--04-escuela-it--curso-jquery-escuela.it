@@ -1,0 +1,24 @@
+/*
+    ---------------------------------------------------
+    ----------  /jquery.antonydev.tech/  --------------
+    ----------  /04-escuela.it/  ----------------------
+    ----------  /curso-jquery-escuela.it/  ------------
+    ----------  /src/styles/pages/clase-08/  ----------
+    ----------  /01-selectores.css  -------------------
+    ---------------------------------------------------
+*/
+
+.main-practica {
+    width: 100%;
+    min-height: 84rem;
+    max-width: 102.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 5rem;
+    border-radius: 0.5rem;
+}
+
+#contenido {
+    height: 70rem; ;
+}

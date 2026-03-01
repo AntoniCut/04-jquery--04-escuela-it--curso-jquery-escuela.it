@@ -1,0 +1,37 @@
+/*
+    --------------------------------------------------------------------------
+    -----  _scrollbar.scss  --  /src/styles/scss/base/_scrollbar.scss  -------
+    --------------------------------------------------------------------------
+*/
+
+
+@use './variables' as var;
+
+
+/*
+    -----------------------------
+    -----  Barra de Scroll  -----
+    -----------------------------
+*/
+
+/*  -----  Scrollbar general  -----  */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 6px;
+}
+
+/*  -----  Fondo de la barra  -----  */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/*  -----  Thumb (la parte que se mueve)  -----  */
+::-webkit-scrollbar-thumb {
+    background-color: var.$bg-scrollbar;
+    border-radius: 10px;
+}
+
+/*  -----  Hover  -----  */
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(144, 142, 250, 0.993);
+}
