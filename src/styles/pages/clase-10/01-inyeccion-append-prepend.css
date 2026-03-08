@@ -1,7 +1,7 @@
 /*
-    *  ----------------------------------------------------------------------------------------------------------  *
-    *  -----  /01-inyeccion-after-before.css  --  /src/styles/pages/clase-10/01-inyeccion-after-before.css  -----  *
-    *  ----------------------------------------------------------------------------------------------------------  *
+    *  --------------------------------------------------------------------------------------------------------------  *
+    *  -----  /01-inyeccion-append-prepend.css  --  /src/styles/pages/clase-10/01-inyeccion-append-prepend.css  -----  *
+    *  --------------------------------------------------------------------------------------------------------------  *
 */
 
 
@@ -23,20 +23,26 @@
     background-color: #8eafeb;
 }
 
+.section-practica__container {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
 
-#divInsertAfter,
-#divInsertBefore,
-#divAfter,
-#divBefore {
+
+#divAppendTo,
+#divPrependTo,
+#divAppend,
+#divPrepend {
     width: 90%;
     padding: 3rem;
     color: green;
 }
 
-#divInsertAfter span,
-#divInsertBefore span,
-#divAfter span,
-#divBefore span{
+#divAppendTo span,
+#divPrependTo span,
+#divAppend span,
+#divPrepend span{
     font-size: 3rem;
     font-weight: bold;
 }
@@ -48,3 +54,4 @@
     border: 1px solid #0f0;
     background-color: #eee;
 }
+

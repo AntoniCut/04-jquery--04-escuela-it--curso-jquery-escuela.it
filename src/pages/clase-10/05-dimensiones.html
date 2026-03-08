@@ -16,7 +16,7 @@
         <!--  -----  Header de la Sección  -----  -->
         <header class="section__header">
 
-            <h2 class="section__title" title="Que es jQuery">
+            <h2 class="section__title" title="5. Dimensiones">
                 Clase 10 - 5. Dimensiones
             </h2>
 
@@ -24,7 +24,42 @@
 
         <article class="section__content">
 
+            <p>
+                En esta sección se explicarán los métodos relacionados con las dimensiones de los elementos,
+                como width, height, innerWidth, innerHeight, outerWidth y outerHeight.
+            </p>
 
+            <p>
+                <span> Width : </span>
+                Devuelve el ancho del elemento, excluyendo el padding, border y margin.
+            </p>
+
+            <p>
+                <span> Height : </span>
+                Devuelve la altura del elemento, excluyendo el padding, border y margin.
+            </p>
+
+            <p>
+                <span> InnerWidth : </span>
+                Devuelve el ancho del elemento, incluyendo el padding pero excluyendo el border y margin.
+            </p>
+
+            <p>
+                <span> InnerHeight : </span>
+                Devuelve la altura del elemento, incluyendo el padding pero excluyendo el border y margin.
+            </p>
+
+            <p>
+                <span> OuterWidth : </span>
+                Devuelve el ancho del elemento, incluyendo el padding y el border.
+                Si se pasa true como argumento, también incluirá el margin.
+            </p>
+
+            <p>
+                <span> OuterHeight : </span>
+                Devuelve la altura del elemento, incluyendo el padding y el border.
+                Si se pasa true como argumento, también incluirá el margin.
+            </p>
 
         </article>
 
@@ -34,8 +69,22 @@
     <!--  -----  Práctica  -----  -->
     <section class="main__section-practica">
 
+        <h2>Ejemplo métodos de dimensiones jQuery </h2>
 
-        
+        <div class="capa">
+            Caja de ejemplo
+        </div>
+
+        <div class="buttons">
+            <button id="btnWidth">Width</button>
+            <button id="btnHeight">Height</button>
+            <button id="btnInnerWidth">InnerWidth</button>
+            <button id="btnInnerHeight">InnerHeight</button>
+            <button id="btnOuterWidth">OuterWidth</button>
+            <button id="btnOuterHeight">OuterHeight</button>
+        </div>
+
+        <pre id="output"></pre>
 
     </section>
 
