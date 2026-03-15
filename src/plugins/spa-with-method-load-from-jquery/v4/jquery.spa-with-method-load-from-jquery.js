@@ -1,26 +1,8 @@
 /*
-    -------------------------------------------------------------------
-    ----------  /spa-with-method-load-from-jquery/  -------------------
-    ----------  /jquery.spa-with-method-load-from-jquery.js  ----------
-    -------------------------------------------------------------------
+    *  ----------------------------------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /jquery.spa-with-method-load-from-jquery.js  --  /src/plugins/spa-with-method-load-from-jquery/v4/jquery.spa-with-method-load-from-jquery.js  -----  *
+    *  ----------------------------------------------------------------------------------------------------------------------------------------------------------  *
 */
-
-
-
-/**
- * -----------------------------------------
- * -----  Imports de tipos para JSDoc  -----
- * -----------------------------------------
- * 
- * @typedef {import('../../../types/route-types.js').Route} Route
- * @typedef {import('../../../types/route-types.js').RouteComponents} RouteComponents
- * @typedef {import('../../../types/route-types.js').RouteStyle} RouteStyle
- * @typedef {import('../../../types/route-types.js').RouteScript} RouteScript
- * @typedef {import('../../../types/config-option-spa-types.js').ConfigOptionsSPA} ConfigOptionsSPA
- * 
- */
-
-
 
 /**
  *  --------------------------------------------------

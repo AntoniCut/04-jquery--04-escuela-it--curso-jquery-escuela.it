@@ -1,17 +1,11 @@
 /*
     *  ---------------------------------------------------------------------  *
     *  -----  /routes-clase-10.js  --  /src/routes/routes-clase-10.js  -----  *
-    * ----------------------------------------------------------------------  *  
+    *  ---------------------------------------------------------------------  *
 */
 
 
-
 import { paths } from './paths.js';
-
-
-/**
- * @typedef {import('../types/route-types.js').Route} Route
- */
 
 
 /** - `Desestructuración de paths` */
@@ -29,9 +23,7 @@ const {
 } = paths;
 
 
-
 /** @type {Route[]} - `Array de objetos de tipo Route que definen las rutas de la aplicación SPA` */
-
 export const routesClase10 = [
 
     {
@@ -60,7 +52,7 @@ export const routesClase10 = [
         id: 'clase10AppendPrepend',
         favicon: favicon,
         pageTitle: "Clase 10 - 1. Inyección Append / Prepend / AppendTo / PrependTo",
-        path: "/clase10-inyeccion-append-prepend",
+        path: "/clase10-manipulacion-avanzada-del-contenido/01-inyeccion-append-prepend",
         components: {
             "#layoutHeader": layoutHeader,
             "#btnNavbar": btnNavbar,
@@ -85,7 +77,7 @@ export const routesClase10 = [
         id: 'clase10AfterBefore',
         favicon: favicon,
         pageTitle: "Clase 10 - 2. Inyección After / Before / InsertAfter / InsertBefore",
-        path: "/clase10-inyeccion-after-before",
+        path: "/clase10-manipulacion-avanzada-del-contenido/02-inyeccion-after-before",
         components: {
             "#layoutHeader": layoutHeader,
             "#btnNavbar": btnNavbar,
@@ -110,7 +102,7 @@ export const routesClase10 = [
         id: 'clase10Dom',
         favicon: favicon,
         pageTitle: "Clase 10 - 3. Inyección DOM",
-        path: "/clase10-inyeccion-dom",
+        path: "/clase10-manipulacion-avanzada-del-contenido/03-inyeccion-dom",
         components: {
             "#layoutHeader": layoutHeader,
             "#btnNavbar": btnNavbar,
@@ -135,7 +127,7 @@ export const routesClase10 = [
         id: 'clase10Envoltura',
         favicon: favicon,
         pageTitle: "Clase 10 - 4. Envoltura",
-        path: "/clase10-envoltura",
+        path: "/clase10-manipulacion-avanzada-del-contenido/04-envoltura",
         components: {
             "#layoutHeader": layoutHeader,
             "#btnNavbar": btnNavbar,
@@ -160,7 +152,7 @@ export const routesClase10 = [
         id: 'clase10Dimensiones',
         favicon: favicon,
         pageTitle: "Clase 10 - 5. Dimensiones",
-        path: "/clase10-dimensiones",
+        path: "/clase10-manipulacion-avanzada-del-contenido/05-dimensiones",
         components: {
             "#layoutHeader": layoutHeader,
             "#btnNavbar": btnNavbar,
@@ -185,7 +177,7 @@ export const routesClase10 = [
         id: 'clase10ScrollOffset',
         favicon: favicon,
         pageTitle: "Clase 10 - 6. Scroll / Offset",
-        path: "/clase10-scroll-offset",
+        path: "/clase10-manipulacion-avanzada-del-contenido/06-scroll-offset",
         components: {
             "#layoutHeader": layoutHeader,
             "#btnNavbar": btnNavbar,

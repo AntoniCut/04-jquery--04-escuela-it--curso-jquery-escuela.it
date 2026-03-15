@@ -1,21 +1,11 @@
 /*
-    -------------------------------------------------
-    ----------  /jquery.antonydev.tech/  ------------
-    ----------  /04-escuela.it/  --------------------
-    ----------  /curso-jquery-escuela.it/  ----------
-    ----------  /src/routes/  -----------------------
-    ----------  /routes-clase-07.js  ----------------
-    -------------------------------------------------
+    *  ---------------------------------------------------------------------  *
+    *  -----  /routes-clase-07.js  --  /src/routes/routes-clase-07.js  -----  *
+    *  ---------------------------------------------------------------------  *
 */
 
 
-
 import { paths } from './paths.js';
-
-
-/**
- * @typedef {import('../types/route-types.js').Route} Route
- */
 
 
 /** - `Desestructuración de paths` */
@@ -33,23 +23,21 @@ const {
 } = paths;
 
 
-
 /** @type {Route[]} - `Array de objetos de tipo Route que definen las rutas de la aplicación SPA` */
-
 export const routesClase07 = [
 
     {
         id: 'clase07',
         favicon: favicon,
         pageTitle: "Clase 7 - Manipulación Básica de Elementos",
-        path: "/clase7-manipulacion-basica-de-elementos",
+        path: "/clase07-manipulacion-basica-de-elementos",
         components: {
             "#layoutHeader": layoutHeader,
             "#btnNavbar": btnNavbar,
             "#btnNavbarThemesJQueryUI": btnNavbarThemesJQueryUI,
             "#layoutNavbar": layoutNavbar,
             "#layoutNavbarThemesUI": layoutNavbarThemesUI,
-            "#layoutMain": `${pages}/clase-07-manipulacion-basica-de-elementos/00-manipulacion-basica-de-elementos.html`,
+            "#layoutMain": `${pages}/clase-07/00-manipulacion-basica-de-elementos.html`,
             "#layoutFooter": layoutFooter,
         },
         headerTitle: "Clase 7 - Manipulación Básica de Elementos",
@@ -63,14 +51,14 @@ export const routesClase07 = [
         id: 'clase07HtmlText',
         favicon: favicon,
         pageTitle: "Clase 7 - 1. Métodos html() y text()",
-        path: "/clase7-manipulacion-basica-de-elementos/01-metodos-html-text",
+        path: "/clase07-manipulacion-basica-de-elementos/01-metodos-html-text",
         components: {
             "#layoutHeader": layoutHeader,
             "#btnNavbar": btnNavbar,
             "#btnNavbarThemesJQueryUI": btnNavbarThemesJQueryUI,
             "#layoutNavbar": layoutNavbar,
             "#layoutNavbarThemesUI": layoutNavbarThemesUI,
-            "#layoutMain": `${pages}/clase-07-manipulacion-basica-de-elementos/01-metodos-html-text.html`,
+            "#layoutMain": `${pages}/clase-07/01-metodos-html-text.html`,
             "#layoutFooter": layoutFooter,
         },
         headerTitle: "Clase 7 - 1. Métodos html() y text()",
@@ -87,14 +75,14 @@ export const routesClase07 = [
         id: 'clase07AttrProp',
         favicon: favicon,
         pageTitle: "Clase 7 - 2. Métodos attr() y prop()",
-        path: "/clase7-manipulacion-basica-de-elementos/02-metodos-attr-prop",
+        path: "/clase07-manipulacion-basica-de-elementos/02-metodos-attr-prop",
         components: {
             "#layoutHeader": layoutHeader,
             "#btnNavbar": btnNavbar,
             "#btnNavbarThemesJQueryUI": btnNavbarThemesJQueryUI,
             "#layoutNavbar": layoutNavbar,
             "#layoutNavbarThemesUI": layoutNavbarThemesUI,
-            "#layoutMain": `${pages}/clase-07-manipulacion-basica-de-elementos/02-metodos-attr-prop.html`,
+            "#layoutMain": `${pages}/clase-07/02-metodos-attr-prop.html`,
             "#layoutFooter": layoutFooter,
         },
         headerTitle: "Clase 7 - 2. Métodos attr() y prop()",
@@ -112,14 +100,14 @@ export const routesClase07 = [
         id: 'clase07DataRemoveData',
         favicon: favicon,
         pageTitle: "Clase 7 - 3. Métodos data() y removeData()",
-        path: "/clase7-manipulacion-basica-de-elementos/03-metodos-data-removedata",
+        path: "/clase07-manipulacion-basica-de-elementos/03-metodos-data-removedata",
         components: {
             "#layoutHeader": layoutHeader,
             "#btnNavbar": btnNavbar,
             "#btnNavbarThemesJQueryUI": btnNavbarThemesJQueryUI,
             "#layoutNavbar": layoutNavbar,
             "#layoutNavbarThemesUI": layoutNavbarThemesUI,
-            "#layoutMain": `${pages}/clase-07-manipulacion-basica-de-elementos/03-metodos-data-removedata.html`,
+            "#layoutMain": `${pages}/clase-07/03-metodos-data-removedata.html`,
             "#layoutFooter": layoutFooter,
         },
         headerTitle: "Clase 7 - 3. Métodos data() y removeData()",
@@ -137,14 +125,14 @@ export const routesClase07 = [
         id: 'clase07Each',
         favicon: favicon,
         pageTitle: "Clase 7 - 4. Método each() para recorrer elementos",
-        path: "/clase7-manipulacion-basica-de-elementos/04-metodo-each-recorrer-elementos",
+        path: "/clase07-manipulacion-basica-de-elementos/04-metodo-each-recorrer-elementos",
         components: {
             "#layoutHeader": layoutHeader,
             "#btnNavbar": btnNavbar,
             "#btnNavbarThemesJQueryUI": btnNavbarThemesJQueryUI,
             "#layoutNavbar": layoutNavbar,
             "#layoutNavbarThemesUI": layoutNavbarThemesUI,
-            "#layoutMain": `${pages}/clase-07-manipulacion-basica-de-elementos/04-metodo-each-recorrer-elementos.html`,
+            "#layoutMain": `${pages}/clase-07/04-metodo-each-recorrer-elementos.html`,
             "#layoutFooter": layoutFooter,
         },
         headerTitle: "Clase 7 - 4. Método each() para recorrer elementos",

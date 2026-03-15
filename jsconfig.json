@@ -12,11 +12,9 @@
         "moduleResolution": "bundler"
     },
     "include": [
-        "global.d.ts",
-        "src/libs/jquery/jquery-global.d.ts",
-        "src/types/jquery-spa-plugin.d.ts",
-        "node_modules/@types/**/*",
+        "types",
         "src",
+        "src/libs/jquery/core/types/global.d.ts"
     ],
     "exclude": [
         "node_modules",

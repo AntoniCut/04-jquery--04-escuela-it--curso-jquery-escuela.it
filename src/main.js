@@ -1,10 +1,8 @@
 /*
-    -----------------------------------------------
-    ----------  /jquery.antonydev.tech/  ----------
-    ----------  /src/main.js  ---------------------
-    -----------------------------------------------
+    *  ----------------------------------------  *
+    *  -----  /main.js  --  /src/main.js  -----  *
+    *  ----------------------------------------  *
 */
-
 
 import { effectLoadingPage } from './scripts/effect-loading-page.js';
 import { fallbackJQueryJQueryUI } from './libs/jquery/loaders/fallback-jquery-jquery-ui.js'

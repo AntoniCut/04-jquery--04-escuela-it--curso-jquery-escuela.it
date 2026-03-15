@@ -1,10 +1,8 @@
 /*
-    -----------------------------------------------------
-    ----------  /src/libs/jquery/loaders/  --------------
-    ----------  /fallback-jquery-jquery-ui.js  ----------
-    -----------------------------------------------------
+    *  ------------------------------------------------------------------------------------------------------  *
+    *  -----  /fallback-jquery-jquery-ui.js  --  /src/libs/jquery/loaders/fallback-jquery-jquery-ui.js  -----  *
+    *  ------------------------------------------------------------------------------------------------------  *
 */
-
 
 
 import { cdnJQuery_4_0_0_min } from '../core/cdn/cdn-jquery-4.0.0.min.js';
@@ -14,11 +12,6 @@ import { cdnJQueryUI_1_14_1_min } from '../ui/cdn/cdn-jquery-ui-1.14.1.min.js';
 import { loadJQueryUIByCdnOLocal } from "../ui/scripts/load-jquery-ui-by-cdn-local.js";
 
 
-/**
- * @typedef {import('../core/types/cdn-jquery-types.js').CDNJQuery} CDNJQuery
- * @typedef {import('../ui/types/cdn-jquery-ui-types.js').CDNJQueryUI} CDNJQueryUI
- */
-
 
 /*
     --------------------------------------------------------------------
@@ -26,14 +19,17 @@ import { loadJQueryUIByCdnOLocal } from "../ui/scripts/load-jquery-ui-by-cdn-loc
     --------------------------------------------------------------------
 */
 
+/** `-----  Configuración de CDN de jQuery  -----` */
 const cdnJQuery = cdnJQuery_4_0_0_min;
 
-//  -----  Rutas locales  -  Utilizar Path Absoluto  -----
+/** @type {string}  `-----  Rutas locales  -  Utilizar Path Absoluto  -----`  */
 const localJQuery = "/src/libs/jquery/local/jquery-4.0.0-beta.min.js";
 
+
+/** `-----  Configuración de CDN de jQuery UI  -----` */
 const cdnJQueryUI = cdnJQueryUI_1_14_1_min;
 
-//  -----  Rutas locales  -  Utilizar Path Absoluto  -----
+/** @type {string}  `-----  Rutas locales  -  Utilizar Path Absoluto  -----`  */
 const localJQueryUI = "/src/libs/jquery-ui/local/jquery-ui-1.14.1.min.js";
 
 

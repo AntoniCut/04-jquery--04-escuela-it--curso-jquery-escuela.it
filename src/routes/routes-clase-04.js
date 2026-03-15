@@ -1,21 +1,11 @@
 /*
-    -------------------------------------------------
-    ----------  /jquery.antonydev.tech/  ------------
-    ----------  /04-escuela.it/  --------------------
-    ----------  /curso-jquery-escuela.it/  ----------
-    ----------  /src/routes/  -----------------------
-    ----------  /routes-clase-04.js  ----------------
-    -------------------------------------------------
+    *  ---------------------------------------------------------------------  *
+    *  -----  /routes-clase-04.js  --  /src/routes/routes-clase-04.js  -----  *
+    *  ---------------------------------------------------------------------  *
 */
 
 
-
 import { paths } from './paths.js';
-
-
-/**
- * @typedef {import('../types/route-types.js').Route} Route
- */
 
 
 /** - `Desestructuración de paths` */
@@ -33,23 +23,21 @@ const {
 } = paths;
 
 
-
 /** @type {Route[]} - `Array de objetos de tipo Route que definen las rutas de la aplicación SPA` */
-
 export const routesClase04 = [
     
     {
         id: 'clase04',
         favicon: favicon,
         pageTitle: "Clase 4 - Como se organiza el curso de jQuery en Escuela.it",
-        path: "/clase4-como-se-organiza-el-curso",
+        path: "/clase04-como-se-organiza-el-curso",
         components: {
             "#layoutHeader": layoutHeader,
             "#btnNavbar": btnNavbar,
             "#btnNavbarThemesJQueryUI": btnNavbarThemesJQueryUI,
             "#layoutNavbar": layoutNavbar,
             "#layoutNavbarThemesUI": layoutNavbarThemesUI,
-            "#layoutMain": `${pages}/clase-04-como-se-organiza-el-curso/00-como-se-organiza-el-curso.html`,
+            "#layoutMain": `${pages}/clase-04/00-como-se-organiza-el-curso.html`,
             "#layoutFooter": layoutFooter,
         },
         headerTitle: "Clase 4 - Como se organiza el curso de jQuery en Escuela.it",

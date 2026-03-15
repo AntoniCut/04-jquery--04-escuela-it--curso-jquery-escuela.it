@@ -1,16 +1,11 @@
-/*  
-    ------------------------------------------------------
-    ----------  /src/libs/jquery/core/scripts/  ----------
-    ----------  /load-jquery-by-cdn.js  ------------------
-    ------------------------------------------------------
+/*
+    *  ---------------------------------------------------------------------------------------------  *
+    *  -----  /load-jquery-by-cdn.js  --  /src/libs/jquery/core/scripts/load-jquery-by-cdn.js  -----  *
+    *  ---------------------------------------------------------------------------------------------  *
 */
 
 
-
 import { loadJQueryByLocal } from "./load-jquery-by-local.js";
-
-
-/** @typedef {import('../types/cdn-jquery-types.js').CDNJQuery} CDNJQuery */
 
 
 /** 

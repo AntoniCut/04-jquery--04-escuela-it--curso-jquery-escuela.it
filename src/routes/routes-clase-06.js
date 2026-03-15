@@ -1,21 +1,11 @@
 /*
-    -------------------------------------------------
-    ----------  /jquery.antonydev.tech/  ------------
-    ----------  /04-escuela.it/  --------------------
-    ----------  /curso-jquery-escuela.it/  ----------
-    ----------  /src/routes/  -----------------------
-    ----------  /routes-clase-05.js  ----------------
-    -------------------------------------------------
+    *  ---------------------------------------------------------------------  *
+    *  -----  /routes-clase-06.js  --  /src/routes/routes-clase-06.js  -----  *
+    *  ---------------------------------------------------------------------  *
 */
 
 
-
 import { paths } from './paths.js';
-
-
-/**
- * @typedef {import('../types/route-types.js').Route} Route
- */
 
 
 /** - `Desestructuración de paths` */
@@ -33,23 +23,21 @@ const {
 } = paths;
 
 
-
 /** @type {Route[]} - `Array de objetos de tipo Route que definen las rutas de la aplicación SPA` */
-
 export const routesClase06 = [
 
     {
         id: 'clase06',
         favicon: favicon,
         pageTitle: "Clase 6 - Primeros Pasos con jQuery",
-        path: "/clase6-primeros-pasos",
+        path: "/clase06-primeros-pasos",
         components: {
             "#layoutHeader": layoutHeader,
             "#btnNavbar": btnNavbar,
             "#btnNavbarThemesJQueryUI": btnNavbarThemesJQueryUI,
             "#layoutNavbar": layoutNavbar,
             "#layoutNavbarThemesUI": layoutNavbarThemesUI,
-            "#layoutMain": `${pages}/clase-06-primeros-pasos-con-jquery/00-primeros-pasos-con-jquery.html`,
+            "#layoutMain": `${pages}/clase-06/00-primeros-pasos-con-jquery.html`,
             "#layoutFooter": layoutFooter,
         },
         headerTitle: "Clase 6 - Primeros Pasos con jQuery",
@@ -64,14 +52,14 @@ export const routesClase06 = [
         id: 'clase06Ejemplo1',
         favicon: favicon,
         pageTitle: "Clase 6 - Primeros Pasos con jQuery - Ejemplo 1",
-        path: "/clase6-primeros-pasos-ejemplo1",
+        path: "/clase06-primeros-pasos/01-ejemplo1",
         components: {
             "#layoutHeader": layoutHeader,
             "#btnNavbar": btnNavbar,
             "#btnNavbarThemesJQueryUI": btnNavbarThemesJQueryUI,
             "#layoutNavbar": layoutNavbar,
             "#layoutNavbarThemesUI": layoutNavbarThemesUI,
-            "#layoutMain": `${pages}/clase-06-primeros-pasos-con-jquery/01-ejemplo1.html`,
+            "#layoutMain": `${pages}/clase-06/01-ejemplo1.html`,
             "#layoutFooter": layoutFooter,
         },
         headerTitle: "Clase 6 - Primeros Pasos con jQuery - Ejemplo 1",
@@ -89,14 +77,14 @@ export const routesClase06 = [
         id: 'clase06Ejemplo2',
         favicon: favicon,
         pageTitle: "Clase 6 - Primeros Pasos con jQuery - Ejemplo 2",
-        path: "/clase6-primeros-pasos-ejemplo2",
+        path: "/clase06-primeros-pasos/02-ejemplo2",
         components: {
             "#layoutHeader": layoutHeader,
             "#btnNavbar": btnNavbar,
             "#btnNavbarThemesJQueryUI": btnNavbarThemesJQueryUI,
             "#layoutNavbar": layoutNavbar,
             "#layoutNavbarThemesUI": layoutNavbarThemesUI,
-            "#layoutMain": `${pages}/clase-06-primeros-pasos-con-jquery/02-ejemplo2.html`,
+            "#layoutMain": `${pages}/clase-06/02-ejemplo2.html`,
             "#layoutFooter": layoutFooter,
         },
         headerTitle: "Clase 6 - Primeros Pasos con jQuery - Ejemplo 2",

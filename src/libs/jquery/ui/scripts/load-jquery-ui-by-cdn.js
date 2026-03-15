@@ -1,16 +1,11 @@
-/*  
-    ----------------------------------------------------
-    ----------  /src/libs/jquery/ui/scripts/  ----------
-    ----------  /load-jquery-ui-by-cdn.js  -------------
-    ----------------------------------------------------
+/*
+    *  -------------------------------------------------------------------------------------------------  *
+    *  -----  /load-jquery-ui-by-cdn.js  --  /src/libs/jquery/ui/scripts/load-jquery-ui-by-cdn.js  -----  *
+    *  -------------------------------------------------------------------------------------------------  *
 */
 
 
-
 import { loadJQueryUIByLocal } from './load-jquery-ui-by-local.js';
-
-
-/** @typedef {import('../types/cdn-jquery-ui-types.js').CDNJQueryUI} CDNJQueryUI */
 
 
 /** 

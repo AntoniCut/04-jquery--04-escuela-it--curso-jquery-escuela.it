@@ -1,11 +1,7 @@
 /*
-    -------------------------------------------------------
-    ----------  /jquery.antonydev.tech/  ------------------
-    ----------  /04-escuela.it/  --------------------------
-    ----------  /curso-jquery-escuela.it/  ----------------
-    ----------  /src/scripts/spa/  ------------------------
-    ----------  /spa-curso-jquery-escuela-it.js  ----------
-    -------------------------------------------------------
+    *  ------------------------------------------------------------------------------------------  *
+    *  -----  /spa-curso-jquery-escuela-it.js  --  /src/spa/spa-curso-jquery-escuela-it.js  -----  *
+    *  ------------------------------------------------------------------------------------------  *
 */
 
 
@@ -24,12 +20,6 @@ import {
     routesClase10
 
 } from '../routes/index.js';    
-
-
-/**
- * @typedef {import('../types/route-types.js').Route} Route
- * @typedef {import('../types/config-option-spa-types.js').ConfigOptionsSPA} ConfigOptionsSPA
- */
 
 
 
