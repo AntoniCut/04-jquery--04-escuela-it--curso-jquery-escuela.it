@@ -5,19 +5,6 @@
 */
 
 
-/**
- * -----------------------------------------
- * -----  Imports de tipos para JSDoc  -----
- * -----------------------------------------
- * 
- * @typedef {import('../../../types/route-types.js').Route} Route
- * @typedef {import('../../../types/route-types.js').RouteComponents} RouteComponents
- * @typedef {import('../../../types/route-types.js').RouteStyle} RouteStyle
- * @typedef {import('../../../types/route-types.js').RouteScript} RouteScript
- * @typedef {import('../../../types/config-option-spa-types.js').ConfigOptionsSPA} ConfigOptionsSPA
- * 
- */
-
 
 /**
  *  --------------------------------------------------
