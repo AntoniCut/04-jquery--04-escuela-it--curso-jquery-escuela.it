@@ -1,11 +1,12 @@
 /*
-    ----------------------------------------------------------------------------------------
-    -----  _layout-footer.scss  --  /src/styles/components/layout/_layout-footer.scss  -----
-    ----------------------------------------------------------------------------------------
-*/
+    *  ----------------------------------------------------------------------------------------  *
+    *  -----  _layout-footer.scss  --  /src/styles/components/layout/_layout-footer.scss  -----  *
+    *  ----------------------------------------------------------------------------------------  *
+ */
 
 
 @use '../../base/variables' as var;
+@use '../../base/mixins' as mix;
 
 
 .layout__footer {
@@ -21,7 +22,6 @@
     -----  Layout Footer  -----
     ---------------------------
 */
-
 
 .footer__container {
     width: 100vw;
@@ -40,7 +40,6 @@
     box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
 }
 
-
 /*
     ---------------------------
     -----  Footer Header  -----
@@ -51,8 +50,6 @@
 */
 
 
-
-
 /*  
     -------------------------
     -----  Footer Main  -----
@@ -60,6 +57,7 @@
 */
 
 .footer__main {
+    
     position: relative;
     max-width: 120rem;
     width: 100%;
@@ -71,19 +69,16 @@
     gap: 2rem;
 
     align-items: start;
-}
 
-@media (min-width: 768px) {
-    .footer__main {
+    @include mix.tablet {
         grid-template-columns: repeat(2, 1fr);
         padding: 2rem 5rem;
     }
-}
 
-@media (min-width: 1024px) {
-    .footer__main {
+    @include mix.desktopSM {
         grid-template-columns: repeat(3, 1fr);
     }
+
 }
 
 
@@ -100,47 +95,6 @@
     gap: 0.5rem;
     padding: 1rem 1rem 2rem;
 }
-
-.footer__list--udemy {
-    height: 52rem;
-}
-
-@media (min-width: 768px) {
-
-    .footer__list--udemy,
-    .footer__list--youtube {
-        height: 48rem;
-    }
-
-    .footer__list--desarrollowebcom,
-    .footer__list--escuelait {
-        height: 30rem;
-    }
-
-    .footer__list:first-child {
-        grid-column: span 2;
-    }
-}
-
-@media (min-width: 1024px) {
-    
-    .footer__list--udemy,
-    .footer__list--youtube,
-    .footer__list--desarrollowebcom {
-        height: 50rem;
-    }
-
-    .footer__list--escuelait,
-    .footer__list--booksjquery,
-    .footer__list--manualesjquery {
-        height: 18rem;
-    }
-    
-    .footer__list:first-child {
-        grid-column: span 3;
-    }
-}
-
 
 /*  
     -------------------------
@@ -182,12 +136,12 @@
     color: #f5e3e3;
 
     transition: all 300ms ease-in-out;
-}
 
-.footer__item a:hover {
-    padding-left: 3rem;
-    color: #fff;
-    font-weight: bold;
+    &:hover {
+        padding-left: 3rem;
+        color: #fff;
+        font-weight: bold;
+    }
 }
 
 

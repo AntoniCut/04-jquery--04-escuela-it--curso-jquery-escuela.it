@@ -1,8 +1,8 @@
 /*
-    --------------------------------------------------------------------------
-    -----  _variables.scss  --  /src/styles/scss/base/_variables.scss  -------
-    --------------------------------------------------------------------------
-*/
+    *  --------------------------------------------------------------------------  *
+    *  -----  _variables.scss  --  /src/styles/scss/base/_variables.scss  -------  *
+    *  --------------------------------------------------------------------------  *
+ */
 
 
 //  -----  Fuentes  -----
@@ -12,8 +12,6 @@ $font-primary: "Montserrat", Arial, Helvetica, sans-serif;
 //  -----  Colores  -----
 
 $color-primary: #036AAD;
-
-
 
 $color-header-title: $color-primary;
 $color-header-page: gold;
@@ -56,16 +54,29 @@ $bg-title-main-first: linear-gradient(to right, #ffffff 0%, #ffffff 30%, #036AAD
 $bg-title-page: linear-gradient(to right, #ffffff 0%, #ffffff 30%, #F89C15 100%);
 $bg-title-main-last: linear-gradient(to right, #ffffff 0%, #ffffff 30%, #D84737 100%);
 
+
 //  -----  Background Gradiente Main Section  -----
 $bg-main-section: radial-gradient(circle, rgb(255, 255, 255), rgb(219, 228, 240), rgb(176, 196, 236));
 
+
 //  -----  Background Cuadricula 48x48  -----
-$bg-grid-size-48x48: 48px 48px,
+$bg-grid-size-48x48: 
+    48px 48px,
     48px 48px,
     100% 100%,
     100% 100%;
 
+
 //  -----  Background Cuadricula 32x32  -----
-$bg-grid-size-32x32: 32px 32px,
+$bg-grid-size-32x32: 
+    32px 32px,
     32px 32px,
     100% 100%;
+
+
+/// ----- Breakpoints -----
+$mobile: 480px;
+$tablet: 768px;
+$desktop-sm: 1024px;
+$desktop: 1200px;
+$desktop-xl: 1400px;

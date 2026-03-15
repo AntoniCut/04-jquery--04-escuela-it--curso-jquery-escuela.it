@@ -1,11 +1,12 @@
 /*
-    ----------------------------------------------------------------------------------------
-    -----  _layout-header.scss  --  /src/styles/components/layout/_layout-header.scss  -----
-    ----------------------------------------------------------------------------------------
-*/
+    *  ----------------------------------------------------------------------------------------  *
+    *  -----  _layout-header.scss  --  /src/styles/components/layout/_layout-header.scss  -----  *
+    *  ----------------------------------------------------------------------------------------  *
+ */
 
 
 @use '../../base/variables' as var;
+@use '../../base/mixins' as mix;
 
 
 .layout__header {
@@ -22,14 +23,14 @@
 
 .header__container,
 .footer__header {
-    
+
     width: 100vw;
     min-height: 30rem;
-    
+
     position: relative;
     z-index: 100;
     padding: 2rem;
-    
+
     display: grid;
     grid-template-rows: auto auto auto;
     justify-items: center;
@@ -43,18 +44,15 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 
     border-radius: 0 0 20px 20px;
-}
 
-@media (min-width: 1200px) {
-
-    .header__container,
-    .footer__header {
+    @include mix.desktop {
         display: grid;
         grid-template-columns: 1fr 3fr 1fr;
         column-gap: 2rem;
         padding: 5rem 5rem 5rem 5rem;
     }
 }
+
 
 
 /* 
@@ -65,17 +63,15 @@
 
 .header__container-icons-logos,
 .footer__container-icons-logos {
+
     width: 80%;
     position: relative;
+
     display: grid;
     justify-content: center;
     margin-bottom: 2rem;
-}
 
-@media (min-width: 480px) {
-
-    .header__container-icons-logos,
-    .footer__container-icons-logos {
+    @include mix.mobile {
         width: 40rem;
         height: 6rem;
         display: flex;
@@ -83,16 +79,12 @@
         align-items: center;
         padding-right: 2rem;
     }
-}
 
-@media (min-width: 1200px) {
-
-    .header__container-icons-logos,
-    .footer__container-icons-logos {
+    @include mix.desktop {
         width: 25rem;
         height: 20rem;
         flex-direction: column;
-        justify-content:flex-start;
+        justify-content: flex-start;
         padding-top: 3rem;
     }
 }
@@ -121,7 +113,6 @@
     ------------------------------------------------
 */
 
-
 /*  -----  Containers icon y logo jQuery y jQuery UI  -----   */
 .jquery__icon-logo,
 .jquery-ui__icon-logo {
@@ -132,49 +123,45 @@
 /*  -----  Logos jQuery y jQuery UI  -----  */
 .jquery-logo,
 .jquery-ui-logo {
+
     width: 10rem;
     height: auto;
     mix-blend-mode: multiply;
     transition: all 300ms ease-in-out;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
+    @include mix.tablet {
+        width: 12rem;
+        height: auto;
+    }
+
+
 }
 
 /*  -----  Icons jQuery, jQuery UI y GitHub  -----  */
 .jquery-icon,
 .jquery-ui-icon,
 .github-icon {
+
     width: 2rem;
     height: auto;
     transition: all 300ms ease-in-out;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
+    @include mix.tablet {
+        width: 3rem;
+        height: auto;
+    }
 }
 
 .github-icon {
     margin-right: 1.5rem;
-}
-
-.jquery-logo:hover,
-.jquery-ui-logo:hover,
-.jquery-icon:hover,
-.jquery-ui-icon:hover,
-.github-icon:hover {
-    transform: scale(1.1);
-}
-
-
-@media (min-width: 768px) {
-
-    .jquery-logo,
-    .jquery-ui-logo {
-        width: 12rem;
-        height: auto;
-    }
-
-    .jquery-icon,
-    .jquery-ui-icon,
-    .github-icon {
-        width: 3rem;
-        height: auto;
-    }
-
 }
 
 
@@ -192,10 +179,10 @@
     justify-content: center;
     align-items: center;
     margin-top: 2rem;
+
 }
 
-@media(min-width: 1200px) {
-
+@include mix.desktop {
     .container-logos__cursos--last {
         margin-top: 5rem;
     }
@@ -208,10 +195,9 @@
     transition: all 300ms ease-in-out;
     border-radius: 10px;
 
-}
-
-.cursos__logos:hover {
-    transform: scale(1.1);
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 
 .cursos__logos--escuela-it-icon {
@@ -223,7 +209,6 @@
     width: 10rem;
     height: auto;
 }
-
 
 
 /*
@@ -247,18 +232,14 @@
     text-align: center;
 }
 
-.container__title-main,
-.container__title-page {
+.container__title-main--first,
+.container__title-page,
+.container__title-main--last {
     width: 100%;
     min-height: 3rem;
     padding: 1rem;
     border-radius: 0 15px 50px 15px;
     box-shadow: 10px 10px 10px rgb(209, 220, 235);
-}
-
-.container__title-main {
-    background-color: var(--bg-light);
-    background-size: 40px 40px;
 }
 
 .container__title-main--first {
@@ -291,63 +272,48 @@
 
 .header__title-main,
 .footer__title-main {
+    
     font-size: 1.8rem;
     font-weight: 700;
     color: var.$color-header-title;
+
+    @include mix.tablet {
+        font-size: 2.8rem;
+    }
+
+    @include mix.desktop {
+        font-size: 3rem;
+    }
 }
 
 .header__title-page,
 .footer__title-page {
+    
     font-size: 1.6rem;
     font-weight: 700;
     color: var.$color-header-page;
-    //text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+
+    @include mix.tablet {
+        font-size: 2.6rem;
+    }
+    
+    @include mix.desktop {
+        font-size: 2.8rem;
+    }
 }
 
 .header__subtitle-main,
 .footer__subtitle-main {
+    
     font-size: 1.8rem;
     font-weight: 700;
     color: var.$color-header-subtitle;
-}
 
-
-
-
-@media (min-width: 768px) {
-
-    .header__title-main,
-    .footer__title-main {
+    @include mix.tablet {
         font-size: 2.8rem;
     }
 
-    .header__title-page,
-    .footer__title-page {
-        font-size: 2.6rem;
-    }
-
-    .header__subtitle-main,
-    .footer__subtitle-main {
-        font-size: 2.8rem;
-    }
-
-}
-
-@media (min-width: 1024px) {
-
-    .header__title-main,
-    .footer__title-main {
+    @include mix.desktop {
         font-size: 3rem;
     }
-
-    .header__title-page,
-    .footer__title-page {
-        font-size: 2.8rem;
-    }
-
-    .header__subtitle-main,
-    .footer__subtitle-main {
-        font-size: 3rem;
-    }
-
 }
