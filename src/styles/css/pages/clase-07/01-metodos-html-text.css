@@ -1,0 +1,35 @@
+/*
+    *  -------------------------------------------------------------------------------------------------------  *
+    *  -----  /01-metodos-html-text.scss  --  /src/styles/scss/pages/clase-07/01-metodos-html-text.scss  -----  *
+    *  -------------------------------------------------------------------------------------------------------  *
+*/
+.main__section-practica {
+  min-height: 70rem;
+}
+
+@media (min-width: 768px) {
+  .main__section-practica {
+    min-height: 70rem;
+  }
+}
+#btnHtml,
+#btnText {
+  width: 10rem;
+}
+
+.info {
+  width: 90%;
+  padding: 2rem;
+  color: aliceblue;
+  background-color: #064ea4;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.output {
+  width: 90%;
+  min-height: 20rem;
+  padding: 2rem;
+  background-color: #eef2f7;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+}/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJjbGFzZS0wNy8wMS1tZXRvZG9zLWh0bWwtdGV4dC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFPQTtFQUNJOzs7QUFHSjtFQUVJO0lBQ0k7OztBQUlSO0FBQUE7RUFFSTs7O0FBR0o7RUFDSTtFQUNBO0VBQ0E7RUFDQTtFQUNBOzs7QUFHSjtFQUNJO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQSIsInNvdXJjZXNDb250ZW50IjpbIi8qXHJcbiAgICAqICAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tICAqXHJcbiAgICAqICAtLS0tLSAgLzAxLW1ldG9kb3MtaHRtbC10ZXh0LnNjc3MgIC0tICAvc3JjL3N0eWxlcy9zY3NzL3BhZ2VzL2NsYXNlLTA3LzAxLW1ldG9kb3MtaHRtbC10ZXh0LnNjc3MgIC0tLS0tICAqXHJcbiAgICAqICAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tICAqXHJcbiovXHJcblxyXG5cclxuLm1haW5fX3NlY3Rpb24tcHJhY3RpY2Ege1xyXG4gICAgbWluLWhlaWdodDogNzByZW07XHJcbn1cclxuXHJcbkBtZWRpYSAobWluLXdpZHRoOiA3NjhweCkge1xyXG4gICAgXHJcbiAgICAubWFpbl9fc2VjdGlvbi1wcmFjdGljYSB7XHJcbiAgICAgICAgbWluLWhlaWdodDogNzByZW07XHJcbiAgICB9XHJcbn1cclxuXHJcbiNidG5IdG1sLFxyXG4jYnRuVGV4dCB7XHJcbiAgICB3aWR0aDogMTByZW07XHJcbn1cclxuXHJcbi5pbmZvIHtcclxuICAgIHdpZHRoOiA5MCU7XHJcbiAgICBwYWRkaW5nOiAycmVtO1xyXG4gICAgY29sb3I6YWxpY2VibHVlO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzA2NGVhNDtcclxuICAgIGJveC1zaGFkb3c6IDEwcHggMTBweCAxNXB4IHJnYmEoMCwwLDAsMC4yKTtcclxufVxyXG5cclxuLm91dHB1dCB7XHJcbiAgICB3aWR0aDogOTAlO1xyXG4gICAgbWluLWhlaWdodDogMjByZW07XHJcbiAgICBwYWRkaW5nOiAycmVtO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2VlZjJmNztcclxuICAgIGJveC1zaGFkb3c6IDEwcHggMTBweCAxNXB4IHJnYmEoMCwwLDAsMC4yKTtcclxuICAgIG9wYWNpdHk6IDA7XHJcbn1cclxuXHJcblxyXG5cclxuIl0sImZpbGUiOiJjbGFzZS0wNy8wMS1tZXRvZG9zLWh0bWwtdGV4dC5jc3MifQ== */

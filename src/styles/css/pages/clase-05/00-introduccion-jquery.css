@@ -1,0 +1,18 @@
+/*
+    *  -----------------------------------------------------------------------------------------------------------  *
+    *  -----  /00-introduccion-jquery.scss  --  /src/styles/scss/pages/clase-05/00-introduccion-jquery.scss  -----  *
+    *  -----------------------------------------------------------------------------------------------------------  *
+*/
+#capa {
+  color: white;
+  font-size: 2.6rem;
+  font-weight: bold;
+  padding: 20px;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .section__content-img {
+    column-count: 3;
+  }
+}/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJjbGFzZS0wNS8wMC1pbnRyb2R1Y2Npb24tanF1ZXJ5LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQU9BO0VBQ0k7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7O0FBR0o7RUFDSTtJQUNJIiwic291cmNlc0NvbnRlbnQiOlsiLypcclxuICAgICogIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tICAqXHJcbiAgICAqICAtLS0tLSAgLzAwLWludHJvZHVjY2lvbi1qcXVlcnkuc2NzcyAgLS0gIC9zcmMvc3R5bGVzL3Njc3MvcGFnZXMvY2xhc2UtMDUvMDAtaW50cm9kdWNjaW9uLWpxdWVyeS5zY3NzICAtLS0tLSAgKlxyXG4gICAgKiAgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0gICpcclxuKi9cclxuXHJcblxyXG4jY2FwYSB7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiAgICBmb250LXNpemU6IDIuNnJlbTtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gICAgcGFkZGluZzogMjBweDtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG5cclxuQG1lZGlhIChtaW4td2lkdGg6IDEwMjRweCkge1xyXG4gICAgLnNlY3Rpb25fX2NvbnRlbnQtaW1nIHtcclxuICAgICAgICBjb2x1bW4tY291bnQ6IDM7XHJcbiAgICB9XHJcbn1cclxuXHJcbiJdLCJmaWxlIjoiY2xhc2UtMDUvMDAtaW50cm9kdWNjaW9uLWpxdWVyeS5jc3MifQ== */

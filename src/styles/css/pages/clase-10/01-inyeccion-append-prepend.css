@@ -1,0 +1,53 @@
+/*
+    *  ---------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /01-inyeccion-append-prepend.scss  --  /src/styles/scss/pages/clase-10/01-inyeccion-append-prepend.scss  -----  *
+    *  ---------------------------------------------------------------------------------------------------------------------  *
+*/
+.section__content--practica {
+  width: 100%;
+  min-height: 84rem;
+  max-width: 102.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 5rem;
+  border-radius: 0.5rem;
+}
+
+.ejercicio__description {
+  width: 100%;
+  padding: 2rem;
+  color: #fff;
+  background-color: #8eafeb;
+}
+
+.section-practica__container {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+#divAppendTo,
+#divPrependTo,
+#divAppend,
+#divPrepend {
+  width: 90%;
+  padding: 3rem;
+  color: green;
+}
+
+#divAppendTo span,
+#divPrependTo span,
+#divAppend span,
+#divPrepend span {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.main__section-practica .parrafo {
+  width: 90%;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid #0f0;
+  background-color: #eee;
+}/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJjbGFzZS0xMC8wMS1pbnllY2Npb24tYXBwZW5kLXByZXBlbmQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBT0E7RUFDSTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOzs7QUFHSjtFQUNJO0VBQ0E7RUFDQTtFQUNBOzs7QUFHSjtFQUNJO0VBQ0E7RUFDQTs7O0FBSUo7QUFBQTtBQUFBO0FBQUE7RUFJSTtFQUNBO0VBQ0E7OztBQUdKO0FBQUE7QUFBQTtBQUFBO0VBSUk7RUFDQTs7O0FBR0o7RUFDSTtFQUNBO0VBQ0E7RUFDQTtFQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLypcclxuICAgICogIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSAgKlxyXG4gICAgKiAgLS0tLS0gIC8wMS1pbnllY2Npb24tYXBwZW5kLXByZXBlbmQuc2NzcyAgLS0gIC9zcmMvc3R5bGVzL3Njc3MvcGFnZXMvY2xhc2UtMTAvMDEtaW55ZWNjaW9uLWFwcGVuZC1wcmVwZW5kLnNjc3MgIC0tLS0tICAqXHJcbiAgICAqICAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0gICpcclxuKi9cclxuXHJcblxyXG4uc2VjdGlvbl9fY29udGVudC0tcHJhY3RpY2Ege1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBtaW4taGVpZ2h0OiA4NHJlbTtcclxuICAgIG1heC13aWR0aDogMTAyLjRyZW07XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIGdhcDogMnJlbTtcclxuICAgIHBhZGRpbmc6IDVyZW07XHJcbiAgICBib3JkZXItcmFkaXVzOiAwLjVyZW07XHJcbn1cclxuXHJcbi5lamVyY2ljaW9fX2Rlc2NyaXB0aW9uIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgcGFkZGluZzogMnJlbTtcclxuICAgIGNvbG9yOiAjZmZmO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzhlYWZlYjtcclxufVxyXG5cclxuLnNlY3Rpb24tcHJhY3RpY2FfX2NvbnRhaW5lciB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIGdhcDogNXJlbTtcclxufVxyXG5cclxuXHJcbiNkaXZBcHBlbmRUbyxcclxuI2RpdlByZXBlbmRUbyxcclxuI2RpdkFwcGVuZCxcclxuI2RpdlByZXBlbmQge1xyXG4gICAgd2lkdGg6IDkwJTtcclxuICAgIHBhZGRpbmc6IDNyZW07XHJcbiAgICBjb2xvcjogZ3JlZW47XHJcbn1cclxuXHJcbiNkaXZBcHBlbmRUbyBzcGFuLFxyXG4jZGl2UHJlcGVuZFRvIHNwYW4sXHJcbiNkaXZBcHBlbmQgc3BhbixcclxuI2RpdlByZXBlbmQgc3BhbntcclxuICAgIGZvbnQtc2l6ZTogM3JlbTtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcblxyXG4ubWFpbl9fc2VjdGlvbi1wcmFjdGljYSAucGFycmFmbyB7XHJcbiAgICB3aWR0aDogOTAlO1xyXG4gICAgbWFyZ2luOiAxcmVtO1xyXG4gICAgcGFkZGluZzogMXJlbTtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkICMwZjA7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWVlO1xyXG59XHJcblxyXG4iXSwiZmlsZSI6ImNsYXNlLTEwLzAxLWlueWVjY2lvbi1hcHBlbmQtcHJlcGVuZC5jc3MifQ== */

@@ -1,0 +1,57 @@
+/*
+    *  -------------------------------------------------------------------------------------------------------  *
+    *  -----  /02-metodos-attr-prop.scss  --  /src/styles/scss/pages/clase-07/02-metodos-attr-prop.scss  -----  *
+    *  -------------------------------------------------------------------------------------------------------  *
+*/
+.formulario {
+  width: 90%;
+  min-height: 30rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background: linear-gradient(to right, #e88b80 0%, #f7f7f7 50%, #e88b80 100%);
+  box-shadow: 5px 5px 10px rgb(209, 220, 235);
+  padding: 5rem;
+  border-radius: 0.5rem;
+}
+
+.legend {
+  font-size: 2.2rem;
+  font-weight: 700;
+  padding: 2rem;
+}
+
+.form__group {
+  display: flex;
+  gap: 2rem;
+}
+
+#inputNombre {
+  padding: 1rem;
+  font-size: 1.8rem;
+  border-radius: 0.5rem;
+  border: 2px solid #ccc;
+  background-color: white;
+}
+
+#bloqueAvanzado {
+  display: block;
+  height: 8.5rem;
+  padding: 2rem;
+  background-color: #ddd;
+}
+
+#bloqueAvanzado a {
+  color: blueviolet;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+#bloqueAvanzado a:hover {
+  font-size: 2.2rem;
+}
+
+.error {
+  background-color: #f99 !important;
+  border: 2px solid red !important;
+}/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJjbGFzZS0wNy8wMi1tZXRvZG9zLWF0dHItcHJvcC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFPQTtFQUNJO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFFQTtFQU9BO0VBQ0E7RUFDQTs7O0FBR0o7RUFDSTtFQUNBO0VBQ0E7OztBQUlKO0VBQ0k7RUFDQTs7O0FBR0o7RUFDSTtFQUNBO0VBQ0E7RUFDQTtFQUNBOzs7QUFJSjtFQUNJO0VBQ0E7RUFDQTtFQUNBOzs7QUFHSjtFQUNJO0VBQ0E7RUFDQTs7O0FBR0o7RUFDSTs7O0FBR0o7RUFDSTtFQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLypcclxuICAgICogIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0gICpcclxuICAgICogIC0tLS0tICAvMDItbWV0b2Rvcy1hdHRyLXByb3Auc2NzcyAgLS0gIC9zcmMvc3R5bGVzL3Njc3MvcGFnZXMvY2xhc2UtMDcvMDItbWV0b2Rvcy1hdHRyLXByb3Auc2NzcyAgLS0tLS0gICpcclxuICAgICogIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0gICpcclxuKi9cclxuXHJcblxyXG4uZm9ybXVsYXJpbyB7XHJcbiAgICB3aWR0aDogOTAlO1xyXG4gICAgbWluLWhlaWdodDogMzByZW07XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIGdhcDogMnJlbTtcclxuICAgIFxyXG4gICAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KFxyXG4gICAgICAgIHRvIHJpZ2h0LFxyXG4gICAgICAjZTg4YjgwIDAlLFxyXG4gICAgICAjZjdmN2Y3IDUwJSxcclxuICAgICAgI2U4OGI4MCAxMDAlXHJcbiAgICApO1xyXG5cclxuICAgIGJveC1zaGFkb3c6IDVweCA1cHggMTBweCByZ2IoMjA5LCAyMjAsIDIzNSk7XHJcbiAgICBwYWRkaW5nOiA1cmVtO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMC41cmVtO1xyXG59XHJcblxyXG4ubGVnZW5kIHtcclxuICAgIGZvbnQtc2l6ZTogMi4ycmVtO1xyXG4gICAgZm9udC13ZWlnaHQ6IDcwMDtcclxuICAgIHBhZGRpbmc6IDJyZW07XHJcbn1cclxuXHJcblxyXG4uZm9ybV9fZ3JvdXAge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGdhcDogMnJlbTtcclxufVxyXG5cclxuI2lucHV0Tm9tYnJlIHtcclxuICAgIHBhZGRpbmc6IDFyZW07XHJcbiAgICBmb250LXNpemU6IDEuOHJlbTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDAuNXJlbTtcclxuICAgIGJvcmRlcjogMnB4IHNvbGlkICNjY2M7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcclxufVxyXG5cclxuXHJcbiNibG9xdWVBdmFuemFkbyB7XHJcbiAgICBkaXNwbGF5OiBibG9jaztcclxuICAgIGhlaWdodDogOC41cmVtO1xyXG4gICAgcGFkZGluZzogMnJlbTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNkZGQ7XHJcbn1cclxuXHJcbiNibG9xdWVBdmFuemFkbyBhIHtcclxuICAgIGNvbG9yOiBibHVldmlvbGV0O1xyXG4gICAgZm9udC1zaXplOiAxLjhyZW07XHJcbiAgICBmb250LXdlaWdodDogNjAwO1xyXG59XHJcblxyXG4jYmxvcXVlQXZhbnphZG8gYTpob3ZlciB7XHJcbiAgICBmb250LXNpemU6IDIuMnJlbTtcclxufVxyXG5cclxuLmVycm9yIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNmOTkgIWltcG9ydGFudDtcclxuICAgIGJvcmRlcjogMnB4IHNvbGlkIHJlZCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG5cclxuXHJcblxyXG4iXSwiZmlsZSI6ImNsYXNlLTA3LzAyLW1ldG9kb3MtYXR0ci1wcm9wLmNzcyJ9 */

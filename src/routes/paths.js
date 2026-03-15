@@ -16,6 +16,6 @@ export const paths = {
     layoutNavbarThemesUI: '/04-escuela.it/curso-jquery-escuela.it/src/components/layout/layout-navbar-themes-jquery-ui.html',
     pages: '/04-escuela.it/curso-jquery-escuela.it/src/pages',
     layoutFooter: '/04-escuela.it/curso-jquery-escuela.it/src/components/layout/layout-footer.html',
-    styles: '/04-escuela.it/curso-jquery-escuela.it/src/styles',
+    styles: '/04-escuela.it/curso-jquery-escuela.it/src/styles/css',
     scripts: '/04-escuela.it/curso-jquery-escuela.it/src/scripts',
 }

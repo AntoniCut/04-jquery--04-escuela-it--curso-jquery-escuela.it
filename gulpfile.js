@@ -36,7 +36,7 @@ const EXCLUDES = [
     "!src/**/scss/**",
     "!src/**/*.ts",
     "!src/**/*.map",
-    "!src/types/**",
+    "!types/**",
     "!node_modules/**",
     "!gulpfile.js",
     "!package.json",
@@ -83,19 +83,58 @@ export const css = () => {
 }
 
 
+/**
+ * --------------------------
+ * -----  `cssPages()`  -----
+ * --------------------------
+ * @description
+ * - Compila cada archivo SCSS dentro de `src/styles/scss/pages` de forma independiente.
+ * - Conserva la estructura de carpetas al generar los archivos CSS en `src/styles/css/pages`.
+ * - No concatena ni unifica estilos; cada archivo de salida corresponde a su archivo fuente.
+ * @returns {import('stream').Readable}
+ * - Flujo de Gulp que representa la tarea de compilación de SCSS de páginas a CSS.
+ */
+
+export const cssPages = () => {
+
+    return src('src/styles/scss/pages/**/*.scss', {
+        base: 'src/styles/scss/pages',
+        sourcemaps: true
+    })
+        .pipe(
+            sass()
+                .on('error', sass.logError)
+        )
+        .pipe(dest('src/styles/css/pages', { sourcemaps: true }));
+}
+
+
+/** 
+ * ------------------------
+ * -----  `styles()`  -----
+ * ------------------------
+ * @description
+ * - Ejecuta las tareas `css` y `cssPages` en paralelo para compilar tanto el archivo global de estilos como los estilos específicos de páginas.
+ * - Permite una compilación eficiente al procesar ambos conjuntos de archivos simultáneamente.
+ * @returns {import('stream').Readable}
+ * - Flujo de Gulp que representa la ejecución paralela de las tareas de compilación de estilos.
+ */
+export const styles = parallel(css, cssPages);
+
+
 
 /**
  * ---------------------
  * -----  `dev()`  -----
  * ---------------------
  * @description
- * - Ejecuta la tarea `css` para compilar los archivos SCSS a CSS.
- * - Observa los cambios en los archivos SCSS dentro de `src/styles/scss/` y ejecuta la tarea `css` automáticamente.
+* - Observa los cambios en los archivos SCSS dentro de `src/styles/scss/` 
+*   y ejecuta la tarea `styles` automáticamente cuando se detectan cambios.
  * @returns {import('fs').FSWatcher}
  * - Objeto que representa el observador de archivos, permitiendo detener la observación si es necesario.
  */
 
-export const dev = () => watch('src/styles/scss/**/*.scss', css);
+export const dev = () => watch('src/styles/scss/**/*.scss', styles);
 
 
 

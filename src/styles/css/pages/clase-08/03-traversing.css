@@ -1,0 +1,41 @@
+/*
+    *  -----------------------------------------------------------------------------------------  *
+    *  -----  /03-traversing.scss  --  /src/styles/scss/pages/clase-08/03-traversing.scss  -----  *
+    *  -----------------------------------------------------------------------------------------  *
+*/
+.section__content--btns {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.btn__container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn__action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 3rem;
+  border-radius: 100px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.btn__description {
+  margin-left: 1rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.main__section-practica ul,
+.main__section-practica li {
+  list-style: disc;
+}
+
+.main__section-practica li {
+  margin-left: 2rem;
+}/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJjbGFzZS0wOC8wMy10cmF2ZXJzaW5nLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQU9BO0VBQ0k7RUFDQTtFQUNBOzs7QUFHSjtFQUNJO0VBQ0E7OztBQUdKO0VBQ0k7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7O0FBR0o7RUFDSTtFQUNBO0VBQ0E7OztBQUdKO0FBQUE7RUFFSTs7O0FBR0o7RUFDSSIsInNvdXJjZXNDb250ZW50IjpbIi8qXHJcbiAgICAqICAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSAgKlxyXG4gICAgKiAgLS0tLS0gIC8wMy10cmF2ZXJzaW5nLnNjc3MgIC0tICAvc3JjL3N0eWxlcy9zY3NzL3BhZ2VzL2NsYXNlLTA4LzAzLXRyYXZlcnNpbmcuc2NzcyAgLS0tLS0gICpcclxuICAgICogIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tICAqXHJcbiovXHJcblxyXG5cclxuLnNlY3Rpb25fX2NvbnRlbnQtLWJ0bnMge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICBnYXA6IDJyZW07XHJcbn1cclxuXHJcbi5idG5fX2NvbnRhaW5lciB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAganVzdGlmeS1jb250ZW50OiBmbGV4LXN0YXJ0O1xyXG59XHJcblxyXG4uYnRuX19hY3Rpb24ge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgaGVpZ2h0OiAzcmVtO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMTAwcHg7XHJcbiAgICBmb250LXNpemU6IDFyZW07XHJcbiAgICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG5cclxuLmJ0bl9fZGVzY3JpcHRpb24ge1xyXG4gICAgbWFyZ2luLWxlZnQ6IDFyZW07XHJcbiAgICBmb250LXNpemU6IDEuMnJlbTtcclxuICAgIGNvbG9yOiAjMzMzOyAgICBcclxufVxyXG5cclxuLm1haW5fX3NlY3Rpb24tcHJhY3RpY2EgdWwsXHJcbi5tYWluX19zZWN0aW9uLXByYWN0aWNhIGxpIHtcclxuICAgIGxpc3Qtc3R5bGU6IGRpc2M7XHJcbn1cclxuXHJcbi5tYWluX19zZWN0aW9uLXByYWN0aWNhIGxpIHtcclxuICAgIG1hcmdpbi1sZWZ0OiAycmVtO1xyXG59XHJcbiJdLCJmaWxlIjoiY2xhc2UtMDgvMDMtdHJhdmVyc2luZy5jc3MifQ== */

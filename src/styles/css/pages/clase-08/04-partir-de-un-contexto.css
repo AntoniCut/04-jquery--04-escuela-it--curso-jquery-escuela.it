@@ -1,0 +1,14 @@
+/*
+    *  ---------------------------------------------------------------------------------------------------------------  *
+    *  -----  /04-partir-de-un-contexto.scss  --  /src/styles/scss/pages/clase-08/04-partir-de-un-contexto.scss  -----  *
+    *  ---------------------------------------------------------------------------------------------------------------  *
+*/
+.main-practica {
+  min-height: 70rem;
+}
+
+@media (min-width: 768px) {
+  .main-practica {
+    min-height: 70rem;
+  }
+}/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJjbGFzZS0wOC8wNC1wYXJ0aXItZGUtdW4tY29udGV4dG8uc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBT0E7RUFDSTs7O0FBR0o7RUFFSTtJQUNJIiwic291cmNlc0NvbnRlbnQiOlsiLypcclxuICAgICogIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSAgKlxyXG4gICAgKiAgLS0tLS0gIC8wNC1wYXJ0aXItZGUtdW4tY29udGV4dG8uc2NzcyAgLS0gIC9zcmMvc3R5bGVzL3Njc3MvcGFnZXMvY2xhc2UtMDgvMDQtcGFydGlyLWRlLXVuLWNvbnRleHRvLnNjc3MgIC0tLS0tICAqXHJcbiAgICAqICAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0gICpcclxuKi9cclxuXHJcblxyXG4ubWFpbi1wcmFjdGljYSB7XHJcbiAgICBtaW4taGVpZ2h0OiA3MHJlbTtcclxufVxyXG5cclxuQG1lZGlhIChtaW4td2lkdGg6IDc2OHB4KSB7XHJcbiAgICBcclxuICAgIC5tYWluLXByYWN0aWNhIHtcclxuICAgICAgICBtaW4taGVpZ2h0OiA3MHJlbTtcclxuICAgIH1cclxufVxyXG4iXSwiZmlsZSI6ImNsYXNlLTA4LzA0LXBhcnRpci1kZS11bi1jb250ZXh0by5jc3MifQ== */

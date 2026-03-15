@@ -1,0 +1,47 @@
+/*
+    *  -----------------------------------------------------------------------------------------------------------------  *
+    *  -----  /02-inyeccion-after-before.scss  --  /src/styles/scss/pages/clase-10/02-inyeccion-after-before.scss  -----  *
+    *  -----------------------------------------------------------------------------------------------------------------  *
+*/
+.section__content--practica {
+  width: 100%;
+  min-height: 84rem;
+  max-width: 102.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 5rem;
+  border-radius: 0.5rem;
+}
+
+.ejercicio__description {
+  width: 100%;
+  padding: 2rem;
+  color: #fff;
+  background-color: #8eafeb;
+}
+
+#divInsertAfter,
+#divInsertBefore,
+#divAfter,
+#divBefore {
+  width: 90%;
+  padding: 3rem;
+  color: green;
+}
+
+#divInsertAfter span,
+#divInsertBefore span,
+#divAfter span,
+#divBefore span {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.main__section-practica .parrafo {
+  width: 90%;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid #0f0;
+  background-color: #eee;
+}/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJjbGFzZS0xMC8wMi1pbnllY2Npb24tYWZ0ZXItYmVmb3JlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQU9BO0VBQ0k7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7O0FBR0o7RUFDSTtFQUNBO0VBQ0E7RUFDQTs7O0FBSUo7QUFBQTtBQUFBO0FBQUE7RUFJSTtFQUNBO0VBQ0E7OztBQUdKO0FBQUE7QUFBQTtBQUFBO0VBSUk7RUFDQTs7O0FBR0o7RUFDSTtFQUNBO0VBQ0E7RUFDQTtFQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLypcbiAgICAqICAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSAgKlxuICAgICogIC0tLS0tICAvMDItaW55ZWNjaW9uLWFmdGVyLWJlZm9yZS5zY3NzICAtLSAgL3NyYy9zdHlsZXMvc2Nzcy9wYWdlcy9jbGFzZS0xMC8wMi1pbnllY2Npb24tYWZ0ZXItYmVmb3JlLnNjc3MgIC0tLS0tICAqXG4gICAgKiAgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0gICpcbiovXG5cblxuLnNlY3Rpb25fX2NvbnRlbnQtLXByYWN0aWNhIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgbWluLWhlaWdodDogODRyZW07XHJcbiAgICBtYXgtd2lkdGg6IDEwMi40cmVtO1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICBnYXA6IDJyZW07XHJcbiAgICBwYWRkaW5nOiA1cmVtO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMC41cmVtO1xyXG59XHJcblxyXG4uZWplcmNpY2lvX19kZXNjcmlwdGlvbiB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIHBhZGRpbmc6IDJyZW07XHJcbiAgICBjb2xvcjogI2ZmZjtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICM4ZWFmZWI7XHJcbn1cclxuXHJcblxyXG4jZGl2SW5zZXJ0QWZ0ZXIsXHJcbiNkaXZJbnNlcnRCZWZvcmUsXHJcbiNkaXZBZnRlcixcclxuI2RpdkJlZm9yZSB7XHJcbiAgICB3aWR0aDogOTAlO1xyXG4gICAgcGFkZGluZzogM3JlbTtcclxuICAgIGNvbG9yOiBncmVlbjtcclxufVxyXG5cclxuI2Rpdkluc2VydEFmdGVyIHNwYW4sXHJcbiNkaXZJbnNlcnRCZWZvcmUgc3BhbixcclxuI2RpdkFmdGVyIHNwYW4sXHJcbiNkaXZCZWZvcmUgc3BhbntcclxuICAgIGZvbnQtc2l6ZTogM3JlbTtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcblxyXG4ubWFpbl9fc2VjdGlvbi1wcmFjdGljYSAucGFycmFmbyB7XHJcbiAgICB3aWR0aDogOTAlO1xyXG4gICAgbWFyZ2luOiAxcmVtO1xyXG4gICAgcGFkZGluZzogMXJlbTtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkICMwZjA7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWVlO1xyXG59XHJcbiJdLCJmaWxlIjoiY2xhc2UtMTAvMDItaW55ZWNjaW9uLWFmdGVyLWJlZm9yZS5jc3MifQ== */

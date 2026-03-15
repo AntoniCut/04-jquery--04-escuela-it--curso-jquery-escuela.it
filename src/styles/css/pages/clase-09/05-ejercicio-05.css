@@ -1,0 +1,29 @@
+/*
+    *  ---------------------------------------------------------------------------------------------  *
+    *  -----  /05-ejercicio-05.scss  --  /src/styles/scss/pages/clase-09/05-ejercicio-05.scss  -----  *
+    *  ---------------------------------------------------------------------------------------------  *
+*/
+.section__content--practica {
+  width: 100%;
+  min-height: 84rem;
+  max-width: 102.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 5rem;
+  border-radius: 0.5rem;
+}
+
+.ejercicio__description {
+  width: 100%;
+  padding: 2rem;
+  color: #fff;
+  background-color: #8eafeb;
+}
+
+.contenido p {
+  margin: 2rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  background-color: #F0BCB6;
+}/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJjbGFzZS0wOS8wNS1lamVyY2ljaW8tMDUuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBT0E7RUFDSTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOzs7QUFHSjtFQUNJO0VBQ0E7RUFDQTtFQUNBOzs7QUFHSjtFQUNJO0VBQ0E7RUFDQTtFQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLypcclxuICAgICogIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSAgKlxyXG4gICAgKiAgLS0tLS0gIC8wNS1lamVyY2ljaW8tMDUuc2NzcyAgLS0gIC9zcmMvc3R5bGVzL3Njc3MvcGFnZXMvY2xhc2UtMDkvMDUtZWplcmNpY2lvLTA1LnNjc3MgIC0tLS0tICAqXHJcbiAgICAqICAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0gICpcclxuKi9cclxuXHJcblxyXG4uc2VjdGlvbl9fY29udGVudC0tcHJhY3RpY2Ege1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBtaW4taGVpZ2h0OiA4NHJlbTtcclxuICAgIG1heC13aWR0aDogMTAyLjRyZW07XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIGdhcDogMnJlbTtcclxuICAgIHBhZGRpbmc6IDVyZW07XHJcbiAgICBib3JkZXItcmFkaXVzOiAwLjVyZW07XHJcbn1cclxuXHJcbi5lamVyY2ljaW9fX2Rlc2NyaXB0aW9uIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgcGFkZGluZzogMnJlbTtcclxuICAgIGNvbG9yOiAjZmZmO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzhlYWZlYjtcclxufVxyXG5cclxuLmNvbnRlbmlkbyBwIHtcclxuICAgIG1hcmdpbjogMnJlbTtcclxuICAgIHBhZGRpbmc6IDJyZW07XHJcbiAgICBib3JkZXItcmFkaXVzOiAwLjVyZW07XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRjBCQ0I2O1xyXG59XHJcbiJdLCJmaWxlIjoiY2xhc2UtMDkvMDUtZWplcmNpY2lvLTA1LmNzcyJ9 */

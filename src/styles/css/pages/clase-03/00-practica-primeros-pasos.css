@@ -1,0 +1,19 @@
+/*
+    *  -------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /00-practica-primeros-pasos.scss  --  /src/styles/scss/pages/clase-03/00-practica-primeros-pasos.scss  -----  *
+    *  -------------------------------------------------------------------------------------------------------------------  *
+*/
+@media (min-width: 1024px) {
+  .section__content-img {
+    column-count: 3;
+  }
+}
+.titulo {
+  padding: 2rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.titular {
+  color: blueviolet !important;
+  background-color: aquamarine !important;
+}/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJjbGFzZS0wMy8wMC1wcmFjdGljYS1wcmltZXJvcy1wYXNvcy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFPQTtFQUNJO0lBQ0k7OztBQUtSO0VBQ0k7RUFDQTs7O0FBR0o7RUFDSTtFQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLypcclxuICAgICogIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0gICpcclxuICAgICogIC0tLS0tICAvMDAtcHJhY3RpY2EtcHJpbWVyb3MtcGFzb3Muc2NzcyAgLS0gIC9zcmMvc3R5bGVzL3Njc3MvcGFnZXMvY2xhc2UtMDMvMDAtcHJhY3RpY2EtcHJpbWVyb3MtcGFzb3Muc2NzcyAgLS0tLS0gICpcclxuICAgICogIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0gICpcclxuKi9cclxuXHJcblxyXG5AbWVkaWEgKG1pbi13aWR0aDogMTAyNHB4KSB7XHJcbiAgICAuc2VjdGlvbl9fY29udGVudC1pbWcge1xyXG4gICAgICAgIGNvbHVtbi1jb3VudDogMztcclxuICAgIH1cclxufVxyXG5cclxuXHJcbi50aXR1bG8ge1xyXG4gICAgcGFkZGluZzogMnJlbTtcclxuICAgIGJveC1zaGFkb3c6IDAgNXB4IDEwcHggcmdiYSgwLCAwLCAwLCAwLjMpO1xyXG59XHJcblxyXG4udGl0dWxhciB7XHJcbiAgICBjb2xvcjogYmx1ZXZpb2xldCAhaW1wb3J0YW50O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogYXF1YW1hcmluZSAhaW1wb3J0YW50O1xyXG59XHJcbiJdLCJmaWxlIjoiY2xhc2UtMDMvMDAtcHJhY3RpY2EtcHJpbWVyb3MtcGFzb3MuY3NzIn0= */
