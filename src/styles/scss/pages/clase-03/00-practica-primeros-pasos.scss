@@ -1,0 +1,23 @@
+/*
+    *  -------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /00-practica-primeros-pasos.scss  --  /src/styles/scss/pages/clase-03/00-practica-primeros-pasos.scss  -----  *
+    *  -------------------------------------------------------------------------------------------------------------------  *
+*/
+
+
+@media (min-width: 1024px) {
+    .section__content-img {
+        column-count: 3;
+    }
+}
+
+
+.titulo {
+    padding: 2rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.titular {
+    color: blueviolet !important;
+    background-color: aquamarine !important;
+}

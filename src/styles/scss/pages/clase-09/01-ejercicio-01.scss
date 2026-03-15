@@ -1,0 +1,38 @@
+/*
+    *  ---------------------------------------------------------------------------------------------  *
+    *  -----  /01-ejercicio-01.scss  --  /src/styles/scss/pages/clase-09/01-ejercicio-01.scss  -----  *
+    *  ---------------------------------------------------------------------------------------------  *
+*/
+
+
+.section__content--practica {
+    width: 100%;
+    min-height: 84rem;
+    max-width: 102.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 5rem;
+    border-radius: 0.5rem;
+}
+
+.ejercicio__description {
+    width: 100%;
+    padding: 2rem;
+    color: #fff;
+    background-color: #8eafeb;
+}
+
+
+.contenido {
+    width: 95%;
+}
+
+.contenido p {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    padding-left: 5rem;
+    color: white;
+    background-color: #8eafeb;
+}

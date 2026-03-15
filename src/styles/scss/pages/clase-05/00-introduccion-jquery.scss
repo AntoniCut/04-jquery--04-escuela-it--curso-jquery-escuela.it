@@ -1,0 +1,21 @@
+/*
+    *  -----------------------------------------------------------------------------------------------------------  *
+    *  -----  /00-introduccion-jquery.scss  --  /src/styles/scss/pages/clase-05/00-introduccion-jquery.scss  -----  *
+    *  -----------------------------------------------------------------------------------------------------------  *
+*/
+
+
+#capa {
+    color: white;
+    font-size: 2.6rem;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .section__content-img {
+        column-count: 3;
+    }
+}
+

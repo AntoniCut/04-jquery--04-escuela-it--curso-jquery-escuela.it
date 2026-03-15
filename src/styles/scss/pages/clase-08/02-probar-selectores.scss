@@ -1,0 +1,54 @@
+/*
+    *  -------------------------------------------------------------------------------------------------------  *
+    *  -----  /02-probar-selectores.scss  --  /src/styles/scss/pages/clase-08/02-probar-selectores.scss  -----  *
+    *  -------------------------------------------------------------------------------------------------------  *
+*/
+
+
+.main-practica {
+    min-height: 70rem;
+}
+
+@media (min-width: 768px) {
+    
+    .main-practica {
+        min-height: 70rem;
+    }
+}
+
+form {
+    border: 1px solid #999;
+    padding: 10px;
+    background-color: #ddd;
+    width: 300px;
+    margin: auto;
+}
+
+form input {
+    font-size: 1.25em;
+}
+
+#contenido {
+    max-width: 700px;
+    width: 70%;
+    padding-left: 100px;
+}
+
+#bsel {
+    padding: 1rem 2rem;
+    background-color: cornflowerblue;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#bsel:hover {
+    background-color: rgb(24, 56, 116)
+}
+
+p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}

@@ -1,0 +1,60 @@
+/*
+    *  -------------------------------------------------------------------------------------  *
+    *  -----  /01-ejemplo1.scss  --  /src/styles/scss/pages/clase-06/01-ejemplo1.scss  -----  *
+    *  -------------------------------------------------------------------------------------  *
+*/
+
+
+.main__section-practica {
+    min-height: 70rem;
+}
+
+@media (min-width: 768px) {
+    
+    .main__section-practica {
+        min-height: 40rem;
+    }
+}
+
+#btnRun {
+    width: 10rem;
+}
+
+.practica__container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 30rem;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+
+.miclase {
+    width: 100%;
+    display: block;
+    height: 4rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+}
+
+#capaContainer {
+    width: 100%;
+    min-height: 10rem;
+}
+
+.capa {
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background-color: #e6f0ff; 
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.capa:hover{
+    background-color: #cfe2ff; 
+}

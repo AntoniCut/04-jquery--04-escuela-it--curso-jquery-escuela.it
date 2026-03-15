@@ -1,0 +1,56 @@
+/*
+    *  ---------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /04-metodo-each-recorrer-elementos.scss  --  /src/styles/scss/pages/clase-07/04-metodo-each-recorrer-elementos.scss  -----  *
+    *  ---------------------------------------------------------------------------------------------------------------------------------  *
+*/
+
+
+p {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    background: linear-gradient(
+        to right,
+       #e88b80 0%,
+       #f7f7f7 50%,
+       #e88b80 100%
+    );
+    box-shadow: 50px 50px 100px rgb(209, 220, 235);
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+p.probando span {
+    display: inline-block;
+    text-align: center;
+    padding: 1rem;
+    background-color: #8eafeb;
+}
+
+p:not(.probando) span {
+    display: inline-block;
+    text-align: center;
+    padding: 1rem;
+    background-color: #e9e9e9;
+}
+
+#info {
+    padding: 3rem;
+    background: linear-gradient(
+        to right,
+       #8eafeb 0%,
+       #f7f7f7 50%,
+       #8eafeb 100%
+    );
+    box-shadow: 50px 50px 100px rgb(209, 220, 235);
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.info-paragraph {
+    font-size: 1.6rem;
+    font-weight: 600;
+}

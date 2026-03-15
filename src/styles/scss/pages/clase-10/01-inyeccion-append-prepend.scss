@@ -1,0 +1,57 @@
+/*
+    *  ---------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /01-inyeccion-append-prepend.scss  --  /src/styles/scss/pages/clase-10/01-inyeccion-append-prepend.scss  -----  *
+    *  ---------------------------------------------------------------------------------------------------------------------  *
+*/
+
+
+.section__content--practica {
+    width: 100%;
+    min-height: 84rem;
+    max-width: 102.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 5rem;
+    border-radius: 0.5rem;
+}
+
+.ejercicio__description {
+    width: 100%;
+    padding: 2rem;
+    color: #fff;
+    background-color: #8eafeb;
+}
+
+.section-practica__container {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+
+#divAppendTo,
+#divPrependTo,
+#divAppend,
+#divPrepend {
+    width: 90%;
+    padding: 3rem;
+    color: green;
+}
+
+#divAppendTo span,
+#divPrependTo span,
+#divAppend span,
+#divPrepend span{
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.main__section-practica .parrafo {
+    width: 90%;
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid #0f0;
+    background-color: #eee;
+}
+

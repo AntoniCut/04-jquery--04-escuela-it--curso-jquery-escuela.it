@@ -1,0 +1,58 @@
+/*
+    *  -------------------------------------------------------------------------------------------  *
+    *  -----  /05-dimensiones.scss  --  /src/styles/scss/pages/clase-10/05-dimensiones.scss  -----  *
+    *  -------------------------------------------------------------------------------------------  *
+*/
+
+
+.section__content p {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    color: black;
+    opacity: 0.8;
+}
+
+.section__content p span {
+    font-weight: 700;
+    color: #333;
+}
+
+
+.buttons {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.buttons button {
+    width: 150px;
+    padding: 10px;
+}
+
+#output {
+    display: block;
+    width: 90%;
+    height: 15rem;
+    padding: 1rem;
+    background: #8eafeb;
+    color: white;
+    min-height: 100px;
+}
+
+.capa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 200px;
+    padding: 20px;
+    border: 10px solid red;
+    margin: 30px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: green;
+    background-color: #ddd;
+}

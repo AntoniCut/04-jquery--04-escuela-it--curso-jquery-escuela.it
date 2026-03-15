@@ -1,0 +1,31 @@
+/*
+    *  ---------------------------------------------------------------------------------------------  *
+    *  -----  /05-ejercicio-05.scss  --  /src/styles/scss/pages/clase-09/05-ejercicio-05.scss  -----  *
+    *  ---------------------------------------------------------------------------------------------  *
+*/
+
+
+.section__content--practica {
+    width: 100%;
+    min-height: 84rem;
+    max-width: 102.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 5rem;
+    border-radius: 0.5rem;
+}
+
+.ejercicio__description {
+    width: 100%;
+    padding: 2rem;
+    color: #fff;
+    background-color: #8eafeb;
+}
+
+.contenido p {
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background-color: #F0BCB6;
+}

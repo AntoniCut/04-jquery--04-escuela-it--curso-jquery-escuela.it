@@ -1,0 +1,58 @@
+/*
+    *  -----------------------------------------------------------------------------------------------  *
+    *  -----  /06-scroll-offset.scss  --  /src/styles/scss/pages/clase-10/06-scroll-offset.scss  -----  *
+    *  -----------------------------------------------------------------------------------------------  *
+*/
+
+
+html, body {
+    scroll-behavior: auto;
+}
+
+.layout {
+    position: relative;
+    overflow-y: auto;
+}
+
+.main__container {
+    background: radial-gradient(125% 125% at 50% 10%, #fff 40%, #6366f1 100%);
+    margin-bottom: 0;
+}
+
+#output {
+    width: 90%;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgray;
+}
+
+#parrafo {
+    width: 50%;
+    padding: 20px;
+    background-color: burlywood;
+    cursor: pointer;
+}
+
+.capa {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: #ccc;
+}
+
+.children-capa {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: lightblue;
+    padding: 1rem;
+    padding: 1rem;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: white;
+    background-color: tomato;
+}
