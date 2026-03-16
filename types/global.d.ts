@@ -11,6 +11,10 @@
 //  -----  Declaración de tipos globales  -----  //
 declare global {
     
+    interface Window {
+        __spaFirstRouteLoaded?: boolean;
+    }
+    
     type ConfigOptionsSPA = import("./config-options-spa-types.js").ConfigOptionsSPA;
     type Route = import("./route-types.js").Route;
     type RouteComponents = import("./route-types.js").RouteComponents;

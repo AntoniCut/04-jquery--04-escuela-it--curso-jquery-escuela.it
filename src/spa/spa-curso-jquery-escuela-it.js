@@ -77,7 +77,7 @@ export const spaCursoJQueryEscuelaIt = () => {
     const optionsPluginsSPA = {
         routes: allRoutes,
         base: '/04-escuela.it/curso-jquery-escuela.it',
-        draggable: true
+        draggable: false
     };
 
     //  ----------  Invocamos el Plugins  --  jquery.spa-with-method-load-from-jquery.js - v4  ----------

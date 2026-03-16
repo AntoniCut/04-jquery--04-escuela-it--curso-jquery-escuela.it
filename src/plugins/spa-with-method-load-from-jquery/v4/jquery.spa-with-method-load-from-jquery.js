@@ -44,8 +44,8 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
          * 
          * - Plugin SPA que añade funcionalidad al prototipo de jQuery.
          * 
-         * @param {ConfigOptionsSPA} options - Opciones de configuración de la SPA.
-         * @returns {JQuery} - Retorna el objeto jQuery para encadenamiento.
+         * @param {ConfigOptionsSPA} options - `Opciones de configuración de la SPA`
+         * @returns {JQuery} - `Retorna el objeto jQuery para encadenamiento`
          */
 
         $.fn.spaWithMethodLoadFromJQuery = function (options) {
@@ -59,25 +59,11 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
 
             /**
-             * ------------------------
-             * -----  `settings`  -----
-             * ------------------------
-             * 
-             * Objeto de configuración final del plugin SPA.
-             *
+             * @type {ConfigOptionsSPA}- `Objeto de configuración final del plugin SPA`
+             * @description
              * Se crea combinando:
              *   - Los valores por defecto
              *   - Las opciones proporcionadas por el usuario (`options`)
-             *
-             * @type {ConfigOptionsSPA}
-             *
-             * Estructura final:
-             *   {
-             *      routes:    Route[]        → Lista de rutas de la aplicación
-             *      base:      string         → URL base para history.pushState
-             *      draggable: boolean        → Activa funciones de arrastre opcionales
-             *   }
-             * 
              */
 
             const settings = $.extend(
@@ -106,27 +92,20 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
              * 
              * - Normaliza una ruta (quita base y slashes de inicio/fin)
              * 
-             * @param {string} raw
-             * @returns {string}
+             * @param {string} raw - `Ruta sin procesar, posiblemente con base y slashes`
+             * @returns {string} - `Ruta normalizada`
              * 
              */
 
             const normalize = (raw = '') => {
 
-                /**
-                 * - Base de la aplicación
-                 * @type {string}
-                 */
-
+                /** @type {string} - `Base de la aplicación` */
                 const base = settings.base || '';
 
-                /**
-                 * - Cadena normalizada
-                 * @type {string}
-                 */
-
+                /** @type {string} - `Cadena normalizada` */
                 let s = String(raw || '');
 
+                //  -----  quitar base si está presente  -----
                 if (base && s.startsWith(base))
                     s = s.slice(base.length);
 
@@ -146,27 +125,20 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
              * 
              * - Construye pathname absoluto para pushState, normalizado con base
              * 
-             * @param {string} routePath
-             * @returns {string}
+             * @param {string} routePath - `Ruta relativa de la ruta`
+             * @returns {string} - `Pathname absoluto y normalizado`
              * 
              */
 
             const buildPathname = (routePath = '') => {
 
-                /**
-                 * - Base de la aplicación
-                 * @type {string}
-                 */
-
+                /** @type {string} - `Base de la aplicación` */
                 const base = (settings.base || '').replace(/\/$/, '');
 
-                /**
-                 * - Ruta normalizada (con leading slash)
-                 * @type {string}
-                 */
-
+                /** @type {string} - `Ruta normalizada (con leading slash)` */
                 const trimmed = routePath ? `/${String(routePath).replace(/^\/|\/$/g, '')}` : '';
 
+                //  -----  Construir pathname absoluto y normalizado  -----
                 try {
 
                     return new URL(base + trimmed, location.origin).pathname;
@@ -204,11 +176,34 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
             const loadContent = (route) => {
 
 
+                //  -----  Devolver una promesa que se resuelve cuando la carga y transición (si existe) terminan  -----
                 return new Promise(async (resolve, reject) => {
 
+
+                    /**
+                     * -----------------------------------
+                     * -----  `notifyRouteLoaded()`  -----
+                     * -----------------------------------
+                     * @description
+                     * - Notifica al sistema que una ruta de la SPA ha terminado de cargarse.
+                     * - Dispara el evento personalizado `spa:route-loaded` en `document`, incluyendo
+                     *   en `detail` el `id` y el `path` de la ruta actual.
+                     * - Si es la primera ruta cargada desde que se inició la aplicación,
+                     *   marca el flag global `window.__spaFirstRouteLoaded` y emite
+                     *   el evento `spa:first-route-loaded`.
+                     * - Este evento suele utilizarse para ocultar el loader inicial
+                     *   o ejecutar lógica que solo debe ocurrir una vez al iniciar la SPA.
+                     */
+
                     const notifyRouteLoaded = () => {
+
+
+                        //  -----  Crea un evento personalizado 'spa:route-loaded' con detalles de la ruta  -----
                         document.dispatchEvent(
+
+                            //  -----  Detalles incluyen id y path de la ruta, o null si no están definidos  -----
                             new CustomEvent('spa:route-loaded', {
+
                                 detail: {
                                     id: route?.id || null,
                                     path: route?.path || window.location.pathname
@@ -216,10 +211,17 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                             })
                         );
 
+                        //  -----  Marcar que la primera ruta se ha cargado para el efecto de loading inicial  -----
                         if (!window.__spaFirstRouteLoaded) {
+                            
+                            // -----  Establecer flag global para indicar que la primera ruta ha sido cargada  -----
                             window.__spaFirstRouteLoaded = true;
+                            
+                            //  -----  Emitir evento personalizado 'spa:first-route-loaded' ----------
+                            // -----  para notificar que la primera ruta ha terminado de cargar  -----
                             document.dispatchEvent(new CustomEvent('spa:first-route-loaded'));
                         }
+
                     };
 
 
@@ -247,6 +249,13 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
                         }
 
+
+                        /*
+                            -----  Cargar componentes del DOM con jQuery .load()  -----
+                            -----  Acciones del navbar  -----
+                            -----  Cambio de themes jQuery UI  -----
+                            -----  Aplicar metadatos de la ruta (título, favicon, css, scripts, URL)  -----
+                        */
                         try {
 
                             //  ----- Cargar todos los componentes declarados en la ruta -----
@@ -295,10 +304,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                     // ----- Si Existe ViewTransition -----
                     try {
 
-                        /**
-                         * - Iniciar ViewTransition y cargar componentes/metadatos dentro de la transición
-                         * - La promesa se resuelve cuando la transición termina.
-                         * @type {ViewTransition|null}
+                        /** @type {ViewTransition|null} - `Iniciar ViewTransition y cargar componentes/metadatos dentro de la transición. La promesa se resuelve cuando la transición termina.`
                          * @return {Promise<void>}
                          */
                         const transition = document.startViewTransition(() => loadComponentsAndMeta());
@@ -306,6 +312,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                         //  -----  Esperar a que la transición termine  -----
                         if (transition && typeof transition.finished?.then === "function")
 
+                            //  -----  Notificar que la ruta se ha cargado solo después de que la transición termine  -----
                             transition.finished
                                 .then(() => {
                                     notifyRouteLoaded();
@@ -354,17 +361,15 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
              * components: { "#selector": "/ruta/archivo.html", ... }
              * Devuelve una promesa que se resuelve cuando TODOS los componentes se cargan.
              * 
-             * @param {RouteComponents} components
-             * @returns {Promise<void[]>}
+             * @param {RouteComponents} components - `Objeto con selectores y URLs de componentes a cargar en el DOM`
+             * @returns {Promise<void[]>} - `Promesa que se resuelve cuando todos los componentes se han cargado.`
              * 
              */
 
             const loadComponentsDom = (components) => {
 
-                /**
-                 * - Array de promesas para cada carga de componente.
-                 * @type {Promise<void>[]}
-                 */
+
+                /** @type {Promise<void>[]} - `Array de promesas para cada carga de componente.` */
                 const promises = [];
 
 
@@ -381,13 +386,11 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                         continue;
 
 
-                    /**
-                     * - URL del componente a cargar.
-                     * @type {string|undefined}
-                     */
-
+                    /** @type {string|undefined} - `URL del componente a cargar.` */
                     const url = components[selector];
 
+
+                    //  -----  Si no hay URL definida para el selector, mostrar advertencia y limpiar el contenedor  -----
                     if (!url) {
 
                         console.log('\n');
@@ -403,21 +406,18 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                     }
 
 
-                    /**
-                     * - Promesa que carga el componente en el selector correspondiente.
-                     * @type {Promise<void>}
-                     */
-
+                    /** @type {Promise<void>} - `Promesa que carga el componente en el selector correspondiente.` */
                     const promise = new Promise((resolve, reject) => {
 
                         /*
-                            ------------------------------------------------------------
-                            -----  Cargamos componente del DOM con jQuery .load()  -----
-                            ------------------------------------------------------------
+                            *  ------------------------------------------------------------  *
+                            *  -----  Cargamos componente del DOM con jQuery .load()  -----  *
+                            *  ------------------------------------------------------------  *
                         */
 
                         $(selector).load(url, function (response, status, xhr) {
 
+                            //  -----  Si ocurre un error al cargar el componente  -----
                             if (status === "error") {
 
                                 console.log('\n');
@@ -491,17 +491,14 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                     --------------------------------------------
                 */
 
-                /**
-                 * - `Nueva pathname para la ruta` 
-                 * @type {string}
-                 */
-
+                /** @type {string} - `Nueva pathname para la ruta` */
                 const newPathname = buildPathname(route.path || '');
 
 
                 //  -----  Evitar push duplicado  -----
                 if (window.location.pathname !== newPathname) {
 
+                    //  -----  Realizar pushState con el pathname normalizado  -----
                     history.pushState({ id: route.id, path: newPathname }, '', newPathname);
 
                     console.log('\n');
@@ -514,32 +511,21 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
 
             /**
-             * ------------------------------------
-             * -----  `addTitleHeaderFooter`  -----
-             * ------------------------------------
-             * 
+             * --------------------------------------
+             * -----  `addTitleHeaderFooter()`  -----
+             * --------------------------------------
              * - Agrega el título al header y footer de la página.
-             * 
              * @param {string} title - Texto para mostrar en ambos lugares.
-             * 
              */
 
             const addTitleHeaderFooter = (title) => {
 
-
-                /**
-                 * - Título del header
-                 * @type {JQuery<HTMLElement>}
-                 */
-
+                //  -----  Añadimos el título al header  -----
+                /** @type {JQuery<HTMLElement>} - `Título del header` */
                 $('#layoutHeader #headerTitle').html(title);
 
-
-                /**
-                 * - Título del footer
-                 * @type {JQuery<HTMLElement>}
-                 */
-
+                //  -----  Añadimos el título al footer  -----
+                /** @type {JQuery<HTMLElement>} - `Título del footer` */
                 $('#layoutFooter #footerTitle').html(title);
 
             }
@@ -570,8 +556,10 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                     //  -----  Iterar sobre cada elemento con clase .draggable y aplicar jQuery UI draggable.  -----
                     $('.draggable').each(function () {
 
+                        //  -----  Si el método draggable está disponible, aplicarlo al elemento actual  -----
                         if ($(this).draggable) {
 
+                            //  -----  Aplicar draggable con scroll desactivado para evitar problemas de scroll durante el arrastre  -----
                             $(this).draggable({
                                 scroll: false
                             });
@@ -779,20 +767,12 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
                     //  -----  Verificar si el click fue dentro de algún menú  -----
 
-                    /**
-                     * - `Click dentro del menú principal`
-                     * @type {boolean}
-                     */
-
+                    /** @type {boolean} - `Click dentro del menú principal` */
                     const clickMain =
                         clickInside(menuMain.container, e.target) ||
                         clickInside(menuMain.btnOpen, e.target);
 
-                    /**
-                     * - `Click dentro del menú themes`
-                     * @type {boolean}
-                     */
-
+                    /** @type {boolean} - `Click dentro del menú themes` */
                     const clickThemes =
                         clickInside(menuThemes.container, e.target) ||
                         clickInside(menuThemes.btnOpen, e.target);
@@ -824,26 +804,13 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
             const changeThemesJQueryUI = () => {
 
 
-                /**
-                 * - `id` del elemento `link` de la hoja de estilos de jquery UI
-                 * @type {JQuery<HTMLLinkElement>} 
-                 */
-
+                /** @type {JQuery<HTMLLinkElement>} - `id del elemento link de la hoja de estilos de jquery UI` */
                 const $theme = $('#theme');
 
-                /**
-                 * - contenedor de los links de themes
-                 * @type {JQuery<HTMLElement>}
-                 */
-
+                /** @type {JQuery<HTMLElement>} - `contenedor de los links de themes` */
                 const $linksThemesContainer = $('#linksThemesContainer');
 
-
-                /**
-                 * - Path de las themes de jQuery UI
-                 * @type {string}
-                 */
-
+                /** @type {string} - `Path de las themes de jQuery UI` */
                 const pathThemes = `${settings.base}/src/libs/jquery/ui/themes`;
 
                 console.log('\n');
@@ -855,8 +822,9 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 $linksThemesContainer.tooltip();
 
 
-                /**
-                 * - `disabledActive()` 
+                /** 
+                 * -----------------------------
+                 * ----- `disabledActive()`----- 
                  * - desactiva la clase active de todos los links de themes
                  */
                 const disabledActive = () => {
@@ -875,10 +843,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                     e.preventDefault();
 
 
-                    /**
-                     * - Nombre del theme seleccionado
-                     * @type {string|null|undefined}
-                     */
+                    /** @type {string|null|undefined} - `Nombre del theme seleccionado` */
                     const themeName = $(this).data("theme");
 
                     if (!themeName)
@@ -919,31 +884,28 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
             const updateFavicon = (favicon) => {
 
 
-                /** 
-                 * - Elemento link del favicon
-                 * @type {JQuery<HTMLLinkElement>}  
-                 */
-
+                /** @type {JQuery<HTMLLinkElement>} - `Elemento link del favicon` */
                 let $favicon = $('link[rel="icon"]');
 
                 //  -----  Si no existe el favicon, lo creamos  -----
                 if ($favicon.length === 0) {
 
-                    /**
-                     * - Crear un nuevo elemento link para el favicon si no existe
-                     * @type {HTMLLinkElement}
-                     */
 
+                    /** @type {HTMLLinkElement} - `Crear un nuevo elemento link para el favicon si no existe` */
                     const link = document.createElement('link');
 
+                    //  -----  Configurar el nuevo elemento link para el favicon  -----
                     link.rel = "icon";
                     link.type = "image/x-icon";
 
+                    //  -----  Añadir el nuevo elemento link al head del documento  -----
                     document.head.appendChild(link);
 
+                    //  -----  Asignar el nuevo elemento link a $favicon para futuras actualizaciones  -----
                     $favicon = $(link);
                 }
 
+                //  -----  Actualizar el href del favicon con un query para forzar recarga  -----
                 $favicon.attr('href', `${favicon}?t=${Date.now()}`);
 
             };
@@ -967,43 +929,72 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
             *
             * @param {RouteStyle[] | RouteStyle | null | undefined} styles
             */
-            
-            const loadStylesheetByPage = (styles) => {
-                if (!styles) return;
 
+            const loadStylesheetByPage = (styles) => {
+
+
+                //  -----  Si no hay estilos, salir  -----
+                if (!styles)
+                    return;
+
+                /** @type {RouteStyle[]} - `Array de estilos a cargar` */
                 const list = Array.isArray(styles) ? styles : [styles];
+
+                /** @type {string[]} - `Array de hrefs de estilos a cargar` */
                 const hrefsToLoad = list.map(s => s?.href).filter(Boolean);
+
+                /** @type {HTMLHeadElement} - Òbtener el elemento del head */
                 const head = document.head;
 
-                // Eliminar solo los estilos que NO se van a recargar
-                head.querySelectorAll('link[data-page-style="true"]').forEach(link => {
-                    if (!hrefsToLoad.some(h => link.href.includes(h))) {
+                /** @type {NodeListOf<HTMLLinkElement>} */
+                const pageStyleLinks = (head.querySelectorAll('link[data-page-style="true"]'));
+
+                //  -----  Eliminar solo los estilos que NO se van a recargar  -----
+                pageStyleLinks.forEach(link => {
+
+                    if (!hrefsToLoad.some(h => link.href.includes(h)))
                         link.remove();
-                    }
+
                 });
 
-                // Preload y luego aplicar
+
+                //  -----  Preload y luego aplicar  -----
                 hrefsToLoad.forEach(href => {
+
                     // Evitar recargar si ya existe
                     if (head.querySelector(`link[data-page-style="true"][href*="${href}"]`)) return;
 
-                    // Preload para no bloquear repaints
+                    /** @type {HTMLLinkElement} - `Preload para no bloquear repaints` */
                     const preload = document.createElement('link');
+
+                    //  -----  Configurar el elemento preload para la hoja de estilo  -----
                     preload.rel = 'preload';
                     preload.as = 'style';
                     preload.href = href;
+
+                    //  -----  Añadir el elemento preload al head del documento  -----
                     head.appendChild(preload);
 
-                    // Aplicar después de que preload cargue
+                    //  -----  Aplicar después de que preload cargue  -----
                     preload.onload = () => {
+
+
+                        /** @type {HTMLLinkElement} - `Elemento link para la hoja de estilo` */
                         const link = document.createElement('link');
+
+                        //  -----  Configurar el elemento link para la hoja de estilo  -----
                         link.rel = 'stylesheet';
                         link.href = href; // ✅ producción: sin ?t
+
+                        //  -----  Marcar el link como un estilo de página para futuras gestiones  -----
                         link.dataset.pageStyle = 'true';
+
+                        //  -----  Añadir el elemento link al head del documento  -----
                         head.appendChild(link);
 
                         // Remover preload (ya no necesario)
                         preload.remove();
+
                     };
                 });
             };
@@ -1034,10 +1025,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 //  -----  Remover scripts anteriores  -----
                 //  - Solo elimina scripts cargados por rutas → seguros
 
-                /**
-                 * - Eliminar todos los scripts marcados como data-page-script
-                 * @type {JQuery<HTMLScriptElement>}
-                 */
+                /** @type {JQuery<HTMLScriptElement>} - `Eliminar todos los scripts marcados como data-page-script` */
 
                 $('script[data-page-script="true"]').remove();
 
@@ -1048,11 +1036,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
                 //  -----  Aceptar array o diccionario  -----
 
-                /**
-                 * - Array de scripts a cargar
-                 * @type {RouteScript[]}
-                 */
-
+                /** @type {RouteScript[]} - `Array de scripts a cargar` */
                 const scriptArray = Array.isArray(scripts)
                     ? scripts
                     : Object.values(scripts);
@@ -1083,34 +1067,37 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
             const loadScripts = (scriptUrl) => {
 
-                //  -----  Verificar existencia del script con HEAD  -----
+
+                //  -----  Verificar que el script existe con una petición HEAD con el método .ajax()  -----
                 $.ajax({
                     url: scriptUrl,
                     type: 'HEAD',
 
+                    //  -----  Si el script existe, cargarlo con .getScript()  -----
                     success: function () {
 
                         //  -----  Cargar el script con jQuery.getScript  -----
                         $.getScript(scriptUrl)
 
+                            //  -----  Marcar el script como data-page-script para futuras gestiones  -----
                             .done(() => {
 
                                 console.log(`Cargado: ${scriptUrl}`);
 
-                                //  -----  Marcarlo como cargado dinámicamente  -----
-                                //  - jQuery getScript lo inserta sin permitir modificarlo,
-                                //    así que lo buscamos y marcamos el último script añadido.
-
+                                /** @type {NodeListOf<HTMLScriptElement>} - `Todos los scripts en el documento` */
                                 const scripts = document.querySelectorAll('script');
 
+                                /** @type {HTMLScriptElement} - `Último script en el documento` */
                                 const lastScript = scripts[scripts.length - 1];
 
-                                if (lastScript && lastScript.src.includes(scriptUrl)) {
+                                //  -----  Marcar el último script cargado con jQuery.getScript() como data-page-script  -----
+                                if (lastScript && lastScript.src.includes(scriptUrl))
                                     lastScript.dataset.pageScript = "true";
-                                }
+
 
                             })
 
+                            //  -----  Manejar errores de carga del script  -----
                             .fail((jqxhr, settings, exception) => {
 
                                 console.log('\n');
@@ -1121,6 +1108,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
                     },
 
+                    //  -----  Si el script no existe, mostrar advertencia en consola  -----
                     error: function () {
 
                         console.log('\n');
@@ -1146,19 +1134,12 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
             const init = () => {
 
 
-                /**
-                 * - Ruta normalizada actual (sin base ni barra final)
-                 * @type {string}
-                 */
-
+                /** @type {string} - `Ruta normalizada actual (sin base ni barra final)` */
                 const initialPath = normalize(window.location.pathname);
 
-
-                /**
-                 * - Ruta inicial encontrada en settings.routes
-                 * @type {Route|undefined}
-                 */
+                /** @type {Route|undefined} - `Ruta inicial encontrada en settings.routes` */
                 const route = settings.routes.find(r => normalize(r.path) === initialPath);
+
 
                 //  -----  Cargar la ruta inicial o la 404  -----
                 if (route) {
@@ -1176,10 +1157,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 //  -----  Si no se encuentra la ruta, cargar la 404  -----
                 else {
 
-                    /**
-                     * - Ruta 404
-                     * @type {Route|undefined}
-                     */
+                    /** @type {Route|undefined} - `Ruta 404` */
                     const route404 = settings.routes.find(route => route.id === '404NotFoundPage');
 
                     //  -----  Si existe la ruta 404, cargarla  -----
@@ -1219,18 +1197,10 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
                 event.preventDefault();
 
-                /**
-                 * - ID de la ruta desde el atributo data-id
-                 * @type {string}
-                 */
-
+                /** @type {string} - `ID de la ruta desde el atributo data-id` */
                 const dataId = $(this).data('id');
 
-                /**
-                 * - Ruta correspondiente al data-id
-                 * @type {Route|undefined}
-                 */
-
+                /** @type {Route|undefined} - `Ruta correspondiente al data-id` */
                 const route = settings.routes.find(r => r.id === dataId);
 
 
@@ -1251,11 +1221,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 //  -----  Si no existe la ruta, cargar la 404  -----
                 else {
 
-                    /**
-                     * - Ruta 404
-                     * @type {Route|undefined}
-                     */
-
+                    /** @type {Route|undefined} - `Ruta 404` */
                     const route404 = settings.routes.find(r => r.id === '404NotFoundPage');
 
                     if (route404)
@@ -1281,23 +1247,13 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
             */
             window.addEventListener('popstate', (e) => {
 
-                /**
-                 * - Ruta normalizada desde el state o la URL actual
-                 * - usar state.path si está presente, si no usar location.pathname
-                 * @type {string}
-                 */
+                /** @type {string} - `Ruta normalizada desde el state o la URL actual; usar state.path si está presente, si no usar location.pathname` */
                 const raw = e.state?.path ?? window.location.pathname;
 
-                /**
-                 * - Ruta normalizada (sin base ni barra final)
-                 * @type {string}
-                 */
+                /** @type {string} - `Ruta normalizada (sin base ni barra final)` */
                 const normalized = normalize(raw);
 
-                /**
-                 * - Ruta correspondiente a la URL actual
-                 * @type {Route|undefined}
-                 */
+                /** @type {Route|undefined} - `Ruta correspondiente a la URL actual` */
                 const route = settings.routes.find(r => normalize(r.path) === normalized);
 
                 //  ----- cargamos la ruta sin empujar otra entrada en el historial  ---------
@@ -1314,10 +1270,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
                 else {
 
-                    /**
-                     * - Ruta 404
-                     * @type {Route|undefined}
-                     */
+                    /** @type {Route|undefined} - `Ruta 404` */
                     const route404 = settings.routes.find(r => r.id === '404');
 
                     if (route404)
