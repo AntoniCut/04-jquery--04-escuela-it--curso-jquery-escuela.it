@@ -15,11 +15,12 @@ html {
 body {
     min-width: 100%;
     min-height: 100dvh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
     font-family: var.$font-primary;
-    font-optical-sizing: auto;
+    // font-optical-sizing: auto;
     font-style: normal;
     font-size: 1.6rem;
     scroll-behavior: smooth;
@@ -34,7 +35,7 @@ body {
 
 .layout {
     
-    width: 100vw;
+    width: 100%;
     min-height: 100dvh;
 
     position: absolute;
@@ -48,11 +49,13 @@ body {
     align-items: center;
     
     background: var.$bg-main;
-    transition: opacity 1200ms ease-in-out;
+
+    opacity: 0;
+    transition: opacity 600ms ease-in-out;
 }
 
 .layout.fade-in {
-     opacity: 1;
+    opacity: 1;
     pointer-events: auto;
 }
 

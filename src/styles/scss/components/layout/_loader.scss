@@ -15,19 +15,24 @@
 */
 
 .loader__container {
-    position: absolute;
+     
+    contain:layout paint;
+
+    position: fixed;
     inset: 0;
+    
     background: radial-gradient(125% 125% at 50% 10%, #fff 40%, #6366f1 100%);
-    z-index: 9999;
+        
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 5rem;
+    
     z-index: 10000;
     opacity: 1;
     visibility: visible;
-    transition: opacity 1200ms ease-in-out;
+    transition: opacity 400ms ease-in-out;
 }
 
 .loader__container.fade-out {
@@ -43,6 +48,7 @@
     border-top: 10px solid cornflowerblue;
     border-radius: 100%;
     animation: spin 1s linear infinite;
+    will-change: transform;
 }
 
 .loader__icon-jquery {

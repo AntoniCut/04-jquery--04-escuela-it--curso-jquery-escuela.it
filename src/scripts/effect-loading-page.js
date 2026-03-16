@@ -73,7 +73,7 @@ export const effectLoadingPage = () => {
         // Mantiene el loader 400ms adicionales antes de mostrar la web.
         await delay(100);
 
-        layout.style.display = 'flex';
+        //layout.style.display = 'flex';
 
         requestAnimationFrame(() => layout.classList.add('fade-in'));
 
