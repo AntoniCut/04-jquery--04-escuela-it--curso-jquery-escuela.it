@@ -4,6 +4,8 @@
     *  ----------------------------------------------------------------------------------------------------------------------------------------------------------  *
 */
 
+
+
 /**
  *  --------------------------------------------------
  *  -----  `spaWithMethodLoadFromJQueryPlugins`  -----
@@ -20,6 +22,7 @@
  * 
  * - `Añadimos`:
  *   - Funcionalidad de acciones para integrar varios menus de navegación.
+ *   - Efecto Loading para la carga inicial de la página.
  */
 
 export const spaWithMethodLoadFromJQueryPlugins = () => {
@@ -203,6 +206,22 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
                 return new Promise(async (resolve, reject) => {
 
+                    const notifyRouteLoaded = () => {
+                        document.dispatchEvent(
+                            new CustomEvent('spa:route-loaded', {
+                                detail: {
+                                    id: route?.id || null,
+                                    path: route?.path || window.location.pathname
+                                }
+                            })
+                        );
+
+                        if (!window.__spaFirstRouteLoaded) {
+                            window.__spaFirstRouteLoaded = true;
+                            document.dispatchEvent(new CustomEvent('spa:first-route-loaded'));
+                        }
+                    };
+
 
                     //  -----  Verificar que la ruta es válida  -----
                     if (!route) {
@@ -261,6 +280,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                         try {
 
                             await loadComponentsAndMeta();
+                            notifyRouteLoaded();
                             resolve();
 
                         } catch (err) {
@@ -287,11 +307,16 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                         if (transition && typeof transition.finished?.then === "function")
 
                             transition.finished
-                                .then(resolve)
+                                .then(() => {
+                                    notifyRouteLoaded();
+                                    resolve();
+                                })
                                 .catch(reject);
 
-                        else
+                        else {
+                            notifyRouteLoaded();
                             resolve();
+                        }
 
 
                     } catch (err) {
@@ -303,6 +328,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                         try {
 
                             await loadComponentsAndMeta();
+                            notifyRouteLoaded();
                             resolve();
 
                         } catch (err) {
@@ -668,7 +694,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                     menu.btnOpen.show();
                     menu.btnClose.hide();
                 }
-                
+
 
                 /**
                  * - `Verifica si un click ocurrió dentro de un elemento`
@@ -932,103 +958,55 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
 
             /**
-             * --------------------------------------------
-             * -----  `loadStylesheetByPage(styles)`  -----
-             * --------------------------------------------
-             *
-             * Carga múltiples hojas de estilo para la página.
-             * Elimina las anteriores marcadas como `data-page-style`.
-             *
-             * @param {RouteStyle[] | RouteStyle | null | undefined} styles
-             * 
-             */
-
+            * --------------------------------------------
+            * -----  loadStylesheetByPage(styles)  -----
+            * --------------------------------------------
+            *
+            * Carga múltiples hojas de estilo para la página sin bloquear el hilo.
+            * Preload antes de aplicar para evitar parpadeos.
+            *
+            * @param {RouteStyle[] | RouteStyle | null | undefined} styles
+            */
+            
             const loadStylesheetByPage = (styles) => {
+                if (!styles) return;
 
-                //  -----  Borrar estilos anteriores dinámicos  -----
-
-                /**
-                 * - Eliminar todas las hojas de estilo marcadas como data-page-style
-                 * @type {JQuery<HTMLLinkElement>}
-                 */
-                $('link[data-page-style="true"]').remove();
-
-                if (!styles)
-                    return;
-
-                //  -----  Asegurar array  -----
-
-                /**
-                 * - Lista de estilos a cargar
-                 * @type {RouteStyle[]}
-                 */
                 const list = Array.isArray(styles) ? styles : [styles];
+                const hrefsToLoad = list.map(s => s?.href).filter(Boolean);
+                const head = document.head;
 
-                list.forEach(style => {
-
-                    if (!style || typeof style.href !== 'string')
-                        return;
-
-                    //  -----  Cargar la hoja de estilos  -----
-                    loadStylesheet(style.href);
-
+                // Eliminar solo los estilos que NO se van a recargar
+                head.querySelectorAll('link[data-page-style="true"]').forEach(link => {
+                    if (!hrefsToLoad.some(h => link.href.includes(h))) {
+                        link.remove();
+                    }
                 });
 
+                // Preload y luego aplicar
+                hrefsToLoad.forEach(href => {
+                    // Evitar recargar si ya existe
+                    if (head.querySelector(`link[data-page-style="true"][href*="${href}"]`)) return;
+
+                    // Preload para no bloquear repaints
+                    const preload = document.createElement('link');
+                    preload.rel = 'preload';
+                    preload.as = 'style';
+                    preload.href = href;
+                    head.appendChild(preload);
+
+                    // Aplicar después de que preload cargue
+                    preload.onload = () => {
+                        const link = document.createElement('link');
+                        link.rel = 'stylesheet';
+                        link.href = href; // ✅ producción: sin ?t
+                        link.dataset.pageStyle = 'true';
+                        head.appendChild(link);
+
+                        // Remover preload (ya no necesario)
+                        preload.remove();
+                    };
+                });
             };
-
-
-
-            /**
-             * ---------------------------------------
-             * -----  `loadStylesheet(cssFile)`  -----
-             * ---------------------------------------
-             *
-             * Carga una hoja de estilos individual.
-             * `No elimina todas` las de la página, `solo las que coinciden con la misma ruta`.
-             *
-             * @param {string} cssFile
-             * 
-             */
-
-            const loadStylesheet = (cssFile) => {
-
-                if (typeof cssFile !== "string")
-                    return;
-
-                //  -----  Quitar solamente enlaces existentes con la misma ruta  -----
-
-                /**
-                 * - Eliminar hojas de estilo previas que coincidan con la misma ruta
-                 * @type {JQuery<HTMLLinkElement>}
-                 */
-                $(`link[data-page-style="true"][href^="${cssFile}"]`).remove();
-
-
-                //  -----  Agregar versión  -----
-
-                /**
-                 * - Href con query para forzar recarga
-                 * @type {string}
-                 */
-
-                const versionedHref = `${cssFile}?t=${Date.now()}`;
-
-                /**
-                 * - Crear y agregar el nuevo link al head
-                 * @type {JQuery<HTMLLinkElement>}
-                 */
-                $('<link>')
-
-                    .attr({
-                        rel: 'stylesheet',
-                        href: versionedHref,
-                        'data-page-style': 'true'
-                    })
-
-                    .appendTo('head');
-
-            };
-
 
 
 

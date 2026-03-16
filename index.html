@@ -34,18 +34,38 @@
     <!--  -----  Styles Globales  -----  -----  -->
     <link rel="preload" href="/04-escuela.it/curso-jquery-escuela.it/src/styles/css/globals.css" as="style">
     <link rel="stylesheet" href="/04-escuela.it/curso-jquery-escuela.it/src/styles/css/globals.css">
-    
-    <!--  -----  Script Main  -----  -->
-    <script type="module" src="/04-escuela.it/curso-jquery-escuela.it/src/main.js"> </script>
+        
 
 </head>
 
 
 <body>
     
-    
+
     <!--  ----------  LOADER  ----------  -->
-    
+    <div class="loader__container" id="loader">
+
+        <h1 class="header__title-main"> 
+            &lt; Curso jQuery Escuela.IT /&gt; 
+        </h1>
+
+        <div class="spinner"> 
+            <!--  *****  Spinner  *****  -->
+        </div>
+
+        <img
+            class="loader__icon-jquery"
+            src="/04-escuela.it/curso-jquery-escuela.it/assets/img/logos/jquery/jquery-loader.svg"
+            alt="jQuery Animation Loader"
+            width="300"
+            height="300"
+        >
+
+        <h2 class="header__title-main"> 
+            &lt; escuela.it /&gt;
+        </h2>
+
+    </div>
 
 
     <!--  ----------  LAYOUT  ----------  -->
@@ -93,6 +113,11 @@
 
         
     </div>
+
+
+    <!--  -----  Script Main  -----  -->
+    <script type="module" src="/04-escuela.it/curso-jquery-escuela.it/src/main.js"> </script>
+
 
 </body>
 

@@ -16,6 +16,10 @@
  */
 
 export const effectLoadingPage = () => {
+    
+    /** @type {Window & { __spaFirstRouteLoaded?: boolean }} */
+    const browserWindow = window;
+
 
 
     console.log('\n')
@@ -23,8 +27,35 @@ export const effectLoadingPage = () => {
     console.log('\n');
 
 
-    document.addEventListener('DOMContentLoaded', () => {
+    const whenDocumentReady = () => {
+        if (document.readyState !== 'loading') {
+            return Promise.resolve();
+        }
 
+        return new Promise((resolve) => {
+            document.addEventListener('DOMContentLoaded', resolve, { once: true });
+        });
+    };
+
+
+    const waitForFirstSpaRouteLoaded = () => {
+        if (browserWindow.__spaFirstRouteLoaded) {
+            return Promise.resolve();
+        }
+
+        return new Promise((resolve) => {
+            document.addEventListener('spa:first-route-loaded', resolve, { once: true });
+        });
+    };
+
+
+    /** @param {number} ms */
+    const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+
+    const runLoadingEffect = async () => {
+
+        await whenDocumentReady();
 
         /** @type {HTMLElement | null} */
         const loader = document.querySelector('#loader');
@@ -33,25 +64,30 @@ export const effectLoadingPage = () => {
         const layout = document.querySelector('#layout');
 
         if (!loader || !layout) {
-            console.error("Loader o layout no encontrado en el DOM");
+            console.error('Loader o layout no encontrado en el DOM');
             return;
         }
 
-        // Mostrar layout inmediatamente para mejorar LCP
-        layout.style.display = "flex";
+        // Espera la primera carga completa de componentes SPA.
+        await waitForFirstSpaRouteLoaded();
 
-        // Aplicar fade-in de forma asincrónica usando requestAnimationFrame
-        requestAnimationFrame(() => layout.classList.add("fade-in"));
+        // Mantiene el loader 400ms adicionales antes de mostrar la web.
+        await delay(100);
 
-        // Loader fade-out usando solo CSS
-        loader.classList.add("fade-out");
+        layout.style.display = 'flex';
 
-        // Eliminar loader cuando termine la transición CSS
-        loader.addEventListener("transitionend", () => {
+        requestAnimationFrame(() => layout.classList.add('fade-in'));
+
+        loader.classList.add('fade-out');
+
+        loader.addEventListener('transitionend', () => {
             loader.remove();
         }, { once: true });
 
+    };
 
+    runLoadingEffect().catch((error) => {
+        console.error('Error en runLoadingEffect:', error);
     });
 
 }

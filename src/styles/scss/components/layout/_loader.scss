@@ -1,0 +1,57 @@
+/*
+    *  --------------------------------------------------------------------------  *
+    *  -----  _loader.scss  --  /src/styles/components/layout/_loader.scss  -----  *
+    *  --------------------------------------------------------------------------  *
+*/
+
+
+@use '../../base/variables' as var;
+
+
+/*  
+    --------------------------------------
+    -----  Loader Pantalla Completa  -----  
+    --------------------------------------
+*/
+
+.loader__container {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(125% 125% at 50% 10%, #fff 40%, #6366f1 100%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    z-index: 10000;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1200ms ease-in-out;
+}
+
+.loader__container.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.spinner {
+    width: 15rem;
+    height: 15rem;
+    border: 10px solid var.$color-primary;
+    border-top: 10px solid cornflowerblue;
+    border-radius: 100%;
+    animation: spin 1s linear infinite;
+}
+
+.loader__icon-jquery {
+    width: 30rem;
+    height: 30rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -6,12 +6,12 @@
 
 import { effectLoadingPage } from './scripts/effect-loading-page.js';
 import { fallbackJQueryJQueryUI } from './libs/jquery/loaders/fallback-jquery-jquery-ui.js'
-import { spaWithMethodLoadFromJQueryPlugins } from './plugins/spa-with-method-load-from-jquery/v3/jquery.spa-with-method-load-from-jquery.js';
+import { spaWithMethodLoadFromJQueryPlugins } from './plugins/spa-with-method-load-from-jquery/v4/jquery.spa-with-method-load-from-jquery.js';
 import { spaCursoJQueryEscuelaIt } from './spa/spa-curso-jquery-escuela-it.js';
 
 
 //  -----  Efecto de Loading de la Página  -----
-//effectLoadingPage();
+effectLoadingPage();
 
 
 /*
