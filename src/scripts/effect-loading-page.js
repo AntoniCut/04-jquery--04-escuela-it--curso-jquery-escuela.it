@@ -16,10 +16,9 @@
  */
 
 export const effectLoadingPage = () => {
-    
+
     /** @type {Window & { __spaFirstRouteLoaded?: boolean }} */
     const browserWindow = window;
-
 
 
     console.log('\n')

@@ -1,7 +1,7 @@
 /*
-    *  -------------------------------------------------------------------  *
-    *  -----  /routes-00-home.js  --  /src/routes/routes-00-home.js  -----  *
-    *  -------------------------------------------------------------------  *
+    *  -----------------------------------------------------------------------------------------  *
+    *  -----  /routes-404-not-found-page.js  --  /src/routes/routes-404-not-found-page.js  -----  *
+    *  -----------------------------------------------------------------------------------------  *
 */
 
 
@@ -24,23 +24,23 @@ const {
 
 
 /** @type {Route[]} - `Array de objetos de tipo Route que definen las rutas de la aplicación SPA` */
-export const routes00Home = [
+export const routes404NotFoundPage = [
 
     {
-        id: 'home',
+        id: '404NotFoundPage',
         favicon: favicon,
-        pageTitle: "Curso de jQuery Escuela.IT",
-        path: "/",
+        pageTitle: "404 | Not Found",
+        path: "/404",
         components: {
             "#layoutHeader": layoutHeader,
             "#btnNavbar": btnNavbar,
             "#btnNavbarThemesJQueryUI": btnNavbarThemesJQueryUI,
             "#layoutNavbar": layoutNavbar,
             "#layoutNavbarThemesUI": layoutNavbarThemesUI,
-            "#layoutMain": `${pages}/00-home.html`,
+            "#layoutMain": `${pages}/404/404-not-found-page.html`,
             "#layoutFooter": layoutFooter,
         },
-        headerTitle: "Curso de jQuery de Escuela.IT",
+        headerTitle: "Página no encontrada - 404 Not Found Page",
         styles: [
             { href: `${styles}/pages/00-home.css` }
         ],
@@ -48,5 +48,5 @@ export const routes00Home = [
             { src: `${scripts}/tooltips.js` }
         ]
     }
-   
+
 ];

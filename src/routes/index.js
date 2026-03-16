@@ -4,7 +4,9 @@
     *  -------------------------------------------------  *
 */
 
+
 export { routes00Home } from './routes-00-home.js';
+export { routes404NotFoundPage } from './routes-404-not-found-page.js';
 export { routesClase01 } from './routes-clase-01.js';
 export { routesClase02 } from './routes-clase-02.js';
 export { routesClase03 } from './routes-clase-03.js';

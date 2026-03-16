@@ -7,9 +7,9 @@
 
 
 /**
- *  --------------------------------------------------
- *  -----  `spaWithMethodLoadFromJQueryPlugins`  -----
- *  --------------------------------------------------
+ *  ----------------------------------------------------
+ *  -----  `spaWithMethodLoadFromJQueryPlugins()`  -----
+ *  ----------------------------------------------------
  * 
  * @version `4.0.0`
  * 
@@ -21,8 +21,11 @@
  *  - Envuelve el plugin en una función de `Módulos ES6` para facilitar su integración.
  * 
  * - `Añadimos`:
- *   - Funcionalidad de acciones para integrar varios menus de navegación.
- *   - Efecto Loading para la carga inicial de la página.
+ *     - Efecto Loading para la carga inicial de la página.
+ *     - 404NotFoundPage: Ruta para manejar páginas no encontradas.
+ *     - Normalización de rutas y pathname para evitar problemas con slashes y base.
+ *     - Notificación de carga de ruta mediante eventos personalizados.
+ *     - Manejo de errores en la carga de componentes y rutas.
  */
 
 export const spaWithMethodLoadFromJQueryPlugins = () => {
@@ -59,7 +62,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
 
             /**
-             * @type {ConfigOptionsSPA}- `Objeto de configuración final del plugin SPA`
+             * @type {ConfigOptionsSPA} - `Objeto de configuración final del plugin SPA`
              * @description
              * Se crea combinando:
              *   - Los valores por defecto
@@ -86,9 +89,9 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
 
             /**
-             * -------------------------
-             * -----  `normalize`  -----
-             * -------------------------
+             * -----------------------------------
+             * -----  `normalize(raw = '')`  -----
+             * -----------------------------------
              * 
              * - Normaliza una ruta (quita base y slashes de inicio/fin)
              * 
@@ -119,9 +122,9 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
 
             /**
-             * -----------------------------
-             * -----  `buildPathname`  -----
-             * -----------------------------
+             * ---------------------------------------------
+             * -----  `buildPathname(routePath = '')`  -----
+             * ---------------------------------------------
              * 
              * - Construye pathname absoluto para pushState, normalizado con base
              * 
@@ -147,6 +150,81 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
                     //  -----  fallback básico  -----
                     return (base + trimmed).replace(/\/\/+/g, '/');
+                }
+
+            };
+
+
+            /**
+             * -------------------------------------------------
+             * -----  `findRouteByPath(rawPathname = '')`  -----
+             * -------------------------------------------------
+             *
+             * - Busca una ruta por pathname (normalizando base y slashes)
+             *
+             * @param {string} rawPathname - `pathname crudo desde la URL o history state`
+             * @returns {Route|undefined} - `Ruta encontrada o undefined`
+             */
+            const findRouteByPath = (rawPathname = '') => {
+
+                /** @type {string} - `Ruta normalizada para buscar en settings.routes` */
+                const normalized = normalize(rawPathname);
+
+                return settings.routes.find(r => normalize(r.path) === normalized);
+
+            };
+
+
+            /**
+             * -----------------------------------
+             * -----  `findNotFoundRoute()`  -----
+             * -----------------------------------
+             *
+             * - Obtiene la ruta 404 usando id o path para evitar dependencia de un solo identificador.
+             *
+             * @returns {Route|undefined} - `Ruta 404 encontrada o undefined`
+             */
+            const findNotFoundRoute = () => {
+
+                return settings.routes.find(r =>
+                    r?.id === '404NotFoundPage' ||
+                    normalize(r?.path) === '404' ||
+                    /404/i.test(String(r?.id || ''))
+                );
+
+            };
+
+
+            /**
+             * -----------------------------------------
+             * -----  `loadNotFoundRoute(source)`  -----
+             * -----------------------------------------
+             *
+             * - Carga la ruta 404 si existe.
+             * @async
+             * @param {'init'|'click'|'popstate'} source - `Origen de la navegación`
+             * @returns {Promise<Route|undefined>} - `Ruta cargada o undefined si no existe`
+             */
+
+            const loadNotFoundRoute = async (source) => {
+
+                /** @type {Route|undefined} - `Ruta 404` */
+                const route404 = findNotFoundRoute();
+
+                if (!route404) {
+                    console.error(`No existe ruta 404 configurada (source: ${source}).`);
+                    return undefined;
+                }
+
+                try {
+
+                    await loadContent(route404);
+                    return route404;
+
+                } catch (err) {
+
+                    console.error(`Error loadContent 404 (${source}):`, err);
+                    return undefined;
                 }
 
             };
@@ -451,13 +529,13 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
 
             /**
-             * ------------------------------
-             * -----  `applyRouteMeta`  -----
-             * ------------------------------
+             * -------------------------------------
+             * -----  `applyRouteMeta(route)`  -----
+             * -------------------------------------
              * 
              * - `Función para aplicar metadatos de la ruta (título, favicon, URL, etc.)`
-             * 
-             * @param {Route} route 
+             * @async
+             * @param {Route} route - `Objeto de la ruta actual con posibles propiedades: headerTitle, pageTitle, favicon, styles, scripts, path, id.`
              * 
              */
 
@@ -491,6 +569,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                     --------------------------------------------
                 */
 
+
                 /** @type {string} - `Nueva pathname para la ruta` */
                 const newPathname = buildPathname(route.path || '');
 
@@ -511,9 +590,9 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
 
             /**
-             * --------------------------------------
-             * -----  `addTitleHeaderFooter()`  -----
-             * --------------------------------------
+             * -------------------------------------------
+             * -----  `addTitleHeaderFooter(title)`  -----
+             * -------------------------------------------
              * - Agrega el título al header y footer de la página.
              * @param {string} title - Texto para mostrar en ambos lugares.
              */
@@ -651,6 +730,10 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 // ---------- FUNCIONES ----------
 
                 /**
+                 * ------------------------------
+                 * -----  `openMenu(menu)`  -----
+                 * ------------------------------
+                 * 
                  * - `Abre un menú con animación`
                  *
                  * @param {Object} menu - Objeto del menú a abrir
@@ -668,6 +751,10 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
 
                 /**
+                 * -------------------------------
+                 * -----  `closeMenu(menu)`  -----
+                 * -------------------------------
+                 * 
                  * - `Cierra un menú con animación`
                  *
                  * @param {Object} menu - Objeto del menú a cerrar
@@ -685,6 +772,10 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
 
                 /**
+                 * --------------------------------------------
+                 * -----  `clickInside(element, target)`  -----
+                 * --------------------------------------------
+                 * 
                  * - `Verifica si un click ocurrió dentro de un elemento`
                  *
                  * @param {JQuery<HTMLElement>} element - Elemento base (objeto jQuery)
@@ -878,7 +969,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
              * 
              * - Actualiza el favicon añadiendo un query para forzar recarga
              * 
-             * @param {string} favicon
+             * @param {string} favicon - URL del nuevo favicon a cargar
              */
 
             const updateFavicon = (favicon) => {
@@ -927,7 +1018,8 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
             * Carga múltiples hojas de estilo para la página sin bloquear el hilo.
             * Preload antes de aplicar para evitar parpadeos.
             *
-            * @param {RouteStyle[] | RouteStyle | null | undefined} styles
+            * @param {RouteStyle[] | RouteStyle | null | undefined} styles - `Array o único objeto de estilos a cargar para la ruta. 
+            * Cada estilo debe tener al menos una propiedad 'href' con la URL de la hoja de estilo.`
             */
 
             const loadStylesheetByPage = (styles) => {
@@ -1016,7 +1108,8 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
              * - Carga múltiples scripts para la página.
              * - Antes elimina los scripts dinámicos previos.
              * 
-             * @param {RouteScript[]|object} scripts
+             * @param {RouteScript[]|object} scripts - `Array o diccionario de scripts a cargar para la ruta. 
+             * Cada script debe tener al menos una propiedad 'src' con la URL del script.`
              * 
              */
 
@@ -1062,7 +1155,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
              * 
              * - Carga un script (verifica con HEAD)
              * 
-             * @param {string} scriptUrl
+             * @param {string} scriptUrl - URL del script a cargar
              */
 
             const loadScripts = (scriptUrl) => {
@@ -1135,14 +1228,17 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
 
                 /** @type {string} - `Ruta normalizada actual (sin base ni barra final)` */
-                const initialPath = normalize(window.location.pathname);
+                const initialPath = window.location.pathname;
 
                 /** @type {Route|undefined} - `Ruta inicial encontrada en settings.routes` */
-                const route = settings.routes.find(r => normalize(r.path) === initialPath);
+                const route = findRouteByPath(initialPath);
+
+                /** @type {Route|undefined} - `Ruta final a cargar al iniciar (ruta encontrada o 404)` */
+                const initialRoute = route || findNotFoundRoute();
 
 
                 //  -----  Cargar la ruta inicial o la 404  -----
-                if (route) {
+                if (route)
 
                     loadContent(route)
 
@@ -1152,29 +1248,31 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                             err => console.error('Error cargando ruta inicial', err)
                         );
 
-                }
-
                 //  -----  Si no se encuentra la ruta, cargar la 404  -----
-                else {
-
-                    /** @type {Route|undefined} - `Ruta 404` */
-                    const route404 = settings.routes.find(route => route.id === '404NotFoundPage');
-
-                    //  -----  Si existe la ruta 404, cargarla  -----
-                    if (route404)
-
-                        loadContent(route404)
-
-                            .catch(
-
-                                /** @param {Error} err */
-                                err => console.error('Error cargando 404', err)
-                            );
-                }
+                else
+                    loadNotFoundRoute('init');
 
 
                 //  -----  Reemplazamos el state inicial con un objeto normalizado  -----
-                history.replaceState({ id: route?.id || null, path: window.location.pathname }, '', window.location.pathname);
+                if (initialRoute) {
+
+                    /** @type {string} - `Pathname final inicial (ruta encontrada o 404)` */
+                    const initialPathname = buildPathname(initialRoute.path || '');
+
+                    history.replaceState(
+                        { id: initialRoute?.id || null, path: initialPathname },
+                        '',
+                        initialPathname
+                    );
+
+                } else {
+
+                    history.replaceState(
+                        { id: null, path: window.location.pathname },
+                        '',
+                        window.location.pathname
+                    );
+                }
 
             };
 
@@ -1219,21 +1317,8 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                         );
 
                 //  -----  Si no existe la ruta, cargar la 404  -----
-                else {
-
-                    /** @type {Route|undefined} - `Ruta 404` */
-                    const route404 = settings.routes.find(r => r.id === '404NotFoundPage');
-
-                    if (route404)
-
-                        loadContent(route404)
-
-                            .catch(
-
-                                /**@param {Error} err */
-                                err => console.error('Error loadContent 404:', err)
-                            );
-                }
+                else
+                    loadNotFoundRoute('click');
 
             });
 
@@ -1250,11 +1335,8 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 /** @type {string} - `Ruta normalizada desde el state o la URL actual; usar state.path si está presente, si no usar location.pathname` */
                 const raw = e.state?.path ?? window.location.pathname;
 
-                /** @type {string} - `Ruta normalizada (sin base ni barra final)` */
-                const normalized = normalize(raw);
-
                 /** @type {Route|undefined} - `Ruta correspondiente a la URL actual` */
-                const route = settings.routes.find(r => normalize(r.path) === normalized);
+                const route = findRouteByPath(raw);
 
                 //  ----- cargamos la ruta sin empujar otra entrada en el historial  ---------
                 //  ----- loadContent(route)  -  hace pushState solo si la ruta difiere  -----
@@ -1268,21 +1350,8 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                             err => console.error('Error loadContent (popstate):', err)
                         );
 
-                else {
-
-                    /** @type {Route|undefined} - `Ruta 404` */
-                    const route404 = settings.routes.find(r => r.id === '404');
-
-                    if (route404)
-
-                        loadContent(route404)
-
-                            .catch(
-
-                                /** @param {Error} err */
-                                err => console.error('Error loadContent 404 (popstate):', err)
-                            );
-                }
+                else
+                    loadNotFoundRoute('popstate');
 
             });
 

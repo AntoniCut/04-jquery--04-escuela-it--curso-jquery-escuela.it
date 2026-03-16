@@ -8,6 +8,7 @@
 import {
 
     routes00Home,
+    routes404NotFoundPage,
     routesClase01,
     routesClase02,
     routesClase03,
@@ -49,6 +50,7 @@ export const spaCursoJQueryEscuelaIt = () => {
      */
     const allRoutes = [
         ...routes00Home,
+        ...routes404NotFoundPage,
         ...routesClase01,
         ...routesClase02,
         ...routesClase03,

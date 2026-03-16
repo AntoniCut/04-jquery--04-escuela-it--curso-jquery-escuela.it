@@ -6,7 +6,7 @@
 
 
 
-/** - `path para las rutas del curso de TypeScript` */
+/** - `path para las rutas de la SPA` */
 export const paths = {
     favicon: '/04-escuela.it/curso-jquery-escuela.it/assets/favicon/jquery-favicon.ico',
     layoutHeader: '/04-escuela.it/curso-jquery-escuela.it/src/components/layout/layout-header.html',
