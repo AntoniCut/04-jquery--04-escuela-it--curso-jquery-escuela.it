@@ -170,6 +170,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 /** @type {string} - `Ruta normalizada para buscar en settings.routes` */
                 const normalized = normalize(rawPathname);
 
+                //  -----  Buscar ruta que coincida con el pathname normalizado  -----
                 return settings.routes.find(r => normalize(r.path) === normalized);
 
             };
@@ -199,7 +200,6 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
              * -----------------------------------------
              * -----  `loadNotFoundRoute(source)`  -----
              * -----------------------------------------
-             *
              * - Carga la ruta 404 si existe.
              * @async
              * @param {'init'|'click'|'popstate'} source - `Origen de la navegación`
@@ -487,6 +487,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                     /** @type {Promise<void>} - `Promesa que carga el componente en el selector correspondiente.` */
                     const promise = new Promise((resolve, reject) => {
 
+                        
                         /*
                             *  ------------------------------------------------------------  *
                             *  -----  Cargamos componente del DOM con jQuery .load()  -----  *

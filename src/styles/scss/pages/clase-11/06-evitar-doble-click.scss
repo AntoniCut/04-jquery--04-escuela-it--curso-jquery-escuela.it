@@ -1,0 +1,210 @@
+/*
+    *  ---------------------------------------------------------------------------------------------------------  *
+    *  -----  /06-evitar-doble-click.scss  --  /src/styles/scss/pages/clase-11/06-evitar-doble-click.scss  -----  *
+    *  ---------------------------------------------------------------------------------------------------------  *
+*/
+
+
+@use '../../base/mixins' as mix;
+@use '../../base/variables' as var;
+
+
+$accent-main: #0f766e;
+$accent-soft: #14b8a6;
+
+$panel-bg: #f8fafc;
+$panel-stroke: #cbd5e1;
+
+$text-main: #0f172a;
+$text-muted: #334155;
+
+$div-border: #99f6e4;
+$div-hover-border: #5eead4;
+$span-text: #134e4a;
+$span-bg: #ccfbf1;
+
+$blue-border: #93c5fd;
+$blue-bg-soft: #e0f2fe;
+$blue-bg-panel: #eff6ff;
+$blue-text-strong: #0c4a6e;
+
+$green-border: #86efac;
+$green-bg-soft: #dcfce7;
+$green-bg-panel: #ecfdf5;
+$green-text-strong: #14532d;
+
+$mint-glow: rgba(45, 212, 191, 0.3);
+$panel-gradient-mid: #ecfeff;
+$panel-gradient-end: #f0fdfa;
+
+
+.div {
+
+    width: min(100%, 72rem);
+    position: relative;
+    padding: 2rem;
+    border-radius: 1.6rem;
+
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.6;
+    color: $text-main;
+    background:
+        radial-gradient(circle at 85% 10%, $mint-glow, transparent 35%),
+        linear-gradient(145deg, var.$bg-white 0%, $panel-gradient-end 55%, $panel-gradient-mid 100%);
+    box-shadow: 0 14px 30px rgba($text-main, 0.12);
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    border: 1px solid $div-border;
+    font-family: var.$font-primary;
+
+    &::before {
+        content: 'Zona de Evento Click';
+        position: absolute;
+        top: -1.2rem;
+        left: 1.6rem;
+        padding: 0.3rem 1rem;
+        border-radius: 999px;
+        font-size: 1.1rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var.$bg-white;
+        background: linear-gradient(90deg, $accent-main, $accent-soft);
+    }
+
+
+    span {
+        display: inline-block;
+        margin: 0.25rem 0;
+        padding: 0.15rem 0.7rem;
+        border-radius: 0.8rem;
+        color: $span-text;
+        background-color: $span-bg;
+        border: 1px solid $div-border;
+        font-weight: 700;
+
+        cursor: pointer;
+
+        &:hover {
+            border-color: $div-hover-border;
+            box-shadow: 0 18px 38px rgba($text-main, 0.16);
+            transform: translateY(-2px);
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+    }
+
+    @include mix.tablet {
+        padding: 2.8rem;
+        font-size: 2rem;
+    }
+}
+
+.salidas__container {
+    width: min(100%, 102.4rem);
+    height: 60rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    border-radius: 1.6rem;
+    background:
+        linear-gradient(135deg, $panel-bg 0%, $panel-gradient-mid 55%, $panel-gradient-end 100%);
+    border: 1px solid $panel-stroke;
+    box-shadow: inset 0 1px 0 rgba(var.$bg-white, 0.8), 0 10px 24px rgba($text-main, 0.08);
+
+    // @include mix.tablet {
+    //     grid-template-columns: 1fr 1fr;
+    //     gap: 2.6rem;
+    // }
+}
+
+#salida {
+    width: 100%;
+    height: 55rem;
+    overflow-y: auto;
+    padding: 1.6rem;
+    border-radius: 1.2rem;
+    border: 1px solid $blue-border;
+    background-color: $panel-bg;
+    color: $text-main;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    box-shadow: 0 6px 16px rgba($text-main, 0.08);
+}
+
+#salida {
+    border-color: $green-border;
+}
+
+.event-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.2rem;
+    border-radius: 1rem;
+    border: 1px solid $blue-border;
+    background: linear-gradient(180deg, var.$bg-white 0%, $panel-bg 100%);
+}
+
+.event-card__title {
+    margin: 0 0 0.4rem;
+    padding: 0.35rem 0.9rem;
+    display: inline-flex;
+    align-self: flex-start;
+    border-radius: 999px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.event-card__row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.event-card__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: $text-muted;
+    text-transform: uppercase;
+}
+
+.event-card__value {
+    display: block;
+    width: 100%;
+    padding: 0.65rem 0.8rem;
+    border-radius: 0.8rem;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    color: $text-main;
+    border: 1px solid $panel-stroke;
+    background-color: $panel-bg;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.event-card--con {
+    border-color: $blue-border;
+    background: linear-gradient(180deg, $blue-bg-panel 0%, $panel-bg 100%);
+
+    .event-card__title {
+        color: $blue-text-strong;
+        background-color: $blue-bg-soft;
+    }
+}
+
+.event-card--sin {
+    border-color: $green-border;
+    background: linear-gradient(180deg, $green-bg-panel 0%, $panel-bg 100%);
+
+    .event-card__title {
+        color: $green-text-strong;
+        background-color: $green-bg-soft;
+    }
+}

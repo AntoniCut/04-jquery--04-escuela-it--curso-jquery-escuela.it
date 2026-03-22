@@ -18,7 +18,8 @@ import {
     routesClase07,
     routesClase08,
     routesClase09,
-    routesClase10
+    routesClase10,
+    routesClase11
 
 } from '../routes/index.js';    
 
@@ -60,7 +61,8 @@ export const spaCursoJQueryEscuelaIt = () => {
         ...routesClase07,
         ...routesClase08,
         ...routesClase09,
-        ...routesClase10
+        ...routesClase10,
+        ...routesClase11
     ];
 
     /**
@@ -79,7 +81,7 @@ export const spaCursoJQueryEscuelaIt = () => {
     const optionsPluginsSPA = {
         routes: allRoutes,
         base: '/04-escuela.it/curso-jquery-escuela.it',
-        draggable: false
+        draggable: true
     };
 
     //  ----------  Invocamos el Plugins  --  jquery.spa-with-method-load-from-jquery.js - v4  ----------

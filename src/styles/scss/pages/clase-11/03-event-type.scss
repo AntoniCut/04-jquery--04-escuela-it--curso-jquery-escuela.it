@@ -1,0 +1,36 @@
+/*
+    *  -----------------------------------------------------------------------------------------  *
+    *  -----  /03-event-type.scss  --  /src/styles/scss/pages/clase-11/03-event-type.scss  -----  *
+    *  -----------------------------------------------------------------------------------------  *
+*/
+
+
+@use '../../base/mixins' as mix;
+
+
+
+.enlace {
+    
+    width: 20rem;
+    height: 5rem;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1.6rem;
+    font-weight: bold;
+    
+    color: green;
+    background-color: #f0f0f0;
+        
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    
+    cursor: pointer;
+
+    &:hover {
+        background-color: #e0e0e0;
+    }
+
+}

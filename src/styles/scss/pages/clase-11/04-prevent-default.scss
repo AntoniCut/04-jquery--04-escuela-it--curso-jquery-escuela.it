@@ -1,0 +1,38 @@
+/*
+    *  ---------------------------------------------------------------------------------------------------  *
+    *  -----  /04-prevent-default.scss  --  /src/styles/scss/pages/clase-11/04-prevent-default.scss  -----  *
+    *  ---------------------------------------------------------------------------------------------------  *
+*/
+
+
+@use '../../base/mixins' as mix;
+
+
+
+.enlace1,
+.enlace2 {
+    
+    width: 25rem;
+    height: 7rem;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    font-size: 1.6rem;
+    font-weight: bold;
+    
+    color: green;
+    background-color: #f0f0f0;
+        
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    
+    cursor: pointer;
+
+    &:hover {
+        background-color: #e0e0e0;
+    }
+
+}
