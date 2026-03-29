@@ -24,16 +24,35 @@
 
         <article class="section__content">
 
-            <p>
-                En esta sección vamos a ver como partir de un contexto para seleccionar elementos, esto es útil cuando
-                queremos seleccionar elementos dentro de un contenedor específico.
-            </p>
+            <div class="content__description content__description--exercise">
 
-            <p>
-                Para esto vamos a usar el segundo parámetro del selector de jQuery, este parámetro nos permite
-                especificar el contexto en el que queremos buscar los elementos, también podemos usar el método
-                <code>.find()</code> para buscar elementos dentro de un contexto específico.
-            </p>
+                <h3 class="content__title">
+                    Partir de un contexto
+                </h3>
+
+                <p class="content__text">
+                    Este ejercicio muestra como usar un <strong>contexto</strong> como punto de partida
+                    para limitar las busquedas de elementos a un contenedor especifico.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        El segundo parametro de <code>$(selector, contexto)</code> restringe la busqueda a ese contenedor.
+                    </li>
+                    <li>
+                        <kbd>find()</kbd> busca descendientes dentro de una seleccion ya hecha.
+                    </li>
+                    <li>
+                        Es util para evitar interferencias y manipular elementos dentro de secciones especificas del DOM.
+                    </li>
+                </ul>
+
+                <p class="content__note">
+                    Objetivo: usar contextos para hacer selectores mas precisos y eficientes.
+                </p>
+
+            </div>
+
         </article>
 
     </section>
@@ -45,20 +64,21 @@
         <header id="principal">
 
             <h3 class="grande">
-                Mi Titulo <span> importante </span>
+                h3 con clase grande, hijo de header con id principal 
+                <span> span dentro del h3 </span>
             </h3>
 
             <div>
-                Estoy header > div y
+                div hermano de h3, hijo de header con id principal
                 <span class="grande">
-                    span.grande
+                    span con clase grande dentro del div
                 </span>
             </div>
 
         </header>
 
         <div class="grande">
-            Otro elemento
+            div con clase grande hermano de header con id principal
         </div>
 
         <hr>

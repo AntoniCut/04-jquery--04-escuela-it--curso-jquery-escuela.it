@@ -25,15 +25,38 @@
         </header>
 
         <!--  -----  Contenido de la sección  -----  -->
-        <section class="section__content">
+        <article class="section__content">
 
-            <p class="content__description">
-                En este ejemplo tenemos varios párrafos y una lista.
-                <br>
-                Usando jQuery, recorreremos los párrafos y los elementos de la lista para mostrar su contenido.
-            </p>
+            <div class="content__description content__description--exercise">
 
-        </section>
+                <h3 class="content__title">
+                    Recorrer elementos con each()
+                </h3>
+
+                <p class="content__text">
+                    Este ejercicio usa el metodo <kbd>each()</kbd> de jQuery para recorrer
+                    multiples elementos del DOM y procesar cada uno individualmente.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        Se seleccionan parrafos por <strong>clase</strong> y elementos de una <strong>lista</strong> por id.
+                    </li>
+                    <li>
+                        <kbd>each()</kbd> itera sobre cada elemento seleccionado y ejecuta una funcion por cada uno.
+                    </li>
+                    <li>
+                        Se muestra el contenido de cada elemento usando <kbd>$(this)</kbd> dentro del callback.
+                    </li>
+                </ul>
+
+                <p class="content__note">
+                    Objetivo: dominar el metodo each() para iterar colecciones de elementos con jQuery.
+                </p>
+
+            </div>
+
+        </article>
             
     </section>
 

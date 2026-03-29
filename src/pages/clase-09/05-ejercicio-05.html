@@ -24,8 +24,34 @@
 
         <article class="section__content">
 
-            5.- Haz que todos los párrafos de la página tengan borde de 1px verde. <br>
-            (Esta va con trampa).
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    Ejercicio 5 - Trampa del selector universal
+                </h3>
+
+                <p class="content__text">
+                    Este ejercicio paradojico practica los selectores y demuestra como <strong>NOT</strong> todo
+                    es lo que parece al usar un selector universal <kbd>p</kbd> en jQuery.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        El selector <strong><code>$('p')</code></strong> selecciona <strong>todos los parrafos</strong> del DOM, incluyendo los del header de informacion.
+                    </li>
+                    <li>
+                        Para afectar solo los parrafos del contenedor practico se debe usar un selector mas especifico.
+                    </li>
+                    <li>
+                        Es importante entender el alcance del selector para evitar efectos secundarios involuntarios.
+                    </li>
+                </ul>
+
+                <p class="content__note">
+                    Objetivo: comprender la importancia de selectores precisos y las consecuencias de los universales.
+                </p>
+
+            </div>
 
         </article>
 

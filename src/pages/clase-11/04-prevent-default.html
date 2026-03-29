@@ -24,6 +24,34 @@
 
         <article class="section__content">
 
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    preventDefault() - Cancelar comportamiento por defecto
+                </h3>
+
+                <p class="content__text">
+                    <kbd>preventDefault()</kbd> cancela la accion predeterminada del navegador para un evento,
+                    permitiendo implementar comportamiento personalizado.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        Links no navegan: <code>$(enlace).on('click', (e) => e.preventDefault())</code>.
+                    </li>
+                    <li>
+                        Formularios no se envian: <code>$(form).on('submit', (e) => e.preventDefault())</code>.
+                    </li>
+                    <li>
+                        Se usa combinado con logica personalizada: validacion, envios AJAX, etc.
+                    </li>
+                </ul>
+
+                <p class="content__note">
+                    Objetivo: interceptar acciones del navegador e implementar comportamiento personalizado.
+                </p>
+
+            </div>
 
         </article>
 

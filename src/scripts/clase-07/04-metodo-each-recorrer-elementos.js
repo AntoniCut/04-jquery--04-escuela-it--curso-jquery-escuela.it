@@ -20,10 +20,10 @@
 
         
     /** @type {JQuery<HTMLParagraphElement>} */
-    const $parrafosProbando = $("p.probando");
+    const $parrafosProbando = $(".main__section-practica p.probando");
 
     /** @type {JQuery<HTMLParagraphElement>} */
-    const $totalParrafos = $("p");
+    const $totalParrafos = $(".main__section-practica p");
 
     /** @type {JQuery<HTMLDivElement>} */
     const $info = $("#info");

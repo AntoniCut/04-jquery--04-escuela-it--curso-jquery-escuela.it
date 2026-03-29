@@ -24,6 +24,34 @@
 
         <article class="section__content">
 
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    stopPropagation() - Detener propagacion de eventos
+                </h3>
+
+                <p class="content__text">
+                    <kbd>stopPropagation()</kbd> evita que un evento se propague hacia elementos padres (bubbling),
+                    manteniendo el evento contenido en el elemento actual.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        Sin stopPropagation(): un click en span dispara handlers de span → p → div.
+                    </li>
+                    <li>
+                        Con stopPropagation(): el click se detiene en span, no sube hacia padres.
+                    </li>
+                    <li>
+                        Se utiliza cuando se quieren handlers independientes en elementos anidados.
+                    </li>
+                </ul>
+
+                <p class="content__note">
+                    Objetivo: controlar el flujo de eventos evitando propagacion no deseada a contenedores padres.
+                </p>
+
+            </div>
 
         </article>
 

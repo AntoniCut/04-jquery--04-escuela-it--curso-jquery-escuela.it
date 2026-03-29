@@ -24,6 +24,34 @@
 
         <article class="section__content">
 
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    Evitar doble-click accidental
+                </h3>
+
+                <p class="content__text">
+                    Los usuarios a menudo hacen doble-click accidentalmente, causando duplicacion de acciones.
+                    Este ejercicio implementa un throttle temporal para prevenir multiples activaciones.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        Desactivar temporalmente el evento: guardar estado en <kbd>data()</kbd> o variable global.
+                    </li>
+                    <li>
+                        Usar <kbd>setTimeout()</kbd> para reactivar despues de N segundos.
+                    </li>
+                    <li>
+                        Alternativa: <kbd>off()</kbd> el evento, luego <kbd>on()</kbd> nuevamente con delay.
+                    </li>
+                </ul>
+
+                <p class="content__note">
+                    Objetivo: implementar throttling para evitar acciones duplicadas en clicks rapidos.
+                </p>
+
+            </div>
 
         </article>
 

@@ -24,6 +24,34 @@
 
         <article class="section__content">
 
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    Metodo off() - Remover manejadores de eventos
+                </h3>
+
+                <p class="content__text">
+                    <kbd>off()</kbd> desasocia manejadores de eventos previalmente asignados con <kbd>on()</kbd>,
+                    permitiendo desactivar interactividad momentanea o permanentemente.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        <code>$(elemento).off('click')</code> elimina todos los manejadores click del elemento.
+                    </li>
+                    <li>
+                        <code>$(elemento).off('click', handler)</code> elimina un manejador especifico.
+                    </li>
+                    <li>
+                        <code>$(elemento).off()</code> elimina TODOS los eventos del elemento.
+                    </li>
+                </ul>
+
+                <p class="content__note">
+                    Objetivo: controlar el ciclo de vida de eventos desactivandolos segun la logica de la app.
+                </p>
+
+            </div>
 
         </article>
 

@@ -24,42 +24,34 @@
 
         <article class="section__content">
 
-            <p>
-                En esta sección se explicarán los métodos relacionados con las dimensiones de los elementos,
-                como width, height, innerWidth, innerHeight, outerWidth y outerHeight.
-            </p>
+            <div class="content__description content__description--exercise">
 
-            <p>
-                <span> Width : </span>
-                Devuelve el ancho del elemento, excluyendo el padding, border y margin.
-            </p>
+                <h3 class="content__title">
+                    Dimensiones - width(), height(), inner y outer
+                </h3>
 
-            <p>
-                <span> Height : </span>
-                Devuelve la altura del elemento, excluyendo el padding, border y margin.
-            </p>
+                <p class="content__text">
+                    jQuery ofrece varios metodos para medir elementos segun si se quiere incluir solo
+                    el contenido o tambien padding, borde y margen.
+                </p>
 
-            <p>
-                <span> InnerWidth : </span>
-                Devuelve el ancho del elemento, incluyendo el padding pero excluyendo el border y margin.
-            </p>
+                <ul class="content__list">
+                    <li>
+                        <kbd>width()</kbd> y <kbd>height()</kbd> miden solo el contenido, sin padding ni borde.
+                    </li>
+                    <li>
+                        <kbd>innerWidth()</kbd> e <kbd>innerHeight()</kbd> incluyen el padding del elemento.
+                    </li>
+                    <li>
+                        <kbd>outerWidth()</kbd> y <kbd>outerHeight()</kbd> incluyen borde, y con <kbd>true</kbd> tambien el margin.
+                    </li>
+                </ul>
 
-            <p>
-                <span> InnerHeight : </span>
-                Devuelve la altura del elemento, incluyendo el padding pero excluyendo el border y margin.
-            </p>
+                <p class="content__note">
+                    Objetivo: distinguir que tipo de medida devuelve cada metodo para hacer calculos precisos.
+                </p>
 
-            <p>
-                <span> OuterWidth : </span>
-                Devuelve el ancho del elemento, incluyendo el padding y el border.
-                Si se pasa true como argumento, también incluirá el margin.
-            </p>
-
-            <p>
-                <span> OuterHeight : </span>
-                Devuelve la altura del elemento, incluyendo el padding y el border.
-                Si se pasa true como argumento, también incluirá el margin.
-            </p>
+            </div>
 
         </article>
 

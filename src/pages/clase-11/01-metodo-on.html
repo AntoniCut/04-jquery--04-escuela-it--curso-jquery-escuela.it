@@ -24,6 +24,34 @@
 
         <article class="section__content">
 
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    Metodo on() - Delegacion de eventos
+                </h3>
+
+                <p class="content__text">
+                    <kbd>on()</kbd> es el metodo moderno para asignar manejadores de eventos, soportando
+                    delegacion que permite manejar elementos creados dinamicamente.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        Se asigna un evento a un selector: <code>$(elemento).on('click', handler)</code>.
+                    </li>
+                    <li>
+                        La delegacion permite: <code>$(contenedor).on('click', '.selector', handler)</code> para elementos futuros.
+                    </li>
+                    <li>
+                        Compatible con todos los eventos: click, mouseover, keydown, change, submit, etc.
+                    </li>
+                </ul>
+
+                <p class="content__note">
+                    Objetivo: dominar on() para asignar eventos y delegarlos dinamicamente a elementos futuros.
+                </p>
+
+            </div>
 
         </article>
 

@@ -28,27 +28,34 @@
 
         <article class="section__content">
 
-            <span> ----- Ejercício Date ----- </span>
-            <br> <br>
+            <div class="content__description content__description--exercise">
 
-            - Crear una página con varios párrafos.
-            <br> <br>
+                <h3 class="content__title">
+                    Ejercicio 6 - Timestamps y calculo de segundos
+                </h3>
 
-            - Al cargar la página se deben guardar en cada uno de los párrafos un dato con el instante actual
-            en el que se cargó la página.
-            <br> <br>
+                <p class="content__text">
+                    Este ejercicio introduce el objeto <kbd>Date</kbd> de JavaScript para guardar timestamps
+                    y calcular el tiempo transcurrido entre eventos.
+                </p>
 
-            - Luego, cuando se haga clic en uno de los párrafos se quiere saber el número de numero de segundos
-            desde el ultimo clic en ese mismo párrafo. Si es el primer clic, se debe dar el numero de segundos
-            desde que se cargó la página. Para mostrar ese número de segundos simplemente envía un mensaje a
-            la consola con console.log().
-            <br> <br>
+                <ul class="content__list">
+                    <li>
+                        Se usa <code>new Date().getTime()</code> para obtener el timestamp actual en milisegundos.
+                    </li>
+                    <li>
+                        Se guarda el timestamp inicial en cada parrafo con <kbd>data()</kbd> al cargar la pagina.
+                    </li>
+                    <li>
+                        Al hacer click se calcula la diferencia y se convierte a segundos dividiendo entre 1000.
+                    </li>
+                </ul>
 
-            - Por si no lo sabes, en JavaScript se utiliza un objeto de la clase Date para el calculo de fechas.
-            Lo que pasa es que el timestamp de JavaScript está en milisegundos, por eso para calcular en segundos
-            debes dividir por 1000. Para resumir, te doy la función que podrias usar. (Un timestamp generalmente
-            es el numero de segundos desde el 1 de enero de 1970).
-            <br>
+                <p class="content__note">
+                    Objetivo: practicar Date, timestamps y guardar datos en elementos con data().
+                </p>
+
+            </div>
 
         </article>
 
