@@ -5,30 +5,35 @@
 */
 
 
-@use '../../base/mixins' as mix;
-
-
-
-.div {
-    
-    width: 95%;
-    max-width: 30rem;
-    height: 8rem;
-    font-size: 1.2rem;
+#menu{
+    position: absolute;
+    display: none;
+    width: 28rem; 
+    height: 6rem;
+    padding: 10px;
+    font-size: 1.6rem;
     font-weight: bold;
-    color: green;
-    background-color: #f0f0f0;
+    color: #fff;
+    background-color: #f98;
+    text-align: center;
+    z-index: 1000;
+}
+
+#info {
+    width: 90%;
+    max-width: 60rem;
+    min-height: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 2rem;
-    margin: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    cursor: pointer;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #f98;
+}
 
-    @include mix.tablet() {
-        font-size: 1.4rem;
-    }
-
-    &:hover {
-        background-color: #e0e0e0;
-    }
+#info span {
+    width: 2rem;
+    text-align: center;
 }

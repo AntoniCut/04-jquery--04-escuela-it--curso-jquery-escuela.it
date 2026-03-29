@@ -24,6 +24,35 @@
 
         <article class="section__content">
 
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    Que hace este ejercicio
+                </h3>
+
+                <p class="content__text">
+                    Este ejemplo muestra como reaccionar al teclado en un <strong>textarea</strong>
+                    y actualizar la interfaz en tiempo real con jQuery.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        <kbd>keydown</kbd>: detecta la tecla en el instante en que se presiona.
+                    </li>
+                    <li>
+                        <kbd>keypress</kbd>: captura el caracter imprimible y valida el limite maximo.
+                    </li>
+                    <li>
+                        <kbd>keyup</kbd>: actualiza el estado final cuando la tecla se suelta.
+                    </li>
+                </ul>
+
+                <p class="content__note">
+                    Objetivo: practicar eventos de teclado y actualizar el contador de caracteres en tiempo real.
+                </p>
+
+            </div>
+
 
         </article>
 
@@ -33,8 +62,17 @@
     <!--  -----  Práctica  -----  -->
     <section class="main__section-practica">
 
-        
-            
+        <!--  -----  Textarea  -----  -->
+        <textarea 
+            id="textArea"
+            data-maximo="100"
+            placeholder="Escribe algo aquí ..."
+        ></textarea>
+
+        <!--  -----  Mensaje donde se muestra la aplicación  -----  -->
+        <div id="mensaje"> </div>
+
+
     </section>
 
 

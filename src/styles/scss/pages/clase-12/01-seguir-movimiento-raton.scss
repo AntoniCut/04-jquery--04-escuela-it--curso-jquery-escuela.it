@@ -5,29 +5,16 @@
 */
 
 
-@use '../../base/mixins' as mix;
-
-
-.div {
-    
-    width: 95%;
-    max-width: 30rem;
-    height: 8rem;
-    font-size: 1.2rem;
+#moverse {
+    position: absolute;
+    z-index: 1000;
+    width: 20rem;
+    height: 4rem;
+    padding: 1rem;
+    font-size: 1.8rem;
     font-weight: bold;
-    color: green;
-    background-color: #f0f0f0;
-    padding: 2rem;
-    margin: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    cursor: pointer;
-
-    @include mix.tablet() {
-        font-size: 1.4rem;
-    }
-
-    &:hover {
-        background-color: #e0e0e0;
-    }
+    color: #fff;
+    background-color: #f98;
+    text-align: center;
+    cursor: pointer
 }
