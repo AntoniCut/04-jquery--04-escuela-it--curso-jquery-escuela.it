@@ -18,3 +18,4 @@ export { routesClase08 } from './routes-clase-08.js';
 export { routesClase09 } from './routes-clase-09.js';
 export { routesClase10 } from './routes-clase-10.js';
 export { routesClase11 } from './routes-clase-11.js';
+export { routesClase12 } from './routes-clase-12.js';

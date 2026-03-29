@@ -19,7 +19,8 @@ import {
     routesClase08,
     routesClase09,
     routesClase10,
-    routesClase11
+    routesClase11,
+    routesClase12
 
 } from '../routes/index.js';    
 
@@ -62,7 +63,8 @@ export const spaCursoJQueryEscuelaIt = () => {
         ...routesClase08,
         ...routesClase09,
         ...routesClase10,
-        ...routesClase11
+        ...routesClase11,
+        ...routesClase12
     ];
 
     /**
