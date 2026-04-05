@@ -1,11 +1,14 @@
 /*
-    *  -----------------------------------------------------------------------  *
+    *  -----------------------------------------------------------------------------------------------------------------------  *
     *  -----  /route-clase12-textarea-cuenta-caracteres.js  --  /src/routes/route-clase12-textarea-cuenta-caracteres.js  -----  *
-    *  -----------------------------------------------------------------------  *
+    *  -----------------------------------------------------------------------------------------------------------------------  *
 */
 
 
 import { paths } from './paths.js';
+
+
+/** @typedef {import('../../types/index.js').Route} Route */
 
 
 /** - Desestructuracion de paths */
@@ -23,7 +26,7 @@ const {
 } = paths;
 
 
-/** @type {import('../../types/index.js').Route} */
+/** @type {Route} */
 export const routeClase12TextareaCuentaCaracteres = {
         id: 'clase12TextareaCuentaCaracteres',
         favicon: favicon,
