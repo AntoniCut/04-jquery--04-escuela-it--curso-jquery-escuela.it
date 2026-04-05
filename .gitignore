@@ -7,6 +7,7 @@ pnpm-lock.yaml
 # Carpeta de distribución / compilados
 dist/
 
+
 # Sistema y editor (opcional, recomendable)
 .DS_Store
 Thumbs.db

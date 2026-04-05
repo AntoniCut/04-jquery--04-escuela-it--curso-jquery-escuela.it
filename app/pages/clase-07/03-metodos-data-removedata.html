@@ -1,0 +1,74 @@
+<!--  
+    *  ----------------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /03-metodos-data-removedata.html  --  /src/pages/clase-07-manipulacion-basica-de-elementos/03-metodos-data-removedata.html  -----  *
+    *  ----------------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__container">
+
+
+    <!--  -----  Sección 1  -----  -->
+    <section class="main__section-info">
+
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="Que es jQuery">
+                Clase 7 - 3. Métodos data() y removeData()
+            </h2>
+
+        </header>
+
+        <!--  -----  Descripción  -----  -->
+        <article class="section__content">
+
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    Metodos data() y removeData()
+                </h3>
+
+                <p class="content__text">
+                    Este ejercicio usa <kbd>data()</kbd> y <kbd>removeData()</kbd> para almacenar
+                    y eliminar datos personalizados asociados a elementos del DOM.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        <kbd>data()</kbd> lee o guarda informacion en un elemento usando atributos <code>data-*</code>.
+                    </li>
+                    <li>
+                        <kbd>removeData()</kbd> elimina un dato previamente almacenado sin afectar al HTML.
+                    </li>
+                    <li>
+                        Es util para asociar estado o configuracion a un elemento sin usar variables externas.
+                    </li>
+                </ul>
+
+                <p class="content__note">
+                    Objetivo: gestionar datos ligados a elementos del DOM de forma limpia con data() y removeData().
+                </p>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!--  -----  Práctica  -----  -->
+    <section class="main__section-practica">
+
+        <div id="capa" data-usuario="AntonyDev"> Haz click, div capa </div>
+        <div id="infoCapa" class="texto-info"> </div>
+
+        <div id="acumula" data-usuario="Random"> Haz click, div acumula </div>
+        <div id="infoAcumula" class="texto-info"> </div>
+
+    </section>
+
+
+</div>

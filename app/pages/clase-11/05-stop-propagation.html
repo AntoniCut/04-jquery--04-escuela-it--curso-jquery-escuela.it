@@ -1,0 +1,97 @@
+<!--  
+    *  -----------------------------------------------------------------------------------------  *
+    *  -----  /05-stop-propagation.html  --  /src/pages/clase-11/05-stop-propagation.html  -----  *
+    *  -----------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__container">
+
+
+    <!--  -----  INFO  -----  -->
+    <section class="main__section-info">
+
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="5. Stop Propagation">
+                Clase 11 - 5. Stop Propagation
+            </h2>
+
+        </header>
+
+        <article class="section__content">
+
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    stopPropagation() - Detener propagacion de eventos
+                </h3>
+
+                <p class="content__text">
+                    <kbd>stopPropagation()</kbd> evita que un evento se propague hacia elementos padres (bubbling),
+                    manteniendo el evento contenido en el elemento actual.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        Sin stopPropagation(): un click en span dispara handlers de span → p → div.
+                    </li>
+                    <li>
+                        Con stopPropagation(): el click se detiene en span, no sube hacia padres.
+                    </li>
+                    <li>
+                        Se utiliza cuando se quieren handlers independientes en elementos anidados.
+                    </li>
+                </ul>
+
+                <p class="content__note">
+                    Objetivo: controlar el flujo de eventos evitando propagacion no deseada a contenedores padres.
+                </p>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!--  -----  Práctica  -----  -->
+    <section class="main__section-practica">
+
+
+        <div class="div">
+
+            Esto es la división
+
+            <p> 
+                &nbsp; &nbsp; Esto es el párrafo dentro de la division 
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; <span> esto es el primer span, esta dentro del párrafo </span> 
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; Esto no es span, esta dentro del párrafo 
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; <span> el segundo span, esta dentro del párrafo </span> 
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; Esto tampoco es span, esta dentro del párrafo 
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; <span> el tercer span, esta dentro del párrafo </span> 
+                <br>
+            </p>
+
+        </div>
+
+        <div class="salidas__container">
+
+            <div id="salida1"> </div>
+            <div id="salida2"> </div>
+
+        </div>
+
+
+    </section>
+
+
+</div>

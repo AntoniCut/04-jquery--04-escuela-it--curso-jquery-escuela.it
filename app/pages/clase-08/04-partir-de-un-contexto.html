@@ -1,0 +1,100 @@
+<!--  
+    *  ----------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /04-partir-de-un-contexto.html  --  /src/pages/clase-08-selectores-jquery-y-traversing/04-partir-de-un-contexto.html  -----  *
+    *  ----------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__container">
+
+
+    <!--  -----  INFO  -----  -->
+    <section class="main__section-info">
+
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="Que es jQuery">
+                Clase 8 - 4. Partir de un Contexto
+            </h2>
+
+        </header>
+
+        <article class="section__content">
+
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    Partir de un contexto
+                </h3>
+
+                <p class="content__text">
+                    Este ejercicio muestra como usar un <strong>contexto</strong> como punto de partida
+                    para limitar las busquedas de elementos a un contenedor especifico.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        El segundo parametro de <code>$(selector, contexto)</code> restringe la busqueda a ese contenedor.
+                    </li>
+                    <li>
+                        <kbd>find()</kbd> busca descendientes dentro de una seleccion ya hecha.
+                    </li>
+                    <li>
+                        Es util para evitar interferencias y manipular elementos dentro de secciones especificas del DOM.
+                    </li>
+                </ul>
+
+                <p class="content__note">
+                    Objetivo: usar contextos para hacer selectores mas precisos y eficientes.
+                </p>
+
+            </div>
+
+        </article>
+
+    </section>
+
+    <!--  -----  Práctica  -----  -->
+    <section class="main__section-practica">
+
+
+        <header id="principal">
+
+            <h3 class="grande">
+                h3 con clase grande, hijo de header con id principal 
+                <span> span dentro del h3 </span>
+            </h3>
+
+            <div>
+                div hermano de h3, hijo de header con id principal
+                <span class="grande">
+                    span con clase grande dentro del div
+                </span>
+            </div>
+
+        </header>
+
+        <div class="grande">
+            div con clase grande hermano de header con id principal
+        </div>
+
+        <hr>
+
+        <div class="btn__container">
+            <button id="btn1"> $("#principal .grande").css("color", "red") </button>
+            <button id="btn2"> $("#principal > .grande").css("color", "red") </button>
+            <button id="btn3"> $(".grande", "#principal").css("background", "#ccf") </button>
+            <button id="btn4"> $("#principal").find(".grande").css("color", "blue") </button>
+        </div>
+
+    </section>
+
+    </section>
+
+
+
+
+</div>

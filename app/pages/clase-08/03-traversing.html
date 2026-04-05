@@ -1,0 +1,360 @@
+<!--  
+    *  ------------------------------------------------------------------------------------------------------------  *
+    *  -----  /03-traversing.html  --  /src/pages/clase-08-selectores-jquery-y-traversing/03-traversing.html  -----  *
+    *  ------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__container">
+
+
+    <!--  -----  INFO  -----  -->
+    <section class="main__section-info">
+
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="Que es jQuery">
+                Clase 8 - 3. Traversing en jQuery
+            </h2>
+
+        </header>
+
+        <article class="section__content">
+
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    Traversing en jQuery
+                </h3>
+
+                <p class="content__text">
+                    Este ejercicio cubre los metodos de <strong>traversing</strong> de jQuery que permiten
+                    navegar el DOM: recorrer padres, hijos, hermanos y elementos relacionados.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        <kbd>children()</kbd> / <kbd>parent()</kbd> / <kbd>parents()</kbd>: navegar hacia arriba o abajo un nivel.
+                    </li>
+                    <li>
+                        <kbd>find()</kbd> / <kbd>siblings()</kbd>: buscar descendientes a cualquier nivel o hermanos.
+                    </li>
+                    <li>
+                        Los botones disparan acciones selectivas para visualizar cada tipo de traversing.
+                    </li>
+                </ul>
+
+                <p class="content__note">
+                    Objetivo: comprender todos los metodos de traversing para navegar relaciones en el DOM.
+                </p>
+
+            </div>
+
+        </article>
+
+
+    <!--  -----  Práctica  -----  -->
+    <section class="main__section-practica section__content--btns">
+
+        <!--  -----  Botón 1  -----  -->
+        <button 
+            id="btn1" 
+            class="btn__action"
+            title="Selecciona los hijos de 'p', colorea de rojo, recorre con 'each' y muestra en consola"
+        >
+            Selecciona los hijos de 'p', colorea de rojo,
+            recorre con 'each' y muestra en consola
+        </button>
+
+        <!--  -----  Botón 2  -----  -->
+        <button 
+            id="btn2" 
+            class="btn__action" 
+            title="Selecciona los Hermanos de 'p', colorea de verde"
+        >
+            Selecciona los Hermanos de 'p', colorea de verde
+        </button>
+
+
+        <!--  -----  Botón 3  -----  -->
+        <button 
+            id="btn3" 
+            class="btn__action" 
+            title="Selecciona los Hermanos de 'p' que sean etiquetas 'div', colorea de naranja"
+        >
+            Selecciona los Hermanos de 'p' que sean etiquetas 'div', colorea de naranja
+        </button>
+
+
+        <!--  -----  Botón 4  -----  -->
+        <button 
+            id="btn4" 
+            class="btn__action"
+            title="Selecciona los Hermanos de 'p' que sean etiquetas 'div', pintar de morado menos el div con id = undiv"
+        >
+            Selecciona los Hermanos de 'p' que sean etiquetas 'div',
+            pintar de morado menos el div con id = undiv
+        </button>
+
+
+
+        <!--  -----  Botón 5  -----  -->
+
+        <button 
+            id="btn5" 
+            class="btn__action" 
+            title="Selecciona las tablas, luego encuentra los elementos con clase 'miclase' dentro de las tablas y colorea su    
+                   fondo de naranja. Luego encuentra el primer 'tr' dentro de las tablas y colorea su fondo de azul"
+        >
+            Selecciona las tablas, luego encuentra los elementos
+            con clase 'miclase' dentro de las tablas y colorea su
+            fondo de naranja. Luego encuentra el primer 'tr' dentro
+            de las tablas y colorea su fondo de azul.
+        </button>
+
+
+        <!--  -----  Botón 6  -----  -->
+        <button 
+            id="btn6" 
+            class="btn__action" 
+            title="Selecciona todos los 'td', luego filtra los que tienen la clase 'c2' y les cambia el fondo a gris"
+        >
+            Selecciona todos los 'td', luego filtra los que tienen la clase 'c2'
+            y les cambia el fondo a gris
+        </button>
+
+
+        <!--  -----  Botón 7  -----  -->
+        <button 
+            id="btn7" 
+            class="btn__action" 
+            title="Forma 1 - Selecciona el 'li' con clase 'miclase', luego sube a su padre 'ul',y finalmente accede a la división con texto 'división amiga!!',
+                   que es hermana del 'ul' y le cambia el color a #3f9"
+        >
+            Forma 1 - Selecciona el 'li' con clase 'miclase', luego sube a su padre 'ul',
+            y finalmente accede a la división con texto 'división amiga!!',
+            que es hermana del 'ul' y le cambia el color a #3f9
+        </button>
+
+
+        <!--  -----  Botón 8  -----  -->
+        <button 
+            id="btn8" 
+            class="btn__action" 
+            title="Forma 2 -  de hacer lo mismo que btn7, pero usando 'parents' en vez de 'parent'. Selecciona el 'li' con clase 'miclase', 
+                   luego sube a su padre 'div', y finalmente accede a la división con texto 'división amiga!!',que es hermana del 'div' y 
+                   le cambia el color a #3f9"
+        >
+            Forma 2 - Selecciona el 'li' con clase 'miclase', luego sube a su padre 'div',
+            y finalmente accede a la división con texto 'división amiga!!',
+            que es hermana del 'div' y le cambia el color a #3f9
+        </button>
+
+
+        <!--  -----  Botón 9  -----  -->
+        <button 
+            id="btn9" 
+            class="btn__action" 
+            title="Buscar las negritas de las ul y colorearlas de rojo"
+        >
+            Buscar las negritas de las ul y colorearlas de rojo
+        </button>
+
+        <!--  -----  Botón 10  -----  -->
+        <button 
+            id="btn10" 
+            class="btn__action" 
+            title="Ocultar los elementos de ul y li con la clase .milista"
+        >
+            Ocultar los elementos de ul y li con la clase .milista
+        </button>
+
+
+        <!--  -----  Botón 11  -----  -->
+        <button 
+            id="btn11" 
+            class="btn__action" 
+            title="Cambiar estilos a los ul con la clase .milista"
+        >
+            Cambiar estilos a los ul con la clase .milista
+        </button>
+
+        <!--  -----  Botón 12  -----  -->
+        <button 
+            id="btn12" 
+            class="btn__action" 
+            title="Border a los elementos cuyo id empieze por la palabra id"
+        >
+            Border a los elementos cuyo id empieze por la palabra id
+        </button>
+
+    </section>
+
+
+
+    <!--  -----  Contenido  -----  -->
+    <section class="main__section-practica">
+
+
+        <!--  -----  Párrafo  -----  -->
+        <p>
+            <b> El unico párrafo que hay. Al mismo nivel que las listas y los divs </b>
+            <span class="sp">
+                Span en el párrafo
+            </span>
+            esto está fuera de span
+            <b> y esto en negrita </b>
+        </p>
+
+
+        <!--  -----  Lista  -----  -->
+        <ul>
+
+            <li> Li 1 de la lista UL </li>
+
+            <li class="milista">
+                <b> Li 2 de la lista UL con clase .milista </b>
+            </li>
+
+            <li> Li 3 de la lista UL </li>
+
+            <li>
+
+                <ul>
+                    <li id="id1" class="milista">
+                        Li 1 con id1 clase .milista
+                        <br>
+                        Esto ya es una sublista dentro de la lista principal
+                    </li>
+                    <li id="id2"> Li 2 con id2 </li>
+                    <li id="id3"> Li 3 con id3 </li>
+                    <li> Li 4 sin id ni clase </li>
+                </ul>
+
+                <ul class="milista">
+
+                    <li>
+                        Li 1 de Otra sublista con clase .milista, sin id
+                        <br>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente impedit quia qui
+                        earum, atque quibusdam odit suscipit porro. Temporibus, tempore accusamus odit
+                        tenetur ipsam? Assumenda, quaerat. Velit deserunt, dolores voluptates.
+                    </li>
+
+                    <li>
+                        Li 2 de la sublista con clase .milista, sin id Ea perspiciatis maiores,
+                        soluta laboriosam aut? Exercitationem ea non similique dicta praesentium
+                        nostrum vitae mollitia repellendus eum quos eveniet facere quam fugit facilis
+                        delectus commodi, hic, voluptatibus vero earum placeat.
+                    </li>
+
+                    <li>
+                        Li 3 de la sublista con clase .milista, sin id Quam voluptates expedita reprehenderit
+                        doloremque soluta quidem. Adipisci porro, rem, distinctio minus deserunt eligendi itaque
+                        laborum accusantium quod tempore dolor mollitia totam quibusdam beatae ullam odio quasi
+                        repellat maxime ad?
+                    </li>
+
+                </ul>
+
+            </li>
+
+        </ul>
+
+
+        <!--  -----  División 1  -----  -->
+        <div>
+
+            <b> División 1 </b>
+
+            <ul class="milista">
+
+                <li> Elem1 </li>
+
+                <li>
+                    <i> Elem2 </i>
+                    pongo otra cosa
+                    <b> en negrita de nuevo </b>
+                </li>
+
+                <li class="miclase"> Elem3 </li>
+
+                <li>
+                    In sed necessitatibus facere, iusto quia odio explicabo praesentium itaque autem quo
+                    voluptatibus esse, magnam, asperiores labore totam sunt pariatur debitis a.
+                </li>
+
+                <li>
+                    Lorem ipsum
+                    <span class="milista"> dolor </span>
+                    sit amet, consectetur adipisicing elit.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!--  -----  División 2  -----  -->
+        <div>
+            <b> División 2 - División amiga!! </b>
+        </div>
+
+
+        <!--  -----  División 3  -----  -->
+        <div>
+
+            <b> División 3 </b>
+            <br>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil nesciunt, fugit ipsum ullam esse
+            culpa repellat a fugiat totam consequatur laborum autem alias, perspiciatis repellendus cupiditate,
+            aspernatur aliquid enim harum!.
+
+            <table border=5>
+                <tr>
+                    <td> 1.1 </td>
+                    <td class="miclase"> 1.2 </td>
+                    <td> 1.3 </td>
+                    <td> 1.4 </td>
+                </tr>
+                <tr>
+                    <td class="c2"> 2.1 </td>
+                    <td> 2.2 </td>
+                    <td class="miclase"> 2.3 </td>
+                    <td> 2.4 </td>
+                </tr>
+                <tr>
+                    <td> 3.1 </td>
+                    <td class="c2"> 3.2 </td>
+                    <td> 3.3 </td>
+                    <td> 3.4 </td>
+                </tr>
+            </table>
+        </div>
+
+
+        <!--  -----  División 4  -----  -->
+        <div>
+            <b> División 4 </b>
+            Esta es otra
+            <span> división </span>
+        </div>
+
+        <!--  -----  División 5 - con id = undiv  -----  -->
+        <div id="undiv">
+            <b> División 5 </b>
+            Esta es otra división que tiene id
+            <span class="sp"> "undiv" </span>
+        </div>
+
+
+    </section>
+
+
+    </section>
+
+
+</div>

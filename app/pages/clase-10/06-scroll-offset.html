@@ -1,0 +1,100 @@
+<!--  
+    *  -----------------------------------------------------------------------------------  *
+    *  -----  /06-scroll-offset.html  --  /src/pages/clase-10/06-scroll-offset.html  -----  *
+    *  -----------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__container">
+
+
+    <!--  -----  INFO  -----  -->
+    <section class="main__section-info">
+
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="6. Scroll / Offset">
+                Clase 10 - 6. Scroll / Offset
+            </h2>
+
+        </header>
+
+        <article class="section__content">
+
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    Scroll / Offset - Posicion y desplazamiento
+                </h3>
+
+                <p class="content__text">
+                    Estos metodos permiten obtener y manipular la posicion de elementos dentro de la ventana
+                    y el desplazamiento de la pagina (scroll).
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        <kbd>offset()</kbd> devuelve la distancia del elemento desde el borde del documento.
+                    </li>
+                    <li>
+                        <kbd>scrollLeft()</kbd> / <kbd>scrollTop()</kbd> acceden/modifican la posicion de scroll.
+                    </li>
+                    <li>
+                        Se utiliza para detectar si elementos estan visibles, animar scroll, o crear efectos parallax.
+                    </li>
+                </ul>
+
+                <p class="content__note">
+                    Objetivo: controlar el posicionamiento y desplazamiento para interactividad avanzada.
+                </p>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!--  -----  Práctica  -----  -->
+    <section class="main__section-practica">
+
+        <div id=output>
+
+        </div>
+
+        <div class="btn__container">
+            
+            <button id="btnCapa"> 
+                Animacion <br> Capa 
+            </button>
+            
+            <button id="btnScroll"> 
+                Scroll hasta <br> el Párrafo 
+            </button>
+            
+            <button id="btnScrollAnimation"> 
+                Animacion para hacer scroll <br> hasta el párrafo
+            </button>
+        </div>
+
+
+        <p id="parrafo"> 
+            Párrafo, click para saber el scroll actual de la página 
+        </p>
+
+
+        <div class="capa" title="capa">
+            
+            <div class="children-capa" id="childrenCapa" title="Children Capa"> 
+                Children Capa 
+            </div>
+            
+        </div>
+
+    </section>
+
+
+</div>
