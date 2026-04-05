@@ -5,6 +5,13 @@
 */
 
 
+/** @typedef {import('../../../../types/index.js').ConfigOptionsSPA} ConfigOptionsSPA */
+/** @typedef {import('../../../../types/index.js').RouteManifest} RouteManifest */
+/** @typedef {import('../../../../types/index.js').RouteComponents} RouteComponents */
+/** @typedef {import('../../../../types/index.js').RouteScript} RouteScript */
+/** @typedef {import('../../../../types/index.js').RouteStyle} RouteStyle */
+/** @typedef {import('../../../../types/index.js').Route} Route */
+
 
 /**
  *  ----------------------------------------------------
@@ -71,13 +78,18 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
             const settings = $.extend(
                 {
-                    /** @type {Route[]} */
-                    routes: [],
+                    /** @type {RouteManifest[]} */
+                    routeManifest: [],
+                    routeModulesBase: '',
                     base: '',
                     draggable: false
                 },
                 options
             );
+
+
+            /** @type {Map<string, Route>} - `Cache de módulos de ruta cargados con import()` */
+            const routeCache = new Map();
 
 
 
@@ -156,22 +168,73 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
 
             /**
-             * -------------------------------------------------
-             * -----  `findRouteByPath(rawPathname = '')`  -----
-             * -------------------------------------------------
-             *
-             * - Busca una ruta por pathname (normalizando base y slashes)
-             *
+             * ---------------------------------------------------------
+             * -----  `findManifestEntryByPath(rawPathname = '')`  -----
+             * ---------------------------------------------------------
+             * - Busca una entrada del manifiesto por pathname normalizado.
              * @param {string} rawPathname - `pathname crudo desde la URL o history state`
-             * @returns {Route|undefined} - `Ruta encontrada o undefined`
+             * @returns {RouteManifest|undefined} - `Entrada del manifiesto o undefined`
              */
-            const findRouteByPath = (rawPathname = '') => {
+            const findManifestEntryByPath = (rawPathname = '') => {
 
-                /** @type {string} - `Ruta normalizada para buscar en settings.routes` */
+                /** @type {string} - `Ruta normalizada para buscar en settings.routeManifest` */
                 const normalized = normalize(rawPathname);
 
-                //  -----  Buscar ruta que coincida con el pathname normalizado  -----
-                return settings.routes.find(r => normalize(r.path) === normalized);
+                return (settings.routeManifest || []).find(entry => normalize(entry.path) === normalized);
+
+            };
+
+
+            /**
+             * ----------------------------------------------
+             * -----  `findManifestEntryById(routeId)`  -----
+             * ----------------------------------------------
+             * - Busca una entrada del manifiesto por id.
+             * @param {string} routeId - `Id de la ruta a buscar`
+             * @returns {RouteManifest|undefined} - `Entrada del manifiesto o undefined`
+             */
+            const findManifestEntryById = (routeId) => {
+
+                return (settings.routeManifest || []).find(entry => entry.id === routeId);
+
+            };
+
+
+            /**
+             * ----------------------------------------
+             * -----  `loadRouteModule(file)`  -----
+             * ----------------------------------------
+             * - Importa dinámicamente un módulo de ruta y lo cachea.
+             * @async
+             * @param {string} file - `Nombre del archivo de ruta sin extensión`
+             * @returns {Promise<Route|undefined>} - `Ruta importada o undefined`
+             */
+            const loadRouteModule = async (file) => {
+
+                if (routeCache.has(file))
+                    return routeCache.get(file);
+
+                try {
+
+                    /** @type {string} - `URL del módulo de ruta` */
+                    const moduleUrl = `${settings.routeModulesBase}/${file}.js`;
+
+                    /** @type {Record<string, unknown>} - `Módulo ESM importado` */
+                    const mod = await import(moduleUrl);
+
+                    /** @type {Route|undefined} - `Primer export del módulo` */
+                    const route = /** @type {Route|undefined} */ (Object.values(mod)[0]);
+
+                    if (route)
+                        routeCache.set(file, route);
+
+                    return route;
+
+                } catch (error) {
+
+                    console.error(`Error importando modulo de ruta: ${file}`, error);
+                    return undefined;
+                }
 
             };
 
@@ -180,17 +243,15 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
              * -----------------------------------
              * -----  `findNotFoundRoute()`  -----
              * -----------------------------------
-             *
-             * - Obtiene la ruta 404 usando id o path para evitar dependencia de un solo identificador.
-             *
-             * @returns {Route|undefined} - `Ruta 404 encontrada o undefined`
+             * - Obtiene la entrada 404 desde el manifiesto.
+             * @returns {RouteManifest|undefined} - `Entrada 404 o undefined`
              */
             const findNotFoundRoute = () => {
 
-                return settings.routes.find(r =>
-                    r?.id === '404NotFoundPage' ||
-                    normalize(r?.path) === '404' ||
-                    /404/i.test(String(r?.id || ''))
+                return (settings.routeManifest || []).find(entry =>
+                    entry?.id === '404NotFoundPage' ||
+                    normalize(entry?.path) === '404' ||
+                    /404/i.test(String(entry?.id || ''))
                 );
 
             };
@@ -203,16 +264,24 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
              * - Carga la ruta 404 si existe.
              * @async
              * @param {'init'|'click'|'popstate'} source - `Origen de la navegación`
-             * @returns {Promise<Route|undefined>} - `Ruta cargada o undefined si no existe`
+             * @returns {Promise<Route|undefined>} - `Ruta 404 cargada o undefined`
              */
 
             const loadNotFoundRoute = async (source) => {
 
-                /** @type {Route|undefined} - `Ruta 404` */
-                const route404 = findNotFoundRoute();
+                /** @type {RouteManifest|undefined} - `Entrada 404` */
+                const entry404 = findNotFoundRoute();
+
+                if (!entry404) {
+                    console.error(`No existe ruta 404 configurada (source: ${source}).`);
+                    return undefined;
+                }
+
+                /** @type {Route|undefined} - `Ruta 404 importada dinámicamente` */
+                const route404 = await loadRouteModule(entry404.file);
 
                 if (!route404) {
-                    console.error(`No existe ruta 404 configurada (source: ${source}).`);
+                    console.error(`No se pudo importar la ruta 404 (source: ${source}).`);
                     return undefined;
                 }
 
@@ -1055,7 +1124,8 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 hrefsToLoad.forEach(href => {
 
                     // Evitar recargar si ya existe
-                    if (head.querySelector(`link[data-page-style="true"][href*="${href}"]`)) return;
+                    if (head.querySelector(`link[data-page-style="true"][href*="${href}"]`)) 
+                        return;
 
                     /** @type {HTMLLinkElement} - `Preload para no bloquear repaints` */
                     const preload = document.createElement('link');
@@ -1231,49 +1301,54 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 /** @type {string} - `Ruta normalizada actual (sin base ni barra final)` */
                 const initialPath = window.location.pathname;
 
-                /** @type {Route|undefined} - `Ruta inicial encontrada en settings.routes` */
-                const route = findRouteByPath(initialPath);
+                /** @type {RouteManifest|undefined} - `Entrada inicial del manifest` */
+                const entry = findManifestEntryByPath(initialPath);
 
-                /** @type {Route|undefined} - `Ruta final a cargar al iniciar (ruta encontrada o 404)` */
-                const initialRoute = route || findNotFoundRoute();
+                if (entry) {
 
+                    loadRouteModule(entry.file)
+                        .then((route) => {
 
-                //  -----  Cargar la ruta inicial o la 404  -----
-                if (route)
+                            if (route)
+                                return loadContent(route).then(() => route);
 
-                    loadContent(route)
+                            return loadNotFoundRoute('init');
+                        })
+                        .then((route) => {
 
-                        .catch(
+                            if (!route) {
+                                history.replaceState(
+                                    { id: null, path: window.location.pathname },
+                                    '',
+                                    window.location.pathname
+                                );
+                                return;
+                            }
 
-                            /** @param {Error} err */
-                            err => console.error('Error cargando ruta inicial', err)
-                        );
+                            const initialPathname = buildPathname(route.path || entry.path || '');
 
-                //  -----  Si no se encuentra la ruta, cargar la 404  -----
-                else
-                    loadNotFoundRoute('init');
+                            history.replaceState(
+                                { id: route.id, path: initialPathname, routeFile: entry.file },
+                                '',
+                                initialPathname
+                            );
+                        })
+                        .catch((err) => {
 
+                            console.error('Error cargando ruta inicial', err);
+                            loadNotFoundRoute('init');
+                        });
 
-                //  -----  Reemplazamos el state inicial con un objeto normalizado  -----
-                if (initialRoute) {
-
-                    /** @type {string} - `Pathname final inicial (ruta encontrada o 404)` */
-                    const initialPathname = buildPathname(initialRoute.path || '');
-
-                    history.replaceState(
-                        { id: initialRoute?.id || null, path: initialPathname },
-                        '',
-                        initialPathname
-                    );
-
-                } else {
-
-                    history.replaceState(
-                        { id: null, path: window.location.pathname },
-                        '',
-                        window.location.pathname
-                    );
+                    return;
                 }
+
+                loadNotFoundRoute('init');
+
+                history.replaceState(
+                    { id: null, path: window.location.pathname },
+                    '',
+                    window.location.pathname
+                );
 
             };
 
@@ -1292,34 +1367,43 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 -----  Enlaces: a[data-id] => data-id corresponde a route.id  -----
                 -------------------------------------------------------------------
             */
-            $(document).on('click', 'a[data-id]', function (event) {
+            $(document).on('click', 'a[data-id]', async function (event) {
 
                 event.preventDefault();
 
                 /** @type {string} - `ID de la ruta desde el atributo data-id` */
                 const dataId = $(this).data('id');
 
-                /** @type {Route|undefined} - `Ruta correspondiente al data-id` */
-                const route = settings.routes.find(r => r.id === dataId);
+                /** @type {RouteManifest|undefined} - `Entrada del manifest correspondiente al data-id` */
+                const entry = findManifestEntryById(String(dataId));
 
 
                 //  -----  ocultar menus tipo navbar compact  -----
                 $('.navbar__container').slideUp();
 
                 //  -----  Cargar la ruta si existe  -----
-                if (route)
+                if (entry) {
 
-                    loadContent(route)
+                    try {
 
-                        .catch(
+                        const route = await loadRouteModule(entry.file);
 
-                            /** @param {Error} err */
-                            err => console.error('Error loadContent (click):', err)
-                        );
+                        if (!route) {
+                            await loadNotFoundRoute('click');
+                            return;
+                        }
+
+                        await loadContent(route);
+
+                    } catch (err) {
+
+                        console.error('Error loadContent (click):', err);
+                    }
+                }
 
                 //  -----  Si no existe la ruta, cargar la 404  -----
                 else
-                    loadNotFoundRoute('click');
+                    await loadNotFoundRoute('click');
 
             });
 
@@ -1331,28 +1415,37 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 -----  popstate: manejar atrás / adelante  -------
                 ---------------------------------------------------
             */
-            window.addEventListener('popstate', (e) => {
+            window.addEventListener('popstate', async (e) => {
 
                 /** @type {string} - `Ruta normalizada desde el state o la URL actual; usar state.path si está presente, si no usar location.pathname` */
                 const raw = e.state?.path ?? window.location.pathname;
 
-                /** @type {Route|undefined} - `Ruta correspondiente a la URL actual` */
-                const route = findRouteByPath(raw);
+                /** @type {RouteManifest|undefined} - `Entrada de manifest para la URL actual` */
+                const entry = findManifestEntryByPath(raw);
 
                 //  ----- cargamos la ruta sin empujar otra entrada en el historial  ---------
                 //  ----- loadContent(route)  -  hace pushState solo si la ruta difiere  -----
-                if (route)
+                if (entry) {
 
-                    loadContent(route)
+                    try {
 
-                        .catch(
+                        const route = await loadRouteModule(entry.file);
 
-                            /** @param {Error} err */
-                            err => console.error('Error loadContent (popstate):', err)
-                        );
+                        if (!route) {
+                            await loadNotFoundRoute('popstate');
+                            return;
+                        }
+
+                        await loadContent(route);
+
+                    } catch (err) {
+
+                        console.error('Error loadContent (popstate):', err);
+                    }
+                }
 
                 else
-                    loadNotFoundRoute('popstate');
+                    await loadNotFoundRoute('popstate');
 
             });
 

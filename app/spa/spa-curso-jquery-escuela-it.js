@@ -5,26 +5,15 @@
 */
 
 
-import {
-
-    routes00Home,
-    routes404NotFoundPage,
-    routesClase01,
-    routesClase02,
-    routesClase03,
-    routesClase04,
-    routesClase05,
-    routesClase06,
-    routesClase07,
-    routesClase08,
-    routesClase09,
-    routesClase10,
-    routesClase11,
-    routesClase12
-
-} from '../routes/index.js';    
+import { routeManifest } from '../routes/route-manifest.js';
 
 
+
+/** @typedef {import('../../types').ConfigOptionsSPA} ConfigOptionsSPA */
+
+
+/** @type {string} - `Base del proyecto` */
+const base = '/04-escuela.it/curso-jquery-escuela.it';
 
 /**
  *  -------------------------------------
@@ -35,54 +24,28 @@ import {
  * - Configura las rutas del proyecto y las pasa al plugin dinámico
  *   `spaWithMethodLoadFromJQuery`.
  * - Se encarga únicamente de:
- *   -   ✔ cargar las rutas
+ *   -   ✔ cargar las rutas    
  *   -   ✔ pasar la configuración al plugin
  *   -   ✔ inicializar la SPA
  */
     
 export const spaCursoJQueryEscuelaIt = () => {
 
+    
     console.log('\n');
     console.warn('-----  spa-curso-jquery-escuela-it.js cargado  -----');
     console.log('\n');
 
-    /**
-     * - Array que combina todas las rutas definidas para la aplicación SPA.
-     * @type {Route[]}
-     */
-    const allRoutes = [
-        ...routes00Home,
-        ...routes404NotFoundPage,
-        ...routesClase01,
-        ...routesClase02,
-        ...routesClase03,
-        ...routesClase04,
-        ...routesClase05,
-        ...routesClase06,
-        ...routesClase07,
-        ...routesClase08,
-        ...routesClase09,
-        ...routesClase10,
-        ...routesClase11,
-        ...routesClase12
-    ];
 
-    /**
-     * - Contenedor raíz de la SPA
-     * @type {JQuery<HTMLDivElement>}
-     */
+    /** @type {JQuery<HTMLDivElement>} - `-----  Contenedor raíz de la SPA  -----`     */
     const $layout = $('#layout');
 
-    /**
-     * - Opciones para el plugin SPA
-     * @example - route.components = { "#selector": "archivo.html" }
-     *
-     * @type {ConfigOptionsSPA}
-     */
 
+    /** @type {ConfigOptionsSPA} - `-----  Opciones de configuración para la SPA  -----` */
     const optionsPluginsSPA = {
-        routes: allRoutes,
-        base: '/04-escuela.it/curso-jquery-escuela.it',
+        routeManifest,
+        routeModulesBase: `${base}/app/routes`,
+        base,
         draggable: true
     };
 
