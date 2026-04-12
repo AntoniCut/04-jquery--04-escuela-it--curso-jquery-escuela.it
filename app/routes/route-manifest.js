@@ -11,7 +11,9 @@
  * @type {import('../../types/index.js').RouteManifest[]}
  */
 export const routeManifest = [
-    { id: '404NotFoundPage', path: '404', file: 'route-404-not-found-page' },
+
+    { id: 'home', path: '', file: 'route-home' },
+    
     { id: 'clase01', path: 'clase01-que-es-jquery', file: 'route-clase01' },
     { id: 'clase02', path: 'clase02-utilizar-jquery-en-la-actualidad', file: 'route-clase02' },
     { id: 'clase03', path: 'clase03-practica-primeros-pasos-con-jquery', file: 'route-clase03' },
@@ -57,5 +59,14 @@ export const routeManifest = [
     { id: 'clase12MenuContextual', path: 'clase12-eventos-teclado-raton/02-menu-contextual-personalizado', file: 'route-clase12-menu-contextual' },
     { id: 'clase12MovimientoRaton', path: 'clase12-eventos-teclado-raton/01-seguir-movimiento-del-raton', file: 'route-clase12-movimiento-raton' },
     { id: 'clase12TextareaCuentaCaracteres', path: 'clase12-eventos-teclado-raton/03-textarea-cuenta-caracteres', file: 'route-clase12-textarea-cuenta-caracteres' },
-    { id: 'home', path: '', file: 'route-home' },
+    
+    { id: 'clase13', path: 'clase13-efectos-y-animaciones', file: 'route-clase13' },
+    { id: 'clase13Toggle', path: 'clase13-efectos-y-animaciones/toggle', file: 'route-clase13-toggle' },
+    { id: 'clase13Animate', path: 'clase13-efectos-y-animaciones/animate', file: 'route-clase13-animate' },
+    { id: 'clase13PluginEase', path: 'clase13-efectos-y-animaciones/plugin-ease', file: 'route-clase13-plugin-ease' },
+    { id: 'clase13PluginEaseAnimateColors', path: 'clase13-efectos-y-animaciones/plugin-ease-animate-colors', file: 'route-clase13-plugin-ease-animate-colors' },
+    { id: 'clase13PluginEaseAnimateColorsOptions', path: 'clase13-efectos-y-animaciones/plugin-ease-animate-colors-options', file: 'route-clase13-plugin-ease-animate-colors-options' },
+  
+    { id: '404NotFoundPage', path: '404', file: 'route-404-not-found-page' }
+    
 ];

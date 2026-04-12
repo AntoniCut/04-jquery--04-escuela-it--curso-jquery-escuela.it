@@ -7,7 +7,7 @@
 
 @use './_variables' as var;
 
-//  -----  mixin - telefono - @media(min-width: 768px)  -----  
+//  -----  mixin - telefono - @media(min-width: 480px)  -----  
 @mixin mobile {
     @media(min-width: var.$mobile) {
         @content;
@@ -19,6 +19,7 @@
 @mixin tablet {
     @media(min-width: var.$tablet) {
         @content;
+        
     }
 }
 

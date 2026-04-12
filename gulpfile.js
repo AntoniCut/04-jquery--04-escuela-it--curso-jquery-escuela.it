@@ -8,7 +8,7 @@
 import gulp from "gulp";
 
 import gulpSass from 'gulp-sass';
-import dartSass from 'sass';
+import * as dartSass from 'sass';
 import { exec } from 'node:child_process';
 
 import { deleteAsync } from "del";

@@ -1,0 +1,40 @@
+/*
+    *  ---------------------------------------------------------------------------------  *
+    *  -----  /01-toggle.scss  --  /src/styles/scss/pages/clase-13/01-toggle.scss  -----  *
+    *  ---------------------------------------------------------------------------------  *
+*/
+
+
+.main__section-practica {
+    min-height: 40rem;
+}
+
+.link-anim {
+    width: 10rem;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #4a84ee;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 300ms linear;
+
+    &:hover {
+        background-color: #2859b5;
+    }
+}
+
+
+#anim {
+    width: 30rem;
+    height: 15rem;
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #f86;
+}

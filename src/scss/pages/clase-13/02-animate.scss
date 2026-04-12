@@ -1,0 +1,40 @@
+/*
+    *  -----------------------------------------------------------------------------------  *
+    *  -----  /02-animate.scss  --  /src/styles/scss/pages/clase-13/02-animate.scss  -----  *
+    *  -----------------------------------------------------------------------------------  *
+*/
+
+
+.main__section-practica {
+    min-height: 40rem;
+}
+
+.main__section-practica form {
+    width: 30rem;
+    background-color: #ddd;
+    padding: 1rem;
+}
+
+.main__section-practica div.lineaform {
+    display: flex;
+    border: 1px solid #ccc;
+    font-size: 1.4rem;
+    padding: 1rem;
+}
+
+.main__section-practica div.lineaform.submit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__section-practica form span {
+    display: inline-block;
+    width: 50%;
+    margin-right: 1.5rem;
+}
+
+.main__section-practica form input {
+    width: 10rem;
+}

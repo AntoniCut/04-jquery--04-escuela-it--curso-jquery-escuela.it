@@ -1,0 +1,112 @@
+<!--  
+    *  -------------------------------------------------------------------------------  *
+    *  -----  /03-plugin-ease.html  --  /src/pages/clase-13/03-plugin-ease.html  -----  *
+    *  -------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__container">
+
+
+    <!--  -----  INFO  -----  -->
+    <section class="main__section-info">
+
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="3. Plugin Ease">
+                Clase 13 - 3. Plugin Ease
+            </h2>
+
+        </header>
+
+        <!--  -----  Contenido de la Sección  -----  -->
+        <article class="section__content">
+
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    Que hace este ejercicio
+                </h3>
+
+                <p class="content__text">
+                    Este ejercicio integra el plugin <strong>jQuery Easing</strong> para cambiar la curva de
+                    aceleracion de una animacion y comparar distintos comportamientos visuales.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        Se selecciona un tipo de easing desde el <kbd>select</kbd> (por ejemplo, <strong>linear</strong> o <strong>easeOutBounce</strong>).
+                    </li>
+                    <li>
+                        Se anima la capa modificando <strong>width</strong> y <strong>height</strong> usando el easing elegido.
+                    </li>
+                    <li>
+                        Al terminar, se restauran los estilos iniciales y se deja el componente listo para otra prueba.
+                    </li>
+                </ul>
+
+                <p class="content__note">
+                    <kbd> Objetivo: </kbd> aprender a aplicar curvas de easing personalizadas para mejorar la sensacion de movimiento.
+                </p>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!--  -----  Práctica  -----  -->
+    <section class="main__section-practica">
+
+        <div class="btn__container">
+
+            <select id="easingSelect">
+                <option value="linear"> Linear </option>
+                <option value="swing"> Swing </option>
+                <option value="easeInQuad"> Ease In Quad </option>
+                <option value="easeOutQuad"> Ease Out Quad </option>
+                <option value="easeInOutQuad"> Ease In Out Quad </option>
+                <option value="easeInCubic"> Ease In Cubic </option>
+                <option value="easeOutCubic"> Ease Out Cubic </option>
+                <option value="easeInOutCubic"> Ease In Out Cubic </option>
+                <option value="easeInQuart"> Ease In Quart </option>
+                <option value="easeOutQuart"> Ease Out Quart </option>
+                <option value="easeInOutQuart"> Ease In Out Quart </option>
+                <option value="easeInSine"> Ease In Sine </option>
+                <option value="easeOutSine"> Ease Out Sine </option>
+                <option value="easeInOutSine"> Ease In Out Sine </option>
+                <option value="easeInExpo"> Ease In Expo </option>
+                <option value="easeOutExpo"> Ease Out Expo </option>
+                <option value="easeInOutExpo"> Ease In Out Expo </option>
+                <option value="easeInQuint"> Ease In Quint </option>
+                <option value="easeOutQuint"> Ease Out Quint </option>
+                <option value="easeInOutQuint"> Ease In Out Quint </option>
+                <option value="easeInCirc"> Ease In Circ </option>
+                <option value="easeOutCirc"> Ease Out Circ </option>
+                <option value="easeInOutCirc"> Ease In Out Circ </option>
+                <option value="easeInElastic"> Ease In Elastic </option>
+                <option value="easeOutElastic"> Ease Out Elastic </option>
+                <option value="easeInOutElastic"> Ease In Out Elastic </option>
+                <option value="easeInBack"> Ease In Back </option>
+                <option value="easeOutBack"> Ease Out Back </option>
+                <option value="easeInOutBack"> Ease In Out Back </option>
+                <option value="easeInBounce"> Ease In Bounce </option>
+                <option value="easeOutBounce"> Ease Out Bounce </option>
+                <option value="easeInOutBounce"> Ease In Out Bounce </option>
+            </select>
+
+            <a href="#" id="linkAnim"> Animar </a>
+
+        </div>
+
+        <div id="capa"> Esto se va a animar con el pluging Easing </div>
+
+
+    </section>
+
+
+</div>

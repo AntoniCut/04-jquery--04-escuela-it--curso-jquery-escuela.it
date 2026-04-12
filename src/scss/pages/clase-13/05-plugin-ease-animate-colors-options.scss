@@ -1,0 +1,60 @@
+/*
+    *  -----------------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /05-plugin-ease-animate-colors-options.scss  --  /src/styles/scss/pages/clase-13/05-plugin-ease-animate-colors-options.scss  -----  *
+    *  -----------------------------------------------------------------------------------------------------------------------------------------  *
+*/
+
+
+.main__section-practica {
+    height: 50rem;
+}
+
+.main__section-practica select {
+    width: 20rem;
+    border-radius: 5px;
+    padding-left: 2rem;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+
+    &:hover {
+        background-color: #cfd6e4;
+    }
+}
+
+
+.main__section-practica select option {
+    text-align: left;
+}
+
+.main__section-practica a {
+    width: 10rem;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #4a84ee;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 300ms linear;
+
+    &:hover {
+        background-color: #8db2f7;
+    }
+}
+
+#capa{
+    width: 25rem;
+    height: 15rem;
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: #f86;
+}
+
+
+
