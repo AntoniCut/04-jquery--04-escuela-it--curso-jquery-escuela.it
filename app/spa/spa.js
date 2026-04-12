@@ -1,24 +1,22 @@
 /*
-    *  ------------------------------------------------------------------------------------------  *
-    *  -----  /spa-curso-jquery-escuela-it.js  --  /src/spa/spa-curso-jquery-escuela-it.js  -----  *
-    *  ------------------------------------------------------------------------------------------  *
+    *  ------------------------------------------  *
+    *  -----  /spa.js  --  /src/spa/spa.js  -----  *
+    *  ------------------------------------------  *
 */
 
 
+import { base } from '../main.js';
 import { routeManifest } from '../routes/route-manifest.js';
 
 
 
-/** @typedef {import('../../types').ConfigOptionsSPA} ConfigOptionsSPA */
+/** @typedef {import('../../types/index.js').ConfigOptionsSPA} ConfigOptionsSPA */
 
-
-/** @type {string} - `Base del proyecto` */
-const base = '/04-escuela.it/curso-jquery-escuela.it';
 
 /**
- *  -------------------------------------
- *  ----- `spaCursoJQueryEscuelaIt` -----
- *  -------------------------------------
+ *  -------------------
+ *  ----- `spa()` -----
+ *  -------------------
  * 
  * - Inicializa la lógica SPA usando jQuery.
  * - Configura las rutas del proyecto y las pasa al plugin dinámico
@@ -29,11 +27,11 @@ const base = '/04-escuela.it/curso-jquery-escuela.it';
  *   -   ✔ inicializar la SPA
  */
     
-export const spaCursoJQueryEscuelaIt = () => {
+export const spa = () => {
 
     
     console.log('\n');
-    console.warn('-----  spa-curso-jquery-escuela-it.js cargado  -----');
+    console.warn('-----  spa.js cargado  -----');
     console.log('\n');
 
 

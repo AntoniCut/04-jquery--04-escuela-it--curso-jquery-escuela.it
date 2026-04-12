@@ -9,14 +9,18 @@
 import { effectLoadingPage } from './effects/effect-loading-page.js';
 import { fallbackJQueryJQueryUI } from './libs/jquery/loaders/fallback-jquery-jquery-ui.js'
 import { spaWithMethodLoadFromJQueryPlugins } from './plugins/spa-with-method-load-from-jquery/v4/jquery.spa-with-method-load-from-jquery.js';
-import { spaCursoJQueryEscuelaIt } from './spa/spa-curso-jquery-escuela-it.js';
+import { spa } from './spa/spa.js';
 
 
 //  -----  Efecto de Loading de la Página  -----
 effectLoadingPage();
 
-//spaWithMethodLoadFromJQueryPlugins();
 
+/** @type {string} - `-----  Base del proyecto  -----` */
+export const base = '/cursos/escuelait/curso-jquery-escuelait';
+
+
+//spaWithMethodLoadFromJQueryPlugins();
 //spaCursoJQueryEscuelaIt();
 
 /*
@@ -40,7 +44,7 @@ fallbackJQueryJQueryUI()
         spaWithMethodLoadFromJQueryPlugins();
 
         //  -----  Iniciar la SPA específica del sitio  -----
-        spaCursoJQueryEscuelaIt();
+        spa();
 
         //  -----  Limpiar la consola para produccion  -----
         //console.clear();

@@ -1,5 +1,5 @@
 {
-  "name": "curso-jquery-escuela.it",
+  "name": "curso-jquery-escuelait",
   "version": "1.0.0",
   "description": "Sitio web principal dedicada a tutoriales y recursos sobre jQuery.",
   "main": "index.js",
@@ -12,7 +12,8 @@
   "keywords": [
     "jquery",
     "jqueryui",
-    "curso jquery escuela.it",
+    "curso jquery de escuela.it",
+    "Miguel Ángel Alvarez",
     "tutoriales",
     "recursos",
     "javascript",
