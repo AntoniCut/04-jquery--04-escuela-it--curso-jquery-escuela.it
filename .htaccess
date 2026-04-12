@@ -1,9 +1,9 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /cursos/escuelait/curso-jquery-escuelait/
+    RewriteBase /escuelait/curso-jquery-escuelait/
     RewriteRule ^index\.html$ - [L]
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule . /cursos/escuelait/curso-jquery-escuelait/index.html [L]
+    RewriteRule . /escuelait/curso-jquery-escuelait/index.html [L]
 </IfModule>
 
