@@ -17,7 +17,7 @@ effectLoadingPage();
 
 
 /** @type {string} - `-----  Base del proyecto  -----` */
-export const base = '/cursos/escuelait/curso-jquery-escuelait';
+export const base = '/escuelait/curso-jquery-escuelait';
 
 
 //spaWithMethodLoadFromJQueryPlugins();

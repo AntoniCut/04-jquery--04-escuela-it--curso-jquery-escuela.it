@@ -499,6 +499,125 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
 
 
+            /*
+                *  ----------------------------------------------------------------------------------------------------  *
+                *  -----  Funciones auxiliares para manejo de URLs en HTML inyectado (src, href, poster, srcset)  -----  *
+                *  ----------------------------------------------------------------------------------------------------  *
+            */
+
+
+            /**
+             * -----------------------------------------------------
+             * -----  `resolveInjectedAssetUrl(value, baseUrl)`  -----
+             * -----------------------------------------------------
+             * - Normaliza rutas de recursos dentro de HTML inyectado.
+             * - Soporta rutas relativas al archivo HTML fuente y rutas absolutas prefijadas con settings.base.
+             * @param {string} value - Valor del atributo (src, href, poster, etc.)
+             * @param {string} baseUrl - URL del archivo HTML inyectado
+             * @returns {string}
+             */
+            const resolveInjectedAssetUrl = (value, baseUrl) => {
+
+                const raw = String(value || '').trim();
+
+                //  -----  Ignorar anchors, data URI, protocolos externos y especiales  -----
+                if (!raw || /^#|^(?:[a-z][a-z0-9+.-]*:)?\/\//i.test(raw) || /^(data|blob|mailto|tel|javascript):/i.test(raw))
+                    return value;
+
+                //  -----  Si es ruta absoluta desde raíz, prefijar base de la SPA (si aplica)  -----
+                if (raw.startsWith('/')) {
+
+                    const base = (settings.base || '').replace(/\/$/, '');
+
+                    if (!base)
+                        return raw;
+
+                    if (raw === base || raw.startsWith(`${base}/`))
+                        return raw;
+
+                    return `${base}${raw}`;
+                }
+
+                //  -----  Resolver rutas relativas contra la URL del HTML inyectado  -----
+                try {
+
+                    const resolved = new URL(raw, new URL(baseUrl, window.location.origin));
+
+                    return `${resolved.pathname}${resolved.search}${resolved.hash}`;
+
+                } catch (e) {
+                    return value;
+                }
+            };
+
+
+            /**
+             * -------------------------------------------------------
+             * -----  `rewriteInjectedDomUrls(selector, sourceUrl)`  -----
+             * -------------------------------------------------------
+             * - Reescribe URLs de recursos en el DOM ya inyectado por jQuery .load() para evitar roturas en SPA.
+             * @param {string} selector - Selector CSS del contenedor donde se inyectó el HTML.
+             * @param {string} sourceUrl - URL del archivo HTML origen.
+             * @returns {void}
+             */
+            const rewriteInjectedDomUrls = (selector, sourceUrl) => {
+
+                $(selector).find('[src],[href],[poster],[srcset]').each(function () {
+
+                    /** @type {JQuery<HTMLElement>} */
+                    const $node = $(this);
+
+                    if ($node.attr('src')) {
+                        const src = $node.attr('src');
+                        if (src)
+                            $node.attr('src', resolveInjectedAssetUrl(src, sourceUrl));
+                    }
+
+                    if ($node.attr('href')) {
+                        const href = $node.attr('href');
+                        if (href)
+                            $node.attr('href', resolveInjectedAssetUrl(href, sourceUrl));
+                    }
+
+                    if ($node.attr('poster')) {
+                        const poster = $node.attr('poster');
+                        if (poster)
+                            $node.attr('poster', resolveInjectedAssetUrl(poster, sourceUrl));
+                    }
+
+                    if ($node.attr('srcset')) {
+
+                        const srcset = $node.attr('srcset');
+
+                        if (srcset) {
+
+                            const normalized = srcset
+                                .split(',')
+                                .map((entry) => {
+
+                                    const value = entry.trim();
+
+                                    if (!value)
+                                        return value;
+
+                                    const [srcCandidate, descriptor] = value.split(/\s+/, 2);
+
+                                    const resolvedSrc = resolveInjectedAssetUrl(srcCandidate, sourceUrl);
+
+                                    return descriptor ? `${resolvedSrc} ${descriptor}` : resolvedSrc;
+                                })
+                                .join(', ');
+
+                            $node.attr('srcset', normalized);
+                        }
+                    }
+
+                });
+
+            };
+
+
+
             /**
              * ---------------------------------------------
              * -----  `loadComponentsDom(components)`  -----
@@ -578,6 +697,9 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                                 return reject(new Error(`Error al cargar ${url}`));
 
                             }
+
+                            //  -----  Reescribir rutas de recursos para que funcionen con HTML inyectado en SPA  -----
+                            rewriteInjectedDomUrls(selector, url);
 
                             //  -----  Componente cargado correctamente  -----
                             resolve(undefined);
@@ -972,7 +1094,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 const $linksThemesContainer = $('#linksThemesContainer');
 
                 /** @type {string} - `Path de las themes de jQuery UI` */
-                const pathThemes = `${settings.base}/src/libs/jquery/ui/themes`;
+                const pathThemes = `${settings.base}/app/libs/jquery/ui/themes`;
 
                 console.log('\n');
                 console.warn(`-----  jQuery UI Themes Path: ${pathThemes}  -----`);
