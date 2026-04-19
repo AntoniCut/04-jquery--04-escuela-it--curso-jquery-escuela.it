@@ -3,6 +3,8 @@
 # Node y dependencias
 node_modules/
 pnpm-lock.yaml
+.env
+.env.*
 
 # Carpeta de distribución / compilados
 dist/

@@ -1,4 +1,3 @@
-
 {
   "name": "curso-jquery-escuelait",
   "version": "1.0.0",
@@ -6,8 +5,13 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "gulp dev",
-    "build": "gulp",
+    "dev": "concurrently -k -n watch,serve -c yellow,cyan \"pnpm run dev:watch\" \"pnpm run serve:dev\"",
+    "dev:watch": "gulp dev",
+    "serve:dev": "node server/dev-server.js",
+    "server": "pnpm run serve:dev",
+    "build": "gulp build",
+    "preview": "node server/preview-server.js",
+    "add:ts-nocheck": "cross-env NODE_ENV=development node addTsNoCheck.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -28,12 +32,18 @@
   "packageManager": "pnpm@9.12.2+sha512.22721b3a11f81661ae1ec68ce1a7b879425a1ca5b991c975b074ac220b187ce56c708fe5db69f4c962c989452eee76c82877f4ee80f474cebd61ee13461b6228",
   "devDependencies": {
     "@types/gulp": "^4.0.18",
-    "@types/jquery": "^3.5.33",
+    "@types/jquery": "^4.0.0",
     "@types/jqueryui": "^1.12.24",
+    "browser-sync": "^3.0.3",
+    "concurrently": "^9.2.1",
+    "cross-env": "^7.0.3",
     "del": "^8.0.1",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
     "gulp": "^5.0.1",
     "gulp-clean-css": "^4.3.0",
     "gulp-htmlmin": "^5.0.1",
+    "gulp-plumber": "^1.2.1",
     "gulp-sass": "^6.0.1",
     "gulp-terser": "^2.1.0",
     "sass": "^1.97.3"

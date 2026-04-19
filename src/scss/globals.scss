@@ -6,10 +6,10 @@
 
 
 @forward './base/reset';
+@forward './base/view-transition';
 @forward './base/variables';
 @forward './fonts/monserrat';
 @forward './base/mixins';
-@forward './base/view-transition';
 @forward './base/scrollbar';
 
 @forward './components/layout/loader';
