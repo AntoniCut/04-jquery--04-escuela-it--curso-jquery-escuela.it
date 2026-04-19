@@ -66,6 +66,14 @@ export const routeManifest = [
     { id: 'clase13PluginEase', path: 'clase13-efectos-y-animaciones/plugin-ease', file: 'route-clase13-plugin-ease' },
     { id: 'clase13PluginEaseAnimateColors', path: 'clase13-efectos-y-animaciones/plugin-ease-animate-colors', file: 'route-clase13-plugin-ease-animate-colors' },
     { id: 'clase13PluginEaseAnimateColorsOptions', path: 'clase13-efectos-y-animaciones/plugin-ease-animate-colors-options', file: 'route-clase13-plugin-ease-animate-colors-options' },
+
+    { id: 'clase14', path: 'clase14-cola-de-efectos', file: 'route-clase14' },
+    { id: 'clase14EncoladoEfectos', path: 'clase14-cola-de-efectos/encolado-efectos', file: 'route-clase14-encolado-efectos' },
+    { id: 'clase14EjemploStop', path: 'clase14-cola-de-efectos/ejemplo-stop', file: 'route-clase14-ejemplo-stop' },
+    { id: 'clase14LongitudColaEfectos', path: 'clase14-cola-de-efectos/longitud-cola-efectos', file: 'route-clase14-longitud-cola-efectos' },
+    { id: 'clase14EncolarFuncionesNoEfectos', path: 'clase14-cola-de-efectos/encolar-funciones-no-efectos', file: 'route-clase14-encolar-funciones-no-efectos' },
+    { id: 'clase14EncoladoRespuestasEventos', path: 'clase14-cola-de-efectos/encolado-respuestas-eventos', file: 'route-clase14-encolado-respuestas-eventos' },
+    { id: 'clase14AnimacionesEnBucle', path: 'clase14-cola-de-efectos/animaciones-en-bucle', file: 'route-clase14-animaciones-en-bucle' },
   
     { id: '404NotFoundPage', path: '404', file: 'route-404-not-found-page' }
     

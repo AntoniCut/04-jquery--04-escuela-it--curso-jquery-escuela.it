@@ -1,0 +1,31 @@
+/*
+    *  ---------------------------------------------------------------------------------------------------------------  *
+    *  -----  /03-longitud-cola-efectos.scss  --  /src/styles/scss/pages/clase-14/03-longitud-cola-efectos.scss  -----  *
+    *  ---------------------------------------------------------------------------------------------------------------  *
+*/
+
+
+.main__section-practica {
+    min-height: 60rem;
+}
+
+
+.contenedor-animacion {
+    width: 100%;
+    min-height: 14rem;
+    margin-block: 2rem;
+}
+
+.texto,
+.parrafo {
+    width: 100%;
+    height: 10rem;
+    color: white;
+    background-color: #f99;
+    text-align: center;
+    padding: 4rem;
+}
+
+.texto {
+    cursor: pointer;
+}

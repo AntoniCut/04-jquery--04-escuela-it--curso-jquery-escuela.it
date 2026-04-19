@@ -1,0 +1,32 @@
+/*
+    *  -------------------------------------------------------------------------------------------------------------  *
+    *  -----  /06-animaciones-en-bucle.scss  --  /src/styles/scss/pages/clase-14/06-animaciones-en-bucle.scss  -----  *
+    *  -------------------------------------------------------------------------------------------------------------  *
+*/
+.main__section-practica {
+  min-height: 40rem;
+}
+
+.animate__container {
+  width: 100%;
+  height: 30rem;
+  margin-top: 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+#capa {
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  top: 0;
+  left: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #494;
+  font-size: 3rem;
+  cursor: pointer;
+  border-radius: 100%;
+}/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJjbGFzZS0xNC8wNi1hbmltYWNpb25lcy1lbi1idWNsZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFPQTtFQUNJOzs7QUFJSjtFQUNJO0VBQ0E7RUFDQTtFQUNJO0VBQ0E7OztBQUdSO0VBQ0U7RUFDQTtFQUNBO0VBQ0U7RUFDQTtFQUNGO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxyXG4gICAgKiAgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSAgKlxyXG4gICAgKiAgLS0tLS0gIC8wNi1hbmltYWNpb25lcy1lbi1idWNsZS5zY3NzICAtLSAgL3NyYy9zdHlsZXMvc2Nzcy9wYWdlcy9jbGFzZS0xNC8wNi1hbmltYWNpb25lcy1lbi1idWNsZS5zY3NzICAtLS0tLSAgKlxyXG4gICAgKiAgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSAgKlxyXG4qL1xyXG5cclxuXHJcbi5tYWluX19zZWN0aW9uLXByYWN0aWNhIHtcclxuICAgIG1pbi1oZWlnaHQ6IDQwcmVtO1xyXG59XHJcblxyXG5cclxuLmFuaW1hdGVfX2NvbnRhaW5lciB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGhlaWdodDogMzByZW07XHJcbiAgICBtYXJnaW4tdG9wOiA1cmVtO1xyXG4gICAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgICAgICBvdmVyZmxvdzogaGlkZGVuO1xyXG59XHJcblxyXG4jY2FwYXtcclxuICB3aWR0aDogNXJlbTtcclxuICBoZWlnaHQ6IDVyZW07XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgdG9wOiAwO1xyXG4gICAgbGVmdDogMzBweDtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICM0OTQ7XHJcbiAgZm9udC1zaXplOiAzcmVtO1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxuICBib3JkZXItcmFkaXVzOiAxMDAlO1xyXG59XHJcbiJdLCJmaWxlIjoiY2xhc2UtMTQvMDYtYW5pbWFjaW9uZXMtZW4tYnVjbGUuY3NzIn0= */

@@ -1,0 +1,42 @@
+/*
+    *  ---------------------------------------------------------------------------------------------  *
+    *  -----  /02-ejemplo-stop.scss  --  /src/styles/scss/pages/clase-14/02-ejemplo-stop.scss  -----  *
+    *  ---------------------------------------------------------------------------------------------  *
+*/
+
+
+.main__section-practica {
+    min-height: 40rem;
+    position: relative;
+    padding: 2rem;
+}
+
+
+.main__section-practica #tip {
+    padding: 10px;
+    background-color: #9df;
+    width: 20rem;
+    display: none;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    border-radius: 0.8rem;
+}
+
+
+.main__section-practica a {
+    display: inline-block;
+    margin-top: 8rem;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #4a84ee;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 300ms linear;
+
+    &:hover {
+        background-color: #8db2f7;
+    }
+}

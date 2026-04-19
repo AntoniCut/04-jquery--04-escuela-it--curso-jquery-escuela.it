@@ -1,0 +1,24 @@
+/*
+    *  -----------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /04-encolar-funciones-no-efectos.scss  --  /src/styles/scss/pages/clase-14/04-encolar-funciones-no-efectos.scss  -----  *
+    *  -----------------------------------------------------------------------------------------------------------------------------  *
+*/
+.main__section-practica {
+  min-height: 40rem;
+}
+
+.contenedor-animacion {
+  width: 100%;
+  min-height: 14rem;
+  margin-block: 2rem;
+}
+
+.texto {
+  width: 100%;
+  height: 10rem;
+  color: white;
+  background-color: #f99;
+  text-align: center;
+  padding: 4rem;
+  cursor: pointer;
+}/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJjbGFzZS0xNC8wNC1lbmNvbGFyLWZ1bmNpb25lcy1uby1lZmVjdG9zLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQU9BO0VBQ0k7OztBQUlKO0VBQ0k7RUFDQTtFQUNBOzs7QUFHSjtFQUNJO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLypcclxuICAgICogIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tICAqXHJcbiAgICAqICAtLS0tLSAgLzA0LWVuY29sYXItZnVuY2lvbmVzLW5vLWVmZWN0b3Muc2NzcyAgLS0gIC9zcmMvc3R5bGVzL3Njc3MvcGFnZXMvY2xhc2UtMTQvMDQtZW5jb2xhci1mdW5jaW9uZXMtbm8tZWZlY3Rvcy5zY3NzICAtLS0tLSAgKlxyXG4gICAgKiAgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0gICpcclxuKi9cclxuXHJcblxyXG4ubWFpbl9fc2VjdGlvbi1wcmFjdGljYSB7XHJcbiAgICBtaW4taGVpZ2h0OiA0MHJlbTtcclxufVxyXG5cclxuXHJcbi5jb250ZW5lZG9yLWFuaW1hY2lvbiB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIG1pbi1oZWlnaHQ6IDE0cmVtO1xyXG4gICAgbWFyZ2luLWJsb2NrOiAycmVtO1xyXG59XHJcblxyXG4udGV4dG97XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGhlaWdodDogMTByZW07XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjk5O1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgcGFkZGluZzogNHJlbTtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG4iXSwiZmlsZSI6ImNsYXNlLTE0LzA0LWVuY29sYXItZnVuY2lvbmVzLW5vLWVmZWN0b3MuY3NzIn0= */

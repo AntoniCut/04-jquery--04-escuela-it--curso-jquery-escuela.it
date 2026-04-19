@@ -1,0 +1,72 @@
+<!--  
+    *  ---------------------------------------------------------------------------------  *
+    *  -----  /02-ejemplo-stop.html  --  /src/pages/clase-14/02-ejemplo-stop.html  -----  *
+    *  ---------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__container">
+
+
+    <!--  -----  INFO  -----  -->
+    <section class="main__section-info">
+
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="Ejemplo stop">
+                Clase 14 - 2. Ejemplo stop
+            </h2>
+
+        </header>
+
+        <!--  -----  Contenido de la Sección  -----  -->
+        <article class="section__content">
+
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    Que hace este ejercicio
+                </h3>
+
+                <p class="content__text">
+                    Este ejercicio muestra un tip fijo dentro del area de practica y usa <kbd>stop()</kbd>
+                    para evitar que se acumulen animaciones al entrar y salir rapidamente con el raton.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        El enlace escucha los eventos <kbd>mouseenter</kbd> y <kbd>mouseleave</kbd> para lanzar la aparicion y desaparicion del tip.
+                    </li>
+                    <li>
+                        Antes de cada <kbd>fadeIn()</kbd> y <kbd>fadeOut()</kbd> se ejecuta <kbd>stop(true, true)</kbd> para cancelar la cola anterior y quedarse con la ultima accion.
+                    </li>
+                    <li>
+                        El tip permanece anclado en la esquina superior izquierda de la practica, sin seguir la posicion del cursor.
+                    </li>
+                </ul>
+
+                <p class="content__note">
+                    <kbd> Objetivo: </kbd> entender como <kbd>stop()</kbd> evita colas no deseadas en interacciones rapidas con el raton.
+                </p>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!--  -----  Práctica  -----  -->
+    <section class="main__section-practica">
+
+
+        <div id="tip"> Esto es un tip </div>
+        <a href="#" id="enlace"> lanza tip </a>
+
+    </section>
+
+
+</div>

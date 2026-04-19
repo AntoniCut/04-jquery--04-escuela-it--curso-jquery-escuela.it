@@ -1,0 +1,19 @@
+/*
+    *  ---------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /05-encolado-respuestas-eventos.scss  --  /src/styles/scss/pages/clase-14/05-encolado-respuestas-eventos.scss  -----  *
+    *  ---------------------------------------------------------------------------------------------------------------------------  *
+*/
+.main__section-practica {
+  min-height: 40rem;
+}
+
+.texto {
+  width: 100%;
+  height: 10rem;
+  color: white;
+  background-color: #f99;
+  text-align: center;
+  padding: 4rem;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJjbGFzZS0xNC8wNS1lbmNvbGFkby1yZXNwdWVzdGFzLWV2ZW50b3Muc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBT0E7RUFDSTs7O0FBSUo7RUFDSTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUVBIiwic291cmNlc0NvbnRlbnQiOlsiLypcclxuICAgICogIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSAgKlxyXG4gICAgKiAgLS0tLS0gIC8wNS1lbmNvbGFkby1yZXNwdWVzdGFzLWV2ZW50b3Muc2NzcyAgLS0gIC9zcmMvc3R5bGVzL3Njc3MvcGFnZXMvY2xhc2UtMTQvMDUtZW5jb2xhZG8tcmVzcHVlc3Rhcy1ldmVudG9zLnNjc3MgIC0tLS0tICAqXHJcbiAgICAqICAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0gICpcclxuKi9cclxuXHJcblxyXG4ubWFpbl9fc2VjdGlvbi1wcmFjdGljYSB7XHJcbiAgICBtaW4taGVpZ2h0OiA0MHJlbTtcclxufVxyXG5cclxuXHJcbi50ZXh0b3tcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgaGVpZ2h0OiAxMHJlbTtcclxuICAgIGNvbG9yOiB3aGl0ZTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNmOTk7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBwYWRkaW5nOiA0cmVtO1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgI2RkZDtcclxuICAgIC8vIGJvcmRlci13aWR0aDogMXB4O1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG59Il0sImZpbGUiOiJjbGFzZS0xNC8wNS1lbmNvbGFkby1yZXNwdWVzdGFzLWV2ZW50b3MuY3NzIn0= */

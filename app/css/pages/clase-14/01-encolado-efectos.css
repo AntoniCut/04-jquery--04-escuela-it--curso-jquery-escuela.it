@@ -1,0 +1,28 @@
+/*
+    *  -----------------------------------------------------------------------------------------------------  *
+    *  -----  /01-encolado-efectos.scss  --  /src/styles/scss/pages/clase-14/01-encolado-efectos.scss  -----  *
+    *  -----------------------------------------------------------------------------------------------------  *
+*/
+.main__section-practica {
+  min-height: 60rem;
+}
+
+.contenedor-animacion {
+  width: 100%;
+  min-height: 14rem;
+  margin-block: 2rem;
+}
+
+.texto,
+.parrafo {
+  width: 100%;
+  height: 10rem;
+  color: white;
+  background-color: #f99;
+  text-align: center;
+  padding: 4rem;
+}
+
+.texto {
+  cursor: pointer;
+}/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJjbGFzZS0xNC8wMS1lbmNvbGFkby1lZmVjdG9zLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQU9BO0VBQ0k7OztBQUlKO0VBQ0k7RUFDQTtFQUNBOzs7QUFHSjtBQUFBO0VBRUk7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOzs7QUFHSjtFQUNJIiwic291cmNlc0NvbnRlbnQiOlsiLypcclxuICAgICogIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tICAqXHJcbiAgICAqICAtLS0tLSAgLzAxLWVuY29sYWRvLWVmZWN0b3Muc2NzcyAgLS0gIC9zcmMvc3R5bGVzL3Njc3MvcGFnZXMvY2xhc2UtMTQvMDEtZW5jb2xhZG8tZWZlY3Rvcy5zY3NzICAtLS0tLSAgKlxyXG4gICAgKiAgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0gICpcclxuKi9cclxuXHJcblxyXG4ubWFpbl9fc2VjdGlvbi1wcmFjdGljYSB7XHJcbiAgICBtaW4taGVpZ2h0OiA2MHJlbTtcclxufVxyXG5cclxuXHJcbi5jb250ZW5lZG9yLWFuaW1hY2lvbiB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIG1pbi1oZWlnaHQ6IDE0cmVtO1xyXG4gICAgbWFyZ2luLWJsb2NrOiAycmVtO1xyXG59XHJcblxyXG4udGV4dG8sXHJcbi5wYXJyYWZvIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgaGVpZ2h0OiAxMHJlbTtcclxuICAgIGNvbG9yOiB3aGl0ZTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNmOTk7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBwYWRkaW5nOiA0cmVtO1xyXG59XHJcblxyXG4udGV4dG8ge1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG59Il0sImZpbGUiOiJjbGFzZS0xNC8wMS1lbmNvbGFkby1lZmVjdG9zLmNzcyJ9 */

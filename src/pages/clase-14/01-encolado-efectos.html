@@ -1,0 +1,81 @@
+<!--  
+    *  -----------------------------------------------------------------------------------------  *
+    *  -----  /01-encolado-efectos.html  --  /src/pages/clase-14/01-encolado-efectos.html  -----  *
+    *  -----------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__container">
+
+
+    <!--  -----  INFO  -----  -->
+    <section class="main__section-info">
+
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="Encolado de efectos">
+                Clase 14 - 1. Encolado de efectos
+            </h2>
+
+        </header>
+
+        <!--  -----  Contenido de la Sección  -----  -->
+        <article class="section__content">
+
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    Que hace este ejercicio
+                </h3>
+
+                <p class="content__text">
+                    Este ejercicio encadena varios efectos sobre el mismo elemento usando la cola <kbd>fx</kbd>
+                    de jQuery, y actualiza el texto antes de cada paso para indicar que animacion se esta ejecutando.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        Al pulsar <kbd>Animar</kbd> se encolan <kbd>slideUp()</kbd>, <kbd>slideDown()</kbd>, <kbd>fadeOut()</kbd>, <kbd>fadeIn()</kbd> y cambios de tamaño con <kbd>animate()</kbd>.
+                    </li>
+                    <li>
+                        Cada mensaje se inserta con <kbd>queue()</kbd> para que aparezca justo antes del efecto correspondiente, mientras el parrafo se anima en paralelo.
+                    </li>
+                    <li>
+                        Si haces click sobre el texto se usa <kbd>finish('fx')</kbd> para completar la cola pendiente y dejar el elemento en su estado final.
+                    </li>
+                </ul>
+
+                <p class="content__note">
+                    <kbd> Objetivo: </kbd> comprender como funciona el encolado secuencial de efectos y como interrumpirlo de forma controlada.
+                </p>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!--  -----  Práctica  -----  -->
+    <section class="main__section-practica">
+
+
+        <div class="btn__container">
+            <button id="btnAnimar"> Animar </button>
+        </div>
+
+        <div class="contenedor-animacion contenedor-animacion--texto">
+            <div class="texto"> Texto Animado </div>
+        </div>
+
+        <div class="contenedor-animacion contenedor-animacion--parrafo">
+            <p class="parrafo"> Párrafo Animado </p>
+        </div>
+
+    </section>
+
+
+</div>

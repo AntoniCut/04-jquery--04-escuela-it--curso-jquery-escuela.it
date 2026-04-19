@@ -1,0 +1,80 @@
+<!--  
+    *  ---------------------------------------------------------------------------------------------------  *
+    *  -----  /03-longitud-cola-efectos.html  --  /src/pages/clase-14/03-longitud-cola-efectos.html  -----  *
+    *  ---------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__container">
+
+
+    <!--  -----  INFO  -----  -->
+    <section class="main__section-info">
+
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="Longitud de la cola de efectos">
+                Clase 14 - 3. Longitud de la cola de efectos
+            </h2>
+
+        </header>
+
+        <!--  -----  Contenido de la Sección  -----  -->
+        <article class="section__content">
+
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    Que hace este ejercicio
+                </h3>
+
+                <p class="content__text">
+                    Este ejercicio calcula cuantas funciones de efecto quedan pendientes en la cola y lo muestra
+                    en pantalla antes de ejecutar cada paso de la secuencia.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        Al pulsar <kbd>Animar</kbd> se encolan seis efectos consecutivos sobre el texto y dos cambios de tamaño sobre el parrafo.
+                    </li>
+                    <li>
+                        Entre animaciones se insertan funciones con <kbd>queue()</kbd> para actualizar el mensaje y enseñar cuantas acciones faltan por ejecutarse.
+                    </li>
+                    <li>
+                        El ejemplo permite ver que la cola <kbd>fx</kbd> se consume de forma ordenada, una funcion despues de otra.
+                    </li>
+                </ul>
+
+                <p class="content__note">
+                    <kbd> Objetivo: </kbd> visualizar la longitud de la cola de efectos y entender el orden real de ejecucion en jQuery.
+                </p>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!--  -----  Práctica  -----  -->
+    <section class="main__section-practica">
+
+        <div class="btn__container">
+            <button id="btnAnimar"> Animar </button>
+        </div>
+
+        <div class="contenedor-animacion contenedor-animacion--texto">
+            <div class="texto"> Texto Animado </div>
+        </div>
+
+        <div class="contenedor-animacion contenedor-animacion--parrafo">
+            <p class="parrafo"> Párrafo Animado </p>
+        </div>
+
+    </section>
+
+
+</div>

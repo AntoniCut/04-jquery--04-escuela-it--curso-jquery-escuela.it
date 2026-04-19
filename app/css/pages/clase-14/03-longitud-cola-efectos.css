@@ -1,0 +1,28 @@
+/*
+    *  ---------------------------------------------------------------------------------------------------------------  *
+    *  -----  /03-longitud-cola-efectos.scss  --  /src/styles/scss/pages/clase-14/03-longitud-cola-efectos.scss  -----  *
+    *  ---------------------------------------------------------------------------------------------------------------  *
+*/
+.main__section-practica {
+  min-height: 60rem;
+}
+
+.contenedor-animacion {
+  width: 100%;
+  min-height: 14rem;
+  margin-block: 2rem;
+}
+
+.texto,
+.parrafo {
+  width: 100%;
+  height: 10rem;
+  color: white;
+  background-color: #f99;
+  text-align: center;
+  padding: 4rem;
+}
+
+.texto {
+  cursor: pointer;
+}/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJjbGFzZS0xNC8wMy1sb25naXR1ZC1jb2xhLWVmZWN0b3Muc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBT0E7RUFDSTs7O0FBSUo7RUFDSTtFQUNBO0VBQ0E7OztBQUdKO0FBQUE7RUFFSTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7OztBQUdKO0VBQ0kiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxyXG4gICAgKiAgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tICAqXHJcbiAgICAqICAtLS0tLSAgLzAzLWxvbmdpdHVkLWNvbGEtZWZlY3Rvcy5zY3NzICAtLSAgL3NyYy9zdHlsZXMvc2Nzcy9wYWdlcy9jbGFzZS0xNC8wMy1sb25naXR1ZC1jb2xhLWVmZWN0b3Muc2NzcyAgLS0tLS0gICpcclxuICAgICogIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSAgKlxyXG4qL1xyXG5cclxuXHJcbi5tYWluX19zZWN0aW9uLXByYWN0aWNhIHtcclxuICAgIG1pbi1oZWlnaHQ6IDYwcmVtO1xyXG59XHJcblxyXG5cclxuLmNvbnRlbmVkb3ItYW5pbWFjaW9uIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgbWluLWhlaWdodDogMTRyZW07XHJcbiAgICBtYXJnaW4tYmxvY2s6IDJyZW07XHJcbn1cclxuXHJcbi50ZXh0byxcclxuLnBhcnJhZm8ge1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBoZWlnaHQ6IDEwcmVtO1xyXG4gICAgY29sb3I6IHdoaXRlO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2Y5OTtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIHBhZGRpbmc6IDRyZW07XHJcbn1cclxuXHJcbi50ZXh0byB7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuIl0sImZpbGUiOiJjbGFzZS0xNC8wMy1sb25naXR1ZC1jb2xhLWVmZWN0b3MuY3NzIn0= */

@@ -1,0 +1,76 @@
+<!--  
+    *  -----------------------------------------------------------------------------------------------------------------  *
+    *  -----  /04-encolar-funciones-no-efectos.html  --  /src/pages/clase-14/04-encolar-funciones-no-efectos.html  -----  *
+    *  -----------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__container">
+
+
+    <!--  -----  INFO  -----  -->
+    <section class="main__section-info">
+
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="Encolar funciones no efectos">
+                Clase 14 - 4. Encolar funciones no efectos
+            </h2>
+
+        </header>
+
+        <!--  -----  Contenido de la Sección  -----  -->
+        <article class="section__content">
+
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    Que hace este ejercicio
+                </h3>
+
+                <p class="content__text">
+                    Este ejercicio mezcla efectos de jQuery con funciones normales dentro de la misma cola
+                    para modificar estilos entre animaciones.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        Se encadenan <kbd>slideUp()</kbd>, <kbd>slideDown()</kbd> y varios <kbd>animate()</kbd> sobre el mismo bloque.
+                    </li>
+                    <li>
+                        Entre medias se insertan funciones con <kbd>queue()</kbd> que cambian color y fondo aunque no sean efectos visuales propios de jQuery.
+                    </li>
+                    <li>
+                        Una de esas funciones usa <kbd>dequeue()</kbd> de forma explicita y otra usa <kbd>next()</kbd> para liberar la siguiente tarea de la cola.
+                    </li>
+                </ul>
+
+                <p class="content__note">
+                    <kbd> Objetivo: </kbd> aprender a encolar funciones arbitrarias junto a efectos y controlar exactamente cuando continua la cola.
+                </p>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!--  -----  Práctica  -----  -->
+    <section class="main__section-practica">
+
+         <div class="btn__container">
+            <button id="btnAnimar"> Animar </button>
+        </div>
+
+        <div class="contenedor-animacion contenedor-animacion--texto">
+            <div class="texto"> Texto Animado </div>
+        </div>
+       
+    </section>
+
+
+</div>
