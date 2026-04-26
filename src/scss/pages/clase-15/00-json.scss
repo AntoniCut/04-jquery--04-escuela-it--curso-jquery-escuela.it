@@ -1,0 +1,62 @@
+/*
+    *  -----------------------------------------------------------------------------  *
+    *  -----  /00-json.scss  --  /src/styles/scss/pages/clase-15/00-json.scss  -----  *
+    *  -----------------------------------------------------------------------------  *
+*/
+
+
+@use '../../base/mixins' as mix;
+
+.main__section-practica {
+    min-height: 60rem;
+}
+
+.main__json-bebidas {
+    background-color: #f0f0f0;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.json-bebidas__title {
+    color: darkgreen;
+}
+
+#bebida,
+.json-bebidas__subtitle {
+    color: #37b837;
+}
+
+.main__json-bebidas ul,
+.main__json-bebidas ol {
+    padding-left: 2rem;
+}
+
+.main__json-bebidas table {
+    border-collapse: collapse;
+    width: 60%;
+    margin-bottom: 5rem;
+}
+
+.main__json-bebidas th,
+.main__json-bebidas td {
+    border: 1px solid #ccc;
+    padding: 0.8rem 1.2rem;
+    text-align: left;
+}
+
+.main__json-bebidas td {
+    
+    font-size: 1rem;
+
+    @include mix.tablet {
+        font-size: 1.4rem;
+    }
+}
+
+.main__json-bebidas tbody tr:nth-child(odd) {
+    background-color: #e7f6e7;
+}
+
+.main__json-bebidas tbody tr:nth-child(odd) td {
+    color: #1f4d1f;
+}

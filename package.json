@@ -8,6 +8,7 @@
     "dev": "concurrently -k -n watch,serve -c yellow,cyan \"pnpm run dev:watch\" \"pnpm run serve:dev\"",
     "dev:watch": "gulp dev",
     "serve:dev": "node server/dev-server.js",
+    "stop:dev": "node server/stop-dev-server.js",
     "server": "pnpm run serve:dev",
     "build": "gulp build",
     "preview": "node server/preview-server.js",
@@ -22,6 +23,7 @@
     "tutoriales",
     "recursos",
     "javascript",
+    "express",
     "web",
     "frontend",
     "development",
@@ -49,6 +51,7 @@
     "sass": "^1.97.3"
   },
   "dependencies": {
-    "jquery": "^4.0.0"
+    "jquery": "^4.0.0",
+    "jquery-ui": "^1.14.2"
   }
 }

@@ -13,10 +13,11 @@ declare global {
     
     interface Window {
         __spaFirstRouteLoaded?: boolean;
+        $: JQueryStatic;
+        jQuery: JQueryStatic;
     }
        
 }
-
 
 //  -----  Exportación de tipos globales  -----  //
 export {};

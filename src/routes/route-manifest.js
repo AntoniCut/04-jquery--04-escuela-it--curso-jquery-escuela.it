@@ -75,6 +75,8 @@ export const routeManifest = [
     { id: 'clase14EncoladoRespuestasEventos', path: 'clase14-cola-de-efectos/encolado-respuestas-eventos', file: 'route-clase14-encolado-respuestas-eventos' },
     { id: 'clase14AnimacionesEnBucle', path: 'clase14-cola-de-efectos/animaciones-en-bucle', file: 'route-clase14-animaciones-en-bucle' },
   
-    { id: '404NotFoundPage', path: '404', file: 'route-404-not-found-page' }
+    { id: '404NotFoundPage', path: '404', file: 'route-404-not-found-page' },
+
+    { id: 'clase15', path: 'clase15-json', file: 'route-clase15' },
     
 ];

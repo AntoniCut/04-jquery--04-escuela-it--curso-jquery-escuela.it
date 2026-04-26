@@ -33,6 +33,7 @@
  *     - Normalización de rutas y pathname para evitar problemas con slashes y base.
  *     - Notificación de carga de ruta mediante eventos personalizados.
  *     - Manejo de errores en la carga de componentes y rutas.
+ *     - Soporte para scripts clásicos y módulos ES6 (type="module").
  */
 
 export const spaWithMethodLoadFromJQueryPlugins = () => {
@@ -1287,9 +1288,9 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
 
             /*
-                -------------------------------
-                ----------  SCRIPTS  ----------
-                -------------------------------
+                *  -------------------------------
+                *  ----------  SCRIPTS  ----------
+                *  -------------------------------
             */
 
 
@@ -1327,14 +1328,16 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                     ? scripts
                     : Object.values(scripts);
 
-                //  -----  Cargar los nuevos scripts  -----
+                /**  -----  Cargar los nuevos scripts en serie  ----- */
+                let scriptQueue = Promise.resolve();
+
+                //  -----  Iterar sobre cada script y cargarlo en orden  -----
                 scriptArray.forEach(script => {
 
                     if (!script?.src)
                         return;
 
-                    //  -----  Cargar el script  -----
-                    loadScripts(script.src);
+                    scriptQueue = scriptQueue.then(() => loadScripts(script));
 
                 });
             };
@@ -1345,63 +1348,123 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
              * ---------------------------------------
              * -----  `loadScripts(scriptUrl)`  ------
              * ---------------------------------------
-             * 
              * - Carga un script (verifica con HEAD)
-             * 
-             * @param {string} scriptUrl - URL del script a cargar
+             * - Soporta scripts clásicos y módulos ES6 (type="module")
+             *  @param {RouteScript} scriptOptions - Configuración del script a cargar
+             * @returns {Promise<void>}
              */
 
-            const loadScripts = (scriptUrl) => {
+            const loadScripts = (scriptOptions) => {
+
+                /** @type {string} - `URL del script a cargar` */
+                const scriptUrl = String(scriptOptions?.src || '');
+
+                /** @type {'classic'|'module'} - `Tipo de carga del script` */
+                const scriptType = scriptOptions?.type === 'module' ? 'module' : 'classic';
+
+                /** @type {string|null} - `Export opcional del módulo a ejecutar tras la carga` */
+                const exportFunctionName = scriptOptions?.exportFunctionName || null;
 
 
-                //  -----  Verificar que el script existe con una petición HEAD con el método .ajax()  -----
-                $.ajax({
-                    url: scriptUrl,
-                    type: 'HEAD',
+                //  -----  Devolver una promesa que se resuelve cuando el script se carga o si ocurre un error  -----
+                return new Promise((resolve) => {
 
-                    //  -----  Si el script existe, cargarlo con .getScript()  -----
-                    success: function () {
-
-                        //  -----  Cargar el script con jQuery.getScript  -----
-                        $.getScript(scriptUrl)
-
-                            //  -----  Marcar el script como data-page-script para futuras gestiones  -----
-                            .done(() => {
-
-                                console.log(`Cargado: ${scriptUrl}`);
-
-                                /** @type {NodeListOf<HTMLScriptElement>} - `Todos los scripts en el documento` */
-                                const scripts = document.querySelectorAll('script');
-
-                                /** @type {HTMLScriptElement} - `Último script en el documento` */
-                                const lastScript = scripts[scripts.length - 1];
-
-                                //  -----  Marcar el último script cargado con jQuery.getScript() como data-page-script  -----
-                                if (lastScript && lastScript.src.includes(scriptUrl))
-                                    lastScript.dataset.pageScript = "true";
-
-
-                            })
-
-                            //  -----  Manejar errores de carga del script  -----
-                            .fail((jqxhr, settings, exception) => {
-
-                                console.log('\n');
-                                console.error(`Error en ${scriptUrl}:`, exception);
-                                console.log('\n');
-
-                            });
-
-                    },
-
-                    //  -----  Si el script no existe, mostrar advertencia en consola  -----
-                    error: function () {
-
-                        console.log('\n');
-                        console.warn(`No existe el script: ${scriptUrl}`);
-                        console.log('\n');
-
+                    if (!scriptUrl) {
+                        resolve();
+                        return;
                     }
+
+                    //  -----  Verificar que el script existe con una petición HEAD con el método .ajax()  -----
+                    $.ajax({
+                        
+                        url: scriptUrl,
+                        type: 'HEAD',
+
+                        //  -----  Si el script existe cargar como script clásico o módulo ES6  -----
+                        success: function () {
+
+                            /** @type {string} - `URL con cache bypass para forzar recarga del script o módulo` */
+                            const urlWithCacheBypass = `${scriptUrl}${scriptUrl.includes('?') ? '&' : '?'}t=${Date.now()}`;
+
+                            //  -----  Si el script es un módulo ES6, cargar con import() dinámico  -----
+                            if (scriptType === 'module') {
+
+                                import(urlWithCacheBypass)
+
+                                    .then((module) => {
+
+                                        console.log(`Módulo cargado: ${scriptUrl}`);
+
+                                        if (exportFunctionName && typeof module[exportFunctionName] === 'function')
+                                            module[exportFunctionName]();
+
+                                        resolve();
+
+                                    })
+
+                                    .catch((error) => {
+
+                                        console.log('\n');
+                                        console.error(`Error en módulo ${scriptUrl}:`, error);
+                                        console.log('\n');
+
+                                        resolve();
+
+                                    });
+
+                                return;
+
+                            }
+
+
+                            //  -----  Si el script es clásico, cargar con jQuery.getScript()  -----
+                            $.getScript(urlWithCacheBypass)
+
+                                //  -----  Marcar el script como data-page-script para futuras gestiones  -----
+                                .done(() => {
+
+                                    console.log(`Cargado: ${scriptUrl}`);
+
+                                    /** @type {NodeListOf<HTMLScriptElement>} - `Todos los scripts en el documento` */
+                                    const scripts = document.querySelectorAll('script');
+
+                                    /** @type {HTMLScriptElement} - `Último script en el documento` */
+                                    const lastScript = scripts[scripts.length - 1];
+
+                                    //  -----  Marcar el último script cargado con jQuery.getScript() como data-page-script  -----
+                                    if (lastScript && lastScript.src.includes(scriptUrl))
+                                        lastScript.dataset.pageScript = "true";
+
+
+                                    resolve();
+
+                                })
+
+                                //  -----  Manejar errores de carga del script  -----
+                                .fail((jqxhr, settings, exception) => {
+
+                                    console.log('\n');
+                                    console.error(`Error en ${scriptUrl}:`, exception);
+                                    console.log('\n');
+
+                                    resolve();
+
+                                });
+
+                        },
+
+                        //  -----  Si el script no existe, mostrar advertencia en consola  -----
+                        error: function () {
+
+                            console.log('\n');
+                            console.warn(`No existe el script: ${scriptUrl}`);
+                            console.log('\n');
+
+                            resolve();
+
+                        }
+
+                    });
 
                 });
 
@@ -1582,7 +1645,10 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
             //  -----  Mensaje de plugin cargado  -----
             console.log('\n');
-            console.log('%c ✅ ✅ ✅ plugin  -  jquery.spa-with-method-load-from-jquery.js  -  versión 4  -  cargado!!! ✅ ✅ ✅', 'background:#3498db; color:black; padding:20px; font-size:20px; font-weight:bold;');
+            console.log(
+                '%c ✅ ✅ ✅ plugin  -  jquery.spa-with-method-load-from-jquery.js  -  versión 4  -  cargado!!! ✅ ✅ ✅', 
+                'background:#3498db; color:gold; padding:20px; font-size:20px; font-weight:bold;'
+            );
             console.log('\n');
 
 

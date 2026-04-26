@@ -1,0 +1,101 @@
+<!--  
+    *  -----------------------------------------------------------------  *
+    *  -----  /00-json.html  --  /src/pages/clase-15/00-json.html  -----  *
+    *  -----------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__container">
+
+
+    <!--  -----  INFO  -----  -->
+    <section class="main__section-info">
+
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="JSON">
+                Clase 15 - JSON
+            </h2>
+
+        </header>
+
+        <!--  -----  Contenido de la Sección  -----  -->
+        <article class="section__content">
+
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    Que hace este ejercicio
+                </h3>
+
+                <p class="content__text">
+                    Este ejercicio usa un objeto JSON con información de una bebida y recorre sus
+                    propiedades con jQuery para mostrar datos estructurados dentro de la página.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        El nombre de la bebida y su inicio de producción se insertan en el DOM con <kbd>text()</kbd>.
+                    </li>
+                    <li>
+                        El array de ingredientes se transforma en elementos <kbd>&lt;li&gt;</kbd> y se añade dinámicamente a la lista.
+                    </li>
+                    <li>
+                        Las marcas del JSON se recorren para construir filas de tabla con nombre, tipo y procedencia.
+                    </li>
+                </ul>
+
+                <p class="content__note">
+                    <kbd> Objetivo: </kbd> comprender como recorrer datos JSON y representarlos en el DOM con jQuery.
+                </p>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!--  -----  Práctica  -----  -->
+    <section class="main__section-practica main__json-bebidas">
+
+        <h2 class="json-bebidas__title"> 
+            Bebida:
+            <span id="bebida">
+                <!--  inyectar contenido con jQuery  -->
+            </span>
+        </h2>
+
+        <p>
+            <strong> Inicio de producción: </strong>
+            <span id="inicio"> 
+                <!--  inyectar contenido con jQuery  -->
+            </span>
+        </p>
+
+        <h3 class="json-bebidas__subtitle"> Ingredientes </h3>
+        <ul id="ingredientes"> 
+                <!--  inyectar contenido con jQuery  -->
+        </ul>
+
+        <h3 class="json-bebidas__subtitle"> Marcas </h3>
+        <table>
+            <thead>
+                <tr>
+                    <th> Nombre </th>
+                    <th> Tipo </th>
+                    <th> Procedencia </th>
+                </tr>
+            </thead>
+            <tbody id="tablaMarcas">
+                 <!--  inyectar contenido con jQuery  -->
+            </tbody>
+        </table>
+
+    </section>
+
+
+</div>

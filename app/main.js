@@ -4,10 +4,9 @@
     *  ----------------------------------------  *
 */
 
-//import $ from 'jquery';
 
 import { effectLoadingPage } from './effects/effect-loading-page.js';
-import { fallbackJQueryJQueryUI } from './libs/jquery/loaders/fallback-jquery-jquery-ui.js'
+import { loadJQueryJQueryUIByImport } from './libs/jquery-module/loader/load-jquery-jquery-ui-by-import.js'
 import { spaWithMethodLoadFromJQueryPlugins } from './plugins/spa-with-method-load-from-jquery/v4/jquery.spa-with-method-load-from-jquery.js';
 import { spa } from './spa/spa.js';
 
@@ -20,24 +19,28 @@ effectLoadingPage();
 export const base = '/escuelait/curso-jquery-escuelait';
 
 
-//spaWithMethodLoadFromJQueryPlugins();
-//spaCursoJQueryEscuelaIt();
 
 /*
-    ---------------------------------------------------------------------------------
-    -----  Esperar a la Carga de jQuery + jQuery UI con fallback (CDN → local)  -----
-    -----  y luego iniciar el plugin y la SPA  --------------------------------------
-    ---------------------------------------------------------------------------------
+    -----------------------------------------------------------------------------------
+    -----  Esperar a la carga de jQuery + jQuery UI desde imports de vendor/local  -----
+    -----  y luego iniciar el plugin y la SPA  ----------------------------------------
+    -----------------------------------------------------------------------------------
 */
 
 
 
-fallbackJQueryJQueryUI()
+loadJQueryJQueryUIByImport()
 
     .then(() => {
         
         console.log('\n');
-        console.warn("----- jQuery y jQuery UI cargados correctamente -----");
+        console.warn("----- jQuery y jQuery UI cargados correctamente desde imports -----");
+        console.log('\n');
+
+        //  -----  version de jQuery confirmada en consola  -----
+        console.log('\n');
+        console.log('Versión de jQuery cargada:', $.fn.jquery);
+        console.log('Versión de jQuery UI cargada:', $.ui.version);
         console.log('\n');
 
         //  -----  Iniciar el plugin que carga la SPA  -----
@@ -53,6 +56,6 @@ fallbackJQueryJQueryUI()
 
     .catch(err => {
         console.log('\n');
-        console.error("Error cargando jQuery / jQuery UI:", err);
+        console.error("Error cargando jQuery / jQuery UI desde imports:", err);
         console.log('\n');
     });
