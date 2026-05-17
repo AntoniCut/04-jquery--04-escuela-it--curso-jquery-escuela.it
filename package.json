@@ -11,7 +11,7 @@
     "stop:dev": "node server/stop-dev-server.js",
     "server": "pnpm run serve:dev",
     "build": "gulp build",
-    "preview": "node server/preview-server.js",
+    "preview": "node server/preview-server.js --open",
     "add:ts-nocheck": "cross-env NODE_ENV=development node addTsNoCheck.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

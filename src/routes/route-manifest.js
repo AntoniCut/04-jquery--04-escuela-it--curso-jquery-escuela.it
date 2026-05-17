@@ -75,8 +75,17 @@ export const routeManifest = [
     { id: 'clase14EncoladoRespuestasEventos', path: 'clase14-cola-de-efectos/encolado-respuestas-eventos', file: 'route-clase14-encolado-respuestas-eventos' },
     { id: 'clase14AnimacionesEnBucle', path: 'clase14-cola-de-efectos/animaciones-en-bucle', file: 'route-clase14-animaciones-en-bucle' },
   
+    { id: 'clase15', path: 'clase15-json', file: 'route-clase15' },
+
+    { id: 'clase16', path: 'clase16-ajax-interfaz-alto-nivel', file: 'route-clase16' },
+    { id: 'clase16Load', path: 'clase16-ajax-interfaz-alto-nivel/load', file: 'route-clase16-load' },
+    { id: 'clase16GetAjax', path: 'clase16-ajax-interfaz-alto-nivel/get-ajax', file: 'route-clase16-get-ajax' },
+    { id: 'clase16GetAjaxDatos', path: 'clase16-ajax-interfaz-alto-nivel/get-ajax-datos', file: 'route-clase16-get-ajax-datos' },
+    { id: 'clase16GetAjaxDatosObjetoAjax', path: 'clase16-ajax-interfaz-alto-nivel/get-ajax-datos-objeto-ajax', file: 'route-clase16-get-ajax-datos-objeto-ajax' },
+    { id: 'clase16GetAjaxLoadingImg', path: 'clase16-ajax-interfaz-alto-nivel/get-ajax-loading-img', file: 'route-clase16-get-ajax-loading-img' },
+
     { id: '404NotFoundPage', path: '404', file: 'route-404-not-found-page' },
 
-    { id: 'clase15', path: 'clase15-json', file: 'route-clase15' },
+    
     
 ];

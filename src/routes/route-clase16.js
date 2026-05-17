@@ -1,6 +1,6 @@
 /*
     *  -----------------------------------------------------------------  *
-    *  -----  /route-clase14.js  --  /src/routes/route-clase14.js  -----  *
+    *  -----  /route-clase16.js  --  /src/routes/route-clase16.js  -----  *
     *  -----------------------------------------------------------------  *
 */
 
@@ -24,21 +24,21 @@ const {
 
 
 /** @type {import('../../types/index.js').Route} */
-export const routeClase14 = {
-        id: 'clase14',
+export const routeClase16 = {
+        id: 'clase16',
         favicon: favicon,
-        pageTitle: 'Clase 14 - Cola de Efectos',
-        path: '/clase14-cola-de-efectos',
+        pageTitle: 'Clase 16 - AJAX Interfaz Alto Nivel',
+        path: '/clase16-ajax-interfaz-alto-nivel',
         components: {
             "#layoutHeader": layoutHeader,
             "#btnNavbar": btnNavbar,
             "#btnNavbarThemesJQueryUI": btnNavbarThemesJQueryUI,
             "#layoutNavbar": layoutNavbar,
             "#layoutNavbarThemesUI": layoutNavbarThemesUI,
-            "#layoutMain": `${pages}/clase-14/00-cola-de-efectos.html`,
+            "#layoutMain": `${pages}/clase-16/00-ajax-interfaz-de-alto-nivel.html`,
             "#layoutFooter": layoutFooter,
         },
-        headerTitle: 'Clase 14 - Cola de Efectos',
+        headerTitle: 'Clase 16 - AJAX Interfaz Alto Nivel',
         styles: [],
         scripts: [
             { src: `${scripts}/tooltips.js` },

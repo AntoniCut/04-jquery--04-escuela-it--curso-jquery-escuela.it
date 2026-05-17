@@ -1,7 +1,7 @@
 /*
-    *  -----------------------------------------------------------------  *
-    *  -----  /route-clase14.js  --  /src/routes/route-clase14.js  -----  *
-    *  -----------------------------------------------------------------  *
+    *  -----------------------------------------------------------------------------------  *
+    *  -----  /route-clase16-get-ajax.js  --  /src/routes/route-clase16-get-ajax.js  -----  *
+    *  -----------------------------------------------------------------------------------  *
 */
 
 
@@ -24,23 +24,26 @@ const {
 
 
 /** @type {import('../../types/index.js').Route} */
-export const routeClase14 = {
-        id: 'clase14',
+export const routeClase16GetAjax = {
+        id: 'clase16GetAjax',
         favicon: favicon,
-        pageTitle: 'Clase 14 - Cola de Efectos',
-        path: '/clase14-cola-de-efectos',
+        pageTitle: 'Clase 16 - 2. Get Ajax',
+        path: '/clase16-ajax-interfaz-alto-nivel/get-ajax',
         components: {
             "#layoutHeader": layoutHeader,
             "#btnNavbar": btnNavbar,
             "#btnNavbarThemesJQueryUI": btnNavbarThemesJQueryUI,
             "#layoutNavbar": layoutNavbar,
             "#layoutNavbarThemesUI": layoutNavbarThemesUI,
-            "#layoutMain": `${pages}/clase-14/00-cola-de-efectos.html`,
+            "#layoutMain": `${pages}/clase-16/02-get-ajax.html`,
             "#layoutFooter": layoutFooter,
         },
-        headerTitle: 'Clase 14 - Cola de Efectos',
-        styles: [],
+        headerTitle: 'Clase 16 - 2. Get Ajax',
+        styles: [
+            { href: `${styles}/pages/clase-16/02-get-ajax.css` },
+        ],
         scripts: [
             { src: `${scripts}/tooltips.js` },
+            { src: `${scripts}/clase-16/02-get-ajax.js` },
         ]
 };
