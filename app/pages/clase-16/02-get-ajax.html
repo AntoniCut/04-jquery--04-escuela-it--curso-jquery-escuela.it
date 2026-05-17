@@ -32,23 +32,30 @@
                 </h3>
 
                 <p class="content__text">
-                    
+                    Este ejercicio usa el método <kbd>$.get()</kbd> de jQuery para hacer una petición AJAX
+                    GET a un archivo PHP y mostrar el contenido recibido en el área de resultado.
                 </p>
 
                 <ul class="content__list">
                     <li>
-                    
+                        Al hacer clic en el enlace se lanza <kbd>$.get(url, callback)</kbd>; la respuesta
+                        llega como texto HTML que se parsea creando un elemento <kbd>div</kbd> temporal.
                     </li>
                     <li>
-                    
+                        Se extrae el <kbd>&lt;h3&gt;</kbd> del HTML parseado con <kbd>.find('h3')</kbd> y
+                        se inserta en <kbd>#salida</kbd> usando <kbd>.empty().append()</kbd> para no
+                        acumular respuestas anteriores.
                     </li>
                     <li>
-                    
+                        A diferencia de <kbd>.load()</kbd>, <kbd>$.get()</kbd> es un método global de jQuery
+                        que ofrece control total sobre la respuesta antes de insertarla en el DOM.
                     </li>
                 </ul>
 
                 <p class="content__note">
-
+                    <kbd> Objetivo: </kbd> entender el uso básico de <kbd>$.get()</kbd> con su callback de
+                    éxito, y cómo parsear una respuesta HTML para extraer solo el fragmento que interesa
+                    antes de mostrarlo.
                 </p>
 
             </div>
@@ -61,7 +68,11 @@
     <!--  -----  Práctica  -----  -->
     <section class="main__section-practica">
 
-
+        <a href="#" id="enlace"> Haz Click - Método GET </a>
+   	            
+            <div id="salida"> 
+                <h3 class="info"> Aquí se mostrara lo que me traiga por GET ... </h3>
+            </div>
 
     </section>
 

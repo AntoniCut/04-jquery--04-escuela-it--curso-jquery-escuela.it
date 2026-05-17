@@ -100,6 +100,9 @@ const paths = {
         spaDir: path.join('src', 'spa'),
         spa: path.posix.join('src', 'spa', '**/*'),
 
+        servicesDir: path.join('src', 'services'),
+        services: path.posix.join('src', 'services', '**/*.php'),
+
         scriptsDir: path.join('src', 'scripts'),
         scripts: path.posix.join('src', 'scripts', '**/*.js'),
         scriptsNoMap: '!' + path.posix.join('src', 'scripts', '**/*.map'),
@@ -117,6 +120,7 @@ const paths = {
         css: path.posix.join('app', '**/*.css'),
         js: path.posix.join('app', '**/*.js'),
         jsNoMap: '!' + path.posix.join('app', '**/*.map'),
+        php: path.posix.join('app', '**/*.php'),
     }
 
 };
@@ -351,6 +355,10 @@ export const copyRoutes = createCopyTask('copyRoutes', { glob: paths.src.routes,
 export const copySpa = createCopyTask('copySpa', { glob: paths.src.spa, checkPath: paths.src.spaDir });
 
 
+/** Copia src/services/ → app/services/. */
+export const copyServices = createCopyTask('copyServices', { glob: paths.src.services, checkPath: paths.src.servicesDir });
+
+
 /** Copia src/main.js → app/main.js. */
 export const copyMain = createCopyTask('copyMain', {
     glob: paths.src.main,
@@ -389,6 +397,33 @@ export const copyVendorJQueryUI = createCopyTask('copyVendorJQueryUI', {
 
 /** Copia los módulos de vendor que se consumen desde imports en navegador. */
 const copyVendorModules = parallel(copyVendorJQuery, copyVendorJQueryUI);
+
+
+
+/**
+ * -----------------------------------------
+ * -----  `phpMinifyTransform()`  -----------
+ * -----------------------------------------
+ * - Strip de comentarios de bloque y de línea PHP + colapso de espacios.
+ * - Conserva la estructura básica; no modifica strings ni heredocs.
+ * @returns {Transform}
+ */
+const phpMinifyTransform = () => new Transform({
+
+    objectMode: true,
+
+    transform(file, _enc, cb) {
+        if (file.isNull() || file.stat?.isDirectory?.()) return cb(null, file);
+        if (file.isBuffer()) {
+            let content = file.contents.toString('utf8');
+            content = content.replace(/\/\*[\s\S]*?\*\//g, '');          // block comments
+            content = content.replace(/^\s*\/\/.*$/gm, '');               // line comments //
+            content = content.split('\n').map(l => l.trim()).filter(Boolean).join('\n');
+            file.contents = Buffer.from(content, 'utf8');
+        }
+        cb(null, file);
+    },
+});
 
 
 
@@ -454,6 +489,7 @@ const copyAll = parallel(
     copyPlugins,
     copyRoutes,
     copySpa,
+    copyServices,
     copyScripts,
     copyMain,
     styles,
@@ -485,6 +521,7 @@ const watchTask = () => {
         [paths.src.plugins, copyPlugins],
         [paths.src.routes, copyRoutes],
         [paths.src.spa, copySpa],
+        [paths.src.services, copyServices],
         [paths.src.scripts, copyScripts],
         [paths.src.main, copyMain],
         [paths.src.scssAll, styles],
@@ -568,7 +605,20 @@ export const minifyAllJs = () =>
 
 
 
-/** Copia assets estáticos (no HTML/CSS/JS/map) de app/ → dist/. */
+/** Minifica los PHP de app/services/ → dist/app/services/. */
+export const minifyServices = () =>
+    
+    !existsDir(paths.appRoot)
+        ? Promise.resolve()
+        : src(paths.app.php, { base: '.', allowEmpty: true })
+            .pipe(safePipe())
+            .pipe(phpMinifyTransform())
+            .pipe(validateFiles('minifyServices'))
+            .pipe(dest(paths.distRoot));
+
+
+
+/** Copia assets estáticos (no HTML/CSS/JS/PHP/map) de app/ → dist/. */
 export const copyStaticAssetsToDist = () =>
     
     !existsDir(paths.appRoot)
@@ -578,6 +628,7 @@ export const copyStaticAssetsToDist = () =>
             '!' + paths.app.html,
             '!' + paths.app.css,
             '!' + paths.app.js,
+            '!' + paths.app.php,
             '!' + path.posix.join(paths.appRoot, '**/*.map'),
         ], { base: '.', allowEmpty: true, encoding: false })
             .pipe(safePipe())
@@ -627,7 +678,7 @@ export function addTsNoCheck(cb) {
 export const build = series(
     parallel(cleanDist, cleanApp),
     copyAll,
-    parallel(minifyAllJs, minifyAllCss, minifyRootIndex, minifyHtml, copyStaticAssetsToDist, copyRootAssetsToDist),
+    parallel(minifyAllJs, minifyAllCss, minifyRootIndex, minifyHtml, minifyServices, copyStaticAssetsToDist, copyRootAssetsToDist),
 );
 
 export default build;

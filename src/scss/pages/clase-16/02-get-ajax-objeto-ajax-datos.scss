@@ -1,0 +1,249 @@
+/*
+    *  -------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /02-get-ajax-objeto-ajax-datos.scss  --  /src/styles/scss/pages/clase-16/02-get-ajax-objeto-ajax-datos.scss  -----  *
+    *  -------------------------------------------------------------------------------------------------------------------------  *
+*/
+
+
+.main__section-practica {
+    min-height: 65rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+
+// -----  Enlace  -----
+
+#enlace {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: cornflowerblue;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 300ms ease-in-out;
+
+    &:hover {
+        background-color: rgb(24, 56, 116);
+    }
+}
+
+
+// -----  Resultado  -----
+
+#salida {
+    position: relative;
+    width: 100%;
+    min-height: 12rem;
+    padding: 3rem 4rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f9f9f9 0%, #f9f9f9 100%);
+    border-left: 4px solid #d9e2f2;
+    border-radius: 8px;
+    transition: background 400ms ease;
+}
+
+.salida__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.info {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #7b9ff4;
+    letter-spacing: 0.02em;
+    margin: 0;
+}
+
+.error {
+    color: red !important;
+}
+
+
+// -----  Cargando (overlay dentro de #salida)  -----
+
+#cargando {
+    display: none;
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: linear-gradient(135deg, #f9f9f9 0%, #f9f9f9 100%);
+    font-size: 1.4rem;
+    color: #a8bfff;
+}
+
+.cargando__spinner {
+    display: inline-block;
+    width: 1.6rem;
+    height: 1.6rem;
+    border: 3px solid #a8bfff;
+    border-top-color: cornflowerblue;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    flex-shrink: 0;
+}
+
+.cargando__img {
+    width: 2rem;
+    height: 2rem;
+    mix-blend-mode: multiply;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+// -----  Ajax Log  -----
+
+.ajax-log {
+    width: 100%;
+    min-width: 25rem;
+    height: 28rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 6px;
+    overflow-y: auto;
+    // overflow: hidden;
+}
+
+.ajax-log__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 1.6rem;
+    background-color: #2b2b2b;
+}
+
+.ajax-log__title {
+    margin: 0;
+    font-size: 1.3rem;
+    font-family: monospace;
+    letter-spacing: 0.05em;
+    color: #aaa;
+}
+
+.ajax-log__clear {
+    padding: 0.4rem 1rem;
+    background-color: transparent;
+    border: 1px solid #555;
+    color: #aaa;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 200ms ease;
+
+    &:hover {
+        background-color: #555;
+        color: #fff;
+    }
+}
+
+.ajax-log__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #1e1e1e;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+.ajax-log__empty {
+    padding: 1.4rem 1.6rem;
+    color: #555;
+    font-size: 1.2rem;
+    font-family: monospace;
+    font-style: italic;
+}
+
+.ajax-log__item {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.8rem 1.6rem;
+    border-bottom: 1px solid #2b2b2b;
+    font-family: monospace;
+    font-size: 1.2rem;
+    color: #ccc;
+    animation: logFadeIn 200ms ease;
+}
+
+@keyframes logFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ajax-log__time {
+    color: #efeaea;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.ajax-log__badge {
+    width: 10rem;
+    display: inline-block;
+    padding: 0.15rem 0.7rem;
+    border-radius: 3px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+}
+
+.ajax-log__detail {
+    color: #efeaea;
+}
+
+
+// -----  Colores de badge por evento  -----
+
+.ajax-log__item--start .ajax-log__badge {
+    background-color: #3b6dd6;
+    color: #fff;
+}
+
+.ajax-log__item--send .ajax-log__badge {
+    background-color: #9a6800;
+    color: #fff;
+}
+
+.ajax-log__item--success .ajax-log__badge {
+    background-color: #2a7a2a;
+    color: #fff;
+}
+
+.ajax-log__item--error .ajax-log__badge {
+    background-color: #8b1a1a;
+    color: #fff;
+}
+
+.ajax-log__item--complete .ajax-log__badge {
+    background-color: gold;
+    color: #222;
+}

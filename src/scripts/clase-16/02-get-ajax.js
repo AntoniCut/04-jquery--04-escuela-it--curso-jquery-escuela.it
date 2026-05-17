@@ -12,17 +12,43 @@
     console.log('\n');
 
 
+    /** -----  `URL base para los servicios`  */
+    const urlBase = '/escuelait/curso-jquery-escuelait/app/services';
+
+
     //  -----  Referencias al HTML  -----
 
-    /** @type {JQuery<HTMLButtonElement>} - `Botón con id = btnAnimar`  */
-    const $btnAnimar = $('#btnAnimar');
+    /** @type {JQuery<HTMLAnchorElement>} - `Enlace con id = enlace`  */
+    const $enlace = $('#enlace');
 
-    /** @type {JQuery<HTMLDivElement>} - `Div con clase = texto`  */
-    const $texto = $('.texto');
+    /** @type {JQuery<HTMLDivElement>} - `Div con id = salida`  */
+    const $salida = $('#salida');
 
-    /** @type {JQuery<HTMLParagraphElement>} - `Párrafo con clase = parrafo`  */
-    const $parrafo = $('.parrafo');
+    
+    $enlace.on('click', function (e) {
 
+        e.preventDefault();
+
+        $.get(
+
+            `${urlBase}/contenido-get-ajax.php`,
+
+            function (respuesta) {
+
+                /** -----  `Parsea la respuesta como HTML`  -----  */
+                const $html = $('<div>').html(respuesta);
+                
+                /** -----  `Busca el h3 dentro del HTML parseado`  -----  */
+                const $h3 = $html.find('h3');
+
+                //  -----  Muestra solo el contenido del h3  -----
+                $salida
+                    .empty()
+                    .append($h3);
+                
+            });
+
+    });
 
     
 

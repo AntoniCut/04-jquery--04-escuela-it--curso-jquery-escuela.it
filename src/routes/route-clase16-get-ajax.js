@@ -40,7 +40,7 @@ export const routeClase16GetAjax = {
         },
         headerTitle: 'Clase 16 - 2. Get Ajax',
         styles: [
-            { href: `${styles}/pages/clase-16/02-get-ajax.css` },
+            { href: `${styles}/pages/clase-16/01-load-get-ajax.css` },
         ],
         scripts: [
             { src: `${scripts}/tooltips.js` },

@@ -4,27 +4,41 @@
     *  ---------------------------------------------------------------  *
 */
 
+
+
 (($) => {
 
-    
+
     console.log('\n');
     console.warn('-----  01-load.js  -----');
     console.log('\n');
 
+    /** -----  `URL base para los servicios`  */
+    const urlBase = '/escuelait/curso-jquery-escuelait/app/services';
+
 
     //  -----  Referencias al HTML  -----
 
-    /** @type {JQuery<HTMLButtonElement>} - `Botón con id = btnAnimar`  */
-    const $btnAnimar = $('#btnAnimar');
+    /** @type {JQuery<HTMLButtonElement>} - `Botón con id = btnLoad`  */
+    const $btnLoad = $('#btnLoad');
 
-    /** @type {JQuery<HTMLDivElement>} - `Div con clase = texto`  */
-    const $texto = $('.texto');
-
-    /** @type {JQuery<HTMLParagraphElement>} - `Párrafo con clase = parrafo`  */
-    const $parrafo = $('.parrafo');
-
+    /** @type {JQuery<HTMLDivElement>} - `Div con id = salida`  */
+    const $salida = $('#salida'); 
 
     
+    //  -----  Evento click  -----
+    $btnLoad.on('click', function () {
+
+        //  -----  Método LOAD  -----
+        $salida.load(
+
+            `${urlBase}/contenido-load.php`,
+
+            function () {
+                alert("Información cargada");
+
+            });
+    });
 
 
 })(jQuery);

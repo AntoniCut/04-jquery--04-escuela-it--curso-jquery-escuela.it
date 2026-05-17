@@ -32,23 +32,33 @@
                 </h3>
 
                 <p class="content__text">
-                    
+                    Este ejercicio replica la funcionalidad del ejercicio 3 pero sustituye el callback
+                    de <kbd>$.get()</kbd> por los <strong>Deferred Methods</strong>: <kbd>.done()</kbd>,
+                    <kbd>.fail()</kbd> y <kbd>.always()</kbd>, combinándolos con los Global Ajax Event
+                    Handlers.
                 </p>
 
                 <ul class="content__list">
                     <li>
-                    
+                        <kbd>$.get()</kbd> devuelve un objeto <kbd>jqXHR</kbd>; sobre él se encadenan
+                        <kbd>.done()</kbd> para manejar el éxito, <kbd>.fail()</kbd> para los errores y
+                        <kbd>.always()</kbd> para la lógica que debe ejecutarse siempre.
                     </li>
                     <li>
-                    
+                        Los Deferred Methods son locales a la petición, mientras que los Global Ajax Event
+                        Handlers (<kbd>ajaxStart</kbd>, <kbd>ajaxSend</kbd>…) reaccionan a cualquier
+                        petición AJAX activa en la página, complementándose entre sí.
                     </li>
                     <li>
-                    
+                        El overlay de carga incluye además un <kbd>&lt;img&gt;</kbd> GIF animado junto al
+                        spinner CSS, y todos los eventos quedan registrados en el panel de log lateral.
                     </li>
                 </ul>
 
                 <p class="content__note">
-
+                    <kbd> Objetivo: </kbd> entender la diferencia entre los Deferred Methods (ámbito local
+                    de una petición) y los Global Ajax Event Handlers (ámbito global del documento), y
+                    saber cuándo usar cada patrón.
                 </p>
 
             </div>
@@ -58,10 +68,51 @@
     </section>
 
 
-    <!--  -----  Práctica  -----  -->
+     <!--  -----  Práctica  -----  -->
     <section class="main__section-practica">
 
+        <a href="#" id="enlace"> Haz Click - Método GET con datos y Objeto AJAX </a>
 
+        <!--  -----  Área de resultado con overlay de carga  -----  -->
+        <div id="salida">
+
+            <!--  -----  Indicador de carga (overlay)  -----  -->
+            <div id="cargando">
+                
+                <span class="cargando__spinner">
+                    <!--*  -----  Spinner animado -----  -->
+                </span>
+
+                <span class="cargando__text"> Cargando... </span>
+
+                <!--*  -----  Imagen de carga -----  -->
+                <img 
+                    src="../../../assets/img/clase-16/loading.gif"
+                    class="cargando__img"
+                    alt="Cargando..."
+                >
+            </div>
+
+            <!--  -----  Contenido de la respuesta  -----  -->
+            <div class="salida__content">
+                <h3 class="info"> Aquí se mostrarán los datos traídos por GET y Objeto AJAX... </h3>
+            </div>
+
+        </div>
+
+        <!--  -----  Log de eventos AJAX  -----  -->
+        <aside class="ajax-log">
+
+            <header class="ajax-log__header">
+                <h4 class="ajax-log__title"> Eventos AJAX </h4>
+                <button type="button" id="ajax-log-clear" class="ajax-log__clear"> Limpiar </button>
+            </header>
+
+            <ul id="ajax-log" class="ajax-log__list">
+                <li class="ajax-log__empty"> Sin eventos aún. Haz clic en el enlace. </li>
+            </ul>
+
+        </aside>
 
     </section>
 

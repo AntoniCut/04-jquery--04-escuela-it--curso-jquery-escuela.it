@@ -32,23 +32,32 @@
                 </h3>
 
                 <p class="content__text">
-                    
+                    Este ejercicio amplía <kbd>$.get()</kbd> enviando datos al servidor (nombre y apellido)
+                    y utiliza los <strong>Global Ajax Event Handlers</strong> de jQuery para registrar
+                    en tiempo real cada fase del ciclo de vida de la petición.
                 </p>
 
                 <ul class="content__list">
                     <li>
-                    
+                        Se pasa un objeto <kbd>myJSON</kbd> como segundo argumento de <kbd>$.get()</kbd>;
+                        jQuery lo serializa y lo envía como parámetros de la petición GET al servidor.
                     </li>
                     <li>
-                    
+                        Los manejadores globales <kbd>ajaxStart</kbd>, <kbd>ajaxSend</kbd>,
+                        <kbd>ajaxSuccess</kbd>, <kbd>ajaxError</kbd> y <kbd>ajaxComplete</kbd> se registran
+                        sobre <kbd>$(document)</kbd> y disparan entradas en el panel de log lateral.
                     </li>
                     <li>
-                    
+                        El indicador <kbd>#cargando</kbd> actúa como overlay dentro de <kbd>#salida</kbd>:
+                        aparece al iniciar la petición y desaparece al completarse, sin provocar saltos
+                        en el layout.
                     </li>
                 </ul>
 
                 <p class="content__note">
-
+                    <kbd> Objetivo: </kbd> comprender cómo enviar datos con <kbd>$.get()</kbd> y cómo
+                    los Global Ajax Event Handlers permiten observar el ciclo completo de cualquier
+                    petición AJAX en la página.
                 </p>
 
             </div>
@@ -61,7 +70,37 @@
     <!--  -----  Práctica  -----  -->
     <section class="main__section-practica">
 
+        <a href="#" id="enlace"> Haz Click - Método GET con datos </a>
 
+        <!--  -----  Área de resultado con overlay de carga  -----  -->
+        <div id="salida">
+
+            <!--  -----  Indicador de carga (overlay)  -----  -->
+            <div id="cargando">
+                <span class="cargando__spinner"></span>
+                <span class="cargando__text"> Cargando... </span>
+            </div>
+
+            <!--  -----  Contenido de la respuesta  -----  -->
+            <div class="salida__content">
+                <h3 class="info"> Aquí se mostrarán los datos traídos por GET... </h3>
+            </div>
+
+        </div>
+
+        <!--  -----  Log de eventos AJAX  -----  -->
+        <aside class="ajax-log">
+
+            <header class="ajax-log__header">
+                <h4 class="ajax-log__title"> Eventos AJAX </h4>
+                <button type="button" id="ajax-log-clear" class="ajax-log__clear"> Limpiar </button>
+            </header>
+
+            <ul id="ajax-log" class="ajax-log__list">
+                <li class="ajax-log__empty"> Sin eventos aún. Haz clic en el enlace. </li>
+            </ul>
+
+        </aside>
 
     </section>
 

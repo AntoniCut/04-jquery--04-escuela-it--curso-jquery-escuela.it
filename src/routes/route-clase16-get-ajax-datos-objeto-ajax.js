@@ -40,7 +40,7 @@ export const routeClase16GetAjaxDatosObjetoAjax = {
         },
         headerTitle: 'Clase 16 - 4. Get Ajax Datos Objeto Ajax',
         styles: [
-            { href: `${styles}/pages/clase-16/04-get-ajax-datos-objeto-ajax.css` },
+            { href: `${styles}/pages/clase-16/02-get-ajax-objeto-ajax-datos.css` },
         ],
         scripts: [
             { src: `${scripts}/tooltips.js` },

@@ -82,8 +82,7 @@ export const routeManifest = [
     { id: 'clase16GetAjax', path: 'clase16-ajax-interfaz-alto-nivel/get-ajax', file: 'route-clase16-get-ajax' },
     { id: 'clase16GetAjaxDatos', path: 'clase16-ajax-interfaz-alto-nivel/get-ajax-datos', file: 'route-clase16-get-ajax-datos' },
     { id: 'clase16GetAjaxDatosObjetoAjax', path: 'clase16-ajax-interfaz-alto-nivel/get-ajax-datos-objeto-ajax', file: 'route-clase16-get-ajax-datos-objeto-ajax' },
-    { id: 'clase16GetAjaxLoadingImg', path: 'clase16-ajax-interfaz-alto-nivel/get-ajax-loading-img', file: 'route-clase16-get-ajax-loading-img' },
-
+    
     { id: '404NotFoundPage', path: '404', file: 'route-404-not-found-page' },
 
     
