@@ -9,6 +9,7 @@ import 'dotenv/config';
 
 import browserSync from 'browser-sync';
 import express from 'express';
+import { spawn } from 'node:child_process';
 import fs from 'node:fs';
 import net from 'node:net';
 import path from 'node:path';
@@ -132,6 +133,122 @@ const serveSpaFallback = (req, res, next) => {
 
 
 /**
+ * ----------------------------------------------------
+ * -----  `makePhpHandler(rootDir, serverPort)`  -----
+ * ----------------------------------------------------
+ * - Ejecuta archivos .php via php-cgi y devuelve la respuesta CGI al cliente.
+ * @param {string} rootDir    - Directorio raíz donde resolver los archivos PHP.
+ * @param {number} serverPort - Puerto del servidor (para SERVER_PORT CGI).
+ * @returns {import('express').RequestHandler}
+ */
+
+const makePhpHandler = (rootDir, serverPort) => (req, res, next) => {
+
+    //  -----  Solo procesar peticiones a archivos .php  -----
+    if (!req.path.endsWith('.php')) {
+        next();
+        return;
+    }
+
+    //  -----  Calcula la ruta relativa dentro del prefijo de la SPA  -----
+    const relativePath = req.path.startsWith(DEV_ROUTE_BASE)
+        ? req.path.slice(DEV_ROUTE_BASE.length).replace(/^\//, '')
+        : req.path.replace(/^\//, '');
+
+    const phpFile = path.join(rootDir, relativePath);
+
+    //  -----  Si el archivo PHP no existe, pasar al siguiente middleware  -----
+    if (!fs.existsSync(phpFile)) {
+        next();
+        return;
+    }
+
+    //  -----  Extrae el query string de la URL original  -----
+    const queryString = req.originalUrl.includes('?')
+        ? req.originalUrl.split('?')[1]
+        : '';
+
+    //  -----  Variables de entorno CGI requeridas por php-cgi  -----
+    const cgiEnv = {
+        ...process.env,
+        REDIRECT_STATUS:   '200',
+        SCRIPT_FILENAME:   phpFile,
+        SCRIPT_NAME:       req.path,
+        REQUEST_METHOD:    req.method,
+        QUERY_STRING:      queryString,
+        CONTENT_TYPE:      req.headers['content-type']   ?? '',
+        CONTENT_LENGTH:    req.headers['content-length'] ?? '0',
+        SERVER_NAME:       'localhost',
+        SERVER_PORT:       String(serverPort),
+        SERVER_PROTOCOL:   'HTTP/1.1',
+        GATEWAY_INTERFACE: 'CGI/1.1',
+        HTTP_HOST:         req.headers['host'] ?? 'localhost',
+        DOCUMENT_ROOT:     rootDir,
+    };
+
+    const php = spawn('php-cgi', [], { env: cgiEnv });
+
+    let stdout = Buffer.alloc(0);
+    let stderr  = '';
+
+    php.stdout.on('data', (chunk) => {
+        stdout = Buffer.concat([stdout, chunk]);
+    });
+
+    php.stderr.on('data', (chunk) => {
+        stderr += chunk.toString();
+    });
+
+    php.on('close', () => {
+
+        if (stderr) console.error(`[php-cgi] ${stderr.trim()}`);
+
+        //  -----  Busca el separador de headers CGI (CRLF o LF doble)  -----
+        let sepIndex = stdout.indexOf('\r\n\r\n');
+        let sepLen   = 4;
+
+        if (sepIndex === -1) {
+            sepIndex = stdout.indexOf('\n\n');
+            sepLen   = 2;
+        }
+
+        if (sepIndex === -1) {
+            res.status(500).send('Error: PHP no devolvió una respuesta CGI válida.');
+            return;
+        }
+
+        const headersRaw = stdout.slice(0, sepIndex).toString();
+        const body       = stdout.slice(sepIndex + sepLen);
+
+        //  -----  Aplica los headers devueltos por PHP  -----
+        for (const line of headersRaw.split(/\r?\n/)) {
+            const colonIndex = line.indexOf(':');
+            if (colonIndex === -1) continue;
+            const name  = line.slice(0, colonIndex).trim();
+            const value = line.slice(colonIndex + 1).trim();
+            if (name.toLowerCase() === 'status') {
+                res.status(parseInt(value, 10));
+            } else {
+                res.setHeader(name, value);
+            }
+        }
+
+        res.send(body);
+
+    });
+
+    php.on('error', () => {
+        res.status(500).send('Error interno: php-cgi no está disponible. Instálalo con: sudo apt install php-cgi');
+    });
+
+    //  -----  Si la petición tiene body (POST), lo escribe en stdin de php-cgi  -----
+    req.pipe(php.stdin);
+
+};
+
+
+
+/**
  * -------------------------------------------------
  * -----  `assertPortAvailable(port)`  -----
  * -------------------------------------------------
@@ -175,6 +292,9 @@ const assertPortAvailable = (port) => new Promise((resolve, reject) => {
 
 //  -----  Middleware para redirigir la raíz a la base de la SPA  -----
 app.use(redirectRootToBase);
+
+//  -----  Middleware para ejecutar archivos PHP via php-cgi  -----
+app.use(makePhpHandler(PROJECT_ROOT, DEV_SERVER_PORT));
 
 //  -----  Middleware para servir archivos estáticos desde la raíz del proyecto con el prefijo de ruta  -----
 app.use(DEV_ROUTE_BASE, express.static(PROJECT_ROOT, { index: false }));

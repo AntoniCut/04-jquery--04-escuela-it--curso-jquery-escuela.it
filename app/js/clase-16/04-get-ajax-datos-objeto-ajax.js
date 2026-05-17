@@ -203,6 +203,7 @@
         if (!peticionUsuario) 
             return;
 
+        
         logEvent('ajaxSuccess', 'success', 'Petición completada con éxito');
 
         $cargando.css('display', 'none');
