@@ -1,6 +1,6 @@
 /*
     *  ---------------------------------------------------------------------------  *
-    *  -----  /10-ejercicio-09.js  --  /src/scripts/clase-17/10-ejercicio-09.js  -----  *
+    *  -----  /11-ejercicio-09.js  --  /src/scripts/clase-17/11-ejercicio-09.js  -----  *
     *  ---------------------------------------------------------------------------  *
 */
 
@@ -10,7 +10,7 @@
 
 
     console.log('\n');
-    console.warn('-----  10-ejercicio-09.js  -----');
+    console.warn('-----  11-ejercicio-09.js  -----');
     console.log('\n');
 
 

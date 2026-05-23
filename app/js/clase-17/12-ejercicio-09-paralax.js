@@ -1,6 +1,6 @@
 /*
     *  ---------------------------------------------------------------------------------------------------  *
-    *  -----  /11-ejercicio-09-paralax.js  --  /src/scripts/clase-17/11-ejercicio-09-paralax.js  -----  *
+    *  -----  /12-ejercicio-09-paralax.js  --  /src/scripts/clase-17/12-ejercicio-09-paralax.js  -----  *
     *  ---------------------------------------------------------------------------------------------------  *
 */
 
@@ -10,7 +10,7 @@
 
 
     console.log('\n');
-    console.warn('-----  11-ejercicio-09-paralax.js  -----');
+    console.warn('-----  12-ejercicio-09-paralax.js  -----');
     console.log('\n');
 
 

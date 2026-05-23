@@ -1,6 +1,6 @@
 /*
     *  -------------------------------------------------------------------------------------  *
-    *  -----  /route-clase17-ejercicio09.js  --  /src/routes/route-clase17-ejercicio09.js  -----  *
+    *  -----  /route-clase17-ejercicio08.js  --  /src/routes/route-clase17-ejercicio08.js  -----  *
     *  -------------------------------------------------------------------------------------  *
 */
 
@@ -24,26 +24,26 @@ const {
 
 
 /** @type {import('../../types/index.js').Route} */
-export const routeClase17Ejercicio09 = {
-        id: 'clase17Ejercicio09',
+export const routeClase17Ejercicio08 = {
+        id: 'clase17Ejercicio08',
         favicon: favicon,
-        pageTitle: 'Clase 17 - Ejercicio 09',
-        path: '/clase17-dudas-y-conceptos-parte-2/ejercicio-09',
+        pageTitle: 'Clase 17 - Ejercicio 08',
+        path: '/clase17-dudas-y-conceptos-parte-2/ejercicio-08',
         components: {
             "#layoutHeader": layoutHeader,
             "#btnNavbar": btnNavbar,
             "#btnNavbarThemesJQueryUI": btnNavbarThemesJQueryUI,
             "#layoutNavbar": layoutNavbar,
             "#layoutNavbarThemesUI": layoutNavbarThemesUI,
-            "#layoutMain": `${pages}/clase-17/11-ejercicio-09.html`,
+            "#layoutMain": `${pages}/clase-17/10-ejercicio-08.html`,
             "#layoutFooter": layoutFooter,
         },
-        headerTitle: 'Clase 17 - Ejercicio 09',
+        headerTitle: 'Clase 17 - Ejercicio 08',
         styles: [
-            { href: `${styles}/pages/clase-17/11-ejercicio-09.css` },
+            { href: `${styles}/pages/clase-17/10-ejercicio-08.css` },
         ],
         scripts: [
             { src: `${scripts}/tooltips.js` },
-            { src: `${scripts}/clase-17/11-ejercicio-09.js` },
+            { src: `${scripts}/clase-17/10-ejercicio-08.js` },
         ]
 };
