@@ -1,0 +1,22 @@
+/*
+    *  --------------------------------------------------------------------------------------  *
+    *  -----  /09-ejercicio-08.scss  --  /src/scss/pages/clase-17/09-ejercicio-08.scss  -----  *
+    *  --------------------------------------------------------------------------------------  *
+*/
+
+
+#grande {
+    background-color: #cfc;
+    width: 200px;
+    padding: 1px 0 21px 0;
+    margin-bottom: 20px;
+}
+
+#grande > div {
+    background-color: #ccf;
+    margin-top: 20px;
+    width: 60%;
+    height: 30px;
+    margin-right: auto;
+    margin-left: auto;
+}

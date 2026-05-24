@@ -1,0 +1,20 @@
+/*
+    *  --------------------------------------------------------------------------------------  *
+    *  -----  /09-ejercicio-08.scss  --  /src/scss/pages/clase-17/09-ejercicio-08.scss  -----  *
+    *  --------------------------------------------------------------------------------------  *
+*/
+#grande {
+  background-color: #cfc;
+  width: 200px;
+  padding: 1px 0 21px 0;
+  margin-bottom: 20px;
+}
+
+#grande > div {
+  background-color: #ccf;
+  margin-top: 20px;
+  width: 60%;
+  height: 30px;
+  margin-right: auto;
+  margin-left: auto;
+}/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJjbGFzZS0xNy8wOS1lamVyY2ljaW8tMDguc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBT0E7RUFDSTtFQUNBO0VBQ0E7RUFDQTs7O0FBR0o7RUFDSTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuICAgICogIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tICAqXG4gICAgKiAgLS0tLS0gIC8wOS1lamVyY2ljaW8tMDguc2NzcyAgLS0gIC9zcmMvc2Nzcy9wYWdlcy9jbGFzZS0xNy8wOS1lamVyY2ljaW8tMDguc2NzcyAgLS0tLS0gICpcbiAgICAqICAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSAgKlxuKi9cblxuXG4jZ3JhbmRlIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjY2ZjO1xuICAgIHdpZHRoOiAyMDBweDtcbiAgICBwYWRkaW5nOiAxcHggMCAyMXB4IDA7XG4gICAgbWFyZ2luLWJvdHRvbTogMjBweDtcbn1cblxuI2dyYW5kZSA+IGRpdiB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2NjZjtcbiAgICBtYXJnaW4tdG9wOiAyMHB4O1xuICAgIHdpZHRoOiA2MCU7XG4gICAgaGVpZ2h0OiAzMHB4O1xuICAgIG1hcmdpbi1yaWdodDogYXV0bztcbiAgICBtYXJnaW4tbGVmdDogYXV0bztcbn0iXSwiZmlsZSI6ImNsYXNlLTE3LzA5LWVqZXJjaWNpby0wOC5jc3MifQ== */

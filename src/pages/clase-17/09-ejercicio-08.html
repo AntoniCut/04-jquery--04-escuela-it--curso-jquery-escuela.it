@@ -1,0 +1,102 @@
+<!--  
+    *  ---------------------------------------------------------------------------------  *
+    *  -----  /09-ejercicio-08.html  --  /src/pages/clase-17/09-ejercicio-08.html  -----  *
+    *  ---------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__container">
+
+
+    <!--  -----  INFO  -----  -->
+    <section class="main__section-info">
+
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="Ejercicio 08">
+                Clase 17 - Ejercicio 08
+            </h2>
+
+        </header>
+
+        <!--  -----  Contenido de la Sección  -----  -->
+        <article class="section__content">
+
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    Que hace este ejercicio
+                </h3>
+
+                <p class="content__text">
+                    Crear un par de contenedores. Uno mayor y otro menor. El menor está dentro y tapa
+                    parcialmente el grande.
+                </p>
+
+                <p class="content__text">
+                    HTML:
+                    <kbd>&lt;div id="grande"&gt; &lt;div id="pequeno"&gt;&lt;/div&gt; &lt;/div&gt;</kbd>
+                </p>
+
+                <p class="content__text">
+                    Crear un evento "mouseenter" en el elemento grande y también un evento "mouseover".
+                    Ambos eventos tienen que acumular la cuenta de veces que se han disparado. Esa cuenta de
+                    veces la muestras en otros elementos en la misma página.
+                </p>
+
+                <p class="content__text">
+                    HTML: <kbd>Mouseover: &lt;span id="mouseover"&gt;0&lt;/span&gt;</kbd> <br />
+                    <kbd>Mouseenter: &lt;span id="mouseenter"&gt;0&lt;/span&gt;</kbd>
+                </p>
+
+                <p class="content__note">
+                    <kbd> Objetivo: </kbd> Percibir la diferencia entre "mouseenter" que es un evento
+                    propio de jQuery y "mouseover" que es un evento nativo de Javascript. Apreciarás la diferencia
+                    al pasar el ratón por encima del elemento pequeño y por el grande.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        ✔ Describe de forma clara el comportamiento principal del ejercicio y el elemento del DOM sobre el que actua.
+                    </li>
+                    <li>
+                        ✔ Resume los eventos o metodos jQuery implicados, indicando cuando se disparan y que efecto producen.
+                    </li>
+                    <li>
+                        ✔ Indica el resultado esperado al interactuar con la interfaz para poder validar rapidamente si funciona.
+                    </li>
+                </ul>
+
+                <p class="content__note">
+                    <kbd> Objetivo: </kbd> practicar la manipulacion del DOM y el manejo de eventos con jQuery mediante una explicacion estructurada del ejercicio.
+                </p>
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!--  -----  Práctica  -----  -->
+    <section class="main__section-practica">
+
+        <div id="grande">
+            
+            <div id="pequeno"> </div>
+
+        </div>
+
+        <div class="counters">
+
+            Mouseover: <span id="mouseover"> 0 </span>
+            Mouseenter: <span id="mouseenter"> 0 </span>
+
+        </div>
+
+    </section>
+
+
+</div>

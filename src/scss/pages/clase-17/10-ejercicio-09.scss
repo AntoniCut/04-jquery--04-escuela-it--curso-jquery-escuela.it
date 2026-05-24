@@ -1,0 +1,22 @@
+/*
+    *  --------------------------------------------------------------------------------------  *
+    *  -----  /10-ejercicio-09.scss  --  /src/scss/pages/clase-17/10-ejercicio-09.scss  -----  *
+    *  --------------------------------------------------------------------------------------  *
+*/
+
+
+.input--tab {
+    width: 100%;
+    padding: 2rem;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: #c9c4c4;
+    font-size: 1.4rem;
+
+    &:focus {
+        outline: none;
+        border-color: rgba(13, 75, 219, 0.24);
+        box-shadow: 0 0 0 3px rgba(13, 75, 219, 0.08);
+    }
+}

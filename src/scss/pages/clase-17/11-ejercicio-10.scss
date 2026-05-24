@@ -1,0 +1,24 @@
+/*
+    *  --------------------------------------------------------------------------------------  *
+    *  -----  /11-ejercicio-10.scss  --  /src/scss/pages/clase-17/11-ejercicio-10.scss  -----  *
+    *  --------------------------------------------------------------------------------------  *
+*/
+
+
+.main__section-practica {
+    
+    min-height: 60vh;
+}
+
+
+#miDiv {
+    margin-top: 100rem;
+    width: 20rem;
+    height: 15rem;
+    padding: 1rem;
+    border-radius: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ddd;
+}

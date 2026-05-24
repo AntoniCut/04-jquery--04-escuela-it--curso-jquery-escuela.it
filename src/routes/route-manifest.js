@@ -89,13 +89,13 @@ export const routeManifest = [
     { id: 'clase17Ejercicio03', path: 'clase17-dudas-y-conceptos-parte-2/ejercicio-03', file: 'route-clase17-ejercicio03' },
     { id: 'clase17Ejercicio04', path: 'clase17-dudas-y-conceptos-parte-2/ejercicio-04', file: 'route-clase17-ejercicio04' },
     { id: 'clase17Ejercicio05', path: 'clase17-dudas-y-conceptos-parte-2/ejercicio-05', file: 'route-clase17-ejercicio05' },
-    { id: 'clase17Ejercicio05Alternativa1', path: 'clase17-dudas-y-conceptos-parte-2/ejercicio-05-alternativa-1', file: 'route-clase17-ejercicio05-alternativa1' },
-    { id: 'clase17Ejercicio05Alternativa2', path: 'clase17-dudas-y-conceptos-parte-2/ejercicio-05-alternativa-2', file: 'route-clase17-ejercicio05-alternativa2' },
+    { id: 'clase17Ejercicio05Hover', path: 'clase17-dudas-y-conceptos-parte-2/ejercicio-05-hover', file: 'route-clase17-ejercicio05-hover' },
     { id: 'clase17Ejercicio06', path: 'clase17-dudas-y-conceptos-parte-2/ejercicio-06', file: 'route-clase17-ejercicio06' },
     { id: 'clase17Ejercicio07', path: 'clase17-dudas-y-conceptos-parte-2/ejercicio-07', file: 'route-clase17-ejercicio07' },
     { id: 'clase17Ejercicio08', path: 'clase17-dudas-y-conceptos-parte-2/ejercicio-08', file: 'route-clase17-ejercicio08' },
     { id: 'clase17Ejercicio09', path: 'clase17-dudas-y-conceptos-parte-2/ejercicio-09', file: 'route-clase17-ejercicio09' },
-    { id: 'clase17Ejercicio09Paralax', path: 'clase17-dudas-y-conceptos-parte-2/ejercicio-09-paralax', file: 'route-clase17-ejercicio09-paralax' },
+    { id: 'clase17Ejercicio10', path: 'clase17-dudas-y-conceptos-parte-2/ejercicio-10', file: 'route-clase17-ejercicio10' },
+    { id: 'clase17Ejercicio10Paralax', path: 'clase17-dudas-y-conceptos-parte-2/ejercicio-10-paralax', file: 'route-clase17-ejercicio10-paralax' },
     
     { id: '404NotFoundPage', path: '404', file: 'route-404-not-found-page' },
 

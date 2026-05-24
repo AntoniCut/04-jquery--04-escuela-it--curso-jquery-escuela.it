@@ -81,20 +81,15 @@
         /** @type {number} - `Alto del menú contextual` */
         const altoMenu = $menu.outerHeight() || 0;
         
-        /** @type {number} - `Desplazamiento horizontal de la ventana` */
-        const scrollX = window.pageXOffset;
-        
-        /** @type {number} - `Desplazamiento vertical de la ventana` */
-        const scrollY = window.pageYOffset;
-
         /** @type {number} - `Posición horizontal del menú contextual` */
-        const left = Math.max(scrollX, Math.min(e.pageX, scrollX + window.innerWidth - anchoMenu));
+        const left = Math.max(0, Math.min(e.clientX, window.innerWidth - anchoMenu));
         
         /** @type {number} - `Posición vertical del menú contextual` */
-        const top = Math.max(scrollY, Math.min(e.pageY, scrollY + window.innerHeight - altoMenu));
+        const top = Math.max(0, Math.min(e.clientY, window.innerHeight - altoMenu));
 
         //  -----  Posiciona el menú contextual en la ubicación calculada  -----
         $menu.css({
+            "position": "fixed",
             "display": "block",
             "top": `${top}px`,
             "left": `${left}px`
@@ -115,10 +110,13 @@
         $info.html(`
             Has pulsado el boton <span> ${e.which} </span> del mouse`);
 
-        //  -----  Si se pulsa el botón derecho (e.which === 3), se mantiene el menú visible y se programa su cierre automático  -----
+        //  -----  Si se pulsa el botón derecho, no ocultamos aquí el menú para evitar parpadeos/desfase  -----
+        if (e.which === 3) {
+            return;
+        }
+
+        //  -----  Para otros botones, limpiamos retardo y ocultamos menú  -----
         clearTimeout(retardo);
-        
-        //  -----  Si se pulsa el botón derecho, se mantiene el menú visible y se programa su cierre automático  -----
         ocultarMenu();
 
     });

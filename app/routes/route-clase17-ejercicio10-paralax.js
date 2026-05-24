@@ -1,0 +1,49 @@
+/*
+    *  -----------------------------------------------------------------------------------------------------------  *
+    *  -----  /route-clase17-ejercicio09-paralax.js  --  /src/routes/route-clase17-ejercicio09-paralax.js  -----  *
+    *  -----------------------------------------------------------------------------------------------------------  *
+*/
+
+
+import { paths } from './paths.js';
+
+
+/** - Desestructuracion de paths */
+const {
+    favicon,
+    layoutHeader,
+    btnNavbar,
+    btnNavbarThemesJQueryUI,
+    layoutNavbar,
+    layoutNavbarThemesUI,
+    pages,
+    layoutFooter,
+    styles,
+    scripts
+} = paths;
+
+
+/** @type {import('../../types/index.js').Route} */
+export const routeClase17Ejercicio10Paralax = {
+        id: 'clase17Ejercicio10Paralax',
+        favicon: favicon,
+        pageTitle: 'Clase 17 - Ejercicio 10 Paralax',
+        path: '/clase17-dudas-y-conceptos-parte-2/ejercicio-10-paralax',
+        components: {
+            "#layoutHeader": layoutHeader,
+            "#btnNavbar": btnNavbar,
+            "#btnNavbarThemesJQueryUI": btnNavbarThemesJQueryUI,
+            "#layoutNavbar": layoutNavbar,
+            "#layoutNavbarThemesUI": layoutNavbarThemesUI,
+            "#layoutMain": `${pages}/clase-17/12-ejercicio-10-paralax.html`,
+            "#layoutFooter": layoutFooter,
+        },
+        headerTitle: 'Clase 17 - Ejercicio 10 Paralax',
+        styles: [
+            { href: `${styles}/pages/clase-17/12-ejercicio-10-paralax.css` },
+        ],
+        scripts: [
+            { src: `${scripts}/tooltips.js` },
+            { src: `${scripts}/clase-17/12-ejercicio-10-paralax.js` },
+        ]
+};

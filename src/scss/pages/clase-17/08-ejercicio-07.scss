@@ -1,0 +1,39 @@
+/*
+    *  --------------------------------------------------------------------------------------  *
+    *  -----  /08-ejercicio-07.scss  --  /src/scss/pages/clase-17/08-ejercicio-07.scss  -----  *
+    *  --------------------------------------------------------------------------------------  *
+*/
+
+
+#menu {
+    position: absolute;
+    display: none;
+    width: 28rem;
+    height: 6rem;
+    padding: 10px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #f98;
+    text-align: center;
+    z-index: 1000;
+}
+
+#info {
+    width: 90%;
+    max-width: 60rem;
+    min-height: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #f98;
+}
+
+#info span {
+    width: 2rem;
+    text-align: center;
+}

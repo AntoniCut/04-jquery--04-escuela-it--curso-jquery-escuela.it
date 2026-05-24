@@ -1,0 +1,190 @@
+/*
+    *  --------------------------------------------------------------------------------------  *
+    *  -----  /07-ejercicio-06.scss  --  /src/scss/pages/clase-17/07-ejercicio-06.scss  -----  *
+    *  --------------------------------------------------------------------------------------  *
+*/
+
+
+@use '../../base/mixins' as mix;
+
+
+.main__section-practica {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+}
+
+.section-practica__form {
+    width: 100%;
+    max-width: 64rem;
+    display: grid;
+    gap: 1.6rem;
+    padding: 2rem;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 1.6rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.92));
+    box-shadow: 0 1.2rem 3.2rem rgba(15, 23, 42, 0.08);
+    backdrop-filter: blur(8px);
+
+    @include mix.tablet {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.8rem;
+        padding: 2.6rem;
+    }
+
+    > div,
+    fieldset {
+        display: grid;
+        gap: 0.8rem;
+    }
+
+    .form__group {
+        align-content: start;
+    }
+
+    fieldset.form__group {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.8rem 1rem;
+    }
+
+    fieldset.form__group legend {
+        width: 100%;
+        margin-bottom: 0.2rem;
+    }
+
+    fieldset.form__group label {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    fieldset.form__group input[type='radio'] {
+        width: auto;
+        margin-right: 0.8rem;
+        transform: scale(0.95);
+    }
+
+    .form__group select {
+        max-width: 28rem;
+        padding: 0.9rem 1rem;
+    }
+
+    .form__group-checkbox {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+    }
+
+    > div:last-child {
+        @include mix.tablet {
+            grid-column: 1 / -1;
+        }
+    }
+
+    label,
+    legend {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #334155;
+        letter-spacing: 0.01em;
+    }
+
+    input[type='text'],
+    select,
+    textarea {
+        width: 100%;
+        border: 1px solid #cbd5e1;
+        border-radius: 1rem;
+        padding: 1.1rem 1.2rem;
+        font: inherit;
+        color: #0f172a;
+        background-color: #fff;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    }
+
+    input[type='text']:focus,
+    select:focus,
+    textarea:focus {
+        outline: none;
+        border-color: #2563eb;
+        box-shadow: 0 0 0 0.4rem rgba(37, 99, 235, 0.14);
+    }
+
+    textarea {
+        min-height: 14rem;
+        resize: none;
+    }
+
+    input[type='text']:disabled,
+    select:disabled,
+    textarea:disabled {
+        color: #64748b;
+        border-color: #d5dee9;
+        background: repeating-linear-gradient(
+            -45deg,
+            #eef2f7,
+            #eef2f7 8px,
+            #e7edf5 8px,
+            #e7edf5 16px
+        );
+        box-shadow: none;
+        cursor: not-allowed;
+    }
+
+    input[type='text']:disabled::placeholder,
+    textarea:disabled::placeholder {
+        color: #94a3b8;
+    }
+
+    input[type='text']:disabled:focus,
+    select:disabled:focus,
+    textarea:disabled:focus {
+        border-color: #d5dee9;
+        box-shadow: none;
+    }
+
+    fieldset {
+        margin: 0;
+        padding: 1.4rem;
+        border: 1px solid #dbe3ef;
+        border-radius: 1.2rem;
+        background-color: rgba(248, 250, 252, 0.9);
+    }
+
+    fieldset label {
+        font-weight: 600;
+        color: #475569;
+    }
+
+    input[type='radio'],
+    input[type='checkbox'] {
+        accent-color: #2563eb;
+    }
+
+    input[type='submit'] {
+        width: 100%;
+        border: none;
+        border-radius: 1rem;
+        padding: 1.2rem 1.4rem;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #fff;
+        cursor: pointer;
+        background: linear-gradient(135deg, #2563eb, #1d4ed8);
+        box-shadow: 0 1rem 2rem rgba(37, 99, 235, 0.24);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    }
+
+    input[type='submit']:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 1.2rem 2.4rem rgba(37, 99, 235, 0.28);
+        filter: brightness(1.02);
+    }
+
+    input[type='submit']:active {
+        transform: translateY(0);
+    }
+}
+
+

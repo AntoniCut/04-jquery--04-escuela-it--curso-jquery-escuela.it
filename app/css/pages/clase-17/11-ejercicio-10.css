@@ -1,0 +1,20 @@
+/*
+    *  --------------------------------------------------------------------------------------  *
+    *  -----  /11-ejercicio-10.scss  --  /src/scss/pages/clase-17/11-ejercicio-10.scss  -----  *
+    *  --------------------------------------------------------------------------------------  *
+*/
+.main__section-practica {
+  min-height: 60vh;
+}
+
+#miDiv {
+  margin-top: 100rem;
+  width: 20rem;
+  height: 15rem;
+  padding: 1rem;
+  border-radius: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ddd;
+}/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJjbGFzZS0xNy8xMS1lamVyY2ljaW8tMTAuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBT0E7RUFFSTs7O0FBSUo7RUFDSTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuICAgICogIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tICAqXG4gICAgKiAgLS0tLS0gIC8xMS1lamVyY2ljaW8tMTAuc2NzcyAgLS0gIC9zcmMvc2Nzcy9wYWdlcy9jbGFzZS0xNy8xMS1lamVyY2ljaW8tMTAuc2NzcyAgLS0tLS0gICpcbiAgICAqICAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSAgKlxuKi9cblxuXG4ubWFpbl9fc2VjdGlvbi1wcmFjdGljYSB7XG4gICAgXG4gICAgbWluLWhlaWdodDogNjB2aDtcbn1cblxuXG4jbWlEaXYge1xuICAgIG1hcmdpbi10b3A6IDEwMHJlbTtcbiAgICB3aWR0aDogMjByZW07XG4gICAgaGVpZ2h0OiAxNXJlbTtcbiAgICBwYWRkaW5nOiAxcmVtO1xuICAgIGJvcmRlci1yYWRpdXM6IDEuMnJlbTtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2RkZDtcbn0iXSwiZmlsZSI6ImNsYXNlLTE3LzExLWVqZXJjaWNpby0xMC5jc3MifQ== */

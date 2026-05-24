@@ -35,15 +35,15 @@ export const routeClase17Ejercicio07 = {
             "#btnNavbarThemesJQueryUI": btnNavbarThemesJQueryUI,
             "#layoutNavbar": layoutNavbar,
             "#layoutNavbarThemesUI": layoutNavbarThemesUI,
-            "#layoutMain": `${pages}/clase-17/09-ejercicio-07.html`,
+            "#layoutMain": `${pages}/clase-17/08-ejercicio-07.html`,
             "#layoutFooter": layoutFooter,
         },
         headerTitle: 'Clase 17 - Ejercicio 07',
         styles: [
-            { href: `${styles}/pages/clase-17/09-ejercicio-07.css` },
+            { href: `${styles}/pages/clase-17/08-ejercicio-07.css` },
         ],
         scripts: [
             { src: `${scripts}/tooltips.js` },
-            { src: `${scripts}/clase-17/09-ejercicio-07.js` },
+            { src: `${scripts}/clase-17/08-ejercicio-07.js` },
         ]
 };
