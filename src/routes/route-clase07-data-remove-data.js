@@ -45,5 +45,9 @@ export const routeClase07DataRemoveData = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-07/03-metodos-data-removedata.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

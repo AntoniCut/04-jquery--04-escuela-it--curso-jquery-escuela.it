@@ -44,5 +44,9 @@ export const routeClase07 = {
         ],
         scripts: [
             { src: `${scripts}/tooltips.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

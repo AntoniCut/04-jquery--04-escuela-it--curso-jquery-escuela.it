@@ -45,5 +45,9 @@ export const routeClase09Ejercicio02 = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-09/02-ejercicio-02.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

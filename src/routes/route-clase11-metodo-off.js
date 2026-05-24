@@ -45,5 +45,9 @@ export const routeClase11MetodoOff = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-11/02-metodo-off.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

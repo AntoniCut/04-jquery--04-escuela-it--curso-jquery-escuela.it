@@ -45,5 +45,9 @@ export const routeClase13Toggle = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-13/01-toggle.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

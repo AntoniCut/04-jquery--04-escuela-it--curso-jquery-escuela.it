@@ -45,5 +45,9 @@ export const routeClase10Envoltura = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-10/04-envoltura.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

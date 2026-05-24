@@ -48,5 +48,9 @@ export const routeClase13PluginEaseAnimateColors = {
             { src: `${base}/app/plugins/jquery-easing/jquery.easing.1.3.min.js` },
             { src: `${base}/app/plugins/jquery-animate-colors/jquery.animate-colors-min.js` },
             { src: `${scripts}/clase-13/04-plugin-ease-animate-colors.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

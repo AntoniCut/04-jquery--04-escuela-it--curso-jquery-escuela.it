@@ -45,5 +45,9 @@ export const routeClase11EventoPageXPageY = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-11/07-evento-pagex-pagey.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

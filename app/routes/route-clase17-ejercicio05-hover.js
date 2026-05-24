@@ -45,5 +45,9 @@ export const routeClase17Ejercicio05Hover = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-17/06-ejercicio-05-hover.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

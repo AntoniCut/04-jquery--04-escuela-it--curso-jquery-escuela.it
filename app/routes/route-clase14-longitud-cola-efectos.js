@@ -45,5 +45,9 @@ export const routeClase14LongitudColaEfectos = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-14/03-longitud-cola-efectos.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

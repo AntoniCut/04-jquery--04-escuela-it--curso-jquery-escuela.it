@@ -45,5 +45,9 @@ export const routeClase10AppendPrepend = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-10/01-inyeccion-append-prepend.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

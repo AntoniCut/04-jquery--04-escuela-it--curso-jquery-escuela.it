@@ -45,5 +45,9 @@ export const routeClase08Contexto = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-08/04-partir-de-un-contexto.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

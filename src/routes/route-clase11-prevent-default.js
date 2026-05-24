@@ -45,5 +45,9 @@ export const routeClase11PreventDefault = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-11/04-prevent-default.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

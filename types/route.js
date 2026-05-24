@@ -49,6 +49,16 @@ export { };
 
 
 /**
+ * ------------------------
+ * -----  `RouteLib`  -----
+ * ------------------------
+ * @typedef {Object} RouteLib - Representa una librería externa (jQueryUI modules) que debe cargarse bajo demanda.
+ * @property {string} name - Nombre del módulo de jQueryUI (ej: 'datepicker', 'dialog', 'draggable', 'sortable').
+ * @property {string} [version] - Versión específica de la librería (opcional).
+ */
+
+
+/**
  * ---------------------
  * -----  `Route`  -----
  * ---------------------
@@ -61,4 +71,5 @@ export { };
  * @property {RouteComponents} components - Mapa selector → URL de componente HTML.
  * @property {RouteStyle[]|null} styles - Lista de hojas CSS asociadas a la vista (opcional).
  * @property {RouteScript[]|null} scripts - Lista de scripts a cargar dinámicamente (opcional).
+ * @property {RouteLib[]|null} [libs] - Lista de módulos de jQueryUI a cargar bajo demanda para esta ruta (opcional).
  */

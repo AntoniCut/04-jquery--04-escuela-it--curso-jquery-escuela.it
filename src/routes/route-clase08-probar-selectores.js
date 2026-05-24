@@ -45,5 +45,9 @@ export const routeClase08ProbarSelectores = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-08/02-probar-selectores.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

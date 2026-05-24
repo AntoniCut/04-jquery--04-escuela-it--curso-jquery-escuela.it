@@ -45,5 +45,9 @@ export const routeClase12MovimientoRaton = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-12/01-seguir-movimiento-raton.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

@@ -45,5 +45,9 @@ export const routeClase08SelectoresJerarquia = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-08/01-selectores-jerarquia.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

@@ -5,24 +5,8 @@
 */
 
 
-/** @type {string[]} - `Módulos necesarios de jQuery UI para tooltip y draggable` */
-const jqueryUiModulePaths = [
-    '../jquery-ui/ui/version.js',
-    '../jquery-ui/ui/widget.js',
-    '../jquery-ui/ui/data.js',
-    '../jquery-ui/ui/plugin.js',
-    '../jquery-ui/ui/scroll-parent.js',
-    '../jquery-ui/ui/keycode.js',
-    '../jquery-ui/ui/position.js',
-    '../jquery-ui/ui/unique-id.js',
-    '../jquery-ui/ui/widgets/mouse.js',
-    '../jquery-ui/ui/widgets/draggable.js',
-    '../jquery-ui/ui/widgets/tooltip.js',
-];
-
-
-/** @type {Promise<JQueryStatic>|null} - `Promesa singleton para evitar dobles inicializaciones` */
-let jqueryUiModulesPromise = null;
+/** @type {Promise<JQueryStatic>|null} - `Promesa singleton para jQuery core` */
+let jqueryCorePromise = null;
 
 
 /**
@@ -49,41 +33,39 @@ const importJQueryModule = async () => {
 
 /**
  * ------------------------------------------------
- * -----  `loadJQueryJQueryUIByImport()`  ---------
+ * -----  `loadJQueryCoreByImport()`  -------------
  * ------------------------------------------------
- * - Carga jQuery 4 como ESM real y registra en global los widgets necesarios de jQuery UI.
- * - Los archivos se copian desde node_modules a app/libs/jquery-module durante el build/dev.
+ * @async
+ * - Carga solo jQuery 4 como módulo ESM sin ningún módulo de jQuery UI.
+ * - Retorna la función jQuery y la asigna a global para compatibilidad.
+ * - Singleton: si ya se está cargando o se cargó, retorna la promesa existente.
  * @returns {Promise<JQueryStatic>}
  */
 
-export const loadJQueryJQueryUIByImport = () => {
+export const loadJQueryCoreByImport = () => {
 
     //  -----  Si ya se está cargando o se cargó, retornar la promesa existente  -----
-    if (jqueryUiModulesPromise)
-        return jqueryUiModulesPromise;
+    if (jqueryCorePromise)
+        return jqueryCorePromise;
 
-
-    //  -----  Crear una nueva promesa para cargar jQuery y los módulos de jQuery UI  -----
-    jqueryUiModulesPromise = (async () => {
+    //  -----  Crear una nueva promesa para cargar solo jQuery core  -----
+    jqueryCorePromise = (async () => {
 
         const $ = await importJQueryModule();
 
         window.$ = $;
         window.jQuery = $;
 
-        for (const modulePath of jqueryUiModulePaths)
-            await import(modulePath);
-
         return $;
 
     })().catch((err) => {
 
-        jqueryUiModulesPromise = null;
+        jqueryCorePromise = null;
         throw err;
 
     });
 
-
-    return jqueryUiModulesPromise;
+    return jqueryCorePromise;
 
 };
+

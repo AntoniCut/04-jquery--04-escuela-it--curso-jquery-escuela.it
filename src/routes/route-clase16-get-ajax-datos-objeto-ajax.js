@@ -45,5 +45,9 @@ export const routeClase16GetAjaxDatosObjetoAjax = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-16/04-get-ajax-datos-objeto-ajax.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

@@ -45,5 +45,9 @@ export const routeClase14EncoladoEfectos = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-14/01-encolado-efectos.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

@@ -45,5 +45,9 @@ export const routeClase12MenuContextual = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-12/02-menu-contextual-personalizado.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

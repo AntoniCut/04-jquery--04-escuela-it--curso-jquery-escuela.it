@@ -45,5 +45,9 @@ export const routeClase08Traversing = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-08/03-traversing.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

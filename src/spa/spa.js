@@ -7,6 +7,7 @@
 
 import { base } from '../main.js';
 import { routeManifest } from '../routes/route-manifest.js';
+import { loadJQueryUILib } from '../libs/jquery-module/loader/load-jquery-ui-by-import.js';
 
 
 
@@ -44,7 +45,8 @@ export const spa = () => {
         routeManifest,
         routeModulesBase: `${base}/app/routes`,
         base,
-        draggable: true
+        draggable: true,
+        libLoader: loadJQueryUILib,
     };
 
     //  ----------  Invocamos el Plugins  --  jquery.spa-with-method-load-from-jquery.js - v4  ----------

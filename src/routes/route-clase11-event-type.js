@@ -45,5 +45,9 @@ export const routeClase11EventType = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-11/03-event-type.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

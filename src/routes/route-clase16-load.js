@@ -45,5 +45,9 @@ export const routeClase16Load = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-16/01-load.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

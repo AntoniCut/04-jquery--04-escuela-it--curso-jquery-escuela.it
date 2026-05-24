@@ -10,6 +10,7 @@
 /** @typedef {import('../../../../types/index.js').RouteComponents} RouteComponents */
 /** @typedef {import('../../../../types/index.js').RouteScript} RouteScript */
 /** @typedef {import('../../../../types/index.js').RouteStyle} RouteStyle */
+/** @typedef {import('../../../../types/index.js').RouteLib} RouteLib */
 /** @typedef {import('../../../../types/index.js').Route} Route */
 
 
@@ -83,7 +84,9 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                     routeManifest: [],
                     routeModulesBase: '',
                     base: '',
-                    draggable: false
+                    draggable: false,
+                    /** @type {((name: string) => Promise<void>)|null} */
+                    libLoader: null,
                 },
                 options
             );
@@ -408,6 +411,12 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
                             //  ----- Cargar todos los componentes declarados en la ruta -----
                             await loadComponentsDom(route.components);
+
+                            //  -----  Cargar libs de jQuery UI bajo demanda para esta ruta  -----
+                            await loadLibsByRoute(route.libs);
+
+                            //  -----  Habilitar elementos draggables tras cargar el DOM y las libs  -----
+                            enableDraggables();
 
                             //  -----  Inicializar acciones del navbar  -----
                             actionsNavbar();
@@ -1473,6 +1482,43 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
 
             /**
+             * ----------------------------------------
+             * -----  `loadLibsByRoute(libs)`  ---------
+             * ----------------------------------------
+             * @async
+             * - Carga los módulos de jQuery UI declarados en `route.libs` bajo demanda.
+             * - Se ejecuta después de que el DOM de la ruta está completamente renderizado.
+             * - Usa `settings.libLoader` para importar cada módulo por nombre.
+             * @param {RouteLib[]|null|undefined} libs - Lista de librerías a cargar para la ruta.
+             * @returns {Promise<void>}
+             */
+
+            const loadLibsByRoute = async (libs) => {
+
+                if (!libs?.length || typeof settings.libLoader !== 'function')
+                    return;
+
+                for (const lib of libs) {
+
+                    if (!lib?.name)
+                        continue;
+
+                    try {
+
+                        await settings.libLoader(lib.name);
+
+                    } catch (err) {
+
+                        console.log('\n');
+                        console.error(`Error cargando lib "${lib.name}":`, err);
+                        console.log('\n');
+                    }
+                }
+
+            };
+
+
+            /**
              * ----------------------
              * -----  `init()`  -----
              * ----------------------
@@ -1650,11 +1696,6 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 'background:#3498db; color:gold; padding:20px; font-size:20px; font-weight:bold;'
             );
             console.log('\n');
-
-
-            //  -----  Si está activado, habilitar draggables  -----
-            if (settings.draggable)
-                enableDraggables();
 
 
             //  -----  Inicializar la aplicación SPA  -----

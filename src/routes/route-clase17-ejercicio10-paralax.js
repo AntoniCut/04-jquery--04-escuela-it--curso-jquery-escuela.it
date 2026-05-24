@@ -45,5 +45,9 @@ export const routeClase17Ejercicio10Paralax = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-17/12-ejercicio-10-paralax.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

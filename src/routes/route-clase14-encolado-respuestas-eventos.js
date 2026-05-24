@@ -45,5 +45,9 @@ export const routeClase14EncoladoRespuestasEventos = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-14/05-encolado-respuestas-eventos.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

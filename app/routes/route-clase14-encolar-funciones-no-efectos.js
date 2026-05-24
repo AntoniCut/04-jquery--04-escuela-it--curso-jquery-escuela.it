@@ -45,5 +45,9 @@ export const routeClase14EncolarFuncionesNoEfectos = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-14/04-encolar-funciones-no-efectos.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

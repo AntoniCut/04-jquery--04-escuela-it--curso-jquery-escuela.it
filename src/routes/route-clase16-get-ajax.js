@@ -45,5 +45,9 @@ export const routeClase16GetAjax = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-16/02-get-ajax.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

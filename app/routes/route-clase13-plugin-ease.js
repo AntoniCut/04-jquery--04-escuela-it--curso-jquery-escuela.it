@@ -47,5 +47,9 @@ export const routeClase13PluginEase = {
             { src: `${scripts}/tooltips.js` },
             { src: `${base}/app/plugins/jquery-easing/jquery.easing.1.3.min.js` },
             { src: `${scripts}/clase-13/03-plugin-ease.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

@@ -45,5 +45,9 @@ export const routeClase10Dom = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-10/03-inyeccion-dom.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

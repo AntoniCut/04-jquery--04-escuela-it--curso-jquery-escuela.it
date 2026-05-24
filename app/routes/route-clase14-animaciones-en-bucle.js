@@ -45,5 +45,9 @@ export const routeClase14AnimacionesEnBucle = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-14/06-animaciones-en-bucle.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

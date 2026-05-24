@@ -14,3 +14,4 @@ export {};
 /** @typedef {import('./route.js').RouteComponents} RouteComponents */
 /** @typedef {import('./route.js').RouteStyle} RouteStyle */
 /** @typedef {import('./route.js').RouteScript} RouteScript */
+/** @typedef {import('./route.js').RouteLib} RouteLib */

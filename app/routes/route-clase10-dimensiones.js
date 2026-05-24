@@ -45,5 +45,9 @@ export const routeClase10Dimensiones = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-10/05-dimensiones.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

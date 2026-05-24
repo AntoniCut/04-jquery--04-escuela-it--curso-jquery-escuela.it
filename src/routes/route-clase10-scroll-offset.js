@@ -45,5 +45,9 @@ export const routeClase10ScrollOffset = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-10/06-scroll-offset.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

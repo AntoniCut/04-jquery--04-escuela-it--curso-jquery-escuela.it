@@ -45,5 +45,9 @@ export const routeClase07Each = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-07/04-metodo-each-recorrer-elementos.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

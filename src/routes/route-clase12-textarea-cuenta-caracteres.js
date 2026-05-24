@@ -48,5 +48,9 @@ export const routeClase12TextareaCuentaCaracteres = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-12/03-textarea-cuenta-caracteres.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

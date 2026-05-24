@@ -45,5 +45,9 @@ export const routeClase07AttrProp = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-07/02-metodos-attr-prop.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };

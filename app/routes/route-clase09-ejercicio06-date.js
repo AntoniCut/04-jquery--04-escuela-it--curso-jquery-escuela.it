@@ -45,5 +45,9 @@ export const routeClase09Ejercicio06Date = {
         scripts: [
             { src: `${scripts}/tooltips.js` },
             { src: `${scripts}/clase-09/06-ejercicio-06-date.js` },
+        ],
+        libs: [
+            { name: 'tooltip' },
+            { name: 'draggable' },
         ]
 };
