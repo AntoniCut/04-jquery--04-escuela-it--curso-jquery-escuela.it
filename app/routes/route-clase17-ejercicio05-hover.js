@@ -52,8 +52,8 @@ export const routeClase17Ejercicio05Hover = {
             { name: 'draggable' },
         ],
         MarkdownShikiHtml: [
-            { url: `${markdownShiki}/clase-17/06-ejercicio-05-hover-html.html`, id: 'codeHtml' },
-            { url: `${markdownShiki}/clase-17/06-ejercicio-05-hover-css.html`,  id: 'codeCss' },
-            { url: `${markdownShiki}/clase-17/06-ejercicio-05-hover-js.html`,   id: 'codeJs' },
+            { url: `${markdownShiki}/clase-17/06-ejercicio-05-hover-html.html`, target: '[data-shiki="codeHtml"]' },
+            { url: `${markdownShiki}/clase-17/06-ejercicio-05-hover-css.html`,  target: '[data-shiki="codeCss"]' },
+            { url: `${markdownShiki}/clase-17/06-ejercicio-05-hover-js.html`,   target: '[data-shiki="codeJs"]' },
         ],
 };

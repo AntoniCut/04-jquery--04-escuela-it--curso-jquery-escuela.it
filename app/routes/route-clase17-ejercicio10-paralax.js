@@ -52,8 +52,8 @@ export const routeClase17Ejercicio10Paralax = {
             { name: 'draggable' },
         ],
         MarkdownShikiHtml: [
-            { url: `${markdownShiki}/clase-17/12-ejercicio-10-paralax-html.html`, id: 'codeHtml' },
-            { url: `${markdownShiki}/clase-17/12-ejercicio-10-paralax-css.html`,  id: 'codeCss' },
-            { url: `${markdownShiki}/clase-17/12-ejercicio-10-paralax-js.html`,   id: 'codeJs' },
+            { url: `${markdownShiki}/clase-17/12-ejercicio-10-paralax-html.html`, target: '[data-shiki="codeHtml"]' },
+            { url: `${markdownShiki}/clase-17/12-ejercicio-10-paralax-css.html`,  target: '[data-shiki="codeCss"]' },
+            { url: `${markdownShiki}/clase-17/12-ejercicio-10-paralax-js.html`,   target: '[data-shiki="codeJs"]' },
         ],
 };

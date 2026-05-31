@@ -741,9 +741,8 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
              * -----  `renderMarkdownShiki(route)`  -----
              * -------------------------------------------
              * - Carga los archivos HTML generados con Shiki y los inyecta en los contenedores del DOM.
-             * - Cada entrada puede ser un `string` (URL) o un objeto `{ url, id }`.
-             *   - Si es string: infiere el contenedor por convención (`-js` → `#codeJs`, `-ts` → `#codeTs`).
-             *   - Si es objeto: usa `id` como selector del contenedor.
+             * - Cada entrada debe ser un objeto `{ url, target }` donde `target` es un selector CSS
+             *   del contenedor (p.ej. `'[data-shiki="codeJs"]'`, `'[data-shiki="codeJs-2"]'`).
              * @async
              * @param {Route} route
              * @returns {Promise<void>}
@@ -754,28 +753,16 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
                 for (const entry of route.MarkdownShikiHtml) {
 
-                    /** @type {string} */
-                    const url = typeof entry === 'string' ? entry : entry.url;
+                    const { url, target } = entry;
 
-                    /** @type {string|null} */
-                    const containerId = typeof entry === 'object' && entry.id ? entry.id : null;
-
-                    if (!url) continue;
+                    if (!url || !target) continue;
 
                     try {
 
                         const html = await fetch(url).then(r => r.text());
 
                         /** @type {HTMLElement|null} */
-                        let container = null;
-
-                        if (containerId) {
-                            container = document.getElementById(containerId);
-                        } else if (url.includes('-js')) {
-                            container = document.getElementById('codeJs');
-                        } else if (url.includes('-ts')) {
-                            container = document.getElementById('codeTs');
-                        }
+                        const container = document.querySelector(target);
 
                         if (!container) {
                             console.warn(`⚠️ renderMarkdownShiki: No se encontró contenedor para: ${url}`);
