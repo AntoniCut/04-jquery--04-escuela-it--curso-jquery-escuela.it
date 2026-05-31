@@ -52,6 +52,8 @@ export const routeClase17Ejercicio05 = {
             { name: 'draggable' },
         ],
         MarkdownShikiHtml: [
-            `${markdownShiki}/clase-17/05-ejercicio-05-js.html`,
+            { url: `${markdownShiki}/clase-17/05-ejercicio-05-html.html`, id: 'codeHtml' },
+            { url: `${markdownShiki}/clase-17/05-ejercicio-05-css.html`,  id: 'codeCss' },
+            { url: `${markdownShiki}/clase-17/05-ejercicio-05-js.html`,   id: 'codeJs' },
         ],
 };

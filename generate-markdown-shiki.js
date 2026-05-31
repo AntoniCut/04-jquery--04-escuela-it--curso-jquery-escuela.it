@@ -10,8 +10,10 @@
     *                                                                                 *
     *  Convención de nombres:                                                         *
     *    MarkdownShikiHtml path  →  fuente                                            *
-    *    .../01-markdown-shiki-ts.html →  src/scripts/ts/.../01-markdown-shiki.ts     *
-    *    .../01-markdown-shiki-js.html →  src/scripts/js/.../01-markdown-shiki.js     *
+    *    .../01-markdown-shiki-ts.html   →  src/scripts/ts/.../01-markdown-shiki.ts   *
+    *    .../01-markdown-shiki-js.html   →  src/scripts/js/.../01-markdown-shiki.js   *
+    *    .../01-markdown-shiki-html.html →  src/pages/.../01-markdown-shiki.html      *
+    *    .../01-markdown-shiki-css.html  →  src/scss/pages/.../01-markdown-shiki.scss *
     *  -----------------------------------------------------------------------------  *
 */
 
@@ -61,6 +63,24 @@ function deriveSource(htmlUrlPath) {
         return {
             srcPath: join(__dirname, 'src/scripts/js', relSrc),
             lang: 'javascript',
+            relHtml
+        };
+    }
+
+    if (relHtml.endsWith('-html.html')) {
+        const relSrc = relHtml.replace(/-html\.html$/, '.html');
+        return {
+            srcPath: join(__dirname, 'src/pages', relSrc),
+            lang: 'html',
+            relHtml
+        };
+    }
+
+    if (relHtml.endsWith('-css.html')) {
+        const relSrc = relHtml.replace(/-css\.html$/, '.scss');
+        return {
+            srcPath: join(__dirname, 'src/scss/pages', relSrc),
+            lang: 'scss',
             relHtml
         };
     }

@@ -35,6 +35,9 @@
  *     - Notificación de carga de ruta mediante eventos personalizados.
  *     - Manejo de errores en la carga de componentes y rutas.
  *     - Soporte para scripts clásicos y módulos ES6 (type="module").
+ *     - Markdown con Shiki para código fuente resaltado.
+ *     - Reescritura de URLs en HTML inyectado para evitar roturas en la SPA.
+ *     - Funciones auxiliares para manejo de rutas, módulos y metadatos.
  */
 
 export const spaWithMethodLoadFromJQueryPlugins = () => {

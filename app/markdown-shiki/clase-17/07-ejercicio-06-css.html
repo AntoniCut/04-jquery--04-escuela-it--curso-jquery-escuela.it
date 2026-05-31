@@ -1,0 +1,191 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#6A9955">/*</span></span>
+<span class="line"><span style="color:#6A9955">    *  --------------------------------------------------------------------------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">    *  -----  /07-ejercicio-06.scss  --  /src/scss/pages/clase-17/07-ejercicio-06.scss  -----  *</span></span>
+<span class="line"><span style="color:#6A9955">    *  --------------------------------------------------------------------------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">*/</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">@use</span><span style="color:#CE9178"> '../../base/mixins'</span><span style="color:#C586C0"> as</span><span style="color:#9CDCFE"> mix</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D7BA7D">.main__section-practica</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">    display</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">flex</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    justify-content</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">center</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    padding</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">2rem</span><span style="color:#B5CEA8"> 1.5rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D7BA7D">.section-practica__form</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">    width</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">100%</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    max-width</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">64rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    display</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">grid</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    gap</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">1.6rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    padding</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">2rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    border</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">1px</span><span style="color:#CE9178"> solid</span><span style="color:#DCDCAA"> rgba</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">15</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">23</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">42</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">0.12</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    border-radius</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">1.6rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    background</span><span style="color:#D4D4D4">: </span><span style="color:#DCDCAA">linear-gradient</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">180deg</span><span style="color:#D4D4D4">, </span><span style="color:#DCDCAA">rgba</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">255</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">255</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">255</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">0.96</span><span style="color:#D4D4D4">), </span><span style="color:#DCDCAA">rgba</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">248</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">250</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">252</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">0.92</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"><span style="color:#9CDCFE">    box-shadow</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">0</span><span style="color:#B5CEA8"> 1.2rem</span><span style="color:#B5CEA8"> 3.2rem</span><span style="color:#DCDCAA"> rgba</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">15</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">23</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">42</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">0.08</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    backdrop-filter</span><span style="color:#D4D4D4">: </span><span style="color:#DCDCAA">blur</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">8px</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">    @include</span><span style="color:#9CDCFE"> mix</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">tablet</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        grid-template-columns</span><span style="color:#D4D4D4">: </span><span style="color:#DCDCAA">repeat</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">2</span><span style="color:#D4D4D4">, </span><span style="color:#DCDCAA">minmax</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">1fr</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"><span style="color:#9CDCFE">        gap</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">1.8rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        padding</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">2.6rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    > </span><span style="color:#D7BA7D">div</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D7BA7D">    fieldset</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        display</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">grid</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        gap</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">0.8rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D7BA7D">    .form__group</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        align-content</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">start</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D7BA7D">    fieldset.form__group</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        display</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">flex</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        flex-wrap</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">wrap</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        align-items</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">center</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        gap</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">0.8rem</span><span style="color:#B5CEA8"> 1rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D7BA7D">    fieldset.form__group</span><span style="color:#D7BA7D"> legend</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        width</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">100%</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        margin-bottom</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">0.2rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D7BA7D">    fieldset.form__group</span><span style="color:#D7BA7D"> label</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        font-size</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">1.2rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        font-weight</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">600</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D7BA7D">    fieldset.form__group</span><span style="color:#D7BA7D"> input</span><span style="color:#D4D4D4">[</span><span style="color:#9CDCFE">type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">radio</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">] {</span></span>
+<span class="line"><span style="color:#9CDCFE">        width</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">auto</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        margin-right</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">0.8rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        transform</span><span style="color:#D4D4D4">: </span><span style="color:#DCDCAA">scale</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">0.95</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D7BA7D">    .form__group</span><span style="color:#D7BA7D"> select</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        max-width</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">28rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        padding</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">0.9rem</span><span style="color:#B5CEA8"> 1rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D7BA7D">    .form__group-checkbox</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        display</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">flex</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        align-items</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">center</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        gap</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">0.6rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    > </span><span style="color:#D7BA7D">div:last-child</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#C586C0">        @include</span><span style="color:#9CDCFE"> mix</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">tablet</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">            grid-column</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">1</span><span style="color:#D4D4D4"> / </span><span style="color:#B5CEA8">-1</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D7BA7D">    label</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D7BA7D">    legend</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        font-size</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">1.3rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        font-weight</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">700</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        color</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#334155</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        letter-spacing</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">0.01em</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D7BA7D">    input</span><span style="color:#D4D4D4">[</span><span style="color:#9CDCFE">type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">text</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">],</span></span>
+<span class="line"><span style="color:#D7BA7D">    select</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D7BA7D">    textarea</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        width</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">100%</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        border</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">1px</span><span style="color:#CE9178"> solid</span><span style="color:#CE9178"> #cbd5e1</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        border-radius</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">1rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        padding</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">1.1rem</span><span style="color:#B5CEA8"> 1.2rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D7BA7D">        font</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">inherit</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        color</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#0f172a</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        background-color</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#fff</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        transition</span><span style="color:#D4D4D4">: </span><span style="color:#9CDCFE">border-color</span><span style="color:#B5CEA8"> 0.2s</span><span style="color:#CE9178"> ease</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">box-shadow</span><span style="color:#B5CEA8"> 0.2s</span><span style="color:#CE9178"> ease</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">transform</span><span style="color:#B5CEA8"> 0.2s</span><span style="color:#CE9178"> ease</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">background-color</span><span style="color:#B5CEA8"> 0.2s</span><span style="color:#CE9178"> ease</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">color</span><span style="color:#B5CEA8"> 0.2s</span><span style="color:#CE9178"> ease</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D7BA7D">    input</span><span style="color:#D4D4D4">[</span><span style="color:#9CDCFE">type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">text</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">]</span><span style="color:#D7BA7D">:focus</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D7BA7D">    select:focus</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D7BA7D">    textarea:focus</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        outline</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">none</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        border-color</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#2563eb</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        box-shadow</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">0</span><span style="color:#B5CEA8"> 0</span><span style="color:#B5CEA8"> 0</span><span style="color:#B5CEA8"> 0.4rem</span><span style="color:#DCDCAA"> rgba</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">37</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">99</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">235</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">0.14</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D7BA7D">    textarea</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        min-height</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">14rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        resize</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">none</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D7BA7D">    input</span><span style="color:#D4D4D4">[</span><span style="color:#9CDCFE">type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">text</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">]</span><span style="color:#D7BA7D">:disabled</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D7BA7D">    select:disabled</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D7BA7D">    textarea:disabled</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        color</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#64748b</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        border-color</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#d5dee9</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        background</span><span style="color:#D4D4D4">: </span><span style="color:#DCDCAA">repeating-linear-gradient</span><span style="color:#D4D4D4">(</span></span>
+<span class="line"><span style="color:#B5CEA8">            -45deg</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">            #eef2f7</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">            #eef2f7</span><span style="color:#B5CEA8"> 8px</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">            #e7edf5</span><span style="color:#B5CEA8"> 8px</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">            #e7edf5</span><span style="color:#B5CEA8"> 16px</span></span>
+<span class="line"><span style="color:#D4D4D4">        );</span></span>
+<span class="line"><span style="color:#9CDCFE">        box-shadow</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">none</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D7BA7D">        cursor</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">not-allowed</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D7BA7D">    input</span><span style="color:#D4D4D4">[</span><span style="color:#9CDCFE">type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">text</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">]</span><span style="color:#D7BA7D">:disabled::placeholder</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D7BA7D">    textarea:disabled::placeholder</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        color</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#94a3b8</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D7BA7D">    input</span><span style="color:#D4D4D4">[</span><span style="color:#9CDCFE">type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">text</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">]</span><span style="color:#D7BA7D">:disabled:focus</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D7BA7D">    select:disabled:focus</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D7BA7D">    textarea:disabled:focus</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        border-color</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#d5dee9</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        box-shadow</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">none</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D7BA7D">    fieldset</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        margin</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        padding</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">1.4rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        border</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">1px</span><span style="color:#CE9178"> solid</span><span style="color:#CE9178"> #dbe3ef</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        border-radius</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">1.2rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        background-color</span><span style="color:#D4D4D4">: </span><span style="color:#DCDCAA">rgba</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">248</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">250</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">252</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">0.9</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D7BA7D">    fieldset</span><span style="color:#D7BA7D"> label</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        font-weight</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">600</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        color</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#475569</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D7BA7D">    input</span><span style="color:#D4D4D4">[</span><span style="color:#9CDCFE">type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">radio</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">],</span></span>
+<span class="line"><span style="color:#D7BA7D">    input</span><span style="color:#D4D4D4">[</span><span style="color:#9CDCFE">type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">checkbox</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">] {</span></span>
+<span class="line"><span style="color:#9CDCFE">        accent-color</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#2563eb</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D7BA7D">    input</span><span style="color:#D4D4D4">[</span><span style="color:#9CDCFE">type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">submit</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">] {</span></span>
+<span class="line"><span style="color:#9CDCFE">        width</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">100%</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        border</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">none</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        border-radius</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">1rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        padding</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">1.2rem</span><span style="color:#B5CEA8"> 1.4rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        font-size</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">1.4rem</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        font-weight</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">700</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        color</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">#fff</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D7BA7D">        cursor</span><span style="color:#D4D4D4">: </span><span style="color:#CE9178">pointer</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        background</span><span style="color:#D4D4D4">: </span><span style="color:#DCDCAA">linear-gradient</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">135deg</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">#2563eb</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">#1d4ed8</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        box-shadow</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">0</span><span style="color:#B5CEA8"> 1rem</span><span style="color:#B5CEA8"> 2rem</span><span style="color:#DCDCAA"> rgba</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">37</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">99</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">235</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">0.24</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        transition</span><span style="color:#D4D4D4">: </span><span style="color:#9CDCFE">transform</span><span style="color:#B5CEA8"> 0.2s</span><span style="color:#CE9178"> ease</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">box-shadow</span><span style="color:#B5CEA8"> 0.2s</span><span style="color:#CE9178"> ease</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">filter</span><span style="color:#B5CEA8"> 0.2s</span><span style="color:#CE9178"> ease</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D7BA7D">    input</span><span style="color:#D4D4D4">[</span><span style="color:#9CDCFE">type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">submit</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">]</span><span style="color:#D7BA7D">:hover</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        transform</span><span style="color:#D4D4D4">: </span><span style="color:#DCDCAA">translateY</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">-1px</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        box-shadow</span><span style="color:#D4D4D4">: </span><span style="color:#B5CEA8">0</span><span style="color:#B5CEA8"> 1.2rem</span><span style="color:#B5CEA8"> 2.4rem</span><span style="color:#DCDCAA"> rgba</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">37</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">99</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">235</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">0.28</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D7BA7D">        filter</span><span style="color:#D4D4D4">: </span><span style="color:#DCDCAA">brightness</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">1.02</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D7BA7D">    input</span><span style="color:#D4D4D4">[</span><span style="color:#9CDCFE">type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">submit</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">]</span><span style="color:#D7BA7D">:active</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        transform</span><span style="color:#D4D4D4">: </span><span style="color:#DCDCAA">translateY</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"><span style="color:#D4D4D4">}</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>

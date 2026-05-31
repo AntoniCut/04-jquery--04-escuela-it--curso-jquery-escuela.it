@@ -52,6 +52,8 @@ export const routeClase17Ejercicio10Paralax = {
             { name: 'draggable' },
         ],
         MarkdownShikiHtml: [
-            `${markdownShiki}/clase-17/12-ejercicio-10-paralax-js.html`,
+            { url: `${markdownShiki}/clase-17/12-ejercicio-10-paralax-html.html`, id: 'codeHtml' },
+            { url: `${markdownShiki}/clase-17/12-ejercicio-10-paralax-css.html`,  id: 'codeCss' },
+            { url: `${markdownShiki}/clase-17/12-ejercicio-10-paralax-js.html`,   id: 'codeJs' },
         ],
 };
