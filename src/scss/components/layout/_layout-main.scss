@@ -245,7 +245,8 @@
 
 
 /*  -----  Sección de Código  -----  */
-.main__section-practica {
+.main__section-practica,
+.main__section-markdown-shiki {
     width: 95%;
     max-width: 120rem;
     padding: 1rem;
@@ -265,3 +266,43 @@
         padding: 5rem;
     }
 }
+
+
+/*  -----  Sección de Markdown Shiki  -----  */
+
+/*  -----  Contenedor de la imagen con scroll  -----  */
+
+.section__img-script {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 50rem;
+    height: 60rem;
+    overflow: auto;
+    border: 2px solid #34495e;
+    background-color: #1e1e1e;
+    padding: 0.5rem;
+
+    /*  -----  Ancho y Alto Barras  -----  */
+    &::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    /*  -----  Fondo del track (canal del scroll)  -----  */
+    &::-webkit-scrollbar-track {
+        background: #2c3e50;
+        border-radius: 10px;
+    }
+
+    /*  -----  Barra deslizante (thumb)  -----  */
+    &::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #f1c40f, #2980b9);
+        border-radius: 10px;
+    }
+
+    /*  -----  Hover sobre la barra deslizante  -----  */
+    &::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, #f39c12, #3498db);
+    }
+}
+

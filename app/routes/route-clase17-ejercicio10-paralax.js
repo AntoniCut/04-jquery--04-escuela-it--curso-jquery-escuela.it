@@ -19,7 +19,8 @@ const {
     pages,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShiki
 } = paths;
 
 
@@ -49,5 +50,8 @@ export const routeClase17Ejercicio10Paralax = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
+        MarkdownShikiHtml: [
+            `${markdownShiki}/clase-17/12-ejercicio-10-paralax-js.html`,
+        ],
 };

@@ -59,6 +59,16 @@ export { };
 
 
 /**
+ * ----------------------------------
+ * -----  `MarkdownShikiEntry`  -----
+ * ----------------------------------
+ * @typedef {Object} MarkdownShikiEntry - Entrada de archivo HTML generado por Shiki para resaltar código.
+ * @property {string} url - URL absoluta al archivo .html generado con Shiki.
+ * @property {string} [id] - ID del contenedor DOM donde se insertará el HTML (p.ej. `"codeJs"`). Si se omite, se infiere por convención: URL con `-js` → `#codeJs`, URL con `-ts` → `#codeTs`.
+ */
+
+
+/**
  * ---------------------
  * -----  `Route`  -----
  * ---------------------
@@ -72,4 +82,5 @@ export { };
  * @property {RouteStyle[]|null} styles - Lista de hojas CSS asociadas a la vista (opcional).
  * @property {RouteScript[]|null} scripts - Lista de scripts a cargar dinámicamente (opcional).
  * @property {RouteLib[]|null} [libs] - Lista de módulos de jQueryUI a cargar bajo demanda para esta ruta (opcional).
+ * @property {(string|MarkdownShikiEntry)[]|null} [MarkdownShikiHtml] - Lista de URLs (o entradas con `{ url, id }`) a archivos .html generados con Shiki para resaltar código en la vista (opcional).
  */

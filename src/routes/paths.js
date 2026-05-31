@@ -21,4 +21,5 @@ export const paths = {
     libs: `${base}/app/libs`,
     styles: `${base}/app/css`,
     scripts: `${base}/app/js`,
+    markdownShiki: `${base}/app/markdown-shiki`,
 }

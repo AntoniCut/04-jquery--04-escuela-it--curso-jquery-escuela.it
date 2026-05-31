@@ -10,6 +10,7 @@
     "serve:dev": "node server/dev-server.js",
     "stop:dev": "node server/stop-dev-server.js",
     "server": "pnpm run serve:dev",
+    "code-highlight": "node generate-markdown-shiki.js",
     "build": "gulp build",
     "preview": "node server/preview-server.js --open",
     "add:ts-nocheck": "cross-env NODE_ENV=development node addTsNoCheck.js",
@@ -53,6 +54,9 @@
   },
   "dependencies": {
     "jquery": "^4.0.0",
-    "jquery-ui": "^1.14.2"
+    "jquery-ui": "^1.14.2",
+    "markdown-it": "^14.2.0",
+    "markdown-it-shiki": "^0.9.0",
+    "shiki": "^4.1.0"
   }
 }

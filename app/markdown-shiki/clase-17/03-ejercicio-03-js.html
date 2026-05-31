@@ -1,0 +1,42 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#6A9955">/*</span></span>
+<span class="line"><span style="color:#6A9955">    *  -------------------------------------------------------------------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">    *  -----  /03-ejercicio-03.js  --  /src/scripts/clase-17/03-ejercicio-03.js  -----  *</span></span>
+<span class="line"><span style="color:#6A9955">    *  -------------------------------------------------------------------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">*/</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">warn</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'-----  03-ejercicio-03.js  -----'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  Referencias al HTML  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLParagraphElement>}</span><span style="color:#6A9955"> - Referencia a todos los párrafos */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $parrafos</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.main__section-practica p'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLHRElement>}</span><span style="color:#6A9955"> - Referencia a un elemento HR */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $hr</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'&#x3C;hr>'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Estilos para el elemento HR  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    $hr</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">({</span></span>
+<span class="line"><span style="color:#9CDCFE">        width:</span><span style="color:#CE9178"> '100%'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">        border:</span><span style="color:#CE9178"> '1px solid #000'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">        margin:</span><span style="color:#CE9178"> '10px 0'</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Insertar un elemento HR después de cada párrafo excepto el último  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    $parrafos</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">not</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">':last'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">after</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$hr</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">clone</span><span style="color:#D4D4D4">());</span></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">})(</span><span style="color:#9CDCFE">jQuery</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span></code></pre>

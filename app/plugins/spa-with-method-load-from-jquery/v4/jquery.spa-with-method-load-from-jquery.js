@@ -412,6 +412,9 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                             //  ----- Cargar todos los componentes declarados en la ruta -----
                             await loadComponentsDom(route.components);
 
+                            //  -----  Renderizar Markdown Shiki (código fuente resaltado)  -----
+                            await renderMarkdownShiki(route);
+
                             //  -----  Cargar libs de jQuery UI bajo demanda para esta ruta  -----
                             await loadLibsByRoute(route.libs);
 
@@ -728,6 +731,62 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
             };
 
+
+
+            /**
+             * -------------------------------------------
+             * -----  `renderMarkdownShiki(route)`  -----
+             * -------------------------------------------
+             * - Carga los archivos HTML generados con Shiki y los inyecta en los contenedores del DOM.
+             * - Cada entrada puede ser un `string` (URL) o un objeto `{ url, id }`.
+             *   - Si es string: infiere el contenedor por convención (`-js` → `#codeJs`, `-ts` → `#codeTs`).
+             *   - Si es objeto: usa `id` como selector del contenedor.
+             * @async
+             * @param {Route} route
+             * @returns {Promise<void>}
+             */
+            const renderMarkdownShiki = async (route) => {
+
+                if (!route.MarkdownShikiHtml || !Array.isArray(route.MarkdownShikiHtml)) return;
+
+                for (const entry of route.MarkdownShikiHtml) {
+
+                    /** @type {string} */
+                    const url = typeof entry === 'string' ? entry : entry.url;
+
+                    /** @type {string|null} */
+                    const containerId = typeof entry === 'object' && entry.id ? entry.id : null;
+
+                    if (!url) continue;
+
+                    try {
+
+                        const html = await fetch(url).then(r => r.text());
+
+                        /** @type {HTMLElement|null} */
+                        let container = null;
+
+                        if (containerId) {
+                            container = document.getElementById(containerId);
+                        } else if (url.includes('-js')) {
+                            container = document.getElementById('codeJs');
+                        } else if (url.includes('-ts')) {
+                            container = document.getElementById('codeTs');
+                        }
+
+                        if (!container) {
+                            console.warn(`⚠️ renderMarkdownShiki: No se encontró contenedor para: ${url}`);
+                            continue;
+                        }
+
+                        container.innerHTML = html;
+
+                    } catch (error) {
+                        console.error(`❌ renderMarkdownShiki: Error cargando: ${url}`, error);
+                    }
+                }
+
+            };
 
 
             /**

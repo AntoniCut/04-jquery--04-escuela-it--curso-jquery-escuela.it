@@ -1,0 +1,131 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#6A9955">/*</span></span>
+<span class="line"><span style="color:#6A9955">    *  -------------------------------------------------------------------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">    *  -----  /11-ejercicio-10.js  --  /src/scripts/clase-17/11-ejercicio-10.js  -----  *</span></span>
+<span class="line"><span style="color:#6A9955">    *  -------------------------------------------------------------------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">*/</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">warn</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'-----  11-ejercicio-10.js  -----'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  Referencias al HTML  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - Representa el objeto jQuery del div */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $miDiv</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"#miDiv"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Validar que el elemento exista en el DOM  -----</span></span>
+<span class="line"><span style="color:#C586C0">    if</span><span style="color:#D4D4D4"> (!</span><span style="color:#9CDCFE">$miDiv</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">length</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">        console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">error</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'No se encontro el elemento #miDiv en el DOM.'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#C586C0">        return</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {HTMLElement | undefined}</span><span style="color:#6A9955"> - Representa el elemento HTML del div */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> miDivElement</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$miDiv</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">get</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Validar que se obtuvo el elemento HTML del div  -----</span></span>
+<span class="line"><span style="color:#C586C0">    if</span><span style="color:#D4D4D4"> (!</span><span style="color:#9CDCFE">miDivElement</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">         console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">error</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'No se pudo obtener el elemento HTML de #miDiv.'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#C586C0">         return</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"><span style="color:#6A9955">    //*  -----  Funciones  -----</span></span>
+<span class="line"><span style="color:#D4D4D4">   </span></span>
+<span class="line"><span style="color:#6A9955">    /** </span></span>
+<span class="line"><span style="color:#6A9955">     * --------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `pintarVisible()`  ------</span></span>
+<span class="line"><span style="color:#6A9955">     * --------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Cambia el color de fondo del div después de un retraso de 500ms según su visibilidad.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {boolean}</span><span style="color:#9CDCFE"> esVisible</span><span style="color:#6A9955"> </span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> pintarVisible</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">esVisible</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#6A9955">        //  -----  Cambia el color de fondo del div después de un retraso de 500ms  -----</span></span>
+<span class="line"><span style="color:#DCDCAA">        setTimeout</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">            $miDiv</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"background-color"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">esVisible</span><span style="color:#D4D4D4"> ? </span><span style="color:#CE9178">"red"</span><span style="color:#D4D4D4"> : </span><span style="color:#CE9178">"#ddd"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        }, </span><span style="color:#B5CEA8">500</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">            </span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //* -----  Detecta de forma fiable cuando el div entra/sale del viewport  -----</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Detecta de forma fiable cuando el div entra/sale del viewport  -----</span></span>
+<span class="line"><span style="color:#C586C0">    if</span><span style="color:#D4D4D4"> (</span><span style="color:#CE9178">"IntersectionObserver"</span><span style="color:#569CD6"> in</span><span style="color:#9CDCFE"> window</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /**  - `Representa el objeto IntersectionObserver` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> observer</span><span style="color:#D4D4D4"> = </span><span style="color:#569CD6">new</span><span style="color:#DCDCAA"> IntersectionObserver</span><span style="color:#D4D4D4">(</span></span>
+<span class="line"><span style="color:#D4D4D4">            (</span><span style="color:#9CDCFE">entries</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#569CD6">                const</span><span style="color:#4FC1FF"> entrada</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">entries</span><span style="color:#D4D4D4">[</span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">];</span></span>
+<span class="line"><span style="color:#DCDCAA">                pintarVisible</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">entrada</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">isIntersecting</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">            },</span></span>
+<span class="line"><span style="color:#D4D4D4">            {</span></span>
+<span class="line"><span style="color:#9CDCFE">                root:</span><span style="color:#569CD6"> null</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">                rootMargin:</span><span style="color:#CE9178"> "0px 0px -100px 0px"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">                threshold:</span><span style="color:#B5CEA8"> 0</span></span>
+<span class="line"><span style="color:#D4D4D4">            }</span></span>
+<span class="line"><span style="color:#D4D4D4">        );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        observer</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">observe</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">miDivElement</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#C586C0">        return</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //*  -----  Fallback para navegadores sin IntersectionObserver  -----</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**  - Representa el objeto jQuery de la ventana */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $window</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">window</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Actualiza el color del div según su visibilidad  -----</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> actualizarColorDiv</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#6A9955">        /** - Representa la posición del div en el documento */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> offsetDiv</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$miDiv</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">offset</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (!</span><span style="color:#9CDCFE">offsetDiv</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#C586C0">            return</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** - Representa la posición superior del div en el documento */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> posicionDiv</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">offsetDiv</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">top</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#6A9955">        /** - Representa la posición actual del scroll */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> scrollActual</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$window</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">scrollTop</span><span style="color:#D4D4D4">() || </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#6A9955">        /** - Representa la altura de la ventana */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> altoVentana</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$window</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">height</span><span style="color:#D4D4D4">() || </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#6A9955">        /** - Calcula la posición del borde inferior del viewport */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> bordeInferiorViewport</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">scrollActual</span><span style="color:#D4D4D4"> + </span><span style="color:#9CDCFE">altoVentana</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#DCDCAA">        pintarVisible</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">bordeInferiorViewport</span><span style="color:#D4D4D4"> >= (</span><span style="color:#9CDCFE">posicionDiv</span><span style="color:#D4D4D4"> - </span><span style="color:#B5CEA8">100</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    // -----  Captura scroll en cualquier contenedor desplazable del layout SPA  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    $window</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"scroll"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">actualizarColorDiv</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Inicializa el color del div al cargar la página  -----</span></span>
+<span class="line"><span style="color:#DCDCAA">    actualizarColorDiv</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">})(</span><span style="color:#9CDCFE">jQuery</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span></code></pre>
