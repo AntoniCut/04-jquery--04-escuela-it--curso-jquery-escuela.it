@@ -40,10 +40,12 @@
     -------------------------------------------------
 */
 
-.main__section-info {
+.main__section-info, 
+.main__section-practica,
+.main__section-markdown-shiki {
     
     width: 95%;
-    max-width: 120rem;
+    max-width: 140rem;
     margin-top: 5rem;
     margin-bottom: 5rem;
     
@@ -67,13 +69,6 @@
     border-radius: 50px 50px 0 0;
 }
 
-// .section__title {
-//     font-size: 2rem;
-//     text-align: center;
-//     color: gold;
-//     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-// }
-
 .section__title {
     font-size: 2rem;
     text-align: center;
@@ -89,6 +84,10 @@
 }
 
 .section__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
     width: 95%;
     margin-bottom: 5rem;
     padding: 2rem;
@@ -243,39 +242,49 @@
     transform: scale(1.02);
 }
 
-
-/*  -----  Sección de Código  -----  */
-.main__section-practica,
 .main__section-markdown-shiki {
-    width: 95%;
-    max-width: 120rem;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
-    gap: 2rem;
-    margin-bottom: 3rem;
-    background-color: #ffffff;
-    box-shadow: 1px 1px 10px rgba(61, 67, 75, 0.3);
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
+/*  -----  Sección de Código  -----  */
+
+
+// .main__section-markdown-shiki {
+//     width: 95%;
+//     max-width: 120rem;
+//     padding: 1rem;
+//     display: flex;
+//     flex-direction: column;
+//     // justify-content: center; 
+//     align-items: center;
+//     gap: 2rem;
+//     margin-bottom: 3rem;
+//     background-color: #ffffff;
+//     box-shadow: 1px 1px 10px rgba(61, 67, 75, 0.3);
+// }
+
+/*
 @media (min-width: 768px) {
     
     .main__section-practica {
         padding: 5rem;
     }
 }
+*/
 
 
 /*  -----  Sección de Markdown Shiki  -----  */
 
+
+
 /*  -----  Contenedor de la imagen con scroll  -----  */
 
 .section__img-script {
+    font-size: 1rem;
     margin-top: 20px;
     width: 100%;
-    max-width: 50rem;
+    max-width: 80rem;
     height: 60rem;
     overflow: auto;
     border: 2px solid #34495e;

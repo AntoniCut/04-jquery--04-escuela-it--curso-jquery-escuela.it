@@ -63,22 +63,36 @@
     <!--  -----  Práctica  -----  -->
     <section class="main__section-practica">
 
-        <form action="#">
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="Práctica">
+                Práctica
+            </h2>
+
+        </header>
+
+        <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+        <section class="section__content">
             
-            <div>
-                <label for="name"> Text Input: </label>
-                <input type="text" name="name" id="texto" placeholder="escribe algo" />
-            </div>
-        
-            <div>
-                <input type="submit" value="Submit" />
+            <form action="#">
+                
+                <div>
+                    <label for="name"> Text Input: </label>
+                    <input type="text" name="name" id="texto" placeholder="escribe algo" />
+                </div>
+            
+                <div>
+                    <input type="submit" value="Submit" />
+                </div>
+
+            </form>
+
+            <div id="salida">
+                <!--*  Aquí se mostrarán los resultados  -->
             </div>
 
-        </form>
-
-        <div id="salida">
-            <!--*  Aquí se mostrarán los resultados  -->
-        </div>
+        </section>
 
     </section>
 
@@ -88,23 +102,31 @@
     <!--  -----  Código  -----  -->
     <section class="main__section-markdown-shiki">
 
-        <article data-shiki="codeHtml" class="section__img-script">
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
 
-            <!--  Renderizar html archivo .html tipo markdown-shiki  -->
+            <h2 class="section__title" title="Código">
+                Código
+            </h2>
 
-        </article>
+        </header>
 
-        <article data-shiki="codeCss" class="section__img-script">
+        <!--  -----  Contenido del Código, Aqui se renderiza el código HTML, CSS y JavaScript -----  -->
+        <section class="section__content section__content--code">
+            
+            <article data-shiki="codeHtml" class="section__img-script">
+                <!--  Renderizar html archivo .html tipo markdown-shiki  -->
+            </article>
 
-            <!--  Renderizar html archivo .css tipo markdown-shiki  -->
+            <article data-shiki="codeCss" class="section__img-script">
+                <!--  Renderizar html archivo .css tipo markdown-shiki  -->
+            </article>
 
-        </article>
+            <article data-shiki="codeJs" class="section__img-script">
+                <!--  Renderizar html archivo .js tipo markdown-shiki  -->
+            </article>
 
-        <article data-shiki="codeJs" class="section__img-script">
-
-            <!--  Renderizar html archivo .js tipo markdown-shiki  -->
-
-        </article>
+        </section>
 
     </section>
 

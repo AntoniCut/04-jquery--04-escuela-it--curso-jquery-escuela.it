@@ -61,55 +61,68 @@
     <!--  -----  Práctica  -----  -->
     <section class="main__section-practica">
 
-        <form class="section-practica__form">
-            
-            <div class="form__group">
-                <label for="name"> Text Input: </label>
-                <input 
-                    type="text" 
-                    name="name" 
-                    id="name" 
-                    placeholder="Esto es un campo de tipo text" />
-            </div>
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
 
-            <fieldset class="form__group">
+            <h2 class="section__title" title="Práctica">
+                Práctica
+            </h2>
+
+        </header>
+
+        <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+        <section class="section__content">
+            <form class="section-practica__form">
                 
-                <legend> Radio Button Choice </legend>
-
-                <label for="radio-choice-1"> Choice 1 </label>
-                <input type="radio" name="radio-choice" id="radio-choice-1" value="choice-1" />
-
-                <label for="radio-choice-2"> Choice 2 </label>
-                <input type="radio" name="radio-choice" id="radio-choice-2" value="choice-2" />
-
-            </fieldset>
-
-            <div class="form__group">
-                
-                <label for="select-choice"> Select Dropdown Choice: </label>
-                <select name="select-choice" id="select-choice">
-                    <option value="Choice 1">Choice 1</option>
-                    <option value="Choice 2">Choice 2</option>
-                    <option value="Choice 3">Choice 3</option>
-                </select>
-
-                <div class="form__group-checkbox">
-                    <label for="checkbox">Checkbox:</label>
-                    <input type="checkbox" name="checkbox" id="checkbox" />
+                <div class="form__group">
+                    <label for="name"> Text Input: </label>
+                    <input 
+                        type="text" 
+                        name="name" 
+                        id="name" 
+                        placeholder="Esto es un campo de tipo text" />
                 </div>
-                
 
-            </div>
-
-            <div class="form__group">
-                <label for="textarea"> Textarea: </label>
-                <textarea cols="40" rows="8" name="textarea" id="textarea">
+                <fieldset class="form__group">
                     
-                </textarea>
-            </div>
-                      
+                    <legend> Radio Button Choice </legend>
 
-        </form>
+                    <label for="radio-choice-1"> Choice 1 </label>
+                    <input type="radio" name="radio-choice" id="radio-choice-1" value="choice-1" />
+
+                    <label for="radio-choice-2"> Choice 2 </label>
+                    <input type="radio" name="radio-choice" id="radio-choice-2" value="choice-2" />
+
+                </fieldset>
+
+                <div class="form__group">
+                    
+                    <label for="select-choice"> Select Dropdown Choice: </label>
+                    <select name="select-choice" id="select-choice">
+                        <option value="Choice 1">Choice 1</option>
+                        <option value="Choice 2">Choice 2</option>
+                        <option value="Choice 3">Choice 3</option>
+                    </select>
+
+                    <div class="form__group-checkbox">
+                        <label for="checkbox">Checkbox:</label>
+                        <input type="checkbox" name="checkbox" id="checkbox" />
+                    </div>
+                    
+
+                </div>
+
+                <div class="form__group">
+                    <label for="textarea"> Textarea: </label>
+                    <textarea cols="40" rows="8" name="textarea" id="textarea">
+                        
+                    </textarea>
+                </div>
+                        
+
+            </form>
+
+        </section>
 
     </section>
 
@@ -119,23 +132,31 @@
     <!--  -----  Código  -----  -->
     <section class="main__section-markdown-shiki">
 
-        <article data-shiki="codeHtml" class="section__img-script">
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
 
-            <!--  Renderizar html archivo .html tipo markdown-shiki  -->
+            <h2 class="section__title" title="Código">
+                Código
+            </h2>
 
-        </article>
+        </header>
 
-        <article data-shiki="codeCss" class="section__img-script">
+        <!--  -----  Contenido del Código, Aqui se renderiza el código HTML, CSS y JavaScript -----  -->
+        <section class="section__content section__content--code">
+            
+            <article data-shiki="codeHtml" class="section__img-script">
+                <!--  Renderizar html archivo .html tipo markdown-shiki  -->
+            </article>
 
-            <!--  Renderizar html archivo .css tipo markdown-shiki  -->
+            <article data-shiki="codeCss" class="section__img-script">
+                <!--  Renderizar html archivo .css tipo markdown-shiki  -->
+            </article>
 
-        </article>
+            <article data-shiki="codeJs" class="section__img-script">
+                <!--  Renderizar html archivo .js tipo markdown-shiki  -->
+            </article>
 
-        <article data-shiki="codeJs" class="section__img-script">
-
-            <!--  Renderizar html archivo .js tipo markdown-shiki  -->
-
-        </article>
+        </section>
 
     </section>
 
