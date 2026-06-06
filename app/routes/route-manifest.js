@@ -97,6 +97,13 @@ export const routeManifest = [
     { id: 'clase17Ejercicio10', path: 'clase17-dudas-y-conceptos-parte-2/ejercicio-10', file: 'route-clase17-ejercicio10' },
     { id: 'clase17Ejercicio10Paralax', path: 'clase17-dudas-y-conceptos-parte-2/ejercicio-10-paralax', file: 'route-clase17-ejercicio10-paralax' },
     
+    { id: 'clase18', path: 'clase18-formularios-ajax', file: 'route-clase18' },
+    { id: 'clase18Formulario01', path: 'clase18-formularios-ajax/formulario-01', file: 'route-clase18-formulario01' },
+    { id: 'clase18Formulario02', path: 'clase18-formularios-ajax/formulario-02', file: 'route-clase18-formulario02' },
+    { id: 'clase18Formulario03', path: 'clase18-formularios-ajax/formulario-03', file: 'route-clase18-formulario03' },
+    { id: 'clase18Formulario04', path: 'clase18-formularios-ajax/formulario-04', file: 'route-clase18-formulario04' },
+    { id: 'clase18Formulario05', path: 'clase18-formularios-ajax/formulario-05', file: 'route-clase18-formulario05' },
+    
     { id: '404NotFoundPage', path: '404', file: 'route-404-not-found-page' },
 
     
