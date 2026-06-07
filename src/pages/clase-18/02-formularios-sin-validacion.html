@@ -1,0 +1,166 @@
+<!--  
+    *  -------------------------------------------------------------------------------------------------------------  *
+    *  -----  /02-formularios-sin-validacion.html  --  /src/pages/clase-18/02-formularios-sin-validacion.html  -----  *
+    *  -------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__container">
+
+
+    <!--  -----  INFO  -----  -->
+    <section class="main__section-info">
+
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="Formularios Sin Validación">
+                Clase 18 - Formularios Sin Validación
+            </h2>
+
+        </header>
+
+        <!--  -----  Contenido de la Sección  -----  -->
+        <section class="section__content">
+
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    Que hace este ejercicio
+                </h3>
+
+                <p class="content__text">
+                    Este ejercicio muestra el envío básico de un formulario HTML al servidor mediante AJAX sin ninguna validación previa.
+                    Se utiliza el método <kbd>serialize()</kbd> de jQuery para capturar todos los datos del formulario automáticamente.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        El formulario se envía al servidor mediante POST cuando el usuario hace clic en "Enviar", sin recargar la página.
+                    </li>
+                    <li>
+                        Se muestra un indicador de carga mientras se procesa la petición y se espera la respuesta del servidor.
+                    </li>
+                    <li>
+                        La respuesta del servidor (HTML) se inserta directamente en el contenedor de salida.
+                    </li>
+                </ul>
+
+                <p class="content__note">
+                    <kbd> Objetivo: </kbd> Comprender el proceso básico de envío de formularios mediante AJAX usando jQuery, 
+                    aprendiendo a serializar datos y manejar la respuesta del servidor.
+                </p>
+            </div>
+
+        </section>
+
+    </section>
+
+
+    <!--  -----  PRÁCTICA  -----  -->
+    <section class="main__section-practica">
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="Práctica">
+                Práctica
+            </h2>
+
+        </header>
+
+        <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+        <section class="section__content">
+
+            <div class="form-ajax">
+
+                <h3 class="form-ajax__title">
+                    Formulario sin validación
+                </h3>
+
+                <div class="form-ajax__error" id="muestraerror">
+                    <!--  -----  Aqui se mostraran los errores del formulario  -----  -->
+                </div>
+                            
+                
+                <form action="enviar1.php" id="form" method="post" class="form-ajax__form">
+                    
+                    <div class="form-ajax__field">
+                        <label class="form-ajax__label" for="nombre">Nombre:</label>
+                        <input class="form-ajax__input" type="text" name="nombre" id="nombre">
+                    </div>
+                    
+                    <div class="form-ajax__field">
+                        <label class="form-ajax__label" for="email">Email:</label>
+                        <input class="form-ajax__input" type="text" name="email" id="email">
+                    </div>
+                    
+                    <div class="form-ajax__field">
+                        <label class="form-ajax__label" for="intereses">Intereses:</label>
+                        <textarea class="form-ajax__textarea" name="intereses" id="intereses"></textarea>
+                    </div>
+                    
+                    <div class="form-ajax__field">
+                        <label class="form-ajax__label" for="sexo">Sexo:</label>
+                        <select class="form-ajax__select" name="sexo" id="sexo">
+                            <option value="Hombre">Hombre</option>
+                            <option value="Mujer">Mujer</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-ajax__field form-ajax__field--actions">
+                        <input class="form-ajax__submit" type="submit" value="Enviar">
+                    </div>
+
+                </form>
+
+                <div class="form-ajax__output" id="salida"> 
+                    <div class="form-ajax__loading" id="loading">
+                        <img class="form-ajax__loading-img" src="../../../assets/img/clase-18/loading.gif" alt="Cargando...">
+                        <span class="form-ajax__loading-text">Enviando datos...</span>
+                    </div>
+                    <p class="form-ajax__output-info">Aquí se mostrará lo que me traiga por POST ...</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+
+    <!--  -----  Código  -----  -->
+    <section class="main__section-markdown-shiki">
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="Código">
+                Código
+            </h2>
+
+        </header>
+
+        <!--  -----  Contenido del Código, Aqui se renderiza el código HTML, CSS y JavaScript -----  -->
+        <section class="section__content section__content--code">
+
+            <article data-shiki="codeHtml" class="section__img-script">
+            <!--  Renderizar html archivo .html tipo markdown-shiki  -->
+            </article>
+
+            <article data-shiki="codeCss" class="section__img-script">
+            <!--  Renderizar html archivo .css tipo markdown-shiki  -->
+            </article>
+
+            <article data-shiki="codeJs" class="section__img-script">
+            <!--  Renderizar html archivo .js tipo markdown-shiki  -->
+            </article>
+
+        </section>
+        
+
+    </section>
+
+</div>

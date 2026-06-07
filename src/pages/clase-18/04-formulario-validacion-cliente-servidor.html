@@ -1,0 +1,168 @@
+<!--  
+    *  ---------------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /04-formularios-validacion-cliente-servidor.html  --  /src/pages/clase-18/04-formularios-validacion-cliente-servidor.html  -----  *
+    *  ---------------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__container">
+
+
+    <!--  -----  INFO  -----  -->
+    <section class="main__section-info">
+
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="Formulario con Validación en el Cliente y Servidor">
+                Clase 18 - Formulario con Validación en el Cliente y Servidor
+            </h2>
+
+        </header>
+
+        <!--  -----  Contenido de la Sección  -----  -->
+        <section class="section__content">
+
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    Que hace este ejercicio
+                </h3>
+
+                <p class="content__text">
+                    Este ejercicio implementa un formulario con validación tanto en el cliente como en el servidor, 
+                    enviando los datos mediante AJAX y procesando la respuesta JSON del servidor.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        Validación en el cliente antes del envío y validación adicional en el servidor, proporcionando una doble capa de seguridad.
+                    </li>
+                    <li>
+                        El botón de envío se deshabilita durante la petición AJAX para evitar envíos duplicados, mostrando un indicador de carga.
+                    </li>
+                    <li>
+                        Se procesa la respuesta JSON del servidor, mostrando mensajes de éxito o error específicos según el resultado de la validación.
+                    </li>
+                </ul>
+
+                <p class="content__note">
+                    <kbd> Objetivo: </kbd> Implementar un sistema completo de validación en cliente y servidor con AJAX, 
+                    aprendiendo a manejar respuestas JSON, controlar el estado del formulario durante peticiones asíncronas 
+                    y proporcionar feedback detallado al usuario.
+                </p>
+            </div>
+
+        </section>
+
+    </section>
+
+
+    <!--  -----  PRÁCTICA  -----  -->
+    <section class="main__section-practica">
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="Práctica">
+                Práctica
+            </h2>
+
+        </header>
+
+        <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+        <section class="section__content">
+
+            <div class="form-ajax">
+
+                <h3 class="form-ajax__title">
+                    Formulario con validación en el lado del cliente y servidor 
+                    y envío de datos al servidor con AJAX
+                </h3>
+
+                <div class="form-ajax__error" id="muestraerror">
+                    <!--  -----  Aqui se mostraran los errores del formulario  -----  -->
+                </div>
+                            
+                
+                <form action="enviar2.php" id="form" method="post" class="form-ajax__form">
+                    
+                    <div class="form-ajax__field">
+                        <label class="form-ajax__label" for="nombre">Nombre:</label>
+                        <input class="form-ajax__input" type="text" name="nombre" id="nombre">
+                    </div>
+                    
+                    <div class="form-ajax__field">
+                        <label class="form-ajax__label" for="email">Email:</label>
+                        <input class="form-ajax__input" type="text" name="email" id="email">
+                    </div>
+                    
+                    <div class="form-ajax__field">
+                        <label class="form-ajax__label" for="intereses">Intereses:</label>
+                        <textarea class="form-ajax__textarea" name="intereses" id="intereses"></textarea>
+                    </div>
+                    
+                    <div class="form-ajax__field">
+                        <label class="form-ajax__label" for="sexo">Sexo:</label>
+                        <select class="form-ajax__select" name="sexo" id="sexo">
+                            <option value="H">Hombre</option>
+                            <option value="M">Mujer</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-ajax__field form-ajax__field--actions">
+                        <input class="form-ajax__submit" type="submit" value="Enviar">
+                    </div>
+
+                </form>
+
+                <div class="form-ajax__output" id="salida"> 
+                    <div class="form-ajax__loading" id="loading">
+                        <img class="form-ajax__loading-img" src="../../../assets/img/clase-18/loading.gif" alt="Cargando...">
+                        <span class="form-ajax__loading-text">Enviando datos...</span>
+                    </div>
+                    <p class="form-ajax__output-info">Aquí se mostrará lo que me traiga por POST ...</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+
+    <!--  -----  Código  -----  -->
+    <section class="main__section-markdown-shiki">
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="Código">
+                Código
+            </h2>
+
+        </header>
+
+        <!--  -----  Contenido del Código, Aqui se renderiza el código HTML, CSS y JavaScript -----  -->
+        <section class="section__content section__content--code">
+
+            <article data-shiki="codeHtml" class="section__img-script">
+            <!--  Renderizar html archivo .html tipo markdown-shiki  -->
+            </article>
+
+            <article data-shiki="codeCss" class="section__img-script">
+            <!--  Renderizar html archivo .css tipo markdown-shiki  -->
+            </article>
+
+            <article data-shiki="codeJs" class="section__img-script">
+            <!--  Renderizar html archivo .js tipo markdown-shiki  -->
+            </article>
+
+        </section>
+        
+
+    </section>
+
+</div>

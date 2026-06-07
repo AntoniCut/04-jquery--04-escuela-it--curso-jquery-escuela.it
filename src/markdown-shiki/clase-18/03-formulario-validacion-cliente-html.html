@@ -1,0 +1,167 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#6A9955">&#x3C;!--  </span></span>
+<span class="line"><span style="color:#6A9955">    *  ---------------------------------------------------------------------------------------------------------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">    *  -----  /03-formularios-validacion-cliente.html  --  /src/pages/clase-18/03-formularios-validacion-cliente.html  -----  *</span></span>
+<span class="line"><span style="color:#6A9955">    *  ---------------------------------------------------------------------------------------------------------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">--></span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"main__container"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    &#x3C;!--  -----  INFO  -----  --></span></span>
+<span class="line"><span style="color:#808080">    &#x3C;</span><span style="color:#569CD6">section</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"main__section-info"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        &#x3C;!--  -----  Header de la Sección  -----  --></span></span>
+<span class="line"><span style="color:#808080">        &#x3C;</span><span style="color:#569CD6">header</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"section__header"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">            &#x3C;</span><span style="color:#569CD6">h2</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"section__title"</span><span style="color:#9CDCFE"> title</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"Formulario con Validación en el Cliente"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                Clase 18 - Formulario con Validación en el Cliente</span></span>
+<span class="line"><span style="color:#808080">            &#x3C;/</span><span style="color:#569CD6">h2</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">        &#x3C;/</span><span style="color:#569CD6">header</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        &#x3C;!--  -----  Contenido de la Sección  -----  --></span></span>
+<span class="line"><span style="color:#808080">        &#x3C;</span><span style="color:#569CD6">section</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"section__content"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">            &#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"content__description content__description--exercise"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                &#x3C;</span><span style="color:#569CD6">h3</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"content__title"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                    Que hace este ejercicio</span></span>
+<span class="line"><span style="color:#808080">                &#x3C;/</span><span style="color:#569CD6">h3</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                &#x3C;</span><span style="color:#569CD6">p</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"content__text"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                    Este ejercicio implementa un formulario con validación en el lado del cliente antes de enviar los datos al servidor mediante AJAX.</span></span>
+<span class="line"><span style="color:#D4D4D4">                    Se validan los campos nombre (mínimo 3 caracteres) y email (mínimo 5 caracteres) antes de realizar la petición.</span></span>
+<span class="line"><span style="color:#808080">                &#x3C;/</span><span style="color:#569CD6">p</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                &#x3C;</span><span style="color:#569CD6">ul</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"content__list"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">li</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                        Validación en tiempo real del campo nombre mediante el evento </span><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">kbd</span><span style="color:#808080">></span><span style="color:#D4D4D4">change</span><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">kbd</span><span style="color:#808080">></span><span style="color:#D4D4D4">, aplicando estilos visuales de error.</span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">li</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">li</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                        Validación completa del formulario antes del envío, mostrando mensajes de error específicos si los datos no son válidos.</span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">li</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">li</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                        Solo se envían los datos al servidor si todas las validaciones pasan correctamente, mostrando un indicador de carga durante el proceso.</span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">li</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                &#x3C;/</span><span style="color:#569CD6">ul</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                &#x3C;</span><span style="color:#569CD6">p</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"content__note"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">kbd</span><span style="color:#808080">></span><span style="color:#D4D4D4"> Objetivo: </span><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">kbd</span><span style="color:#808080">></span><span style="color:#D4D4D4"> Implementar validación del lado del cliente para mejorar la experiencia de usuario, </span></span>
+<span class="line"><span style="color:#D4D4D4">                    evitando peticiones innecesarias al servidor y proporcionando feedback inmediato sobre errores en los campos.</span></span>
+<span class="line"><span style="color:#808080">                &#x3C;/</span><span style="color:#569CD6">p</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">            &#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">        &#x3C;/</span><span style="color:#569CD6">section</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">    &#x3C;/</span><span style="color:#569CD6">section</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    &#x3C;!--  -----  PRÁCTICA  -----  --></span></span>
+<span class="line"><span style="color:#808080">    &#x3C;</span><span style="color:#569CD6">section</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"main__section-practica"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        &#x3C;!--  -----  Header de la Sección  -----  --></span></span>
+<span class="line"><span style="color:#808080">        &#x3C;</span><span style="color:#569CD6">header</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"section__header"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">            &#x3C;</span><span style="color:#569CD6">h2</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"section__title"</span><span style="color:#9CDCFE"> title</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"Práctica"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                Práctica</span></span>
+<span class="line"><span style="color:#808080">            &#x3C;/</span><span style="color:#569CD6">h2</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">        &#x3C;/</span><span style="color:#569CD6">header</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        &#x3C;!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  --></span></span>
+<span class="line"><span style="color:#808080">        &#x3C;</span><span style="color:#569CD6">section</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"section__content"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">            &#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form-ajax"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                &#x3C;</span><span style="color:#569CD6">h3</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form-ajax__title"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                    Formulario con validación en el lado del cliente y envío de datos al servidor con AJAX</span></span>
+<span class="line"><span style="color:#808080">                &#x3C;/</span><span style="color:#569CD6">h3</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                &#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form-ajax__error"</span><span style="color:#9CDCFE"> id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"muestraerror"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#6A9955">                    &#x3C;!--  -----  Aqui se mostraran los errores del formulario  -----  --></span></span>
+<span class="line"><span style="color:#808080">                &#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                            </span></span>
+<span class="line"><span style="color:#D4D4D4">                </span></span>
+<span class="line"><span style="color:#808080">                &#x3C;</span><span style="color:#569CD6">form</span><span style="color:#9CDCFE"> action</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"enviar1.php"</span><span style="color:#9CDCFE"> id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form"</span><span style="color:#9CDCFE"> method</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"post"</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form-ajax__form"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                    </span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form-ajax__field"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                        &#x3C;</span><span style="color:#569CD6">label</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form-ajax__label"</span><span style="color:#9CDCFE"> for</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"nombre"</span><span style="color:#808080">></span><span style="color:#D4D4D4">Nombre:</span><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">label</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                        &#x3C;</span><span style="color:#569CD6">input</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form-ajax__input"</span><span style="color:#9CDCFE"> type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"text"</span><span style="color:#9CDCFE"> name</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"nombre"</span><span style="color:#9CDCFE"> id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"nombre"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                    </span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form-ajax__field"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                        &#x3C;</span><span style="color:#569CD6">label</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form-ajax__label"</span><span style="color:#9CDCFE"> for</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"email"</span><span style="color:#808080">></span><span style="color:#D4D4D4">Email:</span><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">label</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                        &#x3C;</span><span style="color:#569CD6">input</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form-ajax__input"</span><span style="color:#9CDCFE"> type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"text"</span><span style="color:#9CDCFE"> name</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"email"</span><span style="color:#9CDCFE"> id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"email"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                    </span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form-ajax__field"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                        &#x3C;</span><span style="color:#569CD6">label</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form-ajax__label"</span><span style="color:#9CDCFE"> for</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"intereses"</span><span style="color:#808080">></span><span style="color:#D4D4D4">Intereses:</span><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">label</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                        &#x3C;</span><span style="color:#569CD6">textarea</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form-ajax__textarea"</span><span style="color:#9CDCFE"> name</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"intereses"</span><span style="color:#9CDCFE"> id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"intereses"</span><span style="color:#808080">>&#x3C;/</span><span style="color:#569CD6">textarea</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                    </span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form-ajax__field"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                        &#x3C;</span><span style="color:#569CD6">label</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form-ajax__label"</span><span style="color:#9CDCFE"> for</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"sexo"</span><span style="color:#808080">></span><span style="color:#D4D4D4">Sexo:</span><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">label</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                        &#x3C;</span><span style="color:#569CD6">select</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form-ajax__select"</span><span style="color:#9CDCFE"> name</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"sexo"</span><span style="color:#9CDCFE"> id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"sexo"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                            &#x3C;</span><span style="color:#569CD6">option</span><span style="color:#9CDCFE"> value</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"Hombre"</span><span style="color:#808080">></span><span style="color:#D4D4D4">Hombre</span><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">option</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                            &#x3C;</span><span style="color:#569CD6">option</span><span style="color:#9CDCFE"> value</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"Mujer"</span><span style="color:#808080">></span><span style="color:#D4D4D4">Mujer</span><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">option</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                        &#x3C;/</span><span style="color:#569CD6">select</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                    </span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form-ajax__field form-ajax__field--actions"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                        &#x3C;</span><span style="color:#569CD6">input</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form-ajax__submit"</span><span style="color:#9CDCFE"> type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"submit"</span><span style="color:#9CDCFE"> value</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"Enviar"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                &#x3C;/</span><span style="color:#569CD6">form</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                &#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form-ajax__output"</span><span style="color:#9CDCFE"> id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"salida"</span><span style="color:#808080">></span><span style="color:#D4D4D4"> </span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form-ajax__loading"</span><span style="color:#9CDCFE"> id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"loading"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                        &#x3C;</span><span style="color:#569CD6">img</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form-ajax__loading-img"</span><span style="color:#9CDCFE"> src</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"../../../assets/img/clase-18/loading.gif"</span><span style="color:#9CDCFE"> alt</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"Cargando..."</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                        &#x3C;</span><span style="color:#569CD6">span</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form-ajax__loading-text"</span><span style="color:#808080">></span><span style="color:#D4D4D4">Enviando datos...</span><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">span</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">p</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"form-ajax__output-info"</span><span style="color:#808080">></span><span style="color:#D4D4D4">Aquí se mostrará lo que me traiga por POST ...</span><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">p</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                &#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">            &#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">        &#x3C;/</span><span style="color:#569CD6">section</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">    &#x3C;/</span><span style="color:#569CD6">section</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    &#x3C;!--  -----  Código  -----  --></span></span>
+<span class="line"><span style="color:#808080">    &#x3C;</span><span style="color:#569CD6">section</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"main__section-markdown-shiki"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        &#x3C;!--  -----  Header de la Sección  -----  --></span></span>
+<span class="line"><span style="color:#808080">        &#x3C;</span><span style="color:#569CD6">header</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"section__header"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">            &#x3C;</span><span style="color:#569CD6">h2</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"section__title"</span><span style="color:#9CDCFE"> title</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"Código"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                Código</span></span>
+<span class="line"><span style="color:#808080">            &#x3C;/</span><span style="color:#569CD6">h2</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">        &#x3C;/</span><span style="color:#569CD6">header</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        &#x3C;!--  -----  Contenido del Código, Aqui se renderiza el código HTML, CSS y JavaScript -----  --></span></span>
+<span class="line"><span style="color:#808080">        &#x3C;</span><span style="color:#569CD6">section</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"section__content section__content--code"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">            &#x3C;</span><span style="color:#569CD6">article</span><span style="color:#9CDCFE"> data-shiki</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"codeHtml"</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"section__img-script"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#6A9955">            &#x3C;!--  Renderizar html archivo .html tipo markdown-shiki  --></span></span>
+<span class="line"><span style="color:#808080">            &#x3C;/</span><span style="color:#569CD6">article</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">            &#x3C;</span><span style="color:#569CD6">article</span><span style="color:#9CDCFE"> data-shiki</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"codeCss"</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"section__img-script"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#6A9955">            &#x3C;!--  Renderizar html archivo .css tipo markdown-shiki  --></span></span>
+<span class="line"><span style="color:#808080">            &#x3C;/</span><span style="color:#569CD6">article</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">            &#x3C;</span><span style="color:#569CD6">article</span><span style="color:#9CDCFE"> data-shiki</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"codeJs"</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"section__img-script"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#6A9955">            &#x3C;!--  Renderizar html archivo .js tipo markdown-shiki  --></span></span>
+<span class="line"><span style="color:#808080">            &#x3C;/</span><span style="color:#569CD6">article</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">        &#x3C;/</span><span style="color:#569CD6">section</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">    &#x3C;/</span><span style="color:#569CD6">section</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"></span></code></pre>

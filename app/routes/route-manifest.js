@@ -98,11 +98,10 @@ export const routeManifest = [
     { id: 'clase17Ejercicio10Paralax', path: 'clase17-dudas-y-conceptos-parte-2/ejercicio-10-paralax', file: 'route-clase17-ejercicio10-paralax' },
     
     { id: 'clase18', path: 'clase18-formularios-ajax', file: 'route-clase18' },
-    { id: 'clase18Formulario01', path: 'clase18-formularios-ajax/formulario-01', file: 'route-clase18-formulario01' },
-    { id: 'clase18Formulario02', path: 'clase18-formularios-ajax/formulario-02', file: 'route-clase18-formulario02' },
-    { id: 'clase18Formulario03', path: 'clase18-formularios-ajax/formulario-03', file: 'route-clase18-formulario03' },
-    { id: 'clase18Formulario04', path: 'clase18-formularios-ajax/formulario-04', file: 'route-clase18-formulario04' },
-    { id: 'clase18Formulario05', path: 'clase18-formularios-ajax/formulario-05', file: 'route-clase18-formulario05' },
+    { id: 'clase18EnviarDatosPostSinFormularios', path: 'clase18-formularios-ajax/enviar-datos-post-sin-formularios', file: 'route-clase18-enviar-datos-post-sin-formularios' },
+    { id: 'clase18FormulariosSinValidacion', path: 'clase18-formularios-ajax/formularios-sin-validacion', file: 'route-clase18-formularios-sin-validacion' },
+    { id: 'clase18FormularioValidacionCliente', path: 'clase18-formularios-ajax/formulario-validacion-cliente', file: 'route-clase18-formulario-validacion-cliente' },
+    { id: 'clase18FormularioValidacionClienteServidor', path: 'clase18-formularios-ajax/formulario-validacion-cliente-servidor', file: 'route-clase18-formulario-validacion-cliente-servidor' },
     
     { id: '404NotFoundPage', path: '404', file: 'route-404-not-found-page' },
 

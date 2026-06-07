@@ -13,7 +13,7 @@
 
 
     /** -----  `URL base para los servicios`  */
-    const urlBase = '/escuelait/curso-jquery-escuelait/app/services';
+    const urlBase = '/escuelait/curso-jquery-escuelait/app/services/clase-16';
 
 
     //  -----  Referencias al HTML  -----
