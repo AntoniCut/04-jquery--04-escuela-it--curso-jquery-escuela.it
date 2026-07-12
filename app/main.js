@@ -8,17 +8,15 @@
 import { effectLoadingPage } from './effects/effect-loading-page.js';
 import { loadJQueryCoreByImport } from './libs/jquery-module/loader/load-jquery-by-import.js'
 import { preloadAllJQueryUI } from './libs/jquery-module/loader/load-jquery-ui-by-import.js';
-import { spaWithMethodLoadFromJQueryPlugins } from './plugins/spa-with-method-load-from-jquery/v4/jquery.spa-with-method-load-from-jquery.js';
+import { spaWithMethodLoadFromJQueryPlugins } from './plugins/spa-with-method-load-from-jquery/v5/jquery.spa-with-method-load-from-jquery.js';
 import { spa } from './spa/spa.js';
+
+
+export { base } from './routes/base.js';
 
 
 //  -----  Efecto de Loading de la Página  -----
 effectLoadingPage();
-
-
-/** @type {string} - `-----  Base del proyecto  -----` */
-export const base = '/escuelait/curso-jquery-escuelait';
-
 
 
 /*

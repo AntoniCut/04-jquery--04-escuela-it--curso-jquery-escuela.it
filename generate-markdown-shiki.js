@@ -2,151 +2,220 @@
     *  -----------------------------------------------------------------------------  *
     *  -----  /generate-markdown-shiki.js  -----------------------------------------  *
     *  -----------------------------------------------------------------------------  *
-    *  Lee las rutas del SPA, deriva los archivos fuente por convención de            *
-    *  nombres, y genera los bloques HTML resaltados con Shiki en                     *
-    *  src/markdown-shiki/.                                                           *
     *                                                                                 *
-    *  Uso: pnpm code-highlight                                                       *
-    *                                                                                 *
-    *  Convención de nombres:                                                         *
-    *    MarkdownShikiHtml path  →  fuente                                            *
-    *    .../01-markdown-shiki-ts.html   →  src/scripts/ts/.../01-markdown-shiki.ts   *
-    *    .../01-markdown-shiki-js.html   →  src/scripts/js/.../01-markdown-shiki.js   *
-    *    .../01-markdown-shiki-html.html →  src/pages/.../01-markdown-shiki.html      *
-    *    .../01-markdown-shiki-css.html  →  src/scss/pages/.../01-markdown-shiki.scss *
+    *  Lee las entradas MarkdownShikiHtml de cada ruta y genera los bloques HTML       *
+    *  resaltados con Shiki en src/markdown-shiki/ (gulp copia luego el resultado     *
+    *  a app/markdown-shiki/).                                                          *
+    *                                                                                   *
+    *  Cada entrada del contrato MarkdownShikiEntry indica:                            *
+    *    - fileName:      nombre del .html a generar.                                   *
+    *    - fileExtension: tipo/lenguaje a resaltar ('html' | 'css' | 'scss' | 'js').    *
+    *    - urlInput:      URL (con base) del archivo fuente a renderizar (debe existir). *
+    *    - urlOutput:     URL (con base) de la CARPETA donde se guarda el .html generado.*
+    *    - target:        selector CSS destino (informativo).                           *
+    *                                                                                   *
+    *  El bloque se guarda en: src/markdown-shiki/<relOutput>/<fileName>                *
+    *  donde <relOutput> se deriva de urlOutput (lo posterior a 'markdown-shiki/').     *
+    *                                                                                   *
+    *  Uso: pnpm code-highlight                                                          *
+    *                                                                                   *
     *  -----------------------------------------------------------------------------  *
 */
 
+
 import { codeToHtml } from 'shiki';
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
-import { readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const MARKER     = 'markdown-shiki/';
-const SHIKI_THEME = 'dark-plus';
+/** @type {string} - `Base del proyecto (debe coincidir con src/main.js)` */
+const base = '/mis-plugins-spa/jquery-spa-with-method-load-from-jquery-v5';
+
+
+/** @typedef {import('./types/index.js').Route} Route */
+/** @typedef {import('./types/index.js').MarkdownShikiEntry} MarkdownShikiEntry */
+/** @typedef {Record<string, Route>} RouteModule */
 
 
 /**
- * A partir del path URL de un archivo .html en markdown-shiki, deduce
- * el path del archivo fuente (.ts o .js) usando la convención de nombres.
- *
- * @param {string} htmlUrlPath  - p.ej. `/base/app/markdown-shiki/02-tipos-de-datos/01-booleans-ts.html`
- * @returns {{ srcPath: string, lang: string, relHtml: string } | null}
+ * @typedef {Object} ShikiGenResult
+ * @property {'generated' | 'skipped'} status
+ * @property {string} message
  */
-function deriveSource(htmlUrlPath) {
 
-    const idx = htmlUrlPath.indexOf(MARKER);
-    if (idx === -1) return null;
 
-    const relHtml = htmlUrlPath.slice(idx + MARKER.length);
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const __filename = fileURLToPath(import.meta.url);
+const MARKER = 'markdown-shiki/';
+const SHIKI_THEME = 'dark-plus';
+const STRIP_HEADER_BANNER = true;
+const BANNER_PATTERN = /-----/;
 
-    if (relHtml.endsWith('-ts.html')) {
-        const relSrc = relHtml.replace(/-ts\.html$/, '.ts');
-        return {
-            srcPath: join(__dirname, 'src/scripts/ts', relSrc),
-            lang: 'typescript',
-            relHtml
-        };
-    }
 
-    if (relHtml.endsWith('-js.html')) {
-        const relSrc = relHtml.replace(/-js\.html$/, '.js');
-        //  Primero busca en src/scripts/ directamente (convención jQuery project)
-        const directPath = join(__dirname, 'src/scripts', relSrc);
-        if (existsSync(directPath)) {
-            return { srcPath: directPath, lang: 'javascript', relHtml };
-        }
-        //  Fallback: src/scripts/js/ (convención TypeScript project)
-        return {
-            srcPath: join(__dirname, 'src/scripts/js', relSrc),
-            lang: 'javascript',
-            relHtml
-        };
-    }
-
-    if (relHtml.endsWith('-html.html')) {
-        const relSrc = relHtml.replace(/-html\.html$/, '.html');
-        return {
-            srcPath: join(__dirname, 'src/pages', relSrc),
-            lang: 'html',
-            relHtml
-        };
-    }
-
-    if (relHtml.endsWith('-css.html')) {
-        const relSrc = relHtml.replace(/-css\.html$/, '.scss');
-        return {
-            srcPath: join(__dirname, 'src/scss/pages', relSrc),
-            lang: 'scss',
-            relHtml
-        };
-    }
-
+/**
+ * Mapea `fileExtension` al identificador de lenguaje que espera Shiki.
+ * @param {string} fileExtension
+ * @returns {string | null}
+ */
+const mapLang = (fileExtension) => {
+    const ext = String(fileExtension).toLowerCase();
+    if (ext === 'html') return 'html';
+    if (ext === 'css') return 'css';
+    if (ext === 'scss') return 'scss';
+    if (ext === 'js' || ext === 'javascript') return 'javascript';
     return null;
-}
+};
 
 
-//  -----  Leer todos los archivos de ruta  -----
-const routesDir  = join(__dirname, 'src/routes');
-const routeFiles = readdirSync(routesDir).filter(
-    f => f.startsWith('route-') && f.endsWith('.js') && f !== 'route-manifest.js'
-);
-
-//  -----  Recolectar todos los MarkdownShikiHtml únicos  -----
-//  Extrae las rutas por texto (regex) para evitar importar módulos con dependencias del navegador.
-const htmlPaths = new Set();
-
-for (const file of routeFiles) {
-
-    const content = readFileSync(join(routesDir, file), 'utf-8');
-
-    //  Busca template literals: `${markdownShiki}/clase-xx/nombre-js.html`
-    const matches = content.matchAll(/\$\{markdownShiki\}\/([^`'")\s]+\.html)/g);
-
-    for (const m of matches) {
-        //  Reconstruye el path relativo para que MARKER lo pueda procesar
-        htmlPaths.add('markdown-shiki/' + m[1]);
-    }
-}
+/**
+ * Convierte una URL (con base) a una ruta absoluta en disco.
+ * @param {string} url
+ * @returns {string}
+ */
+const urlToDisk = (url) => {
+    const rel = url.startsWith(base) ? url.slice(base.length) : url;
+    return join(__dirname, rel);
+};
 
 
-//  -----  Generar HTML para cada entrada  -----
-let generated = 0;
-let skipped   = 0;
+/**
+ * A partir de `urlOutput` (carpeta con base) devuelve la ruta relativa de
+ * salida dentro de src/markdown-shiki/ (lo posterior a 'markdown-shiki/').
+ * @param {string} urlOutput
+ * @returns {string | null}
+ */
+const deriveOutputDir = (urlOutput) => {
+    const idx = urlOutput.indexOf(MARKER);
+    if (idx === -1) return null;
+    return urlOutput.slice(idx + MARKER.length).replace(/\/$/, '');
+};
 
-for (const htmlPath of htmlPaths) {
 
-    const derived = deriveSource(htmlPath);
+/**
+ * Elimina bloques de comentario tipo banner al inicio del código fuente.
+ * @param {string} code
+ * @returns {string}
+ */
+const stripHeaderBanner = (code) => {
+    code = code.replace(/^(?:\/\/\s*@ts-nocheck\s*\n|"\s*use strict\s*"\s*;\s*\n)+/, '');
 
-    if (!derived) {
-        console.warn(`⚠️  No se puede derivar el fuente para: ${htmlPath}`);
-        skipped++;
-        continue;
-    }
+    const ANY_COMMENT_RE = /\/\*[\s\S]*?\*\/|<!--[\s\S]*?-->|\/\/[^\n]*\n/g;
 
-    const { srcPath, lang, relHtml } = derived;
+    let firstIdx = -1;
+    let firstEnd = -1;
 
-    if (!existsSync(srcPath)) {
-        const rel = srcPath.replace(__dirname + '/', '');
-        console.warn(`⚠️  Fuente no encontrado: src/markdown-shiki/${relHtml}`);
-        console.warn(`     Esperado en: ${rel}`);
-        console.warn(`     Comprueba que el nombre del archivo fuente coincide con el del .html`);
-        skipped++;
-        continue;
+    for (const m of code.matchAll(ANY_COMMENT_RE)) {
+        if (BANNER_PATTERN.test(m[0])) {
+            firstIdx = m.index;
+            firstEnd = m.index + m[0].length;
+            break;
+        }
     }
 
-    const code = readFileSync(srcPath, 'utf-8');
-    const html = await codeToHtml(code, { lang, theme: SHIKI_THEME });
+    if (firstIdx === -1) return code;
 
-    const outPath = join(__dirname, 'src/markdown-shiki', relHtml);
-    mkdirSync(dirname(outPath), { recursive: true });
-    writeFileSync(outPath, html, 'utf-8');
+    let endIdx = firstEnd;
+    const COMMENT_AFTER_BANNER_RE = /^\s*(?:\/\*[\s\S]*?\*\/|<!--[\s\S]*?-->|\/\/[^\n]*\n)/;
 
-    console.log(`✅  src/markdown-shiki/${relHtml}`);
-    generated++;
+    while (true) {
+        const rest = code.slice(endIdx);
+        const match = rest.match(COMMENT_AFTER_BANNER_RE);
+        if (!match) break;
+        if (!BANNER_PATTERN.test(match[0])) break;
+        endIdx += match[0].length;
+    }
+
+    const before = code.slice(0, firstIdx);
+    const after = code.slice(endIdx).replace(/^\s*\n/, '');
+
+    return (before + after).replace(/^\s*\n/, '');
+};
+
+
+/**
+ * Genera bloques HTML resaltados con Shiki en src/markdown-shiki/.
+ * @returns {Promise<{ generated: number, skipped: number }>}
+ */
+export const generateMarkdownShiki = async () => {
+    const routesDir = join(__dirname, 'src/routes');
+    const routeFiles = readdirSync(routesDir).filter(
+        (f) => f.startsWith('route-') && f.endsWith('.js') && f !== 'route-manifest.js'
+    );
+
+    /** @type {MarkdownShikiEntry[]} */
+    const entries = [];
+
+    for (const file of routeFiles) {
+        /** @type {RouteModule} */
+        const mod = await import(`./src/routes/${file}`);
+
+        /** @type {Route | undefined} */
+        const route = Object.values(mod).find(
+            (v) => v && typeof v === 'object' && Array.isArray(v.MarkdownShikiHtml)
+        );
+
+        if (route?.MarkdownShikiHtml) {
+            for (const entry of route.MarkdownShikiHtml) {
+                entries.push(entry);
+            }
+        }
+    }
+
+    /** @type {ShikiGenResult[]} */
+    const results = await Promise.all(
+        entries.map(async (entry) => {
+            const { fileName, fileExtension, urlInput, urlOutput, target } = entry;
+
+            const lang = mapLang(fileExtension);
+            const outDir = deriveOutputDir(urlOutput ?? '');
+
+            if (!fileName || !lang || !urlInput || !outDir) {
+                return {
+                    status: 'skipped',
+                    message: `⚠️  Entrada incompleta (fileName/fileExtension/urlInput/urlOutput): ${fileName ?? '(sin fileName)'}`,
+                };
+            }
+
+            const srcPath = urlToDisk(urlInput);
+            const outPath = join(__dirname, 'src/markdown-shiki', outDir, fileName);
+
+            if (!existsSync(srcPath)) {
+                const rel = srcPath.replace(__dirname + '/', '');
+                return {
+                    status: 'skipped',
+                    message: `⚠️  Fuente no encontrado: ${fileName}\n     urlInput no existe en disco: ${rel}`,
+                };
+            }
+
+            const rawCode = readFileSync(srcPath, 'utf-8');
+            const code = STRIP_HEADER_BANNER ? stripHeaderBanner(rawCode) : rawCode;
+            const html = await codeToHtml(code, { lang, theme: SHIKI_THEME });
+
+            mkdirSync(dirname(outPath), { recursive: true });
+            writeFileSync(outPath, html, 'utf-8');
+
+            const relOut = outPath.replace(__dirname + '/', '');
+            const relSrc = srcPath.replace(__dirname + '/', '');
+
+            return {
+                status: 'generated',
+                message: `✅  ${relOut}  ←  ${relSrc}`,
+            };
+        })
+    );
+
+    for (const r of results) console.log(r.message);
+
+    const generated = results.filter((r) => r.status === 'generated').length;
+    const skipped = results.filter((r) => r.status === 'skipped').length;
+
+    console.log(`\n🎉  Completado — generados: ${generated} | omitidos: ${skipped}`);
+
+    return { generated, skipped };
+};
+
+
+if (process.argv[1] === __filename) {
+    await generateMarkdownShiki();
 }
-
-console.log(`\n🎉  Completado — generados: ${generated} | omitidos: ${skipped}`);

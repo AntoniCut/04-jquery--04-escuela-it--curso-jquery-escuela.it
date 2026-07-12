@@ -5,8 +5,10 @@
 */
 
 
-import { base } from '../main.js';
+import { base } from './base.js';
 import { paths } from './paths.js';
+
+/// <reference path="../../../types/route.d.js" />
 
 
 /** - Desestructuracion de paths */
@@ -24,7 +26,7 @@ const {
 } = paths;
 
 
-/** @type {import('../../types/index.js').Route} */
+/** @type {Route} */
 export const routeClase13PluginEaseAnimateColorsOptions = {
     id: 'clase13PluginEaseAnimateColorsOptions',
     favicon: favicon,

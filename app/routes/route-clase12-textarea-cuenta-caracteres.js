@@ -7,8 +7,7 @@
 
 import { paths } from './paths.js';
 
-
-/** @typedef {import('../../types/index.js').Route} Route */
+/// <reference path="../../../types/route.d.js" />
 
 
 /** - Desestructuracion de paths */

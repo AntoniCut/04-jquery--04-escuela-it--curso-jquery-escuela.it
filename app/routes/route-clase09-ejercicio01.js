@@ -7,6 +7,8 @@
 
 import { paths } from './paths.js';
 
+/// <reference path="../../../types/route.d.js" />
+
 
 /** - Desestructuracion de paths */
 const {
@@ -23,7 +25,7 @@ const {
 } = paths;
 
 
-/** @type {import('../../types/index.js').Route} */
+/** @type {Route} */
 export const routeClase09Ejercicio01 = {
         id: 'clase09Ejercicio01',
         favicon: favicon,

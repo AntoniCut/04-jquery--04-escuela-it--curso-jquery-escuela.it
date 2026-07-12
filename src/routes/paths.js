@@ -5,7 +5,7 @@
 */
 
 
-import { base } from '../main.js';
+import { base } from './base.js';
 
 
 /** - `path para las rutas de la SPA` */

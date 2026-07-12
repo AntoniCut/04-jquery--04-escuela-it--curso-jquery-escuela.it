@@ -26,3 +26,23 @@ interface HTMLAsideElement extends HTMLElement {}
 interface HTMLFigureElement extends HTMLElement {}
 interface HTMLFigcaptionElement extends HTMLElement {}
 interface HTMLTimeElement extends HTMLElement {}
+
+
+/**
+ * --------------------------------------------------------
+ *  - View Transitions API
+ *    (declarada para compatibilidad con versiones de
+ *     lib.dom.d.ts que no la incluyen, p.ej. Cursor)
+ * --------------------------------------------------------
+ */
+
+interface ViewTransition {
+    readonly finished: Promise<void>;
+    readonly ready: Promise<void>;
+    readonly updateCallbackDone: Promise<void>;
+    skipTransition(): void;
+}
+
+interface Document {
+    startViewTransition(callback: () => Promise<void> | void): ViewTransition;
+}
