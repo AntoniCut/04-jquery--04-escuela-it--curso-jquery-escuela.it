@@ -1,179 +1,84 @@
 <!--  
-    *  ---------------------------------------------------------------------------------------------------------------------------  *
     *  -----  /06-eventos-personalizados-2.html  --  /src/pages/clase-19/06-eventos-personalizados-2.html  -----  *
-    *  ---------------------------------------------------------------------------------------------------------------------------  *
 -->
 
 
 
 <div class="main__container">
 
+    <!--  -----  Header de la Sección  -----  -->
+    <header class="section__header">
 
-    <!--  -----  INFO  -----  -->
-    <section class="main__section-info">
+        <h2 class="section__title" title="Eventos Personalizados 2">
+            Clase 19 - Eventos Personalizados 2 - Descripción
+        </h2>
 
+    </header>
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
-
-            <h2 class="section__title" title="Eventos Personalizados 2">
-                Clase 19 - Eventos Personalizados 2
-            </h2>
-
-        </header>
-
-        <!--  -----  Contenido de la Sección  -----  -->
-        <section class="section__content">
-
-            <div class="content__description content__description--exercise">
-
-                <h3 class="content__title">
-                    Que hace este ejercicio
-                </h3>
-
-                <p class="content__text">
-                    Demuestra como encadenar efectos y disparar el evento
-                    personalizado <kbd>termine</kbd> cuando finaliza una
-                    animacion. Varios manejadores escuchan el mismo evento y
-                    reaccionan de forma independiente.
-                </p>
-
-                <ul class="content__list">
-                    <li>
-                        La animacion <kbd>slideUp/slideDown</kbd> dispara
-                        <kbd>termine</kbd> al completarse.
-                    </li>
-                    <li>
-                        Hay 3 manejadores: cambio de color, fade y hora (solo
-                        en <kbd>div</kbd>).
-                    </li>
-                    <li>
-                        El registro indica que manejador se ejecuto en cada
-                        disparo del evento.
-                    </li>
-                </ul>
-
-            </div>
-
-        </section>
+    <!--  -----  Descripción de la Página  -----  -->
+    <section data-component-page="eventosPersonalizados2Description">
 
     </section>
 
 
-    <!--  -----  PRÁCTICA  -----  -->
-    <section class="main__section-practica">
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
+        <h2 class="section__title" title="Eventos Personalizados 2">
+            Clase 19 - Eventos Personalizados 2 - Demo
+        </h2>
 
-            <h2 class="section__title" title="Práctica">
-                Práctica
-            </h2>
+    </header>
 
-        </header>
-
-        <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
-        <section class="section__content eventos-personalizados-2">
-
-            <p class="eventos-personalizados-2__hint">
-                Inicia la animacion slide o dispara <kbd>termine</kbd> manualmente
-                para ver como reaccionan los manejadores registrados.
-            </p>
-
-            <div class="eventos-personalizados-2__grid">
-
-                <article class="eventos-personalizados-2__card eventos-personalizados-2__card--controls">
-
-                    <h3 class="eventos-personalizados-2__card-title">
-                        Panel de control
-                    </h3>
-
-                    <p class="eventos-personalizados-2__card-desc">
-                        Controla la animacion y el disparo del evento
-                        <kbd>termine</kbd>.
-                    </p>
-
-                    <button
-                        type="button"
-                        id="btnIniciarSlide"
-                        class="eventos-personalizados-2__btn eventos-personalizados-2__btn--action"
-                    >
-                        Iniciar slideUp / slideDown
-                    </button>
-
-                    <button
-                        type="button"
-                        id="btnTriggerTermine"
-                        class="eventos-personalizados-2__btn eventos-personalizados-2__btn--action"
-                    >
-                        trigger('termine') manual
-                    </button>
-
-                    <button
-                        type="button"
-                        id="btnReiniciar"
-                        class="eventos-personalizados-2__btn eventos-personalizados-2__btn--reset"
-                    >
-                        Reiniciar elementos
-                    </button>
-
-                    <button
-                        type="button"
-                        id="btnLimpiarLog"
-                        class="eventos-personalizados-2__btn eventos-personalizados-2__btn--reset"
-                    >
-                        Limpiar registro
-                    </button>
-
-                </article>
-
-
-                <article class="eventos-personalizados-2__card eventos-personalizados-2__card--targets">
-
-                    <h3 class="eventos-personalizados-2__card-title">
-                        Elementos con manejador termine
-                    </h3>
-
-                    <div
-                        class="eventos-personalizados-2__elem elemento-termine"
-                        data-etiqueta="Div"
-                    >
-                        Div: esperando animacion o evento termine
-                    </div>
-
-                    <p
-                        class="eventos-personalizados-2__elem elemento-termine"
-                        data-etiqueta="Parrafo"
-                    >
-                        Parrafo: Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    </p>
-
-                    <output id="estadoTermine" class="eventos-personalizados-2__estado">
-                        Disparos de termine: 0
-                    </output>
-
-                </article>
-
-
-                <article class="eventos-personalizados-2__card eventos-personalizados-2__card--log">
-
-                    <h3 class="eventos-personalizados-2__card-title">
-                        Registro de manejadores
-                    </h3>
-
-                    <ul id="logEventos" class="eventos-personalizados-2__log">
-                        <li class="eventos-personalizados-2__log-item eventos-personalizados-2__log-item--info">
-                            Inicia la animacion slide o dispara termine para ver
-                            los 3 manejadores en accion.
-                        </li>
-                    </ul>
-
-                </article>
-
-            </div>
-
-        </section>
+    <!--  -----  Demo de la Página  -----  -->
+    <section data-component-page="eventosPersonalizados2Demo">
 
     </section>
+
+
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
+
+        <h2 class="section__title" title="Eventos Personalizados 2">
+            Clase 19 - Eventos Personalizados 2 - Código Markdown
+        </h2>
+
+    </header>
+
+
+    <!--  -----  Código Markdown  -----  -->
+    <section class="main__section-markdown">
+
+        <div class="markdown__container">
+
+            <article 
+                data-shiki="codeHtml" 
+                data-label="eventos-personalizados-2.html" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .html tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeCss" 
+                data-label="eventos-personalizados-2.css" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .css tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeJs" 
+                data-label="eventos-personalizados-2.js" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .js tipo 'markdown'  *****  -->
+            </article>
+
+
+        </div>
+
+    </section>
+
 
 </div>

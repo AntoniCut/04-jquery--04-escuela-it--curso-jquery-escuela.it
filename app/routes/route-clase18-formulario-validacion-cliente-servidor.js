@@ -21,8 +21,7 @@ const {
     pages,
     layoutFooter,
     styles,
-    scripts,
-    markdownShiki
+    scripts
 } = paths;
 
 
@@ -52,10 +51,5 @@ export const routeClase18FormularioValidacionClienteServidor = {
     libs: [
         { name: 'tooltip' },
         { name: 'draggable' },
-    ],
-    MarkdownShikiHtml: [
-        { url: `${markdownShiki}/clase-18/04-formulario-validacion-cliente-servidor-html.html`, target: '[data-shiki="codeHtml"]' },
-        { url: `${markdownShiki}/clase-18/clase-18-styles-css.html`,  target: '[data-shiki="codeCss"]' },
-        { url: `${markdownShiki}/clase-18/04-formulario-validacion-cliente-servidor-js.html`, target: '[data-shiki="codeJs"]' },
     ],
 };

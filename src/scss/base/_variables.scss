@@ -52,10 +52,12 @@ $bg-grid-pattern-footer: linear-gradient(to right, rgba(71, 85, 105, 0.3) 1px, t
     radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
 
 
-//  -----  Backbround Titles Header y Footer  -----
+//  -----  Backbround Titles Header, Main y Footer  -----
 $bg-title-main-first: linear-gradient(to right, #ffffff 0%, #ffffff 30%, #036AAD 100%);
 $bg-title-page: linear-gradient(to right, #ffffff 0%, #ffffff 30%, #F89C15 100%);
 $bg-title-main-last: linear-gradient(to right, #ffffff 0%, #ffffff 30%, #D84737 100%);
+
+$bg-title-layout-main: linear-gradient(to right, #f1f1f1 0%, #ffffff 30%, #D84737 100%);
 
 
 //  -----  Background Gradiente Main Section  -----

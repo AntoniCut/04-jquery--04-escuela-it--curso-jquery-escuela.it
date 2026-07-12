@@ -27,10 +27,7 @@ import { codeToHtml } from 'shiki';
 import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-
-
-/** @type {string} - `Base del proyecto (debe coincidir con src/main.js)` */
-const base = '/mis-plugins-spa/jquery-spa-with-method-load-from-jquery-v5';
+import { base } from './src/routes/base.js';
 
 
 /** @typedef {import('./types/index.js').Route} Route */
@@ -157,7 +154,9 @@ export const generateMarkdownShiki = async () => {
 
         if (route?.MarkdownShikiHtml) {
             for (const entry of route.MarkdownShikiHtml) {
-                entries.push(entry);
+                if (entry?.fileName && entry?.fileExtension && entry?.urlInput && entry?.urlOutput) {
+                    entries.push(entry);
+                }
             }
         }
     }

@@ -21,8 +21,7 @@ const {
     pages,
     layoutFooter,
     styles,
-    scripts,
-    markdownShiki
+    scripts
 } = paths;
 
 
@@ -52,10 +51,5 @@ export const routeClase17Ejercicio05Hover = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ],
-        MarkdownShikiHtml: [
-            { url: `${markdownShiki}/clase-17/06-ejercicio-05-hover-html.html`, target: '[data-shiki="codeHtml"]' },
-            { url: `${markdownShiki}/clase-17/06-ejercicio-05-hover-css.html`,  target: '[data-shiki="codeCss"]' },
-            { url: `${markdownShiki}/clase-17/06-ejercicio-05-hover-js.html`,   target: '[data-shiki="codeJs"]' },
         ],
 };

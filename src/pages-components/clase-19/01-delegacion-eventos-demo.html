@@ -1,0 +1,127 @@
+<!--  
+    *  ---------------------------------------------------------------------------------------------  *
+    *  -----  /01-delegacion-eventos.html  --  /src/pages/clase-19/01-delegacion-eventos.html  -----  *
+    *  ---------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__demo">
+    
+
+    <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+    <section class="delegacion-eventos">
+
+        <p class="delegacion-eventos__hint">
+            Añade elementos nuevos y haz click en ellos. Solo la lista con
+            delegacion respondera a los elementos creados dinamicamente.
+        </p>
+
+        <div class="delegacion-eventos__grid">
+
+            <article class="delegacion-eventos__card delegacion-eventos__card--controls">
+
+                <h3 class="delegacion-eventos__card-title">
+                    Panel de control
+                </h3>
+
+                <p class="delegacion-eventos__card-desc">
+                    Añade elementos a ambas listas y comprueba la diferencia al
+                    hacer click.
+                </p>
+
+                <button
+                    type="button"
+                    id="btnAnadirElemento"
+                    class="delegacion-eventos__btn delegacion-eventos__btn--action"
+                >
+                    Añadir elemento a ambas listas
+                </button>
+
+                <button
+                    type="button"
+                    id="btnLimpiarLog"
+                    class="delegacion-eventos__btn delegacion-eventos__btn--reset"
+                >
+                    Limpiar registro
+                </button>
+
+            </article>
+
+
+            <article class="delegacion-eventos__card delegacion-eventos__card--targets">
+
+                <h3 class="delegacion-eventos__card-title">
+                    Comparativa de enlace
+                </h3>
+
+                <div class="delegacion-eventos__target">
+
+                    <span class="delegacion-eventos__label">
+                        Enlace directo (solo elementos iniciales)
+                    </span>
+
+                    <ul id="listaDirecta" class="delegacion-eventos__lista">
+                        <li class="elemento elemento--directo" data-tipo="inicial">
+                            Elemento directo 1
+                        </li>
+                        <li class="elemento elemento--directo" data-tipo="inicial">
+                            Elemento directo 2
+                        </li>
+                    </ul>
+
+                    <output id="estadoDirecto" class="delegacion-eventos__estado">
+                        Clics atendidos: 0
+                    </output>
+
+                </div>
+
+                <div class="delegacion-eventos__target">
+
+                    <span class="delegacion-eventos__label">
+                        Delegacion en contenedor padre
+                    </span>
+
+                    <ul id="listaDelegada" class="delegacion-eventos__lista">
+                        <li class="elemento elemento--delegado" data-tipo="inicial">
+                            Elemento delegado 1
+                        </li>
+                        <li class="elemento elemento--delegado" data-tipo="inicial">
+                            Elemento delegado 2
+                        </li>
+                    </ul>
+
+                    <output id="estadoDelegado" class="delegacion-eventos__estado">
+                        Clics atendidos: 0
+                    </output>
+
+                </div>
+
+                <output id="contadorElementos" class="delegacion-eventos__contador">
+                    Elementos dinamicos añadidos: 0
+                </output>
+
+            </article>
+
+
+            <article class="delegacion-eventos__card delegacion-eventos__card--log">
+
+                <h3 class="delegacion-eventos__card-title">
+                    Registro de interacciones
+                </h3>
+
+                <ul id="logEventos" class="delegacion-eventos__log">
+                    <li class="delegacion-eventos__log-item delegacion-eventos__log-item--info">
+                        Haz click en los elementos y añade nuevos para comparar
+                        enlace directo y delegacion.
+                    </li>
+                </ul>
+
+            </article>
+
+        </div>
+
+    </section>
+      
+
+</div>

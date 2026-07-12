@@ -1,0 +1,113 @@
+<!--  
+    *  -----  /06-eventos-personalizados-2-demo.html  --  /src/pages-components/clase-19/06-eventos-personalizados-2-demo.html  -----  *
+-->
+
+
+
+<div class="main__demo">
+
+
+    <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+    <section class="eventos-personalizados-2">
+            <p class="eventos-personalizados-2__hint">
+                Inicia la animacion slide o dispara <kbd>termine</kbd> manualmente
+                para ver como reaccionan los manejadores registrados.
+            </p>
+
+            <div class="eventos-personalizados-2__grid">
+
+                <article class="eventos-personalizados-2__card eventos-personalizados-2__card--controls">
+
+                    <h3 class="eventos-personalizados-2__card-title">
+                        Panel de control
+                    </h3>
+
+                    <p class="eventos-personalizados-2__card-desc">
+                        Controla la animacion y el disparo del evento
+                        <kbd>termine</kbd>.
+                    </p>
+
+                    <button
+                        type="button"
+                        id="btnIniciarSlide"
+                        class="eventos-personalizados-2__btn eventos-personalizados-2__btn--action"
+                    >
+                        Iniciar slideUp / slideDown
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btnTriggerTermine"
+                        class="eventos-personalizados-2__btn eventos-personalizados-2__btn--action"
+                    >
+                        trigger('termine') manual
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btnReiniciar"
+                        class="eventos-personalizados-2__btn eventos-personalizados-2__btn--reset"
+                    >
+                        Reiniciar elementos
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btnLimpiarLog"
+                        class="eventos-personalizados-2__btn eventos-personalizados-2__btn--reset"
+                    >
+                        Limpiar registro
+                    </button>
+
+                </article>
+
+
+                <article class="eventos-personalizados-2__card eventos-personalizados-2__card--targets">
+
+                    <h3 class="eventos-personalizados-2__card-title">
+                        Elementos con manejador termine
+                    </h3>
+
+                    <div
+                        class="eventos-personalizados-2__elem elemento-termine"
+                        data-etiqueta="Div"
+                    >
+                        Div: esperando animacion o evento termine
+                    </div>
+
+                    <p
+                        class="eventos-personalizados-2__elem elemento-termine"
+                        data-etiqueta="Parrafo"
+                    >
+                        Parrafo: Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    </p>
+
+                    <output id="estadoTermine" class="eventos-personalizados-2__estado">
+                        Disparos de termine: 0
+                    </output>
+
+                </article>
+
+
+                <article class="eventos-personalizados-2__card eventos-personalizados-2__card--log">
+
+                    <h3 class="eventos-personalizados-2__card-title">
+                        Registro de manejadores
+                    </h3>
+
+                    <ul id="logEventos" class="eventos-personalizados-2__log">
+                        <li class="eventos-personalizados-2__log-item eventos-personalizados-2__log-item--info">
+                            Inicia la animacion slide o dispara termine para ver
+                            los 3 manejadores en accion.
+                        </li>
+                    </ul>
+
+                </article>
+
+            </div>
+
+        
+    </section>
+
+
+</div>

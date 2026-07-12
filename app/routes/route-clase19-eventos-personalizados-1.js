@@ -1,7 +1,7 @@
 /*
-    *  -------------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----------------------------------------------------------------------------------------------------------------------  *
     *  -----  /route-clase19-eventos-personalizados-1.js  --  /src/routes/route-clase19-eventos-personalizados-1.js  -----  *
-    *  -------------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----------------------------------------------------------------------------------------------------------------------  *
 */
 
 
@@ -19,9 +19,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +42,34 @@ export const routeClase19EventosPersonalizados1 = {
             "#layoutMain": `${pages}/clase-19/05-eventos-personalizados-1.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-19/05-eventos-personalizados-1-description.html`, target: '[data-component-page="eventosPersonalizados1Description"]' },
+            { url: `${pagesComponents}/clase-19/05-eventos-personalizados-1-demo.html`, target: '[data-component-page="eventosPersonalizados1Demo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '05-eventos-personalizados-1-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-19/05-eventos-personalizados-1-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-19`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '05-eventos-personalizados-1-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-19/05-eventos-personalizados-1.css`,
+                urlOutput: `${markdownShikiHtml}/clase-19`,
+                target: '[data-shiki="codeCss"]',
+            },
+           
+            {
+                fileName: '05-eventos-personalizados-1-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-19/05-eventos-personalizados-1.js`,
+                urlOutput: `${markdownShikiHtml}/clase-19`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 19 - Eventos Personalizados 1',
         styles: [
             { href: `${styles}/pages/clase-19/05-eventos-personalizados-1.css` },

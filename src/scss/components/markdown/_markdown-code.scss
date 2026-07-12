@@ -1,0 +1,124 @@
+/*
+    *  ----------------------------------------------------------------------  *
+    *  -----  /_markdown-code.scss  --  /src/scss/components/markdown/  -------  *
+    *  ----------------------------------------------------------------------  *
+    *
+    *  Reglas reutilizables para los bloques de código markdown (`.markdown-code`).
+    *  Muestra encima de cada bloque una etiqueta con el nombre del archivo,
+    *  leído del atributo `data-label` definido en el HTML.
+    *
+    *  Portable entre proyectos: no depende de variables de tema.
+    *  Para usarlo en otro proyecto basta con copiar este archivo y asignar
+    *  `data-label="nombre-archivo.ext"` a cada `<article class="markdown-code">`.
+*/
+
+
+//  -----  Variables configurables: etiqueta superior  -----
+$markdown-label-bg:            #1e1e1e;
+$markdown-label-color:         #ffffff;
+$markdown-label-font:          monospace;
+$markdown-label-size:          1.2rem;
+$markdown-label-weight:        600;
+$markdown-label-radius:        4px;
+$markdown-label-padding:       1rem 1rem;
+$markdown-label-spacing:       0.03rem;
+$markdown-gap-top:             3rem;
+$markdown-room-top:            2.5rem;
+
+//  -----  Variables configurables: contenedor de código  -----
+$markdown-border:              #34495e;
+$markdown-bg:                  #1e1e1e;
+$markdown-bg-track:            #2c3e50;
+$markdown-bg-thumb:            linear-gradient(180deg, #f1c40f, #2980b9);
+$markdown-bg-thumb-hover:      linear-gradient(180deg, #f39c12, #3498db);
+$markdown-title-color:         #2c3e50;
+
+
+//  -----  Contenedor de la sección markdown  -----
+
+.main__section-markdown {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.markdown__title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: $markdown-title-color;
+    text-align: center;
+}
+
+.markdown__container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.main__section-markdown pre {
+    font-size: 1rem;
+}
+
+
+//  -----  Bloque de código con scroll y etiqueta superior  -----
+
+.markdown-code {
+    position: relative;
+    margin-top: $markdown-gap-top;
+    padding: $markdown-room-top 1rem 1rem;
+    width: 100%;
+    max-width: 40rem;
+    height: 60rem;
+    overflow: auto;
+    border: 2px solid $markdown-border;
+    background-color: $markdown-bg;
+
+    //  -----  Etiqueta superior con el nombre del archivo  -----
+    &::before {
+        content: attr(data-label);
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        text-align: center;
+        padding: $markdown-label-padding;
+        font-size: $markdown-label-size;
+        font-family: $markdown-label-font;
+        font-weight: $markdown-label-weight;
+        color: $markdown-label-color;
+        background-color: $markdown-label-bg;
+        border-radius: $markdown-label-radius;
+        letter-spacing: $markdown-label-spacing;
+    }
+
+    //  -----  Ancho y Alto Barras  -----
+    &::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    //  -----  Fondo del track (canal del scroll)  -----
+    &::-webkit-scrollbar-track {
+        background: $markdown-bg-track;
+        border-radius: 10px;
+    }
+
+    //  -----  Barra deslizante (thumb)  -----
+    &::-webkit-scrollbar-thumb {
+        background: $markdown-bg-thumb;
+        border-radius: 10px;
+    }
+
+    //  -----  Hover sobre la barra deslizante  -----
+    &::-webkit-scrollbar-thumb:hover {
+        background: $markdown-bg-thumb-hover;
+    }
+}

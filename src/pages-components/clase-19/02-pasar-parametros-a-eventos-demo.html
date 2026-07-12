@@ -1,0 +1,119 @@
+<!--  
+    *  -----  /02-pasar-parametros-a-eventos-demo.html  --  /src/pages-components/clase-19/02-pasar-parametros-a-eventos-demo.html  -----  *
+-->
+
+
+
+<div class="main__demo">
+
+
+    <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+    <section class="pasar-parametros-eventos">
+            <p class="pasar-parametros-eventos__hint">
+                Haz click en cada tarjeta para ver como llegan los parametros al
+                manejador segun el metodo utilizado.
+            </p>
+
+            <div class="pasar-parametros-eventos__grid">
+
+                <article class="pasar-parametros-eventos__card pasar-parametros-eventos__card--controls">
+
+                    <h3 class="pasar-parametros-eventos__card-title">
+                        Panel de control
+                    </h3>
+
+                    <p class="pasar-parametros-eventos__card-desc">
+                        Compara el paso de parametros con <kbd>on()</kbd> frente al
+                        uso de <kbd>.data()</kbd>.
+                    </p>
+
+                    <button
+                        type="button"
+                        id="btnLimpiarLog"
+                        class="pasar-parametros-eventos__btn pasar-parametros-eventos__btn--reset"
+                    >
+                        Limpiar registro
+                    </button>
+
+                </article>
+
+
+                <article class="pasar-parametros-eventos__card pasar-parametros-eventos__card--targets">
+
+                    <h3 class="pasar-parametros-eventos__card-title">
+                        Elementos interactivos
+                    </h3>
+
+                    <div class="pasar-parametros-eventos__target">
+
+                        <span class="pasar-parametros-eventos__label">
+                            Parametros en on()
+                        </span>
+
+                        <button
+                            type="button"
+                            class="pasar-parametros-eventos__item uno"
+                        >
+                            Click para saludar: Ivan (dias)
+                        </button>
+
+                        <button
+                            type="button"
+                            class="pasar-parametros-eventos__item dos"
+                        >
+                            Click para saludar: Marco (noches)
+                        </button>
+
+                    </div>
+
+                    <div class="pasar-parametros-eventos__target">
+
+                        <span class="pasar-parametros-eventos__label">
+                            Parametros con .data()
+                        </span>
+
+                        <button
+                            type="button"
+                            class="pasar-parametros-eventos__item tres"
+                        >
+                            Click para saludar: Lucia (tardes)
+                        </button>
+
+                        <button
+                            type="button"
+                            class="pasar-parametros-eventos__item cuatro"
+                        >
+                            Click para saludar: Sofia (noches)
+                        </button>
+
+                    </div>
+
+                    <output id="ultimoSaludo" class="pasar-parametros-eventos__saludo">
+                        Ultimo saludo: —
+                    </output>
+
+                </article>
+
+
+                <article class="pasar-parametros-eventos__card pasar-parametros-eventos__card--log">
+
+                    <h3 class="pasar-parametros-eventos__card-title">
+                        Registro de parametros
+                    </h3>
+
+                    <ul id="logEventos" class="pasar-parametros-eventos__log">
+                        <li class="pasar-parametros-eventos__log-item pasar-parametros-eventos__log-item--info">
+                            Haz click en las tarjetas para ver el metodo y los
+                            parametros utilizados.
+                        </li>
+                    </ul>
+
+                </article>
+
+            </div>
+
+        
+    </section>
+
+
+</div>

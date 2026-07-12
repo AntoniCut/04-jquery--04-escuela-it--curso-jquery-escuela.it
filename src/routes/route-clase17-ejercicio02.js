@@ -21,8 +21,7 @@ const {
     pages,
     layoutFooter,
     styles,
-    scripts,
-    markdownShiki
+    scripts
 } = paths;
 
 
@@ -53,9 +52,5 @@ export const routeClase17Ejercicio02 = {
             { name: 'tooltip' },
             { name: 'draggable' },
         ],
-        MarkdownShikiHtml: [
-            { url: `${markdownShiki}/clase-17/02-ejercicio-02-html.html`, target: '[data-shiki="codeHtml"]' },
-            { url: `${markdownShiki}/clase-17/02-ejercicio-02-css.html`,  target: '[data-shiki="codeCss"]' },
-            { url: `${markdownShiki}/clase-17/02-ejercicio-02-js.html`,   target: '[data-shiki="codeJs"]' },
-        ],
+       
 };

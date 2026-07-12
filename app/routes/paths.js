@@ -17,9 +17,11 @@ export const paths = {
     layoutNavbar: `${base}/app/components/layout/layout-navbar.html`,
     layoutNavbarThemesUI: `${base}/app/components/layout/layout-navbar-themes-jquery-ui.html`,
     pages: `${base}/app/pages`,
+    pagesComponents: `${base}/app/pages-components`,
     layoutFooter: `${base}/app/components/layout/layout-footer.html`,
     libs: `${base}/app/libs`,
     styles: `${base}/app/css`,
     scripts: `${base}/app/js`,
     markdownShiki: `${base}/app/markdown-shiki`,
+    markdownShikiHtml: `${base}/app/markdown-shiki`,
 }

@@ -1,0 +1,108 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"main__demo"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    &#x3C;!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  --></span></span>
+<span class="line"><span style="color:#808080">    &#x3C;</span><span style="color:#569CD6">section</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"eventos-personalizados-2"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">            &#x3C;</span><span style="color:#569CD6">p</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"eventos-personalizados-2__hint"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                Inicia la animacion slide o dispara </span><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">kbd</span><span style="color:#808080">></span><span style="color:#D4D4D4">termine</span><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">kbd</span><span style="color:#808080">></span><span style="color:#D4D4D4"> manualmente</span></span>
+<span class="line"><span style="color:#D4D4D4">                para ver como reaccionan los manejadores registrados.</span></span>
+<span class="line"><span style="color:#808080">            &#x3C;/</span><span style="color:#569CD6">p</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">            &#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"eventos-personalizados-2__grid"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                &#x3C;</span><span style="color:#569CD6">article</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"eventos-personalizados-2__card eventos-personalizados-2__card--controls"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">h3</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"eventos-personalizados-2__card-title"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                        Panel de control</span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">h3</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">p</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"eventos-personalizados-2__card-desc"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                        Controla la animacion y el disparo del evento</span></span>
+<span class="line"><span style="color:#808080">                        &#x3C;</span><span style="color:#569CD6">kbd</span><span style="color:#808080">></span><span style="color:#D4D4D4">termine</span><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">kbd</span><span style="color:#808080">></span><span style="color:#D4D4D4">.</span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">p</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">button</span></span>
+<span class="line"><span style="color:#9CDCFE">                        type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"button"</span></span>
+<span class="line"><span style="color:#9CDCFE">                        id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"btnIniciarSlide"</span></span>
+<span class="line"><span style="color:#9CDCFE">                        class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"eventos-personalizados-2__btn eventos-personalizados-2__btn--action"</span></span>
+<span class="line"><span style="color:#808080">                    ></span></span>
+<span class="line"><span style="color:#D4D4D4">                        Iniciar slideUp / slideDown</span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">button</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">button</span></span>
+<span class="line"><span style="color:#9CDCFE">                        type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"button"</span></span>
+<span class="line"><span style="color:#9CDCFE">                        id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"btnTriggerTermine"</span></span>
+<span class="line"><span style="color:#9CDCFE">                        class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"eventos-personalizados-2__btn eventos-personalizados-2__btn--action"</span></span>
+<span class="line"><span style="color:#808080">                    ></span></span>
+<span class="line"><span style="color:#D4D4D4">                        trigger('termine') manual</span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">button</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">button</span></span>
+<span class="line"><span style="color:#9CDCFE">                        type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"button"</span></span>
+<span class="line"><span style="color:#9CDCFE">                        id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"btnReiniciar"</span></span>
+<span class="line"><span style="color:#9CDCFE">                        class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"eventos-personalizados-2__btn eventos-personalizados-2__btn--reset"</span></span>
+<span class="line"><span style="color:#808080">                    ></span></span>
+<span class="line"><span style="color:#D4D4D4">                        Reiniciar elementos</span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">button</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">button</span></span>
+<span class="line"><span style="color:#9CDCFE">                        type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"button"</span></span>
+<span class="line"><span style="color:#9CDCFE">                        id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"btnLimpiarLog"</span></span>
+<span class="line"><span style="color:#9CDCFE">                        class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"eventos-personalizados-2__btn eventos-personalizados-2__btn--reset"</span></span>
+<span class="line"><span style="color:#808080">                    ></span></span>
+<span class="line"><span style="color:#D4D4D4">                        Limpiar registro</span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">button</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                &#x3C;/</span><span style="color:#569CD6">article</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                &#x3C;</span><span style="color:#569CD6">article</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"eventos-personalizados-2__card eventos-personalizados-2__card--targets"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">h3</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"eventos-personalizados-2__card-title"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                        Elementos con manejador termine</span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">h3</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">div</span></span>
+<span class="line"><span style="color:#9CDCFE">                        class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"eventos-personalizados-2__elem elemento-termine"</span></span>
+<span class="line"><span style="color:#9CDCFE">                        data-etiqueta</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"Div"</span></span>
+<span class="line"><span style="color:#808080">                    ></span></span>
+<span class="line"><span style="color:#D4D4D4">                        Div: esperando animacion o evento termine</span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">p</span></span>
+<span class="line"><span style="color:#9CDCFE">                        class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"eventos-personalizados-2__elem elemento-termine"</span></span>
+<span class="line"><span style="color:#9CDCFE">                        data-etiqueta</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"Parrafo"</span></span>
+<span class="line"><span style="color:#808080">                    ></span></span>
+<span class="line"><span style="color:#D4D4D4">                        Parrafo: Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">p</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">output</span><span style="color:#9CDCFE"> id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"estadoTermine"</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"eventos-personalizados-2__estado"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                        Disparos de termine: 0</span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">output</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                &#x3C;/</span><span style="color:#569CD6">article</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                &#x3C;</span><span style="color:#569CD6">article</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"eventos-personalizados-2__card eventos-personalizados-2__card--log"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">h3</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"eventos-personalizados-2__card-title"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                        Registro de manejadores</span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">h3</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">ul</span><span style="color:#9CDCFE"> id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"logEventos"</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"eventos-personalizados-2__log"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                        &#x3C;</span><span style="color:#569CD6">li</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"eventos-personalizados-2__log-item eventos-personalizados-2__log-item--info"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                            Inicia la animacion slide o dispara termine para ver</span></span>
+<span class="line"><span style="color:#D4D4D4">                            los 3 manejadores en accion.</span></span>
+<span class="line"><span style="color:#808080">                        &#x3C;/</span><span style="color:#569CD6">li</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">ul</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                &#x3C;/</span><span style="color:#569CD6">article</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">            &#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#808080">    &#x3C;/</span><span style="color:#569CD6">section</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"></span></code></pre>

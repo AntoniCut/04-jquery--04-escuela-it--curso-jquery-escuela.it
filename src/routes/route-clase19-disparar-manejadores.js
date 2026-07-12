@@ -19,9 +19,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +42,34 @@ export const routeClase19DispararManejadores = {
             "#layoutMain": `${pages}/clase-19/04-disparar-manejadores.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-19/04-disparar-manejadores-description.html`, target: '[data-component-page="dispararManejadoresDescription"]' },
+            { url: `${pagesComponents}/clase-19/04-disparar-manejadores-demo.html`, target: '[data-component-page="dispararManejadoresDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '04-disparar-manejadores-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-19/04-disparar-manejadores-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-19`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '04-disparar-manejadores-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-19/04-disparar-manejadores.css`,
+                urlOutput: `${markdownShikiHtml}/clase-19`,
+                target: '[data-shiki="codeCss"]',
+            },
+           
+            {
+                fileName: '04-disparar-manejadores-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-19/04-disparar-manejadores.js`,
+                urlOutput: `${markdownShikiHtml}/clase-19`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 19 - Disparar Manejadores',
         styles: [
             { href: `${styles}/pages/clase-19/04-disparar-manejadores.css` },

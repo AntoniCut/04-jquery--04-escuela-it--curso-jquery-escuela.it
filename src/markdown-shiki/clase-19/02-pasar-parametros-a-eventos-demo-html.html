@@ -1,0 +1,114 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"main__demo"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    &#x3C;!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  --></span></span>
+<span class="line"><span style="color:#808080">    &#x3C;</span><span style="color:#569CD6">section</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"pasar-parametros-eventos"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">            &#x3C;</span><span style="color:#569CD6">p</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"pasar-parametros-eventos__hint"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                Haz click en cada tarjeta para ver como llegan los parametros al</span></span>
+<span class="line"><span style="color:#D4D4D4">                manejador segun el metodo utilizado.</span></span>
+<span class="line"><span style="color:#808080">            &#x3C;/</span><span style="color:#569CD6">p</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">            &#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"pasar-parametros-eventos__grid"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                &#x3C;</span><span style="color:#569CD6">article</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"pasar-parametros-eventos__card pasar-parametros-eventos__card--controls"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">h3</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"pasar-parametros-eventos__card-title"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                        Panel de control</span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">h3</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">p</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"pasar-parametros-eventos__card-desc"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                        Compara el paso de parametros con </span><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">kbd</span><span style="color:#808080">></span><span style="color:#D4D4D4">on()</span><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">kbd</span><span style="color:#808080">></span><span style="color:#D4D4D4"> frente al</span></span>
+<span class="line"><span style="color:#D4D4D4">                        uso de </span><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">kbd</span><span style="color:#808080">></span><span style="color:#D4D4D4">.data()</span><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">kbd</span><span style="color:#808080">></span><span style="color:#D4D4D4">.</span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">p</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">button</span></span>
+<span class="line"><span style="color:#9CDCFE">                        type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"button"</span></span>
+<span class="line"><span style="color:#9CDCFE">                        id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"btnLimpiarLog"</span></span>
+<span class="line"><span style="color:#9CDCFE">                        class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"pasar-parametros-eventos__btn pasar-parametros-eventos__btn--reset"</span></span>
+<span class="line"><span style="color:#808080">                    ></span></span>
+<span class="line"><span style="color:#D4D4D4">                        Limpiar registro</span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">button</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                &#x3C;/</span><span style="color:#569CD6">article</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                &#x3C;</span><span style="color:#569CD6">article</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"pasar-parametros-eventos__card pasar-parametros-eventos__card--targets"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">h3</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"pasar-parametros-eventos__card-title"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                        Elementos interactivos</span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">h3</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"pasar-parametros-eventos__target"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                        &#x3C;</span><span style="color:#569CD6">span</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"pasar-parametros-eventos__label"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                            Parametros en on()</span></span>
+<span class="line"><span style="color:#808080">                        &#x3C;/</span><span style="color:#569CD6">span</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                        &#x3C;</span><span style="color:#569CD6">button</span></span>
+<span class="line"><span style="color:#9CDCFE">                            type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"button"</span></span>
+<span class="line"><span style="color:#9CDCFE">                            class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"pasar-parametros-eventos__item uno"</span></span>
+<span class="line"><span style="color:#808080">                        ></span></span>
+<span class="line"><span style="color:#D4D4D4">                            Click para saludar: Ivan (dias)</span></span>
+<span class="line"><span style="color:#808080">                        &#x3C;/</span><span style="color:#569CD6">button</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                        &#x3C;</span><span style="color:#569CD6">button</span></span>
+<span class="line"><span style="color:#9CDCFE">                            type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"button"</span></span>
+<span class="line"><span style="color:#9CDCFE">                            class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"pasar-parametros-eventos__item dos"</span></span>
+<span class="line"><span style="color:#808080">                        ></span></span>
+<span class="line"><span style="color:#D4D4D4">                            Click para saludar: Marco (noches)</span></span>
+<span class="line"><span style="color:#808080">                        &#x3C;/</span><span style="color:#569CD6">button</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">div</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"pasar-parametros-eventos__target"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                        &#x3C;</span><span style="color:#569CD6">span</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"pasar-parametros-eventos__label"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                            Parametros con .data()</span></span>
+<span class="line"><span style="color:#808080">                        &#x3C;/</span><span style="color:#569CD6">span</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                        &#x3C;</span><span style="color:#569CD6">button</span></span>
+<span class="line"><span style="color:#9CDCFE">                            type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"button"</span></span>
+<span class="line"><span style="color:#9CDCFE">                            class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"pasar-parametros-eventos__item tres"</span></span>
+<span class="line"><span style="color:#808080">                        ></span></span>
+<span class="line"><span style="color:#D4D4D4">                            Click para saludar: Lucia (tardes)</span></span>
+<span class="line"><span style="color:#808080">                        &#x3C;/</span><span style="color:#569CD6">button</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                        &#x3C;</span><span style="color:#569CD6">button</span></span>
+<span class="line"><span style="color:#9CDCFE">                            type</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"button"</span></span>
+<span class="line"><span style="color:#9CDCFE">                            class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"pasar-parametros-eventos__item cuatro"</span></span>
+<span class="line"><span style="color:#808080">                        ></span></span>
+<span class="line"><span style="color:#D4D4D4">                            Click para saludar: Sofia (noches)</span></span>
+<span class="line"><span style="color:#808080">                        &#x3C;/</span><span style="color:#569CD6">button</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">output</span><span style="color:#9CDCFE"> id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"ultimoSaludo"</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"pasar-parametros-eventos__saludo"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                        Ultimo saludo: —</span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">output</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                &#x3C;/</span><span style="color:#569CD6">article</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                &#x3C;</span><span style="color:#569CD6">article</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"pasar-parametros-eventos__card pasar-parametros-eventos__card--log"</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">h3</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"pasar-parametros-eventos__card-title"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                        Registro de parametros</span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">h3</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                    &#x3C;</span><span style="color:#569CD6">ul</span><span style="color:#9CDCFE"> id</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"logEventos"</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"pasar-parametros-eventos__log"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                        &#x3C;</span><span style="color:#569CD6">li</span><span style="color:#9CDCFE"> class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"pasar-parametros-eventos__log-item pasar-parametros-eventos__log-item--info"</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#D4D4D4">                            Haz click en las tarjetas para ver el metodo y los</span></span>
+<span class="line"><span style="color:#D4D4D4">                            parametros utilizados.</span></span>
+<span class="line"><span style="color:#808080">                        &#x3C;/</span><span style="color:#569CD6">li</span><span style="color:#808080">></span></span>
+<span class="line"><span style="color:#808080">                    &#x3C;/</span><span style="color:#569CD6">ul</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">                &#x3C;/</span><span style="color:#569CD6">article</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">            &#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#808080">    &#x3C;/</span><span style="color:#569CD6">section</span><span style="color:#808080">></span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#808080">&#x3C;/</span><span style="color:#569CD6">div</span><span style="color:#808080">></span></span>
+<span class="line"></span></code></pre>

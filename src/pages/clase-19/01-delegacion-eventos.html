@@ -8,184 +8,79 @@
 
 <div class="main__container">
 
+    <!--  -----  Header de la Sección  -----  -->
+    <header class="section__header">
 
-    <!--  -----  INFO  -----  -->
-    <section class="main__section-info">
+        <h2 class="section__title" title="Delegacion Eventos">
+            Clase 19 - Delegacion Eventos - Descripción
+        </h2>
 
+    </header>
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
-
-            <h2 class="section__title" title="Delegacion Eventos">
-                Clase 19 - Delegacion Eventos
-            </h2>
-
-        </header>
-
-        <!--  -----  Contenido de la Sección  -----  -->
-        <section class="section__content">
-
-            <div class="content__description content__description--exercise">
-
-                <h3 class="content__title">
-                    Que hace este ejercicio
-                </h3>
-
-                <p class="content__text">
-                    Demuestra la delegacion de eventos con
-                    <kbd>on('evento', selector, manejador)</kbd>. El manejador se
-                    registra en un contenedor padre y reacciona tambien a elementos
-                    hijos que se añaden dinamicamente al DOM.
-                </p>
-
-                <ul class="content__list">
-                    <li>
-                        El enlace directo <kbd>.elemento</kbd> solo funciona en los
-                        elementos que existian al cargar la pagina.
-                    </li>
-                    <li>
-                        La delegacion en <kbd>#listaDelegada</kbd> funciona en
-                        elementos nuevos y existentes.
-                    </li>
-                    <li>
-                        El registro muestra si el click fue atendido por enlace
-                        directo o por delegacion.
-                    </li>
-                </ul>
-
-            </div>
-
-        </section>
+    <!--  -----  Descripción de la Página  -----  -->
+    <section data-component-page="delegacionEventosDescription">
 
     </section>
 
 
-    <!--  -----  PRÁCTICA  -----  -->
-    <section class="main__section-practica">
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
+        <h2 class="section__title" title="Delegacion Eventos">
+            Clase 19 - Delegacion Eventos - Demo
+        </h2>
 
-            <h2 class="section__title" title="Práctica">
-                Práctica
-            </h2>
+    </header>
 
-        </header>
-
-        <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
-        <section class="section__content delegacion-eventos">
-
-            <p class="delegacion-eventos__hint">
-                Añade elementos nuevos y haz click en ellos. Solo la lista con
-                delegacion respondera a los elementos creados dinamicamente.
-            </p>
-
-            <div class="delegacion-eventos__grid">
-
-                <article class="delegacion-eventos__card delegacion-eventos__card--controls">
-
-                    <h3 class="delegacion-eventos__card-title">
-                        Panel de control
-                    </h3>
-
-                    <p class="delegacion-eventos__card-desc">
-                        Añade elementos a ambas listas y comprueba la diferencia al
-                        hacer click.
-                    </p>
-
-                    <button
-                        type="button"
-                        id="btnAnadirElemento"
-                        class="delegacion-eventos__btn delegacion-eventos__btn--action"
-                    >
-                        Añadir elemento a ambas listas
-                    </button>
-
-                    <button
-                        type="button"
-                        id="btnLimpiarLog"
-                        class="delegacion-eventos__btn delegacion-eventos__btn--reset"
-                    >
-                        Limpiar registro
-                    </button>
-
-                </article>
-
-
-                <article class="delegacion-eventos__card delegacion-eventos__card--targets">
-
-                    <h3 class="delegacion-eventos__card-title">
-                        Comparativa de enlace
-                    </h3>
-
-                    <div class="delegacion-eventos__target">
-
-                        <span class="delegacion-eventos__label">
-                            Enlace directo (solo elementos iniciales)
-                        </span>
-
-                        <ul id="listaDirecta" class="delegacion-eventos__lista">
-                            <li class="elemento elemento--directo" data-tipo="inicial">
-                                Elemento directo 1
-                            </li>
-                            <li class="elemento elemento--directo" data-tipo="inicial">
-                                Elemento directo 2
-                            </li>
-                        </ul>
-
-                        <output id="estadoDirecto" class="delegacion-eventos__estado">
-                            Clics atendidos: 0
-                        </output>
-
-                    </div>
-
-                    <div class="delegacion-eventos__target">
-
-                        <span class="delegacion-eventos__label">
-                            Delegacion en contenedor padre
-                        </span>
-
-                        <ul id="listaDelegada" class="delegacion-eventos__lista">
-                            <li class="elemento elemento--delegado" data-tipo="inicial">
-                                Elemento delegado 1
-                            </li>
-                            <li class="elemento elemento--delegado" data-tipo="inicial">
-                                Elemento delegado 2
-                            </li>
-                        </ul>
-
-                        <output id="estadoDelegado" class="delegacion-eventos__estado">
-                            Clics atendidos: 0
-                        </output>
-
-                    </div>
-
-                    <output id="contadorElementos" class="delegacion-eventos__contador">
-                        Elementos dinamicos añadidos: 0
-                    </output>
-
-                </article>
-
-
-                <article class="delegacion-eventos__card delegacion-eventos__card--log">
-
-                    <h3 class="delegacion-eventos__card-title">
-                        Registro de interacciones
-                    </h3>
-
-                    <ul id="logEventos" class="delegacion-eventos__log">
-                        <li class="delegacion-eventos__log-item delegacion-eventos__log-item--info">
-                            Haz click en los elementos y añade nuevos para comparar
-                            enlace directo y delegacion.
-                        </li>
-                    </ul>
-
-                </article>
-
-            </div>
-
-        </section>
+    <!--  -----  Demo de la Página  -----  -->
+    <section data-component-page="delegacionEventosDemo">
 
     </section>
+
+
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
+
+        <h2 class="section__title" title="Delegacion Eventos">
+            Clase 19 - Delegacion Eventos - Código Markdown
+        </h2>
+
+    </header>
+
+
+    <!--  -----  Código Markdown  -----  -->
+    <section class="main__section-markdown">
+
+        <div class="markdown__container">
+
+            <article 
+                data-shiki="codeHtml" 
+                data-label="delegacion-eventos.html" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .html tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeCss" 
+                data-label="delegacion-eventos.css" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .css tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeJs" 
+                data-label="delegacion-eventos.js" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .js tipo 'markdown'  *****  -->
+            </article>
+            
+
+        </div>
+
+    </section>
+       
 
 </div>

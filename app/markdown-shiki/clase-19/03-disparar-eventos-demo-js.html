@@ -1,0 +1,265 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">warn</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'-----  03-disparar-eventos.js  -----'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  ----------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  Tipos de datos  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  ----------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@typedef</span><span style="color:#4EC9B0"> {'manual' | 'trigger'}</span><span style="color:#4EC9B0"> OrigenEvento</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@typedef</span><span style="color:#4EC9B0"> {object}</span><span style="color:#4EC9B0"> EntradaLog</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@property</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> elemento</span><span style="color:#6A9955"> - `Nombre del elemento objetivo`</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@property</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> evento</span><span style="color:#6A9955"> - `Tipo de evento disparado`</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@property</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> manejador</span><span style="color:#6A9955"> - `Descripcion del manejador ejecutado`</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@property</span><span style="color:#4EC9B0"> {OrigenEvento}</span><span style="color:#9CDCFE"> origen</span><span style="color:#6A9955"> - `Origen del evento`</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  Referencias al HTML  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLAnchorElement>}</span><span style="color:#6A9955"> - `Enlace de demostracion con dos manejadores click` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $enlace</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#enlaceDemo'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLFormElement>}</span><span style="color:#6A9955"> - `Formulario de demostracion con manejador submit` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $form</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#formDemo'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Caja clickeable de demostracion` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $caja</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#cajaDemo'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLOutputElement>}</span><span style="color:#6A9955"> - `Estado del enlace tras ejecutar manejadores` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $estadoEnlace</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#estadoEnlace'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLOutputElement>}</span><span style="color:#6A9955"> - `Estado del formulario tras el submit` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $estadoForm</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#estadoForm'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLOutputElement>}</span><span style="color:#6A9955"> - `Contador de clics recibidos en la caja` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $estadoCaja</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#estadoCaja'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLUListElement>}</span><span style="color:#6A9955"> - `Lista del registro de disparos` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $log</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#logEventos'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> - `Boton para disparar click en el enlace` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $btnTriggerClickEnlace</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#btnTriggerClickEnlace'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> - `Boton para disparar submit del formulario` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $btnTriggerSubmitForm</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#btnTriggerSubmitForm'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> - `Boton para disparar click en la caja` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $btnTriggerClickCaja</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#btnTriggerClickCaja'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> - `Boton para limpiar el registro` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $btnLimpiarLog</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#btnLimpiarLog'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Total de clics recibidos en la caja` */</span></span>
+<span class="line"><span style="color:#569CD6">    let</span><span style="color:#9CDCFE"> totalClicsCaja</span><span style="color:#D4D4D4"> = </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4"> </span></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `esEventoManual(e)`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Determina si el evento fue disparado por el usuario o por trigger()</span></span>
+<span class="line"><span style="color:#6A9955">     * - Comprueba si existe originalEvent en el objeto del evento</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {JQuery.TriggeredEvent}</span><span style="color:#9CDCFE"> e</span><span style="color:#6A9955"> - `Evento jQuery disparado`</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@returns</span><span style="color:#4EC9B0"> {OrigenEvento}</span><span style="color:#6A9955"> - `Origen del evento: manual o trigger`</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> esEventoManual</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#9CDCFE"> e</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">originalEvent</span><span style="color:#D4D4D4"> ? </span><span style="color:#CE9178">'manual'</span><span style="color:#D4D4D4"> : </span><span style="color:#CE9178">'trigger'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4"> </span></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * ------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `registrarLog()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * ------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Registra los disparos de eventos en el panel de log</span></span>
+<span class="line"><span style="color:#6A9955">     * - Agrega la clase CSS segun el origen (manual o trigger)</span></span>
+<span class="line"><span style="color:#6A9955">     * - Construye el HTML de la entrada con elemento, evento, manejador y origen</span></span>
+<span class="line"><span style="color:#6A9955">     * - Inserta el item al inicio del registro de eventos</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {EntradaLog}</span><span style="color:#9CDCFE"> entrada</span><span style="color:#6A9955"> - `Datos del disparo registrado`</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> registrarLog</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">entrada</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#D4D4D4"> { </span><span style="color:#4FC1FF">elemento</span><span style="color:#D4D4D4">, </span><span style="color:#4FC1FF">evento</span><span style="color:#D4D4D4">, </span><span style="color:#4FC1FF">manejador</span><span style="color:#D4D4D4">, </span><span style="color:#4FC1FF">origen</span><span style="color:#D4D4D4"> } = </span><span style="color:#9CDCFE">entrada</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {string}</span><span style="color:#6A9955"> - `Clase CSS segun el origen del evento` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> claseOrigen</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">origen</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">'manual'</span></span>
+<span class="line"><span style="color:#D4D4D4">            ? </span><span style="color:#CE9178">'disparar-eventos__log-item--manual'</span></span>
+<span class="line"><span style="color:#D4D4D4">            : </span><span style="color:#CE9178">'disparar-eventos__log-item--trigger'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {string}</span><span style="color:#6A9955"> - `Etiqueta legible del origen del evento` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> etiquetaOrigen</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">origen</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">'manual'</span><span style="color:#D4D4D4"> ? </span><span style="color:#CE9178">'Click manual'</span><span style="color:#D4D4D4"> : </span><span style="color:#CE9178">'trigger()'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLLIElement>}</span><span style="color:#6A9955"> - `Item del registro de eventos` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $item</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {HTMLLIElement}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">createElement</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'li'</span><span style="color:#D4D4D4">)))</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`disparar-eventos__log-item </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">claseOrigen</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span></span>
+<span class="line"><span style="color:#CE9178">                `&#x3C;strong></span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">elemento</span><span style="color:#569CD6">}</span><span style="color:#CE9178">&#x3C;/strong> · `</span><span style="color:#D4D4D4"> +</span></span>
+<span class="line"><span style="color:#CE9178">                `&#x3C;span></span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">evento</span><span style="color:#569CD6">}</span><span style="color:#CE9178">&#x3C;/span> · `</span><span style="color:#D4D4D4"> +</span></span>
+<span class="line"><span style="color:#CE9178">                `</span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">manejador</span><span style="color:#569CD6">}</span><span style="color:#CE9178"> · `</span><span style="color:#D4D4D4"> +</span></span>
+<span class="line"><span style="color:#CE9178">                `&#x3C;em></span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">etiquetaOrigen</span><span style="color:#569CD6">}</span><span style="color:#CE9178">&#x3C;/em>`</span></span>
+<span class="line"><span style="color:#D4D4D4">            );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $log</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prepend</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$item</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * -----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `animarElemento($el)`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * -----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Aplica una animacion visual de destello al elemento</span></span>
+<span class="line"><span style="color:#6A9955">     * - Agrega la clase CSS de flash al elemento</span></span>
+<span class="line"><span style="color:#6A9955">     * - Elimina la clase CSS de flash tras 450 ms</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLElement>}</span><span style="color:#9CDCFE"> $el</span><span style="color:#6A9955"> - `Elemento jQuery a animar`</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> animarElemento</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">$el</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#9CDCFE">        $el</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'disparar-eventos__flash'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        window</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">setTimeout</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">            $el</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'disparar-eventos__flash'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        }, </span><span style="color:#B5CEA8">450</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  ------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  Manejadores del enlace  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  ------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $enlace</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        e</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">preventDefault</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> origen</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">esEventoManual</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">        $</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Texto cambiado por manejador 1'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $estadoEnlace</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Manejador 1 ejecutado'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        animarElemento</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$enlace</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        registrarLog</span><span style="color:#D4D4D4">({</span></span>
+<span class="line"><span style="color:#9CDCFE">            elemento:</span><span style="color:#CE9178"> 'Enlace'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            evento:</span><span style="color:#CE9178"> 'click'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            manejador:</span><span style="color:#CE9178"> 'Cambia el texto del enlace'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            origen</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">        });</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $enlace</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> origen</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">esEventoManual</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">        $</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'color'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'#e63946'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $estadoEnlace</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Manejadores 1 y 2 ejecutados'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        registrarLog</span><span style="color:#D4D4D4">({</span></span>
+<span class="line"><span style="color:#9CDCFE">            elemento:</span><span style="color:#CE9178"> 'Enlace'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            evento:</span><span style="color:#CE9178"> 'click'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            manejador:</span><span style="color:#CE9178"> 'Cambia el color del enlace'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            origen</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">        });</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  --------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  Manejador del formulario  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  --------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'submit'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        e</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">preventDefault</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> origen</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">esEventoManual</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> nombre</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">String</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'[name="nombre"]'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">() || </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">trim</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> mensaje</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">nombre</span></span>
+<span class="line"><span style="color:#D4D4D4">            ? </span><span style="color:#CE9178">`Submit recibido. Nombre: </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">nombre</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span></span>
+<span class="line"><span style="color:#D4D4D4">            : </span><span style="color:#CE9178">'Submit recibido sin nombre'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $estadoForm</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">mensaje</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        animarElemento</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$form</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        registrarLog</span><span style="color:#D4D4D4">({</span></span>
+<span class="line"><span style="color:#9CDCFE">            elemento:</span><span style="color:#CE9178"> 'Formulario'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            evento:</span><span style="color:#CE9178"> 'submit'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            manejador:</span><span style="color:#CE9178"> 'Intercepta el envio y muestra el resultado'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            origen</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">        });</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  ----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  Manejador de la caja  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  ----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $caja</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> origen</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">esEventoManual</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        totalClicsCaja</span><span style="color:#D4D4D4"> += </span><span style="color:#B5CEA8">1</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        $estadoCaja</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`Clics recibidos: </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">totalClicsCaja</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        $</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">toggleClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'disparar-eventos__caja--activa'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        animarElemento</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$caja</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        registrarLog</span><span style="color:#D4D4D4">({</span></span>
+<span class="line"><span style="color:#9CDCFE">            elemento:</span><span style="color:#CE9178"> 'Caja'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            evento:</span><span style="color:#CE9178"> 'click'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            manejador:</span><span style="color:#CE9178"> 'Alterna estado visual y cuenta clics'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            origen</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">        });</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  ----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  Botones de trigger()  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  ----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $btnTriggerClickEnlace</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        $enlace</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">trigger</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $btnTriggerSubmitForm</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        $form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">trigger</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'submit'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $btnTriggerClickCaja</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        $caja</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">trigger</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $btnLimpiarLog</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        $log</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">empty</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#9CDCFE">        $log</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">append</span><span style="color:#D4D4D4">(</span></span>
+<span class="line"><span style="color:#CE9178">            '&#x3C;li class="disparar-eventos__log-item disparar-eventos__log-item--info">'</span><span style="color:#D4D4D4"> +</span></span>
+<span class="line"><span style="color:#CE9178">            'Registro limpiado. Dispara un evento para ver nuevas entradas.'</span><span style="color:#D4D4D4"> +</span></span>
+<span class="line"><span style="color:#CE9178">            '&#x3C;/li>'</span></span>
+<span class="line"><span style="color:#D4D4D4">        );</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">})(</span><span style="color:#9CDCFE">jQuery</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span></code></pre>

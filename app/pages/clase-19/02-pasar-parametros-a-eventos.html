@@ -1,184 +1,84 @@
 <!--  
-    *  -------------------------------------------------------------------------------------------------------------  *
     *  -----  /02-pasar-parametros-a-eventos.html  --  /src/pages/clase-19/02-pasar-parametros-a-eventos.html  -----  *
-    *  -------------------------------------------------------------------------------------------------------------  *
 -->
 
 
 
 <div class="main__container">
 
+    <!--  -----  Header de la Sección  -----  -->
+    <header class="section__header">
 
-    <!--  -----  INFO  -----  -->
-    <section class="main__section-info">
+        <h2 class="section__title" title="Pasar Parametros A Eventos">
+            Clase 19 - Pasar Parametros A Eventos - Descripción
+        </h2>
 
+    </header>
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
-
-            <h2 class="section__title" title="Pasar Parametros A Eventos">
-                Clase 19 - Pasar Parametros A Eventos
-            </h2>
-
-        </header>
-
-        <!--  -----  Contenido de la Sección  -----  -->
-        <section class="section__content">
-
-            <div class="content__description content__description--exercise">
-
-                <h3 class="content__title">
-                    Que hace este ejercicio
-                </h3>
-
-                <p class="content__text">
-                    Muestra dos formas de pasar datos a un manejador de eventos:
-                    como segundo parametro de <kbd>on()</kbd> o guardandolos antes
-                    con <kbd>.data()</kbd>.
-                </p>
-
-                <ul class="content__list">
-                    <li>
-                        Los elementos 1 y 2 reciben parametros en
-                        <kbd>on('click', { ... }, saludar)</kbd>.
-                    </li>
-                    <li>
-                        Los elementos 3 y 4 guardan datos con
-                        <kbd>.data('saludo', { ... })</kbd> y los leen en el
-                        manejador.
-                    </li>
-                    <li>
-                        El registro indica que metodo se uso y el saludo generado.
-                    </li>
-                </ul>
-
-            </div>
-
-        </section>
+    <!--  -----  Descripción de la Página  -----  -->
+    <section data-component-page="pasarParametrosAEventosDescription">
 
     </section>
 
 
-    <!--  -----  PRÁCTICA  -----  -->
-    <section class="main__section-practica">
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
+        <h2 class="section__title" title="Pasar Parametros A Eventos">
+            Clase 19 - Pasar Parametros A Eventos - Demo
+        </h2>
 
-            <h2 class="section__title" title="Práctica">
-                Práctica
-            </h2>
+    </header>
 
-        </header>
-
-        <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
-        <section class="section__content pasar-parametros-eventos">
-
-            <p class="pasar-parametros-eventos__hint">
-                Haz click en cada tarjeta para ver como llegan los parametros al
-                manejador segun el metodo utilizado.
-            </p>
-
-            <div class="pasar-parametros-eventos__grid">
-
-                <article class="pasar-parametros-eventos__card pasar-parametros-eventos__card--controls">
-
-                    <h3 class="pasar-parametros-eventos__card-title">
-                        Panel de control
-                    </h3>
-
-                    <p class="pasar-parametros-eventos__card-desc">
-                        Compara el paso de parametros con <kbd>on()</kbd> frente al
-                        uso de <kbd>.data()</kbd>.
-                    </p>
-
-                    <button
-                        type="button"
-                        id="btnLimpiarLog"
-                        class="pasar-parametros-eventos__btn pasar-parametros-eventos__btn--reset"
-                    >
-                        Limpiar registro
-                    </button>
-
-                </article>
-
-
-                <article class="pasar-parametros-eventos__card pasar-parametros-eventos__card--targets">
-
-                    <h3 class="pasar-parametros-eventos__card-title">
-                        Elementos interactivos
-                    </h3>
-
-                    <div class="pasar-parametros-eventos__target">
-
-                        <span class="pasar-parametros-eventos__label">
-                            Parametros en on()
-                        </span>
-
-                        <button
-                            type="button"
-                            class="pasar-parametros-eventos__item uno"
-                        >
-                            Click para saludar: Ivan (dias)
-                        </button>
-
-                        <button
-                            type="button"
-                            class="pasar-parametros-eventos__item dos"
-                        >
-                            Click para saludar: Marco (noches)
-                        </button>
-
-                    </div>
-
-                    <div class="pasar-parametros-eventos__target">
-
-                        <span class="pasar-parametros-eventos__label">
-                            Parametros con .data()
-                        </span>
-
-                        <button
-                            type="button"
-                            class="pasar-parametros-eventos__item tres"
-                        >
-                            Click para saludar: Lucia (tardes)
-                        </button>
-
-                        <button
-                            type="button"
-                            class="pasar-parametros-eventos__item cuatro"
-                        >
-                            Click para saludar: Sofia (noches)
-                        </button>
-
-                    </div>
-
-                    <output id="ultimoSaludo" class="pasar-parametros-eventos__saludo">
-                        Ultimo saludo: —
-                    </output>
-
-                </article>
-
-
-                <article class="pasar-parametros-eventos__card pasar-parametros-eventos__card--log">
-
-                    <h3 class="pasar-parametros-eventos__card-title">
-                        Registro de parametros
-                    </h3>
-
-                    <ul id="logEventos" class="pasar-parametros-eventos__log">
-                        <li class="pasar-parametros-eventos__log-item pasar-parametros-eventos__log-item--info">
-                            Haz click en las tarjetas para ver el metodo y los
-                            parametros utilizados.
-                        </li>
-                    </ul>
-
-                </article>
-
-            </div>
-
-        </section>
+    <!--  -----  Demo de la Página  -----  -->
+    <section data-component-page="pasarParametrosAEventosDemo">
 
     </section>
+
+
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
+
+        <h2 class="section__title" title="Pasar Parametros A Eventos">
+            Clase 19 - Pasar Parametros A Eventos - Código Markdown
+        </h2>
+
+    </header>
+
+
+    <!--  -----  Código Markdown  -----  -->
+    <section class="main__section-markdown">
+
+        <div class="markdown__container">
+
+            <article 
+                data-shiki="codeHtml" 
+                data-label="pasar-parametros-a-eventos.html" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .html tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeCss" 
+                data-label="pasar-parametros-a-eventos.css" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .css tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeJs" 
+                data-label="pasar-parametros-a-eventos.js" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .js tipo 'markdown'  *****  -->
+            </article>
+
+
+        </div>
+
+    </section>
+
 
 </div>

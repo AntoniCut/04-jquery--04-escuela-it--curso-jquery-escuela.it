@@ -1,0 +1,253 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">warn</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'-----  02-pasar-parametros-a-eventos.js  -----'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  ----------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  Tipos de datos  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  ----------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@typedef</span><span style="color:#4EC9B0"> {object}</span><span style="color:#4EC9B0"> SaludarEventData</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@property</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> nombre</span><span style="color:#6A9955"> - `Nombre de la persona`</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@property</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> periodo</span><span style="color:#6A9955"> - `Periodo del dia`</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@typedef</span><span style="color:#4EC9B0"> {'on' | 'data' | 'info'}</span><span style="color:#4EC9B0"> TipoEntradaLog</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@typedef</span><span style="color:#4EC9B0"> {object}</span><span style="color:#4EC9B0"> EntradaLog</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@property</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> mensaje</span><span style="color:#6A9955"> - `Descripcion de la accion`</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@property</span><span style="color:#4EC9B0"> {TipoEntradaLog}</span><span style="color:#9CDCFE"> tipo</span><span style="color:#6A9955"> - `Tipo de entrada en el registro`</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  Referencias al HTML  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> - `Boton con parametros pasados en on() (Ivan)` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $uno</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.uno'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> - `Boton con parametros pasados en on() (Marco)` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $dos</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.dos'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> - `Boton con parametros almacenados en .data() (Lucia)` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $tres</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.tres'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> - `Boton con parametros almacenados en .data() (Sofia)` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $cuatro</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.cuatro'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLOutputElement>}</span><span style="color:#6A9955"> - `Muestra el ultimo saludo generado` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $ultimoSaludo</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#ultimoSaludo'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLUListElement>}</span><span style="color:#6A9955"> - `Lista del registro de parametros` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $log</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#logEventos'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> - `Boton para limpiar el registro` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $btnLimpiarLog</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#btnLimpiarLog'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * ------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `registrarLog()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * ------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Registra las entradas en el registro de parametros</span></span>
+<span class="line"><span style="color:#6A9955">     * - Agrega la clase CSS segun el metodo utilizado (on, data o info)</span></span>
+<span class="line"><span style="color:#6A9955">     * - Agrega el mensaje a la entrada del registro</span></span>
+<span class="line"><span style="color:#6A9955">     * - Inserta el item al inicio del registro de eventos</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {EntradaLog}</span><span style="color:#9CDCFE"> entrada</span><span style="color:#6A9955"> - `Entrada en el registro de parametros`</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> registrarLog</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">entrada</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#D4D4D4"> { </span><span style="color:#4FC1FF">mensaje</span><span style="color:#D4D4D4">, </span><span style="color:#4FC1FF">tipo</span><span style="color:#D4D4D4"> } = </span><span style="color:#9CDCFE">entrada</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {string}</span><span style="color:#6A9955"> - `Clase CSS del tipo de entrada en el registro` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> claseTipo</span><span style="color:#D4D4D4"> = {</span></span>
+<span class="line"><span style="color:#9CDCFE">            on:</span><span style="color:#CE9178"> 'pasar-parametros-eventos__log-item--on'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            data:</span><span style="color:#CE9178"> 'pasar-parametros-eventos__log-item--data'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            info:</span><span style="color:#CE9178"> 'pasar-parametros-eventos__log-item--info'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">        }[</span><span style="color:#9CDCFE">tipo</span><span style="color:#D4D4D4">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLLIElement>}</span><span style="color:#6A9955"> - `Item del registro de eventos` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $item</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {HTMLLIElement}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">createElement</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'li'</span><span style="color:#D4D4D4">)))</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`pasar-parametros-eventos__log-item </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">claseTipo</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">mensaje</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $log</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prepend</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$item</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * -----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `animarElemento($el)`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * -----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Aplica una animacion visual de destello al elemento</span></span>
+<span class="line"><span style="color:#6A9955">     * - Agrega la clase CSS de flash al elemento</span></span>
+<span class="line"><span style="color:#6A9955">     * - Elimina la clase CSS de flash tras 450 ms</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLElement>}</span><span style="color:#9CDCFE"> $el</span><span style="color:#6A9955"> - `Elemento jQuery a animar`</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> animarElemento</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">$el</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#9CDCFE">        $el</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'pasar-parametros-eventos__flash'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        window</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">setTimeout</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">            $el</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'pasar-parametros-eventos__flash'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        }, </span><span style="color:#B5CEA8">450</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `crearSaludo(data)`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Construye el texto del saludo a partir de los parametros recibidos</span></span>
+<span class="line"><span style="color:#6A9955">     * - Combina el nombre y el periodo del dia en un mensaje formateado</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {SaludarEventData}</span><span style="color:#9CDCFE"> data</span><span style="color:#6A9955"> - `Datos del saludo (nombre y periodo)`</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@returns</span><span style="color:#4EC9B0"> {string}</span><span style="color:#6A9955"> - `Texto del saludo generado`</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> crearSaludo</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">data</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#CE9178"> `hola </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">data</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">nombre</span><span style="color:#569CD6">}</span><span style="color:#CE9178"> buenos </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">data</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">periodo</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * -------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `mostrarSaludo()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * -------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Genera el saludo con los parametros recibidos</span></span>
+<span class="line"><span style="color:#6A9955">     * - Muestra el saludo en el elemento clickeado y en el panel de estado</span></span>
+<span class="line"><span style="color:#6A9955">     * - Anima el elemento y registra la accion en el log</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLElement>}</span><span style="color:#9CDCFE"> $elemento</span><span style="color:#6A9955"> - `Elemento donde se muestra el saludo`</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {SaludarEventData}</span><span style="color:#9CDCFE"> data</span><span style="color:#6A9955"> - `Datos del saludo (nombre y periodo)`</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {TipoEntradaLog}</span><span style="color:#9CDCFE"> metodo</span><span style="color:#6A9955"> - `Metodo usado para pasar parametros (on o data)`</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> etiqueta</span><span style="color:#6A9955"> - `Etiqueta descriptiva del metodo en el registro`</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> mostrarSaludo</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">$elemento</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">data</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">metodo</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">etiqueta</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> saludo</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">crearSaludo</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">data</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $elemento</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">saludo</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'pasar-parametros-eventos__item--activo'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#9CDCFE">        $ultimoSaludo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`Ultimo saludo: </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">saludo</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#DCDCAA">        animarElemento</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$elemento</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#DCDCAA">        registrarLog</span><span style="color:#D4D4D4">({</span></span>
+<span class="line"><span style="color:#9CDCFE">            mensaje:</span><span style="color:#CE9178"> `</span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">etiqueta</span><span style="color:#569CD6">}</span><span style="color:#CE9178">: </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">saludo</span><span style="color:#569CD6">}</span><span style="color:#CE9178"> (metodo </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">metodo</span><span style="color:#569CD6">}</span><span style="color:#CE9178">)`</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            tipo:</span><span style="color:#9CDCFE"> metodo</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">        });</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * --------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `saludar(e)`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * --------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Manejador de click para botones con parametros pasados en on()</span></span>
+<span class="line"><span style="color:#6A9955">     * - Lee los parametros desde e.data del evento</span></span>
+<span class="line"><span style="color:#6A9955">     * - Delega la visualizacion del saludo a mostrarSaludo()</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {JQuery.TriggeredEvent&#x3C;HTMLElement, SaludarEventData, HTMLElement, HTMLElement>}</span><span style="color:#9CDCFE"> e</span><span style="color:#6A9955"> - `Evento click con datos en e.data`</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@this</span><span style="color:#4EC9B0"> {HTMLElement}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">    function</span><span style="color:#DCDCAA"> saludar</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {SaludarEventData}</span><span style="color:#6A9955"> - `Parametros del evento pasados en on()` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> data</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">data</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">        mostrarSaludo</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">), </span><span style="color:#9CDCFE">data</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'on'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'Parametros en on()'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * --------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `saludarConData()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * --------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Manejador de click para botones con parametros almacenados en .data()</span></span>
+<span class="line"><span style="color:#6A9955">     * - Lee los parametros desde $(this).data('saludo')</span></span>
+<span class="line"><span style="color:#6A9955">     * - Delega la visualizacion del saludo a mostrarSaludo()</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@this</span><span style="color:#4EC9B0"> {HTMLElement}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">    function</span><span style="color:#DCDCAA"> saludarConData</span><span style="color:#D4D4D4">() {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {SaludarEventData}</span><span style="color:#6A9955"> - `Parametros del saludo almacenados con .data()` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> data</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'saludo'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">        mostrarSaludo</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">), </span><span style="color:#9CDCFE">data</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'data'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'Parametros con .data()'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  --------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  Parametros en on()  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  --------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $uno</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, {</span></span>
+<span class="line"><span style="color:#9CDCFE">        nombre:</span><span style="color:#CE9178"> 'Ivan'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">        periodo:</span><span style="color:#CE9178"> 'dias'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">    }, </span><span style="color:#9CDCFE">saludar</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $dos</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, {</span></span>
+<span class="line"><span style="color:#9CDCFE">        nombre:</span><span style="color:#CE9178"> 'Marco'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">        periodo:</span><span style="color:#CE9178"> 'noches'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">    }, </span><span style="color:#9CDCFE">saludar</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  ------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  Parametros con .data()  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  ------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $tres</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'saludo'</span><span style="color:#D4D4D4">, {</span></span>
+<span class="line"><span style="color:#9CDCFE">        nombre:</span><span style="color:#CE9178"> 'Lucia'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">        periodo:</span><span style="color:#CE9178"> 'tardes'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $cuatro</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'saludo'</span><span style="color:#D4D4D4">, {</span></span>
+<span class="line"><span style="color:#9CDCFE">        nombre:</span><span style="color:#CE9178"> 'Sofia'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">        periodo:</span><span style="color:#CE9178"> 'noches'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $tres</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">add</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$cuatro</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">saludarConData</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  --------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  Botones de control  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  --------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $btnLimpiarLog</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        $log</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">empty</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#9CDCFE">        $log</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">append</span><span style="color:#D4D4D4">(</span></span>
+<span class="line"><span style="color:#CE9178">            '&#x3C;li class="pasar-parametros-eventos__log-item pasar-parametros-eventos__log-item--info">'</span><span style="color:#D4D4D4"> +</span></span>
+<span class="line"><span style="color:#CE9178">            'Registro limpiado. Haz click en las tarjetas para continuar.'</span><span style="color:#D4D4D4"> +</span></span>
+<span class="line"><span style="color:#CE9178">            '&#x3C;/li>'</span></span>
+<span class="line"><span style="color:#D4D4D4">        );</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">})(</span><span style="color:#9CDCFE">jQuery</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span></code></pre>
