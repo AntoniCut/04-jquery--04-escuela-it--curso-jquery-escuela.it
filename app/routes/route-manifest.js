@@ -102,6 +102,14 @@ export const routeManifest = [
     { id: 'clase18FormulariosSinValidacion', path: 'clase18-formularios-ajax/formularios-sin-validacion', file: 'route-clase18-formularios-sin-validacion' },
     { id: 'clase18FormularioValidacionCliente', path: 'clase18-formularios-ajax/formulario-validacion-cliente', file: 'route-clase18-formulario-validacion-cliente' },
     { id: 'clase18FormularioValidacionClienteServidor', path: 'clase18-formularios-ajax/formulario-validacion-cliente-servidor', file: 'route-clase18-formulario-validacion-cliente-servidor' },
+
+    { id: 'clase19', path: 'clase19-eventos-avanzados', file: 'route-clase19' },
+    { id: 'clase19DispararEventos', path: 'clase19-eventos-avanzados/disparar-eventos', file: 'route-clase19-disparar-eventos' },
+    { id: 'clase19DispararManejadores', path: 'clase19-eventos-avanzados/disparar-manejadores', file: 'route-clase19-disparar-manejadores' },
+    { id: 'clase19EventosDeferidos', path: 'clase19-eventos-avanzados/eventos-deferidos', file: 'route-clase19-eventos-deferidos' },
+    { id: 'clase19EventosPersonalizados1', path: 'clase19-eventos-avanzados/eventos-personalizados-1', file: 'route-clase19-eventos-personalizados-1' },
+    { id: 'clase19EventosPersonalizados2', path: 'clase19-eventos-avanzados/eventos-personalizados-2', file: 'route-clase19-eventos-personalizados-2' },
+    { id: 'clase19ParametrosEventos', path: 'clase19-eventos-avanzados/parametros-eventos', file: 'route-clase19-parametros-eventos' },
     
     { id: '404NotFoundPage', path: '404', file: 'route-404-not-found-page' },
 
