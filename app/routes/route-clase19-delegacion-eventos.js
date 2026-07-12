@@ -1,6 +1,6 @@
 /*
     *  -----------------------------------------------------------------------------------------------------------------------  *
-    *  -----  /route-clase19-disparar-manejadores.js  --  /src/routes/route-clase19-disparar-manejadores.js  -----  *
+    *  -----  /route-clase19-delegacion-eventos.js  --  /src/routes/route-clase19-delegacion-eventos.js  -----  *
     *  -----------------------------------------------------------------------------------------------------------------------  *
 */
 
@@ -24,27 +24,27 @@ const {
 
 
 /** @type {import('../../types/index.js').Route} */
-export const routeClase19DispararManejadores = {
-        id: 'clase19DispararManejadores',
+export const routeClase19DelegacionEventos = {
+        id: 'clase19DelegacionEventos',
         favicon: favicon,
-        pageTitle: 'Clase 19 - Disparar Manejadores',
-        path: '/clase19-eventos-avanzados/04-disparar-manejadores',
+        pageTitle: 'Clase 19 - Delegacion Eventos',
+        path: '/clase19-eventos-avanzados/01-delegacion-eventos',
         components: {
             "#layoutHeader": layoutHeader,
             "#btnNavbar": btnNavbar,
             "#btnNavbarThemesJQueryUI": btnNavbarThemesJQueryUI,
             "#layoutNavbar": layoutNavbar,
             "#layoutNavbarThemesUI": layoutNavbarThemesUI,
-            "#layoutMain": `${pages}/clase-19/04-disparar-manejadores.html`,
+            "#layoutMain": `${pages}/clase-19/01-delegacion-eventos.html`,
             "#layoutFooter": layoutFooter,
         },
-        headerTitle: 'Clase 19 - Disparar Manejadores',
+        headerTitle: 'Clase 19 - Delegacion Eventos',
         styles: [
-            { href: `${styles}/pages/clase-19/04-disparar-manejadores.css` },
+            { href: `${styles}/pages/clase-19/01-delegacion-eventos.css` },
         ],
         scripts: [
             { src: `${scripts}/tooltips.js` },
-            { src: `${scripts}/clase-19/04-disparar-manejadores.js` },
+            { src: `${scripts}/clase-19/01-delegacion-eventos.js` },
         ],
         libs: [
             { name: 'tooltip' },

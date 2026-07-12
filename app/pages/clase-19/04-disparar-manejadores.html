@@ -1,0 +1,256 @@
+<!--  
+    *  -----------------------------------------------------------------------------------------------------------------  *
+    *  -----  /04-disparar-manejadores.html  --  /src/pages/clase-19/04-disparar-manejadores.html  -----  *
+    *  -----------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__container">
+
+
+    <!--  -----  INFO  -----  -->
+    <section class="main__section-info">
+
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="Disparar Manejadores">
+                Clase 19 - Disparar Manejadores
+            </h2>
+
+        </header>
+
+        <!--  -----  Contenido de la Sección  -----  -->
+        <section class="section__content">
+
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    Que hace este ejercicio
+                </h3>
+
+                <p class="content__text">
+                    Demuestra <kbd>triggerHandler()</kbd>, que ejecuta solo el primer
+                    manejador del elemento y devuelve su valor de retorno. A diferencia de
+                    <kbd>trigger()</kbd>, no dispara el resto de manejadores ni propaga el
+                    evento.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        En el enlace hay 2 manejadores de <kbd>click</kbd>: compara
+                        <kbd>trigger()</kbd> y <kbd>triggerHandler()</kbd> para ver la
+                        diferencia.
+                    </li>
+                    <li>
+                        <kbd>triggerHandler()</kbd> devuelve el valor retornado por el
+                        manejador ejecutado.
+                    </li>
+                    <li>
+                        El registro indica que manejador se ejecuto y con que metodo se
+                        disparo.
+                    </li>
+                </ul>
+
+            </div>
+
+        </section>
+
+    </section>
+
+
+    <!--  -----  PRÁCTICA  -----  -->
+    <section class="main__section-practica">
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="Práctica">
+                Práctica
+            </h2>
+
+        </header>
+
+        <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+        <section class="section__content disparar-manejadores">
+
+            <p class="disparar-manejadores__hint">
+                Usa el panel de control para comparar <kbd>triggerHandler()</kbd> con
+                <kbd>trigger()</kbd> sobre el mismo enlace con dos manejadores.
+            </p>
+
+            <div class="disparar-manejadores__grid">
+
+                <article class="disparar-manejadores__card disparar-manejadores__card--controls">
+
+                    <h3 class="disparar-manejadores__card-title">
+                        Panel de control
+                    </h3>
+
+                    <p class="disparar-manejadores__card-desc">
+                        Dispara manejadores con <kbd>triggerHandler()</kbd> o compara con
+                        <kbd>trigger()</kbd>.
+                    </p>
+
+                    <button
+                        type="button"
+                        id="btnTriggerHandlerClickEnlace"
+                        class="disparar-manejadores__btn disparar-manejadores__btn--handler"
+                    >
+                        triggerHandler('click') en enlace
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btnTriggerClickEnlace"
+                        class="disparar-manejadores__btn disparar-manejadores__btn--trigger"
+                    >
+                        trigger('click') en enlace (comparar)
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btnTriggerHandlerSubmitForm"
+                        class="disparar-manejadores__btn disparar-manejadores__btn--handler"
+                    >
+                        triggerHandler('submit') en formulario
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btnTriggerHandlerClickCaja"
+                        class="disparar-manejadores__btn disparar-manejadores__btn--handler"
+                    >
+                        triggerHandler('click') en caja
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btnLimpiarLog"
+                        class="disparar-manejadores__btn disparar-manejadores__btn--reset"
+                    >
+                        Limpiar registro
+                    </button>
+
+                </article>
+
+
+                <article class="disparar-manejadores__card disparar-manejadores__card--targets">
+
+                    <h3 class="disparar-manejadores__card-title">
+                        Elementos objetivo
+                    </h3>
+
+                    <p class="disparar-manejadores__card-desc">
+                        El enlace tiene 2 manejadores. Solo el primero se ejecuta con
+                        <kbd>triggerHandler()</kbd>.
+                    </p>
+
+                    <div class="disparar-manejadores__target">
+
+                        <span class="disparar-manejadores__label">
+                            Enlace con 2 manejadores de click
+                        </span>
+
+                        <a
+                            href="https://escuela.it"
+                            id="enlaceDemo"
+                            class="disparar-manejadores__enlace"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Ir a Escuela.IT
+                        </a>
+
+                        <output id="estadoEnlace" class="disparar-manejadores__estado">
+                            Esperando evento...
+                        </output>
+
+                        <output id="valorRetorno" class="disparar-manejadores__retorno">
+                            Valor retornado: —
+                        </output>
+
+                    </div>
+
+                    <div class="disparar-manejadores__target">
+
+                        <span class="disparar-manejadores__label">
+                            Formulario con manejador submit
+                        </span>
+
+                        <form
+                            id="formDemo"
+                            class="disparar-manejadores__form"
+                            action="https://desarrolloweb.com"
+                            method="post"
+                        >
+                            <input
+                                type="text"
+                                name="nombre"
+                                placeholder="Escribe un nombre"
+                                class="disparar-manejadores__input"
+                            >
+
+                            <button
+                                type="submit"
+                                class="disparar-manejadores__btn disparar-manejadores__btn--submit"
+                            >
+                                Enviar (click real)
+                            </button>
+                        </form>
+
+                        <output id="estadoForm" class="disparar-manejadores__estado">
+                            Formulario listo
+                        </output>
+
+                    </div>
+
+                    <div class="disparar-manejadores__target">
+
+                        <span class="disparar-manejadores__label">
+                            Caja con manejador click
+                        </span>
+
+                        <div
+                            id="cajaDemo"
+                            class="disparar-manejadores__caja"
+                            tabindex="0"
+                            role="button"
+                            aria-label="Caja de demostracion de triggerHandler"
+                        >
+                            Haz click aqui o usa triggerHandler()
+                        </div>
+
+                        <output id="estadoCaja" class="disparar-manejadores__estado">
+                            Clics recibidos: 0
+                        </output>
+
+                    </div>
+
+                </article>
+
+
+                <article class="disparar-manejadores__card disparar-manejadores__card--log">
+
+                    <h3 class="disparar-manejadores__card-title">
+                        Registro de manejadores
+                    </h3>
+
+                    <ul id="logEventos" class="disparar-manejadores__log">
+                        <li class="disparar-manejadores__log-item disparar-manejadores__log-item--info">
+                            Compara triggerHandler() y trigger() en el enlace para ver
+                            cuantos manejadores se ejecutan.
+                        </li>
+                    </ul>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </section>
+
+</div>

@@ -1,0 +1,207 @@
+/*
+    *  ---------------------------------------------------------------------------------------------  *
+    *  -----  /01-delegacion-eventos.scss  --  /src/scss/pages/clase-19/01-delegacion-eventos.scss  -----  *
+    *  ---------------------------------------------------------------------------------------------  *
+*/
+
+
+.delegacion-eventos {
+
+    &__hint {
+        max-width: 72rem;
+        margin: 0 0 2rem;
+        font-size: 1.5rem;
+        color: #4a5568;
+        line-height: 1.6;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: minmax(24rem, 28rem) minmax(28rem, 1fr);
+        grid-template-areas:
+            "controls targets"
+            "log log";
+        gap: 2rem;
+        width: 100%;
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 2rem;
+        background: linear-gradient(145deg, #f8f9fc 0%, #eef0f7 100%);
+        border: 1px solid #d8deea;
+        border-radius: 14px;
+        box-shadow: 0 8px 24px rgba(42, 157, 143, 0.08);
+
+        &--controls {
+            grid-area: controls;
+        }
+
+        &--targets {
+            grid-area: targets;
+        }
+
+        &--log {
+            grid-area: log;
+        }
+    }
+
+    &__card-title {
+        margin: 0;
+        font-size: 1.8rem;
+        color: #2d6a5f;
+    }
+
+    &__card-desc {
+        margin: 0;
+        font-size: 1.4rem;
+        color: #667085;
+        line-height: 1.5;
+    }
+
+    &__btn {
+        padding: 1rem 1.4rem;
+        font-size: 1.4rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 250ms ease;
+
+        &--action {
+            color: #fff;
+            background: linear-gradient(135deg, #2a9d8f 0%, #21867a 100%);
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(42, 157, 143, 0.28);
+            }
+        }
+
+        &--reset {
+            color: #2d6a5f;
+            background: #e8f5f2;
+        }
+    }
+
+    &__target {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 1.4rem;
+        background: #fff;
+        border-left: 4px solid #2a9d8f;
+        border-radius: 10px;
+    }
+
+    &__label {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #667085;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+    }
+
+    &__lista {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .elemento {
+        padding: 1rem 1.2rem;
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: #2d6a5f;
+        background: #f4fbf9;
+        border: 1px solid #b7e4db;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 250ms ease;
+
+        &--activo {
+            color: #fff;
+            background: linear-gradient(135deg, #2a9d8f 0%, #21867a 100%);
+            border-color: #1f7a6f;
+        }
+    }
+
+    &__estado,
+    &__contador {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: #2a9d8f;
+    }
+
+    &__contador {
+        padding: 0.8rem 1rem;
+        background: #eefaf7;
+        border-radius: 8px;
+    }
+
+    &__log {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        max-height: 24rem;
+        margin: 0;
+        padding: 0;
+        overflow-y: auto;
+        list-style: none;
+    }
+
+    &__log-item {
+        padding: 1rem 1.2rem;
+        font-size: 1.35rem;
+        line-height: 1.5;
+        color: #2d6a5f;
+        background: #fff;
+        border-radius: 8px;
+        border-left: 4px solid #98a6c7;
+
+        &--directo {
+            border-left-color: #e76f51;
+            background: #fff6f3;
+        }
+
+        &--delegado {
+            border-left-color: #2a9d8f;
+            background: #f2fbf9;
+        }
+
+        &--info {
+            border-left-color: #52b788;
+            background: #f4fbf8;
+            font-style: italic;
+        }
+    }
+
+    &__flash {
+        animation: delegacion-eventos-flash 450ms ease;
+    }
+}
+
+@keyframes delegacion-eventos-flash {
+    0% {
+        box-shadow: 0 0 0 0 rgba(42, 157, 143, 0.45);
+    }
+
+    100% {
+        box-shadow: 0 0 0 14px rgba(42, 157, 143, 0);
+    }
+}
+
+@media (max-width: 960px) {
+    .delegacion-eventos__grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "controls"
+            "targets"
+            "log";
+    }
+}

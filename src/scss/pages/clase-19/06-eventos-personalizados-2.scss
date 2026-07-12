@@ -1,0 +1,167 @@
+/*
+    *  ---------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /06-eventos-personalizados-2.scss  --  /src/scss/pages/clase-19/06-eventos-personalizados-2.scss  -----  *
+    *  ---------------------------------------------------------------------------------------------------------------------------  *
+*/
+
+
+.eventos-personalizados-2 {
+
+    &__hint {
+        max-width: 72rem;
+        margin: 0 0 2rem;
+        font-size: 1.5rem;
+        color: #4a5568;
+        line-height: 1.6;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: minmax(24rem, 28rem) minmax(28rem, 1fr);
+        grid-template-areas:
+            "controls targets"
+            "log log";
+        gap: 2rem;
+        width: 100%;
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 2rem;
+        background: linear-gradient(145deg, #f8f9fc 0%, #eef0f7 100%);
+        border: 1px solid #d8deea;
+        border-radius: 14px;
+        box-shadow: 0 8px 24px rgba(231, 76, 60, 0.08);
+
+        &--controls {
+            grid-area: controls;
+        }
+
+        &--targets {
+            grid-area: targets;
+        }
+
+        &--log {
+            grid-area: log;
+        }
+    }
+
+    &__card-title {
+        margin: 0;
+        font-size: 1.8rem;
+        color: #c0392b;
+    }
+
+    &__card-desc {
+        margin: 0;
+        font-size: 1.4rem;
+        color: #667085;
+        line-height: 1.5;
+    }
+
+    &__btn {
+        padding: 1rem 1.4rem;
+        font-size: 1.4rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 250ms ease;
+
+        &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        &--action {
+            color: #fff;
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+
+            &:hover:not(:disabled) {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(231, 76, 60, 0.28);
+            }
+        }
+
+        &--reset {
+            color: #c0392b;
+            background: #fdecea;
+        }
+    }
+
+    &__elem {
+        padding: 1.4rem 1.6rem;
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: #922b21;
+        background: #fff5f4;
+        border: 1px solid #f5b7b1;
+        border-radius: 8px;
+        transition: all 250ms ease;
+    }
+
+    &__estado {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: #c0392b;
+        padding: 0.8rem 1rem;
+        background: #fdecea;
+        border-radius: 8px;
+    }
+
+    &__log {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        max-height: 24rem;
+        margin: 0;
+        padding: 0;
+        overflow-y: auto;
+        list-style: none;
+    }
+
+    &__log-item {
+        padding: 1rem 1.2rem;
+        font-size: 1.35rem;
+        line-height: 1.5;
+        color: #922b21;
+        background: #fff;
+        border-radius: 8px;
+        border-left: 4px solid #98a6c7;
+
+        &--handler1 {
+            border-left-color: #2ecc71;
+            background: #f2fbf6;
+        }
+
+        &--handler2 {
+            border-left-color: #e74c3c;
+            background: #fff5f4;
+        }
+
+        &--handler3 {
+            border-left-color: #3498db;
+            background: #f2f8fd;
+        }
+
+        &--info {
+            border-left-color: #f39c12;
+            background: #fffaf2;
+            font-style: italic;
+        }
+    }
+}
+
+@media (max-width: 960px) {
+    .eventos-personalizados-2__grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "controls"
+            "targets"
+            "log";
+    }
+}

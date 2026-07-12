@@ -104,12 +104,12 @@ export const routeManifest = [
     { id: 'clase18FormularioValidacionClienteServidor', path: 'clase18-formularios-ajax/formulario-validacion-cliente-servidor', file: 'route-clase18-formulario-validacion-cliente-servidor' },
 
     { id: 'clase19', path: 'clase19-eventos-avanzados', file: 'route-clase19' },
-    { id: 'clase19DispararEventos', path: 'clase19-eventos-avanzados/disparar-eventos', file: 'route-clase19-disparar-eventos' },
-    { id: 'clase19DispararManejadores', path: 'clase19-eventos-avanzados/disparar-manejadores', file: 'route-clase19-disparar-manejadores' },
-    { id: 'clase19EventosDeferidos', path: 'clase19-eventos-avanzados/eventos-deferidos', file: 'route-clase19-eventos-deferidos' },
-    { id: 'clase19EventosPersonalizados1', path: 'clase19-eventos-avanzados/eventos-personalizados-1', file: 'route-clase19-eventos-personalizados-1' },
-    { id: 'clase19EventosPersonalizados2', path: 'clase19-eventos-avanzados/eventos-personalizados-2', file: 'route-clase19-eventos-personalizados-2' },
-    { id: 'clase19ParametrosEventos', path: 'clase19-eventos-avanzados/parametros-eventos', file: 'route-clase19-parametros-eventos' },
+    { id: 'clase19DispararEventos', path: 'clase19-eventos-avanzados/03-disparar-eventos', file: 'route-clase19-disparar-eventos' },
+    { id: 'clase19DispararManejadores', path: 'clase19-eventos-avanzados/04-disparar-manejadores', file: 'route-clase19-disparar-manejadores' },
+    { id: 'clase19DelegacionEventos', path: 'clase19-eventos-avanzados/01-delegacion-eventos', file: 'route-clase19-delegacion-eventos' },
+    { id: 'clase19EventosPersonalizados1', path: 'clase19-eventos-avanzados/05-eventos-personalizados-1', file: 'route-clase19-eventos-personalizados-1' },
+    { id: 'clase19EventosPersonalizados2', path: 'clase19-eventos-avanzados/06-eventos-personalizados-2', file: 'route-clase19-eventos-personalizados-2' },
+    { id: 'clase19PasarParametrosAEventos', path: 'clase19-eventos-avanzados/02-pasar-parametros-a-eventos', file: 'route-clase19-pasar-parametros-a-eventos' },
     
     { id: '404NotFoundPage', path: '404', file: 'route-404-not-found-page' },
 

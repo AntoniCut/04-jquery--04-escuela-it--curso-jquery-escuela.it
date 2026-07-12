@@ -1,0 +1,217 @@
+<!--  
+    *  ---------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /05-eventos-personalizados-1.html  --  /src/pages/clase-19/05-eventos-personalizados-1.html  -----  *
+    *  ---------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__container">
+
+
+    <!--  -----  INFO  -----  -->
+    <section class="main__section-info">
+
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="Eventos Personalizados 1">
+                Clase 19 - Eventos Personalizados 1
+            </h2>
+
+        </header>
+
+        <!--  -----  Contenido de la Sección  -----  -->
+        <section class="section__content">
+
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    Que hace este ejercicio
+                </h3>
+
+                <p class="content__text">
+                    Demuestra como crear y disparar eventos personalizados con jQuery.
+                    El evento <kbd>despertarse</kbd> no existe en el navegador: lo
+                    definimos nosotros y lo enlazamos con <kbd>on()</kbd> y
+                    <kbd>trigger()</kbd>.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        Los elementos registran un manejador para el evento
+                        <kbd>despertarse</kbd>.
+                    </li>
+                    <li>
+                        Desde el panel de control puedes disparar el evento en todos
+                        los elementos, solo en <kbd>div</kbd> o solo en
+                        <kbd>li</kbd>.
+                    </li>
+                    <li>
+                        El registro muestra que elementos recibieron el evento
+                        personalizado.
+                    </li>
+                </ul>
+
+            </div>
+
+        </section>
+
+    </section>
+
+
+    <!--  -----  PRÁCTICA  -----  -->
+    <section class="main__section-practica">
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="Práctica">
+                Práctica
+            </h2>
+
+        </header>
+
+        <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+        <section class="section__content eventos-personalizados-1">
+
+            <p class="eventos-personalizados-1__hint">
+                Dispara el evento personalizado <kbd>despertarse</kbd> desde el panel
+                de control y observa que elementos reaccionan.
+            </p>
+
+            <div class="eventos-personalizados-1__grid">
+
+                <article class="eventos-personalizados-1__card eventos-personalizados-1__card--controls">
+
+                    <h3 class="eventos-personalizados-1__card-title">
+                        Panel de control
+                    </h3>
+
+                    <p class="eventos-personalizados-1__card-desc">
+                        Estos botones llaman a <kbd>trigger('despertarse')</kbd> sobre
+                        distintos grupos de elementos.
+                    </p>
+
+                    <button
+                        type="button"
+                        id="btnDespertarTodos"
+                        class="eventos-personalizados-1__btn eventos-personalizados-1__btn--action"
+                    >
+                        trigger('despertarse') en todos
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btnDespertarDivs"
+                        class="eventos-personalizados-1__btn eventos-personalizados-1__btn--action"
+                    >
+                        trigger('despertarse') en divs
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btnDespertarLis"
+                        class="eventos-personalizados-1__btn eventos-personalizados-1__btn--action"
+                    >
+                        trigger('despertarse') en lis
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btnRestaurarTextos"
+                        class="eventos-personalizados-1__btn eventos-personalizados-1__btn--reset"
+                    >
+                        Restaurar textos
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btnLimpiarLog"
+                        class="eventos-personalizados-1__btn eventos-personalizados-1__btn--reset"
+                    >
+                        Limpiar registro
+                    </button>
+
+                </article>
+
+
+                <article class="eventos-personalizados-1__card eventos-personalizados-1__card--targets">
+
+                    <h3 class="eventos-personalizados-1__card-title">
+                        Elementos con manejador despertarse
+                    </h3>
+
+                    <div class="eventos-personalizados-1__target">
+
+                        <span class="eventos-personalizados-1__label">
+                            Bloques div
+                        </span>
+
+                        <div
+                            class="eventos-personalizados-1__elem elemento-despertar"
+                            data-etiqueta="Div 1"
+                        >
+                            Div 1: esperando evento despertarse
+                        </div>
+
+                        <p
+                            class="eventos-personalizados-1__elem elemento-despertar"
+                            data-etiqueta="Parrafo"
+                        >
+                            Parrafo: Lorem ipsum dolor sit amet.
+                        </p>
+
+                        <div
+                            class="eventos-personalizados-1__elem elemento-despertar"
+                            data-etiqueta="Div 2"
+                        >
+                            Div 2: esperando evento despertarse
+                        </div>
+
+                    </div>
+
+                    <div class="eventos-personalizados-1__target">
+
+                        <span class="eventos-personalizados-1__label">
+                            Lista li
+                        </span>
+
+                        <ul class="eventos-personalizados-1__lista">
+                            <li class="elemento-despertar" data-etiqueta="Item 1">Item 1</li>
+                            <li class="elemento-despertar" data-etiqueta="Item 2">Item 2</li>
+                            <li class="elemento-despertar" data-etiqueta="Item 3">Item 3</li>
+                        </ul>
+
+                    </div>
+
+                    <output id="estadoDespertar" class="eventos-personalizados-1__estado">
+                        Elementos despiertos: 0
+                    </output>
+
+                </article>
+
+
+                <article class="eventos-personalizados-1__card eventos-personalizados-1__card--log">
+
+                    <h3 class="eventos-personalizados-1__card-title">
+                        Registro de eventos personalizados
+                    </h3>
+
+                    <ul id="logEventos" class="eventos-personalizados-1__log">
+                        <li class="eventos-personalizados-1__log-item eventos-personalizados-1__log-item--info">
+                            Dispara despertarse para ver que elementos ejecutan su
+                            manejador.
+                        </li>
+                    </ul>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </section>
+
+</div>

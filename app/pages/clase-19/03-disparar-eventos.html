@@ -1,0 +1,240 @@
+<!--  
+    *  -----------------------------------------------------------------------------------------  *
+    *  -----  /03-disparar-eventos.html  --  /src/pages/clase-19/03-disparar-eventos.html  -----  *
+    *  -----------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__container">
+
+
+    <!--  -----  INFO  -----  -->
+    <section class="main__section-info">
+
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="Disparar Eventos">
+                Clase 19 - Disparar Eventos
+            </h2>
+
+        </header>
+
+        <!--  -----  Contenido de la Sección  -----  -->
+        <section class="section__content">
+
+            <div class="content__description content__description--exercise">
+
+                <h3 class="content__title">
+                    Que hace este ejercicio
+                </h3>
+
+                <p class="content__text">
+                    Demuestra como ejecutar eventos de forma programatica con
+                    <kbd>trigger()</kbd>. Los botones del panel de control no modifican
+                    los elementos directamente: disparan el evento y los manejadores
+                    registrados con <kbd>on()</kbd> son los que reaccionan.
+                </p>
+
+                <ul class="content__list">
+                    <li>
+                        Un mismo elemento puede tener varios manejadores para un evento;
+                        <kbd>trigger('click')</kbd> los ejecuta todos.
+                    </li>
+                    <li>
+                        Puedes disparar eventos nativos como <kbd>click</kbd> o
+                        <kbd>submit</kbd> sin interaccion real del usuario.
+                    </li>
+                    <li>
+                        El registro diferencia entre click manual y evento disparado con
+                        <kbd>trigger()</kbd>.
+                    </li>
+                </ul>
+
+            </div>
+
+        </section>
+
+    </section>
+
+
+    <!--  -----  PRÁCTICA  -----  -->
+    <section class="main__section-practica">
+
+        <!--  -----  Header de la Sección  -----  -->
+        <header class="section__header">
+
+            <h2 class="section__title" title="Práctica">
+                Práctica
+            </h2>
+
+        </header>
+
+        <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+        <section class="section__content disparar-eventos">
+
+            <p class="disparar-eventos__hint">
+                Usa el panel izquierdo para disparar eventos con <kbd>trigger()</kbd>
+                o interactua directamente con los elementos objetivo.
+            </p>
+
+            <div class="disparar-eventos__grid">
+
+                <article class="disparar-eventos__card disparar-eventos__card--controls">
+
+                    <h3 class="disparar-eventos__card-title">
+                        Panel de control
+                    </h3>
+
+                    <p class="disparar-eventos__card-desc">
+                        Estos botones llaman a <kbd>trigger()</kbd> sobre el elemento indicado.
+                    </p>
+
+                    <button
+                        type="button"
+                        id="btnTriggerClickEnlace"
+                        class="disparar-eventos__btn disparar-eventos__btn--trigger"
+                    >
+                        trigger('click') en enlace
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btnTriggerSubmitForm"
+                        class="disparar-eventos__btn disparar-eventos__btn--trigger"
+                    >
+                        trigger('submit') en formulario
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btnTriggerClickCaja"
+                        class="disparar-eventos__btn disparar-eventos__btn--trigger"
+                    >
+                        trigger('click') en caja
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btnLimpiarLog"
+                        class="disparar-eventos__btn disparar-eventos__btn--reset"
+                    >
+                        Limpiar registro
+                    </button>
+
+                </article>
+
+
+                <article class="disparar-eventos__card disparar-eventos__card--targets">
+
+                    <h3 class="disparar-eventos__card-title">
+                        Elementos objetivo
+                    </h3>
+
+                    <p class="disparar-eventos__card-desc">
+                        Cada bloque tiene manejadores registrados con <kbd>on()</kbd>.
+                    </p>
+
+                    <div class="disparar-eventos__target">
+
+                        <span class="disparar-eventos__label">
+                            Enlace con 2 manejadores de click
+                        </span>
+
+                        <a
+                            href="https://escuela.it"
+                            id="enlaceDemo"
+                            class="disparar-eventos__enlace"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Ir a Escuela.IT
+                        </a>
+
+                        <output id="estadoEnlace" class="disparar-eventos__estado">
+                            Esperando evento...
+                        </output>
+
+                    </div>
+
+                    <div class="disparar-eventos__target">
+
+                        <span class="disparar-eventos__label">
+                            Formulario con manejador submit
+                        </span>
+
+                        <form
+                            id="formDemo"
+                            class="disparar-eventos__form"
+                            action="https://desarrolloweb.com"
+                            method="post"
+                        >
+                            <input
+                                type="text"
+                                name="nombre"
+                                placeholder="Escribe un nombre"
+                                class="disparar-eventos__input"
+                            >
+
+                            <button
+                                type="submit"
+                                class="disparar-eventos__btn disparar-eventos__btn--submit"
+                            >
+                                Enviar (click real)
+                            </button>
+                        </form>
+
+                        <output id="estadoForm" class="disparar-eventos__estado">
+                            Formulario listo
+                        </output>
+
+                    </div>
+
+                    <div class="disparar-eventos__target">
+
+                        <span class="disparar-eventos__label">
+                            Caja con manejador click
+                        </span>
+
+                        <div
+                            id="cajaDemo"
+                            class="disparar-eventos__caja"
+                            tabindex="0"
+                            role="button"
+                            aria-label="Caja de demostracion de eventos click"
+                        >
+                            Haz click aqui o usa trigger()
+                        </div>
+
+                        <output id="estadoCaja" class="disparar-eventos__estado">
+                            Clics recibidos: 0
+                        </output>
+
+                    </div>
+
+                </article>
+
+
+                <article class="disparar-eventos__card disparar-eventos__card--log">
+
+                    <h3 class="disparar-eventos__card-title">
+                        Registro de eventos
+                    </h3>
+
+                    <ul id="logEventos" class="disparar-eventos__log">
+                        <li class="disparar-eventos__log-item disparar-eventos__log-item--info">
+                            El registro mostrara cada manejador ejecutado.
+                        </li>
+                    </ul>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </section>
+
+</div>

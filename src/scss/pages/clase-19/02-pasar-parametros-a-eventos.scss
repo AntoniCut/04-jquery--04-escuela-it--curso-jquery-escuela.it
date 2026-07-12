@@ -1,0 +1,186 @@
+/*
+    *  ---------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /02-pasar-parametros-a-eventos.scss  --  /src/scss/pages/clase-19/02-pasar-parametros-a-eventos.scss  -----  *
+    *  ---------------------------------------------------------------------------------------------------------------------  *
+*/
+
+
+.pasar-parametros-eventos {
+
+    &__hint {
+        max-width: 72rem;
+        margin: 0 0 2rem;
+        font-size: 1.5rem;
+        color: #4a5568;
+        line-height: 1.6;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: minmax(24rem, 28rem) minmax(28rem, 1fr);
+        grid-template-areas:
+            "controls targets"
+            "log log";
+        gap: 2rem;
+        width: 100%;
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 2rem;
+        background: linear-gradient(145deg, #f8f9fc 0%, #eef0f7 100%);
+        border: 1px solid #d8deea;
+        border-radius: 14px;
+        box-shadow: 0 8px 24px rgba(230, 126, 34, 0.08);
+
+        &--controls {
+            grid-area: controls;
+        }
+
+        &--targets {
+            grid-area: targets;
+        }
+
+        &--log {
+            grid-area: log;
+        }
+    }
+
+    &__card-title {
+        margin: 0;
+        font-size: 1.8rem;
+        color: #9a5b13;
+    }
+
+    &__card-desc {
+        margin: 0;
+        font-size: 1.4rem;
+        color: #667085;
+        line-height: 1.5;
+    }
+
+    &__btn {
+        padding: 1rem 1.4rem;
+        font-size: 1.4rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 250ms ease;
+
+        &--reset {
+            color: #9a5b13;
+            background: #fdf3e7;
+        }
+    }
+
+    &__target {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 1.4rem;
+        background: #fff;
+        border-left: 4px solid #e67e22;
+        border-radius: 10px;
+    }
+
+    &__label {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #667085;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+    }
+
+    &__item {
+        width: 100%;
+        padding: 1.2rem 1.4rem;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #9a5b13;
+        text-align: left;
+        background: #fff8ef;
+        border: 1px solid #f0c987;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 250ms ease;
+
+        &--activo {
+            color: #fff;
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            border-color: #c45f10;
+        }
+    }
+
+    &__saludo {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #d35400;
+        padding: 0.8rem 1rem;
+        background: #fff4e8;
+        border-radius: 8px;
+    }
+
+    &__log {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        max-height: 24rem;
+        margin: 0;
+        padding: 0;
+        overflow-y: auto;
+        list-style: none;
+    }
+
+    &__log-item {
+        padding: 1rem 1.2rem;
+        font-size: 1.35rem;
+        line-height: 1.5;
+        color: #9a5b13;
+        background: #fff;
+        border-radius: 8px;
+        border-left: 4px solid #98a6c7;
+
+        &--on {
+            border-left-color: #e67e22;
+            background: #fff8ef;
+        }
+
+        &--data {
+            border-left-color: #d35400;
+            background: #fff4e8;
+        }
+
+        &--info {
+            border-left-color: #f39c12;
+            background: #fffaf2;
+            font-style: italic;
+        }
+    }
+
+    &__flash {
+        animation: pasar-parametros-eventos-flash 450ms ease;
+    }
+}
+
+@keyframes pasar-parametros-eventos-flash {
+    0% {
+        box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.45);
+    }
+
+    100% {
+        box-shadow: 0 0 0 14px rgba(230, 126, 34, 0);
+    }
+}
+
+@media (max-width: 960px) {
+    .pasar-parametros-eventos__grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "controls"
+            "targets"
+            "log";
+    }
+}
