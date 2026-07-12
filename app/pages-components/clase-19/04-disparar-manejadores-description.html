@@ -4,47 +4,63 @@
 
 
 
+
+
 <div class="main__description">
 
+    <div class="demo-page">
 
-    <!--  -----  Contenido de la Sección  -----  -->
-    <section class="section__content">
+        <section class="demo-page__intro">
 
-        <div class="content__description content__description--exercise">
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
 
-                <h3 class="content__title">
-                    Que hace este ejercicio
-                </h3>
-
-                <p class="content__text">
-                    Demuestra <kbd>triggerHandler()</kbd>, que ejecuta solo el primer
+            <p class="demo-page__intro-text">
+                Demuestra <kbd>triggerHandler()</kbd>, que ejecuta solo el primer
                     manejador del elemento y devuelve su valor de retorno. A diferencia de
                     <kbd>trigger()</kbd>, no dispara el resto de manejadores ni propaga el
                     evento.
-                </p>
+            </p>
 
-                <ul class="content__list">
-                    <li>
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> Comprender la diferencia entre
+                <kbd>trigger()</kbd> y <kbd>triggerHandler()</kbd>, ejecutando solo el
+                primer manejador y obteniendo su valor de retorno cuando conviene.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
                         En el enlace hay 2 manejadores de <kbd>click</kbd>: compara
                         <kbd>trigger()</kbd> y <kbd>triggerHandler()</kbd> para ver la
                         diferencia.
-                    </li>
-                    <li>
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
                         <kbd>triggerHandler()</kbd> devuelve el valor retornado por el
                         manejador ejecutado.
-                    </li>
-                    <li>
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
                         El registro indica que manejador se ejecuto y con que metodo se
                         disparo.
-                    </li>
-                </ul>
+                    </p>
+                </article>
 
             </div>
 
-        
+        </section>
 
-    </section>
-
-
+    </div>
 
 </div>

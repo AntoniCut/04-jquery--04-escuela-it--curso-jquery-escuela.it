@@ -46,8 +46,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const __filename = fileURLToPath(import.meta.url);
 const MARKER = 'markdown-shiki/';
 const SHIKI_THEME = 'dark-plus';
-const STRIP_HEADER_BANNER = true;
-const BANNER_PATTERN = /-----/;
+const STRIP_FIRST_LINES = 4;
 
 
 /**
@@ -90,43 +89,19 @@ const deriveOutputDir = (urlOutput) => {
 
 
 /**
- * Elimina bloques de comentario tipo banner al inicio del código fuente.
+ * Elimina las primeras líneas del código fuente (banner de cabecera del proyecto).
  * @param {string} code
+ * @param {number} [lineCount=STRIP_FIRST_LINES]
  * @returns {string}
  */
-const stripHeaderBanner = (code) => {
-    code = code.replace(/^(?:\/\/\s*@ts-nocheck\s*\n|"\s*use strict\s*"\s*;\s*\n)+/, '');
+const stripFirstLines = (code, lineCount = STRIP_FIRST_LINES) => {
+    const lines = code.split('\n');
 
-    const ANY_COMMENT_RE = /\/\*[\s\S]*?\*\/|<!--[\s\S]*?-->|\/\/[^\n]*\n/g;
-
-    let firstIdx = -1;
-    let firstEnd = -1;
-
-    for (const m of code.matchAll(ANY_COMMENT_RE)) {
-        if (BANNER_PATTERN.test(m[0])) {
-            firstIdx = m.index;
-            firstEnd = m.index + m[0].length;
-            break;
-        }
+    if (lines.length <= lineCount) {
+        return '';
     }
 
-    if (firstIdx === -1) return code;
-
-    let endIdx = firstEnd;
-    const COMMENT_AFTER_BANNER_RE = /^\s*(?:\/\*[\s\S]*?\*\/|<!--[\s\S]*?-->|\/\/[^\n]*\n)/;
-
-    while (true) {
-        const rest = code.slice(endIdx);
-        const match = rest.match(COMMENT_AFTER_BANNER_RE);
-        if (!match) break;
-        if (!BANNER_PATTERN.test(match[0])) break;
-        endIdx += match[0].length;
-    }
-
-    const before = code.slice(0, firstIdx);
-    const after = code.slice(endIdx).replace(/^\s*\n/, '');
-
-    return (before + after).replace(/^\s*\n/, '');
+    return lines.slice(lineCount).join('\n');
 };
 
 
@@ -188,7 +163,7 @@ export const generateMarkdownShiki = async () => {
             }
 
             const rawCode = readFileSync(srcPath, 'utf-8');
-            const code = STRIP_HEADER_BANNER ? stripHeaderBanner(rawCode) : rawCode;
+            const code = stripFirstLines(rawCode);
             const html = await codeToHtml(code, { lang, theme: SHIKI_THEME });
 
             mkdirSync(dirname(outPath), { recursive: true });

@@ -37,18 +37,18 @@
 
 .main__description {
     width: 100%;
-    margin-top: 5rem;
-    margin-bottom: 5rem;
+    // margin-top: 5rem;
+    // margin-bottom: 5rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     gap: 3rem;
 }
 
 .main__demo {
     width: 100%;
-    margin-top: 5rem;
-    margin-bottom: 5rem;
+    // margin-top: 5rem;
+    // margin-bottom: 5rem;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -58,6 +58,185 @@
         width: 100%;
         box-sizing: border-box;
         padding: 0 2rem 5rem;
+    }
+}
+
+
+/*
+    -------------------------------------------------
+    -----  Demo page — description components  -----
+    -------------------------------------------------
+    Estilos compartidos (patrón jquery-spa v5) para
+    pages-components/*-description.html
+*/
+
+$demo-primary:          var.$color-primary;
+$demo-secondary:        #4099d8;
+$demo-accent-bg:        #eef6fb;
+$demo-text:             #0d2035;
+$demo-text-light:       #3a5672;
+$demo-card-bg:          var.$bg-white;
+$demo-card-border:      rgba($demo-primary, 0.2);
+$demo-card-shadow:      0 4px 16px rgba($demo-primary, 0.1);
+$demo-card-shadow-hover: 0 8px 28px rgba($demo-primary, 0.2);
+$demo-tag-bg:           rgba($demo-primary, 0.08);
+$demo-tag-color:        $demo-primary;
+$demo-tag-border:       rgba($demo-primary, 0.3);
+$demo-color-white:      var.$bg-white;
+$demo-shadow-hero-title: 0 2px 8px rgba(0, 0, 0, 0.35);
+
+.demo-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+
+    &__intro {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        background-color: $demo-accent-bg;
+        border-left: 5px solid $demo-primary;
+        border-radius: 0 0.8rem 0.8rem 0;
+        padding: 2.5rem;
+    }
+
+    &__intro-text {
+        font-size: 1.5rem;
+        line-height: 1.8;
+        color: $demo-text;
+
+        strong {
+            color: $demo-primary;
+            font-weight: 600;
+        }
+
+        kbd,
+        code {
+            background-color: $demo-tag-bg;
+            color: $demo-tag-color;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 1.3rem;
+            font-family: monospace;
+        }
+
+        @include mix.tablet {
+            font-size: 1.6rem;
+        }
+
+        @include mix.desktop {
+            font-size: 1.7rem;
+        }
+    }
+
+    &__intro-note {
+        margin: 0;
+        padding: 1rem 1.2rem;
+        font-size: 1.5rem;
+        line-height: 1.6;
+        color: $demo-text;
+        background-color: rgba($demo-primary, 0.08);
+        border-radius: 0.6rem;
+
+        kbd {
+            display: inline-block;
+            min-width: 7.4rem;
+            margin-right: 0.6rem;
+            padding: 0 0.6rem;
+            font-family: monospace;
+            font-size: 1.3rem;
+            color: $demo-color-white;
+            background-color: $demo-primary;
+            border-radius: 0.4rem;
+        }
+
+        @include mix.tablet {
+            font-size: 1.6rem;
+        }
+    }
+
+    &__features {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    &__features-title {
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: $demo-primary;
+        text-align: center;
+        margin: 0;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 6rem;
+            height: 3px;
+            background-color: $demo-primary;
+            margin: 0.8rem auto 0;
+            border-radius: 2px;
+        }
+
+        @include mix.tablet {
+            font-size: 2.6rem;
+        }
+    }
+
+    &__features-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+
+        @include mix.tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include mix.desktopSM {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    &__feature {
+        background-color: $demo-card-bg;
+        border: 1px solid $demo-card-border;
+        border-radius: 1rem;
+        padding: 2.5rem;
+        box-shadow: $demo-card-shadow;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: $demo-card-shadow-hover;
+        }
+    }
+
+    &__feature-text {
+        margin: 0;
+        font-size: 1.4rem;
+        line-height: 1.75;
+        color: $demo-text-light;
+
+        kbd,
+        code {
+            background-color: $demo-tag-bg;
+            color: $demo-tag-color;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 1.2rem;
+            font-family: monospace;
+        }
+
+        @include mix.tablet {
+            font-size: 1.5rem;
+        }
     }
 }
 

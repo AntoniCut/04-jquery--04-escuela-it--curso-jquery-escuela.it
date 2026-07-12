@@ -4,45 +4,61 @@
 
 
 
+
+
 <div class="main__description">
 
+    <div class="demo-page">
 
-    <!--  -----  Contenido de la Sección  -----  -->
-    <section class="section__content">
+        <section class="demo-page__intro">
 
-        <div class="content__description content__description--exercise">
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
 
-                <h3 class="content__title">
-                    Que hace este ejercicio
-                </h3>
-
-                <p class="content__text">
-                    Muestra dos formas de pasar datos a un manejador de eventos:
+            <p class="demo-page__intro-text">
+                Muestra dos formas de pasar datos a un manejador de eventos:
                     como segundo parametro de <kbd>on()</kbd> o guardandolos antes
                     con <kbd>.data()</kbd>.
-                </p>
+            </p>
 
-                <ul class="content__list">
-                    <li>
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> Aprender a pasar datos personalizados a manejadores
+                de eventos usando el segundo parametro de <kbd>on()</kbd> o
+                almacenandolos previamente con <kbd>.data()</kbd>.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
                         Los elementos 1 y 2 reciben parametros en
                         <kbd>on('click', { ... }, saludar)</kbd>.
-                    </li>
-                    <li>
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
                         Los elementos 3 y 4 guardan datos con
                         <kbd>.data('saludo', { ... })</kbd> y los leen en el
                         manejador.
-                    </li>
-                    <li>
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
                         El registro indica que metodo se uso y el saludo generado.
-                    </li>
-                </ul>
+                    </p>
+                </article>
 
             </div>
 
-        
+        </section>
 
-    </section>
-
-
+    </div>
 
 </div>

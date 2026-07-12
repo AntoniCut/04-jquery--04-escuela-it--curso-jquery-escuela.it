@@ -4,46 +4,62 @@
 
 
 
+
+
 <div class="main__description">
 
+    <div class="demo-page">
 
-    <!--  -----  Contenido de la Sección  -----  -->
-    <section class="section__content">
+        <section class="demo-page__intro">
 
-        <div class="content__description content__description--exercise">
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
 
-                <h3 class="content__title">
-                    Que hace este ejercicio
-                </h3>
-
-                <p class="content__text">
-                    Demuestra como ejecutar eventos de forma programatica con
+            <p class="demo-page__intro-text">
+                Demuestra como ejecutar eventos de forma programatica con
                     <kbd>trigger()</kbd>. Los botones del panel de control no modifican
                     los elementos directamente: disparan el evento y los manejadores
                     registrados con <kbd>on()</kbd> son los que reaccionan.
-                </p>
+            </p>
 
-                <ul class="content__list">
-                    <li>
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> Aprender a ejecutar eventos de forma programatica
+                con <kbd>trigger()</kbd> y entender como los manejadores registrados con
+                <kbd>on()</kbd> reaccionan sin interaccion directa del usuario.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
                         Un mismo elemento puede tener varios manejadores para un evento;
                         <kbd>trigger('click')</kbd> los ejecuta todos.
-                    </li>
-                    <li>
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
                         Puedes disparar eventos nativos como <kbd>click</kbd> o
                         <kbd>submit</kbd> sin interaccion real del usuario.
-                    </li>
-                    <li>
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
                         El registro diferencia entre click manual y evento disparado con
                         <kbd>trigger()</kbd>.
-                    </li>
-                </ul>
+                    </p>
+                </article>
 
             </div>
 
-        
+        </section>
 
-    </section>
-
-
+    </div>
 
 </div>

@@ -4,47 +4,63 @@
 
 
 
+
+
 <div class="main__description">
 
+    <div class="demo-page">
 
-    <!--  -----  Contenido de la Sección  -----  -->
-    <section class="section__content">
+        <section class="demo-page__intro">
 
-        <div class="content__description content__description--exercise">
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
 
-                <h3 class="content__title">
-                    Que hace este ejercicio
-                </h3>
-
-                <p class="content__text">
-                    Demuestra como crear y disparar eventos personalizados con jQuery.
+            <p class="demo-page__intro-text">
+                Demuestra como crear y disparar eventos personalizados con jQuery.
                     El evento <kbd>despertarse</kbd> no existe en el navegador: lo
                     definimos nosotros y lo enlazamos con <kbd>on()</kbd> y
                     <kbd>trigger()</kbd>.
-                </p>
+            </p>
 
-                <ul class="content__list">
-                    <li>
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> Crear y disparar eventos personalizados con
+                <kbd>on()</kbd> y <kbd>trigger()</kbd> para comunicar comportamiento entre
+                componentes sin depender de eventos nativos del navegador.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
                         Los elementos registran un manejador para el evento
                         <kbd>despertarse</kbd>.
-                    </li>
-                    <li>
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
                         Desde el panel de control puedes disparar el evento en todos
                         los elementos, solo en <kbd>div</kbd> o solo en
                         <kbd>li</kbd>.
-                    </li>
-                    <li>
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
                         El registro muestra que elementos recibieron el evento
                         personalizado.
-                    </li>
-                </ul>
+                    </p>
+                </article>
 
             </div>
 
-        
+        </section>
 
-    </section>
-
-
+    </div>
 
 </div>

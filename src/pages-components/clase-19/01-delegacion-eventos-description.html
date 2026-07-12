@@ -6,44 +6,62 @@
 
 
 
+
+
 <div class="main__description">
 
+    <div class="demo-page">
 
-    <!--  -----  Contenido de la Sección  -----  -->
-    <section class="section__content">
+        <section class="demo-page__intro">
 
-        <div class="content__description content__description--exercise">
-
-            <h3 class="content__title">
+            <h3 class="demo-page__features-title">
                 Que hace este ejercicio
             </h3>
 
-            <p class="content__text">
+            <p class="demo-page__intro-text">
                 Demuestra la delegacion de eventos con
                 <kbd>on('evento', selector, manejador)</kbd>. El manejador se
                 registra en un contenedor padre y reacciona tambien a elementos
                 hijos que se añaden dinamicamente al DOM.
             </p>
 
-            <ul class="content__list">
-                <li>
-                    El enlace directo <kbd>.elemento</kbd> solo funciona en los
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> Comprender y aplicar la delegacion de eventos con
+                <kbd>on()</kbd> para que los manejadores registrados en un contenedor
+                padre respondan tambien a elementos añadidos dinamicamente al DOM.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        El enlace directo <kbd>.elemento</kbd> solo funciona en los
                     elementos que existian al cargar la pagina.
-                </li>
-                <li>
-                    La delegacion en <kbd>#listaDelegada</kbd> funciona en
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        La delegacion en <kbd>#listaDelegada</kbd> funciona en
                     elementos nuevos y existentes.
-                </li>
-                <li>
-                    El registro muestra si el click fue atendido por enlace
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        El registro muestra si el click fue atendido por enlace
                     directo o por delegacion.
-                </li>
-            </ul>
+                    </p>
+                </article>
 
-        </div>
+            </div>
 
-    </section>
+        </section>
 
-
+    </div>
 
 </div>

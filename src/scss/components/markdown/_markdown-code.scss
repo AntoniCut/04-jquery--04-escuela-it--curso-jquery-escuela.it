@@ -42,7 +42,7 @@ $markdown-title-color:         #2c3e50;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    // gap: 2rem;
 }
 
 .markdown__title {
@@ -74,7 +74,7 @@ $markdown-title-color:         #2c3e50;
     margin-top: $markdown-gap-top;
     padding: $markdown-room-top 1rem 1rem;
     width: 100%;
-    max-width: 40rem;
+    max-width: 75rem;
     height: 60rem;
     overflow: auto;
     border: 2px solid $markdown-border;
