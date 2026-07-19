@@ -1,0 +1,57 @@
+<!--  
+    *  -----------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /07-ejercicio-06-demo.html  --  /src/pages-components/clase-17/07-ejercicio-06-demo.html  -----  *
+    *  -----------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__demo">
+
+    <section class="ej-panel">
+
+        <p class="ej-panel__hint">
+            Marca el checkbox para desactivar solo los <kbd>textarea</kbd> e <kbd>input[type=text]</kbd>. El resto sigue activo.
+        </p>
+
+        <div class="ej-panel__body">
+            <form class="section-practica__form">
+                
+                <div class="form__group">
+                    <label for="name">Text Input:</label>
+                    <input type="text" name="name" id="name" placeholder="Esto es un campo de tipo text" />
+                </div>
+
+                <fieldset class="form__group">
+                    <legend>Radio Button Choice</legend>
+                    <label for="radio-choice-1">Choice 1</label>
+                    <input type="radio" name="radio-choice" id="radio-choice-1" value="choice-1" />
+                    <label for="radio-choice-2">Choice 2</label>
+                    <input type="radio" name="radio-choice" id="radio-choice-2" value="choice-2" />
+                </fieldset>
+
+                <div class="form__group">
+                    <label for="select-choice">Select Dropdown Choice:</label>
+                    <select name="select-choice" id="select-choice">
+                        <option value="Choice 1">Choice 1</option>
+                        <option value="Choice 2">Choice 2</option>
+                        <option value="Choice 3">Choice 3</option>
+                    </select>
+
+                    <div class="form__group-checkbox">
+                        <label for="checkbox">Checkbox (desactiva text/textarea):</label>
+                        <input type="checkbox" name="checkbox" id="checkbox" />
+                    </div>
+                </div>
+
+                <div class="form__group">
+                    <label for="textarea">Textarea:</label>
+                    <textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+                </div>
+
+            </form>
+        </div>
+
+    </section>
+
+</div>

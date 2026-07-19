@@ -5,35 +5,151 @@
 */
 
 
+@use '../../base/mixins' as mix;
+@use '../../base/variables' as var;
+
+
+$ej-primary: var.$color-primary;
+$ej-accent: #eef6fb;
+$ej-text: #0d2035;
+$ej-muted: #3a5672;
+$ej-border: rgba($ej-primary, 0.18);
+$ej-shadow: 0 8px 28px rgba(3, 106, 173, 0.12);
+
+.ej-panel {
+    width: 100%;
+    max-width: 72rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    &__hint {
+        margin: 0;
+        padding: 1.4rem 1.8rem;
+        font-size: 1.45rem;
+        line-height: 1.65;
+        color: $ej-text;
+        background: $ej-accent;
+        border-left: 5px solid $ej-primary;
+        border-radius: 0 0.8rem 0.8rem 0;
+
+        kbd {
+            background: rgba($ej-primary, 0.1);
+            color: $ej-primary;
+            padding: 0.1rem 0.45rem;
+            border-radius: 4px;
+            font-size: 1.3rem;
+            font-family: monospace;
+        }
+    }
+
+    &__body {
+        padding: 2.4rem;
+        background: linear-gradient(160deg, #fff 0%, #f7fbfe 100%);
+        border: 1px solid $ej-border;
+        border-radius: 1.4rem;
+        box-shadow: $ej-shadow;
+    }
+}
+
+
+.menu-contextual {
+    &__stage {
+        position: relative;
+        min-height: 28rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background:
+            radial-gradient(circle at 20% 20%, rgba(3, 106, 173, 0.08), transparent 45%),
+            radial-gradient(circle at 80% 70%, rgba(217, 77, 61, 0.08), transparent 40%),
+            linear-gradient(160deg, #fff 0%, #f4f9fc 100%);
+        cursor: context-menu;
+        user-select: none;
+    }
+
+    &__menu {
+        position: absolute;
+        display: none;
+        width: 26rem;
+        min-height: 5.5rem;
+        padding: 1.4rem 1.6rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fff;
+        background: linear-gradient(135deg, #d94d3d, #b83d30);
+        text-align: center;
+        border-radius: 1rem;
+        box-shadow: 0 12px 28px rgba(217, 77, 61, 0.35);
+        z-index: 1000;
+    }
+
+    &__info {
+        width: min(100%, 42rem);
+        min-height: 10rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2.2rem;
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: #fff;
+        text-align: center;
+        background: linear-gradient(135deg, $ej-primary, #025a94);
+        border-radius: 1.2rem;
+        box-shadow: 0 12px 28px rgba(3, 106, 173, 0.28);
+
+        span {
+            display: inline-block;
+            min-width: 2.4rem;
+            margin: 0 0.3rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+    }
+}
+
 #menu {
     position: absolute;
     display: none;
-    width: 28rem;
-    height: 6rem;
-    padding: 10px;
-    font-size: 1.6rem;
-    font-weight: bold;
+    width: 26rem;
+    min-height: 5.5rem;
+    padding: 1.4rem 1.6rem;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: #fff;
-    background-color: #f98;
+    background: linear-gradient(135deg, #d94d3d, #b83d30);
     text-align: center;
+    border-radius: 1rem;
+    box-shadow: 0 12px 28px rgba(217, 77, 61, 0.35);
     z-index: 1000;
 }
 
 #info {
-    width: 90%;
-    max-width: 60rem;
-    min-height: 8rem;
+    width: min(100%, 42rem);
+    min-height: 10rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
-    font-size: 1.8rem;
-    font-weight: bold;
+    padding: 2.2rem;
+    font-size: 1.7rem;
+    font-weight: 700;
     color: #fff;
-    background-color: #f98;
-}
-
-#info span {
-    width: 2rem;
     text-align: center;
+    background: linear-gradient(135deg, $ej-primary, #025a94);
+    border-radius: 1.2rem;
+    box-shadow: 0 12px 28px rgba(3, 106, 173, 0.28);
+
+    span {
+        display: inline-block;
+        min-width: 2.4rem;
+        margin: 0 0.3rem;
+        padding: 0.2rem 0.5rem;
+        border-radius: 0.5rem;
+        background: rgba(255, 255, 255, 0.2);
+        text-align: center;
+    }
 }

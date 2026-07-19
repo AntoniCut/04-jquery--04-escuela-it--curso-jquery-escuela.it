@@ -20,8 +20,8 @@
         *  ---------------------------------
     */
 
-    /** @type {JQuery<HTMLParagraphElement>} - Referencia a todos los párrafos */
-    const $parrafos = $('.main__section-practica p');
+    /** @type {JQuery<HTMLParagraphElement>} - Referencia a todos los párrafos de la demo */
+    const $parrafos = $('.main__demo .ej-panel__body p');
 
     /** @type {JQuery<HTMLHRElement>} - Referencia a un elemento HR */
     const $hr = $('<hr>');

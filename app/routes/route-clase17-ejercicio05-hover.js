@@ -1,7 +1,7 @@
 /*
-    *  -----------------------------------------------------------------------------------------------------------------------  *
-    *  -----  /route-clase17-ejercicio05-alternativa1.js  --  /src/routes/route-clase17-ejercicio05-alternativa1.js  -----  *
-    *  -----------------------------------------------------------------------------------------------------------------------  *
+    *  -------------------------------------------------------------------------------------  *
+    *  -----  /route-clase17-ejercicio05-hover.js  --  /src/routes/route-clase17-ejercicio05-hover.js  -----  *
+    *  -------------------------------------------------------------------------------------  *
 */
 
 
@@ -19,9 +19,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +42,33 @@ export const routeClase17Ejercicio05Hover = {
             "#layoutMain": `${pages}/clase-17/06-ejercicio-05-hover.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-17/06-ejercicio-05-hover-description.html`, target: '[data-component-page="ejercicio05HoverDescription"]' },
+            { url: `${pagesComponents}/clase-17/06-ejercicio-05-hover-demo.html`, target: '[data-component-page="ejercicio05HoverDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '06-ejercicio-05-hover-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-17/06-ejercicio-05-hover-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-17`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '06-ejercicio-05-hover-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-17/06-ejercicio-05-hover.css`,
+                urlOutput: `${markdownShikiHtml}/clase-17`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '06-ejercicio-05-hover-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-17/06-ejercicio-05-hover.js`,
+                urlOutput: `${markdownShikiHtml}/clase-17`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 17 - Ejercicio 05 Hover',
         styles: [
             { href: `${styles}/pages/clase-17/06-ejercicio-05-hover.css` },

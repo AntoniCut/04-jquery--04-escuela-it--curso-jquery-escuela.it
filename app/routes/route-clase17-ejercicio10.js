@@ -1,7 +1,7 @@
 /*
-    *  -----------------------------------------------------------------------------------------  *
+    *  -------------------------------------------------------------------------------------  *
     *  -----  /route-clase17-ejercicio10.js  --  /src/routes/route-clase17-ejercicio10.js  -----  *
-    *  -----------------------------------------------------------------------------------------  *
+    *  -------------------------------------------------------------------------------------  *
 */
 
 
@@ -19,9 +19,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +42,33 @@ export const routeClase17Ejercicio10 = {
             "#layoutMain": `${pages}/clase-17/11-ejercicio-10.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-17/11-ejercicio-10-description.html`, target: '[data-component-page="ejercicio10Description"]' },
+            { url: `${pagesComponents}/clase-17/11-ejercicio-10-demo.html`, target: '[data-component-page="ejercicio10Demo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '11-ejercicio-10-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-17/11-ejercicio-10-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-17`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '11-ejercicio-10-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-17/11-ejercicio-10.css`,
+                urlOutput: `${markdownShikiHtml}/clase-17`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '11-ejercicio-10-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-17/11-ejercicio-10.js`,
+                urlOutput: `${markdownShikiHtml}/clase-17`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 17 - Ejercicio 10',
         styles: [
             { href: `${styles}/pages/clase-17/11-ejercicio-10.css` },

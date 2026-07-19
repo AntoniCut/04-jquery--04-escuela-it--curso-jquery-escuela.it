@@ -5,18 +5,93 @@
 */
 
 
+@use '../../base/mixins' as mix;
+@use '../../base/variables' as var;
+
+
+$ej-primary: var.$color-primary;
+$ej-accent: #eef6fb;
+$ej-text: #0d2035;
+$ej-muted: #3a5672;
+$ej-border: rgba($ej-primary, 0.18);
+$ej-shadow: 0 8px 28px rgba(3, 106, 173, 0.12);
+
+.ej-panel {
+    width: 100%;
+    max-width: 72rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    &__hint {
+        margin: 0;
+        padding: 1.4rem 1.8rem;
+        font-size: 1.45rem;
+        line-height: 1.65;
+        color: $ej-text;
+        background: $ej-accent;
+        border-left: 5px solid $ej-primary;
+        border-radius: 0 0.8rem 0.8rem 0;
+
+        kbd {
+            background: rgba($ej-primary, 0.1);
+            color: $ej-primary;
+            padding: 0.1rem 0.45rem;
+            border-radius: 4px;
+            font-size: 1.3rem;
+            font-family: monospace;
+        }
+    }
+
+    &__body {
+        padding: 2.4rem;
+        background: linear-gradient(160deg, #fff 0%, #f7fbfe 100%);
+        border: 1px solid $ej-border;
+        border-radius: 1.4rem;
+        box-shadow: $ej-shadow;
+    }
+}
+
+
+.ej-form {
+    display: grid;
+    gap: 1.8rem;
+
+    &__field {
+        display: grid;
+        gap: 0.6rem;
+
+        label {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: $ej-muted;
+        }
+    }
+}
+
 .input--tab {
     width: 100%;
-    padding: 2rem;
-    border: none;
+    padding: 1.4rem 1.6rem;
+    border: 2px solid #d7e3ee;
     outline: none;
-    border-radius: 5px;
-    background-color: #c9c4c4;
-    font-size: 1.4rem;
+    border-radius: 0.9rem;
+    background-color: #fff;
+    font-size: 1.45rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
     &:focus {
-        outline: none;
-        border-color: rgba(13, 75, 219, 0.24);
-        box-shadow: 0 0 0 3px rgba(13, 75, 219, 0.08);
+        border-color: $ej-primary;
+        box-shadow: 0 0 0 4px rgba(3, 106, 173, 0.12);
+    }
+}
+
+#t1 {
+    border-color: rgba(217, 77, 61, 0.35);
+    background: linear-gradient(180deg, #fff, #fff8f7);
+
+    &:focus {
+        border-color: #d94d3d;
+        box-shadow: 0 0 0 4px rgba(217, 77, 61, 0.12);
     }
 }

@@ -21,21 +21,24 @@
     */
 
 
-    /** @type {JQuery<Document>} -  Documento HTML  */
-    const $document = $(document);
+    /** @type {JQuery<HTMLElement>} -  Contenedor de la demo (ámbito de los eventos)  */
+    const $demo = $(".main__demo");
 
     /** @type {JQuery<HTMLNavElement>} -  Menú contextual  */
     const $menu = $("#menu");
 
-    /** @type {JQuery<HTMLDivElement>} -  Div con id = info  */
+    /** @type {JQuery<HTMLElement>} -  Contenedor de info del botón pulsado  */
     const $info = $("#info");
 
     //  -----  Verificación de elementos HTML  -----
-    if (!$menu.length || !$info.length)
+    if (!$demo.length || !$menu.length || !$info.length)
         throw new Error("No se han encontrado los elementos necesarios en el DOM. Asegúrate de que existen y tienen los IDs correctos.");
 
 
     //  -----  variables  -----
+
+    /** @type {string} - `Namespace de eventos para poder limpiarlos sin afectar al resto de la SPA` */
+    const NS = ".ejercicio07";
 
     /** @type {number} - `Duración en milisegundos que el menú permanece visible` */
     const DURACION_MENU_MS = 2000;
@@ -72,12 +75,23 @@
     };
 
 
-    // ---------------------------------------------
-    // -----  Manejo de eventos del documento  -----
-    // ---------------------------------------------
+    // ------------------------------------------------------------------
+    // -----  Limpieza de handlers huérfanos en document (SPA)  -----
+    // ------------------------------------------------------------------
+    // Versiones anteriores enlazaban contextmenu/mousedown en document
+    // y al cambiar de ruta seguían haciendo preventDefault (botón derecho "muerto").
+    $(document).off("contextmenu").off("mousedown");
+    $demo.off(NS);
+    $menu.off(NS);
+    clearTimeout(retardo);
+
+
+    // -------------------------------------------------
+    // -----  Manejo de eventos dentro de la demo  -----
+    // -------------------------------------------------
 
     //  -----  Evento `contextmenu` para mostrar el menú contextual personalizado  -----
-    $document.on('contextmenu', (e) => {
+    $demo.on(`contextmenu${NS}`, (e) => {
 
         //  -----  Evita que se muestre el menú contextual predeterminado del navegador  -----
         e.preventDefault();
@@ -93,11 +107,17 @@
         /** @type {number} - `Alto del menú contextual` */
         const altoMenu = $menu.outerHeight() || 0;
 
+        /** @type {number} - `Coordenada X del puntero` */
+        const clientX = e.clientX ?? 0;
+
+        /** @type {number} - `Coordenada Y del puntero` */
+        const clientY = e.clientY ?? 0;
+
         /** @type {number} - `Posición horizontal del menú contextual` */
-        const left = Math.max(0, Math.min(e.clientX, window.innerWidth - anchoMenu));
+        const left = Math.max(0, Math.min(clientX, window.innerWidth - anchoMenu));
 
         /** @type {number} - `Posición vertical del menú contextual` */
-        const top = Math.max(0, Math.min(e.clientY, window.innerHeight - altoMenu));
+        const top = Math.max(0, Math.min(clientY, window.innerHeight - altoMenu));
 
         //  -----  Posiciona el menú contextual en la ubicación calculada  -----
         $menu.css({
@@ -115,20 +135,20 @@
 
 
     //  -----  Evento `mouseenter` para evitar que el menú se oculte mientras el ratón está sobre él  -----
-    $menu.on('mouseenter', () => {
+    $menu.on(`mouseenter${NS}`, () => {
         clearTimeout(retardo);
     });
 
 
     //  -----  Evento `mouseleave` para programar el cierre automático cuando el ratón sale del menú  -----
-    $menu.on('mouseleave', () => {
+    $menu.on(`mouseleave${NS}`, () => {
         programarAutoCierre();
     });
 
-    
+
 
     //  -----  Evento `mousedown` para detectar clicks y ocultar el menú contextual  -----
-    $document.on('mousedown', (e) => {
+    $demo.on(`mousedown${NS}`, (e) => {
 
         console.log('Has pulsado el boton ' + e.which + ' del mouse');
 
@@ -146,12 +166,6 @@
         ocultarMenu();
 
     });
-
-
-
-
-
-
 
 
 })(jQuery);

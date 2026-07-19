@@ -5,3 +5,67 @@
 */
 
 
+@use '../../base/mixins' as mix;
+@use '../../base/variables' as var;
+
+$ej-primary: var.$color-primary;
+$ej-accent: #eef6fb;
+$ej-text: #0d2035;
+$ej-muted: #3a5672;
+$ej-border: rgba($ej-primary, 0.18);
+$ej-shadow: 0 8px 28px rgba(3, 106, 173, 0.12);
+
+.ej-panel {
+    width: 100%;
+    max-width: 72rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    &__hint {
+        margin: 0;
+        padding: 1.4rem 1.8rem;
+        font-size: 1.45rem;
+        line-height: 1.65;
+        color: $ej-text;
+        background: $ej-accent;
+        border-left: 5px solid $ej-primary;
+        border-radius: 0 0.8rem 0.8rem 0;
+
+        kbd {
+            background: rgba($ej-primary, 0.1);
+            color: $ej-primary;
+            padding: 0.1rem 0.45rem;
+            border-radius: 4px;
+            font-size: 1.3rem;
+            font-family: monospace;
+        }
+    }
+
+    &__body {
+        padding: 2.4rem;
+        background: linear-gradient(160deg, #fff 0%, #f7fbfe 100%);
+        border: 1px solid $ej-border;
+        border-radius: 1.4rem;
+        box-shadow: $ej-shadow;
+    }
+}
+
+
+.ej-panel__body--text {
+    p {
+        margin: 0 0 0.4rem;
+        font-size: 1.5rem;
+        line-height: 1.75;
+        color: $ej-text;
+    }
+
+    hr {
+        border: none;
+        height: 2px;
+        margin: 1.4rem 0;
+        background: linear-gradient(90deg, $ej-primary, transparent);
+        opacity: 0.55;
+    }
+}

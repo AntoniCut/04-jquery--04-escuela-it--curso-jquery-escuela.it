@@ -1,0 +1,62 @@
+<!--  
+    *  --------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /10-ejercicio-09-description.html  --  /src/pages-components/clase-17/10-ejercicio-09-description.html  -----  *
+    *  --------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
+
+            <p class="demo-page__intro-text">
+                Desactiva el tabulador en un campo de texto, de modo que al pulsar la tecla de tabulación
+                    durante la escritura en el campo de texto no se mueva el foco de la aplicación al siguiente
+                    campo de texto.
+                    Puedes ver que lo mejor para detectar el tabulador es usar el evento "keydown" y el tabulador
+                    tiene el código <kbd>e.which = 9</kbd>.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> interceptar la tecla Tab con <kbd>keydown</kbd> y <kbd>preventDefault()</kbd> para mantener el foco en el campo.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        En el primer campo, Tab no mueve el foco al siguiente input.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Se detecta la tecla con <kbd>keydown</kbd> y <kbd>e.which === 9</kbd>.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        El segundo campo sirve para comprobar que el foco no salta desde el primero.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>

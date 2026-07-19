@@ -1,0 +1,127 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">*/</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">warn</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'-----  12-ejercicio-10-paralax.js  -----'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  Referencias al HTML  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - Representa el objeto jQuery del div */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $miDiv</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"#miDiv"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Validar que el elemento exista en el DOM  -----</span></span>
+<span class="line"><span style="color:#C586C0">    if</span><span style="color:#D4D4D4"> (!</span><span style="color:#9CDCFE">$miDiv</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">length</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">        console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">error</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'No se encontro el elemento #miDiv en el DOM.'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#C586C0">        return</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //*  -----  configuración  -----</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - Activa el cambio cuando el div está cerca de entrar en viewport */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> MARGEN_ACTIVACION</span><span style="color:#D4D4D4"> = </span><span style="color:#B5CEA8">80</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - Multiplicador de desplazamiento horizontal (parallax) */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> FACTOR_X</span><span style="color:#D4D4D4"> = </span><span style="color:#B5CEA8">0.14</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - Multiplicador de desplazamiento vertical (parallax) */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> FACTOR_Y</span><span style="color:#D4D4D4"> = </span><span style="color:#B5CEA8">0.1</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - Límite máximo horizontal en px */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> MAX_X</span><span style="color:#D4D4D4"> = </span><span style="color:#B5CEA8">140</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - Límite máximo vertical en px */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> MAX_Y</span><span style="color:#D4D4D4"> = </span><span style="color:#B5CEA8">100</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**  - Representa el objeto jQuery de la ventana */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $window</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">window</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * -----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `actualizarParalax()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * -----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Calcula el efecto de paralax y actualiza el estilo del div según su posición en el viewport.</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> actualizarParalax</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#6A9955">        /** - Representa el elemento HTML del div */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> miDivElement</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$miDiv</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">get</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  Validar que se obtuvo el elemento HTML del div  -----</span></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (!</span><span style="color:#9CDCFE">miDivElement</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">            console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">error</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'No se pudo obtener el elemento HTML de #miDiv.'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#C586C0">            return</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** - Representa las dimensiones y posición del div en el viewport */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> rectDiv</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">miDivElement</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">getBoundingClientRect</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#6A9955">        /** - Representa la altura de la ventana del navegador */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> altoVentana</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">window</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">innerHeight</span><span style="color:#D4D4D4"> || </span><span style="color:#9CDCFE">$window</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">height</span><span style="color:#D4D4D4">() || </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#6A9955">        /** - Determina si el div está cerca de entrar en el viewport según el margen de activación */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> esVisible</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">rectDiv</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">top</span><span style="color:#D4D4D4"> &#x3C;= (</span><span style="color:#9CDCFE">altoVentana</span><span style="color:#D4D4D4"> - </span><span style="color:#4FC1FF">MARGEN_ACTIVACION</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  Si el div no es visible, resetea estilos y texto, y sale de la función  -----    </span></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (!</span><span style="color:#9CDCFE">esVisible</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#D4D4D4">            </span></span>
+<span class="line"><span style="color:#6A9955">            //  -----  Resetea el estilo del div a su estado inicial  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">            $miDiv</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">({</span></span>
+<span class="line"><span style="color:#CE9178">                    "background-color"</span><span style="color:#9CDCFE">:</span><span style="color:#CE9178"> "#ddd"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">                    "transform"</span><span style="color:#9CDCFE">:</span><span style="color:#CE9178"> "translate(0px, 0px)"</span></span>
+<span class="line"><span style="color:#D4D4D4">                })</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"x: 0px | y: 0px"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">            return</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** - Calcula el avance del div dentro del viewport */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> avance</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">Math</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">max</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">, (</span><span style="color:#9CDCFE">altoVentana</span><span style="color:#D4D4D4"> - </span><span style="color:#4FC1FF">MARGEN_ACTIVACION</span><span style="color:#D4D4D4">) - </span><span style="color:#9CDCFE">rectDiv</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">top</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#6A9955">        /** - Calcula el desplazamiento horizontal del div */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> x</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">Math</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">min</span><span style="color:#D4D4D4">(</span><span style="color:#4FC1FF">MAX_X</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">Math</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">max</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">avance</span><span style="color:#D4D4D4"> * </span><span style="color:#4FC1FF">FACTOR_X</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#6A9955">        /** - Calcula el desplazamiento vertical del div */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> y</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">Math</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">min</span><span style="color:#D4D4D4">(</span><span style="color:#4FC1FF">MAX_Y</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">Math</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">max</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">avance</span><span style="color:#D4D4D4"> * </span><span style="color:#4FC1FF">FACTOR_Y</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  Aplica el estilo de paralax al div y actualiza el texto con la posición actual  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">        $miDiv</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">({</span></span>
+<span class="line"><span style="color:#CE9178">                "background-color"</span><span style="color:#9CDCFE">:</span><span style="color:#CE9178"> "red"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">                "transform"</span><span style="color:#9CDCFE">:</span><span style="color:#CE9178"> `translate(</span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">x</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">toFixed</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">1</span><span style="color:#D4D4D4">)</span><span style="color:#569CD6">}</span><span style="color:#CE9178">px, </span><span style="color:#569CD6">${</span><span style="color:#D4D4D4">(-</span><span style="color:#9CDCFE">y</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">toFixed</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">1</span><span style="color:#D4D4D4">)</span><span style="color:#569CD6">}</span><span style="color:#CE9178">px)`</span></span>
+<span class="line"><span style="color:#D4D4D4">            })</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`x: </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">Math</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">round</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">x</span><span style="color:#D4D4D4">)</span><span style="color:#569CD6">}</span><span style="color:#CE9178">px | y: -</span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">Math</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">round</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">y</span><span style="color:#D4D4D4">)</span><span style="color:#569CD6">}</span><span style="color:#CE9178">px`</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Detecta el scroll y resize para actualizar el efecto de paralax en tiempo real  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    $window</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"scroll"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">actualizarParalax</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"><span style="color:#6A9955">    //  -----  También detecta cambios de tamaño de la ventana para recalcular el efecto de paralax  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    $window</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"resize"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">actualizarParalax</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Captura scroll en cualquier contenedor desplazable del layout SPA  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addEventListener</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"scroll"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">actualizarParalax</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Inicializa el efecto de paralax al cargar la página  -----</span></span>
+<span class="line"><span style="color:#DCDCAA">    actualizarParalax</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">})(</span><span style="color:#9CDCFE">jQuery</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span></code></pre>

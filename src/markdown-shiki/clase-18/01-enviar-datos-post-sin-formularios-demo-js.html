@@ -32,8 +32,11 @@
 <span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLAnchorElement>}</span><span style="color:#6A9955"> - `Enlace para enviar datos` */</span></span>
 <span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $enlace</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#enlace'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Contenedor de salida` */</span></span>
-<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $salida</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#salida'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Contenedor de loading` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $loading</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#loading'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Contenedor de informacion de salida` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $infoSalida</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.form-ajax__output-info'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
 <span class="line"></span>
 <span class="line"><span style="color:#6A9955">    /*</span></span>
@@ -66,8 +69,8 @@
 <span class="line"><span style="color:#6A9955">     */</span></span>
 <span class="line"><span style="color:#D4D4D4">    </span></span>
 <span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> obtenerDatos</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> ({</span></span>
-<span class="line"><span style="color:#9CDCFE">        dato1:</span><span style="color:#CE9178"> "valor del dato 1"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#9CDCFE">        dato2:</span><span style="color:#CE9178"> "valor del dato 2"</span></span>
+<span class="line"><span style="color:#9CDCFE">        dato1:</span><span style="color:#CE9178"> "Curso jQuery - Escuela IT: envío de datos POST sin formularios HTML"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">        dato2:</span><span style="color:#CE9178"> "Petición AJAX con $.post() desde un enlace, sin recargar la página"</span></span>
 <span class="line"><span style="color:#D4D4D4">    });</span></span>
 <span class="line"></span>
 <span class="line"></span>
@@ -82,10 +85,7 @@
 <span class="line"><span style="color:#D4D4D4">    </span></span>
 <span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> manejarRespuesta</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">respuesta</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"><span style="color:#DCDCAA">        ocultarLoading</span><span style="color:#D4D4D4">();</span></span>
-<span class="line"><span style="color:#9CDCFE">        $salida</span></span>
-<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.form-ajax__output-info'</span><span style="color:#D4D4D4">)</span></span>
-<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">respuesta</span><span style="color:#D4D4D4">)</span></span>
-<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">show</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#9CDCFE">        $infoSalida</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">respuesta</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">show</span><span style="color:#D4D4D4">();</span></span>
 <span class="line"><span style="color:#D4D4D4">    };</span></span>
 <span class="line"></span>
 <span class="line"></span>
@@ -98,8 +98,8 @@
 <span class="line"><span style="color:#6A9955">     */</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> mostrarLoading</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
-<span class="line"><span style="color:#DCDCAA">        $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#loading'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">show</span><span style="color:#D4D4D4">();</span></span>
-<span class="line"><span style="color:#9CDCFE">        $salida</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.form-ajax__output-info'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">hide</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#9CDCFE">        $loading</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">show</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#9CDCFE">        $infoSalida</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">hide</span><span style="color:#D4D4D4">();</span></span>
 <span class="line"><span style="color:#D4D4D4">    };</span></span>
 <span class="line"></span>
 <span class="line"></span>
@@ -112,7 +112,7 @@
 <span class="line"><span style="color:#6A9955">     */</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> ocultarLoading</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
-<span class="line"><span style="color:#DCDCAA">        $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#loading'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">hide</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#9CDCFE">        $loading</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">hide</span><span style="color:#D4D4D4">();</span></span>
 <span class="line"><span style="color:#D4D4D4">    };</span></span>
 <span class="line"></span>
 <span class="line"></span>

@@ -5,42 +5,111 @@
 */
 
 
-.main__section-practica {
-    min-height: 30rem;
+@use '../../base/mixins' as mix;
+@use '../../base/variables' as var;
+
+
+$ej-primary: var.$color-primary;
+$ej-accent: #eef6fb;
+$ej-text: #0d2035;
+$ej-muted: #3a5672;
+$ej-border: rgba($ej-primary, 0.18);
+$ej-shadow: 0 8px 28px rgba(3, 106, 173, 0.12);
+
+.ej-panel {
+    width: 100%;
+    max-width: 72rem;
+    margin: 0 auto;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    &__hint {
+        margin: 0;
+        padding: 1.4rem 1.8rem;
+        font-size: 1.45rem;
+        line-height: 1.65;
+        color: $ej-text;
+        background: $ej-accent;
+        border-left: 5px solid $ej-primary;
+        border-radius: 0 0.8rem 0.8rem 0;
+
+        kbd {
+            background: rgba($ej-primary, 0.1);
+            color: $ej-primary;
+            padding: 0.1rem 0.45rem;
+            border-radius: 4px;
+            font-size: 1.3rem;
+            font-family: monospace;
+        }
+    }
+
+    &__body {
+        padding: 2.4rem;
+        background: linear-gradient(160deg, #fff 0%, #f7fbfe 100%);
+        border: 1px solid $ej-border;
+        border-radius: 1.4rem;
+        box-shadow: $ej-shadow;
+    }
+}
+
+
+.ej-panel__body--menus {
+    display: flex;
     flex-wrap: wrap;
-    gap: 5rem;
+    justify-content: center;
+    gap: 2.4rem;
 }
 
 .practica__forma1,
 .practica__forma2 {
-    width: 30rem;
-    height: 20rem;
+    width: min(100%, 28rem);
+    min-height: 18rem;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.4rem;
+    padding: 2rem;
+    border-radius: 1.2rem;
+    background: #fff;
+    border: 1px solid $ej-border;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+.practica__title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $ej-primary;
+}
+
+.control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.1rem 1.4rem;
+    color: #fff;
+    background: linear-gradient(135deg, $ej-primary, #025a94);
+    text-decoration: none;
+    text-align: center;
+    border-radius: 0.8rem;
+    font-weight: 700;
+    box-shadow: 0 8px 18px rgba(3, 106, 173, 0.25);
+    transition: transform 0.2s ease, filter 0.2s ease;
+
+    &:hover {
+        transform: translateY(-1px);
+        filter: brightness(1.05);
+    }
 }
 
 .menu {
     display: none;
-    width: 20rem;
-    padding: 20px;
+    width: 100%;
+    padding: 1.4rem;
     color: #fff;
-    background: #840;
-}
-
-.control {
-    display: inline-block;
-    padding: 10px;
-    color: #fff;
-    background: #048;
-    text-decoration: none;
+    background: linear-gradient(135deg, #d94d3d, #b83d30);
+    border-radius: 0.8rem;
+    font-weight: 600;
     text-align: center;
-    
-    &:hover {
-        background: #06a;
-    }
-
+    box-shadow: 0 8px 18px rgba(217, 77, 61, 0.25);
 }
