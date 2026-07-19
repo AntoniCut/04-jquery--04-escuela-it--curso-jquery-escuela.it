@@ -1,80 +1,86 @@
 <!--  
-    *  -----------------------------------------------------------------  *
+    *  ---------------------------------------------------------------------------------  *
     *  -----  /01-load.html  --  /src/pages/clase-16/01-load.html  -----  *
-    *  -----------------------------------------------------------------  *
+    *  ---------------------------------------------------------------------------------  *
 -->
 
 
 
 <div class="main__container">
 
+    <!--  -----  Header de la Sección  -----  -->
+    <header class="section__header">
 
-    <!--  -----  INFO  -----  -->
-    <section class="main__section-info">
+        <h2 class="section__title" title="1. Load">
+            Clase 16 - 1. Load - Descripción
+        </h2>
 
+    </header>
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
-
-            <h2 class="section__title" title="Load">
-                Clase 16 - 1. Load
-            </h2>
-
-        </header>
-
-        <!--  -----  Contenido de la Sección  -----  -->
-        <article class="section__content">
-
-            <div class="content__description content__description--exercise">
-
-                <h3 class="content__title">
-                    Que hace este ejercicio
-                </h3>
-
-                <p class="content__text">
-                    Este ejercicio usa el método <kbd>.load()</kbd> de jQuery para hacer una petición AJAX
-                    a un archivo PHP e inyectar el HTML devuelto directamente dentro de un elemento del DOM.
-                </p>
-
-                <ul class="content__list">
-                    <li>
-                        Al pulsar el botón se llama a <kbd>$salida.load(url, callback)</kbd>, que realiza
-                        una petición GET al servidor y vuelca la respuesta HTML dentro de <kbd>#salida</kbd>.
-                    </li>
-                    <li>
-                        El segundo argumento de <kbd>.load()</kbd> es un <kbd>callback</kbd> que se ejecuta
-                        cuando la carga finaliza, en este caso lanza un <kbd>alert</kbd> de confirmación.
-                    </li>
-                    <li>
-                        A diferencia de <kbd>$.get()</kbd>, <kbd>.load()</kbd> es un método de instancia:
-                        actúa directamente sobre el elemento jQuery seleccionado sin necesidad de manipular
-                        la respuesta manualmente.
-                    </li>
-                </ul>
-
-                <p class="content__note">
-                    <kbd> Objetivo: </kbd> comprender cómo <kbd>.load()</kbd> combina la petición AJAX y la
-                    inserción del contenido en una sola llamada, simplificando el código cuando solo se
-                    necesita volcar HTML remoto en un elemento.
-                </p>
-
-            </div>
-
-        </article>
+    <!--  -----  Descripción de la Página  -----  -->
+    <section data-component-page="loadDescription">
 
     </section>
 
 
-    <!--  -----  Práctica  -----  -->
-    <section class="main__section-practica">
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
 
-        <div id="btnLoad"> Haz Click - método load </div>
+        <h2 class="section__title" title="1. Load">
+            Clase 16 - 1. Load - Demo
+        </h2>
 
-            <div id="salida"> 
-                <h3 class="info"> Aquí se mostrara lo que me traiga por LOAD ... </h3>
-            </div>
+    </header>
+
+    <!--  -----  Demo de la Página  -----  -->
+    <section data-component-page="loadDemo">
 
     </section>
 
+
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
+
+        <h2 class="section__title" title="1. Load">
+            Clase 16 - 1. Load - Código Markdown
+        </h2>
+
+    </header>
+
+
+    <!--  -----  Código Markdown  -----  -->
+    <section class="main__section-markdown">
+
+        <div class="markdown__container">
+
+            <article 
+                data-shiki="codeHtml" 
+                data-label="load.html" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .html tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeCss" 
+                data-label="clase-16-styles.css" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .css tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeJs" 
+                data-label="load.js" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .js tipo 'markdown'  *****  -->
+            </article>
+            
+
+        </div>
+
+    </section>
+       
 
 </div>

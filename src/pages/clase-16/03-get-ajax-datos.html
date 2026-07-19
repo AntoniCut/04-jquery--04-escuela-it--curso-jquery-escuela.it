@@ -1,108 +1,86 @@
 <!--  
-    *  -------------------------------------------------------------------------------------  *
+    *  ---------------------------------------------------------------------------------  *
     *  -----  /03-get-ajax-datos.html  --  /src/pages/clase-16/03-get-ajax-datos.html  -----  *
-    *  -------------------------------------------------------------------------------------  *
+    *  ---------------------------------------------------------------------------------  *
 -->
 
 
 
 <div class="main__container">
 
+    <!--  -----  Header de la Sección  -----  -->
+    <header class="section__header">
 
-    <!--  -----  INFO  -----  -->
-    <section class="main__section-info">
+        <h2 class="section__title" title="3. Get AJAX Datos">
+            Clase 16 - 3. Get AJAX Datos - Descripción
+        </h2>
 
+    </header>
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
-
-            <h2 class="section__title" title="Get AJAX Datos">
-                Clase 16 - 3. Get AJAX Datos
-            </h2>
-
-        </header>
-
-        <!--  -----  Contenido de la Sección  -----  -->
-        <article class="section__content">
-
-            <div class="content__description content__description--exercise">
-
-                <h3 class="content__title">
-                    Que hace este ejercicio
-                </h3>
-
-                <p class="content__text">
-                    Este ejercicio amplía <kbd>$.get()</kbd> enviando datos al servidor (nombre y apellido)
-                    y utiliza los <strong>Global Ajax Event Handlers</strong> de jQuery para registrar
-                    en tiempo real cada fase del ciclo de vida de la petición.
-                </p>
-
-                <ul class="content__list">
-                    <li>
-                        Se pasa un objeto <kbd>myJSON</kbd> como segundo argumento de <kbd>$.get()</kbd>;
-                        jQuery lo serializa y lo envía como parámetros de la petición GET al servidor.
-                    </li>
-                    <li>
-                        Los manejadores globales <kbd>ajaxStart</kbd>, <kbd>ajaxSend</kbd>,
-                        <kbd>ajaxSuccess</kbd>, <kbd>ajaxError</kbd> y <kbd>ajaxComplete</kbd> se registran
-                        sobre <kbd>$(document)</kbd> y disparan entradas en el panel de log lateral.
-                    </li>
-                    <li>
-                        El indicador <kbd>#cargando</kbd> actúa como overlay dentro de <kbd>#salida</kbd>:
-                        aparece al iniciar la petición y desaparece al completarse, sin provocar saltos
-                        en el layout.
-                    </li>
-                </ul>
-
-                <p class="content__note">
-                    <kbd> Objetivo: </kbd> comprender cómo enviar datos con <kbd>$.get()</kbd> y cómo
-                    los Global Ajax Event Handlers permiten observar el ciclo completo de cualquier
-                    petición AJAX en la página.
-                </p>
-
-            </div>
-
-        </article>
+    <!--  -----  Descripción de la Página  -----  -->
+    <section data-component-page="getAjaxDatosDescription">
 
     </section>
 
 
-    <!--  -----  Práctica  -----  -->
-    <section class="main__section-practica">
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
 
-        <a href="#" id="enlace"> Haz Click - Método GET con datos </a>
+        <h2 class="section__title" title="3. Get AJAX Datos">
+            Clase 16 - 3. Get AJAX Datos - Demo
+        </h2>
 
-        <!--  -----  Área de resultado con overlay de carga  -----  -->
-        <div id="salida">
+    </header>
 
-            <!--  -----  Indicador de carga (overlay)  -----  -->
-            <div id="cargando">
-                <span class="cargando__spinner"></span>
-                <span class="cargando__text"> Cargando... </span>
-            </div>
+    <!--  -----  Demo de la Página  -----  -->
+    <section data-component-page="getAjaxDatosDemo">
 
-            <!--  -----  Contenido de la respuesta  -----  -->
-            <div class="salida__content">
-                <h3 class="info"> Aquí se mostrarán los datos traídos por GET... </h3>
-            </div>
+    </section>
+
+
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
+
+        <h2 class="section__title" title="3. Get AJAX Datos">
+            Clase 16 - 3. Get AJAX Datos - Código Markdown
+        </h2>
+
+    </header>
+
+
+    <!--  -----  Código Markdown  -----  -->
+    <section class="main__section-markdown">
+
+        <div class="markdown__container">
+
+            <article 
+                data-shiki="codeHtml" 
+                data-label="get-ajax-datos.html" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .html tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeCss" 
+                data-label="clase-16-styles.css" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .css tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeJs" 
+                data-label="get-ajax-datos.js" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .js tipo 'markdown'  *****  -->
+            </article>
+            
 
         </div>
 
-        <!--  -----  Log de eventos AJAX  -----  -->
-        <aside class="ajax-log">
-
-            <header class="ajax-log__header">
-                <h4 class="ajax-log__title"> Eventos AJAX </h4>
-                <button type="button" id="ajax-log-clear" class="ajax-log__clear"> Limpiar </button>
-            </header>
-
-            <ul id="ajax-log" class="ajax-log__list">
-                <li class="ajax-log__empty"> Sin eventos aún. Haz clic en el enlace. </li>
-            </ul>
-
-        </aside>
-
     </section>
-
+       
 
 </div>

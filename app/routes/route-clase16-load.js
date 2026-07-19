@@ -1,7 +1,7 @@
 /*
-    *  ---------------------------------------------------------------------------  *
+    *  -------------------------------------------------------------------------------------  *
     *  -----  /route-clase16-load.js  --  /src/routes/route-clase16-load.js  -----  *
-    *  ---------------------------------------------------------------------------  *
+    *  -------------------------------------------------------------------------------------  *
 */
 
 
@@ -19,9 +19,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,9 +42,36 @@ export const routeClase16Load = {
             "#layoutMain": `${pages}/clase-16/01-load.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-16/01-load-description.html`, target: '[data-component-page="loadDescription"]' },
+            { url: `${pagesComponents}/clase-16/01-load-demo.html`, target: '[data-component-page="loadDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '01-load-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-16/01-load-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-16`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '01-load-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-16/clase-16-styles.css`,
+                urlOutput: `${markdownShikiHtml}/clase-16`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '01-load-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-16/01-load.js`,
+                urlOutput: `${markdownShikiHtml}/clase-16`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 16 - 1. Load',
         styles: [
-            { href: `${styles}/pages/clase-16/01-load-get-ajax.css` },
+            { href: `${styles}/pages/clase-16/clase-16-styles.css` },
         ],
         scripts: [
             { src: `${scripts}/tooltips.js` },
@@ -51,5 +80,5 @@ export const routeClase16Load = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };

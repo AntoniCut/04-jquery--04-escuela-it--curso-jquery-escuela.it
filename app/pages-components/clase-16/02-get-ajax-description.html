@@ -1,0 +1,59 @@
+<!--  
+    *  --------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /02-get-ajax-description.html  --  /src/pages-components/clase-16/02-get-ajax-description.html  -----  *
+    *  --------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
+
+            <p class="demo-page__intro-text">
+                Este ejercicio usa el método <kbd>$.get()</kbd> de jQuery para hacer una petición AJAX
+                GET a un archivo PHP y mostrar el contenido recibido en el área de resultado.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> entender el uso básico de <kbd>$.get()</kbd> con su callback de éxito, y cómo parsear una respuesta HTML para extraer solo el fragmento que interesa antes de mostrarlo.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Al hacer clic se lanza <kbd>$.get(url, callback)</kbd>; la respuesta llega como texto HTML.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Se extrae el <kbd>&lt;h3&gt;</kbd> del HTML parseado con <kbd>.find("h3")</kbd> y se inserta en <kbd>#salida</kbd>.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        A diferencia de <kbd>.load()</kbd>, <kbd>$.get()</kbd> ofrece control total sobre la respuesta antes de insertarla.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>

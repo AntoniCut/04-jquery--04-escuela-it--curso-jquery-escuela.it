@@ -1,0 +1,59 @@
+<!--  
+    *  --------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /01-load-description.html  --  /src/pages-components/clase-16/01-load-description.html  -----  *
+    *  --------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
+
+            <p class="demo-page__intro-text">
+                Este ejercicio usa el método <kbd>.load()</kbd> de jQuery para hacer una petición AJAX
+                a un archivo PHP e inyectar el HTML devuelto directamente dentro de un elemento del DOM.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> comprender cómo <kbd>.load()</kbd> combina la petición AJAX y la inserción del contenido en una sola llamada, simplificando el código cuando solo se necesita volcar HTML remoto en un elemento.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Al pulsar el botón se llama a <kbd>$salida.load(url, callback)</kbd>, que realiza una petición GET y vuelca la respuesta HTML dentro de <kbd>#salida</kbd>.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        El segundo argumento de <kbd>.load()</kbd> es un <kbd>callback</kbd> que se ejecuta cuando la carga finaliza.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        A diferencia de <kbd>$.get()</kbd>, <kbd>.load()</kbd> actúa directamente sobre el elemento jQuery seleccionado.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>

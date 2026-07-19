@@ -1,80 +1,86 @@
 <!--  
-    *  -------------------------------------------------------------------------  *
+    *  ---------------------------------------------------------------------------------  *
     *  -----  /02-get-ajax.html  --  /src/pages/clase-16/02-get-ajax.html  -----  *
-    *  -------------------------------------------------------------------------  *
+    *  ---------------------------------------------------------------------------------  *
 -->
 
 
 
 <div class="main__container">
 
+    <!--  -----  Header de la Sección  -----  -->
+    <header class="section__header">
 
-    <!--  -----  INFO  -----  -->
-    <section class="main__section-info">
+        <h2 class="section__title" title="2. Get AJAX">
+            Clase 16 - 2. Get AJAX - Descripción
+        </h2>
 
+    </header>
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
-
-            <h2 class="section__title" title="Get AJAX">
-                Clase 16 - 2. Get AJAX
-            </h2>
-
-        </header>
-
-        <!--  -----  Contenido de la Sección  -----  -->
-        <article class="section__content">
-
-            <div class="content__description content__description--exercise">
-
-                <h3 class="content__title">
-                    Que hace este ejercicio
-                </h3>
-
-                <p class="content__text">
-                    Este ejercicio usa el método <kbd>$.get()</kbd> de jQuery para hacer una petición AJAX
-                    GET a un archivo PHP y mostrar el contenido recibido en el área de resultado.
-                </p>
-
-                <ul class="content__list">
-                    <li>
-                        Al hacer clic en el enlace se lanza <kbd>$.get(url, callback)</kbd>; la respuesta
-                        llega como texto HTML que se parsea creando un elemento <kbd>div</kbd> temporal.
-                    </li>
-                    <li>
-                        Se extrae el <kbd>&lt;h3&gt;</kbd> del HTML parseado con <kbd>.find('h3')</kbd> y
-                        se inserta en <kbd>#salida</kbd> usando <kbd>.empty().append()</kbd> para no
-                        acumular respuestas anteriores.
-                    </li>
-                    <li>
-                        A diferencia de <kbd>.load()</kbd>, <kbd>$.get()</kbd> es un método global de jQuery
-                        que ofrece control total sobre la respuesta antes de insertarla en el DOM.
-                    </li>
-                </ul>
-
-                <p class="content__note">
-                    <kbd> Objetivo: </kbd> entender el uso básico de <kbd>$.get()</kbd> con su callback de
-                    éxito, y cómo parsear una respuesta HTML para extraer solo el fragmento que interesa
-                    antes de mostrarlo.
-                </p>
-
-            </div>
-
-        </article>
+    <!--  -----  Descripción de la Página  -----  -->
+    <section data-component-page="getAjaxDescription">
 
     </section>
 
 
-    <!--  -----  Práctica  -----  -->
-    <section class="main__section-practica">
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
 
-        <a href="#" id="enlace"> Haz Click - Método GET </a>
-   	            
-            <div id="salida"> 
-                <h3 class="info"> Aquí se mostrara lo que me traiga por GET ... </h3>
-            </div>
+        <h2 class="section__title" title="2. Get AJAX">
+            Clase 16 - 2. Get AJAX - Demo
+        </h2>
+
+    </header>
+
+    <!--  -----  Demo de la Página  -----  -->
+    <section data-component-page="getAjaxDemo">
 
     </section>
 
+
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
+
+        <h2 class="section__title" title="2. Get AJAX">
+            Clase 16 - 2. Get AJAX - Código Markdown
+        </h2>
+
+    </header>
+
+
+    <!--  -----  Código Markdown  -----  -->
+    <section class="main__section-markdown">
+
+        <div class="markdown__container">
+
+            <article 
+                data-shiki="codeHtml" 
+                data-label="get-ajax.html" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .html tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeCss" 
+                data-label="clase-16-styles.css" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .css tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeJs" 
+                data-label="get-ajax.js" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .js tipo 'markdown'  *****  -->
+            </article>
+            
+
+        </div>
+
+    </section>
+       
 
 </div>

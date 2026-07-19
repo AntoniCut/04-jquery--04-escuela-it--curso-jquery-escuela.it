@@ -1,0 +1,61 @@
+<!--  
+    *  --------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /04-get-ajax-datos-objeto-ajax-description.html  --  /src/pages-components/clase-16/04-get-ajax-datos-objeto-ajax-description.html  -----  *
+    *  --------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
+
+            <p class="demo-page__intro-text">
+                Este ejercicio replica la funcionalidad del ejercicio 3 pero sustituye el callback
+                de <kbd>$.get()</kbd> por los <strong>Deferred Methods</strong>: <kbd>.done()</kbd>,
+                <kbd>.fail()</kbd> y <kbd>.always()</kbd>, combinándolos con los Global Ajax Event
+                Handlers.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> entender la diferencia entre los Deferred Methods (ámbito local de una petición) y los Global Ajax Event Handlers (ámbito global del documento), y saber cuándo usar cada patrón.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        <kbd>$.get()</kbd> devuelve un <kbd>jqXHR</kbd>; sobre él se encadenan <kbd>.done()</kbd>, <kbd>.fail()</kbd> y <kbd>.always()</kbd>.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Los Deferred Methods son locales a la petición; los Global Ajax Event Handlers reaccionan a cualquier petición AJAX.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        El overlay de carga y el panel de log registran el ciclo completo de la petición.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>

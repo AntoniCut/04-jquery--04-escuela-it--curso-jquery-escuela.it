@@ -28,8 +28,8 @@
     /**  @type {JQuery<HTMLDivElement>} - `Div con id = salida`  */
     const $salida = $('#salida');
 
-    /**  @type {JQuery<HTMLDivElement>} - `Div con clase salida__content`  */
-    const $salidaContent = $salida.find('.salida__content');
+    /**  @type {JQuery<HTMLElement>} - `Contenedor de info de salida (form-ajax)`  */
+    const $salidaContent = $salida.find('.form-ajax__output-info');
 
     /**  @type {JQuery<HTMLDivElement>} - `Div con id = cargando`  */
     const $cargando = $('#cargando');

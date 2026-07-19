@@ -1,7 +1,7 @@
 /*
-    *  -----------------------------------------------------------------------------------  *
+    *  -------------------------------------------------------------------------------------  *
     *  -----  /route-clase16-get-ajax.js  --  /src/routes/route-clase16-get-ajax.js  -----  *
-    *  -----------------------------------------------------------------------------------  *
+    *  -------------------------------------------------------------------------------------  *
 */
 
 
@@ -19,9 +19,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -29,7 +31,7 @@ const {
 export const routeClase16GetAjax = {
         id: 'clase16GetAjax',
         favicon: favicon,
-        pageTitle: 'Clase 16 - 2. Get Ajax',
+        pageTitle: 'Clase 16 - 2. Get AJAX',
         path: '/clase16-ajax-interfaz-alto-nivel/get-ajax',
         components: {
             "#layoutHeader": layoutHeader,
@@ -40,9 +42,36 @@ export const routeClase16GetAjax = {
             "#layoutMain": `${pages}/clase-16/02-get-ajax.html`,
             "#layoutFooter": layoutFooter,
         },
-        headerTitle: 'Clase 16 - 2. Get Ajax',
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-16/02-get-ajax-description.html`, target: '[data-component-page="getAjaxDescription"]' },
+            { url: `${pagesComponents}/clase-16/02-get-ajax-demo.html`, target: '[data-component-page="getAjaxDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '02-get-ajax-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-16/02-get-ajax-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-16`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '02-get-ajax-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-16/clase-16-styles.css`,
+                urlOutput: `${markdownShikiHtml}/clase-16`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '02-get-ajax-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-16/02-get-ajax.js`,
+                urlOutput: `${markdownShikiHtml}/clase-16`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
+        headerTitle: 'Clase 16 - 2. Get AJAX',
         styles: [
-            { href: `${styles}/pages/clase-16/01-load-get-ajax.css` },
+            { href: `${styles}/pages/clase-16/clase-16-styles.css` },
         ],
         scripts: [
             { src: `${scripts}/tooltips.js` },
@@ -51,5 +80,5 @@ export const routeClase16GetAjax = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };

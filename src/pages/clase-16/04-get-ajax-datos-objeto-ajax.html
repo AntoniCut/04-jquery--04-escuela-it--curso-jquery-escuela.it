@@ -1,120 +1,86 @@
 <!--  
-    *  -------------------------------------------------------------------------------------------------------------  *
+    *  ---------------------------------------------------------------------------------  *
     *  -----  /04-get-ajax-datos-objeto-ajax.html  --  /src/pages/clase-16/04-get-ajax-datos-objeto-ajax.html  -----  *
-    *  -------------------------------------------------------------------------------------------------------------  *
+    *  ---------------------------------------------------------------------------------  *
 -->
 
 
 
 <div class="main__container">
 
+    <!--  -----  Header de la Sección  -----  -->
+    <header class="section__header">
 
-    <!--  -----  INFO  -----  -->
-    <section class="main__section-info">
+        <h2 class="section__title" title="4. Get AJAX Datos Objeto AJAX">
+            Clase 16 - 4. Get AJAX Datos Objeto AJAX - Descripción
+        </h2>
 
+    </header>
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
-
-            <h2 class="section__title" title="Get AJAX Datos Objeto AJAX">
-                Clase 16 - 4. Get AJAX Datos Objeto AJAX
-            </h2>
-
-        </header>
-
-        <!--  -----  Contenido de la Sección  -----  -->
-        <article class="section__content">
-
-            <div class="content__description content__description--exercise">
-
-                <h3 class="content__title">
-                    Que hace este ejercicio
-                </h3>
-
-                <p class="content__text">
-                    Este ejercicio replica la funcionalidad del ejercicio 3 pero sustituye el callback
-                    de <kbd>$.get()</kbd> por los <strong>Deferred Methods</strong>: <kbd>.done()</kbd>,
-                    <kbd>.fail()</kbd> y <kbd>.always()</kbd>, combinándolos con los Global Ajax Event
-                    Handlers.
-                </p>
-
-                <ul class="content__list">
-                    <li>
-                        <kbd>$.get()</kbd> devuelve un objeto <kbd>jqXHR</kbd>; sobre él se encadenan
-                        <kbd>.done()</kbd> para manejar el éxito, <kbd>.fail()</kbd> para los errores y
-                        <kbd>.always()</kbd> para la lógica que debe ejecutarse siempre.
-                    </li>
-                    <li>
-                        Los Deferred Methods son locales a la petición, mientras que los Global Ajax Event
-                        Handlers (<kbd>ajaxStart</kbd>, <kbd>ajaxSend</kbd>…) reaccionan a cualquier
-                        petición AJAX activa en la página, complementándose entre sí.
-                    </li>
-                    <li>
-                        El overlay de carga incluye además un <kbd>&lt;img&gt;</kbd> GIF animado junto al
-                        spinner CSS, y todos los eventos quedan registrados en el panel de log lateral.
-                    </li>
-                </ul>
-
-                <p class="content__note">
-                    <kbd> Objetivo: </kbd> entender la diferencia entre los Deferred Methods (ámbito local
-                    de una petición) y los Global Ajax Event Handlers (ámbito global del documento), y
-                    saber cuándo usar cada patrón.
-                </p>
-
-            </div>
-
-        </article>
+    <!--  -----  Descripción de la Página  -----  -->
+    <section data-component-page="getAjaxDatosObjetoAjaxDescription">
 
     </section>
 
 
-     <!--  -----  Práctica  -----  -->
-    <section class="main__section-practica">
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
 
-        <a href="#" id="enlace"> Haz Click - Método GET con datos y Objeto AJAX </a>
+        <h2 class="section__title" title="4. Get AJAX Datos Objeto AJAX">
+            Clase 16 - 4. Get AJAX Datos Objeto AJAX - Demo
+        </h2>
 
-        <!--  -----  Área de resultado con overlay de carga  -----  -->
-        <div id="salida">
+    </header>
 
-            <!--  -----  Indicador de carga (overlay)  -----  -->
-            <div id="cargando">
-                
-                <span class="cargando__spinner">
-                    <!--*  -----  Spinner animado -----  -->
-                </span>
+    <!--  -----  Demo de la Página  -----  -->
+    <section data-component-page="getAjaxDatosObjetoAjaxDemo">
 
-                <span class="cargando__text"> Cargando... </span>
+    </section>
 
-                <!--*  -----  Imagen de carga -----  -->
-                <img 
-                    src="../../../assets/img/clase-16/loading.gif"
-                    class="cargando__img"
-                    alt="Cargando..."
-                >
-            </div>
 
-            <!--  -----  Contenido de la respuesta  -----  -->
-            <div class="salida__content">
-                <h3 class="info"> Aquí se mostrarán los datos traídos por GET y Objeto AJAX... </h3>
-            </div>
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
+
+        <h2 class="section__title" title="4. Get AJAX Datos Objeto AJAX">
+            Clase 16 - 4. Get AJAX Datos Objeto AJAX - Código Markdown
+        </h2>
+
+    </header>
+
+
+    <!--  -----  Código Markdown  -----  -->
+    <section class="main__section-markdown">
+
+        <div class="markdown__container">
+
+            <article 
+                data-shiki="codeHtml" 
+                data-label="get-ajax-datos-objeto-ajax.html" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .html tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeCss" 
+                data-label="clase-16-styles.css" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .css tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeJs" 
+                data-label="get-ajax-datos-objeto-ajax.js" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .js tipo 'markdown'  *****  -->
+            </article>
+            
 
         </div>
 
-        <!--  -----  Log de eventos AJAX  -----  -->
-        <aside class="ajax-log">
-
-            <header class="ajax-log__header">
-                <h4 class="ajax-log__title"> Eventos AJAX </h4>
-                <button type="button" id="ajax-log-clear" class="ajax-log__clear"> Limpiar </button>
-            </header>
-
-            <ul id="ajax-log" class="ajax-log__list">
-                <li class="ajax-log__empty"> Sin eventos aún. Haz clic en el enlace. </li>
-            </ul>
-
-        </aside>
-
     </section>
-
+       
 
 </div>

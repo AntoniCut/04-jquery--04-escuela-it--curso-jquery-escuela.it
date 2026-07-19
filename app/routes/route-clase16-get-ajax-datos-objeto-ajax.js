@@ -1,7 +1,7 @@
 /*
-    *  -----------------------------------------------------------------------------------------------------------------------  *
+    *  -------------------------------------------------------------------------------------  *
     *  -----  /route-clase16-get-ajax-datos-objeto-ajax.js  --  /src/routes/route-clase16-get-ajax-datos-objeto-ajax.js  -----  *
-    *  -----------------------------------------------------------------------------------------------------------------------  *
+    *  -------------------------------------------------------------------------------------  *
 */
 
 
@@ -19,9 +19,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -29,7 +31,7 @@ const {
 export const routeClase16GetAjaxDatosObjetoAjax = {
         id: 'clase16GetAjaxDatosObjetoAjax',
         favicon: favicon,
-        pageTitle: 'Clase 16 - 4. Get Ajax Datos Objeto Ajax',
+        pageTitle: 'Clase 16 - 4. Get AJAX Datos Objeto AJAX',
         path: '/clase16-ajax-interfaz-alto-nivel/get-ajax-datos-objeto-ajax',
         components: {
             "#layoutHeader": layoutHeader,
@@ -40,9 +42,36 @@ export const routeClase16GetAjaxDatosObjetoAjax = {
             "#layoutMain": `${pages}/clase-16/04-get-ajax-datos-objeto-ajax.html`,
             "#layoutFooter": layoutFooter,
         },
-        headerTitle: 'Clase 16 - 4. Get Ajax Datos Objeto Ajax',
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-16/04-get-ajax-datos-objeto-ajax-description.html`, target: '[data-component-page="getAjaxDatosObjetoAjaxDescription"]' },
+            { url: `${pagesComponents}/clase-16/04-get-ajax-datos-objeto-ajax-demo.html`, target: '[data-component-page="getAjaxDatosObjetoAjaxDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '04-get-ajax-datos-objeto-ajax-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-16/04-get-ajax-datos-objeto-ajax-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-16`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '04-get-ajax-datos-objeto-ajax-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-16/clase-16-styles.css`,
+                urlOutput: `${markdownShikiHtml}/clase-16`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '04-get-ajax-datos-objeto-ajax-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-16/04-get-ajax-datos-objeto-ajax.js`,
+                urlOutput: `${markdownShikiHtml}/clase-16`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
+        headerTitle: 'Clase 16 - 4. Get AJAX Datos Objeto AJAX',
         styles: [
-            { href: `${styles}/pages/clase-16/02-get-ajax-objeto-ajax-datos.css` },
+            { href: `${styles}/pages/clase-16/clase-16-styles.css` },
         ],
         scripts: [
             { src: `${scripts}/tooltips.js` },
@@ -51,5 +80,5 @@ export const routeClase16GetAjaxDatosObjetoAjax = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };

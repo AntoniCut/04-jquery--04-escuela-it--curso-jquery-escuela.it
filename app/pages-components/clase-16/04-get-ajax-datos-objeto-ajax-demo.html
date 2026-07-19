@@ -1,0 +1,47 @@
+<!--  
+    *  -----------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /04-get-ajax-datos-objeto-ajax-demo.html  --  /src/pages-components/clase-16/04-get-ajax-datos-objeto-ajax-demo.html  -----  *
+    *  -----------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__demo">
+
+
+    <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+
+    <div class="form-ajax">
+
+        <h3 class="form-ajax__title">
+            $.get() + Deferred Methods
+        </h3>
+
+        <div class="form-ajax__field">
+            <a href="#" id="enlace" class="form-ajax__submit">Haz Click - Método GET con datos y Objeto AJAX</a>
+        </div>
+
+        <div class="form-ajax__output" id="salida">
+            <div class="form-ajax__loading" id="cargando">
+                <img class="form-ajax__loading-img" src="../../../assets/img/clase-16/loading.gif" alt="Cargando...">
+                <span class="form-ajax__loading-text">Cargando...</span>
+            </div>
+            <div class="form-ajax__output-info">
+                Aquí se mostrarán los datos traídos por GET y Objeto AJAX...
+            </div>
+        </div>
+
+        <aside class="ajax-log">
+            <header class="ajax-log__header">
+                <h4 class="ajax-log__title">Eventos AJAX</h4>
+                <button type="button" id="ajax-log-clear" class="ajax-log__clear">Limpiar</button>
+            </header>
+            <ul id="ajax-log" class="ajax-log__list">
+                <li class="ajax-log__empty">Sin eventos aún. Haz clic en el enlace.</li>
+            </ul>
+        </aside>
+
+    </div>
+
+
+</div>

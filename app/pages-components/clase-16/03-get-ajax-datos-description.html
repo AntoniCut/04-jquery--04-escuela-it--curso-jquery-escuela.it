@@ -1,0 +1,60 @@
+<!--  
+    *  --------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /03-get-ajax-datos-description.html  --  /src/pages-components/clase-16/03-get-ajax-datos-description.html  -----  *
+    *  --------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
+
+            <p class="demo-page__intro-text">
+                Este ejercicio amplía <kbd>$.get()</kbd> enviando datos al servidor (nombre y apellido)
+                y utiliza los <strong>Global Ajax Event Handlers</strong> de jQuery para registrar
+                en tiempo real cada fase del ciclo de vida de la petición.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> comprender cómo enviar datos con <kbd>$.get()</kbd> y cómo los Global Ajax Event Handlers permiten observar el ciclo completo de cualquier petición AJAX en la página.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Se pasa un objeto <kbd>myJSON</kbd> como segundo argumento de <kbd>$.get()</kbd>; jQuery lo serializa como parámetros GET.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Los manejadores globales <kbd>ajaxStart</kbd>, <kbd>ajaxSend</kbd>, <kbd>ajaxSuccess</kbd>, <kbd>ajaxError</kbd> y <kbd>ajaxComplete</kbd> registran entradas en el log.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        El indicador de carga aparece al iniciar la petición y desaparece al completarse.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>

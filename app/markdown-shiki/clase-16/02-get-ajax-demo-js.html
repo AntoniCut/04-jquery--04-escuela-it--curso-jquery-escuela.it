@@ -1,0 +1,54 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">warn</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'-----  02-get-ajax.js  -----'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** -----  `URL base para los servicios`  */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> urlBase</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'/escuelait/curso-jquery-escuelait/app/services/clase-16'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Referencias al HTML  -----</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLAnchorElement>}</span><span style="color:#6A9955"> - `Enlace con id = enlace`  */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $enlace</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#enlace'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Div con id = salida`  */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $salida</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#salida'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"><span style="color:#9CDCFE">    $enlace</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        e</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">preventDefault</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">get</span><span style="color:#D4D4D4">(</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CE9178">            `</span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">urlBase</span><span style="color:#569CD6">}</span><span style="color:#CE9178">/contenido-get-ajax.php`</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">            function</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">respuesta</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">                /** -----  `Parsea la respuesta como HTML`  -----  */</span></span>
+<span class="line"><span style="color:#569CD6">                const</span><span style="color:#4FC1FF"> $html</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'&#x3C;div>'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">respuesta</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">                </span></span>
+<span class="line"><span style="color:#6A9955">                /** -----  `Busca el h3 dentro del HTML parseado`  -----  */</span></span>
+<span class="line"><span style="color:#569CD6">                const</span><span style="color:#4FC1FF"> $h3</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$html</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'h3'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">                //  -----  Muestra solo el contenido del h3  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">                $salida</span></span>
+<span class="line"><span style="color:#D4D4D4">                    .</span><span style="color:#DCDCAA">empty</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#D4D4D4">                    .</span><span style="color:#DCDCAA">append</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$h3</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">                </span></span>
+<span class="line"><span style="color:#D4D4D4">            });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">})(</span><span style="color:#9CDCFE">jQuery</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
