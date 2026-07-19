@@ -19,9 +19,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +42,33 @@ export const routeClase14LongitudColaEfectos = {
             "#layoutMain": `${pages}/clase-14/03-longitud-cola-efectos.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-14/03-longitud-cola-efectos-description.html`, target: '[data-component-page="longitudColaEfectosDescription"]' },
+            { url: `${pagesComponents}/clase-14/03-longitud-cola-efectos-demo.html`, target: '[data-component-page="longitudColaEfectosDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '03-longitud-cola-efectos-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-14/03-longitud-cola-efectos-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-14`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '03-longitud-cola-efectos-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-14/03-longitud-cola-efectos.css`,
+                urlOutput: `${markdownShikiHtml}/clase-14`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '03-longitud-cola-efectos-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-14/03-longitud-cola-efectos.js`,
+                urlOutput: `${markdownShikiHtml}/clase-14`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 14 - 3. Longitud Cola Efectos',
         styles: [
             { href: `${styles}/pages/clase-14/03-longitud-cola-efectos.css` },
@@ -51,5 +80,5 @@ export const routeClase14LongitudColaEfectos = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };

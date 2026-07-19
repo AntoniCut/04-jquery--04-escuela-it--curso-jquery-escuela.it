@@ -1,0 +1,59 @@
+<!--  
+    *  --------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /04-encolar-funciones-no-efectos-description.html  --  /src/pages-components/clase-14/04-encolar-funciones-no-efectos-description.html  -----  *
+    *  --------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
+
+            <p class="demo-page__intro-text">
+                Este ejercicio mezcla efectos de jQuery con funciones normales dentro de la misma cola
+                para modificar estilos entre animaciones.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> aprender a encolar funciones arbitrarias junto a efectos y controlar exactamente cuando continua la cola.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Se encadenan <kbd>slideUp()</kbd>, <kbd>slideDown()</kbd> y varios <kbd>animate()</kbd> sobre el mismo bloque.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Entre medias se insertan funciones con <kbd>queue()</kbd> que cambian color y fondo aunque no sean efectos visuales propios de jQuery.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Una de esas funciones usa <kbd>dequeue()</kbd> de forma explicita y otra usa <kbd>next()</kbd> para liberar la siguiente tarea de la cola.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>

@@ -1,0 +1,59 @@
+<!--  
+    *  --------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /01-encolado-efectos-description.html  --  /src/pages-components/clase-14/01-encolado-efectos-description.html  -----  *
+    *  --------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
+
+            <p class="demo-page__intro-text">
+                Este ejercicio encadena varios efectos sobre el mismo elemento usando la cola <kbd>fx</kbd>
+                de jQuery, y actualiza el texto antes de cada paso para indicar que animacion se esta ejecutando.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> comprender como funciona el encolado secuencial de efectos y como interrumpirlo de forma controlada.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Al pulsar <kbd>Animar</kbd> se encolan <kbd>slideUp()</kbd>, <kbd>slideDown()</kbd>, <kbd>fadeOut()</kbd>, <kbd>fadeIn()</kbd> y cambios de tamaño con <kbd>animate()</kbd>.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Cada mensaje se inserta con <kbd>queue()</kbd> para que aparezca justo antes del efecto correspondiente, mientras el parrafo se anima en paralelo.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Si haces click sobre el texto se usa <kbd>finish('fx')</kbd> para completar la cola pendiente y dejar el elemento en su estado final.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>

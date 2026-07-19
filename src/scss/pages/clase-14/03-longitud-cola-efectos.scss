@@ -5,8 +5,47 @@
 */
 
 
-.main__section-practica {
-    min-height: 60rem;
+.fx-stage {
+    min-height: 56rem;
+    padding: 2.4rem;
+    border-radius: 1.6rem;
+    background:
+        radial-gradient(circle at top right, rgba(248, 156, 21, 0.14), transparent 42%),
+        radial-gradient(circle at bottom left, rgba(3, 106, 173, 0.12), transparent 45%),
+        linear-gradient(160deg, #f7fafc 0%, #eef4f9 55%, #e8f1f8 100%);
+    border: 1px solid rgba(3, 106, 173, 0.12);
+    box-shadow: 0 12px 32px rgba(15, 40, 70, 0.08);
+}
+
+
+.fx-btn {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: all 300ms ease;
+
+    &--action {
+        background: linear-gradient(135deg, #2a9d8f 0%, #21867a 100%);
+
+        &:hover {
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(42, 157, 143, 0.35);
+        }
+
+        &:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 12px rgba(42, 157, 143, 0.25);
+        }
+    }
 }
 
 
@@ -14,18 +53,49 @@
     width: 100%;
     min-height: 14rem;
     margin-block: 2rem;
+    display: flex;
+    align-items: stretch;
 }
+
 
 .texto,
 .parrafo {
     width: 100%;
-    height: 10rem;
-    color: white;
-    background-color: #f99;
+    min-height: 12rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 2.4rem 2rem;
+    color: #fff;
     text-align: center;
-    padding: 4rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    border-radius: 1.2rem;
 }
+
 
 .texto {
     cursor: pointer;
+    background: linear-gradient(135deg, #f0a12a 0%, #f89c15 45%, #e07a10 100%);
+    box-shadow:
+        0 10px 24px rgba(248, 156, 21, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    transition: box-shadow 250ms ease, transform 250ms ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow:
+            0 14px 28px rgba(248, 156, 21, 0.34),
+            inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    }
+}
+
+
+.parrafo {
+    background: linear-gradient(135deg, #1a8fd1 0%, #036aad 55%, #025489 100%);
+    box-shadow:
+        0 10px 24px rgba(3, 106, 173, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }

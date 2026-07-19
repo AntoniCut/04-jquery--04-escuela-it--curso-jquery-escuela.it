@@ -19,9 +19,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +42,33 @@ export const routeClase14EncolarFuncionesNoEfectos = {
             "#layoutMain": `${pages}/clase-14/04-encolar-funciones-no-efectos.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-14/04-encolar-funciones-no-efectos-description.html`, target: '[data-component-page="encolarFuncionesNoEfectosDescription"]' },
+            { url: `${pagesComponents}/clase-14/04-encolar-funciones-no-efectos-demo.html`, target: '[data-component-page="encolarFuncionesNoEfectosDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '04-encolar-funciones-no-efectos-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-14/04-encolar-funciones-no-efectos-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-14`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '04-encolar-funciones-no-efectos-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-14/04-encolar-funciones-no-efectos.css`,
+                urlOutput: `${markdownShikiHtml}/clase-14`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '04-encolar-funciones-no-efectos-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-14/04-encolar-funciones-no-efectos.js`,
+                urlOutput: `${markdownShikiHtml}/clase-14`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 14 - 4. Encolar Funciones No Efectos',
         styles: [
             { href: `${styles}/pages/clase-14/04-encolar-funciones-no-efectos.css` },
@@ -51,5 +80,5 @@ export const routeClase14EncolarFuncionesNoEfectos = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };

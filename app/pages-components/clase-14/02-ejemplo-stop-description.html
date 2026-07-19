@@ -1,0 +1,59 @@
+<!--  
+    *  --------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /02-ejemplo-stop-description.html  --  /src/pages-components/clase-14/02-ejemplo-stop-description.html  -----  *
+    *  --------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
+
+            <p class="demo-page__intro-text">
+                Este ejercicio muestra un tip fijo dentro del area de practica y usa <kbd>stop()</kbd>
+                para evitar que se acumulen animaciones al entrar y salir rapidamente con el raton.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> entender como <kbd>stop()</kbd> evita colas no deseadas en interacciones rapidas con el raton.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        El enlace escucha los eventos <kbd>mouseenter</kbd> y <kbd>mouseleave</kbd> para lanzar la aparicion y desaparicion del tip.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Antes de cada <kbd>fadeIn()</kbd> y <kbd>fadeOut()</kbd> se ejecuta <kbd>stop(true, true)</kbd> para cancelar la cola anterior y quedarse con la ultima accion.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        El tip permanece anclado en la esquina superior izquierda de la practica, sin seguir la posicion del cursor.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>

@@ -19,9 +19,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +42,33 @@ export const routeClase14EncoladoRespuestasEventos = {
             "#layoutMain": `${pages}/clase-14/05-encolado-respuestas-eventos.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-14/05-encolado-respuestas-eventos-description.html`, target: '[data-component-page="encoladoRespuestasEventosDescription"]' },
+            { url: `${pagesComponents}/clase-14/05-encolado-respuestas-eventos-demo.html`, target: '[data-component-page="encoladoRespuestasEventosDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '05-encolado-respuestas-eventos-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-14/05-encolado-respuestas-eventos-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-14`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '05-encolado-respuestas-eventos-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-14/05-encolado-respuestas-eventos.css`,
+                urlOutput: `${markdownShikiHtml}/clase-14`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '05-encolado-respuestas-eventos-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-14/05-encolado-respuestas-eventos.js`,
+                urlOutput: `${markdownShikiHtml}/clase-14`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 14 - 5. Encolado Respuestas Eventos',
         styles: [
             { href: `${styles}/pages/clase-14/05-encolado-respuestas-eventos.css` },
@@ -51,5 +80,5 @@ export const routeClase14EncoladoRespuestasEventos = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };

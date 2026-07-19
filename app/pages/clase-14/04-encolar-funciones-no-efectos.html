@@ -8,69 +8,79 @@
 
 <div class="main__container">
 
+    <!--  -----  Header de la Sección  -----  -->
+    <header class="section__header">
 
-    <!--  -----  INFO  -----  -->
-    <section class="main__section-info">
+        <h2 class="section__title" title="Encolar funciones no efectos">
+            Clase 14 - 4. Encolar funciones no efectos - Descripción
+        </h2>
 
+    </header>
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
-
-            <h2 class="section__title" title="Encolar funciones no efectos">
-                Clase 14 - 4. Encolar funciones no efectos
-            </h2>
-
-        </header>
-
-        <!--  -----  Contenido de la Sección  -----  -->
-        <article class="section__content">
-
-            <div class="content__description content__description--exercise">
-
-                <h3 class="content__title">
-                    Que hace este ejercicio
-                </h3>
-
-                <p class="content__text">
-                    Este ejercicio mezcla efectos de jQuery con funciones normales dentro de la misma cola
-                    para modificar estilos entre animaciones.
-                </p>
-
-                <ul class="content__list">
-                    <li>
-                        Se encadenan <kbd>slideUp()</kbd>, <kbd>slideDown()</kbd> y varios <kbd>animate()</kbd> sobre el mismo bloque.
-                    </li>
-                    <li>
-                        Entre medias se insertan funciones con <kbd>queue()</kbd> que cambian color y fondo aunque no sean efectos visuales propios de jQuery.
-                    </li>
-                    <li>
-                        Una de esas funciones usa <kbd>dequeue()</kbd> de forma explicita y otra usa <kbd>next()</kbd> para liberar la siguiente tarea de la cola.
-                    </li>
-                </ul>
-
-                <p class="content__note">
-                    <kbd> Objetivo: </kbd> aprender a encolar funciones arbitrarias junto a efectos y controlar exactamente cuando continua la cola.
-                </p>
-
-            </div>
-
-        </article>
+    <!--  -----  Descripción de la Página  -----  -->
+    <section data-component-page="encolarFuncionesNoEfectosDescription">
 
     </section>
 
 
-    <!--  -----  Práctica  -----  -->
-    <section class="main__section-practica">
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
 
-         <div class="btn__container">
-            <button id="btnAnimar"> Animar </button>
+        <h2 class="section__title" title="Encolar funciones no efectos">
+            Clase 14 - 4. Encolar funciones no efectos - Demo
+        </h2>
+
+    </header>
+
+    <!--  -----  Demo de la Página  -----  -->
+    <section data-component-page="encolarFuncionesNoEfectosDemo">
+
+    </section>
+
+
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
+
+        <h2 class="section__title" title="Encolar funciones no efectos">
+            Clase 14 - 4. Encolar funciones no efectos - Código Markdown
+        </h2>
+
+    </header>
+
+
+    <!--  -----  Código Markdown  -----  -->
+    <section class="main__section-markdown">
+
+        <div class="markdown__container">
+
+            <article 
+                data-shiki="codeHtml" 
+                data-label="encolar-funciones-no-efectos.html" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .html tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeCss" 
+                data-label="04-encolar-funciones-no-efectos.css" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .css tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeJs" 
+                data-label="04-encolar-funciones-no-efectos.js" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .js tipo 'markdown'  *****  -->
+            </article>
+            
+
         </div>
 
-        <div class="contenedor-animacion contenedor-animacion--texto">
-            <div class="texto"> Texto Animado </div>
-        </div>
+    </section>
        
-    </section>
-
 
 </div>

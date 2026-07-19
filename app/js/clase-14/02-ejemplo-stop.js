@@ -26,7 +26,9 @@
 
         .off('mouseenter mouseleave')
 
-        .on('mouseenter', function () {
+        .on('mouseenter', function (e) {
+
+            
 
             $tip
                 .stop(true, true)
@@ -38,8 +40,12 @@
             $tip
                 .stop(true, true)
                 .fadeOut(1200);
-        });
+        })
 
+        .on('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        })
 
 
 

@@ -5,38 +5,64 @@
 */
 
 
-.main__section-practica {
-    min-height: 40rem;
+.fx-stage--tip {
+    min-height: 36rem;
     position: relative;
-    padding: 2rem;
+    padding: 2.4rem;
+    border-radius: 1.6rem;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(3, 106, 173, 0.12), transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(248, 156, 21, 0.16), transparent 42%),
+        linear-gradient(165deg, #f8fafc 0%, #eef5fb 100%);
+    border: 1px solid rgba(3, 106, 173, 0.12);
+    box-shadow: 0 12px 32px rgba(15, 40, 70, 0.08);
 }
 
 
 .main__section-practica #tip {
-    padding: 10px;
-    background-color: #9df;
-    width: 20rem;
+    padding: 1.2rem 1.6rem;
+    background: linear-gradient(135deg, #5eb6ef 0%, #2f8fd4 100%);
+    width: min(24rem, calc(100% - 4rem));
     display: none;
     position: absolute;
-    top: 2rem;
-    left: 2rem;
-    border-radius: 0.8rem;
+    top: 2.4rem;
+    left: 2.4rem;
+    border-radius: 1rem;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-align: center;
+    box-shadow: 0 10px 24px rgba(3, 106, 173, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    z-index: 2;
 }
 
 
-.main__section-practica a {
-    display: inline-block;
-    margin-top: 8rem;
-    padding: 1rem 2rem;
-    border-radius: 5px;
+.main__section-practica a#enlace {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10rem;
+    padding: 1.2rem 2.4rem;
+    border-radius: 0.8rem;
     color: #fff;
-    background-color: #4a84ee;
-    font-size: 1.8rem;
-    font-weight: bold;
+    background: linear-gradient(135deg, #036aad 0%, #025489 100%);
+    font-size: 1.7rem;
+    font-weight: 700;
+    text-decoration: none;
     cursor: pointer;
-    transition: all 300ms linear;
+    box-shadow: 0 8px 20px rgba(3, 106, 173, 0.28);
+    transition: transform 250ms ease, box-shadow 250ms ease, background 250ms ease;
 
     &:hover {
-        background-color: #8db2f7;
+        transform: translateY(-2px);
+        background: linear-gradient(135deg, #1a8fd1 0%, #036aad 100%);
+        box-shadow: 0 12px 28px rgba(3, 106, 173, 0.34);
+        color: #fff;
+    }
+
+    &:active {
+        transform: translateY(0);
     }
 }

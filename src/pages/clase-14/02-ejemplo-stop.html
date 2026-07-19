@@ -8,65 +8,79 @@
 
 <div class="main__container">
 
+    <!--  -----  Header de la Sección  -----  -->
+    <header class="section__header">
 
-    <!--  -----  INFO  -----  -->
-    <section class="main__section-info">
+        <h2 class="section__title" title="Ejemplo stop">
+            Clase 14 - 2. Ejemplo stop - Descripción
+        </h2>
 
+    </header>
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
-
-            <h2 class="section__title" title="Ejemplo stop">
-                Clase 14 - 2. Ejemplo stop
-            </h2>
-
-        </header>
-
-        <!--  -----  Contenido de la Sección  -----  -->
-        <article class="section__content">
-
-            <div class="content__description content__description--exercise">
-
-                <h3 class="content__title">
-                    Que hace este ejercicio
-                </h3>
-
-                <p class="content__text">
-                    Este ejercicio muestra un tip fijo dentro del area de practica y usa <kbd>stop()</kbd>
-                    para evitar que se acumulen animaciones al entrar y salir rapidamente con el raton.
-                </p>
-
-                <ul class="content__list">
-                    <li>
-                        El enlace escucha los eventos <kbd>mouseenter</kbd> y <kbd>mouseleave</kbd> para lanzar la aparicion y desaparicion del tip.
-                    </li>
-                    <li>
-                        Antes de cada <kbd>fadeIn()</kbd> y <kbd>fadeOut()</kbd> se ejecuta <kbd>stop(true, true)</kbd> para cancelar la cola anterior y quedarse con la ultima accion.
-                    </li>
-                    <li>
-                        El tip permanece anclado en la esquina superior izquierda de la practica, sin seguir la posicion del cursor.
-                    </li>
-                </ul>
-
-                <p class="content__note">
-                    <kbd> Objetivo: </kbd> entender como <kbd>stop()</kbd> evita colas no deseadas en interacciones rapidas con el raton.
-                </p>
-
-            </div>
-
-        </article>
+    <!--  -----  Descripción de la Página  -----  -->
+    <section data-component-page="ejemploStopDescription">
 
     </section>
 
 
-    <!--  -----  Práctica  -----  -->
-    <section class="main__section-practica">
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
 
+        <h2 class="section__title" title="Ejemplo stop">
+            Clase 14 - 2. Ejemplo stop - Demo
+        </h2>
 
-        <div id="tip"> Esto es un tip </div>
-        <a href="#" id="enlace"> lanza tip </a>
+    </header>
+
+    <!--  -----  Demo de la Página  -----  -->
+    <section data-component-page="ejemploStopDemo">
 
     </section>
 
+
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
+
+        <h2 class="section__title" title="Ejemplo stop">
+            Clase 14 - 2. Ejemplo stop - Código Markdown
+        </h2>
+
+    </header>
+
+
+    <!--  -----  Código Markdown  -----  -->
+    <section class="main__section-markdown">
+
+        <div class="markdown__container">
+
+            <article 
+                data-shiki="codeHtml" 
+                data-label="ejemplo-stop.html" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .html tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeCss" 
+                data-label="02-ejemplo-stop.css" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .css tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeJs" 
+                data-label="02-ejemplo-stop.js" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .js tipo 'markdown'  *****  -->
+            </article>
+            
+
+        </div>
+
+    </section>
+       
 
 </div>

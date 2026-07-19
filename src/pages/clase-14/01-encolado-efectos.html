@@ -8,74 +8,79 @@
 
 <div class="main__container">
 
+    <!--  -----  Header de la Sección  -----  -->
+    <header class="section__header">
 
-    <!--  -----  INFO  -----  -->
-    <section class="main__section-info">
+        <h2 class="section__title" title="Encolado de efectos">
+            Clase 14 - 1. Encolado de efectos - Descripción
+        </h2>
 
+    </header>
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
-
-            <h2 class="section__title" title="Encolado de efectos">
-                Clase 14 - 1. Encolado de efectos
-            </h2>
-
-        </header>
-
-        <!--  -----  Contenido de la Sección  -----  -->
-        <article class="section__content">
-
-            <div class="content__description content__description--exercise">
-
-                <h3 class="content__title">
-                    Que hace este ejercicio
-                </h3>
-
-                <p class="content__text">
-                    Este ejercicio encadena varios efectos sobre el mismo elemento usando la cola <kbd>fx</kbd>
-                    de jQuery, y actualiza el texto antes de cada paso para indicar que animacion se esta ejecutando.
-                </p>
-
-                <ul class="content__list">
-                    <li>
-                        Al pulsar <kbd>Animar</kbd> se encolan <kbd>slideUp()</kbd>, <kbd>slideDown()</kbd>, <kbd>fadeOut()</kbd>, <kbd>fadeIn()</kbd> y cambios de tamaño con <kbd>animate()</kbd>.
-                    </li>
-                    <li>
-                        Cada mensaje se inserta con <kbd>queue()</kbd> para que aparezca justo antes del efecto correspondiente, mientras el parrafo se anima en paralelo.
-                    </li>
-                    <li>
-                        Si haces click sobre el texto se usa <kbd>finish('fx')</kbd> para completar la cola pendiente y dejar el elemento en su estado final.
-                    </li>
-                </ul>
-
-                <p class="content__note">
-                    <kbd> Objetivo: </kbd> comprender como funciona el encolado secuencial de efectos y como interrumpirlo de forma controlada.
-                </p>
-
-            </div>
-
-        </article>
+    <!--  -----  Descripción de la Página  -----  -->
+    <section data-component-page="encoladoEfectosDescription">
 
     </section>
 
 
-    <!--  -----  Práctica  -----  -->
-    <section class="main__section-practica">
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
 
+        <h2 class="section__title" title="Encolado de efectos">
+            Clase 14 - 1. Encolado de efectos - Demo
+        </h2>
 
-        <div class="btn__container">
-            <button id="btnAnimar"> Animar </button>
-        </div>
+    </header>
 
-        <div class="contenedor-animacion contenedor-animacion--texto">
-            <div class="texto"> Texto Animado </div>
-        </div>
-
-        <div class="contenedor-animacion contenedor-animacion--parrafo">
-            <p class="parrafo"> Párrafo Animado </p>
-        </div>
+    <!--  -----  Demo de la Página  -----  -->
+    <section data-component-page="encoladoEfectosDemo">
 
     </section>
 
+
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
+
+        <h2 class="section__title" title="Encolado de efectos">
+            Clase 14 - 1. Encolado de efectos - Código Markdown
+        </h2>
+
+    </header>
+
+
+    <!--  -----  Código Markdown  -----  -->
+    <section class="main__section-markdown">
+
+        <div class="markdown__container">
+
+            <article 
+                data-shiki="codeHtml" 
+                data-label="encolado-efectos.html" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .html tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeCss" 
+                data-label="01-encolado-efectos.css" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .css tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeJs" 
+                data-label="01-encolado-efectos.js" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .js tipo 'markdown'  *****  -->
+            </article>
+            
+
+        </div>
+
+    </section>
+       
 
 </div>
