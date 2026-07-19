@@ -14,19 +14,28 @@
         
         <style>
             .respuesta-formulario {
-                padding: 2rem;
-                background: linear-gradient(145deg, #f8f9fc 0%, #eef0f7 100%);
-                border-radius: 12px;
-                border-left: 4px solid #667eea;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
                 font-family: inherit;
+                text-align: left;
             }
             .respuesta-formulario__titulo {
+                flex-shrink: 0;
                 font-size: 1.6rem;
                 font-weight: 700;
                 color: #1a1a2e;
-                margin: 0 0 1.5rem;
+                margin: 0;
                 padding-bottom: 1rem;
                 border-bottom: 2px solid #e1e4eb;
+                text-align: center;
+            }
+            .respuesta-formulario__datos {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
             }
             .respuesta-formulario__dato {
                 display: flex;
@@ -65,24 +74,26 @@
         <div class="respuesta-formulario">
             <h3 class="respuesta-formulario__titulo">Datos Recibidos</h3>
             
-            <div class="respuesta-formulario__dato">
-                <span class="respuesta-formulario__label">Nombre:</span>
-                <span class="respuesta-formulario__valor respuesta-formulario__valor--destacado">' . $nombre . '</span>
-            </div>
-            
-            <div class="respuesta-formulario__dato">
-                <span class="respuesta-formulario__label">Email:</span>
-                <span class="respuesta-formulario__valor">' . $email . '</span>
-            </div>
-            
-            <div class="respuesta-formulario__dato">
-                <span class="respuesta-formulario__label">Sexo:</span>
-                <span class="respuesta-formulario__valor">' . $sexo . '</span>
-            </div>
-            
-            <div class="respuesta-formulario__dato">
-                <span class="respuesta-formulario__label">Intereses:</span>
-                <span class="respuesta-formulario__valor">' . $intereses . '</span>
+            <div class="respuesta-formulario__datos">
+                <div class="respuesta-formulario__dato">
+                    <span class="respuesta-formulario__label">Nombre:</span>
+                    <span class="respuesta-formulario__valor respuesta-formulario__valor--destacado">' . $nombre . '</span>
+                </div>
+                
+                <div class="respuesta-formulario__dato">
+                    <span class="respuesta-formulario__label">Email:</span>
+                    <span class="respuesta-formulario__valor">' . $email . '</span>
+                </div>
+                
+                <div class="respuesta-formulario__dato">
+                    <span class="respuesta-formulario__label">Sexo:</span>
+                    <span class="respuesta-formulario__valor">' . $sexo . '</span>
+                </div>
+                
+                <div class="respuesta-formulario__dato">
+                    <span class="respuesta-formulario__label">Intereses:</span>
+                    <span class="respuesta-formulario__valor">' . $intereses . '</span>
+                </div>
             </div>
         </div>
     ';

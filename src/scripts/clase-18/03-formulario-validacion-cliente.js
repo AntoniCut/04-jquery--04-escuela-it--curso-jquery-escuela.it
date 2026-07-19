@@ -1,7 +1,7 @@
 /*
-    *  ------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----------------------------------------------------------------------------------------------------------------  *
     *  -----  /03-formulario-validacion-cliente.js  --  /src/scripts/clase-18/03-formulario-validacion-cliente.js  -----  *
-    *  ------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----------------------------------------------------------------------------------------------------------------  *
 */
 
 
@@ -42,8 +42,14 @@
     /** @type {JQuery<HTMLFormElement>} - `Formulario principal` */
     const $formulario = $('#form');
 
+    /** @type {JQuery<HTMLDivElement>} - `Contenedor de loading` */
+    const $loading = $('#loading');
+
     /** @type {JQuery<HTMLDivElement>} - `Contenedor de salida` */
     const $salida = $('#salida');
+
+    /** @type {JQuery<HTMLDivElement>} - `Contenedor de informacion de salida` */
+    const $infoSalida = $('.form-ajax__output-info');
 
     /** @type {JQuery<HTMLDivElement>} - `Contenedor de errores` */
     const $muestraError = $('#muestraerror');
@@ -120,11 +126,14 @@
      * ------------------------------------
      * -----  `mostrarError(mensaje)`  -----
      * ------------------------------------
-     * - Muestra los errores en el contenedor
+     * - Muestra los errores en la ventana de salida
      * @param {string} mensaje - Mensaje de error a mostrar
      */
 
     const mostrarError = (mensaje) => {
+        ocultarLoading();
+        $salida.addClass('form-ajax__output--error');
+        $infoSalida.hide().empty();
         $muestraError.html(mensaje);
     };
 
@@ -134,10 +143,11 @@
      * --------------------------------
      * -----  `limpiarErrores()`  -----
      * --------------------------------
-     * - Limpia los errores del contenedor
+     * - Limpia los errores de la ventana de salida
      */
     const limpiarErrores = () => {
         $muestraError.empty();
+        $salida.removeClass('form-ajax__output--error');
     };
 
 
@@ -150,7 +160,8 @@
      */
 
     const limpiarSalida = () => {
-        $salida.find('.form-ajax__output-info').empty();
+        limpiarErrores();
+        $infoSalida.empty();
     };
 
 
@@ -163,7 +174,8 @@
      */
     const manejarRespuesta = (respuesta) => {
         ocultarLoading();
-        $salida.find('.form-ajax__output-info').html(respuesta).show();
+        limpiarErrores();
+        $infoSalida.html(respuesta).show();
     };
 
 
@@ -174,8 +186,9 @@
      * - Muestra el indicador de carga en el contenedor de salida
      */
     const mostrarLoading = () => {
-        $('#loading').show();
-        $('.form-ajax__output-info').hide();
+        limpiarErrores();
+        $loading.show();
+        $infoSalida.hide();
     };
 
 
@@ -186,7 +199,7 @@
      * - Oculta el indicador de carga
      */
     const ocultarLoading = () => {
-        $('#loading').hide();
+        $loading.hide();
     };
 
 

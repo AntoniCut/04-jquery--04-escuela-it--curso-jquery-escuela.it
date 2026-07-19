@@ -5,67 +5,6 @@
 */
 
 
-//  -----  enlace enviar-datos-post-sin-formulario  -----
-.enlace {
-    padding: 1.2rem 3rem;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #fff;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 300ms ease;
-    letter-spacing: 0.02em;
-
-    &:hover:not(:disabled) {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(102, 126, 234, 0.35);
-    }
-
-    &:active:not(:disabled) {
-        transform: translateY(0);
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
-    }
-
-    &:disabled {
-        background: linear-gradient(135deg, #b8bcc8 0%, #9a9eab 100%);
-        cursor: not-allowed;
-        opacity: 0.7;
-        transform: none;
-        box-shadow: none;
-    }
-}
-
-
-//  -----  Output container  -----
-.salida {
-    position: relative;
-    width: 100%;
-    max-width: 55rem;
-    min-height: 10rem;
-    padding: 2.5rem 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(145deg, #f8f9fc 0%, #eef0f7 100%);
-    border-left: 4px solid #667eea;
-    border-radius: 12px;
-    transition: all 400ms ease;
-}
-
-//  -----  Output info text  -----
-.salida__info {
-    font-size: 1.6rem;
-    font-weight: 500;
-    color: #667eea;
-    letter-spacing: 0.02em;
-    margin: 0;
-    text-align: center;
-}
-
-
-
 /*
     -----------------------
     -----  form-ajax  -----
@@ -93,19 +32,18 @@
 
     //  -----  Error container  -----
     &__error {
-        min-height: 8rem;
+        width: 100%;
         padding: 0;
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         font-weight: 600;
         color: #e74c3c;
         background: transparent;
         border-radius: 6px;
+        text-align: left;
         transition: all 300ms ease;
 
-        &:not(:empty) {
-            padding: 1rem 1.5rem;
-            background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
-            border-left: 4px solid #e74c3c;
+        &:empty {
+            display: none;
         }
     }
 
@@ -235,12 +173,15 @@
         }
     }
 
-    //  -----  Submit button  -----
+    //  -----  Submit button / enlace de acción  -----
     &__submit {
+        display: inline-block;
         padding: 1.2rem 3rem;
         font-size: 1.5rem;
         font-weight: 600;
         color: #fff;
+        text-align: center;
+        text-decoration: none;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         border: none;
         border-radius: 8px;
@@ -249,6 +190,7 @@
         letter-spacing: 0.02em;
 
         &:hover:not(:disabled) {
+            color: #fff;
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(102, 126, 234, 0.35);
         }
@@ -281,10 +223,28 @@
         border-left: 4px solid #667eea;
         border-radius: 12px;
         transition: all 400ms ease;
+
+        &--error {
+            align-items: flex-start;
+            justify-content: flex-start;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
+            border-left-color: #e74c3c;
+
+            .form-ajax__output-info {
+                display: none;
+            }
+        }
     }
 
     //  -----  Output info text  -----
     &__output-info {
+        flex: 1;
+        align-self: stretch;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         font-size: 1.6rem;
         font-weight: 500;
         color: #667eea;

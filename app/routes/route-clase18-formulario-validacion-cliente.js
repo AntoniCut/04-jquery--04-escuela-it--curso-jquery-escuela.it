@@ -19,9 +19,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +42,34 @@ export const routeClase18FormularioValidacionCliente = {
             "#layoutMain": `${pages}/clase-18/03-formulario-validacion-cliente.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-18/03-formulario-validacion-cliente-description.html`, target: '[data-component-page="formularioValidacionClienteDescription"]' },
+            { url: `${pagesComponents}/clase-18/03-formulario-validacion-cliente-demo.html`, target: '[data-component-page="formularioValidacionClienteDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '03-formulario-validacion-cliente-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-18/03-formulario-validacion-cliente-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-18`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '03-formulario-validacion-cliente-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-18/clase-18-styles.css`,
+                urlOutput: `${markdownShikiHtml}/clase-18`,
+                target: '[data-shiki="codeCss"]',
+            },
+
+            {
+                fileName: '03-formulario-validacion-cliente-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-18/03-formulario-validacion-cliente.js`,
+                urlOutput: `${markdownShikiHtml}/clase-18`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 18 - Formulario Validacion Cliente',
         styles: [
             { href: `${styles}/pages/clase-18/clase-18-styles.css` },

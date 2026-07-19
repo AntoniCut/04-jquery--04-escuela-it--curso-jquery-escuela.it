@@ -1,6 +1,8 @@
 <pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">*/</span></span>
 <span class="line"></span>
 <span class="line"></span>
+<span class="line"><span style="color:#6A9955">/// </span><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">reference</span><span style="color:#9CDCFE"> path</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"./types.d.js"</span><span style="color:#808080"> /></span></span>
+<span class="line"></span>
 <span class="line"></span>
 <span class="line"><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"></span>
@@ -10,19 +12,6 @@
 <span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">    /**</span></span>
-<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@typedef</span><span style="color:#4EC9B0"> {'manual' | 'trigger' | 'triggerHandler'}</span><span style="color:#4EC9B0"> OrigenManejador</span></span>
-<span class="line"><span style="color:#6A9955">     */</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A9955">    /**</span></span>
-<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@typedef</span><span style="color:#4EC9B0"> {object}</span><span style="color:#4EC9B0"> EntradaLog</span></span>
-<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@property</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> elemento</span><span style="color:#6A9955"> - `Nombre del elemento objetivo`</span></span>
-<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@property</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> evento</span><span style="color:#6A9955"> - `Tipo de evento disparado`</span></span>
-<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@property</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> manejador</span><span style="color:#6A9955"> - `Descripcion del manejador ejecutado`</span></span>
-<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@property</span><span style="color:#4EC9B0"> {OrigenManejador}</span><span style="color:#9CDCFE"> origen</span><span style="color:#6A9955"> - `Origen del disparo`</span></span>
-<span class="line"><span style="color:#6A9955">     */</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D4D4D4">    </span></span>
 <span class="line"><span style="color:#6A9955">    /*</span></span>
 <span class="line"><span style="color:#6A9955">        *  ---------------------------------</span></span>
 <span class="line"><span style="color:#6A9955">        *  -----  Referencias al HTML  -----</span></span>
@@ -110,7 +99,7 @@
 <span class="line"><span style="color:#6A9955">     * - Agrega la clase CSS segun el origen (manual, trigger o triggerHandler)</span></span>
 <span class="line"><span style="color:#6A9955">     * - Construye el HTML de la entrada con elemento, evento, manejador y origen</span></span>
 <span class="line"><span style="color:#6A9955">     * - Inserta el item al inicio del registro de eventos</span></span>
-<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {EntradaLog}</span><span style="color:#9CDCFE"> entrada</span><span style="color:#6A9955"> - `Datos del disparo registrado`</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {EntradaLogDisparo&#x3C;OrigenManejador>}</span><span style="color:#9CDCFE"> entrada</span><span style="color:#6A9955"> - `Datos del disparo registrado`</span></span>
 <span class="line"><span style="color:#6A9955">     */</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> registrarLog</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">entrada</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>

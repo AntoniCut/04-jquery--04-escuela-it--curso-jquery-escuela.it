@@ -19,9 +19,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +42,34 @@ export const routeClase18FormulariosSinValidacion = {
             "#layoutMain": `${pages}/clase-18/02-formularios-sin-validacion.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-18/02-formularios-sin-validacion-description.html`, target: '[data-component-page="formulariosSinValidacionDescription"]' },
+            { url: `${pagesComponents}/clase-18/02-formularios-sin-validacion-demo.html`, target: '[data-component-page="formulariosSinValidacionDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '02-formularios-sin-validacion-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-18/02-formularios-sin-validacion-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-18`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '02-formularios-sin-validacion-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-18/clase-18-styles.css`,
+                urlOutput: `${markdownShikiHtml}/clase-18`,
+                target: '[data-shiki="codeCss"]',
+            },
+
+            {
+                fileName: '02-formularios-sin-validacion-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-18/02-formularios-sin-validacion.js`,
+                urlOutput: `${markdownShikiHtml}/clase-18`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 18 - Formularios Sin Validacion',
         styles: [
             { href: `${styles}/pages/clase-18/clase-18-styles.css` },

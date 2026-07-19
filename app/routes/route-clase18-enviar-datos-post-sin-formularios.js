@@ -19,9 +19,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +42,34 @@ export const routeClase18EnviarDatosPostSinFormularios = {
             "#layoutMain": `${pages}/clase-18/01-enviar-datos-post-sin-formularios.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-18/01-enviar-datos-post-sin-formularios-description.html`, target: '[data-component-page="enviarDatosPostSinFormulariosDescription"]' },
+            { url: `${pagesComponents}/clase-18/01-enviar-datos-post-sin-formularios-demo.html`, target: '[data-component-page="enviarDatosPostSinFormulariosDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '01-enviar-datos-post-sin-formularios-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-18/01-enviar-datos-post-sin-formularios-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-18`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '01-enviar-datos-post-sin-formularios-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-18/clase-18-styles.css`,
+                urlOutput: `${markdownShikiHtml}/clase-18`,
+                target: '[data-shiki="codeCss"]',
+            },
+
+            {
+                fileName: '01-enviar-datos-post-sin-formularios-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-18/01-enviar-datos-post-sin-formularios.js`,
+                urlOutput: `${markdownShikiHtml}/clase-18`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 18 - Enviar Datos Post Sin Formularios',
         styles: [
             { href: `${styles}/pages/clase-18/clase-18-styles.css` },

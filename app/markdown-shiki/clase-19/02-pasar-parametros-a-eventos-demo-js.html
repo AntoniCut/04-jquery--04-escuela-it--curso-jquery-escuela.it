@@ -1,6 +1,8 @@
 <pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">*/</span></span>
 <span class="line"></span>
 <span class="line"></span>
+<span class="line"><span style="color:#6A9955">/// </span><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">reference</span><span style="color:#9CDCFE"> path</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"./types.d.js"</span><span style="color:#808080"> /></span></span>
+<span class="line"></span>
 <span class="line"></span>
 <span class="line"><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"></span>
@@ -8,30 +10,6 @@
 <span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">warn</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'-----  02-pasar-parametros-a-eventos.js  -----'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A9955">    /*</span></span>
-<span class="line"><span style="color:#6A9955">        *  ----------------------------</span></span>
-<span class="line"><span style="color:#6A9955">        *  -----  Tipos de datos  -----</span></span>
-<span class="line"><span style="color:#6A9955">        *  ----------------------------</span></span>
-<span class="line"><span style="color:#6A9955">    */</span></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A9955">    /**</span></span>
-<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@typedef</span><span style="color:#4EC9B0"> {object}</span><span style="color:#4EC9B0"> SaludarEventData</span></span>
-<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@property</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> nombre</span><span style="color:#6A9955"> - `Nombre de la persona`</span></span>
-<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@property</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> periodo</span><span style="color:#6A9955"> - `Periodo del dia`</span></span>
-<span class="line"><span style="color:#6A9955">     */</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A9955">    /**</span></span>
-<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@typedef</span><span style="color:#4EC9B0"> {'on' | 'data' | 'info'}</span><span style="color:#4EC9B0"> TipoEntradaLog</span></span>
-<span class="line"><span style="color:#6A9955">     */</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A9955">    /**</span></span>
-<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@typedef</span><span style="color:#4EC9B0"> {object}</span><span style="color:#4EC9B0"> EntradaLog</span></span>
-<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@property</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> mensaje</span><span style="color:#6A9955"> - `Descripcion de la accion`</span></span>
-<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@property</span><span style="color:#4EC9B0"> {TipoEntradaLog}</span><span style="color:#9CDCFE"> tipo</span><span style="color:#6A9955"> - `Tipo de entrada en el registro`</span></span>
-<span class="line"><span style="color:#6A9955">     */</span></span>
 <span class="line"></span>
 <span class="line"></span>
 <span class="line"><span style="color:#6A9955">    /*</span></span>
@@ -70,7 +48,7 @@
 <span class="line"><span style="color:#6A9955">     * - Agrega la clase CSS segun el metodo utilizado (on, data o info)</span></span>
 <span class="line"><span style="color:#6A9955">     * - Agrega el mensaje a la entrada del registro</span></span>
 <span class="line"><span style="color:#6A9955">     * - Inserta el item al inicio del registro de eventos</span></span>
-<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {EntradaLog}</span><span style="color:#9CDCFE"> entrada</span><span style="color:#6A9955"> - `Entrada en el registro de parametros`</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {EntradaLog&#x3C;TipoEntradaLogParametros>}</span><span style="color:#9CDCFE"> entrada</span><span style="color:#6A9955"> - `Entrada en el registro de parametros`</span></span>
 <span class="line"><span style="color:#6A9955">     */</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> registrarLog</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">entrada</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
@@ -137,7 +115,7 @@
 <span class="line"><span style="color:#6A9955">     * - Anima el elemento y registra la accion en el log</span></span>
 <span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLElement>}</span><span style="color:#9CDCFE"> $elemento</span><span style="color:#6A9955"> - `Elemento donde se muestra el saludo`</span></span>
 <span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {SaludarEventData}</span><span style="color:#9CDCFE"> data</span><span style="color:#6A9955"> - `Datos del saludo (nombre y periodo)`</span></span>
-<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {TipoEntradaLog}</span><span style="color:#9CDCFE"> metodo</span><span style="color:#6A9955"> - `Metodo usado para pasar parametros (on o data)`</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {TipoEntradaLogParametros}</span><span style="color:#9CDCFE"> metodo</span><span style="color:#6A9955"> - `Metodo usado para pasar parametros (on o data)`</span></span>
 <span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> etiqueta</span><span style="color:#6A9955"> - `Etiqueta descriptiva del metodo en el registro`</span></span>
 <span class="line"><span style="color:#6A9955">     */</span></span>
 <span class="line"></span>

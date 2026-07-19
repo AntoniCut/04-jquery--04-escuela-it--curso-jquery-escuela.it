@@ -1,0 +1,62 @@
+<!--  
+    *  -----------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /02-formularios-sin-validacion-demo.html  --  /src/pages-components/clase-18/02-formularios-sin-validacion-demo.html  -----  *
+    *  -----------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__demo">
+
+
+    <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+    <div class="form-ajax">
+
+        <h3 class="form-ajax__title">
+            Formulario sin validación
+        </h3>
+
+        <form action="enviar1.php" id="form" method="post" class="form-ajax__form">
+            
+            <div class="form-ajax__field">
+                <label class="form-ajax__label" for="nombre">Nombre:</label>
+                <input class="form-ajax__input" type="text" name="nombre" id="nombre">
+            </div>
+            
+            <div class="form-ajax__field">
+                <label class="form-ajax__label" for="email">Email:</label>
+                <input class="form-ajax__input" type="text" name="email" id="email">
+            </div>
+            
+            <div class="form-ajax__field">
+                <label class="form-ajax__label" for="intereses">Intereses:</label>
+                <textarea class="form-ajax__textarea" name="intereses" id="intereses"></textarea>
+            </div>
+            
+            <div class="form-ajax__field">
+                <label class="form-ajax__label" for="sexo">Sexo:</label>
+                <select class="form-ajax__select" name="sexo" id="sexo">
+                    <option value="Hombre">Hombre</option>
+                    <option value="Mujer">Mujer</option>
+                </select>
+            </div>
+            
+            <div class="form-ajax__field form-ajax__field--actions">
+                <input class="form-ajax__submit" type="submit" value="Enviar">
+            </div>
+
+        </form>
+
+        <div class="form-ajax__output" id="salida"> 
+            <div class="form-ajax__loading" id="loading">
+                <img class="form-ajax__loading-img" src="../../../assets/img/clase-18/loading.gif" alt="Cargando...">
+                <span class="form-ajax__loading-text">Enviando datos...</span>
+            </div>
+            <div class="form-ajax__error" id="muestraerror"></div>
+            <div class="form-ajax__output-info">Aquí se mostrará lo que me traiga por POST ...</div>
+        </div>
+
+    </div>
+
+
+</div>

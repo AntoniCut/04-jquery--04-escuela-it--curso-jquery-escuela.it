@@ -1,7 +1,7 @@
 /*
-    *  ---------------------------------------------------------------------------------------------------------------------------  *
+    *  -------------------------------------------------------------------------------------------------------------------------  *
     *  -----  /01-enviar-datos-post-sin-formularios.js  --  /src/scripts/clase-18/01-enviar-datos-post-sin-formularios.js  -----  *
-    *  ---------------------------------------------------------------------------------------------------------------------------  *
+    *  -------------------------------------------------------------------------------------------------------------------------  *
 */
 
 
@@ -36,8 +36,11 @@
     /** @type {JQuery<HTMLAnchorElement>} - `Enlace para enviar datos` */
     const $enlace = $('#enlace');
 
-    /** @type {JQuery<HTMLDivElement>} - `Contenedor de salida` */
-    const $salida = $('#salida');
+    /** @type {JQuery<HTMLDivElement>} - `Contenedor de loading` */
+    const $loading = $('#loading');
+
+    /** @type {JQuery<HTMLDivElement>} - `Contenedor de informacion de salida` */
+    const $infoSalida = $('.form-ajax__output-info');
 
 
     /*
@@ -45,6 +48,8 @@
         *  -----  Funciones  -----
         *  -----------------------
     */
+
+
 
     /**
      * --------------------------------------
@@ -58,6 +63,7 @@
     const construirUrl = (endpoint) => `${URL_BASE}/${endpoint}`;
 
 
+
     /**
      * ------------------------------
      * -----  `obtenerDatos()`  -----
@@ -67,9 +73,10 @@
      */
     
     const obtenerDatos = () => ({
-        dato1: "valor del dato 1",
-        dato2: "valor del dato 2"
+        dato1: "Curso jQuery - Escuela IT: envío de datos POST sin formularios HTML",
+        dato2: "Petición AJAX con $.post() desde un enlace, sin recargar la página"
     });
+
 
 
     /**
@@ -82,8 +89,9 @@
     
     const manejarRespuesta = (respuesta) => {
         ocultarLoading();
-        $salida.html(respuesta);
+        $infoSalida.html(respuesta).show();
     };
+
 
 
     /**
@@ -92,10 +100,12 @@
      * --------------------------------
      * - Muestra el indicador de carga en el contenedor de salida
      */
+
     const mostrarLoading = () => {
-        $('#loading').show();
-        $('.salida__info').hide();
+        $loading.show();
+        $infoSalida.hide();
     };
+
 
 
     /**
@@ -104,9 +114,11 @@
      * --------------------------------
      * - Oculta el indicador de carga
      */
+
     const ocultarLoading = () => {
-        $('#loading').hide();
+        $loading.hide();
     };
+
 
 
     /**
@@ -128,8 +140,10 @@
         mostrarLoading();
 
         $.post(url, datos, manejarRespuesta);
+
     };
 
+    
 
     /*
         *  -----------------------------

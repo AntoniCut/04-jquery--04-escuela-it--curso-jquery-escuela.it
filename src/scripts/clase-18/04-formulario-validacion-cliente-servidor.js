@@ -45,8 +45,14 @@
     /** @type {JQuery<HTMLInputElement>} - `Boton de envio` */
     const $submit = $formulario.find('input[type="submit"]');
 
+    /** @type {JQuery<HTMLDivElement>} - `Contenedor de loading` */
+    const $loading = $('#loading');
+
     /** @type {JQuery<HTMLDivElement>} - `Contenedor de salida` */
     const $salida = $('#salida');
+
+    /** @type {JQuery<HTMLDivElement>} - `Contenedor de informacion de salida` */
+    const $infoSalida = $('.form-ajax__output-info');
 
     /** @type {JQuery<HTMLInputElement>} - `Input del nombre` */
     const $nombre = $('#nombre');
@@ -121,11 +127,14 @@
      * ------------------------------------
      * -----  `mostrarError(mensaje)`  -----
      * ------------------------------------
-     * - Muestra los errores en el contenedor
+     * - Muestra los errores en la ventana de salida
      * @param {string} mensaje - Mensaje de error a mostrar
      */
 
     const mostrarError = (mensaje) => {
+        ocultarLoading();
+        $salida.addClass('form-ajax__output--error');
+        $infoSalida.hide().empty();
         $muestraError.html(mensaje);
     };
 
@@ -134,11 +143,12 @@
      * --------------------------------
      * -----  `limpiarErrores()`  -----
      * --------------------------------
-     * - Limpia los errores del contenedor
+     * - Limpia los errores de la ventana de salida
      */
 
     const limpiarErrores = () => {
         $muestraError.empty();
+        $salida.removeClass('form-ajax__output--error');
     };
 
 
@@ -150,7 +160,8 @@
      */
 
     const limpiarSalida = () => {
-        $salida.find('.form-ajax__output-info').empty();
+        limpiarErrores();
+        $infoSalida.empty();
     };
 
 
@@ -182,16 +193,26 @@
      * -----  `manejarRespuesta(respuesta, $form)`  -----
      * --------------------------------------------------
      * - Maneja la respuesta del servidor
-     * @param {{ valido: boolean, mensaje: string }} respuesta - Respuesta JSON del servidor
+     * @param {{ valido: boolean, mensaje: string, errores?: Record<string, string> }} respuesta - Respuesta JSON del servidor
      * @param {JQuery<HTMLFormElement>} $form - Referencia al formulario
      */
     const manejarRespuesta = (respuesta, $form) => {
         ocultarLoading();
-        $salida.find('.form-ajax__output-info').html(respuesta.mensaje).show();
 
-        if (respuesta.valido) 
+        if (respuesta.valido) {
+            limpiarErrores();
+            $infoSalida.html(respuesta.mensaje).show();
             $form.trigger('reset');
+            return;
+        }
+
+        /** -----  `Mensaje de error del servidor`  ----- */
+        let mensajeError = respuesta.mensaje;
+
+        if (respuesta.errores) 
+            mensajeError = Object.values(respuesta.errores).join('<br>');
         
+        mostrarError(mensajeError);
     };
 
 
@@ -202,8 +223,9 @@
      * - Muestra el indicador de carga en el contenedor de salida
      */
     const mostrarLoading = () => {
-        $('#loading').show();
-        $('.form-ajax__output-info').hide();
+        limpiarErrores();
+        $loading.show();
+        $infoSalida.hide();
     };
 
 
@@ -214,7 +236,7 @@
      * - Oculta el indicador de carga
      */
     const ocultarLoading = () => {
-        $('#loading').hide();
+        $loading.hide();
     };
 
 

@@ -1,7 +1,7 @@
 /*
-    *  -------------------------------------------------------------------------------------------------------------------------  *
+    *  -----------------------------------------------------------------------------------------------------------  *
     *  -----  /02-formularios-sin-validacion.js  --  /src/scripts/clase-18/02-formularios-sin-validacion.js  -----  *
-    *  -------------------------------------------------------------------------------------------------------------------------  *
+    *  -----------------------------------------------------------------------------------------------------------  *
 */
 
 
@@ -24,6 +24,7 @@
     const URL_BASE = '/escuelait/curso-jquery-escuelait/app/services/clase-18';
 
 
+
     /*
         *  ---------------------------------
         *  -----  Referencias al HTML  -----
@@ -33,8 +34,12 @@
     /** @type {JQuery<HTMLFormElement>} - `Formulario principal` */
     const $formulario = $('#form');
 
-    /** @type {JQuery<HTMLDivElement>} - `Contenedor de salida` */
-    const $salida = $('#salida');
+    /** @type {JQuery<HTMLDivElement>} - `Contenedor de loading` */
+    const $loading = $('#loading');
+
+    /** @type {JQuery<HTMLDivElement>} - `Contenedor de informacion de salida` */
+    const $infoSalida = $('.form-ajax__output-info');
+
 
 
     /*
@@ -42,6 +47,7 @@
         *  -----  Funciones  -----
         *  -----------------------
     */
+
 
     /**
      * ------------------------------------
@@ -62,9 +68,12 @@
      * - Maneja la respuesta exitosa del servidor
      * @param {string} respuesta - HTML de respuesta del servidor
      */
+
     const manejarRespuesta = (respuesta) => {
+        
         ocultarLoading();
-        $salida.find('.form-ajax__output-info').html(respuesta).show();
+        
+        $infoSalida.html(respuesta).show();
     };
 
 
@@ -74,10 +83,12 @@
      * ---------------------------
      * - Muestra el indicador de carga en el contenedor de salida
      */
+
     const mostrarLoading = () => {
-        $('#loading').show();
-        $('.form-ajax__output-info').hide();
+        $loading.show();
+        $infoSalida.hide();
     };
+
 
 
     /**
@@ -87,8 +98,9 @@
      * - Oculta el indicador de carga
      */
     const ocultarLoading = () => {
-        $('#loading').hide();
+        $loading.hide();
     };
+
 
 
     /**
@@ -112,8 +124,12 @@
         //  -----  Mostrar loading antes de enviar  -----
         mostrarLoading();
 
+        //  -----  Enviar los datos al servidor  -----
         $.post(url, datos, manejarRespuesta);
+
     };
+
+
 
 
     /*
@@ -121,6 +137,7 @@
         *  -----  Event Listeners  -----
         *  -----------------------------
     */
+
 
     //  -----  Envio del formulario sin validacion  -----
     $formulario.on("submit", function (e) {

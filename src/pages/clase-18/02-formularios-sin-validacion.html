@@ -8,128 +8,79 @@
 
 <div class="main__container">
 
+    <!--  -----  Header de la Sección  -----  -->
+    <header class="section__header">
 
-    <!--  -----  INFO  -----  -->
-    <section class="main__section-info">
+        <h2 class="section__title" title="Formularios Sin Validación">
+            Clase 18 - Formularios Sin Validación - Descripción
+        </h2>
 
+    </header>
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
-
-            <h2 class="section__title" title="Formularios Sin Validación">
-                Clase 18 - Formularios Sin Validación
-            </h2>
-
-        </header>
-
-        <!--  -----  Contenido de la Sección  -----  -->
-        <section class="section__content">
-
-            <div class="content__description content__description--exercise">
-
-                <h3 class="content__title">
-                    Que hace este ejercicio
-                </h3>
-
-                <p class="content__text">
-                    Este ejercicio muestra el envío básico de un formulario HTML al servidor mediante AJAX sin ninguna validación previa.
-                    Se utiliza el método <kbd>serialize()</kbd> de jQuery para capturar todos los datos del formulario automáticamente.
-                </p>
-
-                <ul class="content__list">
-                    <li>
-                        El formulario se envía al servidor mediante POST cuando el usuario hace clic en "Enviar", sin recargar la página.
-                    </li>
-                    <li>
-                        Se muestra un indicador de carga mientras se procesa la petición y se espera la respuesta del servidor.
-                    </li>
-                    <li>
-                        La respuesta del servidor (HTML) se inserta directamente en el contenedor de salida.
-                    </li>
-                </ul>
-
-                <p class="content__note">
-                    <kbd> Objetivo: </kbd> Comprender el proceso básico de envío de formularios mediante AJAX usando jQuery, 
-                    aprendiendo a serializar datos y manejar la respuesta del servidor.
-                </p>
-            </div>
-
-        </section>
+    <!--  -----  Descripción de la Página  -----  -->
+    <section data-component-page="formulariosSinValidacionDescription">
 
     </section>
 
 
-    <!--  -----  PRÁCTICA  -----  -->
-    <section class="main__section-practica">
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
+        <h2 class="section__title" title="Formularios Sin Validación">
+            Clase 18 - Formularios Sin Validación - Demo
+        </h2>
 
-            <h2 class="section__title" title="Práctica">
-                Práctica
-            </h2>
+    </header>
 
-        </header>
-
-        <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
-        <section class="section__content">
-
-            <div class="form-ajax">
-
-                <h3 class="form-ajax__title">
-                    Formulario sin validación
-                </h3>
-
-                <div class="form-ajax__error" id="muestraerror">
-                    <!--  -----  Aqui se mostraran los errores del formulario  -----  -->
-                </div>
-                            
-                
-                <form action="enviar1.php" id="form" method="post" class="form-ajax__form">
-                    
-                    <div class="form-ajax__field">
-                        <label class="form-ajax__label" for="nombre">Nombre:</label>
-                        <input class="form-ajax__input" type="text" name="nombre" id="nombre">
-                    </div>
-                    
-                    <div class="form-ajax__field">
-                        <label class="form-ajax__label" for="email">Email:</label>
-                        <input class="form-ajax__input" type="text" name="email" id="email">
-                    </div>
-                    
-                    <div class="form-ajax__field">
-                        <label class="form-ajax__label" for="intereses">Intereses:</label>
-                        <textarea class="form-ajax__textarea" name="intereses" id="intereses"></textarea>
-                    </div>
-                    
-                    <div class="form-ajax__field">
-                        <label class="form-ajax__label" for="sexo">Sexo:</label>
-                        <select class="form-ajax__select" name="sexo" id="sexo">
-                            <option value="Hombre">Hombre</option>
-                            <option value="Mujer">Mujer</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-ajax__field form-ajax__field--actions">
-                        <input class="form-ajax__submit" type="submit" value="Enviar">
-                    </div>
-
-                </form>
-
-                <div class="form-ajax__output" id="salida"> 
-                    <div class="form-ajax__loading" id="loading">
-                        <img class="form-ajax__loading-img" src="../../../assets/img/clase-18/loading.gif" alt="Cargando...">
-                        <span class="form-ajax__loading-text">Enviando datos...</span>
-                    </div>
-                    <p class="form-ajax__output-info">Aquí se mostrará lo que me traiga por POST ...</p>
-                </div>
-
-            </div>
-
-        </section>
+    <!--  -----  Demo de la Página  -----  -->
+    <section data-component-page="formulariosSinValidacionDemo">
 
     </section>
 
-   
+
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
+
+        <h2 class="section__title" title="Formularios Sin Validación">
+            Clase 18 - Formularios Sin Validación - Código Markdown
+        </h2>
+
+    </header>
+
+
+    <!--  -----  Código Markdown  -----  -->
+    <section class="main__section-markdown">
+
+        <div class="markdown__container">
+
+            <article 
+                data-shiki="codeHtml" 
+                data-label="formularios-sin-validacion.html" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .html tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeCss" 
+                data-label="clase-18-styles.css" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .css tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeJs" 
+                data-label="formularios-sin-validacion.js" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .js tipo 'markdown'  *****  -->
+            </article>
+            
+
+        </div>
+
+    </section>
+       
 
 </div>
