@@ -19,9 +19,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +42,33 @@ export const routeClase15 = {
             "#layoutMain": `${pages}/clase-15/00-json.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-15/00-json-description.html`, target: '[data-component-page="jsonDescription"]' },
+            { url: `${pagesComponents}/clase-15/00-json-demo.html`, target: '[data-component-page="jsonDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '00-json-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-15/00-json-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-15`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '00-json-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-15/00-json.css`,
+                urlOutput: `${markdownShikiHtml}/clase-15`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '00-json-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-15/00-json.js`,
+                urlOutput: `${markdownShikiHtml}/clase-15`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 15 - JSON',
         styles: [
             { href: `${styles}/pages/clase-15/00-json.css` },
@@ -51,5 +80,5 @@ export const routeClase15 = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };
