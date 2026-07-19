@@ -5,6 +5,8 @@
 */
 
 
+/// <reference path="./types.d.js" />
+
 
 (($) => {
 
@@ -12,30 +14,6 @@
     console.log('\n');
     console.warn('-----  02-pasar-parametros-a-eventos.js  -----');
     console.log('\n');
-
-
-    /*
-        *  ----------------------------
-        *  -----  Tipos de datos  -----
-        *  ----------------------------
-    */
-
-
-    /**
-     * @typedef {object} SaludarEventData
-     * @property {string} nombre - `Nombre de la persona`
-     * @property {string} periodo - `Periodo del dia`
-     */
-
-    /**
-     * @typedef {'on' | 'data' | 'info'} TipoEntradaLog
-     */
-
-    /**
-     * @typedef {object} EntradaLog
-     * @property {string} mensaje - `Descripcion de la accion`
-     * @property {TipoEntradaLog} tipo - `Tipo de entrada en el registro`
-     */
 
 
     /*
@@ -74,7 +52,7 @@
      * - Agrega la clase CSS segun el metodo utilizado (on, data o info)
      * - Agrega el mensaje a la entrada del registro
      * - Inserta el item al inicio del registro de eventos
-     * @param {EntradaLog} entrada - `Entrada en el registro de parametros`
+     * @param {EntradaLog<TipoEntradaLogParametros>} entrada - `Entrada en el registro de parametros`
      */
 
     const registrarLog = (entrada) => {
@@ -141,7 +119,7 @@
      * - Anima el elemento y registra la accion en el log
      * @param {JQuery<HTMLElement>} $elemento - `Elemento donde se muestra el saludo`
      * @param {SaludarEventData} data - `Datos del saludo (nombre y periodo)`
-     * @param {TipoEntradaLog} metodo - `Metodo usado para pasar parametros (on o data)`
+     * @param {TipoEntradaLogParametros} metodo - `Metodo usado para pasar parametros (on o data)`
      * @param {string} etiqueta - `Etiqueta descriptiva del metodo en el registro`
      */
 

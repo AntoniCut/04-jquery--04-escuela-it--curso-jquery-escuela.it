@@ -5,6 +5,9 @@
 */
 
 
+/// <reference path="./types.d.js" />
+
+
 
 
 
@@ -15,25 +18,6 @@
     console.log('\n');
     console.warn('-----  06-eventos-personalizados-2.js  -----');
     console.log('\n');
-
-
-    /*
-        *  ----------------------------
-        *  -----  Tipos de datos  -----
-        *  ----------------------------
-    */
-
-
-    /**
-     * @typedef {'handler1' | 'handler2' | 'handler3' | 'info'} TipoEntradaLog
-     */
-
-    /**
-     * @typedef {object} EntradaLog
-     * @property {string} mensaje - `Descripcion de la accion`
-     * @property {TipoEntradaLog} tipo - `Tipo de entrada en el registro`
-     */
-
 
 
     /*
@@ -84,7 +68,7 @@
      * - Agrega la clase CSS del tipo de entrada en el registro
      * - Agrega el mensaje a la entrada del registro
      * - Inserta el item al inicio del registro de eventos
-     * @param {EntradaLog} entrada - `Entrada en el registro de manejadores`
+     * @param {EntradaLog<TipoEntradaLogTermine>} entrada - `Entrada en el registro de manejadores`
      */
 
     const registrarLog = (entrada) => {

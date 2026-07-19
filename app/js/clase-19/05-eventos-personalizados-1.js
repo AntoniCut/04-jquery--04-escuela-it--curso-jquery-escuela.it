@@ -5,6 +5,8 @@
 */
 
 
+/// <reference path="./types.d.js" />
+
 
 
 
@@ -16,25 +18,6 @@
     console.log('\n');
 
 
-    /*
-        *  ----------------------------
-        *  -----  Tipos de datos  -----
-        *  ----------------------------
-    */
-
-
-    /**
-     * @typedef {'manual' | 'trigger' | 'info'} TipoEntradaLog
-     */
-
-    /**
-     * @typedef {object} EntradaLog
-     * @property {string} mensaje - `Descripcion de la accion`
-     * @property {TipoEntradaLog} tipo - `Tipo de entrada en el registro`
-     */
-
-
-    
     /*
         *  ---------------------------------
         *  -----  Referencias al HTML  -----
@@ -86,7 +69,7 @@
      * - Agrega la clase CSS del tipo de entrada en el registro
      * - Agrega el mensaje a la entrada del registro
      * - Inserta el item al inicio del registro de eventos
-     * @param {EntradaLog} entrada - `Entrada en el registro de eventos`
+     * @param {EntradaLog<TipoEntradaLogDespertar>} entrada - `Entrada en el registro de eventos`
      */
 
     const registrarLog = (entrada) => {

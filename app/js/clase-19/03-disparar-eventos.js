@@ -5,6 +5,8 @@
 */
 
 
+/// <reference path="./types.d.js" />
+
 
 (($) => {
 
@@ -12,26 +14,6 @@
     console.log('\n');
     console.warn('-----  03-disparar-eventos.js  -----');
     console.log('\n');
-
-
-    /*
-        *  ----------------------------
-        *  -----  Tipos de datos  -----
-        *  ----------------------------
-    */
-
-
-    /**
-     * @typedef {'manual' | 'trigger'} OrigenEvento
-     */
-
-    /**
-     * @typedef {object} EntradaLog
-     * @property {string} elemento - `Nombre del elemento objetivo`
-     * @property {string} evento - `Tipo de evento disparado`
-     * @property {string} manejador - `Descripcion del manejador ejecutado`
-     * @property {OrigenEvento} origen - `Origen del evento`
-     */
 
 
     /*
@@ -102,7 +84,7 @@
      * - Agrega la clase CSS segun el origen (manual o trigger)
      * - Construye el HTML de la entrada con elemento, evento, manejador y origen
      * - Inserta el item al inicio del registro de eventos
-     * @param {EntradaLog} entrada - `Datos del disparo registrado`
+     * @param {EntradaLogDisparo<OrigenEvento>} entrada - `Datos del disparo registrado`
      */
 
     const registrarLog = (entrada) => {

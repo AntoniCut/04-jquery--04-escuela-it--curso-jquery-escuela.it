@@ -5,6 +5,8 @@
 */
 
 
+/// <reference path="./types.d.js" />
+
 
 (($) => {
 
@@ -12,26 +14,6 @@
     console.log('\n');
     console.warn('-----  01-delegacion-eventos.js  -----');
     console.log('\n');
-
-
-    /*
-        *  ----------------------------
-        *  -----  Tipos de datos  -----
-        *  ----------------------------
-    */
-
-
-    /**
-     * @typedef {'directo' | 'delegado' | 'sistema'} TipoEntradaLog
-     */
-
-
-    /**
-     * @typedef {object} EntradaLog
-     * @property {string} mensaje - `Descripcion de la accion`
-     * @property {TipoEntradaLog} tipo - `Tipo de entrada en el registro`
-     */
-
 
 
     /*
@@ -84,7 +66,7 @@
      * - Se encarga de agregar la clase CSS del tipo de entrada en el registro
      * - Se encarga de agregar el mensaje a la entrada
      * - Se encarga de agregar el item al registro de eventos
-     * @param {EntradaLog} entrada - `Entrada en el registro de eventos`
+     * @param {EntradaLog<TipoEntradaLogDelegacion>} entrada - `Entrada en el registro de eventos`
      */
 
     const registrarLog = (entrada) => {
