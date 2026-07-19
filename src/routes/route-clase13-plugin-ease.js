@@ -20,9 +20,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -41,6 +43,33 @@ export const routeClase13PluginEase = {
             "#layoutMain": `${pages}/clase-13/03-plugin-ease.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-13/03-plugin-ease-description.html`, target: '[data-component-page="pluginEaseDescription"]' },
+            { url: `${pagesComponents}/clase-13/03-plugin-ease-demo.html`, target: '[data-component-page="pluginEaseDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '03-plugin-ease-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-13/03-plugin-ease-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-13`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '03-plugin-ease-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-13/03-plugin-ease.css`,
+                urlOutput: `${markdownShikiHtml}/clase-13`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '03-plugin-ease-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-13/03-plugin-ease.js`,
+                urlOutput: `${markdownShikiHtml}/clase-13`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 13 - 3. Plugin Ease',
         styles: [
             { href: `${styles}/pages/clase-13/03-plugin-ease.css` },
@@ -53,5 +82,5 @@ export const routeClase13PluginEase = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };

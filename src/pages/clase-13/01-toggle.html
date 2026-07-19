@@ -1,74 +1,86 @@
 <!--  
-    *  ---------------------------------------------------------------------  *
+    *  ----------------------------------------------------------------------  *
     *  -----  /01-toggle.html  --  /src/pages/clase-13/01-toggle.html  -----  *
-    *  ---------------------------------------------------------------------  *
+    *  ----------------------------------------------------------------------  *
 -->
 
 
 
 <div class="main__container">
 
+    <!--  -----  Header de la Sección  -----  -->
+    <header class="section__header">
 
-    <!--  -----  INFO  -----  -->
-    <section class="main__section-info">
+        <h2 class="section__title" title="1. Toggle">
+            Clase 13 - 1. Toggle - Descripción
+        </h2>
 
+    </header>
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
-
-            <h2 class="section__title" title="1. Toggle">
-                Clase 13 - 1. Toggle
-            </h2>
-
-        </header>
-
-        <!--  -----  Contenido de la Sección  -----  -->
-        <article class="section__content">
-
-            <div class="content__description content__description--exercise">
-
-                <h3 class="content__title">
-                    Que hace este ejercicio
-                </h3>
-
-                <p class="content__text">
-                    Este ejercicio usa el metodo <kbd>toggle()</kbd> para mostrar y ocultar un bloque
-                    con animacion, y actualiza el texto del enlace segun el estado del elemento.
-                </p>
-
-                <ul class="content__list">
-                    <li>
-                        Se captura el evento <kbd>click</kbd> del enlace y se evita su comportamiento por defecto.
-                    </li>
-                    <li>
-                        Se ejecuta <kbd>toggle(4000)</kbd> para alternar visibilidad con una transicion de 4 segundos.
-                    </li>
-                    <li>
-                        En el callback se comprueba <kbd>:visible</kbd> y se cambia el texto entre <strong>Ocultar</strong> y <strong>Mostrar</strong>.
-                    </li>
-                </ul>
-
-                <p class="content__note">
-                    <kbd> Objetivo: </kbd>  practicar efectos basicos de jQuery y sincronizar el estado visual con el texto de la interfaz.
-                </p>
-
-            </div>
-
-        </article>
+    <!--  -----  Descripción de la Página  -----  -->
+    <section data-component-page="toggleDescription">
 
     </section>
 
 
-    <!--  -----  Práctica  -----  -->
-    <section class="main__section-practica">
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
 
-        <div class="btn__container">
-            <a href="#" id="linkAnim" class="link-anim"> Ocultar </a>
+        <h2 class="section__title" title="1. Toggle">
+            Clase 13 - 1. Toggle - Demo
+        </h2>
+
+    </header>
+
+    <!--  -----  Demo de la Página  -----  -->
+    <section data-component-page="toggleDemo">
+
+    </section>
+
+
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
+
+        <h2 class="section__title" title="1. Toggle">
+            Clase 13 - 1. Toggle - Código Markdown
+        </h2>
+
+    </header>
+
+
+    <!--  -----  Código Markdown  -----  -->
+    <section class="main__section-markdown">
+
+        <div class="markdown__container">
+
+            <article 
+                data-shiki="codeHtml" 
+                data-label="toggle.html" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .html tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeCss" 
+                data-label="01-toggle.css" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .css tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeJs" 
+                data-label="01-toggle.js" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .js tipo 'markdown'  *****  -->
+            </article>
+            
+
         </div>
 
-        <div id="anim"> Esto se va a animar </div>
-
     </section>
-
+       
 
 </div>

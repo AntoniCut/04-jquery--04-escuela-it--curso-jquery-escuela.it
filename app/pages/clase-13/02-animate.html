@@ -1,93 +1,86 @@
 <!--  
-    *  -----------------------------------------------------------------------  *
+    *  ----------------------------------------------------------------------  *
     *  -----  /02-animate.html  --  /src/pages/clase-13/02-animate.html  -----  *
-    *  -----------------------------------------------------------------------  *
+    *  ----------------------------------------------------------------------  *
 -->
 
 
 
 <div class="main__container">
 
+    <!--  -----  Header de la Sección  -----  -->
+    <header class="section__header">
 
-    <!--  -----  INFO  -----  -->
-    <section class="main__section-info">
+        <h2 class="section__title" title="2. Animate">
+            Clase 13 - 2. Animate - Descripción
+        </h2>
 
+    </header>
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
-
-            <h2 class="section__title" title="2. Animate">
-                Clase 13 - 2. Animate
-            </h2>
-
-        </header>
-
-        <!--  -----  Contenido de la Sección  -----  -->
-        <article class="section__content">
-
-            <div class="content__description content__description--exercise">
-
-                <h3 class="content__title">
-                    Que hace este ejercicio
-                </h3>
-
-                <p class="content__text">
-                    Este ejercicio toma valores de un formulario y aplica una animacion personalizada
-                    con <kbd>animate()</kbd> sobre la propia caja del formulario.
-                </p>
-
-                <ul class="content__list">
-                    <li>
-                        Se capturan los datos de <strong>font-size</strong>, <strong>width</strong> y <strong>padding</strong> desde inputs.
-                    </li>
-                    <li>
-                        Se ejecuta una secuencia de efectos: <kbd>animate()</kbd>, luego <kbd>fadeOut()</kbd> y despues <kbd>fadeIn()</kbd>.
-                    </li>
-                    <li>
-                        Al final se restauran valores base para reiniciar el componente y repetir la practica.
-                    </li>
-                </ul>
-
-                <p class="content__note">
-                    <kbd> Objetivo: </kbd> entender como encadenar animaciones y transiciones en jQuery a partir de datos dinamicos.
-                </p>
-
-            </div>
-
-        </article>
+    <!--  -----  Descripción de la Página  -----  -->
+    <section data-component-page="animateDescription">
 
     </section>
 
 
-    <!--  -----  Práctica  -----  -->
-    <section class="main__section-practica">
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
 
+        <h2 class="section__title" title="2. Animate">
+            Clase 13 - 2. Animate - Demo
+        </h2>
 
-        <form action="#">
+    </header>
 
-            <div class="lineaform">
-                <span> Tamaño del texto </span>
-                <input type="text" id="tamTexto" value="1.6rem" />
-            </div>
-
-            <div class="lineaform">
-                <span> Tamaño de la caja </span>
-                <input type="text" id="tamCaja" value="50rem" />
-            </div>
-
-            <div class="lineaform">
-                <span> padding </span>
-                <input type="text" id="padding" value="2rem" />
-            </div>
-
-            <div class="lineaform submit">
-                <input type="submit" value="animar" id="b" />
-            </div>
-
-        </form>
-
+    <!--  -----  Demo de la Página  -----  -->
+    <section data-component-page="animateDemo">
 
     </section>
 
+
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
+
+        <h2 class="section__title" title="2. Animate">
+            Clase 13 - 2. Animate - Código Markdown
+        </h2>
+
+    </header>
+
+
+    <!--  -----  Código Markdown  -----  -->
+    <section class="main__section-markdown">
+
+        <div class="markdown__container">
+
+            <article 
+                data-shiki="codeHtml" 
+                data-label="animate.html" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .html tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeCss" 
+                data-label="02-animate.css" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .css tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeJs" 
+                data-label="02-animate.js" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .js tipo 'markdown'  *****  -->
+            </article>
+            
+
+        </div>
+
+    </section>
+       
 
 </div>

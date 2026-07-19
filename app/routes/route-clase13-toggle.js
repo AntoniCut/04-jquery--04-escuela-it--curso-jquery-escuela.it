@@ -19,9 +19,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +42,33 @@ export const routeClase13Toggle = {
             "#layoutMain": `${pages}/clase-13/01-toggle.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-13/01-toggle-description.html`, target: '[data-component-page="toggleDescription"]' },
+            { url: `${pagesComponents}/clase-13/01-toggle-demo.html`, target: '[data-component-page="toggleDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '01-toggle-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-13/01-toggle-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-13`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '01-toggle-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-13/01-toggle.css`,
+                urlOutput: `${markdownShikiHtml}/clase-13`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '01-toggle-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-13/01-toggle.js`,
+                urlOutput: `${markdownShikiHtml}/clase-13`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 13 - 1. Toggle',
         styles: [
             { href: `${styles}/pages/clase-13/01-toggle.css` },
@@ -51,5 +80,5 @@ export const routeClase13Toggle = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };

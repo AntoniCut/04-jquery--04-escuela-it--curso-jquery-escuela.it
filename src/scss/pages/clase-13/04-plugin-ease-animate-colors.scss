@@ -5,54 +5,116 @@
 */
 
 
-.main__section-practica {
-    height: 50rem;
+.fx-stage {
+    min-height: 48rem;
+    padding: 2.4rem;
+    border-radius: 1.6rem;
+    background:
+        radial-gradient(circle at top left, rgba(248, 156, 21, 0.14), transparent 42%),
+        radial-gradient(circle at bottom right, rgba(42, 157, 143, 0.12), transparent 45%),
+        linear-gradient(160deg, #f7fafc 0%, #eef4f9 55%, #e8f1f8 100%);
+    border: 1px solid rgba(3, 106, 173, 0.12);
+    box-shadow: 0 12px 32px rgba(15, 40, 70, 0.08);
 }
 
-.main__section-practica select {
-    width: 20rem;
-    border-radius: 5px;
-    padding-left: 2rem;
+
+.fx-select {
+    width: min(24rem, 100%);
+    padding: 1.2rem 1.6rem;
+    font-size: 1.4rem;
+    color: #1a1a2e;
+    background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%232a9d8f' d='M6 8L0 0h12z'/%3E%3C/svg%3E") no-repeat right 1.4rem center;
+    background-size: 12px;
+    border: 2px solid #e1e4eb;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 300ms ease-in-out;
+    appearance: none;
+    transition: all 250ms ease;
 
     &:hover {
-        background-color: #cfd6e4;
+        border-color: #c5c9d6;
+        background-color: #f7fafc;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: #2a9d8f;
+        box-shadow: 0 0 0 4px rgba(42, 157, 143, 0.12);
+    }
+
+    option {
+        text-align: left;
     }
 }
 
 
-.main__section-practica select option {
-    text-align: left;
-}
-
-.main__section-practica a {
-    width: 10rem;
-    padding: 1rem 2rem;
-    border-radius: 5px;
+.fx-btn {
+    display: inline-block;
+    min-width: 12rem;
+    padding: 1.2rem 3rem;
+    font-size: 1.5rem;
+    font-weight: 600;
     color: #fff;
-    background-color: #4a84ee;
-    font-size: 1.8rem;
-    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 300ms linear;
+    letter-spacing: 0.02em;
+    transition: all 300ms ease;
 
-    &:hover {
-        background-color: #8db2f7;
+    &--action {
+        background: linear-gradient(135deg, #2a9d8f 0%, #21867a 100%);
+
+        &:hover {
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(42, 157, 143, 0.35);
+        }
+
+        &:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 12px rgba(42, 157, 143, 0.25);
+        }
     }
 }
 
-#capa{
+
+#capa {
     width: 25rem;
+    max-width: 100%;
     height: 15rem;
-    margin-top: 5rem;
+    margin-top: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 2rem;
     font-size: 1.6rem;
-    font-weight: bold;
+    font-weight: 700;
     text-align: center;
     color: #fff;
+    /* Fondo sólido: jquery-animate-colors anima backgroundColor, no gradients */
     background-color: #f86;
+    border-radius: 1.2rem;
+    box-shadow: 0 12px 28px rgba(248, 102, 102, 0.28);
 }
 
+
+.fx-salida {
+    width: min(50rem, 100%);
+    min-height: 4.4rem;
+    margin-top: 1.6rem;
+    padding: 1.2rem 1.6rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #1f4e5f;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(3, 106, 173, 0.16);
+    border-radius: 0.8rem;
+    box-shadow: 0 6px 18px rgba(15, 40, 70, 0.06);
+
+    &:empty {
+        display: none;
+    }
+}

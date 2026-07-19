@@ -26,6 +26,22 @@
     /** @type {JQuery<HTMLInputElement>} - `#padding` */
     const $padding = $('.main__section-practica #padding');
 
+    /** @type {JQuery<HTMLDivElement>} - `#salida` */
+    const $salida = $('.main__section-practica #salida');
+
+
+    /**
+     * --------------------------------
+     * -----  `mostrarMensaje()`  -----
+     * --------------------------------
+     * - Escribe el estado de la secuencia en `#salida` sin bloquear la animación.
+     * @param {string} mensaje
+     */
+
+    const mostrarMensaje = (mensaje) => {
+        $salida.text(mensaje);
+    };
+
 
     //  -----  Evento al enviar el formulario  -----
     $form.on("submit", function (e) {
@@ -45,6 +61,8 @@
         /**  - `-----  almacenamos el valor del padding  -----` */
         const padding = $padding.val();
 
+        mostrarMensaje('Animando con animate()...');
+
         ///  - `-----  animamos la caja del formulario  -----`
         $cajaForm.animate({
 
@@ -54,23 +72,27 @@
 
         }, 4000, function () {
 
-            alert('Termino la animación Animate y Comenzará fadeOut!!!');
+            mostrarMensaje('Terminó animate(). Comienza fadeOut...');
 
             $cajaForm.fadeOut(5000, function () {
 
-                alert('Termino la animación de fadeOut y Comenzará fadeIn!!!');
+                mostrarMensaje('Terminó fadeOut(). Comienza fadeIn...');
 
                 $(this).fadeIn(5000, function () {
 
-                    alert('Termino la animación de fadeIn y vuelve al inicio!!!');
+                    mostrarMensaje('Terminó fadeIn(). Volviendo al inicio...');
 
                     $(this).animate({
 
                         fontSize: '16px',
                         width: '300px',
                         padding: '10px'
-                        
-                    }, 4000);
+
+                    }, 4000, function () {
+
+                        mostrarMensaje('Secuencia completada. Puedes animar de nuevo.');
+
+                    });
 
                 });
             });

@@ -24,6 +24,22 @@
     /** @type {JQuery<HTMLDivElement>} - `div` de la capa a animar */
     const $capa = $('.main__section-practica #capa');
 
+    /** @type {JQuery<HTMLDivElement>} - `#salida` */
+    const $salida = $('.main__section-practica #salida');
+
+
+    /**
+     * ---------------------------------
+     * -----  `mostrarMensaje()`  -----
+     * ---------------------------------
+     * - Escribe el estado de la secuencia en `#salida` sin bloquear la animación.
+     * @param {string} mensaje
+     */
+
+    const mostrarMensaje = (mensaje) => {
+        $salida.text(mensaje);
+    };
+
 
     /**  `-----  Estilos iniciales de mi capa  -----` */
     const originalStyles = {
@@ -71,6 +87,7 @@
 
         console.log('easingValue => ', easingName);
 
+        mostrarMensaje(`Animando con easing: ${easingName}...`);
         $capa.text(easingName);
 
         $capa.animate({
@@ -100,7 +117,7 @@
                     .css(originalStyles)
                     .text('Esto se va a animar con el pluging Easing + animate colors + opciones de animate');
 
-                alert('Terminó!!!');
+                mostrarMensaje('Terminó!!!');
             },
 
             step: function () {

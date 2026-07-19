@@ -20,9 +20,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -41,6 +43,33 @@ export const routeClase13PluginEaseAnimateColors = {
             "#layoutMain": `${pages}/clase-13/04-plugin-ease-animate-colors.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-13/04-plugin-ease-animate-colors-description.html`, target: '[data-component-page="pluginEaseAnimateColorsDescription"]' },
+            { url: `${pagesComponents}/clase-13/04-plugin-ease-animate-colors-demo.html`, target: '[data-component-page="pluginEaseAnimateColorsDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '04-plugin-ease-animate-colors-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-13/04-plugin-ease-animate-colors-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-13`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '04-plugin-ease-animate-colors-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-13/04-plugin-ease-animate-colors.css`,
+                urlOutput: `${markdownShikiHtml}/clase-13`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '04-plugin-ease-animate-colors-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-13/04-plugin-ease-animate-colors.js`,
+                urlOutput: `${markdownShikiHtml}/clase-13`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 13 - 4. Plugin Ease Animate Colors',
         styles: [
             { href: `${styles}/pages/clase-13/04-plugin-ease-animate-colors.css` },
@@ -54,5 +83,5 @@ export const routeClase13PluginEaseAnimateColors = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };
