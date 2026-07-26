@@ -19,9 +19,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +42,33 @@ export const routeClase09Ejercicio00This = {
             "#layoutMain": `${pages}/clase-09/00-ejercicio-00-this.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-09/00-ejercicio-00-this-description.html`, target: '[data-component-page="ejercicio00ThisDescription"]' },
+            { url: `${pagesComponents}/clase-09/00-ejercicio-00-this-demo.html`, target: '[data-component-page="ejercicio00ThisDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '00-ejercicio-00-this-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-09/00-ejercicio-00-this-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-09`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '00-ejercicio-00-this-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-09/00-ejercicio-00-this.css`,
+                urlOutput: `${markdownShikiHtml}/clase-09`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '00-ejercicio-00-this-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-09/00-ejercicio-00-this.js`,
+                urlOutput: `${markdownShikiHtml}/clase-09`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 9 - 0. Ejercicio 0 con THIS',
         styles: [
             { href: `${styles}/pages/clase-09/00-ejercicio-00-this.css` },
@@ -51,5 +80,5 @@ export const routeClase09Ejercicio00This = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };

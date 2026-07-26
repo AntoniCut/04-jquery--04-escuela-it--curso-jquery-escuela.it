@@ -19,9 +19,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +42,33 @@ export const routeClase09Ejercicio03 = {
             "#layoutMain": `${pages}/clase-09/03-ejercicio-03.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-09/03-ejercicio-03-description.html`, target: '[data-component-page="ejercicio03Description"]' },
+            { url: `${pagesComponents}/clase-09/03-ejercicio-03-demo.html`, target: '[data-component-page="ejercicio03Demo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '03-ejercicio-03-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-09/03-ejercicio-03-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-09`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '03-ejercicio-03-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-09/03-ejercicio-03.css`,
+                urlOutput: `${markdownShikiHtml}/clase-09`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '03-ejercicio-03-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-09/03-ejercicio-03.js`,
+                urlOutput: `${markdownShikiHtml}/clase-09`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 9 - 3. Ejercicio 3',
         styles: [
             { href: `${styles}/pages/clase-09/03-ejercicio-03.css` },
@@ -51,5 +80,5 @@ export const routeClase09Ejercicio03 = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };

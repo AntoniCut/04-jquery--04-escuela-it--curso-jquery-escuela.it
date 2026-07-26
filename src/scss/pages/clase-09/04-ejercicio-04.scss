@@ -1,37 +1,107 @@
 /*
-    *  ---------------------------------------------------------------------------------------------  *
-    *  -----  /04-ejercicio-04.scss  --  /src/styles/scss/pages/clase-09/04-ejercicio-04.scss  -----  *
-    *  ---------------------------------------------------------------------------------------------  *
+    *  --------------------------------------------------------------------------------------  *
+    *  -----  /04-ejercicio-04.scss  --  /src/scss/pages/clase-09/04-ejercicio-04.scss  -----  *
+    *  --------------------------------------------------------------------------------------  *
 */
 
 
-.section__content--practica {
+@use '../../base/mixins' as mix;
+@use '../../base/variables' as var;
+
+
+$ej-primary: var.$color-primary;
+$ej-accent: #eef6fb;
+$ej-text: #0d2035;
+$ej-border: rgba($ej-primary, 0.18);
+$ej-shadow: 0 8px 28px rgba(3, 106, 173, 0.12);
+
+.ej-panel {
     width: 100%;
-    min-height: 84rem;
-    max-width: 102.4rem;
+    max-width: 80rem;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    padding: 5rem;
-    border-radius: 0.5rem;
+    gap: 1.6rem;
+
+    &__hint {
+        margin: 0;
+        padding: 1.4rem 1.8rem;
+        font-size: 1.45rem;
+        line-height: 1.65;
+        color: $ej-text;
+        background: $ej-accent;
+        border-left: 5px solid $ej-primary;
+        border-radius: 0 0.8rem 0.8rem 0;
+
+        kbd {
+            background: rgba($ej-primary, 0.1);
+            color: $ej-primary;
+            padding: 0.1rem 0.45rem;
+            border-radius: 4px;
+            font-size: 1.3rem;
+            font-family: monospace;
+        }
+    }
+
+    &__body {
+        padding: 2rem;
+        background: linear-gradient(160deg, #fff 0%, #f7fbfe 100%);
+        border: 1px solid $ej-border;
+        border-radius: 1.4rem;
+        box-shadow: $ej-shadow;
+    }
 }
 
-.ejercicio__description {
-    width: 100%;
-    padding: 2rem;
-    color: #fff;
-    background-color: #8eafeb;
+
+.ej-parrafos-crecientes {
+    display: grid;
+    gap: 1.4rem;
+
+    p {
+        opacity: 0;
+        transform: scale(0.94);
+        margin: 0;
+        padding: 1.6rem 1.8rem;
+        line-height: 1.55;
+        color: $ej-text;
+        background: linear-gradient(145deg, #fff4f1 0%, #f0bcb6 100%);
+        border-radius: 1rem;
+        box-shadow: 0 4px 14px rgba(232, 120, 96, 0.14);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+        &.is-visible {
+            animation: ej-grow-in 0.45s ease forwards;
+        }
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(232, 120, 96, 0.22);
+        }
+    }
 }
 
-.contenido p {
-    margin: 2rem;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    background-color: #F0BCB6;
-}
 
 .parrafo {
+    display: block;
     width: 100%;
-    padding: 2rem;
-    font-weight: 900;
+    margin-bottom: 0.8rem;
+    padding: 0.8rem 1rem;
+    font-weight: 800;
+    color: #8a3b2f;
+    background: rgba(255, 255, 255, 0.55);
+    border-left: 4px solid #d96b55;
+    border-radius: 0 0.6rem 0.6rem 0;
+}
+
+
+@keyframes ej-grow-in {
+    from {
+        opacity: 0;
+        transform: scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }

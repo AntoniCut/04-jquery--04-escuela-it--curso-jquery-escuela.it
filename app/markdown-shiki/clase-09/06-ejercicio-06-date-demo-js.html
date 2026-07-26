@@ -1,0 +1,142 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">warn</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'-----  06-ejercicio-06-date.js  -----'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Referencias a elementos del DOM  -----</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLParagraphElement>}</span><span style="color:#6A9955"> - `Colección de todos los párrafos dentro de .contenido` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $parrafos</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.contenido p'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Elemento donde se mostrará el resultado` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $result</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#result'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  timestampSegundos()  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@function</span><span style="color:#6A9955">  </span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@description</span><span style="color:#6A9955"> - `Función que devuelve el timestamp actual en segundos utilizando el objeto Date.`</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@returns</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Devuelve el timestamp actual en segundos.`</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> timestampSegundos</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {Date}</span><span style="color:#6A9955"> - `objeto Date que representa el instante actual` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> date</span><span style="color:#D4D4D4"> = </span><span style="color:#569CD6">new</span><span style="color:#DCDCAA"> Date</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">        return</span><span style="color:#9CDCFE"> Math</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">round</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">date</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">getTime</span><span style="color:#D4D4D4">() / </span><span style="color:#B5CEA8">1000</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    }  </span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `se guarda el Instante actual en segundos desde la carga de la página` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> instanteInicio</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">timestampSegundos</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">instante inicio => '</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">instanteInicio</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Animacion escalonada de entrada  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    $parrafos</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">each</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">index</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">elem</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#DCDCAA">        setTimeout</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">elem</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-visible'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        }, </span><span style="color:#9CDCFE">index</span><span style="color:#D4D4D4"> * </span><span style="color:#B5CEA8">70</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  asignamos el evento click a cada párrafo  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    $parrafos</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"click"</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Instante actual en segundos desde el ultimo click` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> ahora</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">timestampSegundos</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'ahora => '</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">ahora</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLParagraphElement>}</span><span style="color:#6A9955"> - `Párrafo clicado convertido en objeto jQuery` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $parrafoPulsado</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Número de párrafo pulsado` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> numParrafo</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$parrafos</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">index</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">) + </span><span style="color:#B5CEA8">1</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number | undefined}</span><span style="color:#6A9955"> - `Instante del último clic almacenado en .data("time")` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> instanteUltimoClic</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$parrafoPulsado</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"time"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  Click por primera vez en el párrafo  -----</span></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">instanteUltimoClic</span><span style="color:#D4D4D4"> === </span><span style="color:#569CD6">undefined</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">            /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Número de segundos transcurridos desde el inicio` */</span></span>
+<span class="line"><span style="color:#569CD6">            const</span><span style="color:#4FC1FF"> segundosDesdeInicio</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">ahora</span><span style="color:#D4D4D4"> - </span><span style="color:#9CDCFE">instanteInicio</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">            console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span></span>
+<span class="line"><span style="color:#CE9178">                '</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">segundos desde inicio => '</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">segundosDesdeInicio</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">                '</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">Num párrafo => '</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">numParrafo</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">            $result</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`</span></span>
+<span class="line"><span style="color:#CE9178">                &#x3C;h3></span></span>
+<span class="line"><span style="color:#CE9178">                    Es la primera vez que haces click en el párrafo </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">numParrafo</span><span style="color:#569CD6">}</span></span>
+<span class="line"><span style="color:#CE9178">                    &#x3C;br></span></span>
+<span class="line"><span style="color:#CE9178">                    Han pasado </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">segundosDesdeInicio</span><span style="color:#569CD6">}</span><span style="color:#CE9178"> segundos desde que inició la página</span></span>
+<span class="line"><span style="color:#CE9178">                &#x3C;/h3></span></span>
+<span class="line"><span style="color:#CE9178">            `</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  Clicks posteriores al primero  -----</span></span>
+<span class="line"><span style="color:#C586C0">        else</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">            /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Número de segundos transcurridos desde el último clic`     */</span></span>
+<span class="line"><span style="color:#569CD6">            const</span><span style="color:#4FC1FF"> numSegundos</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">ahora</span><span style="color:#D4D4D4"> - </span><span style="color:#9CDCFE">instanteUltimoClic</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">            console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span></span>
+<span class="line"><span style="color:#CE9178">                '</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">segundos desde último clic => '</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">numSegundos</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">                '</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">Num párrafo => '</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">numParrafo</span></span>
+<span class="line"><span style="color:#D4D4D4">            );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">            $result</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`</span></span>
+<span class="line"><span style="color:#CE9178">                &#x3C;h3></span></span>
+<span class="line"><span style="color:#CE9178">                    El número de segundos desde el último clic es </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">numSegundos</span><span style="color:#569CD6">}</span></span>
+<span class="line"><span style="color:#CE9178">                    &#x3C;br></span></span>
+<span class="line"><span style="color:#CE9178">                    y el número de párrafo es </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">numParrafo</span><span style="color:#569CD6">}</span></span>
+<span class="line"><span style="color:#CE9178">                &#x3C;/h3></span></span>
+<span class="line"><span style="color:#CE9178">            `</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  Actualizamos el tiempo del último click  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">        $parrafoPulsado</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"time"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">ahora</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  Feedback visual del clic  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">        $parrafos</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-active'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $parrafoPulsado</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-active'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $result</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-updated'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">outerWidth</span><span style="color:#D4D4D4">(); </span><span style="color:#6A9955">// reflow para reiniciar la animacion</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $result</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-updated'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">})(</span><span style="color:#9CDCFE">jQuery</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span></code></pre>

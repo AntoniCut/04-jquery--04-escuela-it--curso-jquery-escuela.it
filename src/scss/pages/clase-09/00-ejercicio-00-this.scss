@@ -1,42 +1,99 @@
 /*
-    *  -------------------------------------------------------------------------------------------------------  *
-    *  -----  /00-ejercicio-00-this.scss  --  /src/styles/scss/pages/clase-09/00-ejercicio-00-this.scss  -----  *
-    *  -------------------------------------------------------------------------------------------------------  *
+    *  ----------------------------------------------------------------------------------------------  *
+    *  -----  /00-ejercicio-00-this.scss  --  /src/scss/pages/clase-09/00-ejercicio-00-this.scss  -----  *
+    *  ----------------------------------------------------------------------------------------------  *
 */
 
 
-.section__content--practica {
+@use '../../base/mixins' as mix;
+@use '../../base/variables' as var;
+
+
+$ej-primary: var.$color-primary;
+$ej-accent: #eef6fb;
+$ej-text: #0d2035;
+$ej-muted: #3a5672;
+$ej-border: rgba($ej-primary, 0.18);
+$ej-shadow: 0 8px 28px rgba(3, 106, 173, 0.12);
+
+.ej-panel {
     width: 100%;
-    min-height: 84rem;
-    max-width: 102.4rem;
+    max-width: 72rem;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    padding: 5rem;
-    border-radius: 0.5rem;
+    gap: 1.6rem;
+
+    &__hint {
+        margin: 0;
+        padding: 1.4rem 1.8rem;
+        font-size: 1.45rem;
+        line-height: 1.65;
+        color: $ej-text;
+        background: $ej-accent;
+        border-left: 5px solid $ej-primary;
+        border-radius: 0 0.8rem 0.8rem 0;
+
+        kbd {
+            background: rgba($ej-primary, 0.1);
+            color: $ej-primary;
+            padding: 0.1rem 0.45rem;
+            border-radius: 4px;
+            font-size: 1.3rem;
+            font-family: monospace;
+        }
+    }
+
+    &__body {
+        padding: 2.4rem;
+        background: linear-gradient(160deg, #fff 0%, #f7fbfe 100%);
+        border: 1px solid $ej-border;
+        border-radius: 1.4rem;
+        box-shadow: $ej-shadow;
+    }
 }
 
-.ejercicio__description {
-    width: 100%;
-    padding: 2rem;
-    color: #fff;
-    background-color: #8eafeb;
-}
 
-#lista {
-    width: 100%;
-    min-height: 20rem;
-    display: flex;
-    flex-direction: column;
+.ej-lista {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
     gap: 1rem;
-    margin-top: 5rem;
+
+    li {
+        opacity: 0;
+        transform: translateX(-16px);
+        padding: 1.4rem 1.8rem;
+        font-size: 1.55rem;
+        font-weight: 600;
+        color: #fff;
+        background: linear-gradient(135deg, $ej-primary, #025a94);
+        border-radius: 0.9rem;
+        box-shadow: 0 6px 16px rgba(3, 106, 173, 0.22);
+        transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+
+        &.is-visible {
+            animation: ej-slide-in 0.45s ease forwards;
+        }
+
+        &:hover {
+            transform: translateX(6px);
+            box-shadow: 0 10px 24px rgba(3, 106, 173, 0.3);
+            filter: brightness(1.05);
+        }
+    }
 }
 
-#lista li {
-    width: 100%;
-    margin-bottom: 1rem;
-    padding: 1rem;
-    padding-left: 5rem;
-    color: white;
-    background-color: #8eafeb;
+
+@keyframes ej-slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(-16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }

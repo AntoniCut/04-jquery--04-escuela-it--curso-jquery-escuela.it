@@ -17,7 +17,15 @@
 
     
     //  -----  Agregar un borde verde de 5px a cada párrafo  -----
-    $parrafos.css("border", "5px solid green")
+    $parrafos.css("border", "5px solid green");
+
+
+    //  -----  Animacion escalonada de entrada  -----
+    $parrafos.each(function (index, elem) {
+        setTimeout(() => {
+            $(elem).addClass('is-visible');
+        }, index * 70);
+    });
        
                  
 

@@ -30,7 +30,7 @@
         /*
             -----  Operaciones que quieres realizar para cada elemento "genérico", en este  -----
             -----  caso son los LI de mi página. Este código se ejecuta 5 veces.  ---------------
-            -----  this, en cada iteración serta el li actual  ----------------------------------
+            -----  this, en cada iteración sera el li actual  ----------------------------------
         */
 
 
@@ -69,6 +69,12 @@
                 color: 'green',
                 backgroundColor: 'orange'
             });
+
+
+        //  -----  Animacion escalonada de entrada  -----
+        setTimeout(() => {
+            liActual.addClass('is-visible');
+        }, index * 80);
 
     });
 

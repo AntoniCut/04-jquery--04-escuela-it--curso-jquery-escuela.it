@@ -34,9 +34,18 @@
     //  -----  Recorrer cada elemento de la lista y asignar un color de fondo diferente utilizando el arrayRGB  -----
     $lista.each(function (index, elem) {
 
+        /** @type {JQuery<HTMLLIElement>} - Elemento li actual */
+        const $elem = $(elem);
+
         //  -----  Asignar el color de fondo utilizando   -----
         //  -----  el índice del elemento en el arrayRGB  -----
-        $(elem).css("background-color", arrayRGB[index]);
+        $elem.css("background-color", arrayRGB[index]);
+
+
+        //  -----  Animacion escalonada de entrada  -----
+        setTimeout(() => {
+            $elem.addClass('is-visible');
+        }, index * 60);
 
     });
      

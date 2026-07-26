@@ -1,30 +1,104 @@
 /*
-    *  ---------------------------------------------------------------------------------------------  *
-    *  -----  /03-ejercicio-03.scss  --  /src/styles/scss/pages/clase-09/03-ejercicio-03.scss  -----  *
-    *  ---------------------------------------------------------------------------------------------  *
+    *  --------------------------------------------------------------------------------------  *
+    *  -----  /03-ejercicio-03.scss  --  /src/scss/pages/clase-09/03-ejercicio-03.scss  -----  *
+    *  --------------------------------------------------------------------------------------  *
 */
 
 
-.section__content--practica {
+@use '../../base/mixins' as mix;
+@use '../../base/variables' as var;
+
+
+$ej-primary: var.$color-primary;
+$ej-accent: #eef6fb;
+$ej-text: #0d2035;
+$ej-border: rgba($ej-primary, 0.18);
+$ej-shadow: 0 8px 28px rgba(3, 106, 173, 0.12);
+
+.ej-panel {
     width: 100%;
-    min-height: 84rem;
-    max-width: 102.4rem;
+    max-width: 80rem;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    padding: 5rem;
-    border-radius: 0.5rem;
+    gap: 1.6rem;
+
+    &__hint {
+        margin: 0;
+        padding: 1.4rem 1.8rem;
+        font-size: 1.45rem;
+        line-height: 1.65;
+        color: $ej-text;
+        background: $ej-accent;
+        border-left: 5px solid $ej-primary;
+        border-radius: 0 0.8rem 0.8rem 0;
+
+        kbd {
+            background: rgba($ej-primary, 0.1);
+            color: $ej-primary;
+            padding: 0.1rem 0.45rem;
+            border-radius: 4px;
+            font-size: 1.3rem;
+            font-family: monospace;
+        }
+    }
+
+    &__body {
+        padding: 2rem;
+        background: linear-gradient(160deg, #fff 0%, #f7fbfe 100%);
+        border: 1px solid $ej-border;
+        border-radius: 1.4rem;
+        box-shadow: $ej-shadow;
+    }
 }
 
-.ejercicio__description {
-    width: 100%;
-    padding: 2rem;
-    color: #fff;
-    background-color: #8eafeb;
+
+.ej-lista-colores {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 1.2rem;
+
+    li {
+        opacity: 0;
+        transform: translateY(14px);
+        margin: 0;
+        padding: 1.6rem 1.8rem;
+        font-size: 1.4rem;
+        line-height: 1.55;
+        color: #1a1a1a;
+        border-radius: 1rem;
+        box-shadow: 0 4px 14px rgba(15, 23, 42, 0.1);
+        transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+
+        b {
+            display: inline-block;
+            margin-bottom: 0.4rem;
+            font-size: 1.5rem;
+        }
+
+        &.is-visible {
+            animation: ej-rise-in 0.4s ease forwards;
+        }
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.16);
+            filter: saturate(1.12);
+        }
+    }
 }
 
-.contenido li {
-    margin: 2rem;
-    padding: 2rem;
-    border-radius: 0.5rem;
+
+@keyframes ej-rise-in {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

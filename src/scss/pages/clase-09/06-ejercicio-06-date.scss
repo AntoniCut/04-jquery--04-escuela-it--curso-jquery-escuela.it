@@ -1,45 +1,161 @@
 /*
-    *  -------------------------------------------------------------------------------------------------------  *
-    *  -----  /06-ejercicio-06-date.scss  --  /src/styles/scss/pages/clase-09/06-ejercicio-06-date.scss  -----  *
-    *  -------------------------------------------------------------------------------------------------------  *
+    *  ------------------------------------------------------------------------------------------------  *
+    *  -----  /06-ejercicio-06-date.scss  --  /src/scss/pages/clase-09/06-ejercicio-06-date.scss  -----  *
+    *  ------------------------------------------------------------------------------------------------  *
 */
 
 
-.section__content-practica {
+@use '../../base/mixins' as mix;
+@use '../../base/variables' as var;
+
+
+$ej-primary: var.$color-primary;
+$ej-accent: #eef6fb;
+$ej-text: #0d2035;
+$ej-border: rgba($ej-primary, 0.18);
+$ej-shadow: 0 8px 28px rgba(3, 106, 173, 0.12);
+
+.ej-panel {
     width: 100%;
-    min-height: 84rem;
-    max-width: 102.4rem;
+    max-width: 80rem;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    padding: 5rem;
-    border-radius: 0.5rem;
+    gap: 1.6rem;
+
+    &__hint {
+        margin: 0;
+        padding: 1.4rem 1.8rem;
+        font-size: 1.45rem;
+        line-height: 1.65;
+        color: $ej-text;
+        background: $ej-accent;
+        border-left: 5px solid $ej-primary;
+        border-radius: 0 0.8rem 0.8rem 0;
+
+        kbd {
+            background: rgba($ej-primary, 0.1);
+            color: $ej-primary;
+            padding: 0.1rem 0.45rem;
+            border-radius: 4px;
+            font-size: 1.3rem;
+            font-family: monospace;
+        }
+    }
+
+    &__body {
+        padding: 2rem;
+        background: linear-gradient(160deg, #fff 0%, #f7fbfe 100%);
+        border: 1px solid $ej-border;
+        border-radius: 1.4rem;
+        box-shadow: $ej-shadow;
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+    }
 }
 
-.ejercicio__description {
+
+.ej-result {
     width: 100%;
-    padding: 2rem;
-    color: #fff;
-    background-color: #8eafeb;
-}
-
-.section__content > span {
+    min-height: 7rem;
+    padding: 1.6rem 1.8rem;
     text-align: center;
+    background: linear-gradient(135deg, #f7fbfe 0%, #e8f3fb 100%);
+    border: 1px dashed rgba($ej-primary, 0.35);
+    border-radius: 1rem;
+    transition: background 0.25s ease, box-shadow 0.25s ease;
+
+    h3 {
+        margin: 0;
+        font-size: 1.55rem;
+        line-height: 1.55;
+        color: $ej-text;
+    }
+
+    &.is-updated {
+        animation: ej-result-pulse 0.5s ease;
+        background: linear-gradient(135deg, #e8f8ef 0%, #d4f0e2 100%);
+        box-shadow: 0 0 0 4px rgba(34, 160, 100, 0.12);
+    }
 }
 
-#result {
-    width: 100%;
-    min-height: 5rem;
-    /* line-height: 5rem; */
-    padding-left: 1rem;
-    text-align: center;
-    background-color: rgb(250, 247, 243);
+
+.ej-parrafos-click {
+    display: grid;
+    gap: 1.2rem;
+
+    p {
+        opacity: 0;
+        transform: translateY(10px);
+        margin: 0;
+        padding: 1.6rem 1.8rem;
+        font-size: 1.4rem;
+        line-height: 1.55;
+        color: $ej-text;
+        background: linear-gradient(145deg, #fff4f1 0%, #f0bcb6 100%);
+        border-radius: 1rem;
+        cursor: pointer;
+        box-shadow: 0 4px 14px rgba(232, 120, 96, 0.12);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+
+        strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            color: #8a3b2f;
+        }
+
+        &.is-visible {
+            animation: ej-fade-up 0.4s ease forwards;
+        }
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 26px rgba(232, 120, 96, 0.22);
+            filter: brightness(1.03);
+        }
+
+        &.is-active {
+            animation: ej-click-flash 0.45s ease;
+            background: linear-gradient(145deg, #dff5ea 0%, #b8e6ce 100%);
+        }
+    }
 }
 
-.contenido p {
-    margin: 2rem;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    background-color: #F0BCB6;
-    cursor: pointer;
+
+@keyframes ej-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes ej-result-pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.015);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes ej-click-flash {
+    0% {
+        box-shadow: 0 0 0 0 rgba(34, 160, 100, 0.4);
+    }
+
+    100% {
+        box-shadow: 0 0 0 16px rgba(34, 160, 100, 0);
+    }
 }

@@ -46,6 +46,12 @@
         if (index % 2 === 0)
             parrafoActual.css("color", "red");
 
+
+        //  -----  Animacion escalonada de entrada  -----
+        setTimeout(() => {
+            parrafoActual.addClass('is-visible');
+        }, index * 80);
+
     });
 
 

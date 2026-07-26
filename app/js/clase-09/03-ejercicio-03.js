@@ -43,10 +43,19 @@
          * */
         const indice = index % arrayRGB.length;
 
+        /** @type {JQuery<HTMLLIElement>} - Elemento li actual */
+        const $elem = $(elem);
+
         
         //  -----  Asignar el color de fondo utilizando   -----
         //  -----  el índice del elemento en el arrayRGB  -----
-        $(elem).css("background-color", arrayRGB[indice]);
+        $elem.css("background-color", arrayRGB[indice]);
+
+
+        //  -----  Animacion escalonada de entrada  -----
+        setTimeout(() => {
+            $elem.addClass('is-visible');
+        }, index * 50);
 
     });
            

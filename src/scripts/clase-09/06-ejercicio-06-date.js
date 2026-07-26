@@ -48,6 +48,14 @@
     console.log('\ninstante inicio => ', instanteInicio);
 
 
+    //  -----  Animacion escalonada de entrada  -----
+    $parrafos.each(function (index, elem) {
+        setTimeout(() => {
+            $(elem).addClass('is-visible');
+        }, index * 70);
+    });
+
+
 
     //  -----  asignamos el evento click a cada párrafo  -----
     $parrafos.on("click", function () {
@@ -119,6 +127,17 @@
 
         //  -----  Actualizamos el tiempo del último click  -----
         $parrafoPulsado.data("time", ahora);
+
+
+        //  -----  Feedback visual del clic  -----
+        $parrafos.removeClass('is-active');
+        $parrafoPulsado.addClass('is-active');
+
+        $result
+            .removeClass('is-updated')
+            .outerWidth(); // reflow para reiniciar la animacion
+
+        $result.addClass('is-updated');
 
     });
 

@@ -13,7 +13,7 @@
 
         
     /** @type {JQuery<HTMLParagraphElement>} - `Colección de párrafos` */
-    const $parrafos = $("p");
+    const $parrafos = $(".contenido p");
 
 
     //  -----  Recorremos cada párrafo y aplicamos estilos y contenido dinámico  -----
@@ -37,6 +37,12 @@
                     <br> <br>
                 </span> 
             `);
+
+
+        //  -----  Animacion escalonada de entrada  -----
+        setTimeout(() => {
+            $elem.addClass('is-visible');
+        }, index * 70);
         
     });
       
