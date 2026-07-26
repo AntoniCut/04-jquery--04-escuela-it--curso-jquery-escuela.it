@@ -1,0 +1,69 @@
+<!--  
+    *  ----------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /01-metodos-html-text-demo.html  --  /src/pages-components/clase-07/01-metodos-html-text-demo.html  -----  *
+    *  ----------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__demo">
+
+    <section class="c7-atelier">
+
+        <header class="c7-atelier__toolbar">
+
+            <div class="c7-atelier__row">
+
+                <div class="c7-atelier__field">
+                    <label class="c7-atelier__label" for="accionSelect">
+                        Metodo
+                    </label>
+                    <select id="accionSelect" class="c7-atelier__select">
+                        <option value="">— Elige un metodo —</option>
+                        <option value="html">Renderizar con html()</option>
+                        <option value="text">Renderizar con text()</option>
+                    </select>
+                </div>
+
+                <div class="c7-atelier__field">
+                    <label class="c7-atelier__label" for="resetSelect">
+                        Playground
+                    </label>
+                    <select id="resetSelect" class="c7-atelier__select">
+                        <option value="">— Gestionar playground —</option>
+                        <option value="reset">Resetear estilos del playground</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <p id="accionHint" class="c7-atelier__hint">
+                Elige <kbd>html()</kbd> o <kbd>text()</kbd> para copiar el
+                contenido fuente al panel de salida.
+            </p>
+
+        </header>
+
+        <div id="contenido" class="c7-atelier__playground">
+
+            <article class="c7-atelier__source" id="description">
+                En esta práctica vamos a aprender a usar los métodos
+                <code>.html()</code> y <code>.text()</code> de jQuery
+                para manipular el contenido de los elementos HTML.
+                <br><br>
+                Este contenido se renderizará dentro del elemento de salida
+                utilizando ambos métodos, para que puedas comparar los
+                resultados y entender las diferencias entre ellos.
+            </article>
+
+            <p class="c7-atelier__info" id="info">
+                Abajo se renderiza el contenido segun el metodo elegido.
+            </p>
+
+            <div class="c7-atelier__output" id="output"></div>
+
+        </div>
+
+    </section>
+
+</div>

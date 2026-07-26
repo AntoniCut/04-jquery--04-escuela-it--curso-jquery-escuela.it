@@ -1,0 +1,93 @@
+<!--  
+    *  ------------------------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /04-metodo-each-recorrer-elementos-demo.html  --  /src/pages-components/clase-07/04-metodo-each-recorrer-elementos-demo.html  -----  *
+    *  ------------------------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__demo">
+
+    <section class="c7-atelier">
+
+        <header class="c7-atelier__toolbar">
+
+            <div class="c7-atelier__row">
+
+                <div class="c7-atelier__field">
+                    <label class="c7-atelier__label" for="accionSelect">
+                        Accion each()
+                    </label>
+                    <select id="accionSelect" class="c7-atelier__select">
+                        <option value="">— Elige una accion —</option>
+                        <option value="ejecutar">Ejecutar each() y listar</option>
+                        <option value="resaltar">Resaltar .probando</option>
+                    </select>
+                </div>
+
+                <div class="c7-atelier__field">
+                    <label class="c7-atelier__label" for="resetSelect">
+                        Playground
+                    </label>
+                    <select id="resetSelect" class="c7-atelier__select">
+                        <option value="">— Gestionar playground —</option>
+                        <option value="reset">Resetear estilos del playground</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <p id="accionHint" class="c7-atelier__hint">
+                Ejecuta <kbd>each()</kbd> sobre los parrafos con clase
+                <kbd>probando</kbd>.
+            </p>
+
+        </header>
+
+        <div id="contenido" class="c7-atelier__playground">
+
+            <div class="c7-atelier__paragraphs">
+
+                <h3>Tenemos 5 Párrafos</h3>
+
+                <p class="c7-atelier__p probando">
+                    <span> Parrafo 1 con la clase <b>probando</b></span>
+                    Este párrafo contiene información introductoria sobre jQuery.
+                    Podemos usarlo para explicar conceptos básicos y cómo aplicar selectores.
+                </p>
+
+                <p class="c7-atelier__p">
+                    <span> Parrafo 2 sin la clase <b>probando</b></span>
+                    En este párrafo se muestran ejemplos de cómo se comporta un elemento sin la clase “probando”.
+                    Sirve para comparar estilos y manipulación con jQuery.
+                </p>
+
+                <p class="c7-atelier__p probando">
+                    <span>Párrafo 3 con la clase <b>probando</b></span>
+                    Aquí podemos añadir contenido adicional sobre el método .each(),
+                    mostrando cómo recorrer elementos con jQuery y aplicar cambios dinámicamente.
+                </p>
+
+                <p class="c7-atelier__p probando">
+                    <span>Párrafo 4 con la clase <b>probando</b></span>
+                    Este párrafo puede incluir ejemplos de cambios de estilo,
+                    como cambiar el color de fondo o el tamaño de fuente,
+                    usando jQuery dentro de la función .each().
+                </p>
+
+                <p class="c7-atelier__p">
+                    <span>Párrafo 5 sin la clase <b>probando</b></span>
+                    Finalmente, este párrafo sirve para demostrar cómo los elementos
+                    que no tienen la clase “probando” pueden permanecer intactos mientras
+                    los elementos con la clase se manipulan dinámicamente.
+                </p>
+
+            </div>
+
+            <div id="info" class="c7-atelier__results"></div>
+
+        </div>
+
+    </section>
+
+</div>

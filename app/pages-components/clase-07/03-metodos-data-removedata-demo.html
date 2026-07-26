@@ -1,0 +1,72 @@
+<!--  
+    *  ----------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /03-metodos-data-removedata-demo.html  --  /src/pages-components/clase-07/03-metodos-data-removedata-demo.html  -----  *
+    *  ----------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__demo">
+
+    <section class="c7-atelier">
+
+        <header class="c7-atelier__toolbar">
+
+            <div class="c7-atelier__row">
+
+                <div class="c7-atelier__field">
+                    <label class="c7-atelier__label" for="accionSelect">
+                        Demo data()
+                    </label>
+                    <select id="accionSelect" class="c7-atelier__select">
+                        <option value="">— Elige una accion —</option>
+                        <option value="mostrarDatos">Mostrar data() actual</option>
+                        <option value="setDato">Set data('dato', '1234') en #capa</option>
+                        <option value="removeUsuario">removeData('usuario') en #capa</option>
+                    </select>
+                </div>
+
+                <div class="c7-atelier__field">
+                    <label class="c7-atelier__label" for="resetSelect">
+                        Playground
+                    </label>
+                    <select id="resetSelect" class="c7-atelier__select">
+                        <option value="">— Gestionar playground —</option>
+                        <option value="reset">Resetear estilos del playground</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <p id="accionHint" class="c7-atelier__hint">
+                Haz click en las tarjetas o usa el select para manipular
+                <kbd>data()</kbd>.
+            </p>
+
+        </header>
+
+        <div id="contenido" class="c7-atelier__playground">
+
+            <div class="c7-atelier__click-grid">
+
+                <article class="c7-atelier__click-card">
+                    <div id="capa" class="c7-atelier__click-target" data-usuario="AntonyDev">
+                        Haz click, div capa
+                    </div>
+                    <div id="infoCapa" class="c7-atelier__click-info"></div>
+                </article>
+
+                <article class="c7-atelier__click-card">
+                    <div id="acumula" class="c7-atelier__click-target c7-atelier__click-target--alt" data-usuario="Random">
+                        Haz click, div acumula
+                    </div>
+                    <div id="infoAcumula" class="c7-atelier__click-info"></div>
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>

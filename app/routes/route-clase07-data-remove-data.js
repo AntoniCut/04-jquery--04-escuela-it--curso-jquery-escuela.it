@@ -1,7 +1,7 @@
 /*
-    *  ---------------------------------------------------------------------------------------------------  *
+    *  -----------------------------------------------------------------------------------------------------  *
     *  -----  /route-clase07-data-remove-data.js  --  /src/routes/route-clase07-data-remove-data.js  -----  *
-    *  ---------------------------------------------------------------------------------------------------  *
+    *  -----------------------------------------------------------------------------------------------------  *
 */
 
 
@@ -19,9 +19,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +42,33 @@ export const routeClase07DataRemoveData = {
             "#layoutMain": `${pages}/clase-07/03-metodos-data-removedata.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-07/03-metodos-data-removedata-description.html`, target: '[data-component-page="metodosDataRemoveDataDescription"]' },
+            { url: `${pagesComponents}/clase-07/03-metodos-data-removedata-demo.html`, target: '[data-component-page="metodosDataRemoveDataDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '03-metodos-data-removedata-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-07/03-metodos-data-removedata-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-07`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '03-metodos-data-removedata-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-07/03-metodos-data-removedata.css`,
+                urlOutput: `${markdownShikiHtml}/clase-07`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '03-metodos-data-removedata-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-07/03-metodos-data-removedata.js`,
+                urlOutput: `${markdownShikiHtml}/clase-07`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 7 - 3. Métodos data() y removeData()',
         styles: [
             { href: `${styles}/pages/clase-07/03-metodos-data-removedata.css` },
@@ -51,5 +80,5 @@ export const routeClase07DataRemoveData = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };

@@ -1,0 +1,187 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">warn</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'-----  03-metodos-data-removedata.js  -----'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLElement>}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $ctx</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#contenido'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLSelectElement>}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $accionSelect</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#accionSelect'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLSelectElement>}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $resetSelect</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#resetSelect'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLParagraphElement>}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $accionHint</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#accionHint'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $capa</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#capa'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $infoCapa</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#infoCapa'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $acumula</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#acumula'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $infoAcumula</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#infoAcumula'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> pintarInfoInicial</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $infoCapa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`</span></span>
+<span class="line"><span style="color:#CE9178">            &#x3C;h3> usuario: </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">$capa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'usuario'</span><span style="color:#D4D4D4">) ?? </span><span style="color:#CE9178">''</span><span style="color:#569CD6">}</span><span style="color:#CE9178"> &#x3C;/h3></span></span>
+<span class="line"><span style="color:#CE9178">            &#x3C;h3> clicks: </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">$capa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'numclics'</span><span style="color:#D4D4D4">) ?? </span><span style="color:#CE9178">'0'</span><span style="color:#569CD6">}</span><span style="color:#CE9178"> &#x3C;/h3></span></span>
+<span class="line"><span style="color:#CE9178">        `</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $infoAcumula</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`</span></span>
+<span class="line"><span style="color:#CE9178">            &#x3C;h3> usuario: </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">$acumula</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'usuario'</span><span style="color:#D4D4D4">) ?? </span><span style="color:#CE9178">''</span><span style="color:#569CD6">}</span><span style="color:#CE9178"> &#x3C;/h3></span></span>
+<span class="line"><span style="color:#CE9178">            &#x3C;h3> clicks: </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">$acumula</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'numclics'</span><span style="color:#D4D4D4">) ?? </span><span style="color:#CE9178">'0'</span><span style="color:#569CD6">}</span><span style="color:#CE9178"> &#x3C;/h3></span></span>
+<span class="line"><span style="color:#CE9178">        `</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> dataRemoveDataInit</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Valor inicial => '</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$capa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $capa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'dato'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'1234'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"$capa.data('dato', '1234') => "</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$capa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $capa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeData</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'usuario'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"$capa.removeData('usuario') => "</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$capa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $capa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeData</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'dato'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"$capa.removeData('dato') => "</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$capa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  Restaurar usuario visual para la demo interactiva  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">        $capa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'usuario'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'AntonyDev'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        pintarInfoInicial</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@this</span><span style="color:#4EC9B0"> {HTMLDivElement}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    function</span><span style="color:#DCDCAA"> acumulaClicks</span><span style="color:#D4D4D4">() {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $div</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {string | undefined}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> id</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$div</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">attr</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'id'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $info</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">id</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">'capa'</span><span style="color:#D4D4D4"> ? </span><span style="color:#9CDCFE">$infoCapa</span><span style="color:#D4D4D4"> : </span><span style="color:#9CDCFE">$infoAcumula</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">        let</span><span style="color:#9CDCFE"> clics</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$div</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'numclics'</span><span style="color:#D4D4D4">) || </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        clics</span><span style="color:#D4D4D4">++;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">clics</span><span style="color:#D4D4D4"> === </span><span style="color:#B5CEA8">10</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#9CDCFE">            $div</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeData</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'numclics'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#C586C0">        else</span></span>
+<span class="line"><span style="color:#9CDCFE">            $div</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'numclics'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">clics</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`Nº de Clics </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">clics</span><span style="color:#569CD6">}</span><span style="color:#CE9178"> en div: #</span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">id</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $info</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`</span></span>
+<span class="line"><span style="color:#CE9178">            &#x3C;h3 class="texto-info"></span></span>
+<span class="line"><span style="color:#CE9178">                Nº de clicks: </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">clics</span><span style="color:#569CD6">}</span><span style="color:#CE9178">, en el div: </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">id</span><span style="color:#569CD6">}</span></span>
+<span class="line"><span style="color:#CE9178">            &#x3C;/h3></span></span>
+<span class="line"><span style="color:#CE9178">        `</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $accionHint</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`Click acumulado en #</span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">id</span><span style="color:#569CD6">}</span><span style="color:#CE9178">: </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">clics</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * ------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  resetPlayground()  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * ------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> resetPlayground</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $capa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeData</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'numclics'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">removeData</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'dato'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'usuario'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'AntonyDev'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $acumula</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeData</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'numclics'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'usuario'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'Random'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">        pintarInfoInicial</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#9CDCFE">        $accionHint</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Estilos y contadores del playground reseteados.'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $accionSelect</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $ctx</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-flash'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        setTimeout</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#9CDCFE"> $ctx</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-flash'</span><span style="color:#D4D4D4">), </span><span style="color:#B5CEA8">450</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> acciones</span><span style="color:#D4D4D4"> = {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">        mostrarDatos</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">            $infoCapa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`&#x3C;h3>data(#capa): </span><span style="color:#569CD6">${</span><span style="color:#4FC1FF">JSON</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">stringify</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$capa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">())</span><span style="color:#569CD6">}</span><span style="color:#CE9178">&#x3C;/h3>`</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">            $infoAcumula</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`&#x3C;h3>data(#acumula): </span><span style="color:#569CD6">${</span><span style="color:#4FC1FF">JSON</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">stringify</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$acumula</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">())</span><span style="color:#569CD6">}</span><span style="color:#CE9178">&#x3C;/h3>`</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">            $accionHint</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"Mostrando objeto &#x3C;kbd>data()&#x3C;/kbd> actual."</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">        },</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">        setDato</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">            $capa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'dato'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'1234'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">            $infoCapa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`&#x3C;h3>data(#capa): </span><span style="color:#569CD6">${</span><span style="color:#4FC1FF">JSON</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">stringify</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$capa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">())</span><span style="color:#569CD6">}</span><span style="color:#CE9178">&#x3C;/h3>`</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">            $accionHint</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"Ejecutado: &#x3C;kbd>data('dato', '1234')&#x3C;/kbd>."</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">        },</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">        removeUsuario</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">            $capa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeData</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'usuario'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">            $infoCapa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`&#x3C;h3>data(#capa): </span><span style="color:#569CD6">${</span><span style="color:#4FC1FF">JSON</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">stringify</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$capa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">())</span><span style="color:#569CD6">}</span><span style="color:#CE9178">&#x3C;/h3>`</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">            $accionHint</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"Ejecutado: &#x3C;kbd>removeData('usuario')&#x3C;/kbd>."</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">        },</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">    $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#capa, #acumula'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
+<span class="line"><span style="color:#9CDCFE">        acumulaClicks</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">call</span><span style="color:#D4D4D4">(</span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {HTMLDivElement}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $accionSelect</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'change'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {string}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> value</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">String</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">() || </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (!</span><span style="color:#9CDCFE">value</span><span style="color:#D4D4D4">) </span><span style="color:#C586C0">return</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        acciones</span><span style="color:#D4D4D4">[</span><span style="color:#9CDCFE">value</span><span style="color:#D4D4D4">]?.();</span></span>
+<span class="line"><span style="color:#9CDCFE">        $ctx</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-flash'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        setTimeout</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#9CDCFE"> $ctx</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-flash'</span><span style="color:#D4D4D4">), </span><span style="color:#B5CEA8">450</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $resetSelect</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'change'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">String</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">() || </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">) === </span><span style="color:#CE9178">'reset'</span><span style="color:#D4D4D4">) </span><span style="color:#DCDCAA">resetPlayground</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#DCDCAA">        $</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">    dataRemoveDataInit</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">})(</span><span style="color:#9CDCFE">jQuery</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span></code></pre>

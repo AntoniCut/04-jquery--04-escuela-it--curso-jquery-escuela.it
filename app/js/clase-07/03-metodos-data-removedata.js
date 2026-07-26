@@ -12,134 +12,178 @@
     console.log('\n');
 
 
-    /*  
-        ---------------------------------
-        -----  referencias al HTML  -----
-        --------------------------------- 
-    */
+    /** @type {JQuery<HTMLElement>} */
+    const $ctx = $('#contenido');
 
-    /** @type {JQuery<HTMLDivElement>} `div con id = capa` */
+    /** @type {JQuery<HTMLSelectElement>} */
+    const $accionSelect = $('#accionSelect');
+
+    /** @type {JQuery<HTMLSelectElement>} */
+    const $resetSelect = $('#resetSelect');
+
+    /** @type {JQuery<HTMLParagraphElement>} */
+    const $accionHint = $('#accionHint');
+
+    /** @type {JQuery<HTMLDivElement>} */
     const $capa = $('#capa');
 
-    /** @type {JQuery<HTMLDivElement>} `div con id = infoCapa` */
+    /** @type {JQuery<HTMLDivElement>} */
     const $infoCapa = $('#infoCapa');
 
-    /** @type {JQuery<HTMLDivElement>} `div con id = acumula` */
+    /** @type {JQuery<HTMLDivElement>} */
     const $acumula = $('#acumula');
 
-    /** @type {JQuery<HTMLDivElement>} `div con id = infoAcumula` */
+    /** @type {JQuery<HTMLDivElement>} */
     const $infoAcumula = $('#infoAcumula');
 
 
-    
-    /**
-     * ------------------------------------
-     * -----  `dataRemoveDataInit()`  -----
-     * ------------------------------------
-     * - Función para establecer y eliminar datos utilizando los métodos data() y removeData() de jQuery.
-     */
+    const pintarInfoInicial = () => {
+
+        $infoCapa.html(`
+            <h3> usuario: ${$capa.data('usuario') ?? ''} </h3>
+            <h3> clicks: ${$capa.data('numclics') ?? '0'} </h3>
+        `);
+
+        $infoAcumula.html(`
+            <h3> usuario: ${$acumula.data('usuario') ?? ''} </h3>
+            <h3> clicks: ${$acumula.data('numclics') ?? '0'} </h3>
+        `);
+
+    };
+
 
     const dataRemoveDataInit = () => {
 
-
-        //  -----  Obtenemos todos los datos asociados al div #capa  -----
         console.log('Valor inicial => ', $capa.data());
 
-        //  -----  Establecemos un nuevo dato con clave 'dato' y valor '1234'  -----
         $capa.data('dato', '1234');
-        console.log('$capa.data(\'dato\', \'1234\') => ', $capa.data());
+        console.log("$capa.data('dato', '1234') => ", $capa.data());
 
-        //  -----  Eliminamos el dato con clave 'usuario'  -----
         $capa.removeData('usuario');
-        console.log('$capa.removeData(\'usuario\') => ', $capa.data());
+        console.log("$capa.removeData('usuario') => ", $capa.data());
 
         $capa.removeData('dato');
-        console.log('$capa.removeData(\'dato\') => ', $capa.data());
+        console.log("$capa.removeData('dato') => ", $capa.data());
 
+        //  -----  Restaurar usuario visual para la demo interactiva  -----
+        $capa.data('usuario', 'AntonyDev');
+        pintarInfoInicial();
 
-        //  -----  Mostramos datos iniciales de #capa  -----
-        $infoCapa.append(`
-            <h3> usuario: ${$capa.data('usuario') ?? ''} </h3>
-            <h3> clicks: ${$capa.data('clicks') ?? '0'} </h3>    
-        `);
-
-        $infoAcumula.append(`
-            <h3> usuario: ${$acumula.data('usuario') ?? ''} </h3>
-            <h3> clicks: ${$acumula.data('clicks') ?? '0'} </h3>    
-        `);
-
-    }
-
+    };
 
 
     /**
-     * -------------------------------
-     * -----  `acumulaClicks()`  -----
-     * -------------------------------
-     * - Función para acumular el número de clics en cada div, utilizando el método data() para almacenar el número de clics en cada div.
-     * Al llegar a 10 clics, se eliminará el dato almacenado en el div utilizando el método removeData().
-     * @this {HTMLDivElement} El div que ha sido clicado.
+     * @this {HTMLDivElement}
      */
-
     function acumulaClicks() {
 
-
-        /** @type {JQuery<HTMLDivElement>} - `div clicado` */
+        /** @type {JQuery<HTMLDivElement>} */
         const $div = $(this);
 
-        console.log('\nthis => ', this);
-        console.log('$(this) => ', $(this), '\n');
-
-
-        /** @type {string | undefined} - `id del div clicado` */
+        /** @type {string | undefined} */
         const id = $div.attr('id');
 
-
-
-        /**
-         * - `div de información asociado al div clicado`
-         * - Obtenemos el número de clics almacenado en el div clicado, o 0 si no existe
-         * @type {JQuery<HTMLDivElement>} 
-         */
+        /** @type {JQuery<HTMLDivElement>} */
         const $info = id === 'capa' ? $infoCapa : $infoAcumula;
 
-        /** @type {number} `contador de clics` */
+        /** @type {number} */
         let clics = $div.data('numclics') || 0;
 
         clics++;
 
         if (clics === 10)
             $div.removeData('numclics');
-
         else
             $div.data('numclics', clics);
 
-
         console.log(`Nº de Clics ${clics} en div: #${id}`);
 
-        const html = `
-            <h3 class="texto-info"> 
-                Nº de clicks: ${clics}, en el div: ${id} 
+        $info.html(`
+            <h3 class="texto-info">
+                Nº de clicks: ${clics}, en el div: ${id}
             </h3>
-        `;
+        `);
 
-        $info.html(html);
-
+        $accionHint.text(`Click acumulado en #${id}: ${clics}`);
 
     }
 
 
-    //  -----  Evento click para ambos divs  -----
-    $('#capa, #acumula').on('click', function () {
+    /**
+     * ------------------------------
+     * -----  resetPlayground()  -----
+     * ------------------------------
+     */
+    const resetPlayground = () => {
 
-        acumulaClicks
-            .call(
-                /** @type {HTMLDivElement} */(this)
-            );
+        $capa.removeData('numclics').removeData('dato').data('usuario', 'AntonyDev');
+        $acumula.removeData('numclics').data('usuario', 'Random');
+
+        pintarInfoInicial();
+        $accionHint.text('Estilos y contadores del playground reseteados.');
+        $accionSelect.val('');
+        $ctx.addClass('is-flash');
+        setTimeout(() => $ctx.removeClass('is-flash'), 450);
+
+    };
+
+
+    const acciones = {
+
+        mostrarDatos: () => {
+
+            $infoCapa.html(`<h3>data(#capa): ${JSON.stringify($capa.data())}</h3>`);
+            $infoAcumula.html(`<h3>data(#acumula): ${JSON.stringify($acumula.data())}</h3>`);
+            $accionHint.html("Mostrando objeto <kbd>data()</kbd> actual.");
+
+        },
+
+        setDato: () => {
+
+            $capa.data('dato', '1234');
+            $infoCapa.html(`<h3>data(#capa): ${JSON.stringify($capa.data())}</h3>`);
+            $accionHint.html("Ejecutado: <kbd>data('dato', '1234')</kbd>.");
+
+        },
+
+        removeUsuario: () => {
+
+            $capa.removeData('usuario');
+            $infoCapa.html(`<h3>data(#capa): ${JSON.stringify($capa.data())}</h3>`);
+            $accionHint.html("Ejecutado: <kbd>removeData('usuario')</kbd>.");
+
+        },
+
+    };
+
+
+    $('#capa, #acumula').on('click', function () {
+        acumulaClicks.call(/** @type {HTMLDivElement} */ (this));
     });
 
 
-    //  -----  Inicializamos la función para establecer y eliminar datos  -----
+    $accionSelect.on('change', function () {
+
+        /** @type {string} */
+        const value = String($(this).val() || '');
+
+        if (!value) return;
+
+        acciones[value]?.();
+        $ctx.addClass('is-flash');
+        setTimeout(() => $ctx.removeClass('is-flash'), 450);
+
+    });
+
+
+    $resetSelect.on('change', function () {
+
+        if (String($(this).val() || '') === 'reset') resetPlayground();
+        $(this).val('');
+
+    });
+
+
     dataRemoveDataInit();
 
 

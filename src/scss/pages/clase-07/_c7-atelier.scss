@@ -1,0 +1,437 @@
+/*
+    *  ------------------------------------------------------------------------------  *
+    *  -----  /_c7-atelier.scss  --  /src/scss/pages/clase-07/_c7-atelier.scss  -----  *
+    *  ------------------------------------------------------------------------------  *
+    *  Estilo especial "Atelier DOM" para la clase 7.                                  *
+    *  ------------------------------------------------------------------------------  *
+*/
+
+
+$c7-ink: #1a1523;
+$c7-rose: #be123c;
+$c7-rose-deep: #9f1239;
+$c7-blush: #fff1f2;
+$c7-panel: #fffafa;
+$c7-slate: #475569;
+$c7-mint: #0f766e;
+$c7-line: rgba(26, 21, 35, 0.12);
+$c7-shadow: 0 14px 36px rgba(26, 21, 35, 0.1);
+
+
+@mixin c7-atelier {
+
+    .c7-atelier {
+        width: 100%;
+        max-width: 92rem;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.8rem;
+
+        &__toolbar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+            padding: 1.8rem 2rem;
+            background:
+                radial-gradient(circle at 100% 0%, rgba($c7-rose, 0.16), transparent 46%),
+                linear-gradient(155deg, $c7-panel 0%, $c7-blush 100%);
+            border: 1px solid $c7-line;
+            border-left: 6px solid $c7-rose;
+            border-radius: 1.4rem;
+            box-shadow: $c7-shadow;
+        }
+
+        &__row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+            gap: 1.2rem;
+        }
+
+        &__field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+            min-width: 0;
+        }
+
+        &__label {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: $c7-rose-deep;
+        }
+
+        &__select,
+        &__input {
+            width: 100%;
+            padding: 1.15rem 1.35rem;
+            font-size: 1.45rem;
+            color: $c7-ink;
+            background: #fff;
+            border: 2px solid rgba($c7-ink, 0.1);
+            border-radius: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+
+            &:focus {
+                border-color: $c7-rose;
+                box-shadow: 0 0 0 4px rgba($c7-rose, 0.16);
+                transform: translateY(-1px);
+            }
+        }
+
+        &__select {
+            cursor: pointer;
+            appearance: none;
+            background-image:
+                linear-gradient(45deg, transparent 50%, $c7-rose 50%),
+                linear-gradient(135deg, $c7-rose 50%, transparent 50%),
+                linear-gradient(to right, rgba($c7-ink, 0.08), rgba($c7-ink, 0.08));
+            background-position:
+                calc(100% - 1.8rem) calc(50% - 0.25rem),
+                calc(100% - 1.3rem) calc(50% - 0.25rem),
+                calc(100% - 3.4rem) 50%;
+            background-size: 0.55rem 0.55rem, 0.55rem 0.55rem, 1px 60%;
+            background-repeat: no-repeat;
+            padding-right: 4.2rem;
+        }
+
+        &__hint {
+            margin: 0;
+            padding: 1rem 1.25rem;
+            font-size: 1.4rem;
+            line-height: 1.55;
+            color: $c7-slate;
+            background: rgba($c7-mint, 0.08);
+            border-radius: 0.8rem;
+
+            kbd {
+                background: rgba($c7-rose, 0.12);
+                color: $c7-rose-deep;
+                padding: 0.1rem 0.45rem;
+                border-radius: 4px;
+                font-size: 1.25rem;
+                font-family: monospace;
+            }
+        }
+
+        &__playground {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+            padding: 2.2rem;
+            background:
+                radial-gradient(circle at 0% 100%, rgba($c7-mint, 0.08), transparent 40%),
+                linear-gradient(180deg, #fff 0%, $c7-blush 140%);
+            border: 1px solid $c7-line;
+            border-radius: 1.5rem;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), $c7-shadow;
+            transition: box-shadow 0.3s ease;
+
+            &.is-flash {
+                animation: c7-flash 0.45s ease;
+            }
+        }
+
+        &__source,
+        &__output,
+        &__info,
+        &__card {
+            padding: 1.6rem 1.8rem;
+            border-radius: 1.1rem;
+            border: 1px solid $c7-line;
+            background: #fff;
+            box-shadow: 0 6px 18px rgba(26, 21, 35, 0.05);
+        }
+
+        &__source {
+            background: linear-gradient(145deg, #fff 0%, rgba($c7-rose, 0.05) 100%);
+            border-left: 4px solid $c7-rose;
+
+            code {
+                color: $c7-rose-deep;
+                font-family: monospace;
+                font-size: 1.3rem;
+            }
+        }
+
+        &__info {
+            color: #fff;
+            background: linear-gradient(135deg, $c7-rose 0%, $c7-rose-deep 100%);
+            border: none;
+            font-size: 1.45rem;
+            font-weight: 600;
+            box-shadow: 0 10px 24px rgba(190, 18, 60, 0.25);
+
+            kbd {
+                background: rgba(255, 255, 255, 0.2);
+                color: #fff;
+                padding: 0.1rem 0.45rem;
+                border-radius: 4px;
+                font-size: 1.25rem;
+                font-family: monospace;
+            }
+        }
+
+        &__output {
+            min-height: 16rem;
+            font-size: 1.45rem;
+            line-height: 1.6;
+            color: $c7-ink;
+            background:
+                linear-gradient(180deg, rgba($c7-mint, 0.05), transparent 30%),
+                #fff;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+
+            &.is-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            &:empty::before {
+                content: 'El resultado aparecera aqui...';
+                color: rgba($c7-slate, 0.7);
+                font-style: italic;
+            }
+        }
+
+        &__title {
+            margin: 0 0 1rem;
+            font-size: 1.7rem;
+            color: $c7-ink;
+        }
+
+        &__forms {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+            gap: 1.6rem;
+        }
+
+        &__form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+            padding: 2rem;
+            background: linear-gradient(160deg, #fff 0%, rgba($c7-rose, 0.06) 100%);
+            border: 1px solid $c7-line;
+            border-radius: 1.2rem;
+            box-shadow: 0 8px 22px rgba(26, 21, 35, 0.06);
+
+            legend {
+                font-size: 1.7rem;
+                font-weight: 800;
+                color: $c7-rose-deep;
+                padding: 0 0.6rem;
+            }
+        }
+
+        &__group {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.45rem;
+            color: $c7-slate;
+
+            input[type='text'],
+            input[type='search'] {
+                flex: 1;
+                min-width: 16rem;
+                padding: 1rem 1.2rem;
+                font-size: 1.5rem;
+                border: 2px solid rgba($c7-ink, 0.12);
+                border-radius: 0.8rem;
+                background: #fff;
+                transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+                &:focus {
+                    outline: none;
+                    border-color: $c7-rose;
+                    box-shadow: 0 0 0 4px rgba($c7-rose, 0.14);
+                }
+
+                &.error {
+                    background-color: #ffe4e6 !important;
+                    border-color: $c7-rose !important;
+                }
+            }
+
+            input[type='checkbox'] {
+                width: 1.8rem;
+                height: 1.8rem;
+                accent-color: $c7-rose;
+                cursor: pointer;
+            }
+        }
+
+        &__advanced {
+            padding: 1.4rem 1.6rem;
+            border-radius: 0.9rem;
+            background: linear-gradient(135deg, rgba($c7-mint, 0.12), rgba($c7-mint, 0.04));
+            border: 1px dashed rgba($c7-mint, 0.4);
+            font-size: 1.4rem;
+            color: $c7-ink;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+
+            a {
+                margin-left: 0.6rem;
+                color: $c7-rose-deep;
+                font-weight: 700;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        &__click-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+            gap: 1.6rem;
+        }
+
+        &__click-card {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        &__click-target {
+            padding: 2rem 1.6rem;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            border-radius: 1.1rem;
+            background: linear-gradient(135deg, $c7-rose 0%, $c7-rose-deep 100%);
+            box-shadow: 0 12px 26px rgba(190, 18, 60, 0.28);
+            transition: transform 0.2s ease, filter 0.2s ease;
+
+            &:hover {
+                transform: translateY(-3px);
+                filter: brightness(1.05);
+            }
+
+            &--alt {
+                background: linear-gradient(135deg, $c7-mint 0%, #115e59 100%);
+                box-shadow: 0 12px 26px rgba(15, 118, 110, 0.28);
+            }
+        }
+
+        &__click-info {
+            min-height: 9rem;
+            padding: 1.4rem;
+            border-radius: 1rem;
+            background: linear-gradient(145deg, rgba($c7-rose, 0.1), rgba($c7-mint, 0.08));
+            border: 1px solid $c7-line;
+            color: $c7-ink;
+            font-size: 1.35rem;
+
+            h3 {
+                margin: 0.4rem 0;
+                font-size: 1.4rem;
+            }
+        }
+
+        &__paragraphs {
+            display: grid;
+            gap: 1.2rem;
+
+            h3 {
+                margin: 0;
+                font-size: 1.8rem;
+                color: $c7-ink;
+            }
+        }
+
+        &__p {
+            opacity: 0;
+            transform: translateY(12px);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1.6rem 1.8rem;
+            border-radius: 1.1rem;
+            border: 1px solid $c7-line;
+            background: linear-gradient(145deg, #fff 0%, rgba($c7-blush, 0.7) 100%);
+            box-shadow: 0 6px 16px rgba(26, 21, 35, 0.05);
+            font-size: 1.4rem;
+            line-height: 1.55;
+            color: $c7-ink;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+            &.is-visible {
+                animation: c7-rise 0.4s ease forwards;
+            }
+
+            &.is-highlight {
+                border-color: rgba($c7-rose, 0.45);
+                box-shadow: 0 10px 24px rgba(190, 18, 60, 0.16);
+                transform: translateY(-2px);
+            }
+
+            span {
+                display: inline-block;
+                align-self: flex-start;
+                padding: 0.55rem 1rem;
+                border-radius: 999px;
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: $c7-ink;
+                background: rgba($c7-slate, 0.1);
+            }
+
+            &.probando span {
+                color: #fff;
+                background: linear-gradient(135deg, $c7-rose, $c7-rose-deep);
+            }
+        }
+
+        &__results {
+            padding: 1.8rem;
+            border-radius: 1.2rem;
+            background: linear-gradient(135deg, rgba($c7-mint, 0.12), rgba($c7-rose, 0.08));
+            border: 1px solid $c7-line;
+
+            .info-paragraph {
+                margin: 0.6rem 0;
+                font-size: 1.45rem;
+                font-weight: 700;
+                color: $c7-ink;
+            }
+        }
+    }
+
+
+    @keyframes c7-flash {
+        0% {
+            box-shadow: 0 0 0 0 rgba($c7-rose, 0.4), $c7-shadow;
+        }
+
+        100% {
+            box-shadow: 0 0 0 14px rgba($c7-rose, 0), $c7-shadow;
+        }
+    }
+
+    @keyframes c7-rise {
+        from {
+            opacity: 0;
+            transform: translateY(12px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+}

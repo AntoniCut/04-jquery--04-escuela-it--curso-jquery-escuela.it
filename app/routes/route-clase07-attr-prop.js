@@ -19,9 +19,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +42,33 @@ export const routeClase07AttrProp = {
             "#layoutMain": `${pages}/clase-07/02-metodos-attr-prop.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-07/02-metodos-attr-prop-description.html`, target: '[data-component-page="metodosAttrPropDescription"]' },
+            { url: `${pagesComponents}/clase-07/02-metodos-attr-prop-demo.html`, target: '[data-component-page="metodosAttrPropDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '02-metodos-attr-prop-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-07/02-metodos-attr-prop-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-07`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '02-metodos-attr-prop-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-07/02-metodos-attr-prop.css`,
+                urlOutput: `${markdownShikiHtml}/clase-07`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '02-metodos-attr-prop-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-07/02-metodos-attr-prop.js`,
+                urlOutput: `${markdownShikiHtml}/clase-07`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 7 - 2. Métodos attr() y prop()',
         styles: [
             { href: `${styles}/pages/clase-07/02-metodos-attr-prop.css` },
@@ -51,5 +80,5 @@ export const routeClase07AttrProp = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };

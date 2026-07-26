@@ -12,46 +12,95 @@
     console.log('\n');
 
 
-    const $btnHtml = $('#btnHtml');
-    const $btnText = $('#btnText');
-    
+    /** @type {JQuery<HTMLElement>} */
+    const $ctx = $('#contenido');
+
+    /** @type {JQuery<HTMLSelectElement>} */
+    const $accionSelect = $('#accionSelect');
+
+    /** @type {JQuery<HTMLSelectElement>} */
+    const $resetSelect = $('#resetSelect');
+
+    /** @type {JQuery<HTMLParagraphElement>} */
+    const $accionHint = $('#accionHint');
+
+    /** @type {JQuery<HTMLParagraphElement>} */
     const $info = $('#info');
-    
+
+    /** @type {JQuery<HTMLElement>} */
     const $description = $('#description');
+
+    /** @type {JQuery<HTMLElement>} */
     const $output = $('#output');
 
 
-    $btnHtml.on('click', () => {
-        
-        //  -----  Obtener el contenido HTML del elemento $description  -----
-
-        const info = 'Renderizado con el metodo .html()';
-        $info.html(info);
-
-        const output = $description.html();
+    /**
+     * ------------------------------
+     * -----  resetPlayground()  -----
+     * ------------------------------
+     */
+    const resetPlayground = () => {
 
         $output
-            .html(output)
+            .empty()
+            .removeClass('is-visible')
+            .css({ opacity: '', transform: '' });
+
+        $info.text('Abajo se renderiza el contenido segun el metodo elegido.');
+        $accionHint.text('Playground reseteado. Elige html() o text() de nuevo.');
+        $accionSelect.val('');
+        $ctx.removeClass('is-flash');
+
+    };
+
+
+    const renderHtml = () => {
+
+        $info.html('Renderizado con el metodo <kbd>.html()</kbd>');
+        $output
+            .html($description.html())
+            .addClass('is-visible')
             .css('opacity', '1');
-        
+
+        $accionHint.html('Ejecutado: <kbd>html()</kbd> — se interpretan las etiquetas.');
+        $ctx.addClass('is-flash');
+        setTimeout(() => $ctx.removeClass('is-flash'), 450);
+
+    };
+
+
+    const renderText = () => {
+
+        $info.html('Renderizado con el metodo <kbd>.text()</kbd>');
+        $output
+            .text($description.text())
+            .addClass('is-visible')
+            .css('opacity', '1');
+
+        $accionHint.html('Ejecutado: <kbd>text()</kbd> — todo como texto plano.');
+        $ctx.addClass('is-flash');
+        setTimeout(() => $ctx.removeClass('is-flash'), 450);
+
+    };
+
+
+    $accionSelect.on('change', function () {
+
+        /** @type {string} */
+        const value = String($(this).val() || '');
+
+        if (value === 'html') renderHtml();
+        if (value === 'text') renderText();
+
     });
 
 
-    $btnText.on('click', () => {
-        
-        //  -----  Obtener el contenido de texto del elemento $description  -----
-        const info = 'Renderizado con el metodo .text()';
-        $info.html(info);
+    $resetSelect.on('change', function () {
 
-        const output = $description.text();
-
-        $output
-            .text(output)
-            .css('opacity', '1');
+        if (String($(this).val() || '') === 'reset') resetPlayground();
+        $(this).val('');
 
     });
-   
 
-       
 
 })(jQuery);

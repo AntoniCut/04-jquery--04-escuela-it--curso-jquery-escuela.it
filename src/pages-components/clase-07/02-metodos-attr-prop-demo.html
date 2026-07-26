@@ -1,0 +1,92 @@
+<!--  
+    *  ----------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /02-metodos-attr-prop-demo.html  --  /src/pages-components/clase-07/02-metodos-attr-prop-demo.html  -----  *
+    *  ----------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__demo">
+
+    <section class="c7-atelier">
+
+        <header class="c7-atelier__toolbar">
+
+            <div class="c7-atelier__row">
+
+                <div class="c7-atelier__field">
+                    <label class="c7-atelier__label" for="accionSelect">
+                        Inspeccion
+                    </label>
+                    <select id="accionSelect" class="c7-atelier__select">
+                        <option value="">— Elige una accion —</option>
+                        <option value="leerActions">Leer attr('action') de ambos forms</option>
+                        <option value="compararCheck">Comparar prop/attr de checked</option>
+                        <option value="toggleAvanzado">Forzar toggle bloque avanzado</option>
+                    </select>
+                </div>
+
+                <div class="c7-atelier__field">
+                    <label class="c7-atelier__label" for="resetSelect">
+                        Playground
+                    </label>
+                    <select id="resetSelect" class="c7-atelier__select">
+                        <option value="">— Gestionar playground —</option>
+                        <option value="reset">Resetear estilos del playground</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <p id="accionHint" class="c7-atelier__hint">
+                Interactua con el formulario o usa el select para inspeccionar
+                <kbd>attr()</kbd> / <kbd>prop()</kbd>.
+            </p>
+
+        </header>
+
+        <div id="contenido" class="c7-atelier__playground">
+
+            <div class="c7-atelier__forms">
+
+                <form action="formulario1.php" class="c7-atelier__form" id="form1">
+
+                    <h3 class="c7-atelier__title">Formulario 1</h3>
+
+                    <div class="c7-atelier__group">
+                        Nombre
+                        <input type="text" name="nombre" id="inputNombre" placeholder="Escribe tu nombre...">
+                    </div>
+
+                    <div class="c7-atelier__group">
+                        Avanzado
+                        <input type="checkbox" name="avanzado" id="check" checked>
+                    </div>
+
+                    <div id="bloqueAvanzado" class="c7-atelier__advanced">
+                        Este es el bloque del formulario para "avanzado"....
+                        <a href="#"> Cerrar </a>
+                    </div>
+
+                </form>
+
+                <form action="formulario2.php" class="c7-atelier__form" id="form2">
+                    <fieldset>
+                        <legend>Formulario 2</legend>
+                        <div class="c7-atelier__group">
+                            <input type="search" placeholder="Buscar...">
+                        </div>
+                    </fieldset>
+                </form>
+
+            </div>
+
+            <div class="c7-atelier__info" id="infoPanel">
+                Resultados de inspeccion apareceran aqui.
+            </div>
+
+        </div>
+
+    </section>
+
+</div>

@@ -1,7 +1,7 @@
 /*
-    *  ---------------------------------------------------------------------------  *
+    *  -------------------------------------------------------------------------  *
     *  -----  /route-clase07-each.js  --  /src/routes/route-clase07-each.js  -----  *
-    *  ---------------------------------------------------------------------------  *
+    *  -------------------------------------------------------------------------  *
 */
 
 
@@ -19,9 +19,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +42,33 @@ export const routeClase07Each = {
             "#layoutMain": `${pages}/clase-07/04-metodo-each-recorrer-elementos.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-07/04-metodo-each-recorrer-elementos-description.html`, target: '[data-component-page="metodoEachDescription"]' },
+            { url: `${pagesComponents}/clase-07/04-metodo-each-recorrer-elementos-demo.html`, target: '[data-component-page="metodoEachDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '04-metodo-each-recorrer-elementos-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-07/04-metodo-each-recorrer-elementos-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-07`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '04-metodo-each-recorrer-elementos-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-07/04-metodo-each-recorrer-elementos.css`,
+                urlOutput: `${markdownShikiHtml}/clase-07`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '04-metodo-each-recorrer-elementos-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-07/04-metodo-each-recorrer-elementos.js`,
+                urlOutput: `${markdownShikiHtml}/clase-07`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 7 - 4. Método each() para recorrer elementos',
         styles: [
             { href: `${styles}/pages/clase-07/04-metodo-each-recorrer-elementos.css` },
@@ -51,5 +80,5 @@ export const routeClase07Each = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };

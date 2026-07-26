@@ -12,140 +12,182 @@
     console.log('\n');
 
 
-    /*  
-        ---------------------------------
-        -----  referencias al HTML  -----
-        --------------------------------- 
-    */
-    
-    /** @type {JQuery<HTMLFormElement>} `formulario` */
-    const $form = $("form");
+    /** @type {JQuery<HTMLElement>} */
+    const $ctx = $('#contenido');
 
-    /** @type {JQuery<HTMLInputElement>} `input nombre` del formulario */
-    const $nombre = $("#inputNombre");
+    /** @type {JQuery<HTMLSelectElement>} */
+    const $accionSelect = $('#accionSelect');
 
-    /** @type {JQuery<HTMLInputElement>} `checked` del formulario */
-    const $check = $("#check");
+    /** @type {JQuery<HTMLSelectElement>} */
+    const $resetSelect = $('#resetSelect');
 
-    /** @type {JQuery<HTMLDivElement>} `div del bloque avanzado` del formulario */
-    const $bloqueAvanzado = $("#bloqueAvanzado");
-    
-    /** @type {JQuery<HTMLAnchorElement>} `cierra el bloque avanzado` del formulario */
-    const $cerrar = $("#bloqueAvanzado a");
+    /** @type {JQuery<HTMLParagraphElement>} */
+    const $accionHint = $('#accionHint');
+
+    /** @type {JQuery<HTMLElement>} */
+    const $infoPanel = $('#infoPanel');
+
+    /** @type {JQuery<HTMLFormElement>} */
+    const $form = $('form', $ctx);
+
+    /** @type {JQuery<HTMLInputElement>} */
+    const $nombre = $('#inputNombre');
+
+    /** @type {JQuery<HTMLInputElement>} */
+    const $check = $('#check');
+
+    /** @type {JQuery<HTMLDivElement>} */
+    const $bloqueAvanzado = $('#bloqueAvanzado');
+
+    /** @type {JQuery<HTMLAnchorElement>} */
+    const $cerrar = $('#bloqueAvanzado a');
 
 
-    //  -----  con el método .eq(), accedo a elementos específicos  -----
-    console.log('\n');
     console.log('$form.eq(0).attr(\'action\') => ', $form.eq(0).attr('action'));
     console.log('$form.eq(1).attr(\'action\') => ', $form.eq(1).attr('action'));
 
-
-    //  -----  con el método .each(), recorro todos los elementos  -----
     console.log('\nRecorremos los formularios con .each():');
     $form.each(function (index, element) {
         console.log(` - Formulario ${index + 1}:`, $(element).attr('action'));
     });
 
+    console.log('$check.prop("checked") => ', $check.prop('checked'));
+    console.log('$check.attr("checked") => ', $check.attr('checked'));
 
-    //  -----  métodos .prop() y .attr() para obtener el estado de un checkbox  -----
-    console.log('\n');
-    console.log('$form.eq(1).attr("action") => ', $form.eq(1).attr("action"));
-    console.log('$check.prop() => ', $check.prop("checked"));
-    console.log('$check.attr() => ', $check.attr("checked"));
+
+    const mostrarOcultar = () => {
+
+        if ($check.prop('checked'))
+            $bloqueAvanzado.css('opacity', '1');
+        else
+            $bloqueAvanzado.css('opacity', '0');
+
+    };
 
 
     /**
-     * - `mostrarOcular()`
-     * - Muestra u oculta el bloque avanzado según el estado del checkbox. Si el checkbox está marcado, se muestra el bloque avanzado estableciendo su opacidad a 1; si no está marcado, se oculta estableciendo su opacidad a 0.
+     * ------------------------------
+     * -----  resetPlayground()  -----
+     * ------------------------------
      */
-    const mostrarOcular = () => {
+    const resetPlayground = () => {
 
-        if ($check.prop("checked"))
-            $bloqueAvanzado.css("opacity", "1");
-        
-        else
-            $bloqueAvanzado.css("opacity", "0");
-    }
+        $nombre
+            .val('')
+            .removeClass('error')
+            .css({ backgroundColor: '', borderColor: '' })
+            .next('span')
+            .remove();
+
+        $check.prop('checked', true);
+        mostrarOcultar();
+
+        $infoPanel.text('Resultados de inspeccion apareceran aqui.');
+        $accionHint.text('Playground reseteado.');
+        $accionSelect.val('');
+        $ctx.addClass('is-flash');
+        setTimeout(() => $ctx.removeClass('is-flash'), 450);
+
+    };
 
 
-    /*
-        -----------------------------  
-        -----  eventos 'click'  -----
-        -----------------------------
-    */
+    const acciones = {
 
-    //  -----  al hacer click en el checkbox, se muestra u oculta el bloque avanzado  -----
-    $check.on("click", mostrarOcular);
+        leerActions: () => {
+
+            const a1 = $form.eq(0).attr('action');
+            const a2 = $form.eq(1).attr('action');
+
+            $infoPanel.html(`
+                Form 1 action: <kbd>${a1}</kbd><br>
+                Form 2 action: <kbd>${a2}</kbd>
+            `);
+            $accionHint.html("Leido con <kbd>attr('action')</kbd>.");
+
+        },
+
+        compararCheck: () => {
+
+            $infoPanel.html(`
+                prop('checked'): <kbd>${String($check.prop('checked'))}</kbd><br>
+                attr('checked'): <kbd>${String($check.attr('checked'))}</kbd>
+            `);
+            $accionHint.html("Comparacion <kbd>prop()</kbd> vs <kbd>attr()</kbd> del checkbox.");
+
+        },
+
+        toggleAvanzado: () => {
+
+            $check.prop('checked', !$check.prop('checked'));
+            mostrarOcultar();
+            $infoPanel.html(`Checkbox checked: <kbd>${String($check.prop('checked'))}</kbd>`);
+            $accionHint.text('Toggle del bloque avanzado con prop().');
+
+        },
+
+    };
 
 
-    //  -----  al hacer click en el enlace de cerrar, se desmarca  -----          
-    //  -----  el checkbox y se oculta el bloque avanzado          -----
-    $cerrar.on("click", e => {
-        
-        //  -----  evita el comportamiento por defecto del enlace  -----
-        e.preventDefault();  
-        
-        //  -----  desmarca el checkbox  -----
-        $check.prop("checked", false);
+    $check.on('click', mostrarOcultar);
 
-        //  -----  muestra u oculta el bloque avanzado segun el estado del checkbox  -----
-        mostrarOcular();
+
+    $cerrar.on('click', (e) => {
+        e.preventDefault();
+        $check.prop('checked', false);
+        mostrarOcultar();
     });
 
 
-    /*
-        ----------------------------
-        -----  evento 'focus'  -----
-        ----------------------------
-    */
     $nombre.on('focus', function () {
-        
-        $(this)
-            .val('')
-            .css('background-color', 'white');
-
-    })
+        $(this).val('').css('background-color', 'white');
+    });
 
 
-    /*  
-        -----------------------------
-        -----  evento 'change'  ----- 
-        -----------------------------
-    */
+    $nombre.on('input', function () {
 
-    $nombre.on("input", function () {
+        const $campo = $(this);
+        const texto = $campo.val();
 
-        //  -----  'this', atajo acceder al elemento actual (contexto)  -----
-        const campoInput = $(this);
-        
-        /** @type {string|undefined} - `almacena el valor del campo de texto` */
-        const texto = campoInput.val();
+        $campo.next('span').remove();
 
-        //  -----  Elimina el mensaje de error si ya existe  -----
-        campoInput.next("span").remove();
-
-        if (texto && texto.length < 4) {
-            
-            campoInput
-                .addClass("error")
-                //.css('background-color', 'red')
+        if (texto && String(texto).length < 4) {
+            $campo
+                .addClass('error')
                 .after(`
-                    <span style="color:red; margin-left: 10px; font-size: 1.2rem;"> 
-                        Introduce más de 4 caracteres 
+                    <span style="color:#be123c; margin-left: 10px; font-size: 1.2rem;">
+                        Introduce más de 4 caracteres
                     </span>
                 `);
-        
-        } 
-        
-        else 
-            campoInput.removeClass("error");
-        
+        } else {
+            $campo.removeClass('error');
+        }
+
     });
 
 
-    //  -----  se ejecuta al iniciar la página  -----
-    mostrarOcular();
+    $accionSelect.on('change', function () {
 
-       
+        /** @type {string} */
+        const value = String($(this).val() || '');
+
+        if (!value) return;
+
+        acciones[value]?.();
+        $ctx.addClass('is-flash');
+        setTimeout(() => $ctx.removeClass('is-flash'), 450);
+
+    });
+
+
+    $resetSelect.on('change', function () {
+
+        if (String($(this).val() || '') === 'reset') resetPlayground();
+        $(this).val('');
+
+    });
+
+
+    mostrarOcultar();
+
 
 })(jQuery);

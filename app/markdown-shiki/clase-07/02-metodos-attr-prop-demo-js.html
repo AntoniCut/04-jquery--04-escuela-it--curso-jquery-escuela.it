@@ -1,0 +1,190 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">warn</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'-----  02-metodos-attr-prop.js  -----'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLElement>}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $ctx</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#contenido'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLSelectElement>}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $accionSelect</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#accionSelect'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLSelectElement>}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $resetSelect</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#resetSelect'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLParagraphElement>}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $accionHint</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#accionHint'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLElement>}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $infoPanel</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#infoPanel'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLFormElement>}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $form</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'form'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$ctx</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLInputElement>}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $nombre</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#inputNombre'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLInputElement>}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $check</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#check'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $bloqueAvanzado</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#bloqueAvanzado'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLAnchorElement>}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $cerrar</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#bloqueAvanzado a'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'$form.eq(0).attr(</span><span style="color:#D7BA7D">\'</span><span style="color:#CE9178">action</span><span style="color:#D7BA7D">\'</span><span style="color:#CE9178">) => '</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">eq</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">attr</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'action'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'$form.eq(1).attr(</span><span style="color:#D7BA7D">\'</span><span style="color:#CE9178">action</span><span style="color:#D7BA7D">\'</span><span style="color:#CE9178">) => '</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">eq</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">1</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">attr</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'action'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">Recorremos los formularios con .each():'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    $form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">each</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">index</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">element</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">        console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">` - Formulario </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">index</span><span style="color:#D4D4D4"> + </span><span style="color:#B5CEA8">1</span><span style="color:#569CD6">}</span><span style="color:#CE9178">:`</span><span style="color:#D4D4D4">, </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">element</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">attr</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'action'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'$check.prop("checked") => '</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$check</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'checked'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'$check.attr("checked") => '</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$check</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">attr</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'checked'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> mostrarOcultar</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">$check</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'checked'</span><span style="color:#D4D4D4">))</span></span>
+<span class="line"><span style="color:#9CDCFE">            $bloqueAvanzado</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'opacity'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'1'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#C586C0">        else</span></span>
+<span class="line"><span style="color:#9CDCFE">            $bloqueAvanzado</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'opacity'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'0'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * ------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  resetPlayground()  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * ------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> resetPlayground</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $nombre</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'error'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">backgroundColor:</span><span style="color:#CE9178"> ''</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">borderColor:</span><span style="color:#CE9178"> ''</span><span style="color:#D4D4D4"> })</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">next</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'span'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">remove</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $check</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'checked'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        mostrarOcultar</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $infoPanel</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Resultados de inspeccion apareceran aqui.'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $accionHint</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Playground reseteado.'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $accionSelect</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $ctx</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-flash'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        setTimeout</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#9CDCFE"> $ctx</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-flash'</span><span style="color:#D4D4D4">), </span><span style="color:#B5CEA8">450</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> acciones</span><span style="color:#D4D4D4"> = {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">        leerActions</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">            const</span><span style="color:#4FC1FF"> a1</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">eq</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">attr</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'action'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#569CD6">            const</span><span style="color:#4FC1FF"> a2</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">eq</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">1</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">attr</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'action'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">            $infoPanel</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`</span></span>
+<span class="line"><span style="color:#CE9178">                Form 1 action: &#x3C;kbd></span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">a1</span><span style="color:#569CD6">}</span><span style="color:#CE9178">&#x3C;/kbd>&#x3C;br></span></span>
+<span class="line"><span style="color:#CE9178">                Form 2 action: &#x3C;kbd></span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">a2</span><span style="color:#569CD6">}</span><span style="color:#CE9178">&#x3C;/kbd></span></span>
+<span class="line"><span style="color:#CE9178">            `</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">            $accionHint</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"Leido con &#x3C;kbd>attr('action')&#x3C;/kbd>."</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">        },</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">        compararCheck</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">            $infoPanel</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`</span></span>
+<span class="line"><span style="color:#CE9178">                prop('checked'): &#x3C;kbd></span><span style="color:#569CD6">${</span><span style="color:#DCDCAA">String</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$check</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'checked'</span><span style="color:#D4D4D4">))</span><span style="color:#569CD6">}</span><span style="color:#CE9178">&#x3C;/kbd>&#x3C;br></span></span>
+<span class="line"><span style="color:#CE9178">                attr('checked'): &#x3C;kbd></span><span style="color:#569CD6">${</span><span style="color:#DCDCAA">String</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$check</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">attr</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'checked'</span><span style="color:#D4D4D4">))</span><span style="color:#569CD6">}</span><span style="color:#CE9178">&#x3C;/kbd></span></span>
+<span class="line"><span style="color:#CE9178">            `</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">            $accionHint</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"Comparacion &#x3C;kbd>prop()&#x3C;/kbd> vs &#x3C;kbd>attr()&#x3C;/kbd> del checkbox."</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">        },</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">        toggleAvanzado</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">            $check</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'checked'</span><span style="color:#D4D4D4">, !</span><span style="color:#9CDCFE">$check</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'checked'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"><span style="color:#DCDCAA">            mostrarOcultar</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#9CDCFE">            $infoPanel</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`Checkbox checked: &#x3C;kbd></span><span style="color:#569CD6">${</span><span style="color:#DCDCAA">String</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$check</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'checked'</span><span style="color:#D4D4D4">))</span><span style="color:#569CD6">}</span><span style="color:#CE9178">&#x3C;/kbd>`</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">            $accionHint</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Toggle del bloque avanzado con prop().'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">        },</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $check</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">mostrarOcultar</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $cerrar</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, (</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        e</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">preventDefault</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#9CDCFE">        $check</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'checked'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        mostrarOcultar</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $nombre</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'focus'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
+<span class="line"><span style="color:#DCDCAA">        $</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'background-color'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'white'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $nombre</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'input'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $campo</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> texto</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$campo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $campo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">next</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'span'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">remove</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">texto</span><span style="color:#D4D4D4"> &#x26;&#x26; </span><span style="color:#DCDCAA">String</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">texto</span><span style="color:#D4D4D4">).</span><span style="color:#9CDCFE">length</span><span style="color:#D4D4D4"> &#x3C; </span><span style="color:#B5CEA8">4</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">            $campo</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'error'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">after</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`</span></span>
+<span class="line"><span style="color:#CE9178">                    &#x3C;span style="color:#be123c; margin-left: 10px; font-size: 1.2rem;"></span></span>
+<span class="line"><span style="color:#CE9178">                        Introduce más de 4 caracteres</span></span>
+<span class="line"><span style="color:#CE9178">                    &#x3C;/span></span></span>
+<span class="line"><span style="color:#CE9178">                `</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        } </span><span style="color:#C586C0">else</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">            $campo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'error'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $accionSelect</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'change'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {string}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> value</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">String</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">() || </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (!</span><span style="color:#9CDCFE">value</span><span style="color:#D4D4D4">) </span><span style="color:#C586C0">return</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        acciones</span><span style="color:#D4D4D4">[</span><span style="color:#9CDCFE">value</span><span style="color:#D4D4D4">]?.();</span></span>
+<span class="line"><span style="color:#9CDCFE">        $ctx</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-flash'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        setTimeout</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#9CDCFE"> $ctx</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-flash'</span><span style="color:#D4D4D4">), </span><span style="color:#B5CEA8">450</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $resetSelect</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'change'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">String</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">() || </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">) === </span><span style="color:#CE9178">'reset'</span><span style="color:#D4D4D4">) </span><span style="color:#DCDCAA">resetPlayground</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#DCDCAA">        $</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">    mostrarOcultar</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">})(</span><span style="color:#9CDCFE">jQuery</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span></code></pre>
