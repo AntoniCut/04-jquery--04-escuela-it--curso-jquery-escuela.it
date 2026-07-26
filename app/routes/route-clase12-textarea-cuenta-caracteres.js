@@ -19,9 +19,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +42,33 @@ export const routeClase12TextareaCuentaCaracteres = {
             "#layoutMain": `${pages}/clase-12/03-textarea-cuenta-caracteres.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-12/03-textarea-cuenta-caracteres-description.html`, target: '[data-component-page="textareaCuentaCaracteresDescription"]' },
+            { url: `${pagesComponents}/clase-12/03-textarea-cuenta-caracteres-demo.html`, target: '[data-component-page="textareaCuentaCaracteresDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '03-textarea-cuenta-caracteres-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-12/03-textarea-cuenta-caracteres-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-12`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '03-textarea-cuenta-caracteres-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-12/03-textarea-cuenta-caracteres.css`,
+                urlOutput: `${markdownShikiHtml}/clase-12`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '03-textarea-cuenta-caracteres-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-12/03-textarea-cuenta-caracteres.js`,
+                urlOutput: `${markdownShikiHtml}/clase-12`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 12 - 3. Textarea con Cuenta de Caracteres',
         styles: [
             { href: `${styles}/pages/clase-12/03-textarea-cuenta-caracteres.css` },
@@ -51,5 +80,5 @@ export const routeClase12TextareaCuentaCaracteres = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };

@@ -1,0 +1,136 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">warn</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'-----  03-textarea-cuenta-caracteres.js  -----'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Referencias al HTML  -----</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLTextAreaElement>}</span><span style="color:#6A9955"> - `Textarea para escribir texto` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $textArea</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"#textArea"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Div para mostrar el mensaje` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $mensaje</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"#mensaje"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Div para mostrar la cuenta de caracteres creado dinámicamente` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $cuentaCaracteres</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`</span></span>
+<span class="line"><span style="color:#CE9178">        &#x3C;div class='cuenta-caracteres'> </span></span>
+<span class="line"><span style="color:#CE9178">            Llevas escritos &#x3C;span> &#x3C;/span> caracteres </span></span>
+<span class="line"><span style="color:#CE9178">        &#x3C;/div></span></span>
+<span class="line"><span style="color:#CE9178">    `</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  insertamos el contador de caracteres después del textarea  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    $cuentaCaracteres</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">insertAfter</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$textArea</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Estructura fija del mensaje: una fila por evento  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    $mensaje</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`</span></span>
+<span class="line"><span style="color:#CE9178">        &#x3C;p class="msg-keydown">  &#x3C;strong>keydown&#x3C;/strong>  &#x26;rarr; &#x3C;span>-&#x3C;/span> &#x3C;/p></span></span>
+<span class="line"><span style="color:#CE9178">        &#x3C;p class="msg-keypress"> &#x3C;strong>keypress&#x3C;/strong> &#x26;rarr; &#x3C;span>-&#x3C;/span> &#x3C;/p></span></span>
+<span class="line"><span style="color:#CE9178">        &#x3C;p class="msg-keyup">    &#x3C;strong>keyup&#x3C;/strong>    &#x26;rarr; &#x3C;span>-&#x3C;/span> &#x3C;/p></span></span>
+<span class="line"><span style="color:#CE9178">    `</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">  </span></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * --------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `calcularCaracteresTextarea()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * --------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - `Calcula el número de caracteres escritos en el textarea y actualiza el contador`</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> calcularCaracteresTextarea</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Número de caracteres escritos en el textarea` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> numeroCaracteres</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">$textArea</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">()?.</span><span style="color:#DCDCAA">toString</span><span style="color:#D4D4D4">() ?? </span><span style="color:#CE9178">""</span><span style="color:#D4D4D4">).</span><span style="color:#9CDCFE">length</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  Actualiza el texto del contador de caracteres con el número calculado  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">        $cuentaCaracteres</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"span"</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">numeroCaracteres</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*  </span></span>
+<span class="line"><span style="color:#6A9955">        -------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        ----------  EVENTOS  ----------</span></span>
+<span class="line"><span style="color:#6A9955">        -------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  keydown: se dispara al presionar la tecla (antes de que el carácter aparezca)  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    $textArea</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"keydown"</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  Muestra el código de la tecla y el carácter asociado al evento keydown  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">        $mensaje</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">".msg-keydown span"</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`código </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">which</span><span style="color:#569CD6">}</span><span style="color:#CE9178">  —  tecla "</span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">key</span><span style="color:#569CD6">}</span><span style="color:#CE9178">"`</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  Calcula y muestra el número de caracteres escritos en el textarea  -----</span></span>
+<span class="line"><span style="color:#DCDCAA">        calcularCaracteresTextarea</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  keypress: se dispara al generar un carácter imprimible + controla el límite máximo  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    $textArea</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"keypress"</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Número máximo de caracteres permitidos` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> maximo</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"maximo"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** -----  `Muestra el código de la tecla y el carácter asociado al evento keypress, incluyendo modificadores Shift y Ctrl`  ----- */</span><span style="color:#D4D4D4">  </span></span>
+<span class="line"><span style="color:#569CD6">        let</span><span style="color:#9CDCFE"> info</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">`carácter "</span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">String</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">fromCharCode</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">which</span><span style="color:#D4D4D4">)</span><span style="color:#569CD6">}</span><span style="color:#CE9178">"  (código </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">which</span><span style="color:#569CD6">}</span><span style="color:#CE9178">)`</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  Si se presiona Shift o Ctrl, se indica en el mensaje  -----</span></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">shiftKey</span><span style="color:#D4D4D4">) </span></span>
+<span class="line"><span style="color:#9CDCFE">            info</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"SHIFT + "</span><span style="color:#D4D4D4"> + </span><span style="color:#9CDCFE">info</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#6A9955">        //  -----  Si se presiona Ctrl, se indica en el mensaje  -----</span></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">ctrlKey</span><span style="color:#D4D4D4">) </span></span>
+<span class="line"><span style="color:#9CDCFE">            info</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"CTRL + "</span><span style="color:#D4D4D4"> + </span><span style="color:#9CDCFE">info</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  Muestra la información del evento keypress en el mensaje  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">        $mensaje</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">".msg-keypress span"</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">info</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  bloquea la tecla si se alcanzó el máximo (excepto borrar / teclas especiales)  -----</span></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> ((</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">()?.</span><span style="color:#DCDCAA">toString</span><span style="color:#D4D4D4">() ?? </span><span style="color:#CE9178">""</span><span style="color:#D4D4D4">).</span><span style="color:#9CDCFE">length</span><span style="color:#D4D4D4"> >= </span><span style="color:#9CDCFE">maximo</span><span style="color:#D4D4D4"> &#x26;&#x26; </span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">which</span><span style="color:#D4D4D4"> !== </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4"> &#x26;&#x26; </span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">which</span><span style="color:#D4D4D4"> !== </span><span style="color:#B5CEA8">8</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#D4D4D4">            </span></span>
+<span class="line"><span style="color:#9CDCFE">            e</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">preventDefault</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  Calcula y muestra el número de caracteres escritos en el textarea  -----</span></span>
+<span class="line"><span style="color:#DCDCAA">        calcularCaracteresTextarea</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  keyup: se dispara al soltar la tecla — muestra el texto actual del textarea  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    $textArea</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"keyup"</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> texto</span><span style="color:#D4D4D4"> = (</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">()?.</span><span style="color:#DCDCAA">toString</span><span style="color:#D4D4D4">() ?? </span><span style="color:#CE9178">""</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">trim</span><span style="color:#D4D4D4">() || </span><span style="color:#CE9178">"(vacío)"</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $mensaje</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">".msg-keyup span"</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">texto</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">        calcularCaracteresTextarea</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">   </span></span>
+<span class="line"><span style="color:#6A9955">    //  -----  al iniciar  -----</span></span>
+<span class="line"><span style="color:#DCDCAA">    calcularCaracteresTextarea</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">})(</span><span style="color:#9CDCFE">jQuery</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span></code></pre>

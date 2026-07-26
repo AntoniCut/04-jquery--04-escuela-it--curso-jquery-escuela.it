@@ -5,6 +5,33 @@
 */
 
 
+.fx-stage--textarea {
+    min-height: 48rem;
+    padding: 2.4rem;
+    border-radius: 1.6rem;
+    background:
+        radial-gradient(circle at top left, rgba(3, 106, 173, 0.12), transparent 42%),
+        radial-gradient(circle at bottom right, rgba(248, 156, 21, 0.14), transparent 45%),
+        linear-gradient(160deg, #f7fafc 0%, #eef4f9 55%, #e8f1f8 100%);
+    border: 1px solid rgba(3, 106, 173, 0.12);
+    box-shadow: 0 12px 32px rgba(15, 40, 70, 0.08);
+}
+
+
+.fx-hint {
+    margin: 0 0 2rem;
+    max-width: 56rem;
+    padding: 1.2rem 1.6rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.45;
+    color: #1f4b88;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(3, 106, 173, 0.14);
+    border-radius: 1rem;
+    box-shadow: 0 6px 16px rgba(15, 40, 70, 0.06);
+}
+
 
 #textArea {
     width: 100%;
@@ -16,59 +43,67 @@
     background: linear-gradient(180deg, #ffffff 0%, #f4f8ff 100%);
     resize: none;
     border: 2px solid #85A4DD;
-    border-radius: 0.8rem;
+    border-radius: 1rem;
     box-shadow: inset 0 1px 4px rgba(22, 49, 82, 0.08);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, transform 180ms ease;
 
     &:focus {
         outline: none;
         border-color: #4f73b9;
         box-shadow: 0 0 0 4px rgba(79, 115, 185, 0.2), inset 0 1px 4px rgba(22, 49, 82, 0.08);
         background: #fff;
+        transform: translateY(-1px);
     }
 }
+
 
 .cuenta-caracteres {
     color: #163152;
     background: linear-gradient(120deg, #dce8ff 0%, #bfd4ff 100%);
-    margin-top: 1rem;
+    margin-top: 1.2rem;
     padding: 1.4rem 2rem;
     font-size: 1.7rem;
     font-weight: 700;
     text-align: center;
     border: 1px solid #9bb9ee;
-    border-radius: 0.8rem;
+    border-radius: 1rem;
     box-shadow: 0 8px 18px rgba(25, 64, 116, 0.12);
+    transition: transform 180ms ease, box-shadow 180ms ease;
 
     span {
         display: inline-block;
-        width: 4.5rem;
+        min-width: 4.5rem;
         margin: 0 0.3rem;
         padding: 0.2rem 0.7rem;
         border-radius: 999px;
-        background-color: #1f4b88;
+        background: linear-gradient(135deg, #2a6fbf 0%, #1f4b88 100%);
         color: #fff;
         font-size: 1.6rem;
         letter-spacing: 0.03em;
+        transition: transform 160ms ease;
     }
 }
 
 
 #mensaje {
-    
     width: 100%;
+    margin-top: 2rem;
     padding: 2rem;
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-    background-color: aliceblue;
-    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(3, 106, 173, 0.12);
+    border-radius: 1.2rem;
+    box-shadow: 0 8px 18px rgba(15, 40, 70, 0.06);
 
     p {
         width: 100%;
-        padding: 0.8rem 1.4rem;
-        border-radius: 0.4rem;
+        margin: 0;
+        padding: 0.9rem 1.4rem;
+        border-radius: 0.8rem;
         font-size: 1.6rem;
+        transition: transform 160ms ease, box-shadow 160ms ease;
 
         strong {
             display: inline-block;
@@ -82,21 +117,20 @@
         }
     }
 
-    .msg-keydown  { 
-        background-color: #fde8c8; 
-        border-left: 4px solid #f5a623; 
+    .msg-keydown {
+        background-color: #fde8c8;
+        border-left: 4px solid #f5a623;
     }
-    
-    .msg-keypress { 
-        background-color: #d4edda; 
-        border-left: 4px solid #28a745; 
+
+    .msg-keypress {
+        background-color: #d4edda;
+        border-left: 4px solid #28a745;
     }
-    
-    .msg-keyup { 
-        background-color: #cce5ff; 
-        border-left: 4px solid #0366d6; 
-        height: 5rem;
+
+    .msg-keyup {
+        background-color: #cce5ff;
+        border-left: 4px solid #0366d6;
+        min-height: 5rem;
         overflow-y: auto;
-        
     }
 }
