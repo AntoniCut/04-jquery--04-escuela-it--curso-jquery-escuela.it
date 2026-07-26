@@ -1,0 +1,99 @@
+<!--  
+    *  ------------------------------------------------------------------------------------------------------  *
+    *  -----  /02-ejemplo2-demo.html  --  /src/pages-components/clase-06/02-ejemplo2-demo.html  -----  *
+    *  ------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__demo">
+
+    <section class="c6-atelier">
+
+        <header class="c6-atelier__toolbar">
+
+            <div class="c6-atelier__row">
+
+                <div class="c6-atelier__field">
+                    <label class="c6-atelier__label" for="btnRunEach">
+                        Accion each()
+                    </label>
+                    <button id="btnRunEach" class="c6-atelier__btn" type="button">
+                        Run — each()
+                    </button>
+                </div>
+
+                <div class="c6-atelier__field">
+                    <label class="c6-atelier__label" for="btnResetEach">
+                        Playground
+                    </label>
+                    <button id="btnResetEach" class="c6-atelier__btn c6-atelier__btn--ghost" type="button">
+                        Resetear playground
+                    </button>
+                </div>
+
+            </div>
+
+            <p id="accionHint" class="c6-atelier__hint">
+                Pulsa <kbd>Run</kbd> para recorrer parrafos y la lista
+                con <kbd>each()</kbd>. El elemento 2 de la lista se
+                elimina durante el recorrido.
+            </p>
+
+        </header>
+
+        <div id="contenido" class="c6-atelier__playground">
+
+            <div class="c6-atelier__source-block">
+
+                <p class="c6-atelier__item">
+                    Este es el contenido de un parrafo sin clase, solo
+                    para mostrar que no se selecciona con la clase
+                    <kbd>miclase</kbd>.
+                </p>
+
+                <p class="c6-atelier__item miclase">
+                    <span class="c6-atelier__badge">.miclase</span>
+                    parrafo con clase = miclase
+                </p>
+
+                <p class="c6-atelier__item miclase">
+                    <span class="c6-atelier__badge">.miclase</span>
+                    parrafo con clase = miclase
+                </p>
+
+                <ul id="lista" class="c6-atelier__list">
+                    <li> elemento de la lista 1 </li>
+                    <li> elemento de la lista 2 </li>
+                    <li> elemento de la lista 3 </li>
+                    <li> elemento de la lista 4 </li>
+                    <li> elemento de la lista 5 </li>
+                </ul>
+
+            </div>
+
+            <aside class="c6-atelier__brief">
+                <h3 class="c6-atelier__brief-title">Logica con jQuery</h3>
+                <ol class="c6-atelier__brief-list">
+                    <li>Muestra el contenido de los parrafos.</li>
+                    <li>
+                        Muestra el contenido de los elementos de la lista,
+                        eliminando el elemento 2.
+                    </li>
+                </ol>
+            </aside>
+
+            <div class="c6-atelier__results">
+                <div id="info1" class="c6-atelier__panel">
+                    <h3 class="c6-atelier__panel-title">Parrafos</h3>
+                </div>
+                <div id="info2" class="c6-atelier__panel">
+                    <h3 class="c6-atelier__panel-title">Lista</h3>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>

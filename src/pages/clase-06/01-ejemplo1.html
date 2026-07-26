@@ -1,82 +1,41 @@
 <!--  
-    *  ---------------------------------------------------------------------------------------------------  *
-    *  -----  /01-ejemplo1.html  --  /src/pages/clase-06-primeros-pasos-con-jquery/01-ejemplo1.html  -----  *
-    *  ---------------------------------------------------------------------------------------------------  *
+    *  -----------------------------------------------------------------------  *
+    *  -----  /01-ejemplo1.html  --  /src/pages/clase-06/01-ejemplo1.html  -----  *
+    *  -----------------------------------------------------------------------  *
 -->
 
 
 
 <div class="main__container">
 
+    <header class="section__header">
+        <h2 class="section__title" title="Ejemplo 1 - hide() y show()">
+            Clase 6 - Ejemplo 1 - Descripción
+        </h2>
+    </header>
 
-    <!--  -----  INFO  -----  -->
-    <section class="main__section-info">
+    <section data-component-page="ejemplo1Description"></section>
 
+    <header class="section__header">
+        <h2 class="section__title" title="Ejemplo 1 - hide() y show()">
+            Clase 6 - Ejemplo 1 - Demo
+        </h2>
+    </header>
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
+    <section data-component-page="ejemplo1Demo"></section>
 
-            <h2 
-                class="section__title" 
-                title="Que es jQuery"
-            >
-                Clase 6 - Primeros Pasos con jQuery - Ejemplo 1
-            </h2>
+    <header class="section__header">
+        <h2 class="section__title" title="Ejemplo 1 - hide() y show()">
+            Clase 6 - Ejemplo 1 - Código Markdown
+        </h2>
+    </header>
 
-        </header>
-
-        <!--  -----  Contenido de la sección  -----  -->
-        <article class="section__content">
-
-            <div class="content__description content__description--exercise">
-
-                <h3 class="content__title">
-                    Seleccionar elementos y ocultar / mostrar
-                </h3>
-
-                <p class="content__text">
-                    Este ejercicio muestra como seleccionar elementos del DOM con jQuery
-                    y controlar su visibilidad con <kbd>hide()</kbd> y <kbd>show()</kbd>.
-                </p>
-
-                <ul class="content__list">
-                    <li>
-                        Se seleccionan elementos por <strong>id</strong> y por <strong>clase</strong> con la funcion <code>$()</code>.
-                    </li>
-                    <li>
-                        <kbd>hide()</kbd> oculta el elemento y <kbd>show()</kbd> lo vuelve a mostrar.
-                    </li>
-                    <li>
-                        Un boton <strong>run</strong> dispara la accion para ver el efecto en tiempo real.
-                    </li>
-                </ul>
-
-                <p class="content__note">
-                    <kbd> Objetivo: </kbd> practicar selectores basicos de jQuery y los metodos de visibilidad hide() y show().
-                </p>
-
-            </div>
-
-        </article>
-            
-
-    </section>
-
-
-    <!--  -----  PRACTICA  -----  -->
-    <section class="main__section-practica">
-
-        <button id="btnRun">
-            run
-        </button>
-
-        <div class="practica__container">
-            <div id="capaContainer"> </div>
-            <p class="miclase"> párrafo con clase = miclase </p>
-            <p class="miclase"> párrafo con clase = miclase </p>
+    <section class="main__section-markdown">
+        <div class="markdown__container">
+            <article data-shiki="codeHtml" data-label="ejemplo1.html" class="markdown-code"></article>
+            <article data-shiki="codeCss" data-label="ejemplo1.css" class="markdown-code"></article>
+            <article data-shiki="codeJs" data-label="ejemplo1.js" class="markdown-code"></article>
         </div>
-
     </section>
-   
 
 </div>

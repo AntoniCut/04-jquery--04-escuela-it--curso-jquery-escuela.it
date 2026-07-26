@@ -1,108 +1,41 @@
 <!--  
-    *  ---------------------------------------------------------------------------------------------------  *
-    *  -----  /02-ejemplo2.html  --  /src/pages/clase-06-primeros-pasos-con-jquery/02-ejemplo2.html  -----  *
-    *  ---------------------------------------------------------------------------------------------------  *
+    *  -----------------------------------------------------------------------  *
+    *  -----  /02-ejemplo2.html  --  /src/pages/clase-06/02-ejemplo2.html  -----  *
+    *  -----------------------------------------------------------------------  *
 -->
 
 
 
 <div class="main__container">
 
+    <header class="section__header">
+        <h2 class="section__title" title="Ejemplo 2 - each()">
+            Clase 6 - Ejemplo 2 - Descripción
+        </h2>
+    </header>
 
-    <!--  -----  INFO  -----  -->
-    <section class="main__section-info">
+    <section data-component-page="ejemplo2Description"></section>
 
+    <header class="section__header">
+        <h2 class="section__title" title="Ejemplo 2 - each()">
+            Clase 6 - Ejemplo 2 - Demo
+        </h2>
+    </header>
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
+    <section data-component-page="ejemplo2Demo"></section>
 
-            <h2 class="section__title" title="Que es jQuery">
-                Primeros Pasos con jQuery - Ejemplo 2
-                <br>
-                Recorrer elementos con each()
-            </h2>
+    <header class="section__header">
+        <h2 class="section__title" title="Ejemplo 2 - each()">
+            Clase 6 - Ejemplo 2 - Código Markdown
+        </h2>
+    </header>
 
-        </header>
-
-        <!--  -----  Contenido de la sección  -----  -->
-        <article class="section__content">
-
-            <div class="content__description content__description--exercise">
-
-                <h3 class="content__title">
-                    Recorrer elementos con each()
-                </h3>
-
-                <p class="content__text">
-                    Este ejercicio usa el metodo <kbd>each()</kbd> de jQuery para recorrer
-                    multiples elementos del DOM y procesar cada uno individualmente.
-                </p>
-
-                <ul class="content__list">
-                    <li>
-                        Se seleccionan parrafos por <strong>clase</strong> y elementos de una <strong>lista</strong> por id.
-                    </li>
-                    <li>
-                        <kbd>each()</kbd> itera sobre cada elemento seleccionado y ejecuta una funcion por cada uno.
-                    </li>
-                    <li>
-                        Se muestra el contenido de cada elemento usando <kbd>$(this)</kbd> dentro del callback.
-                    </li>
-                </ul>
-
-                <p class="content__note">
-                    <kbd> Objetivo: </kbd> dominar el metodo each() para iterar colecciones de elementos con jQuery.
-                </p>
-
-            </div>
-
-        </article>
-            
+    <section class="main__section-markdown">
+        <div class="markdown__container">
+            <article data-shiki="codeHtml" data-label="ejemplo2.html" class="markdown-code"></article>
+            <article data-shiki="codeCss" data-label="ejemplo2.css" class="markdown-code"></article>
+            <article data-shiki="codeJs" data-label="ejemplo2.js" class="markdown-code"></article>
+        </div>
     </section>
-
-
-    <!--  -----  PRACTICA  -----  ----->
-    <section class="main__section-practica">
-
-
-        <div class="practica__container">
-
-            <p>
-                Este es el contenido de un párrafo sin clase, solo para mostrar que no se selecciona con la clase "miclase".
-            </p>
-
-            <p class="miclase"> párrafo con clase = miclase </p>
-
-            <p class="miclase"> párrafo con clase = miclase </p>
-
-            <ul id="lista">
-                <li> elemento de la lista 1 </li>
-                <li> elemento de la lista 2 </li>
-                <li> elemento de la lista 3 </li>
-                <li> elemento de la lista 4 </li>
-                <li> elemento de la lista 5 </li>
-            </ul>
-
-
-        </div>
-
-        <div class="enunciado">
-            Abajo, lógica creada con jQuery:
-            <br>
-            - 1. Muestra el contenido de los párrafos .
-            <br>
-            - 2. Muestra el contenido de los elementos de la lista,
-            <br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eliminando elemento 2 de la lista
-
-        </div>
-
-        <div class="practica__container">
-            <div id="info1"> </div>
-            <div id="info2"> </div>
-        </div>
-
-    </section>
-
 
 </div>

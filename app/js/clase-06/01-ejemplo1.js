@@ -40,29 +40,24 @@
         /** @type {JQuery<HTMLButtonElement>} - `Botón inicia la logica` */
         const $btnRun = $('#btnRun');
 
+        /** @type {JQuery<HTMLElement>} - `Playground del ejercicio` */
+        const $playground = $('#contenido');
+
 
         /** - `Función que se ejecuta toda la lógica cuando se hace clic en el botón #btnRun` */
         const runExample1 = () => {
 
 
             //  -----  desactivar el botón mientras se ejecuta la lógica  -----
-            $btnRun
-                .css({
-                    opacity: 0,
-                    cursor: 'not-allowed'
-                })
-                .prop('disabled', true);
-
-
-            //  -----  ocultar todos los párrafos  -----
-            $('.miclase').hide(2000);
+            $btnRun.prop('disabled', true);
+            $playground.addClass('is-flash');
 
 
             /** @type {JQuery<HTMLDivElement>} - `div con id "capaContainer"`  */
             const $capaContainer = $('#capaContainer');
 
             //  -----  vaciar el contenido del div #capaContainer  -----
-            $capaContainer.empty();
+            $capaContainer.empty().addClass('is-active');
 
             //  -----  ocultar todos los párrafos con clase miclase  -----
             $('.miclase').hide(2000);
@@ -73,7 +68,7 @@
             /**
              * - Crear un nuevo elemento `<div>` con jQuery,
              *   con clase `capa` y contenido HTML.
-             * - Añadirlo al final del contenedor con id `#algo`.
+             * - Añadirlo al final del contenedor con id `#capaContainer`.
              * - Aplicar estilos CSS al nuevo elemento.
              * @type {JQuery<HTMLElement>}
             */
@@ -92,16 +87,17 @@
 
 
             //  -----  mostrar todos los párrafos, al terminar activar el botón  -----
-           $('p')
-               .show(2000)
-               .promise()
-               .done(() => {
-                    $btnRun
-                        .css({
-                            opacity: 1,
-                            cursor: 'pointer'
-                        })
-                        .prop('disabled', false);
+            $('p.miclase')
+                .show(2000)
+                .promise()
+                .done(() => {
+                    $btnRun.prop('disabled', false);
+                    $playground.removeClass('is-flash');
+                    $('.miclase').addClass('is-highlight');
+
+                    window.setTimeout(() => {
+                        $('.miclase').removeClass('is-highlight');
+                    }, 900);
                 });
 
         }
