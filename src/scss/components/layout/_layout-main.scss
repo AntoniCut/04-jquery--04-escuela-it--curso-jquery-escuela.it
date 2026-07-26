@@ -71,6 +71,14 @@ $demo-shadow-hero-title: 0 2px 8px rgba(0, 0, 0, 0.35);
     gap: 3rem;
 }
 
+.main__images {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 3rem;
+}
+
 .main__demo {
     width: 100%;
     // margin-top: 5rem;

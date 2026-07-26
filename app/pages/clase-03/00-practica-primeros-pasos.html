@@ -1,113 +1,49 @@
 <!--  
-    *  -------------------------------------------------------------------------------------------------------------------------------  *
-    *  -----  /00-practica-primeros-pasos.html  --  /src/pages/clase-03-practica-primeros-pasos/00-practica-primeros-pasos.html  -----  *
-    *  -------------------------------------------------------------------------------------------------------------------------------  *
+    *  -------------------------------------------------------------------------------------------------------  *
+    *  -----  /00-practica-primeros-pasos.html  --  /src/pages/clase-03/00-practica-primeros-pasos.html  -----  *
+    *  -------------------------------------------------------------------------------------------------------  *
 -->
 
 
 
-<!--  ----------  MAIN  ----------  -->
 <div class="main__container">
 
+    <header class="section__header">
+        <h2 class="section__title" title="Práctica Primeros Pasos con jQuery">
+            Clase 3 - Práctica Primeros Pasos - Descripción
+        </h2>
+    </header>
 
-    <section class="main__section-info">
+    <section data-component-page="practicaPrimerosPasosDescription"></section>
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
+    <header class="section__header">
+        <h2 class="section__title" title="Práctica Primeros Pasos con jQuery">
+            Clase 3 - Práctica Primeros Pasos - Imágenes
+        </h2>
+    </header>
 
-            <h2 
-                class="section__title" 
-                title="Práctica Primeros Pasos con jQuery"
-            >
-                Clase 3 - Práctica Primeros Pasos con jQuery
-            </h2>
+    <section data-component-page="practicaPrimerosPasosImages"></section>
 
-        </header>
+    <header class="section__header">
+        <h2 class="section__title" title="Práctica Primeros Pasos con jQuery">
+            Clase 3 - Práctica Primeros Pasos - Demo
+        </h2>
+    </header>
 
+    <section data-component-page="practicaPrimerosPasosDemo"></section>
 
-        <!--  -----  Contenido de la Sección  -----  -->
-        <article class="section__content">
+    <header class="section__header">
+        <h2 class="section__title" title="Práctica Primeros Pasos con jQuery">
+            Clase 3 - Práctica Primeros Pasos - Código Markdown
+        </h2>
+    </header>
 
-            <div class="content__description content__description--exercise">
-
-                <h3 class="content__title">
-                    Primeros pasos con jQuery
-                </h3>
-
-                <p class="content__text">
-                    Este modulo pone en practica los conceptos basicos de <strong>jQuery</strong>:
-                    como incluirlo en un proyecto y escribir el primer codigo funcional.
-                </p>
-
-                <ul class="content__list">
-                    <li>
-                        Se aprende a descargar e incluir jQuery via <strong>CDN</strong> o archivo local.
-                    </li>
-                    <li>
-                        Se usa <strong><code>$(document).ready()</code></strong> para ejecutar codigo cuando el DOM esta listo.
-                    </li>
-                    <li>
-                        Se realizan las primeras selecciones y manipulaciones de elementos del DOM con jQuery.
-                    </li>
-                </ul>
-
-                <p class="content__note">
-                    <kbd> Objetivo: </kbd> configurar jQuery en un proyecto y escribir los primeros selectores y acciones sobre el DOM.
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <div class="section__content-img">
-
-
-            <article class="section__card-img">
-
-                <img class="card__img"
-                    src="../../../assets/img/clase-03/01-primeros-pasos.avif"
-                    alt="Primeros Pasos con jQuery" loading="lazy">
-
-            </article>
-
-            <article class="section__card-img">
-
-                <img class="card__img"
-                    src="../../../assets/img/clase-03/02-descargar-jquery.avif"
-                    alt="Descargar jQuery" loading="lazy">
-
-            </article>
-
-
-            <article class="section__card-img">
-
-                <img class="card__img"
-                    src="../../../assets/img/clase-03/03-document-ready.avif"
-                    alt="Document Ready" loading="lazy">
-
-            </article>
-
-
+    <section class="main__section-markdown">
+        <div class="markdown__container">
+            <article data-shiki="codeHtml" data-label="practica-primeros-pasos.html" class="markdown-code"></article>
+            <article data-shiki="codeCss" data-label="practica-primeros-pasos.css" class="markdown-code"></article>
+            <article data-shiki="codeJs" data-label="practica-primeros-pasos.js" class="markdown-code"></article>
         </div>
-
-
-    </section>
-
-
-    <!--  -----  Práctica  -----  -->
-    <section class="main__section-practica">
-
-        <div class="section__titulo">
-            <h2 class="titulo"> Bienvenidos a jQuery desde Escuela.it </h2>
-        </div>
-
-        <div class="btn__container">
-            <button id="annadir"> Añadir titular </button>
-            <button id="quitar"> Quitar titular </button>
-        </div>
-
-
     </section>
 
 </div>

@@ -2,15 +2,11 @@
     *  ---------------------------------------------------------------------------  *
     *  -----  section-img.scss  --  /src/scss/pages/shared/section-img.scss  -----  *
     *  ---------------------------------------------------------------------------  *
+    *  Galeria de diapositivas / imagenes en columnas (clases introductorias).     *
+    *  ---------------------------------------------------------------------------  *
 */
 
 
-
-/*
-    ---------------------------------
-    -----  Sección de Imágenes  -----
-    ---------------------------------  
-*/
 
 .section__content-img {
     width: 100%;
@@ -21,43 +17,45 @@
 }
 
 
-// @media (min-width: 480px) {
-//     .section__content-img {
-//         column-count: 2;
-//     }
-// }
-
 @media (min-width: 768px) {
     .section__content-img {
         column-count: 2;
     }
 }
 
-// @media (min-width: 1024px) {
-//     .section__content-img {
-//         column-count: 4;
-//     }
-// }
 
 .section__card-img {
     break-inside: avoid;
     margin-bottom: 3rem;
-
     display: flex;
     flex-direction: column;
-    background-color: #E8DFFD;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     overflow: hidden;
+    border-radius: 1rem;
+    background: linear-gradient(160deg, #f8fafc 0%, #eef6fb 100%);
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+    opacity: 0;
+    transform: translateY(14px);
+    animation: section-img-rise 0.45s ease forwards;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    @for $i from 1 through 20 {
+        &:nth-child(#{$i}) {
+            animation-delay: #{0.04 * $i}s;
+        }
+    }
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 34px rgba(2, 132, 199, 0.16);
+
+        .card__img {
+            transform: scale(1.03);
+        }
+    }
 }
 
-.section__card-img:hover img {
-    transform: scale(1.2);
-    box-shadow: 0 20px 40px rgba(0,0,0,.15);
-}
 
-
-/*  -----  título  -----  */
 .card__title {
     height: 10rem;
     display: flex;
@@ -72,8 +70,8 @@
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-@media(min-width: 480px)  {
 
+@media (min-width: 480px) {
     .card__title {
         font-size: 1.2rem;
     }
@@ -84,13 +82,23 @@
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 5px;
-    transition: transform 300ms ease, box-shadow 300ms ease;
+    border-radius: 0;
+    transition: transform 0.35s ease;
 }
 
-.card__img:hover {
-    transform: scale(1.02);
+
+@keyframes section-img-rise {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
+
 
 .main__section-markdown-shiki {
     flex-direction: row;

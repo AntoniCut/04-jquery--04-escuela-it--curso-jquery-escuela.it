@@ -19,9 +19,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +42,27 @@ export const routeClase01 = {
             "#layoutMain": `${pages}/clase-01/00-que-es-jquery.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-01/00-que-es-jquery-description.html`, target: '[data-component-page="queEsJqueryDescription"]' },
+            { url: `${pagesComponents}/clase-01/00-que-es-jquery-images.html`, target: '[data-component-page="queEsJqueryImages"]' },
+            { url: `${pagesComponents}/clase-01/00-que-es-jquery-demo.html`, target: '[data-component-page="queEsJqueryDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '00-que-es-jquery-images-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-01/00-que-es-jquery-images.html`,
+                urlOutput: `${markdownShikiHtml}/clase-01`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '00-que-es-jquery-images-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/shared/section-img.css`,
+                urlOutput: `${markdownShikiHtml}/clase-01`,
+                target: '[data-shiki="codeCss"]',
+            },
+        ],
         headerTitle: 'Clase 1 - Que es jQuery',
         styles: [
             { href: `${styles}/pages/shared/section-img.css` },
@@ -50,5 +73,5 @@ export const routeClase01 = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };
