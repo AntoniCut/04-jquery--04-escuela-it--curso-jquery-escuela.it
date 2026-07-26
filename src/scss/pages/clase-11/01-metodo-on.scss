@@ -8,26 +8,81 @@
 @use '../../base/mixins' as mix;
 
 
+.fx-stage--on {
+    min-height: 36rem;
+    padding: 2.4rem;
+    border-radius: 1.6rem;
+    background:
+        radial-gradient(circle at top left, rgba(3, 106, 173, 0.12), transparent 42%),
+        radial-gradient(circle at bottom right, rgba(248, 156, 21, 0.14), transparent 45%),
+        linear-gradient(160deg, #f7fafc 0%, #eef4f9 55%, #e8f1f8 100%);
+    border: 1px solid rgba(3, 106, 173, 0.12);
+    box-shadow: 0 12px 32px rgba(15, 40, 70, 0.08);
+}
+
+
+.fx-hint {
+    margin: 0 0 2rem;
+    max-width: 52rem;
+    padding: 1.2rem 1.6rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.45;
+    color: #1f4b88;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(3, 106, 173, 0.14);
+    border-radius: 1rem;
+    box-shadow: 0 6px 16px rgba(15, 40, 70, 0.06);
+}
+
+
 .div {
-    
     width: 95%;
-    max-width: 30rem;
-    height: 8rem;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: green;
-    background-color: #f0f0f0;
+    max-width: 32rem;
+    min-height: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1.2rem 0;
     padding: 2rem;
-    margin: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
     cursor: pointer;
+    border: none;
+    border-radius: 1.2rem;
+    background: linear-gradient(135deg, #2a9d8f 0%, #21867a 100%);
+    box-shadow:
+        0 10px 24px rgba(42, 157, 143, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    transition: transform 220ms ease, box-shadow 220ms ease;
 
     @include mix.tablet() {
-        font-size: 1.4rem;
+        font-size: 1.7rem;
     }
 
     &:hover {
-        background-color: #e0e0e0;
+        transform: translateY(-2px);
+        box-shadow:
+            0 14px 28px rgba(42, 157, 143, 0.34),
+            inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+#div2 {
+    background: linear-gradient(135deg, #1a8fd1 0%, #036aad 55%, #025489 100%);
+    box-shadow:
+        0 10px 24px rgba(3, 106, 173, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+
+    &:hover {
+        box-shadow:
+            0 14px 28px rgba(3, 106, 173, 0.34),
+            inset 0 1px 0 rgba(255, 255, 255, 0.25);
     }
 }

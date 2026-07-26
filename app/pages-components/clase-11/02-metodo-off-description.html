@@ -1,0 +1,56 @@
+<!--  
+    *  -----  /02-metodo-off-description.html  --  /src/pages-components/clase-11/02-metodo-off-description.html  -----  *
+-->
+
+
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Metodo off() - Remover manejadores de eventos
+            </h3>
+
+            <p class="demo-page__intro-text">
+                <kbd>off()</kbd> desasocia manejadores de eventos previamente asignados con <kbd>on()</kbd>, permitiendo desactivar interactividad momentanea o permanentemente.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> controlar el ciclo de vida de eventos desactivandolos segun la logica de la app.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        <code>$(elemento).off('click')</code> elimina todos los manejadores click del elemento.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        <code>$(elemento).off('click', handler)</code> elimina un manejador especifico.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        <code>$(elemento).off()</code> elimina TODOS los eventos del elemento.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>

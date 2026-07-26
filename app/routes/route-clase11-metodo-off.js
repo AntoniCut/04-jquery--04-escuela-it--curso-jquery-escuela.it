@@ -1,7 +1,5 @@
 /*
-    *  ---------------------------------------------------------------------------------------  *
     *  -----  /route-clase11-metodo-off.js  --  /src/routes/route-clase11-metodo-off.js  -----  *
-    *  ---------------------------------------------------------------------------------------  *
 */
 
 
@@ -19,9 +17,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +40,33 @@ export const routeClase11MetodoOff = {
             "#layoutMain": `${pages}/clase-11/02-metodo-off.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-11/02-metodo-off-description.html`, target: '[data-component-page="metodoOffDescription"]' },
+            { url: `${pagesComponents}/clase-11/02-metodo-off-demo.html`, target: '[data-component-page="metodoOffDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '02-metodo-off-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-11/02-metodo-off-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-11`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '02-metodo-off-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-11/02-metodo-off.css`,
+                urlOutput: `${markdownShikiHtml}/clase-11`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '02-metodo-off-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-11/02-metodo-off.js`,
+                urlOutput: `${markdownShikiHtml}/clase-11`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 11 - 2. Método off()',
         styles: [
             { href: `${styles}/pages/clase-11/02-metodo-off.css` },
@@ -51,5 +78,5 @@ export const routeClase11MetodoOff = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };

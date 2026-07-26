@@ -1,0 +1,47 @@
+<!--  
+    *  -----  /05-stop-propagation-demo.html  --  /src/pages-components/clase-11/05-stop-propagation-demo.html  -----  *
+-->
+
+
+
+<div class="main__demo">
+
+
+    <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+
+    <section class="main__section-practica fx-stage fx-stage--stop">
+
+        <p class="fx-hint">
+            Haz click en el div, el parrafo o los spans y observa la diferencia con/sin <kbd>stopPropagation()</kbd>.
+        </p>
+
+        <div class="div">
+
+            Esto es la división
+
+            <p>
+                &nbsp; &nbsp; Esto es el párrafo dentro de la division
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; <span> esto es el primer span, esta dentro del párrafo </span>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; Esto no es span, esta dentro del párrafo
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; <span> el segundo span, esta dentro del párrafo </span>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; Esto tampoco es span, esta dentro del párrafo
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; <span> el tercer span, esta dentro del párrafo </span>
+                <br>
+            </p>
+
+        </div>
+
+        <div class="salidas__container">
+            <div id="salida1"> </div>
+            <div id="salida2"> </div>
+        </div>
+
+    </section>
+
+
+</div>

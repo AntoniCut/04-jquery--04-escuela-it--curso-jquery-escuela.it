@@ -1,0 +1,56 @@
+<!--  
+    *  -----  /06-evitar-doble-click-description.html  --  /src/pages-components/clase-11/06-evitar-doble-click-description.html  -----  *
+-->
+
+
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Evitar doble-click accidental
+            </h3>
+
+            <p class="demo-page__intro-text">
+                Los usuarios a menudo hacen doble-click accidentalmente, causando duplicacion de acciones. Este ejercicio implementa un throttle temporal para prevenir multiples activaciones.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> implementar throttling para evitar acciones duplicadas en clicks rapidos.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Desactivar temporalmente el evento: guardar estado en <kbd>data()</kbd> o variable global.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Usar <kbd>setTimeout()</kbd> para reactivar despues de N segundos.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Alternativa: <kbd>off()</kbd> el evento, luego <kbd>on()</kbd> nuevamente con delay.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>

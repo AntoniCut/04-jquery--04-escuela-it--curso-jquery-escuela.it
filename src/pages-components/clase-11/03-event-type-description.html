@@ -1,0 +1,56 @@
+<!--  
+    *  -----  /03-event-type-description.html  --  /src/pages-components/clase-11/03-event-type-description.html  -----  *
+-->
+
+
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Event Type - Identificar tipo de evento
+            </h3>
+
+            <p class="demo-page__intro-text">
+                El objeto evento contiene propiedades que identifican el tipo de evento y su contexto, permitiendo tomar decisiones dentro de manejadores multiproposito. La propiedad <kbd>e.type</kbd> devuelve el nombre del evento como string.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> acceder a propiedades del evento para responder dinamicamente segun su tipo.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        <kbd>e.type</kbd> retorna el nombre del evento: 'click', 'keydown', 'mouseover', etc.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Se puede usar para manejadores multiproposito que detectan multiples eventos.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Ejemplos: <code>if (e.type === 'click') { ... }</code> dentro de un manejador.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>

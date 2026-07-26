@@ -1,0 +1,56 @@
+<!--  
+    *  -----  /04-prevent-default-description.html  --  /src/pages-components/clase-11/04-prevent-default-description.html  -----  *
+-->
+
+
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                preventDefault() - Cancelar comportamiento por defecto
+            </h3>
+
+            <p class="demo-page__intro-text">
+                <kbd>preventDefault()</kbd> cancela la accion predeterminada del navegador para un evento, permitiendo implementar comportamiento personalizado.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> interceptar acciones del navegador e implementar comportamiento personalizado.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Links no navegan: <code>$(enlace).on('click', (e) => e.preventDefault())</code>.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Formularios no se envian: <code>$(form).on('submit', (e) => e.preventDefault())</code>.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Se usa combinado con logica personalizada: validacion, envios AJAX, etc.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>

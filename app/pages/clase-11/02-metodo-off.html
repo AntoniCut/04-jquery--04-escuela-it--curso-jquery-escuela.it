@@ -1,78 +1,84 @@
 <!--  
-    *  -----------------------------------------------------------------------------  *
     *  -----  /02-metodo-off.html  --  /src/pages/clase-11/02-metodo-off.html  -----  *
-    *  -----------------------------------------------------------------------------  *
 -->
 
 
 
 <div class="main__container">
 
+    <!--  -----  Header de la Sección  -----  -->
+    <header class="section__header">
 
-    <!--  -----  INFO  -----  -->
-    <section class="main__section-info">
+        <h2 class="section__title" title="2. Método off()">
+            Clase 11 - 2. Método off() - Descripción
+        </h2>
 
+    </header>
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
-
-            <h2 class="section__title" title="2. Método off()">
-                Clase 11 - 2. Método off()
-            </h2>
-
-        </header>
-
-        <article class="section__content">
-
-            <div class="content__description content__description--exercise">
-
-                <h3 class="content__title">
-                    Metodo off() - Remover manejadores de eventos
-                </h3>
-
-                <p class="content__text">
-                    <kbd>off()</kbd> desasocia manejadores de eventos previalmente asignados con <kbd>on()</kbd>,
-                    permitiendo desactivar interactividad momentanea o permanentemente.
-                </p>
-
-                <ul class="content__list">
-                    <li>
-                        <code>$(elemento).off('click')</code> elimina todos los manejadores click del elemento.
-                    </li>
-                    <li>
-                        <code>$(elemento).off('click', handler)</code> elimina un manejador especifico.
-                    </li>
-                    <li>
-                        <code>$(elemento).off()</code> elimina TODOS los eventos del elemento.
-                    </li>
-                </ul>
-
-                <p class="content__note">
-                    <kbd> Objetivo: </kbd> controlar el ciclo de vida de eventos desactivandolos segun la logica de la app.
-                </p>
-
-            </div>
-
-        </article>
+    <!--  -----  Descripción de la Página  -----  -->
+    <section data-component-page="metodoOffDescription">
 
     </section>
 
 
-    <!--  -----  Práctica  -----  -->
-    <section class="main__section-practica">
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
 
-        <div class="div"> 
-            Haz Clic en el Div
-            <br> 
-        </div>
+        <h2 class="section__title" title="2. Método off()">
+            Clase 11 - 2. Método off() - Demo
+        </h2>
 
-        <div class="btn__container">
-            <button id="btnAllOffEvent"> Quitar Todos los Eventos </button>
-            <button id="btnClickOffEvent"> Quitar Eventos click </button>
-            <button id="btnOffEventHandler"> Quitar Manejador Evento </button>
-        </div>
+    </header>
+
+    <!--  -----  Demo de la Página  -----  -->
+    <section data-component-page="metodoOffDemo">
 
     </section>
 
+
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
+
+        <h2 class="section__title" title="2. Método off()">
+            Clase 11 - 2. Método off() - Código Markdown
+        </h2>
+
+    </header>
+
+
+    <!--  -----  Código Markdown  -----  -->
+    <section class="main__section-markdown">
+
+        <div class="markdown__container">
+
+            <article 
+                data-shiki="codeHtml" 
+                data-label="metodo-off.html" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .html tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeCss" 
+                data-label="02-metodo-off.css" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .css tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeJs" 
+                data-label="02-metodo-off.js" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .js tipo 'markdown'  *****  -->
+            </article>
+            
+
+        </div>
+
+    </section>
+       
 
 </div>

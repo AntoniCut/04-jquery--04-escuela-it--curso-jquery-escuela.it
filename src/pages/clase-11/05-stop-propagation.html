@@ -1,97 +1,84 @@
 <!--  
-    *  -----------------------------------------------------------------------------------------  *
     *  -----  /05-stop-propagation.html  --  /src/pages/clase-11/05-stop-propagation.html  -----  *
-    *  -----------------------------------------------------------------------------------------  *
 -->
 
 
 
 <div class="main__container">
 
+    <!--  -----  Header de la Sección  -----  -->
+    <header class="section__header">
 
-    <!--  -----  INFO  -----  -->
-    <section class="main__section-info">
+        <h2 class="section__title" title="5. Stop Propagation">
+            Clase 11 - 5. Stop Propagation - Descripción
+        </h2>
 
+    </header>
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
-
-            <h2 class="section__title" title="5. Stop Propagation">
-                Clase 11 - 5. Stop Propagation
-            </h2>
-
-        </header>
-
-        <article class="section__content">
-
-            <div class="content__description content__description--exercise">
-
-                <h3 class="content__title">
-                    stopPropagation() - Detener propagacion de eventos
-                </h3>
-
-                <p class="content__text">
-                    <kbd>stopPropagation()</kbd> evita que un evento se propague hacia elementos padres (bubbling),
-                    manteniendo el evento contenido en el elemento actual.
-                </p>
-
-                <ul class="content__list">
-                    <li>
-                        Sin stopPropagation(): un click en span dispara handlers de span → p → div.
-                    </li>
-                    <li>
-                        Con stopPropagation(): el click se detiene en span, no sube hacia padres.
-                    </li>
-                    <li>
-                        Se utiliza cuando se quieren handlers independientes en elementos anidados.
-                    </li>
-                </ul>
-
-                <p class="content__note">
-                    <kbd> Objetivo: </kbd> controlar el flujo de eventos evitando propagacion no deseada a contenedores padres.
-                </p>
-
-            </div>
-
-        </article>
+    <!--  -----  Descripción de la Página  -----  -->
+    <section data-component-page="stopPropagationDescription">
 
     </section>
 
 
-    <!--  -----  Práctica  -----  -->
-    <section class="main__section-practica">
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
 
+        <h2 class="section__title" title="5. Stop Propagation">
+            Clase 11 - 5. Stop Propagation - Demo
+        </h2>
 
-        <div class="div">
+    </header>
 
-            Esto es la división
-
-            <p> 
-                &nbsp; &nbsp; Esto es el párrafo dentro de la division 
-                <br>
-                &nbsp; &nbsp; &nbsp; &nbsp; <span> esto es el primer span, esta dentro del párrafo </span> 
-                <br>
-                &nbsp; &nbsp; &nbsp; &nbsp; Esto no es span, esta dentro del párrafo 
-                <br>
-                &nbsp; &nbsp; &nbsp; &nbsp; <span> el segundo span, esta dentro del párrafo </span> 
-                <br>
-                &nbsp; &nbsp; &nbsp; &nbsp; Esto tampoco es span, esta dentro del párrafo 
-                <br>
-                &nbsp; &nbsp; &nbsp; &nbsp; <span> el tercer span, esta dentro del párrafo </span> 
-                <br>
-            </p>
-
-        </div>
-
-        <div class="salidas__container">
-
-            <div id="salida1"> </div>
-            <div id="salida2"> </div>
-
-        </div>
-
+    <!--  -----  Demo de la Página  -----  -->
+    <section data-component-page="stopPropagationDemo">
 
     </section>
 
+
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
+
+        <h2 class="section__title" title="5. Stop Propagation">
+            Clase 11 - 5. Stop Propagation - Código Markdown
+        </h2>
+
+    </header>
+
+
+    <!--  -----  Código Markdown  -----  -->
+    <section class="main__section-markdown">
+
+        <div class="markdown__container">
+
+            <article 
+                data-shiki="codeHtml" 
+                data-label="stop-propagation.html" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .html tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeCss" 
+                data-label="05-stop-propagation.css" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .css tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeJs" 
+                data-label="05-stop-propagation.js" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .js tipo 'markdown'  *****  -->
+            </article>
+            
+
+        </div>
+
+    </section>
+       
 
 </div>

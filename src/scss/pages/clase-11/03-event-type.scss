@@ -8,29 +8,62 @@
 @use '../../base/mixins' as mix;
 
 
+.fx-stage--type {
+    min-height: 32rem;
+    padding: 2.4rem;
+    border-radius: 1.6rem;
+    background:
+        radial-gradient(circle at top left, rgba(3, 106, 173, 0.12), transparent 42%),
+        radial-gradient(circle at bottom right, rgba(248, 156, 21, 0.14), transparent 45%),
+        linear-gradient(160deg, #f7fafc 0%, #eef4f9 55%, #e8f1f8 100%);
+    border: 1px solid rgba(3, 106, 173, 0.12);
+    box-shadow: 0 12px 32px rgba(15, 40, 70, 0.08);
+}
+
+
+.fx-hint {
+    margin: 0 0 2rem;
+    max-width: 56rem;
+    padding: 1.2rem 1.6rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.45;
+    color: #1f4b88;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(3, 106, 173, 0.14);
+    border-radius: 1rem;
+    box-shadow: 0 6px 16px rgba(15, 40, 70, 0.06);
+}
+
 
 .enlace {
-    
-    width: 20rem;
-    height: 5rem;
-    
+    width: 22rem;
+    min-height: 5.6rem;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    font-size: 1.6rem;
-    font-weight: bold;
-    
-    color: green;
-    background-color: #f0f0f0;
-        
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    
+    padding: 1.2rem 2rem;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, #ff8a5c 0%, #f86 50%, #e85d4c 100%);
+    box-shadow:
+        0 10px 24px rgba(248, 102, 102, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
     cursor: pointer;
+    transition: transform 220ms ease, box-shadow 220ms ease;
 
     &:hover {
-        background-color: #e0e0e0;
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow:
+            0 14px 28px rgba(248, 102, 102, 0.34),
+            inset 0 1px 0 rgba(255, 255, 255, 0.25);
     }
 
+    &:active {
+        transform: translateY(0);
+    }
 }

@@ -1,77 +1,84 @@
 <!--  
-    *  ---------------------------------------------------------------------------------------  *
     *  -----  /04-prevent-default.html  --  /src/pages/clase-11/04-prevent-default.html  -----  *
-    *  ---------------------------------------------------------------------------------------  *
 -->
 
 
 
 <div class="main__container">
 
+    <!--  -----  Header de la Sección  -----  -->
+    <header class="section__header">
 
-    <!--  -----  INFO  -----  -->
-    <section class="main__section-info">
+        <h2 class="section__title" title="4. Prevent Default">
+            Clase 11 - 4. Prevent Default - Descripción
+        </h2>
 
+    </header>
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
-
-            <h2 class="section__title" title="4. Prevent Default">
-                Clase 11 - 4. Prevent Default
-            </h2>
-
-        </header>
-
-        <article class="section__content">
-
-            <div class="content__description content__description--exercise">
-
-                <h3 class="content__title">
-                    preventDefault() - Cancelar comportamiento por defecto
-                </h3>
-
-                <p class="content__text">
-                    <kbd>preventDefault()</kbd> cancela la accion predeterminada del navegador para un evento,
-                    permitiendo implementar comportamiento personalizado.
-                </p>
-
-                <ul class="content__list">
-                    <li>
-                        Links no navegan: <code>$(enlace).on('click', (e) => e.preventDefault())</code>.
-                    </li>
-                    <li>
-                        Formularios no se envian: <code>$(form).on('submit', (e) => e.preventDefault())</code>.
-                    </li>
-                    <li>
-                        Se usa combinado con logica personalizada: validacion, envios AJAX, etc.
-                    </li>
-                </ul>
-
-                <p class="content__note">
-                    <kbd> Objetivo: </kbd> interceptar acciones del navegador e implementar comportamiento personalizado.
-                </p>
-
-            </div>
-
-        </article>
+    <!--  -----  Descripción de la Página  -----  -->
+    <section data-component-page="preventDefaultDescription">
 
     </section>
 
 
-    <!--  -----  Práctica  -----  -->
-    <section class="main__section-practica">
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
 
-        <a href="https://escuela.it" class="enlace1"> 
-            entrar a escuela.it 
-        </a>
-        
-        <a href="https://escuela.it" class="enlace2"> 
-            entrar a escuela.it 
-            <br> 
-            preventDefault 
-        </a>
+        <h2 class="section__title" title="4. Prevent Default">
+            Clase 11 - 4. Prevent Default - Demo
+        </h2>
+
+    </header>
+
+    <!--  -----  Demo de la Página  -----  -->
+    <section data-component-page="preventDefaultDemo">
 
     </section>
 
+
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
+
+        <h2 class="section__title" title="4. Prevent Default">
+            Clase 11 - 4. Prevent Default - Código Markdown
+        </h2>
+
+    </header>
+
+
+    <!--  -----  Código Markdown  -----  -->
+    <section class="main__section-markdown">
+
+        <div class="markdown__container">
+
+            <article 
+                data-shiki="codeHtml" 
+                data-label="prevent-default.html" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .html tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeCss" 
+                data-label="04-prevent-default.css" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .css tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeJs" 
+                data-label="04-prevent-default.js" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .js tipo 'markdown'  *****  -->
+            </article>
+            
+
+        </div>
+
+    </section>
+       
 
 </div>

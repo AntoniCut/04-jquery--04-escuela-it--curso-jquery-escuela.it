@@ -1,0 +1,85 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">warn</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'-----  02-metodo-off.js  -----'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Referencias al HTML  -----</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Div de información de eventos` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $div</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">".div"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> - `Botón para quitar todos los eventos` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $btnAllOffEvent</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"#btnAllOffEvent"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> - `Botón para quitar eventos click` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $btnClickOffEvent</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"#btnClickOffEvent"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> - `Botón para quitar un manejador de evento específico` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $btnOffEventHandler</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"#btnOffEventHandler"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * -----------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `gestionClick()` -----</span></span>
+<span class="line"><span style="color:#6A9955">     * -----------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Función manejadora de eventos para el evento click en el div. </span></span>
+<span class="line"><span style="color:#6A9955">     *   Agrega texto al div indicando que se ha hecho clic.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@this</span><span style="color:#4EC9B0"> {HTMLDivElement}</span><span style="color:#6A9955"> - `El elemento div al que se le asigna el evento click`</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    function</span><span style="color:#DCDCAA"> gestionClick</span><span style="color:#D4D4D4">() {</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#DCDCAA">        $</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">() + </span><span style="color:#CE9178">"&#x3C;br> Evento Clic del Manejador"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Evento click en el div Con manejador  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    $div</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"click"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">gestionClick</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">   </span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Evento click en el div Sin manejador  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    $div</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"click"</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
+<span class="line"><span style="color:#DCDCAA">        $</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">() + </span><span style="color:#CE9178">"&#x3C;br> Evento Click Sin Manejador"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  one, solo ejecuta una vez los eventos  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    $div</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">one</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"mouseenter"</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
+<span class="line"><span style="color:#DCDCAA">        $</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">() + </span><span style="color:#CE9178">"&#x3C;br> Entraste solo esta vez - One"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  botón que quita todos los eventos  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    $btnAllOffEvent</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"click"</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"><span style="color:#6A9955">        //  -----  quitar todos los eventos  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">        $div</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">off</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  botón que quita todos los manejadores de 1 tipo de evento, en este caso el click  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    $btnClickOffEvent</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"click"</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"><span style="color:#6A9955">        //  -----  quitar todos los manejadores de tipo click  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">        $div</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">off</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"click"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">   </span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  botón que quita un manejador en concreto...  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    $btnOffEventHandler</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"click"</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#6A9955">        //  -----  quitar un manejador en concreto  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">        $div</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">off</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"click"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">gestionClick</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">})(</span><span style="color:#9CDCFE">jQuery</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span></code></pre>

@@ -1,7 +1,5 @@
 /*
-    *  -------------------------------------------------------------------------------------------------  *
     *  -----  /route-clase11-prevent-default.js  --  /src/routes/route-clase11-prevent-default.js  -----  *
-    *  -------------------------------------------------------------------------------------------------  *
 */
 
 
@@ -19,9 +17,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +40,33 @@ export const routeClase11PreventDefault = {
             "#layoutMain": `${pages}/clase-11/04-prevent-default.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-11/04-prevent-default-description.html`, target: '[data-component-page="preventDefaultDescription"]' },
+            { url: `${pagesComponents}/clase-11/04-prevent-default-demo.html`, target: '[data-component-page="preventDefaultDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '04-prevent-default-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-11/04-prevent-default-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-11`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '04-prevent-default-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-11/04-prevent-default.css`,
+                urlOutput: `${markdownShikiHtml}/clase-11`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '04-prevent-default-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-11/04-prevent-default.js`,
+                urlOutput: `${markdownShikiHtml}/clase-11`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 11 - 4. Prevent Default',
         styles: [
             { href: `${styles}/pages/clase-11/04-prevent-default.css` },
@@ -51,5 +78,5 @@ export const routeClase11PreventDefault = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };

@@ -1,7 +1,5 @@
 /*
-    *  ---------------------------------------------------------------------------------------  *
     *  -----  /route-clase11-event-type.js  --  /src/routes/route-clase11-event-type.js  -----  *
-    *  ---------------------------------------------------------------------------------------  *
 */
 
 
@@ -19,9 +17,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +40,33 @@ export const routeClase11EventType = {
             "#layoutMain": `${pages}/clase-11/03-event-type.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-11/03-event-type-description.html`, target: '[data-component-page="eventTypeDescription"]' },
+            { url: `${pagesComponents}/clase-11/03-event-type-demo.html`, target: '[data-component-page="eventTypeDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '03-event-type-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-11/03-event-type-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-11`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '03-event-type-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-11/03-event-type.css`,
+                urlOutput: `${markdownShikiHtml}/clase-11`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '03-event-type-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-11/03-event-type.js`,
+                urlOutput: `${markdownShikiHtml}/clase-11`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 11 - 3. Event Type',
         styles: [
             { href: `${styles}/pages/clase-11/03-event-type.css` },
@@ -51,5 +78,5 @@ export const routeClase11EventType = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };

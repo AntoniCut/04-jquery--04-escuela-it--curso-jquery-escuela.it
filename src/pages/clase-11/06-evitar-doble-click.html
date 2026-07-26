@@ -1,84 +1,84 @@
 <!--  
-    *  ---------------------------------------------------------------------------------------------  *
     *  -----  /06-evitar-doble-click.html  --  /src/pages/clase-11/06-evitar-doble-click.html  -----  *
-    *  ---------------------------------------------------------------------------------------------  *
 -->
 
 
 
 <div class="main__container">
 
+    <!--  -----  Header de la Sección  -----  -->
+    <header class="section__header">
 
-    <!--  -----  INFO  -----  -->
-    <section class="main__section-info">
+        <h2 class="section__title" title="6. Evitar Doble Click">
+            Clase 11 - 6. Evitar Doble Click - Descripción
+        </h2>
 
+    </header>
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
-
-            <h2 class="section__title" title="6. Evitar Doble Click">
-                Clase 11 - 6. Evitar Doble Click
-            </h2>
-
-        </header>
-
-        <article class="section__content">
-
-            <div class="content__description content__description--exercise">
-
-                <h3 class="content__title">
-                    Evitar doble-click accidental
-                </h3>
-
-                <p class="content__text">
-                    Los usuarios a menudo hacen doble-click accidentalmente, causando duplicacion de acciones.
-                    Este ejercicio implementa un throttle temporal para prevenir multiples activaciones.
-                </p>
-
-                <ul class="content__list">
-                    <li>
-                        Desactivar temporalmente el evento: guardar estado en <kbd>data()</kbd> o variable global.
-                    </li>
-                    <li>
-                        Usar <kbd>setTimeout()</kbd> para reactivar despues de N segundos.
-                    </li>
-                    <li>
-                        Alternativa: <kbd>off()</kbd> el evento, luego <kbd>on()</kbd> nuevamente con delay.
-                    </li>
-                </ul>
-
-                <p class="content__note">
-                    <kbd> Objetivo: </kbd> implementar throttling para evitar acciones duplicadas en clicks rapidos.
-                </p>
-
-            </div>
-
-        </article>
+    <!--  -----  Descripción de la Página  -----  -->
+    <section data-component-page="evitarDobleClickDescription">
 
     </section>
 
 
-    <!--  -----  Práctica  -----  -->
-    <section class="main__section-practica">
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
 
+        <h2 class="section__title" title="6. Evitar Doble Click">
+            Clase 11 - 6. Evitar Doble Click - Demo
+        </h2>
 
-        <div class="div">
+    </header>
 
-            <span> 
-                Haz click varias veces en este span, 
-                al pasar 4 segundos del ultimo click se volvera a activar.
-            </span>
-
-        </div>
-
-        <div class="salidas__container">
-
-            <div id="salida"> </div>
-
-        </div>
-
+    <!--  -----  Demo de la Página  -----  -->
+    <section data-component-page="evitarDobleClickDemo">
 
     </section>
 
+
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
+
+        <h2 class="section__title" title="6. Evitar Doble Click">
+            Clase 11 - 6. Evitar Doble Click - Código Markdown
+        </h2>
+
+    </header>
+
+
+    <!--  -----  Código Markdown  -----  -->
+    <section class="main__section-markdown">
+
+        <div class="markdown__container">
+
+            <article 
+                data-shiki="codeHtml" 
+                data-label="evitar-doble-click.html" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .html tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeCss" 
+                data-label="06-evitar-doble-click.css" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .css tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeJs" 
+                data-label="06-evitar-doble-click.js" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .js tipo 'markdown'  *****  -->
+            </article>
+            
+
+        </div>
+
+    </section>
+       
 
 </div>
