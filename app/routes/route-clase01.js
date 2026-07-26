@@ -42,7 +42,7 @@ export const routeClase01 = {
         },
         headerTitle: 'Clase 1 - Que es jQuery',
         styles: [
-
+            { href: `${styles}/pages/shared/section-img.css` },
         ],
         scripts: [
             { src: `${scripts}/tooltips.js` },

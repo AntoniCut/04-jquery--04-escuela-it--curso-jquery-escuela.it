@@ -42,7 +42,7 @@ export const routeClase02 = {
         },
         headerTitle: 'Clase 2 - Es Necesario Utilizar jQuery en la Actualidad',
         styles: [
-
+            { href: `${styles}/pages/shared/section-img.css` },
         ],
         scripts: [
             { src: `${scripts}/tooltips.js` },

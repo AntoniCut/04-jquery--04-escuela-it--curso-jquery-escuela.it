@@ -42,7 +42,7 @@ export const routeClase04 = {
         },
         headerTitle: 'Clase 4 - Como se organiza el curso de jQuery en Escuela.it',
         styles: [
-
+            { href: `${styles}/pages/shared/section-img.css` },
         ],
         scripts: [
             { src: `${scripts}/tooltips.js` },

@@ -42,6 +42,7 @@ export const routeClase05 = {
         },
         headerTitle: 'Clase 5 - Introducción a jQuery',
         styles: [
+            { href: `${styles}/pages/shared/section-img.css` },
             { href: `${styles}/pages/clase-05/00-introduccion-jquery.css` },
         ],
         scripts: [

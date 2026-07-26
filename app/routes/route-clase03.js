@@ -42,6 +42,7 @@ export const routeClase03 = {
         },
         headerTitle: 'Clase 3 - Práctica primeros pasos con jQuery',
         styles: [
+            { href: `${styles}/pages/shared/section-img.css` },
             { href: `${styles}/pages/clase-03/00-practica-primeros-pasos.css` },
         ],
         scripts: [
