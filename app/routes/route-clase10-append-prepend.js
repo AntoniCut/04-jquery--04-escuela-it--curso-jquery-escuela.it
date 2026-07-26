@@ -1,7 +1,5 @@
 /*
-    *  -----------------------------------------------------------------------------------------------  *
     *  -----  /route-clase10-append-prepend.js  --  /src/routes/route-clase10-append-prepend.js  -----  *
-    *  -----------------------------------------------------------------------------------------------  *
 */
 
 
@@ -19,9 +17,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +40,33 @@ export const routeClase10AppendPrepend = {
             "#layoutMain": `${pages}/clase-10/01-inyeccion-append-prepend.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-10/01-inyeccion-append-prepend-description.html`, target: '[data-component-page="inyeccionAppendPrependDescription"]' },
+            { url: `${pagesComponents}/clase-10/01-inyeccion-append-prepend-demo.html`, target: '[data-component-page="inyeccionAppendPrependDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '01-inyeccion-append-prepend-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-10/01-inyeccion-append-prepend-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-10`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '01-inyeccion-append-prepend-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-10/01-inyeccion-append-prepend.css`,
+                urlOutput: `${markdownShikiHtml}/clase-10`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '01-inyeccion-append-prepend-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-10/01-inyeccion-append-prepend.js`,
+                urlOutput: `${markdownShikiHtml}/clase-10`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 10 - 1. Inyección Append / Prepend / AppendTo / PrependTo',
         styles: [
             { href: `${styles}/pages/clase-10/01-inyeccion-append-prepend.css` },
@@ -51,5 +78,5 @@ export const routeClase10AppendPrepend = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };

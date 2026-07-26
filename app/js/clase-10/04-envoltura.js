@@ -12,18 +12,25 @@
     console.log('\n');
 
 
+    /** @type {JQuery<HTMLElement>} - Contenedor de la demo */
+    const $demo = $('.main__demo');
+
+    if (!$demo.length) 
+        return;
+
+
     //  -----  Envuelve el div con clase "envoltura" dentro de un article  -----
-    $('.envoltura')
-        .wrap("<article> </article>");
+    $demo.find('.envoltura')
+        .wrap('<article></article>');
 
 
-    //  -----  Envuelve el article dentro de una section  -----
-    $('article')
-        .wrap("<section> </section>");
+    //  -----  Envuelve el article dentro de una section (solo en la demo)  -----
+    $demo.find('article')
+        .wrap('<section></section>');
 
 
-    //  -----  desenvolvemos el texto del b, quitando las etiquetas li y ul  -----      
-    $('b')
+    //  -----  desenvolvemos el texto del b, quitando las etiquetas li y ul  -----
+    $demo.find('b')
         .unwrap()
         .unwrap();
 

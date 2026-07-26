@@ -1,7 +1,5 @@
 /*
-    *  -------------------------------------------------------------------------------------------  *
     *  -----  /route-clase10-after-before.js  --  /src/routes/route-clase10-after-before.js  -----  *
-    *  -------------------------------------------------------------------------------------------  *
 */
 
 
@@ -19,9 +17,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +40,33 @@ export const routeClase10AfterBefore = {
             "#layoutMain": `${pages}/clase-10/02-inyeccion-after-before.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-10/02-inyeccion-after-before-description.html`, target: '[data-component-page="inyeccionAfterBeforeDescription"]' },
+            { url: `${pagesComponents}/clase-10/02-inyeccion-after-before-demo.html`, target: '[data-component-page="inyeccionAfterBeforeDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '02-inyeccion-after-before-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-10/02-inyeccion-after-before-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-10`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '02-inyeccion-after-before-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-10/02-inyeccion-after-before.css`,
+                urlOutput: `${markdownShikiHtml}/clase-10`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '02-inyeccion-after-before-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-10/02-inyeccion-after-before.js`,
+                urlOutput: `${markdownShikiHtml}/clase-10`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 10 - 2. Inyección After / Before / InsertAfter / InsertBefore',
         styles: [
             { href: `${styles}/pages/clase-10/02-inyeccion-after-before.css` },
@@ -51,5 +78,5 @@ export const routeClase10AfterBefore = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };

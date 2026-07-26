@@ -5,21 +5,76 @@
 */
 
 
-.section__content--practica {
-    width: 100%;
-    min-height: 84rem;
-    max-width: 102.4rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 5rem;
-    border-radius: 0.5rem;
+.fx-stage--wrap {
+    min-height: 40rem;
+    padding: 2.4rem;
+    border-radius: 1.6rem;
+    background:
+        radial-gradient(circle at top left, rgba(3, 106, 173, 0.12), transparent 42%),
+        radial-gradient(circle at bottom right, rgba(248, 156, 21, 0.14), transparent 45%),
+        linear-gradient(160deg, #f7fafc 0%, #eef4f9 55%, #e8f1f8 100%);
+    border: 1px solid rgba(3, 106, 173, 0.12);
+    box-shadow: 0 12px 32px rgba(15, 40, 70, 0.08);
 }
 
-.ejercicio__description {
-    width: 100%;
+
+.fx-hint {
+    margin: 0 0 2rem;
+    max-width: 60rem;
+    padding: 1.2rem 1.6rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.45;
+    color: #1f4b88;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(3, 106, 173, 0.14);
+    border-radius: 1rem;
+    box-shadow: 0 6px 16px rgba(15, 40, 70, 0.06);
+}
+
+
+.demo-block {
+    margin-bottom: 2.4rem;
     padding: 2rem;
-    color: #fff;
-    background-color: #8eafeb;
+    border-radius: 1.2rem;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(3, 106, 173, 0.12);
+    box-shadow: 0 8px 18px rgba(15, 40, 70, 0.06);
 }
 
+
+.envoltura {
+    padding: 1.6rem 2rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #163152;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, #dce8ff 0%, #bfd4ff 100%);
+    border: 1px solid #9bb9ee;
+}
+
+
+.demo-block ul {
+    margin: 0;
+    padding-left: 2rem;
+}
+
+.demo-block li,
+.demo-block b {
+    font-size: 1.5rem;
+    line-height: 1.55;
+    color: #163152;
+}
+
+
+.fx-stage--wrap article,
+.fx-stage--wrap section {
+    display: block;
+    margin: 0.8rem 0;
+    padding: 1.2rem;
+    border-radius: 0.8rem;
+    border: 1px dashed rgba(3, 106, 173, 0.28);
+    background: rgba(255, 255, 255, 0.55);
+    transition: background 200ms ease, border-color 200ms ease;
+}

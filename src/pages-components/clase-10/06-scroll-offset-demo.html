@@ -1,0 +1,47 @@
+<!--  
+    *  -----  /06-scroll-offset-demo.html  --  /src/pages-components/clase-10/06-scroll-offset-demo.html  -----  *
+-->
+
+
+
+<div class="main__demo">
+
+
+    <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+
+    <section class="main__section-practica fx-stage fx-stage--scroll">
+
+        <p class="fx-hint">
+            Usa los botones para animar la capa o hacer scroll hasta el parrafo, y observa <kbd>offset</kbd> / <kbd>scroll</kbd>.
+        </p>
+
+        <div id="output"></div>
+
+        <div class="btn__container">
+            <button id="btnCapa" type="button" class="fx-btn fx-btn--action">
+                Animacion <br> Capa
+            </button>
+
+            <button id="btnScroll" type="button" class="fx-btn fx-btn--muted">
+                Scroll hasta <br> el Párrafo
+            </button>
+
+            <button id="btnScrollAnimation" type="button" class="fx-btn fx-btn--danger">
+                Animacion para hacer scroll <br> hasta el párrafo
+            </button>
+        </div>
+
+        <p id="parrafo">
+            Párrafo, click para saber el scroll actual de la página
+        </p>
+
+        <div class="capa" title="capa">
+            <div class="children-capa" id="childrenCapa" title="Children Capa">
+                Children Capa
+            </div>
+        </div>
+
+    </section>
+
+
+</div>

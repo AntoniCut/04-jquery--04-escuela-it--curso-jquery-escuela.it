@@ -5,62 +5,125 @@
 */
 
 
-.section__content--practica {
-    width: 100%;
-    min-height: 84rem;
-    max-width: 102.4rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 5rem;
-    border-radius: 0.5rem;
+.fx-stage--dom {
+    min-height: 48rem;
+    padding: 2.4rem;
+    border-radius: 1.6rem;
+    background:
+        radial-gradient(circle at top left, rgba(3, 106, 173, 0.12), transparent 42%),
+        radial-gradient(circle at bottom right, rgba(248, 156, 21, 0.14), transparent 45%),
+        linear-gradient(160deg, #f7fafc 0%, #eef4f9 55%, #e8f1f8 100%);
+    border: 1px solid rgba(3, 106, 173, 0.12);
+    box-shadow: 0 12px 32px rgba(15, 40, 70, 0.08);
 }
 
-.ejercicio__description {
-    width: 100%;
-    height: 5rem;
-    padding: 2rem;
-    text-align: center;
-    align-items: center;
-    color: #fff;
-    background-color: #8eafeb;
+
+.fx-hint {
+    margin: 0 0 2rem;
+    max-width: 56rem;
+    padding: 1.2rem 1.6rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.45;
+    color: #1f4b88;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(3, 106, 173, 0.14);
+    border-radius: 1rem;
+    box-shadow: 0 6px 16px rgba(15, 40, 70, 0.06);
 }
+
 
 .main__section-practica .header {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    background-color: #8eafeb;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+    padding: 1.6rem 2rem;
+    border-radius: 1.2rem;
+    color: #fff;
+    background: linear-gradient(135deg, #1a8fd1 0%, #036aad 55%, #025489 100%);
+    box-shadow: 0 10px 24px rgba(3, 106, 173, 0.24);
 }
 
 .header h2 {
-    width: 28rem;
+    margin: 0;
     font-size: 2rem;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .header .number-comment {
-    width: 15rem;
-    font-size: 1.2rem;
-    font-weight: bold;
+    margin: 0;
+    min-width: 12rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1.4rem;
+    font-weight: 700;
     color: #fff;
+    text-align: center;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.18);
 }
+
+
+.item {
+    width: 100%;
+    margin-bottom: 1.2rem;
+    padding: 1.6rem 2rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #163152;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(3, 106, 173, 0.14);
+    border-radius: 1.2rem;
+    box-shadow: 0 8px 18px rgba(15, 40, 70, 0.06);
+    transition: transform 200ms ease, box-shadow 200ms ease;
+
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 12px 24px rgba(15, 40, 70, 0.1);
+    }
+}
+
 
 .coment {
-    margin-bottom: 1rem;
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
+    padding: 1.2rem 1.4rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #334155;
+    background: linear-gradient(180deg, #f8fafc 0%, #eef4f9 100%);
+    border-left: 4px solid #036aad;
+    border-radius: 0.8rem;
 }
+
 
 .link {
-    padding: 1rem;
+    display: inline-block;
+    margin-top: 0.6rem;
+    padding: 0.8rem 1.4rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #14532d;
     text-decoration: none;
-    font-weight: bold;
-    background-color: antiquewhite;
+    border-radius: 0.8rem;
+    background: linear-gradient(180deg, #ecfdf5 0%, #dcfce7 100%);
+    border: 1px solid #86efac;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 14px rgba(20, 83, 45, 0.12);
+    }
 }
 
+
 .main__section-practica hr {
-    width: 90%;
+    width: 100%;
     height: 0.1rem;
+    margin: 1.6rem 0;
+    border: none;
+    background: rgba(3, 106, 173, 0.16);
 }

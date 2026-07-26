@@ -5,22 +5,39 @@
 */
 
 
-.section__content--practica {
-    width: 100%;
-    min-height: 84rem;
-    max-width: 102.4rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 5rem;
-    border-radius: 0.5rem;
+.fx-stage--after {
+    min-height: 48rem;
+    padding: 2.4rem;
+    border-radius: 1.6rem;
+    background:
+        radial-gradient(circle at top left, rgba(3, 106, 173, 0.12), transparent 42%),
+        radial-gradient(circle at bottom right, rgba(248, 156, 21, 0.14), transparent 45%),
+        linear-gradient(160deg, #f7fafc 0%, #eef4f9 55%, #e8f1f8 100%);
+    border: 1px solid rgba(3, 106, 173, 0.12);
+    box-shadow: 0 12px 32px rgba(15, 40, 70, 0.08);
 }
 
-.ejercicio__description {
-    width: 100%;
-    padding: 2rem;
-    color: #fff;
-    background-color: #8eafeb;
+
+.fx-hint {
+    margin: 0 0 2rem;
+    max-width: 60rem;
+    padding: 1.2rem 1.6rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.45;
+    color: #1f4b88;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(3, 106, 173, 0.14);
+    border-radius: 1rem;
+    box-shadow: 0 6px 16px rgba(15, 40, 70, 0.06);
+}
+
+
+.demo-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    margin-bottom: 2.4rem;
 }
 
 
@@ -28,23 +45,52 @@
 #divInsertBefore,
 #divAfter,
 #divBefore {
-    width: 90%;
-    padding: 3rem;
-    color: green;
+    width: 100%;
+    max-width: 72rem;
+    padding: 2.4rem;
+    color: #163152;
+    background: linear-gradient(180deg, #ffffff 0%, #f4f8ff 100%);
+    border: 2px solid #85A4DD;
+    border-radius: 1.2rem;
+    box-shadow: 0 8px 18px rgba(25, 64, 116, 0.1);
+    transition: transform 220ms ease, box-shadow 220ms ease;
+
+    span {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1.4;
+    }
+
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 12px 24px rgba(25, 64, 116, 0.14);
+    }
 }
 
-#divInsertAfter span,
-#divInsertBefore span,
-#divAfter span,
-#divBefore span{
-    font-size: 3rem;
-    font-weight: bold;
-}
 
 .main__section-practica .parrafo {
-    width: 90%;
-    margin: 1rem;
-    padding: 1rem;
-    border: 1px solid #0f0;
-    background-color: #eee;
+    width: 100%;
+    max-width: 72rem;
+    margin: 1rem 0;
+    padding: 1.2rem 1.6rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0c4a6e;
+    border: 1px solid #93c5fd;
+    border-radius: 0.8rem;
+    background: linear-gradient(180deg, #eff6ff 0%, #e0f2fe 100%);
+    animation: fx-inject-in 220ms ease-out;
+}
+
+
+@keyframes fx-inject-in {
+    from {
+        opacity: 0;
+        transform: translateY(-0.4rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

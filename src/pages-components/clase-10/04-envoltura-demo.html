@@ -1,0 +1,43 @@
+<!--  
+    *  -----  /04-envoltura-demo.html  --  /src/pages-components/clase-10/04-envoltura-demo.html  -----  *
+-->
+
+
+
+<div class="main__demo">
+
+
+    <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+
+    <section class="main__section-practica fx-stage fx-stage--wrap">
+
+        <p class="fx-hint">
+            Practica <kbd>wrap()</kbd> y <kbd>unwrap()</kbd> para envolver o desenvolver nodos del DOM.
+        </p>
+
+        <div class="demo-block">
+            <div class="envoltura">
+                esto texto con .wrap() esta dentro de un &lt;article&gt;,
+                <br>
+                y el &lt;article&gt; con otro .wrap() dentro de una &lt;section&gt;
+            </div>
+        </div>
+
+        <div class="demo-block">
+            <ul>
+                <li>
+                    <b>
+                        Este texto esta dentro de una etiqueta &lt;b&gt; y la etiqueta &lt;b&gt; esta dentro de una etiqueta &lt;li&gt;,
+                        y la etiqueta &lt;li&gt; esta dentro de una etiqueta &lt;ul&gt;.
+                        <br>
+                        con .unwrap() desenvolvemos la etiqueta &lt;li&gt;, y con otro .unwrap()
+                        desenvolvemos la etiqueta &lt;ul&gt;, quedando el texto sin ninguna etiqueta envolvente.
+                    </b>
+                </li>
+            </ul>
+        </div>
+
+    </section>
+
+
+</div>

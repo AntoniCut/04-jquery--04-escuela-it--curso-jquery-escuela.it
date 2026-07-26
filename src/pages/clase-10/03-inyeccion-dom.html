@@ -1,99 +1,84 @@
 <!--  
-    *  -----------------------------------------------------------------------------------  *
     *  -----  /03-inyeccion-dom.html  --  /src/pages/clase-10/03-inyeccion-dom.html  -----  *
-    *  -----------------------------------------------------------------------------------  *
 -->
 
 
 
 <div class="main__container">
 
+    <!--  -----  Header de la Sección  -----  -->
+    <header class="section__header">
 
-    <!--  -----  INFO  -----  -->
-    <section class="main__section-info">
+        <h2 class="section__title" title="3. Inyección DOM">
+            Clase 10 - 3. Inyección DOM - Descripción
+        </h2>
 
+    </header>
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
-
-            <h2 class="section__title" title="3. Inyección DOM">
-                Clase 10 - 3. Inyección DOM
-            </h2>
-
-        </header>
-
-        <article class="section__content">
-
-            <div class="content__description content__description--exercise">
-
-                <h3 class="content__title">
-                    Inyeccion DOM - Construccion de contenido dinamico
-                </h3>
-
-                <p class="content__text">
-                    Este ejemplo muestra como jQuery permite crear e insertar estructuras completas
-                    en el DOM para interfaces dinamicas como listados o comentarios.
-                </p>
-
-                <ul class="content__list">
-                    <li>
-                        Se pueden generar nodos HTML y agregarlos con <kbd>append()</kbd>, <kbd>prepend()</kbd> o <kbd>html()</kbd>.
-                    </li>
-                    <li>
-                        Los atributos <code>data-*</code> ayudan a enlazar informacion del DOM con datos de negocio.
-                    </li>
-                    <li>
-                        Este patron es util para comentarios, tarjetas, listados y respuestas AJAX.
-                    </li>
-                </ul>
-
-                <p class="content__note">
-                    <kbd> Objetivo: </kbd> entender como construir interfaces dinamicas inyectando contenido real en el DOM.
-                </p>
-
-            </div>
-
-        </article>
+    <!--  -----  Descripción de la Página  -----  -->
+    <section data-component-page="inyeccionDomDescription">
 
     </section>
 
 
-    <!--  -----  Práctica  -----  -->
-    <section class="main__section-practica">
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
 
-        <div class="header">
-            
-            <h2> Comentarios de los visitantes: </h2>
-            
-            <p class="number-comment">
-                <!--  Nº de Comentario insertado con jQuery  ------->
-            </p>
-            
-        </div>
-        
-        <div class="item">
-            Comentario de: Pepe
-            <div class="coment" data-idcomentario="20" >
-                Este es el comentrario con id=20 en la base de datos...
-            </div>
-        </div>
+        <h2 class="section__title" title="3. Inyección DOM">
+            Clase 10 - 3. Inyección DOM - Demo
+        </h2>
 
-        <div class="item">
-            Comentario de: Juan
-            <div class="coment" data-idcomentario="206" >
-                Este es el comentrario con id=206 en la base de datos...
-            </div>
-        </div>
+    </header>
 
-        <div class="item">
-            Comentario de: María
-            <div class="coment" data-idcomentario="1420" >
-                Este es el comentrario con id=1420 en la base de datos...
-            </div>
-        </div>
-
+    <!--  -----  Demo de la Página  -----  -->
+    <section data-component-page="inyeccionDomDemo">
 
     </section>
 
+
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
+
+        <h2 class="section__title" title="3. Inyección DOM">
+            Clase 10 - 3. Inyección DOM - Código Markdown
+        </h2>
+
+    </header>
+
+
+    <!--  -----  Código Markdown  -----  -->
+    <section class="main__section-markdown">
+
+        <div class="markdown__container">
+
+            <article 
+                data-shiki="codeHtml" 
+                data-label="inyeccion-dom.html" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .html tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeCss" 
+                data-label="03-inyeccion-dom.css" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .css tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeJs" 
+                data-label="03-inyeccion-dom.js" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .js tipo 'markdown'  *****  -->
+            </article>
+            
+
+        </div>
+
+    </section>
+       
 
 </div>

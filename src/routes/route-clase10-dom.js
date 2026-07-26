@@ -1,7 +1,5 @@
 /*
-    *  -------------------------------------------------------------------------  *
     *  -----  /route-clase10-dom.js  --  /src/routes/route-clase10-dom.js  -----  *
-    *  -------------------------------------------------------------------------  *
 */
 
 
@@ -19,9 +17,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +40,33 @@ export const routeClase10Dom = {
             "#layoutMain": `${pages}/clase-10/03-inyeccion-dom.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-10/03-inyeccion-dom-description.html`, target: '[data-component-page="inyeccionDomDescription"]' },
+            { url: `${pagesComponents}/clase-10/03-inyeccion-dom-demo.html`, target: '[data-component-page="inyeccionDomDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '03-inyeccion-dom-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-10/03-inyeccion-dom-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-10`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '03-inyeccion-dom-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-10/03-inyeccion-dom.css`,
+                urlOutput: `${markdownShikiHtml}/clase-10`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '03-inyeccion-dom-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-10/03-inyeccion-dom.js`,
+                urlOutput: `${markdownShikiHtml}/clase-10`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 10 - 3. Inyección DOM',
         styles: [
             { href: `${styles}/pages/clase-10/03-inyeccion-dom.css` },
@@ -51,5 +78,5 @@ export const routeClase10Dom = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };

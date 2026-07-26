@@ -1,7 +1,5 @@
 /*
-    *  -------------------------------------------------------------------------------------  *
     *  -----  /route-clase10-envoltura.js  --  /src/routes/route-clase10-envoltura.js  -----  *
-    *  -------------------------------------------------------------------------------------  *
 */
 
 
@@ -19,9 +17,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +40,33 @@ export const routeClase10Envoltura = {
             "#layoutMain": `${pages}/clase-10/04-envoltura.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-10/04-envoltura-description.html`, target: '[data-component-page="envolturaDescription"]' },
+            { url: `${pagesComponents}/clase-10/04-envoltura-demo.html`, target: '[data-component-page="envolturaDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '04-envoltura-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-10/04-envoltura-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-10`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '04-envoltura-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-10/04-envoltura.css`,
+                urlOutput: `${markdownShikiHtml}/clase-10`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '04-envoltura-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-10/04-envoltura.js`,
+                urlOutput: `${markdownShikiHtml}/clase-10`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 10 - 4. Envoltura',
         styles: [
             { href: `${styles}/pages/clase-10/04-envoltura.css` },
@@ -51,5 +78,5 @@ export const routeClase10Envoltura = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };

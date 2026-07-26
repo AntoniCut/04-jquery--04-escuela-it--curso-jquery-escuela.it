@@ -1,0 +1,152 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">warn</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'-----  06-scroll-offset.js  -----'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Referencias al HTML  -----</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Documento HTML y BODY` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $htmlBody</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'html, body'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLElement>}</span><span style="color:#6A9955"> - `Layout principal` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $layout</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#layout'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Div para mostrar información` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $output</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"#output"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> - `botón para animar el div capa` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $btnCapa</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"#btnCapa"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> - `botón para hacer scroll hasta el párrafo` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $btnScroll</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"#btnScroll"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> - `botón para animar el scroll hasta el párrafo` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $btnScrollAnimation</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"#btnScrollAnimation"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLParagraphElement>}</span><span style="color:#6A9955"> - `Párrafo para mostrar el scroll actual de la ventana` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $parrafo</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"#parrafo"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Div capa para animar` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $capa</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">".capa"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Div children capa  dentro de la capa` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $childrenCapa</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"#childrenCapa"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">    if</span><span style="color:#D4D4D4">( !</span><span style="color:#9CDCFE">$layout</span><span style="color:#D4D4D4"> || </span></span>
+<span class="line"><span style="color:#D4D4D4">        !</span><span style="color:#9CDCFE">$output</span><span style="color:#D4D4D4"> || </span></span>
+<span class="line"><span style="color:#D4D4D4">        !</span><span style="color:#9CDCFE">$btnCapa</span><span style="color:#D4D4D4"> || </span></span>
+<span class="line"><span style="color:#D4D4D4">        !</span><span style="color:#9CDCFE">$btnScroll</span><span style="color:#D4D4D4"> || </span></span>
+<span class="line"><span style="color:#D4D4D4">        !</span><span style="color:#9CDCFE">$btnScrollAnimation</span><span style="color:#D4D4D4"> || </span></span>
+<span class="line"><span style="color:#D4D4D4">        !</span><span style="color:#9CDCFE">$parrafo</span><span style="color:#D4D4D4"> || </span></span>
+<span class="line"><span style="color:#D4D4D4">        !</span><span style="color:#9CDCFE">$capa</span><span style="color:#D4D4D4"> || </span></span>
+<span class="line"><span style="color:#D4D4D4">        !</span><span style="color:#9CDCFE">$childrenCapa</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#C586C0">        throw</span><span style="color:#569CD6"> new</span><span style="color:#DCDCAA"> Error</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"No se encontraron los elementos necesarios en el HTML. Verifica que existan los elementos con los IDs y clases correspondientes."</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Mostrar información inicial de childrenCapa (offset y position) por consola y en el div output  -----</span></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'ChildrenCapa offset inicial   => '</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$childrenCapa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">offset</span><span style="color:#D4D4D4">());</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'ChildrenCapa position inicial => '</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$childrenCapa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">position</span><span style="color:#D4D4D4">());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $output</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`</span></span>
+<span class="line"><span style="color:#CE9178">        ChildrenCapa offset inicial => top: </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">$childrenCapa</span><span style="color:#D4D4D4">?.</span><span style="color:#DCDCAA">offset</span><span style="color:#D4D4D4">()?.</span><span style="color:#9CDCFE">top</span><span style="color:#569CD6">}</span><span style="color:#CE9178"> - left: </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">$childrenCapa</span><span style="color:#D4D4D4">?.</span><span style="color:#DCDCAA">offset</span><span style="color:#D4D4D4">()?.</span><span style="color:#9CDCFE">left</span><span style="color:#569CD6">}</span></span>
+<span class="line"><span style="color:#CE9178">        &#x3C;br></span></span>
+<span class="line"><span style="color:#CE9178">        ChildrenCapa position inicial => top: </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">$childrenCapa</span><span style="color:#D4D4D4">?.</span><span style="color:#DCDCAA">position</span><span style="color:#D4D4D4">()?.</span><span style="color:#9CDCFE">top</span><span style="color:#569CD6">}</span><span style="color:#CE9178"> - left: </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">$childrenCapa</span><span style="color:#D4D4D4">?.</span><span style="color:#DCDCAA">position</span><span style="color:#D4D4D4">()?.</span><span style="color:#9CDCFE">left</span><span style="color:#569CD6">}</span></span>
+<span class="line"><span style="color:#CE9178">    `</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  al hacer click en el botón de animar capa,             -----</span></span>
+<span class="line"><span style="color:#6A9955">    //  -----  anima la capa y mostrar la posición offset y position  -----</span></span>
+<span class="line"><span style="color:#6A9955">    //  -----  antes y después de la animación                        -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    $btnCapa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"click"</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        // -----  Animar la capa a una nueva posición (top: 100px, left: 300px) en 10 segundos  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">        $capa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">animate</span><span style="color:#D4D4D4">({</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">            top:</span><span style="color:#CE9178"> "100px"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            left:</span><span style="color:#CE9178"> "300px"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">        }, </span><span style="color:#B5CEA8">10000</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">            // -----  Mostrar la posición offset y position de childrenCapa después de la animación  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">            console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">ChildrenCapa offset animación terminada => '</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$childrenCapa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">offset</span><span style="color:#D4D4D4">());</span></span>
+<span class="line"><span style="color:#9CDCFE">            console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'ChildrenCapa position animación terminada =>'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$childrenCapa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">position</span><span style="color:#D4D4D4">());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">            $output</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`</span></span>
+<span class="line"><span style="color:#CE9178">                ChildrenCapa offset animación terminada => </span><span style="color:#569CD6">${</span><span style="color:#4FC1FF">JSON</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">stringify</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$childrenCapa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">offset</span><span style="color:#D4D4D4">())</span><span style="color:#569CD6">}</span></span>
+<span class="line"><span style="color:#CE9178">                &#x3C;br></span></span>
+<span class="line"><span style="color:#CE9178">                ChildrenCapa position animación terminada => </span><span style="color:#569CD6">${</span><span style="color:#4FC1FF">JSON</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">stringify</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$childrenCapa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">position</span><span style="color:#D4D4D4">())</span><span style="color:#569CD6">}</span></span>
+<span class="line"><span style="color:#CE9178">            `</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">        });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        // -----  Mostrar la posición offset y position de childrenCapa antes de la animación  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">        console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'ChildrenCapa offset antes de la animación => '</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$childrenCapa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">offset</span><span style="color:#D4D4D4">());</span></span>
+<span class="line"><span style="color:#9CDCFE">        console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'ChildrenCapa position antes de la animación => '</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$childrenCapa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">position</span><span style="color:#D4D4D4">());</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#9CDCFE">        $output</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`</span></span>
+<span class="line"><span style="color:#CE9178">            ChildrenCapa offset antes de la animación => </span><span style="color:#569CD6">${</span><span style="color:#4FC1FF">JSON</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">stringify</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$childrenCapa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">offset</span><span style="color:#D4D4D4">())</span><span style="color:#569CD6">}</span></span>
+<span class="line"><span style="color:#CE9178">            &#x3C;br></span></span>
+<span class="line"><span style="color:#CE9178">            ChildrenCapa position antes de la animación => </span><span style="color:#569CD6">${</span><span style="color:#4FC1FF">JSON</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">stringify</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$childrenCapa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">position</span><span style="color:#D4D4D4">())</span><span style="color:#569CD6">}</span></span>
+<span class="line"><span style="color:#CE9178">        `</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  al hacer click en el párrafo, mostrar el scroll actual de la ventana  -----  </span></span>
+<span class="line"><span style="color:#9CDCFE">    $parrafo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"click"</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Scroll actual de la ventana` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> scrollActual</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">window</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">scrollTop</span><span style="color:#D4D4D4">() ?? </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        // -----  Mostrar el scroll actual de la ventana en consola y en el div output  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">        console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">El scroll actual de la ventana es: "</span><span style="color:#D4D4D4"> + </span><span style="color:#9CDCFE">scrollActual</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $output</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"El scroll actual de la ventana es: "</span><span style="color:#D4D4D4"> + </span><span style="color:#9CDCFE">scrollActual</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    // --- Scroll instantáneo hasta el párrafo ---</span></span>
+<span class="line"><span style="color:#9CDCFE">    $btnScroll</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"click"</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Posición del párrafo` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> posicionParrafo</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">Math</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">max</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$parrafo</span><span style="color:#D4D4D4">?.</span><span style="color:#DCDCAA">offset</span><span style="color:#D4D4D4">()?.</span><span style="color:#9CDCFE">top</span><span style="color:#D4D4D4"> ?? </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#9CDCFE">        $htmlBody</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">scrollTop</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">posicionParrafo</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    // --- Scroll animado hasta el párrafo ---</span></span>
+<span class="line"><span style="color:#9CDCFE">    $btnScrollAnimation</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"click"</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Offset del párrafo` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> offsetParrafo</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$parrafo</span><span style="color:#D4D4D4">?.</span><span style="color:#DCDCAA">offset</span><span style="color:#D4D4D4">()?.</span><span style="color:#9CDCFE">top</span><span style="color:#D4D4D4"> ?? </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Offset de la layout principal` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> offsetContenedor</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$layout</span><span style="color:#D4D4D4">?.</span><span style="color:#DCDCAA">offset</span><span style="color:#D4D4D4">()?.</span><span style="color:#9CDCFE">top</span><span style="color:#D4D4D4"> ?? </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Posición del párrafo` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> posicionParrafo</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">Math</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">max</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">offsetParrafo</span><span style="color:#D4D4D4"> - </span><span style="color:#9CDCFE">offsetContenedor</span><span style="color:#D4D4D4">, </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        // -----  Animar el scroll hasta la posición del párrafo en 2 segundos  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">        $htmlBody</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">animate</span><span style="color:#D4D4D4">({</span></span>
+<span class="line"><span style="color:#9CDCFE">            scrollTop:</span><span style="color:#9CDCFE"> posicionParrafo</span></span>
+<span class="line"><span style="color:#D4D4D4">        }, </span><span style="color:#B5CEA8">2000</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">})(</span><span style="color:#9CDCFE">jQuery</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span></code></pre>
