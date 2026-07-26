@@ -1,0 +1,81 @@
+<!--  
+    *  ------------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /04-partir-de-un-contexto-demo.html  --  /src/pages-components/clase-08/04-partir-de-un-contexto-demo.html  -----  *
+    *  ------------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__demo">
+
+    <section class="c8-lab">
+
+        <header class="c8-lab__toolbar">
+
+            <div class="c8-lab__row">
+
+                <div class="c8-lab__field">
+
+                    <label class="c8-lab__label" for="accionSelect">
+                        Accion con contexto
+                    </label>
+
+                    <select id="accionSelect" class="c8-lab__select">
+                        <option value="">— Elige una expresion —</option>
+                        <option value="btn1">$("#principal .grande").css("color", "red")</option>
+                        <option value="btn2">$("#principal > .grande").css("color", "green")</option>
+                        <option value="btn3">$(".grande", "#principal").css("background", "#ccf")</option>
+                        <option value="btn4">$("#principal").find(".grande").css("color", "blue")</option>
+                    </select>
+
+                </div>
+
+                <div class="c8-lab__field">
+
+                    <label class="c8-lab__label" for="resetSelect">
+                        Playground
+                    </label>
+
+                    <select id="resetSelect" class="c8-lab__select">
+                        <option value="">— Gestionar playground —</option>
+                        <option value="reset">Resetear estilos del playground</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+            <p id="accionHint" class="c8-lab__hint">
+                Cada opcion usa un contexto distinto para localizar
+                <kbd>.grande</kbd>.
+            </p>
+
+        </header>
+
+        <div id="contenido" class="c8-lab__playground">
+
+            <header id="principal">
+
+                <h3 class="grande">
+                    h3 con clase grande, hijo de header con id principal
+                    <span> span dentro del h3 </span>
+                </h3>
+
+                <div>
+                    div hermano de h3, hijo de header con id principal
+                    <span class="grande">
+                        span con clase grande dentro del div
+                    </span>
+                </div>
+
+            </header>
+
+            <div class="grande">
+                div con clase grande hermano de header con id principal
+            </div>
+
+        </div>
+
+    </section>
+
+</div>

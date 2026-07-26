@@ -12,8 +12,42 @@
     console.log('\n');
 
 
+    /** @type {JQuery<HTMLElement>} - Playground de la demo */
+    const $ctx = $("#contenido");
+
+    /** @type {JQuery<HTMLSelectElement>} - Select de acciones */
+    const $accionSelect = $("#accionSelect");
+
+    /** @type {JQuery<HTMLSelectElement>} - Select de reset del playground */
+    const $resetSelect = $("#resetSelect");
+
+    /** @type {JQuery<HTMLParagraphElement>} - Hint de la accion */
+    const $accionHint = $("#accionHint");
+
+
+    /**
+     * ------------------------------
+     * -----  resetPlayground()  -----
+     * ------------------------------
+     */
+    const resetPlayground = () => {
+
+        $ctx.find("*").each(function () {
+            this.style.removeProperty("background-color");
+            this.style.removeProperty("background");
+            this.style.removeProperty("color");
+            this.style.removeProperty("font-size");
+            this.style.removeProperty("border");
+            this.style.removeProperty("display");
+        });
+
+        $ctx.find("*").show();
+        $accionHint.text("Estilos del playground reseteados.");
+    };
+
+
     /** 
-     * - `Objeto de acciones` que mapea los IDs de los botones a 
+     * - `Objeto de acciones` que mapea los valores del select a 
      *    funciones que ejecutan los selectores jQuery correspondientes`
      * @type {Record<string, () => void>} */
 
@@ -26,11 +60,11 @@
         */
         btn1: () => {
 
-            $("p")
+            $("p", $ctx)
                 .children()
                 .css("color", "red");
 
-            $("p")
+            $("p", $ctx)
                 .children()
                 .each(function (index) {
                     console.log('texto del p ', (index + 1), ' - ', $(this).text());
@@ -44,7 +78,7 @@
         */
         btn2: () => {
 
-            $("p")
+            $("p", $ctx)
                 .siblings()
                 .css("color", "green")
         },
@@ -56,7 +90,7 @@
         */
         btn3: () => {
 
-            $("p")
+            $("p", $ctx)
                 .siblings("div")
                 .css("color", "orange");
         },
@@ -68,7 +102,7 @@
         */
         btn4: () => {
 
-            $("p")
+            $("p", $ctx)
                 .siblings("div")
                 .not("#undiv")
                 .css("color", "purple");
@@ -84,15 +118,15 @@
         btn5: () => {
 
             console.log(
-                'Nº de tablas => ', $("table").length,
-                '\nNº de TDs => ', $("td").length
+                'Nº de tablas => ', $("table", $ctx).length,
+                '\nNº de TDs => ', $("td", $ctx).length
             );
 
-            $("table")
+            $("table", $ctx)
                 .find(".miclase")
                 .css("background-color", "orange");
 
-            $("table")
+            $("table", $ctx)
                 .find("tr:first")
                 .css("background-color", "blue");
         },
@@ -104,9 +138,9 @@
             y les cambia el fondo a gris.
          */
         btn6: () => {
-            console.log('Nº de TDs', $("td").length);
+            console.log('Nº de TDs', $("td", $ctx).length);
 
-            $("td")
+            $("td", $ctx)
                 .filter(".c2")
                 .css("background-color", "grey");
         },
@@ -120,7 +154,7 @@
          */
         btn7: () => {
 
-            $("li.miclase")
+            $("li.miclase", $ctx)
                 .parent()
                 .parent()
                 .next()
@@ -136,7 +170,7 @@
          */
         btn8: () => {
 
-            $("li.miclase")
+            $("li.miclase", $ctx)
                 .parents("div")
                 .next()
                 .css("color", "#3f9");
@@ -147,7 +181,7 @@
          */
         btn9: () => {
 
-            $("ul")
+            $("ul", $ctx)
                 .find("b")
                 .css("color", "red");
         },
@@ -158,7 +192,7 @@
          */
         btn10: () => {
 
-            $("ul", "li")
+            $("ul, li", $ctx)
                 .filter(".milista")
                 .hide(4000);
 
@@ -170,7 +204,7 @@
          */
         btn11: () => {
 
-            $("ul")
+            $("ul", $ctx)
                 .find(".milista")
                 .css({
                     fontSize: "2rem",
@@ -183,7 +217,7 @@
          */
         btn12: () => {
 
-            $("[id^='id']")
+            $("[id^='id']", $ctx)
                 .css("border", "2px solid red");
         },
 
@@ -192,9 +226,39 @@
 
 
 
-    //  -----  Delegación de eventos para los botones  -----
-    $("[id^='btn']").on("click", function () {
-        acciones[this.id]?.();
+    //  -----  Al cambiar el select se ejecuta la accion elegida  -----
+    $accionSelect.on("change", function () {
+
+        /** @type {string} */
+        const value = String($(this).val() || "");
+
+        /** @type {string} */
+        const label = $(this).find("option:selected").text();
+
+        if (!value) {
+            $accionHint.text("Selecciona una accion de traversing para ver el efecto.");
+            return;
+        }
+
+        $accionHint.text(`Ejecutado: ${label}`);
+        $ctx.addClass("is-flash");
+        acciones[value]?.();
+        setTimeout(() => $ctx.removeClass("is-flash"), 450);
+
+    });
+
+
+    //  -----  Select de reset del playground  -----
+    $resetSelect.on("change", function () {
+
+        /** @type {string} */
+        const value = String($(this).val() || "");
+
+        if (value === "reset") resetPlayground();
+
+        //  -----  Volver al placeholder para poder resetear de nuevo  -----
+        $(this).val("");
+
     });
 
 

@@ -1,0 +1,264 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">warn</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'-----  03-traversing.js  -----'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLElement>}</span><span style="color:#6A9955"> - Playground de la demo */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $ctx</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"#contenido"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLSelectElement>}</span><span style="color:#6A9955"> - Select de acciones */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $accionSelect</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"#accionSelect"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLSelectElement>}</span><span style="color:#6A9955"> - Select de reset del playground */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $resetSelect</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"#resetSelect"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLParagraphElement>}</span><span style="color:#6A9955"> - Hint de la accion */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $accionHint</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"#accionHint"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * ------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  resetPlayground()  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * ------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> resetPlayground</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $ctx</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"*"</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">each</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
+<span class="line"><span style="color:#569CD6">            this</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">style</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeProperty</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"background-color"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#569CD6">            this</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">style</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeProperty</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"background"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#569CD6">            this</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">style</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeProperty</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"color"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#569CD6">            this</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">style</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeProperty</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"font-size"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#569CD6">            this</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">style</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeProperty</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"border"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#569CD6">            this</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">style</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeProperty</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"display"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $ctx</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"*"</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">show</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#9CDCFE">        $accionHint</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"Estilos del playground reseteados."</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span></span>
+<span class="line"><span style="color:#6A9955">     * - `Objeto de acciones` que mapea los valores del select a </span></span>
+<span class="line"><span style="color:#6A9955">     *    funciones que ejecutan los selectores jQuery correspondientes`</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {Record&#x3C;string, () => void>}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> acciones</span><span style="color:#D4D4D4"> = {</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /**  </span></span>
+<span class="line"><span style="color:#6A9955">            - Selecciona los hijos de 'p', colorea de rojo,</span></span>
+<span class="line"><span style="color:#6A9955">              recorre con 'each' y muestra en consola</span></span>
+<span class="line"><span style="color:#6A9955">        */</span></span>
+<span class="line"><span style="color:#DCDCAA">        btn1</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"p"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$ctx</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">children</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"color"</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">"red"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"p"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$ctx</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">children</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">each</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">index</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">                    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'texto del p '</span><span style="color:#D4D4D4">, (</span><span style="color:#9CDCFE">index</span><span style="color:#D4D4D4"> + </span><span style="color:#B5CEA8">1</span><span style="color:#D4D4D4">), </span><span style="color:#CE9178">' - '</span><span style="color:#D4D4D4">, </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">());</span></span>
+<span class="line"><span style="color:#D4D4D4">                });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">        },</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /**  </span></span>
+<span class="line"><span style="color:#6A9955">            - Selecciona los Hermanos de 'p', colorea de verde</span></span>
+<span class="line"><span style="color:#6A9955">        */</span></span>
+<span class="line"><span style="color:#DCDCAA">        btn2</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"p"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$ctx</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">siblings</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"color"</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">"green"</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">        },</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /**</span></span>
+<span class="line"><span style="color:#6A9955">            - Selecciona los Hermanos de 'p' que sean etiquetas 'div', </span></span>
+<span class="line"><span style="color:#6A9955">              colorea de naranja</span></span>
+<span class="line"><span style="color:#6A9955">        */</span></span>
+<span class="line"><span style="color:#DCDCAA">        btn3</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"p"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$ctx</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">siblings</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"div"</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"color"</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">"orange"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        },</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /**  </span></span>
+<span class="line"><span style="color:#6A9955">            - Selecciona los Hermanos de 'p' que sean etiquetas 'div',  </span></span>
+<span class="line"><span style="color:#6A9955">              colorea de púrpura, pero excluye el div con id = undiv    </span></span>
+<span class="line"><span style="color:#6A9955">        */</span></span>
+<span class="line"><span style="color:#DCDCAA">        btn4</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"p"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$ctx</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">siblings</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"div"</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">not</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"#undiv"</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"color"</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">"purple"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        },</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /**  </span></span>
+<span class="line"><span style="color:#6A9955">            - Selecciona las tablas, luego encuentra los elementos     </span></span>
+<span class="line"><span style="color:#6A9955">              con clase "miclase" dentro de las tablas y colorea su    </span></span>
+<span class="line"><span style="color:#6A9955">              fondo de naranja. Luego encuentra el primer 'tr' dentro  </span></span>
+<span class="line"><span style="color:#6A9955">              de las tablas y colorea su fondo de azul.                </span></span>
+<span class="line"><span style="color:#6A9955">        */</span></span>
+<span class="line"><span style="color:#DCDCAA">        btn5</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">            console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span></span>
+<span class="line"><span style="color:#CE9178">                'Nº de tablas => '</span><span style="color:#D4D4D4">, </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"table"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$ctx</span><span style="color:#D4D4D4">).</span><span style="color:#9CDCFE">length</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">                '</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">Nº de TDs => '</span><span style="color:#D4D4D4">, </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"td"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$ctx</span><span style="color:#D4D4D4">).</span><span style="color:#9CDCFE">length</span></span>
+<span class="line"><span style="color:#D4D4D4">            );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"table"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$ctx</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">".miclase"</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"background-color"</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">"orange"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"table"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$ctx</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"tr:first"</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"background-color"</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">"blue"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        },</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /**</span></span>
+<span class="line"><span style="color:#6A9955">          - Selecciona todos los 'td', </span></span>
+<span class="line"><span style="color:#6A9955">            luego filtra los que tienen la clase 'c2' </span></span>
+<span class="line"><span style="color:#6A9955">            y les cambia el fondo a gris.</span></span>
+<span class="line"><span style="color:#6A9955">         */</span></span>
+<span class="line"><span style="color:#DCDCAA">        btn6</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">            console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Nº de TDs'</span><span style="color:#D4D4D4">, </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"td"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$ctx</span><span style="color:#D4D4D4">).</span><span style="color:#9CDCFE">length</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"td"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$ctx</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">filter</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">".c2"</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"background-color"</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">"grey"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        },</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /**</span></span>
+<span class="line"><span style="color:#6A9955">          - Forma 1 de acceder a la división con texto "división amiga!!"</span></span>
+<span class="line"><span style="color:#6A9955">          - Selecciona el 'li' con clase 'miclase', luego sube a su padre 'ul',</span></span>
+<span class="line"><span style="color:#6A9955">            y finalmente accede a la división con texto "división amiga!!,</span></span>
+<span class="line"><span style="color:#6A9955">            que es hermana del 'ul' y le cambia el color a #3f9"</span></span>
+<span class="line"><span style="color:#6A9955">         */</span></span>
+<span class="line"><span style="color:#DCDCAA">        btn7</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"li.miclase"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$ctx</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">parent</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">parent</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">next</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"color"</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">"#3f9"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        },</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /**</span></span>
+<span class="line"><span style="color:#6A9955">          - Forma 2 de hacer lo mismo que btn7, pero usando 'parents' en vez de 'parent'</span></span>
+<span class="line"><span style="color:#6A9955">          - Selecciona el 'li' con clase 'miclase', luego sube a su padre 'div',</span></span>
+<span class="line"><span style="color:#6A9955">            y finalmente accede a la división con texto "división amiga!!",</span></span>
+<span class="line"><span style="color:#6A9955">            que es hermana del 'div' y le cambia el color a #3f9</span></span>
+<span class="line"><span style="color:#6A9955">         */</span></span>
+<span class="line"><span style="color:#DCDCAA">        btn8</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"li.miclase"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$ctx</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">parents</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"div"</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">next</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"color"</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">"#3f9"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        },</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /**</span></span>
+<span class="line"><span style="color:#6A9955">         -  Buscar las negritas de las 'ul y colorearlas de rojo</span></span>
+<span class="line"><span style="color:#6A9955">         */</span></span>
+<span class="line"><span style="color:#DCDCAA">        btn9</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"ul"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$ctx</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"b"</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"color"</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">"red"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        },</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /**</span></span>
+<span class="line"><span style="color:#6A9955">            - Ocultar los elementos de 'ul' y 'li' con la clase '.milista'</span></span>
+<span class="line"><span style="color:#6A9955">         */</span></span>
+<span class="line"><span style="color:#DCDCAA">        btn10</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"ul, li"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$ctx</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">filter</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">".milista"</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">hide</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">4000</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">        },</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /**</span></span>
+<span class="line"><span style="color:#6A9955">         - Cambiar estilos a los 'ul' con la clase '.milista'</span></span>
+<span class="line"><span style="color:#6A9955">         */</span></span>
+<span class="line"><span style="color:#DCDCAA">        btn11</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"ul"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$ctx</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">".milista"</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">({</span></span>
+<span class="line"><span style="color:#9CDCFE">                    fontSize:</span><span style="color:#CE9178"> "2rem"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">                    color:</span><span style="color:#CE9178"> "#f09"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">                });</span></span>
+<span class="line"><span style="color:#D4D4D4">        },</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /**</span></span>
+<span class="line"><span style="color:#6A9955">         - Buscar los elementos con id que empiecen con 'id' y colorear su borde de rojo</span></span>
+<span class="line"><span style="color:#6A9955">         */</span></span>
+<span class="line"><span style="color:#DCDCAA">        btn12</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"[id^='id']"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$ctx</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"border"</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">"2px solid red"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        },</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Al cambiar el select se ejecuta la accion elegida  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    $accionSelect</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"change"</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {string}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> value</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">String</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">() || </span><span style="color:#CE9178">""</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {string}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> label</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"option:selected"</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (!</span><span style="color:#9CDCFE">value</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">            $accionHint</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"Selecciona una accion de traversing para ver el efecto."</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#C586C0">            return</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $accionHint</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`Ejecutado: </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">label</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $ctx</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"is-flash"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        acciones</span><span style="color:#D4D4D4">[</span><span style="color:#9CDCFE">value</span><span style="color:#D4D4D4">]?.();</span></span>
+<span class="line"><span style="color:#DCDCAA">        setTimeout</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#9CDCFE"> $ctx</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"is-flash"</span><span style="color:#D4D4D4">), </span><span style="color:#B5CEA8">450</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Select de reset del playground  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    $resetSelect</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"change"</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {string}</span><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> value</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">String</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">() || </span><span style="color:#CE9178">""</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">value</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">"reset"</span><span style="color:#D4D4D4">) </span><span style="color:#DCDCAA">resetPlayground</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  Volver al placeholder para poder resetear de nuevo  -----</span></span>
+<span class="line"><span style="color:#DCDCAA">        $</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">this</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">""</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">})(</span><span style="color:#9CDCFE">jQuery</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span></code></pre>

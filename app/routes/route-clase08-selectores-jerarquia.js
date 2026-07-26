@@ -19,9 +19,11 @@ const {
     layoutNavbar,
     layoutNavbarThemesUI,
     pages,
+    pagesComponents,
     layoutFooter,
     styles,
-    scripts
+    scripts,
+    markdownShikiHtml,
 } = paths;
 
 
@@ -40,6 +42,33 @@ export const routeClase08SelectoresJerarquia = {
             "#layoutMain": `${pages}/clase-08/01-selectores-jerarquia.html`,
             "#layoutFooter": layoutFooter,
         },
+        pagesComponents: [
+            { url: `${pagesComponents}/clase-08/01-selectores-jerarquia-description.html`, target: '[data-component-page="selectoresJerarquiaDescription"]' },
+            { url: `${pagesComponents}/clase-08/01-selectores-jerarquia-demo.html`, target: '[data-component-page="selectoresJerarquiaDemo"]' },
+        ],
+        MarkdownShikiHtml: [
+            {
+                fileName: '01-selectores-jerarquia-demo-html.html',
+                fileExtension: 'html',
+                urlInput: `${pagesComponents}/clase-08/01-selectores-jerarquia-demo.html`,
+                urlOutput: `${markdownShikiHtml}/clase-08`,
+                target: '[data-shiki="codeHtml"]',
+            },
+            {
+                fileName: '01-selectores-jerarquia-demo-css.html',
+                fileExtension: 'css',
+                urlInput: `${styles}/pages/clase-08/01-selectores-jerarquia.css`,
+                urlOutput: `${markdownShikiHtml}/clase-08`,
+                target: '[data-shiki="codeCss"]',
+            },
+            {
+                fileName: '01-selectores-jerarquia-demo-js.html',
+                fileExtension: 'js',
+                urlInput: `${scripts}/clase-08/01-selectores-jerarquia.js`,
+                urlOutput: `${markdownShikiHtml}/clase-08`,
+                target: '[data-shiki="codeJs"]',
+            },
+        ],
         headerTitle: 'Clase 8 - 1. Selectores Jerarquía',
         styles: [
             { href: `${styles}/pages/clase-08/01-selectores-jerarquia.css` },
@@ -51,5 +80,5 @@ export const routeClase08SelectoresJerarquia = {
         libs: [
             { name: 'tooltip' },
             { name: 'draggable' },
-        ]
+        ],
 };

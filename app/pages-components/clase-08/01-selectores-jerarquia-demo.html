@@ -1,0 +1,174 @@
+<!--  
+    *  ----------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /01-selectores-jerarquia-demo.html  --  /src/pages-components/clase-08/01-selectores-jerarquia-demo.html  -----  *
+    *  ----------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__demo">
+
+    <section class="c8-lab">
+
+        <header class="c8-lab__toolbar">
+
+            <div class="c8-lab__row">
+
+                <div class="c8-lab__field">
+
+                    <label class="c8-lab__label" for="accionSelect">
+                        Accion de selector
+                    </label>
+
+                    <select id="accionSelect" class="c8-lab__select">
+                        <option value="">— Elige un selector —</option>
+                        <option value="btn1">Jerarquia a cualquier nivel (p span → azul)</option>
+                        <option value="btn2">Hijos directos (p > span → rojo)</option>
+                        <option value="btn3">Hermanos (div ~ p → naranja)</option>
+                        <option value="btn4">No párrafo con id 2 (p:not(#p2) → verde)</option>
+                        <option value="btn5">Primer hijo de todos los párrafos</option>
+                        <option value="btn6">Párrafos que contienen "probando" (toggle)</option>
+                    </select>
+
+                </div>
+
+                <div class="c8-lab__field">
+
+                    <label class="c8-lab__label" for="resetSelect">
+                        Playground
+                    </label>
+
+                    <select id="resetSelect" class="c8-lab__select">
+                        <option value="">— Gestionar playground —</option>
+                        <option value="reset">Resetear estilos del playground</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+            <p id="accionHint" class="c8-lab__hint">
+                Selecciona una opcion para aplicar el selector sobre el playground.
+            </p>
+
+        </header>
+
+        <div id="contenido" class="c8-lab__playground">
+
+            <p> p indice 1 </p>
+            <p> p indice 2 </p>
+            <h1> header h1 </h1>
+
+            <div>
+
+                <p>
+                    Párrafo
+                    <span>
+                        span del
+                        <i> párrafo </i>
+                    </span>
+                    <b>
+                        Negrita
+                        <i> italica </i>
+                        <span>
+                            Otro span dentro de negrita
+                        </span>
+                    </b>
+                </p>
+
+                <p id="p2">
+                    Párrafo con id 2
+                    <span>
+                        span del <i> párrafo </i>
+                    </span>
+                    <b> Negrita
+                        <span>
+                            Otro span dentro de negrita
+                        </span>
+                    </b>
+                </p>
+
+                <p>
+                    Párrafo
+                    <span>
+                        span del
+                        <i> párrafo </i>
+                    </span>
+                    <b> Negrita
+                        <span>
+                            Otro span dentro de negrita
+                        </span>
+                    </b>
+                </p>
+
+                <p>
+                    Párrafo
+                    <span>
+                        span del
+                        <i> párrafo </i>
+                    </span>
+                    <b>
+                        Negrita
+                        <span>
+                            Otro span dentro de negrita
+                        </span>
+                    </b>
+                </p>
+
+            </div>
+
+            <blockquote>
+
+                <p> probando parrafo 1 de la etiqueta blockquote </p>
+
+                <p> probando parrafo 2 de la etiqueta blockquote </p>
+
+                <table>
+                    <tr>
+                        <td> 1 </td>
+                        <td> 2 </td>
+                        <td> 3 </td>
+                        <td> 4 </td>
+                    </tr>
+                    <tr>
+                        <td> 5 </td>
+                        <td> 6 </td>
+                        <td> 7 </td>
+                        <td> 8 </td>
+                    </tr>
+                    <tr>
+                        <td> 9 </td>
+                        <td> 10 </td>
+                        <td> 11 </td>
+                        <td> 12 </td>
+                    </tr>
+                    <tr>
+                        <td> 13 </td>
+                        <td> 14 </td>
+                        <td> 15 </td>
+                        <td> 16 </td>
+                    </tr>
+                </table>
+
+            </blockquote>
+
+            <h2> Encabezamiento nivel 2 </h2>
+
+            <p>
+                probando parrafo 3 de la etiqueta blockquote dentro enlace
+                <a href="#"> enlace </a>
+            </p>
+
+            <p>
+                probando parrafo 4 de la etiqueta blockquote dentro enlace y span
+                <a href="#"> enlace </a>
+                <span> span </span>
+            </p>
+
+            <a href="#"> enlace </a>
+
+        </div>
+
+    </section>
+
+</div>

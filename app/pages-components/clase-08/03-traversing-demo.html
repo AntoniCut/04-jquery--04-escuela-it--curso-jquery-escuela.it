@@ -1,0 +1,201 @@
+<!--  
+    *  ------------------------------------------------------------------------------------------------------  *
+    *  -----  /03-traversing-demo.html  --  /src/pages-components/clase-08/03-traversing-demo.html  -----  *
+    *  ------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__demo">
+
+    <section class="c8-lab">
+
+        <header class="c8-lab__toolbar">
+
+            <div class="c8-lab__row">
+
+                <div class="c8-lab__field">
+
+                    <label class="c8-lab__label" for="accionSelect">
+                        Accion de traversing
+                    </label>
+
+                    <select id="accionSelect" class="c8-lab__select">
+                        <option value="">— Elige un metodo —</option>
+                        <option value="btn1">children() de p → rojo + each en consola</option>
+                        <option value="btn2">siblings() de p → verde</option>
+                        <option value="btn3">siblings("div") de p → naranja</option>
+                        <option value="btn4">siblings("div").not("#undiv") → morado</option>
+                        <option value="btn5">table.find(".miclase") + tr:first</option>
+                        <option value="btn6">td.filter(".c2") → gris</option>
+                        <option value="btn7">Forma 1: parent().parent().next()</option>
+                        <option value="btn8">Forma 2: parents("div").next()</option>
+                        <option value="btn9">ul.find("b") → rojo</option>
+                        <option value="btn10">Ocultar .milista en ul/li</option>
+                        <option value="btn11">Estilos a .milista dentro de ul</option>
+                        <option value="btn12">Border a [id^='id']</option>
+                    </select>
+
+                </div>
+
+                <div class="c8-lab__field">
+
+                    <label class="c8-lab__label" for="resetSelect">
+                        Playground
+                    </label>
+
+                    <select id="resetSelect" class="c8-lab__select">
+                        <option value="">— Gestionar playground —</option>
+                        <option value="reset">Resetear estilos del playground</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+            <p id="accionHint" class="c8-lab__hint">
+                Selecciona una accion de traversing para ver el efecto.
+            </p>
+
+        </header>
+
+        <div id="contenido" class="c8-lab__playground">
+
+            <p>
+                <b> El unico párrafo que hay. Al mismo nivel que las listas y los divs </b>
+                <span class="sp">
+                    Span en el párrafo
+                </span>
+                esto está fuera de span
+                <b> y esto en negrita </b>
+            </p>
+
+            <ul>
+
+                <li> Li 1 de la lista UL </li>
+
+                <li class="milista">
+                    <b> Li 2 de la lista UL con clase .milista </b>
+                </li>
+
+                <li> Li 3 de la lista UL </li>
+
+                <li>
+
+                    <ul>
+                        <li id="id1" class="milista">
+                            Li 1 con id1 clase .milista
+                            <br>
+                            Esto ya es una sublista dentro de la lista principal
+                        </li>
+                        <li id="id2"> Li 2 con id2 </li>
+                        <li id="id3"> Li 3 con id3 </li>
+                        <li> Li 4 sin id ni clase </li>
+                    </ul>
+
+                    <ul class="milista">
+
+                        <li>
+                            Li 1 de Otra sublista con clase .milista, sin id
+                            <br>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente impedit quia qui
+                            earum, atque quibusdam odit suscipit porro.
+                        </li>
+
+                        <li>
+                            Li 2 de la sublista con clase .milista, sin id Ea perspiciatis maiores,
+                            soluta laboriosam aut? Exercitationem ea non similique dicta praesentium.
+                        </li>
+
+                        <li>
+                            Li 3 de la sublista con clase .milista, sin id Quam voluptates expedita reprehenderit
+                            doloremque soluta quidem.
+                        </li>
+
+                    </ul>
+
+                </li>
+
+            </ul>
+
+            <div>
+
+                <b> División 1 </b>
+
+                <ul class="milista">
+
+                    <li> Elem1 </li>
+
+                    <li>
+                        <i> Elem2 </i>
+                        pongo otra cosa
+                        <b> en negrita de nuevo </b>
+                    </li>
+
+                    <li class="miclase"> Elem3 </li>
+
+                    <li>
+                        In sed necessitatibus facere, iusto quia odio explicabo praesentium itaque autem quo
+                        voluptatibus esse.
+                    </li>
+
+                    <li>
+                        Lorem ipsum
+                        <span class="milista"> dolor </span>
+                        sit amet, consectetur adipisicing elit.
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div>
+                <b> División 2 - División amiga!! </b>
+            </div>
+
+            <div>
+
+                <b> División 3 </b>
+                <br>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil nesciunt, fugit ipsum ullam esse
+                culpa repellat a fugiat totam consequatur.
+
+                <table border="5">
+                    <tr>
+                        <td> 1.1 </td>
+                        <td class="miclase"> 1.2 </td>
+                        <td> 1.3 </td>
+                        <td> 1.4 </td>
+                    </tr>
+                    <tr>
+                        <td class="c2"> 2.1 </td>
+                        <td> 2.2 </td>
+                        <td class="miclase"> 2.3 </td>
+                        <td> 2.4 </td>
+                    </tr>
+                    <tr>
+                        <td> 3.1 </td>
+                        <td class="c2"> 3.2 </td>
+                        <td> 3.3 </td>
+                        <td> 3.4 </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div>
+                <b> División 4 </b>
+                Esta es otra
+                <span> división </span>
+            </div>
+
+            <div id="undiv">
+                <b> División 5 </b>
+                Esta es otra división que tiene id
+                <span class="sp"> "undiv" </span>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>

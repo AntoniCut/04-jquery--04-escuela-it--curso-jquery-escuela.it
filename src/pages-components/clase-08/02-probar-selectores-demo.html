@@ -1,0 +1,199 @@
+<!--  
+    *  --------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /02-probar-selectores-demo.html  --  /src/pages-components/clase-08/02-probar-selectores-demo.html  -----  *
+    *  --------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__demo">
+
+    <section class="c8-lab">
+
+        <form class="c8-lab__toolbar c8-lab__toolbar--form" id="formSelectores">
+
+            <div class="c8-lab__field">
+                <label class="c8-lab__label" for="presetSelect">
+                    Preset de selector
+                </label>
+                <select id="presetSelect" class="c8-lab__select">
+                    <option value="">— Escribir manualmente —</option>
+                    <option value="p">p</option>
+                    <option value="p span">p span</option>
+                    <option value="p > span">p > span</option>
+                    <option value="#p2">#p2</option>
+                    <option value="p:not(#p2)">p:not(#p2)</option>
+                    <option value="blockquote p">blockquote p</option>
+                    <option value="table td">table td</option>
+                    <option value="a">a</option>
+                    <option value="h1, h2">h1, h2</option>
+                </select>
+            </div>
+
+            <div class="c8-lab__field">
+                <label class="c8-lab__label" for="selector">
+                    Selector
+                </label>
+                <input type="text" id="selector" class="c8-lab__input" placeholder="ej: p > span">
+            </div>
+
+            <div class="c8-lab__row">
+
+                <div class="c8-lab__field">
+                    <label class="c8-lab__label" for="color">
+                        Color fondo
+                    </label>
+                    <div class="c8-lab__hex">
+                        <span>#</span>
+                        <input type="text" id="color" class="c8-lab__input" value="d97706" maxlength="6">
+                    </div>
+                </div>
+
+                <div class="c8-lab__field">
+                    <label class="c8-lab__label" for="colorTexto">
+                        Color texto
+                    </label>
+                    <div class="c8-lab__hex">
+                        <span>#</span>
+                        <input type="text" id="colorTexto" class="c8-lab__input" value="1c1917" maxlength="6">
+                    </div>
+                </div>
+
+                <div class="c8-lab__field">
+                    <label class="c8-lab__label" for="aplicarSelect">
+                        Aplicar
+                    </label>
+                    <select id="aplicarSelect" class="c8-lab__select">
+                        <option value="">— Elige aplicar —</option>
+                        <option value="aplicar">Aplicar color al selector</option>
+                        <option value="reset">Resetear estilos del playground</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <p id="accionHint" class="c8-lab__hint">
+                Elige un preset o escribe un selector y confirma en "Aplicar".
+            </p>
+
+        </form>
+
+        <div id="contenido" class="c8-lab__playground">
+
+            <p> p indice 1 </p>
+            <p> p indice 2 </p>
+            <h1> header h1 </h1>
+
+            <div>
+
+                <p>
+                    Párrafo
+                    <span>
+                        span del
+                        <i> párrafo </i>
+                    </span>
+                    <b>
+                        Negrita
+                        <i> italica </i>
+                        <span>
+                            Otro span dentro de negrita
+                        </span>
+                    </b>
+                </p>
+
+                <p id="p2">
+                    Párrafo con id 2
+                    <span>
+                        span del <i> párrafo </i>
+                    </span>
+                    <b> Negrita
+                        <span>
+                            Otro span dentro de negrita
+                        </span>
+                    </b>
+                </p>
+
+                <p>
+                    Párrafo
+                    <span>
+                        span del
+                        <i> párrafo </i>
+                    </span>
+                    <b> Negrita
+                        <span>
+                            Otro span dentro de negrita
+                        </span>
+                    </b>
+                </p>
+
+                <p>
+                    Párrafo
+                    <span>
+                        span del
+                        <i> párrafo </i>
+                    </span>
+                    <b>
+                        Negrita
+                        <span>
+                            Otro span dentro de negrita
+                        </span>
+                    </b>
+                </p>
+
+            </div>
+
+            <blockquote>
+
+                <p> probando parrafo 1 de la etiqueta blockquote </p>
+
+                <p> probando parrafo 2 de la etiqueta blockquote </p>
+
+                <table>
+                    <tr>
+                        <td> 1 </td>
+                        <td> 2 </td>
+                        <td> 3 </td>
+                        <td> 4 </td>
+                    </tr>
+                    <tr>
+                        <td> 5 </td>
+                        <td> 6 </td>
+                        <td> 7 </td>
+                        <td> 8 </td>
+                    </tr>
+                    <tr>
+                        <td> 9 </td>
+                        <td> 10 </td>
+                        <td> 11 </td>
+                        <td> 12 </td>
+                    </tr>
+                    <tr>
+                        <td> 13 </td>
+                        <td> 14 </td>
+                        <td> 15 </td>
+                        <td> 16 </td>
+                    </tr>
+                </table>
+
+            </blockquote>
+
+            <h2> Encabezamiento nivel 2 </h2>
+
+            <p>
+                probando parrafo 3 de la etiqueta blockquote dentro enlace
+                <a href="#"> enlace </a>
+            </p>
+
+            <p>
+                probando parrafo 4 de la etiqueta blockquote dentro enlace y span
+                <a href="#"> enlace </a>
+                <span> span </span>
+            </p>
+
+            <a href="#"> enlace </a>
+
+        </div>
+
+    </section>
+
+</div>

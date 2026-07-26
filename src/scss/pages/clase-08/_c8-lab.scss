@@ -1,0 +1,222 @@
+/*
+    *  ----------------------------------------------------------------------  *
+    *  -----  /_c8-lab.scss  --  /src/scss/pages/clase-08/_c8-lab.scss  -----  *
+    *  ----------------------------------------------------------------------  *
+    *  Estilo especial "Selector Lab" para la clase 8.                         *
+    *  ----------------------------------------------------------------------  *
+*/
+
+
+$c8-ink: #1c1917;
+$c8-amber: #d97706;
+$c8-amber-deep: #b45309;
+$c8-teal: #0f766e;
+$c8-paper: #faf6f1;
+$c8-panel: #fffdf8;
+$c8-line: rgba(28, 25, 23, 0.14);
+$c8-muted: #57534e;
+
+
+@mixin c8-lab {
+
+    .c8-lab {
+        width: 100%;
+        max-width: 92rem;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.8rem;
+        padding: 0.4rem;
+
+        &__toolbar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+            padding: 1.8rem 2rem;
+            background:
+                radial-gradient(circle at 0% 0%, rgba($c8-amber, 0.18), transparent 42%),
+                linear-gradient(145deg, $c8-panel 0%, darken($c8-paper, 2%) 100%);
+            border: 1px solid $c8-line;
+            border-left: 6px solid $c8-amber;
+            border-radius: 1.2rem;
+            box-shadow: 0 12px 32px rgba(28, 25, 23, 0.08);
+
+            &--form {
+                gap: 1.6rem;
+            }
+        }
+
+        &__field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+            min-width: 0;
+        }
+
+        &__row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+            gap: 1.2rem;
+        }
+
+        &__label {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: $c8-teal;
+        }
+
+        &__select,
+        &__input {
+            width: 100%;
+            padding: 1.1rem 1.3rem;
+            font-size: 1.45rem;
+            color: $c8-ink;
+            background: #fff;
+            border: 2px solid rgba($c8-ink, 0.12);
+            border-radius: 0.85rem;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+
+            &:focus {
+                border-color: $c8-amber;
+                box-shadow: 0 0 0 4px rgba($c8-amber, 0.18);
+                transform: translateY(-1px);
+            }
+        }
+
+        &__select {
+            cursor: pointer;
+            appearance: none;
+            background-image:
+                linear-gradient(45deg, transparent 50%, $c8-amber 50%),
+                linear-gradient(135deg, $c8-amber 50%, transparent 50%),
+                linear-gradient(to right, rgba($c8-ink, 0.08), rgba($c8-ink, 0.08));
+            background-position:
+                calc(100% - 1.8rem) calc(50% - 0.25rem),
+                calc(100% - 1.3rem) calc(50% - 0.25rem),
+                calc(100% - 3.4rem) 50%;
+            background-size: 0.55rem 0.55rem, 0.55rem 0.55rem, 1px 60%;
+            background-repeat: no-repeat;
+            padding-right: 4.2rem;
+        }
+
+        &__hex {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            span {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: $c8-amber-deep;
+            }
+        }
+
+        &__hint {
+            margin: 0;
+            padding: 1rem 1.2rem;
+            font-size: 1.4rem;
+            line-height: 1.55;
+            color: $c8-muted;
+            background: rgba($c8-teal, 0.08);
+            border-radius: 0.75rem;
+
+            kbd {
+                background: rgba($c8-amber, 0.15);
+                color: $c8-amber-deep;
+                padding: 0.1rem 0.45rem;
+                border-radius: 4px;
+                font-size: 1.25rem;
+                font-family: monospace;
+            }
+        }
+
+        &__playground {
+            position: relative;
+            padding: 2.2rem;
+            background:
+                linear-gradient(180deg, rgba($c8-amber, 0.05), transparent 28%),
+                repeating-linear-gradient(
+                    -12deg,
+                    rgba($c8-ink, 0.015) 0,
+                    rgba($c8-ink, 0.015) 8px,
+                    transparent 8px,
+                    transparent 16px
+                ),
+                $c8-paper;
+            border: 1px solid $c8-line;
+            border-radius: 1.4rem;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 10px 28px rgba(28, 25, 23, 0.06);
+            transition: box-shadow 0.3s ease;
+
+            &.is-flash {
+                animation: c8-flash 0.45s ease;
+            }
+
+            p,
+            h1,
+            h2,
+            h3,
+            div,
+            blockquote,
+            ul,
+            li,
+            table,
+            a,
+            span,
+            b,
+            i {
+                transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+            }
+
+            ul {
+                list-style: disc;
+                padding-left: 2rem;
+            }
+
+            li {
+                margin: 0.4rem 0;
+            }
+
+            table {
+                margin-top: 1rem;
+                border-collapse: collapse;
+
+                td {
+                    padding: 0.6rem 0.9rem;
+                    border: 1px solid rgba($c8-ink, 0.2);
+                }
+            }
+
+            .grande {
+                font-size: 1.7rem;
+                font-weight: 700;
+            }
+
+            #principal {
+                display: flex;
+                flex-direction: column;
+                gap: 1.2rem;
+                padding: 1.6rem;
+                margin-bottom: 1.4rem;
+                background: rgba($c8-teal, 0.06);
+                border: 1px dashed rgba($c8-teal, 0.35);
+                border-radius: 1rem;
+            }
+        }
+    }
+
+
+    @keyframes c8-flash {
+        0% {
+            box-shadow: 0 0 0 0 rgba($c8-amber, 0.45), 0 10px 28px rgba(28, 25, 23, 0.06);
+        }
+
+        100% {
+            box-shadow: 0 0 0 14px rgba($c8-amber, 0), 0 10px 28px rgba(28, 25, 23, 0.06);
+        }
+    }
+
+}

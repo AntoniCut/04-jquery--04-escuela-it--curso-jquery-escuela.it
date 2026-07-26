@@ -1,100 +1,86 @@
 <!--  
-    *  ----------------------------------------------------------------------------------------------------------------------------------  *
-    *  -----  /04-partir-de-un-contexto.html  --  /src/pages/clase-08-selectores-jquery-y-traversing/04-partir-de-un-contexto.html  -----  *
-    *  ----------------------------------------------------------------------------------------------------------------------------------  *
+    *  -------------------------------------------------------------------------------------------------------  *
+    *  -----  /04-partir-de-un-contexto.html  --  /src/pages/clase-08/04-partir-de-un-contexto.html  -----  *
+    *  -------------------------------------------------------------------------------------------------------  *
 -->
 
 
 
 <div class="main__container">
 
+    <!--  -----  Header de la Sección  -----  -->
+    <header class="section__header">
 
-    <!--  -----  INFO  -----  -->
-    <section class="main__section-info">
+        <h2 class="section__title" title="Partir de un Contexto">
+            Clase 8 - Partir de un Contexto - Descripción
+        </h2>
 
+    </header>
 
-        <!--  -----  Header de la Sección  -----  -->
-        <header class="section__header">
-
-            <h2 class="section__title" title="Que es jQuery">
-                Clase 8 - 4. Partir de un Contexto
-            </h2>
-
-        </header>
-
-        <article class="section__content">
-
-            <div class="content__description content__description--exercise">
-
-                <h3 class="content__title">
-                    Partir de un contexto
-                </h3>
-
-                <p class="content__text">
-                    Este ejercicio muestra como usar un <strong>contexto</strong> como punto de partida
-                    para limitar las busquedas de elementos a un contenedor especifico.
-                </p>
-
-                <ul class="content__list">
-                    <li>
-                        El segundo parametro de <code>$(selector, contexto)</code> restringe la busqueda a ese contenedor.
-                    </li>
-                    <li>
-                        <kbd>find()</kbd> busca descendientes dentro de una seleccion ya hecha.
-                    </li>
-                    <li>
-                        Es util para evitar interferencias y manipular elementos dentro de secciones especificas del DOM.
-                    </li>
-                </ul>
-
-                <p class="content__note">
-                    <kbd> Objetivo: </kbd> usar contextos para hacer selectores mas precisos y eficientes.
-                </p>
-
-            </div>
-
-        </article>
+    <!--  -----  Descripción de la Página  -----  -->
+    <section data-component-page="partirContextoDescription">
 
     </section>
 
-    <!--  -----  Práctica  -----  -->
-    <section class="main__section-practica">
+
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
+
+        <h2 class="section__title" title="Partir de un Contexto">
+            Clase 8 - Partir de un Contexto - Demo
+        </h2>
+
+    </header>
+
+    <!--  -----  Demo de la Página  -----  -->
+    <section data-component-page="partirContextoDemo">
+
+    </section>
 
 
-        <header id="principal">
+     <!--  -----  Header de la Sección  -----  -->
+     <header class="section__header">
 
-            <h3 class="grande">
-                h3 con clase grande, hijo de header con id principal 
-                <span> span dentro del h3 </span>
-            </h3>
+        <h2 class="section__title" title="Partir de un Contexto">
+            Clase 8 - Partir de un Contexto - Código Markdown
+        </h2>
 
-            <div>
-                div hermano de h3, hijo de header con id principal
-                <span class="grande">
-                    span con clase grande dentro del div
-                </span>
-            </div>
+    </header>
 
-        </header>
 
-        <div class="grande">
-            div con clase grande hermano de header con id principal
-        </div>
+    <!--  -----  Código Markdown  -----  -->
+    <section class="main__section-markdown">
 
-        <hr>
+        <div class="markdown__container">
 
-        <div class="btn__container">
-            <button id="btn1"> $("#principal .grande").css("color", "red") </button>
-            <button id="btn2"> $("#principal > .grande").css("color", "red") </button>
-            <button id="btn3"> $(".grande", "#principal").css("background", "#ccf") </button>
-            <button id="btn4"> $("#principal").find(".grande").css("color", "blue") </button>
+            <article 
+                data-shiki="codeHtml" 
+                data-label="partir-de-un-contexto.html" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .html tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeCss" 
+                data-label="partir-de-un-contexto.css" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .css tipo 'markdown'  *****  -->
+            </article>
+
+            <article 
+                data-shiki="codeJs" 
+                data-label="partir-de-un-contexto.js" 
+                class="markdown-code"
+            >
+                <!--  ***** Renderizar 'html' archivo .js tipo 'markdown'  *****  -->
+            </article>
+            
+
         </div>
 
     </section>
-
-    </section>
-
-
-
+       
 
 </div>

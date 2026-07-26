@@ -1,0 +1,64 @@
+<!--  
+    *  ------------------------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /04-partir-de-un-contexto-description.html  --  /src/pages-components/clase-08/04-partir-de-un-contexto-description.html  -----  *
+    *  ------------------------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
+
+            <p class="demo-page__intro-text">
+                Muestra como usar un <kbd>contexto</kbd> como punto de partida
+                para limitar busquedas: selector compuesto,
+                <kbd>$(sel, ctx)</kbd> y <kbd>find()</kbd>.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> usar contextos para hacer selectores mas
+                precisos y eficientes.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Compara <kbd>#principal .grande</kbd> vs
+                        <kbd>#principal > .grande</kbd>.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Prueba el segundo parametro
+                        <kbd>$(".grande", "#principal")</kbd>.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Usa <kbd>find()</kbd> partiendo de una seleccion ya
+                        hecha.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
