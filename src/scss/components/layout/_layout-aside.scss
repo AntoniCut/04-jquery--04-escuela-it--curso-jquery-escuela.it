@@ -1,0 +1,243 @@
+/*
+    *  ----------------------------------------------------------------------------------------  *
+    *  -----  _layout-aside.scss  --  /src/scss/components/layout/_layout-aside.scss  -----  *
+    *  ----------------------------------------------------------------------------------------  *
+*/
+
+
+@use '../../base/variables' as var;
+@use '../../base/mixins' as mix;
+
+
+/*
+    ---------------------------------
+    -----  Layout Content (row)  -----
+    ---------------------------------
+*/
+
+.layout__content {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+
+    @include mix.desktopSM {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 0 1.5rem 2rem;
+    }
+}
+
+
+/*
+    ----------------------------
+    -----  Layout Asides  -----
+    ----------------------------
+*/
+
+.layout__aside-left,
+.layout__aside-right {
+    display: none;
+    width: 100%;
+    flex-shrink: 0;
+
+    //  -----  Botones menú: top 2rem + height 4rem + gap 1rem = 7rem  -----
+    $aside-sticky-top: 7rem;
+    $aside-sticky-bottom-gap: 1.5rem;
+
+    @include mix.desktopSM {
+        &:has(.aside-left__container),
+        &:has(.aside-right__container) {
+            display: block;
+            position: sticky;
+            //  -----  Debajo de los botones azul / naranja al hacer scroll  -----
+            top: $aside-sticky-top;
+            width: 22rem;
+            //  -----  Alineado con .main__container (padding-top: 5rem)  -----
+            margin-top: 5rem;
+            //  -----  No sobresale: viewport - top sticky - gap inferior  -----
+            max-height: calc(100dvh - #{$aside-sticky-top} - #{$aside-sticky-bottom-gap});
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(var.$bg-scrollbar, 0.7) transparent;
+
+            &::-webkit-scrollbar {
+                width: 4px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: rgba(var.$bg-scrollbar, 0.7);
+                border-radius: 4px;
+            }
+
+            &::-webkit-scrollbar-thumb:hover {
+                background-color: var.$bg-scrollbar;
+            }
+        }
+    }
+
+    @include mix.desktop {
+        &:has(.aside-left__container),
+        &:has(.aside-right__container) {
+            width: 24rem;
+        }
+    }
+}
+
+.layout__aside-left {
+    order: 1;
+}
+
+.layout__main {
+    order: 2;
+
+    @include mix.desktopSM {
+        flex: 1;
+        min-width: 0;
+        width: auto;
+    }
+}
+
+.layout__aside-right {
+    order: 3;
+}
+
+
+/*
+    ---------------------------------
+    -----  Contenedores Aside  -----
+    ---------------------------------
+*/
+
+.aside-left__container,
+.aside-right__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1.2rem;
+    border-radius: 1rem;
+    background-color: rgba(var.$bg-white, 0.92);
+    box-shadow: 0 4px 16px rgba(3, 106, 173, 0.12);
+    border: 1px solid rgba(var.$color-primary, 0.15);
+}
+
+
+/*
+    -------------------------
+    -----  Título Aside  -----
+    -------------------------
+*/
+
+.aside__title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 1.2rem 1rem;
+    border-radius: 0.8rem;
+    background: var.$bg-title-layout-main;
+    box-shadow: 4px 4px 10px rgba(209, 220, 235, 0.8);
+
+    h3 {
+        margin: 0;
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var.$color-primary;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.aside__subtitle {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #3a5672;
+    text-align: center;
+}
+
+
+/*
+    -----------------------
+    -----  Lista Aside  -----
+    -----------------------
+*/
+
+.aside__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.aside__item {
+    width: 100%;
+
+    a {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border-radius: 0.6rem;
+        text-decoration: none;
+        color: #1f3551;
+        font-size: 1.3rem;
+        line-height: 1.35;
+        transition: background-color 200ms ease, color 200ms ease, transform 200ms ease;
+
+        &:hover {
+            background-color: rgba(var.$color-primary, 0.1);
+            color: var.$color-primary;
+            transform: translateX(2px);
+        }
+
+        &.active {
+            background-color: rgba(var.$color-primary, 0.15);
+            color: var.$color-primary;
+            font-weight: 600;
+            border-left: 3px solid var.$color-primary;
+        }
+    }
+
+    &--disabled {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 0.8rem 1rem;
+        border-radius: 0.6rem;
+        color: #9aa8b8;
+        font-size: 1.3rem;
+        cursor: not-allowed;
+        opacity: 0.65;
+    }
+}
+
+.aside__item-num {
+    flex-shrink: 0;
+    min-width: 2.4rem;
+    font-family: monospace;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var.$color-primary;
+}
+
+.aside__item--disabled .aside__item-num {
+    color: #9aa8b8;
+}
+
+.aside__item-label {
+    flex: 1;
+    min-width: 0;
+}

@@ -16,6 +16,8 @@ export const paths = {
     btnNavbarThemesJQueryUI: `${base}/app/components/buttons/btn-navbar-themes-jquery-ui.html`,
     layoutNavbar: `${base}/app/components/layout/layout-navbar.html`,
     layoutNavbarThemesUI: `${base}/app/components/layout/layout-navbar-themes-jquery-ui.html`,
+    layoutAsideLeft: `${base}/app/components/layout/layout-aside-left.html`,
+    layoutAsidePages: `${base}/app/components/layout/pages`,
     pages: `${base}/app/pages`,
     pagesComponents: `${base}/app/pages-components`,
     layoutFooter: `${base}/app/components/layout/layout-footer.html`,

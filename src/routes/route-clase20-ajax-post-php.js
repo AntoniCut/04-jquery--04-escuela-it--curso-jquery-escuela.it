@@ -18,6 +18,8 @@ const {
     btnNavbarThemesJQueryUI,
     layoutNavbar,
     layoutNavbarThemesUI,
+    layoutAsideLeft,
+    layoutAsidePages,
     pages,
     pagesComponents,
     layoutFooter,
@@ -40,7 +42,9 @@ export const routeClase20AjaxPostPhp = {
             "#btnNavbarThemesJQueryUI": btnNavbarThemesJQueryUI,
             "#layoutNavbar": layoutNavbar,
             "#layoutNavbarThemesUI": layoutNavbarThemesUI,
+            "#layoutAsideLeft": layoutAsideLeft,
             "#layoutMain": `${pages}/clase-20/01-ajax-post-php.html`,
+            "#layoutAsideRight": `${layoutAsidePages}/clase-20/layout-aside-clase-20.html`,
             "#layoutFooter": layoutFooter,
         },
         pagesComponents: [
