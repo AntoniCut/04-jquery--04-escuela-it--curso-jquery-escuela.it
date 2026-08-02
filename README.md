@@ -15,7 +15,9 @@ Implementado como una **SPA** (Single Page Application) con enrutamiento propio,
 | Gulp 5 | 5.x | Pipeline de build |
 | Express 5 | 5.x | Servidor dev y preview |
 | BrowserSync | 3.x | Live reload |
-| php-cgi | 8.3 | Ejecución de servicios PHP |
+| php-cgi / PHP-FPM | 8.x | Servicios PHP (AJAX) |
+| MySQL / MariaDB | — | Buscador clase 20 (`buscar.php`) |
+| Shiki | 4.x | Resaltado de código en demos |
 | sharp | 0.34.x | Conversión/optimización de imágenes |
 | pnpm | 9.x | Gestor de paquetes |
 | Node.js | ESM | Runtime |
@@ -26,7 +28,8 @@ Implementado como una **SPA** (Single Page Application) con enrutamiento propio,
 
 - **Node.js** ≥ 18
 - **pnpm** ≥ 9 — `npm install -g pnpm`
-- **php-cgi** (para los ejercicios AJAX con PHP) — `sudo apt install php8.3-cgi`
+- **php-cgi** (desarrollo con Express) — `sudo apt install php8.3-cgi php8.3-mysql`
+- **MySQL / MariaDB** (XAMPP o servidor) con extensión `mysqli`
 
 ---
 
@@ -34,6 +37,7 @@ Implementado como una **SPA** (Single Page Application) con enrutamiento propio,
 
 ```bash
 pnpm install
+cp .env.example .env   # ajustar puertos y credenciales MySQL locales
 ```
 
 ---
@@ -42,43 +46,47 @@ pnpm install
 
 | Comando | Descripción |
 |---|---|
-| `pnpm run dev` | Inicia Gulp (watch + compilación) y el servidor de desarrollo con live reload |
-| `pnpm run build` | Genera el build de producción en `dist/` |
-| `pnpm run preview` | Sirve el build de producción en `http://localhost:4173` |
-| `pnpm run stop:dev` | Detiene el servidor de desarrollo de forma limpia |
+| `pnpm run dev` | Gulp (watch + compilación) + servidor de desarrollo con live reload |
+| `pnpm run build` | Build de producción en `dist/` |
+| `pnpm run preview` | Sirve `dist/` (puerto de `.env`, por defecto 4173) |
+| `pnpm run stop:dev` | Detiene el servidor de desarrollo |
+| `pnpm run code-highlight` | Regenera los bloques Shiki en `src/markdown-shiki/` |
 
-### Variables de entorno (`.env`)
+### Variables de entorno
 
-Copia `.env.example` a `.env` y rellena los valores. El archivo `.env` está en `.gitignore` y no se sube al repositorio.
+| Archivo | Uso | ¿Va a git? |
+|---|---|---|
+| `.env.example` | Plantilla sin secretos | Sí |
+| `.env` | Desarrollo local (XAMPP/Express) | No |
+| `.env.production` | Credenciales de producción (copiar al VPS como `.env`) | No |
 
 ```dotenv
-DEV_SERVER_PORT=3000        # Puerto público del servidor dev (BrowserSync)
-PREVIEW_SERVER_PORT=4173    # Puerto del servidor preview
-CHOKIDAR_USEPOLLING=false   # true en entornos WSL/Docker con problemas de watch
-CHOKIDAR_INTERVAL=250       # Intervalo de polling en ms
+DEV_SERVER_PORT=3000
+PREVIEW_SERVER_PORT=4173
+CHOKIDAR_USEPOLLING=false
+CHOKIDAR_INTERVAL=250
 
-# MySQL (buscar.php / php-cgi)
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_USER=jquery_user
-DB_PASS=tu_password_aqui
+DB_USER=root                 # local XAMPP suele ser root sin password
+DB_PASS=
 DB_NAME=jquery_escuelait_classicmodels
 ```
 
-- **Desarrollo / preview:** `server/dev-server.js` y `server/preview-server.js` cargan `dotenv` y pasan las vars a `php-cgi`.
-- **Producción (Nginx/PHP-FPM):** sube un `.env` a la raíz del despliegue (junto a `index.html`). `buscar.php` lo carga con `app/services/load-env.php` (no sobrescribe vars ya definidas).
+- **Desarrollo / preview:** Node carga `dotenv` y pasa las vars a `php-cgi`.
+- **Producción (Nginx/PHP-FPM):** el `.env` del despliegue lo lee `app/services/load-env.php` desde `buscar.php`.
 
 ---
 
 ## URL base
 
-El proyecto se sirve bajo el prefijo:
-
 ```
 /escuelait/curso-jquery-escuelait/
 ```
 
-Acceso en desarrollo: [http://localhost:3000/escuelait/curso-jquery-escuelait/](http://localhost:3000/escuelait/curso-jquery-escuelait/)
+Desarrollo (puerto según `.env`):  
+[http://localhost:9876/escuelait/curso-jquery-escuelait/](http://localhost:9876/escuelait/curso-jquery-escuelait/)  
+(o el `DEV_SERVER_PORT` que tengas configurado)
 
 ---
 
@@ -87,47 +95,151 @@ Acceso en desarrollo: [http://localhost:3000/escuelait/curso-jquery-escuelait/](
 ```
 curso-jquery-escuelait/
 │
-├── src/                        # Código fuente (origen de verdad)
-│   ├── main.js                 # Punto de entrada de la SPA
-│   ├── pages/                  # Fragmentos HTML por clase
+├── src/                              # Código fuente (origen de verdad)
+│   ├── main.js                       # Entrada de la SPA
+│   ├── pages/                        # Página de cada ruta (layout principal)
 │   │   ├── 00-home.html
-│   │   ├── clase-01/ … clase-16/
+│   │   ├── clase-01/ … clase-20/
 │   │   └── 404/
-│   ├── scripts/                # Scripts JS por clase
-│   │   ├── clase-03/ … clase-16/
-│   │   ├── register-service-worker.js
-│   │   └── tooltips.js
-│   ├── scss/                   # Estilos SCSS
-│   ├── components/             # Componentes HTML reutilizables
-│   ├── routes/                 # Definición de rutas SPA
-│   ├── spa/                    # Motor de la SPA (método load)
-│   ├── services/               # Servicios PHP (AJAX)
-│   │   ├── contenido-load.php
-│   │   ├── contenido-get-ajax.php
-│   │   └── contenido-get-ajax-dato.php
-│   ├── effects/                # Efectos de carga/transición
-│   ├── libs/                   # Librerías locales (jQuery, jQuery UI)
-│   └── plugins/                # Plugins jQuery (easing, animate-colors…)
+│   ├── pages-components/             # Fragmentos de página (demo + description)
+│   │   └── clase-01/ … clase-20/
+│   ├── markdown-shiki/               # HTML resaltado con Shiki (generado)
+│   │   └── clase-01/ … clase-20/
+│   ├── scripts/                      # JS por clase
+│   ├── scss/                         # Estilos SCSS → app/css/
+│   ├── components/                   # Layout reutilizable (header, navbar, footer…)
+│   ├── routes/                       # Definición de rutas SPA
+│   ├── spa/                          # Motor SPA (.load)
+│   ├── services/                     # PHP / JSON / SQL (AJAX)
+│   │   ├── load-env.php              # Carga .env (producción / fallback)
+│   │   ├── clase-16/
+│   │   ├── clase-18/
+│   │   └── clase-20/                 # buscar.php, products.json, SQL…
+│   ├── effects/
+│   ├── libs/                         # jQuery, jQuery UI
+│   ├── plugins/
+│   └── pdfs/
 │
-├── app/                        # Build intermedio (dev, generado por Gulp)
-├── dist/                       # Build de producción (generado por Gulp)
+├── app/                              # Build intermedio (dev, Gulp)
+├── dist/                             # Build de producción (Gulp)
 │
-├── assets/
-│   ├── img/                    # Imágenes optimizadas (PNG + AVIF responsive)
-│   ├── fonts/                  # Fuentes locales
-│   └── favicon/
+├── assets/                           # img, fonts, favicon
+├── server/                           # dev-server, preview-server, stop-dev
+├── types/
 │
-├── server/
-│   ├── dev-server.js           # Express + BrowserSync + php-cgi (desarrollo)
-│   ├── preview-server.js       # Express + php-cgi (previsualización del build)
-│   └── stop-dev-server.js      # Script para parar el servidor de desarrollo
-│
-├── types/                      # Tipos JSDoc del proyecto
-├── gulpfile.js                 # Tareas Gulp (sass, minify, copy, watch…)
-├── jsconfig.json               # Configuración TypeScript/JSDoc
-├── package.json
-└── pnpm-lock.yaml
+├── generate-markdown-shiki.js        # Genera src/markdown-shiki/
+├── gulpfile.js
+├── .env.example
+├── .env                              # local (gitignored)
+├── .env.production                   # prod local (gitignored)
+└── package.json
 ```
+
+### `pages` vs `pages-components`
+
+| Carpeta | Rol |
+|---|---|
+| `src/pages/` | HTML de la ruta: título, estructura y *slots* (`data-component-page`, `data-shiki`) |
+| `src/pages-components/` | Piezas inyectadas en esos slots: normalmente `*-description.html` y `*-demo.html` |
+
+En la ruta (`src/routes/route-….js`) se declara así:
+
+```js
+pagesComponents: [
+  { url: `${pagesComponents}/clase-20/03-buscador-description.html`, target: '[data-component-page="buscadorDescription"]' },
+  { url: `${pagesComponents}/clase-20/03-buscador-demo.html`, target: '[data-component-page="buscadorDemo"]' },
+],
+```
+
+### `markdown-shiki` (código resaltado)
+
+1. En la ruta se define `MarkdownShikiHtml` (fuente HTML/CSS/JS/PHP → archivo generado + selector `data-shiki`).
+2. Se genera con:
+
+```bash
+pnpm run code-highlight
+```
+
+3. Sale en `src/markdown-shiki/<clase>/…` y Gulp lo copia a `app/markdown-shiki/`.
+4. La SPA carga esos HTML en los paneles de código de cada demo.
+
+Tras cambiar un demo (HTML/JS/CSS/PHP), vuelve a ejecutar `pnpm run code-highlight` (o deja que el watch de Gulp lo regenere si está activo).
+
+---
+
+## Base de datos (clase 20 — buscador)
+
+El buscador usa MySQL (`mysqli`) sobre la tabla `products`. Si falla la conexión, hace fallback a `products.json`.
+
+### 1. Crear la base e importar datos
+
+En local (XAMPP / MariaDB), crea la BD con el nombre que usa el proyecto:
+
+```sql
+CREATE DATABASE IF NOT EXISTS jquery_escuelait_classicmodels
+  DEFAULT CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+```
+
+Importa el esquema y datos desde:
+
+```
+src/services/clase-20/classicmodels.sql
+src/services/clase-20/classicmodels-export.sql
+```
+
+Si el SQL crea/usa la BD `classicmodels`, cámbiala o importa dentro de `jquery_escuelait_classicmodels`:
+
+```bash
+# Ejemplo con cliente mysql (ajusta usuario/socket de XAMPP)
+mysql -u root jquery_escuelait_classicmodels < src/services/clase-20/classicmodels-export.sql
+```
+
+Comprueba:
+
+```sql
+USE jquery_escuelait_classicmodels;
+SHOW TABLES;                 -- debe existir products
+SELECT COUNT(*) FROM products;
+```
+
+### 2. Usuario MySQL
+
+- **Local (XAMPP):** suele bastar `DB_USER=root` y `DB_PASS=` vacío en `.env`.
+- **Producción:** crea un usuario limitado, p. ej. `jquery_user`, y ponlo en `.env.production`.
+
+```sql
+CREATE USER IF NOT EXISTS 'jquery_user'@'localhost' IDENTIFIED BY 'tu_password';
+CREATE USER IF NOT EXISTS 'jquery_user'@'127.0.0.1' IDENTIFIED BY 'tu_password';
+GRANT SELECT ON jquery_escuelait_classicmodels.* TO 'jquery_user'@'localhost';
+GRANT SELECT ON jquery_escuelait_classicmodels.* TO 'jquery_user'@'127.0.0.1';
+FLUSH PRIVILEGES;
+```
+
+### 3. Configurar `.env`
+
+```dotenv
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_USER=root
+DB_PASS=
+DB_NAME=jquery_escuelait_classicmodels
+```
+
+Usa `127.0.0.1` (TCP), no `localhost`, para evitar el socket de sistema cuando MySQL corre en XAMPP (`/opt/lampp/...`).
+
+Reinicia `pnpm run dev` si cambias el `.env` (Node solo lo carga al arrancar).
+
+### 4. Archivos relacionados
+
+| Archivo | Rol |
+|---|---|
+| `src/services/clase-20/buscar.php` | Endpoint AJAX del buscador |
+| `src/services/load-env.php` | Lee `.env` subiendo carpetas desde el PHP |
+| `src/services/clase-20/products.json` | Fallback si MySQL no está disponible |
+| `.env` / `.env.production` | Credenciales local / producción |
+
+Si ves *Datos obtenidos del fallback…*, mira el **Motivo MySQL:** en la página (usuario, password, BD inexistente, etc.).
 
 ---
 
@@ -144,19 +256,35 @@ curso-jquery-escuelait/
 | 07 | Atributos, propiedades, `.html()`, `.text()`, `.data()`, `.each()` |
 | 08 | Contexto, selectores de jerarquía, traversing |
 | 09 | Ejercicios prácticos (`this`, fecha, eventos) |
-| 10 | Inserción DOM — `.append()`, `.prepend()`, `.after()`, `.before()` |
-| 11 | Formularios y validación |
-| 12 | Animaciones avanzadas |
-| 13 | jQuery UI — Draggable, Tooltip |
+| 10 | Inserción DOM — `.append()`, `.prepend()`, `.after()`, `.before()`, envolturas, dimensiones |
+| 11 | Eventos de formularios — `.on()`, `.off()`, `preventDefault`, `stopPropagation` |
+| 12 | Menú contextual, movimiento del ratón, textarea |
+| 13 | Animaciones avanzadas / jQuery UI (Animate, Draggable, Tooltip…) |
 | 14 | Plugins personalizados |
 | 15 | SPA con `.load()` |
 | 16 | AJAX — Interfaz de alto nivel (`$.get`, `$.ajax`, PHP) |
+| 17 | Dudas y conceptos (parte 2) — ejercicios prácticos |
+| 18 | Formularios AJAX — POST, validación cliente/servidor |
+| 19 | Eventos avanzados — delegación, disparar eventos, eventos personalizados |
+| 20 | AJAX low-level — `$.post`/PHP, `.load` scripts, buscador MySQL, selects + JSONP |
+
+Cada demo suele repartirse así:
+
+```
+src/pages/clase-XX/…html              → página / slots
+src/pages-components/clase-XX/…       → description + demo
+src/scripts/clase-XX/…js              → lógica jQuery
+src/scss/pages/clase-XX/…             → estilos
+src/services/clase-XX/…               → PHP/JSON si aplica
+src/routes/route-claseXX-….js         → ruta SPA + MarkdownShikiHtml
+src/markdown-shiki/clase-XX/…         → código resaltado (generado)
+```
 
 ---
 
 ## Imágenes responsive
 
-Las imágenes ilustrativas usan `<picture>` + `srcset` con formato AVIF para optimizar el rendimiento:
+Las imágenes ilustrativas usan `<picture>` + `srcset` con AVIF:
 
 ```html
 <picture>
@@ -169,7 +297,7 @@ Las imágenes ilustrativas usan `<picture>` + `srcset` con formato AVIF para opt
 </picture>
 ```
 
-Los AVIF se generan con **sharp**. El PNG actúa de fallback para navegadores sin soporte AVIF.
+Los AVIF se generan con **sharp**. El PNG actúa de fallback.
 
 ---
 
@@ -178,12 +306,13 @@ Los AVIF se generan con **sharp**. El PNG actúa de fallback para navegadores si
 ```bash
 pnpm run build
 # Copiar dist/ a /var/www/jquery.antonydev.tech/escuelait/curso-jquery-escuelait/
-# Copiar .env.production al servidor como .env (misma raíz que index.html):
+# Copiar .env.production al servidor como .env:
 #   scp .env.production user@host:/var/www/jquery.antonydev.tech/escuelait/curso-jquery-escuelait/.env
 ```
 
-Plantilla local (gitignored): `.env.production`  
-En el VPS debe existir como `.env` en `/var/www/jquery.antonydev.tech/escuelait/curso-jquery-escuelait/.env`
+En el VPS el `.env` debe estar junto al `index.html` desplegado:
+
+`/var/www/jquery.antonydev.tech/escuelait/curso-jquery-escuelait/.env`
 
 Bloque Nginx (con `root`) y bloqueo de `.env`:
 
@@ -207,12 +336,6 @@ location ^~ /escuelait/curso-jquery-escuelait/ {
     }
 }
 ```
-
-El `.env` de producción va en:
-
-`/var/www/jquery.antonydev.tech/escuelait/curso-jquery-escuelait/.env`
-
-(junto al `index.html` desplegado; no dentro de `app/services/`).
 
 ---
 
