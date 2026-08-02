@@ -64,7 +64,7 @@ export { };
  * ----------------------------------
  * @typedef {Object} MarkdownShikiEntry - Entrada que define cómo generar y dónde servir un bloque HTML resaltado con Shiki.
  * @property {string} fileName - Nombre del fichero .html generado (p.ej. 'astro-page-html.html').
- * @property {string} fileExtension - Tipo/lenguaje a resaltar: 'html' | 'css' | 'scss' | 'js' (mapeado a lang de Shiki).
+ * @property {string} fileExtension - Tipo/lenguaje a resaltar: 'html' | 'css' | 'scss' | 'js' | 'php' (mapeado a lang de Shiki).
  * @property {string} urlInput - URL (con base) del archivo fuente a renderizar (debe existir en disco para que no haya error).
  * @property {string} urlOutput - URL (con base) de la CARPETA donde se guarda el .html generado. El archivo final se sirve de `urlOutput + '/' + fileName`.
  * @property {string} target - Selector CSS del contenedor DOM donde se insertará el HTML (p.ej. `'[data-shiki="codeHtml"]'`). Permite múltiples archivos del mismo tipo sin colisión de IDs.

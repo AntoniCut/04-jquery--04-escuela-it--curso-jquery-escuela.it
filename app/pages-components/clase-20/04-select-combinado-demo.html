@@ -1,0 +1,48 @@
+<!--  
+    *  --------------------------------------------------------------------------------------------------------------  *
+    *  -----  /04-select-combinado-demo.html  --  /src/pages-components/clase-20/04-select-combinado-demo.html  -----  *
+    *  --------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__demo">
+
+
+    <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+    <div class="ajax-low">
+
+        <h3 class="ajax-low__title">
+            Select combinado (JSON)
+        </h3>
+
+        <p class="ajax-low__hint">
+            Selecciona un pais para cargar sus provincias/ciudades via Ajax JSON.
+        </p>
+
+        <form id="f1" action="#" class="ajax-low__form">
+
+            <div class="ajax-low__field">
+                <label class="ajax-low__label" for="pais">Escoge el país:</label>
+                <select id="pais" name="pais" class="ajax-low__select">
+                    <option value="-" selected>Por favor, seleccione un país</option>
+                    <option value="ar">Argentina</option>
+                    <option value="br">Brasil</option>
+                    <option value="es">España</option>
+                    <option value="mx">México</option>
+                </select>
+            </div>
+
+            <div class="ajax-low__field">
+                <label class="ajax-low__label" for="provincia">Escoge la provincia:</label>
+                <select id="provincia" name="provincia" class="ajax-low__select"></select>
+            </div>
+
+            <p id="resultado" class="ajax-low__resultado"></p>
+
+        </form>
+
+    </div>
+
+
+</div>

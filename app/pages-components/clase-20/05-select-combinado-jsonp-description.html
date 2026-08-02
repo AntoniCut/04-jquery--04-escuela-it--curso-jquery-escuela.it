@@ -1,0 +1,61 @@
+<!--  
+    *  ----------------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /05-select-combinado-jsonp-description.html  --  /src/pages-components/clase-20/05-select-combinado-jsonp-description.html  -----  *
+    *  ----------------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
+
+            <p class="demo-page__intro-text">
+                Variante del select combinado que usa <kbd>dataType: "jsonp"</kbd>.
+                El servidor envuelve el JSON en un callback, lo que permite peticiones
+                cross-domain tipicas del patron JSONP.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> Diferenciar JSON vs JSONP en <kbd>$.ajax()</kbd>
+                y entender el parametro <kbd>callback</kbd> que genera jQuery.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        La peticion usa <kbd>dataType: "jsonp"</kbd> en lugar de <kbd>"json"</kbd>.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        El PHP detecta <kbd>$_GET["callback"]</kbd> y responde como script.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        El resto del flujo (beforeSend, success, complete, error) se mantiene igual.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>

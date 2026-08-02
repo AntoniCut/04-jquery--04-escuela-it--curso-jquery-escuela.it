@@ -1,0 +1,45 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">        *  -----  destino</span><span style="color:#D4D4D4">.</span><span style="color:#D4D4D4">php  --  /src/services/clase-</span><span style="color:#B5CEA8">20</span><span style="color:#D4D4D4">/destino</span><span style="color:#D4D4D4">.</span><span style="color:#D4D4D4">php  -----  *</span></span>
+<span class="line"><span style="color:#D4D4D4">        *  -----------------------------------------------------------------  *</span></span>
+<span class="line"><span style="color:#D4D4D4">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $dato</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">htmlspecialchars</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$_POST</span><span style="color:#D4D4D4">[</span><span style="color:#CE9178">"dato"</span><span style="color:#D4D4D4">] ?? </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $estilos</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'</span></span>
+<span class="line"><span style="color:#CE9178">        &#x3C;style></span></span>
+<span class="line"><span style="color:#CE9178">            .respuesta-ajax {</span></span>
+<span class="line"><span style="color:#CE9178">                width: 100%;</span></span>
+<span class="line"><span style="color:#CE9178">                display: flex;</span></span>
+<span class="line"><span style="color:#CE9178">                flex-direction: column;</span></span>
+<span class="line"><span style="color:#CE9178">                gap: 1.2rem;</span></span>
+<span class="line"><span style="color:#CE9178">                font-family: inherit;</span></span>
+<span class="line"><span style="color:#CE9178">                text-align: left;</span></span>
+<span class="line"><span style="color:#CE9178">            }</span></span>
+<span class="line"><span style="color:#CE9178">            .respuesta-ajax__titulo {</span></span>
+<span class="line"><span style="color:#CE9178">                font-size: 1.6rem;</span></span>
+<span class="line"><span style="color:#CE9178">                font-weight: 700;</span></span>
+<span class="line"><span style="color:#CE9178">                color: #1a1a2e;</span></span>
+<span class="line"><span style="color:#CE9178">                margin: 0;</span></span>
+<span class="line"><span style="color:#CE9178">                padding-bottom: 1rem;</span></span>
+<span class="line"><span style="color:#CE9178">                border-bottom: 2px solid #e1e4eb;</span></span>
+<span class="line"><span style="color:#CE9178">                text-align: center;</span></span>
+<span class="line"><span style="color:#CE9178">            }</span></span>
+<span class="line"><span style="color:#CE9178">            .respuesta-ajax__dato {</span></span>
+<span class="line"><span style="color:#CE9178">                padding: 1.2rem 1.6rem;</span></span>
+<span class="line"><span style="color:#CE9178">                background: linear-gradient(145deg, #ffffff 0%, #f8f9fc 100%);</span></span>
+<span class="line"><span style="color:#CE9178">                border-left: 4px solid #0f766e;</span></span>
+<span class="line"><span style="color:#CE9178">                border-radius: 8px;</span></span>
+<span class="line"><span style="color:#CE9178">                font-size: 1.5rem;</span></span>
+<span class="line"><span style="color:#CE9178">                color: #3d4152;</span></span>
+<span class="line"><span style="color:#CE9178">            }</span></span>
+<span class="line"><span style="color:#CE9178">        &#x3C;/style></span></span>
+<span class="line"><span style="color:#CE9178">    '</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">    echo</span><span style="color:#9CDCFE"> $estilos</span><span style="color:#D4D4D4"> .</span><span style="color:#CE9178"> '</span></span>
+<span class="line"><span style="color:#CE9178">        &#x3C;div class="respuesta-ajax"></span></span>
+<span class="line"><span style="color:#CE9178">            &#x3C;h3 class="respuesta-ajax__titulo">Respuesta Ajax POST&#x3C;/h3></span></span>
+<span class="line"><span style="color:#CE9178">            &#x3C;div class="respuesta-ajax__dato">esto es Ajax '</span><span style="color:#D4D4D4"> .</span><span style="color:#9CDCFE"> $dato</span><span style="color:#D4D4D4"> .</span><span style="color:#CE9178"> '&#x3C;/div></span></span>
+<span class="line"><span style="color:#CE9178">        &#x3C;/div></span></span>
+<span class="line"><span style="color:#CE9178">    '</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">?></span></span>
+<span class="line"></span></code></pre>

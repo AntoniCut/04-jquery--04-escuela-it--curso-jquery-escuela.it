@@ -5,10 +5,14 @@
 */
 
 
+/// reference path="../../../types/route-manifest.d.js"
+
+
+
 /**
  * - Manifiesto ligero de rutas: solo id, path y nombre de archivo (sin imports).
  * - Se usa para lazy loading: el modulo de cada ruta se importa dinamicamente bajo demanda.
- * @type {import('../../types/index.js').RouteManifest[]}
+ * @type {RouteManifest[]}
  */
 export const routeManifest = [
 
@@ -110,6 +114,13 @@ export const routeManifest = [
     { id: 'clase19EventosPersonalizados1', path: 'clase19-eventos-avanzados/05-eventos-personalizados-1', file: 'route-clase19-eventos-personalizados-1' },
     { id: 'clase19EventosPersonalizados2', path: 'clase19-eventos-avanzados/06-eventos-personalizados-2', file: 'route-clase19-eventos-personalizados-2' },
     { id: 'clase19PasarParametrosAEventos', path: 'clase19-eventos-avanzados/02-pasar-parametros-a-eventos', file: 'route-clase19-pasar-parametros-a-eventos' },
+
+    { id: 'clase20', path: 'clase20-ajax-low-level', file: 'route-clase20' },
+    { id: 'clase20AjaxPostPhp', path: 'clase20-ajax-low-level/01-ajax-post-php', file: 'route-clase20-ajax-post-php' },
+    { id: 'clase20AjaxLoadScripts', path: 'clase20-ajax-low-level/02-ajax-load-scripts', file: 'route-clase20-ajax-load-scripts' },
+    { id: 'clase20Buscador', path: 'clase20-ajax-low-level/03-buscador', file: 'route-clase20-buscador' },
+    { id: 'clase20SelectCombinado', path: 'clase20-ajax-low-level/04-select-combinado', file: 'route-clase20-select-combinado' },
+    { id: 'clase20SelectCombinadoJsonp', path: 'clase20-ajax-low-level/05-select-combinado-jsonp', file: 'route-clase20-select-combinado-jsonp' },
     
     { id: '404NotFoundPage', path: '404', file: 'route-404-not-found-page' },
 

@@ -1,0 +1,52 @@
+<!--  
+    *  ----------------------------------------------------------------------------------------------  *
+    *  -----  /03-buscador-demo.html  --  /src/pages-components/clase-20/03-buscador-demo.html  -----  *
+    *  ----------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__demo">
+
+
+    <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+    <div class="ajax-low">
+
+        <h3 class="ajax-low__title">
+            Buscador de productos
+        </h3>
+
+        <p class="ajax-low__hint">
+            Busca por nombre y/o descripcion. Prueba con <kbd>Ford</kbd> o <kbd>steering</kbd>.
+        </p>
+
+        <form id="f1" action="#" class="ajax-low__form">
+
+            <div class="ajax-low__field">
+                <label class="ajax-low__label" for="producto">Producto:</label>
+                <input class="ajax-low__input" type="text" name="producto" id="producto" placeholder="Ej: Ford, Ferrari...">
+            </div>
+
+            <div class="ajax-low__field">
+                <label class="ajax-low__label" for="descripcion">Descripción:</label>
+                <input class="ajax-low__input" type="text" name="descripcion" id="descripcion" placeholder="Ej: steering, hood...">
+            </div>
+
+            <div class="ajax-low__field ajax-low__field--actions">
+                <input class="ajax-low__submit" type="submit" value="Buscar">
+            </div>
+
+        </form>
+
+        <div class="ajax-low__output ajax-low__output--table" id="respuesta">
+            <div class="ajax-low__loading" id="loading">
+                <img class="ajax-low__loading-img" src="../../../assets/img/clase-20/loading.gif" alt="Cargando...">
+                <span class="ajax-low__loading-text">Buscando productos...</span>
+            </div>
+            <div class="ajax-low__output-info">Los resultados apareceran aqui...</div>
+        </div>
+
+    </div>
+
+
+</div>

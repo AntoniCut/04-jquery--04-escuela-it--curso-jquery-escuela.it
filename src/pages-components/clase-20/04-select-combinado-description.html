@@ -1,0 +1,62 @@
+<!--  
+    *  ----------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /04-select-combinado-description.html  --  /src/pages-components/clase-20/04-select-combinado-description.html  -----  *
+    *  ----------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
+
+            <p class="demo-page__intro-text">
+                Implementa selects dependientes (pais → provincia). Al cambiar el pais se
+                lanza una peticion GET con <kbd>dataType: "json"</kbd> y se rellenan las
+                opciones del segundo select con la respuesta.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> Usar el ciclo completo de <kbd>$.ajax()</kbd>
+                (<kbd>beforeSend</kbd>, <kbd>success</kbd>, <kbd>complete</kbd>, <kbd>error</kbd>
+                y <kbd>cache: false</kbd>.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        <kbd>beforeSend</kbd> muestra un estado de carga en el select de provincias.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        La respuesta JSON se recorre para crear opciones dinamicas.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        <kbd>error</kbd> y <kbd>complete</kbd> registran el estado de la peticion.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>

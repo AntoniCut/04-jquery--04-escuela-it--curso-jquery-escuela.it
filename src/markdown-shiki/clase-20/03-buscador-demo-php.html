@@ -1,0 +1,124 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">        *  -----  buscar</span><span style="color:#D4D4D4">.</span><span style="color:#D4D4D4">php  --  /src/services/clase-</span><span style="color:#B5CEA8">20</span><span style="color:#D4D4D4">/buscar</span><span style="color:#D4D4D4">.</span><span style="color:#D4D4D4">php  -----  *</span></span>
+<span class="line"><span style="color:#D4D4D4">        *  ---------------------------------------------------------------  *</span></span>
+<span class="line"><span style="color:#D4D4D4">        *                                                                   *</span></span>
+<span class="line"><span style="color:#D4D4D4">        *  - Busca productos en jquery_escuelait_classicmodels</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">products</span><span style="color:#D4D4D4"> (mysqli)</span></span>
+<span class="line"><span style="color:#D4D4D4">        *    o en products</span><span style="color:#D4D4D4">.</span><span style="color:#D4D4D4">json como fallback si mysqli </span><span style="color:#569CD6">no</span><span style="color:#D4D4D4"> esta disponible</span><span style="color:#D4D4D4">.</span></span>
+<span class="line"><span style="color:#D4D4D4">        *                                                                   *</span></span>
+<span class="line"><span style="color:#D4D4D4">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">    sleep</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">1</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $producto</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$_POST</span><span style="color:#D4D4D4">[</span><span style="color:#CE9178">"producto"</span><span style="color:#D4D4D4">] ?? </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    $descripcion</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$_POST</span><span style="color:#D4D4D4">[</span><span style="color:#CE9178">"descripcion"</span><span style="color:#D4D4D4">] ?? </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $filas</span><span style="color:#D4D4D4"> = [];</span></span>
+<span class="line"><span style="color:#9CDCFE">    $consultaMysqlOk</span><span style="color:#D4D4D4"> = </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    $fuenteDatos</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'ninguna'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Intentar consulta MySQL (jquery_escuelait_classicmodels)  -----</span></span>
+<span class="line"><span style="color:#6A9955">    //  Nota: usar 127.0.0.1 (TCP) y no "localhost".</span></span>
+<span class="line"><span style="color:#6A9955">    //  Con "localhost", el PHP del sistema busca /var/run/mysqld/mysqld.sock</span></span>
+<span class="line"><span style="color:#6A9955">    //  y falla si MySQL corre en XAMPP (/opt/lampp/var/mysql/mysql.sock).</span></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"><span style="color:#C586C0">    if</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">function_exists</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'mysqli_connect'</span><span style="color:#D4D4D4">)) {</span></span>
+<span class="line"><span style="color:#DCDCAA">        mysqli_report</span><span style="color:#D4D4D4">(MYSQLI_REPORT_OFF);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $host</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">getenv</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'DB_HOST'</span><span style="color:#D4D4D4">) ?: </span><span style="color:#CE9178">'127.0.0.1'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        $user</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">getenv</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'DB_USER'</span><span style="color:#D4D4D4">) ?: </span><span style="color:#CE9178">'root'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        $pass</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">getenv</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'DB_PASS'</span><span style="color:#D4D4D4">) !== </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4"> ? </span><span style="color:#DCDCAA">getenv</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'DB_PASS'</span><span style="color:#D4D4D4">) : </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        $db</span><span style="color:#D4D4D4">   = </span><span style="color:#DCDCAA">getenv</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'DB_NAME'</span><span style="color:#D4D4D4">) ?: </span><span style="color:#CE9178">'jquery_escuelait_classicmodels'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        $port</span><span style="color:#D4D4D4"> = (</span><span style="color:#569CD6">int</span><span style="color:#D4D4D4">) (</span><span style="color:#DCDCAA">getenv</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'DB_PORT'</span><span style="color:#D4D4D4">) ?: </span><span style="color:#B5CEA8">3306</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $conn</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">mysqli_connect</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$host</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$user</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$pass</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$db</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$port</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">$conn</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">            $productoEsc</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">mysqli_real_escape_string</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$conn</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$producto</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">            $descripcionEsc</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">mysqli_real_escape_string</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$conn</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$descripcion</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">            $sql</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"</span><span style="color:#569CD6">SELECT</span><span style="color:#CE9178"> productName, productDescription</span></span>
+<span class="line"><span style="color:#569CD6">                    FROM</span><span style="color:#CE9178"> products</span></span>
+<span class="line"><span style="color:#569CD6">                    WHERE</span><span style="color:#CE9178"> productName </span><span style="color:#569CD6">LIKE</span><span style="color:#CE9178"> '%{</span><span style="color:#9CDCFE">$productoEsc</span><span style="color:#CE9178">}%'</span></span>
+<span class="line"><span style="color:#569CD6">                      AND</span><span style="color:#CE9178"> productDescription </span><span style="color:#569CD6">LIKE</span><span style="color:#CE9178"> '%{</span><span style="color:#9CDCFE">$descripcionEsc</span><span style="color:#CE9178">}%'"</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">            $result</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">mysqli_query</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$conn</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$sql</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">            if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">$result</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">                $consultaMysqlOk</span><span style="color:#D4D4D4"> = </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">                $fuenteDatos</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'mysql'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">                while</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">$row</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">mysqli_fetch_assoc</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$result</span><span style="color:#D4D4D4">)) {</span></span>
+<span class="line"><span style="color:#9CDCFE">                    $filas</span><span style="color:#D4D4D4">[] = </span><span style="color:#9CDCFE">$row</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">                }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">                mysqli_free_result</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$result</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">            }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">            mysqli_close</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$conn</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Fallback local con products.json  -----</span></span>
+<span class="line"><span style="color:#C586C0">    if</span><span style="color:#D4D4D4"> (!</span><span style="color:#9CDCFE">$consultaMysqlOk</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">        $jsonPath</span><span style="color:#D4D4D4"> = </span><span style="color:#569CD6">__DIR__</span><span style="color:#D4D4D4"> .</span><span style="color:#CE9178"> '/products.json'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">is_file</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$jsonPath</span><span style="color:#D4D4D4">)) {</span></span>
+<span class="line"><span style="color:#9CDCFE">            $productos</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">json_decode</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">file_get_contents</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$jsonPath</span><span style="color:#D4D4D4">), </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">) ?: [];</span></span>
+<span class="line"><span style="color:#9CDCFE">            $productoLower</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">strtolower</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$producto</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">            $descripcionLower</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">strtolower</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$descripcion</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">            $fuenteDatos</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'json'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">            foreach</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">$productos</span><span style="color:#D4D4D4"> as </span><span style="color:#9CDCFE">$item</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">                $name</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">strtolower</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$item</span><span style="color:#D4D4D4">[</span><span style="color:#CE9178">'productName'</span><span style="color:#D4D4D4">] ?? </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">                $desc</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">strtolower</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$item</span><span style="color:#D4D4D4">[</span><span style="color:#CE9178">'productDescription'</span><span style="color:#D4D4D4">] ?? </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">                $matchNombre</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$productoLower</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4"> || </span><span style="color:#DCDCAA">str_contains</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$name</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$productoLower</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">                $matchDesc</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$descripcionLower</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4"> || </span><span style="color:#DCDCAA">str_contains</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$desc</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$descripcionLower</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">                if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">$matchNombre</span><span style="color:#D4D4D4"> &#x26;&#x26; </span><span style="color:#9CDCFE">$matchDesc</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">                    $filas</span><span style="color:#D4D4D4">[] = </span><span style="color:#9CDCFE">$item</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">                }</span></span>
+<span class="line"><span style="color:#D4D4D4">            }</span></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  Mensaje de origen de datos  -----</span></span>
+<span class="line"><span style="color:#C586C0">    if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">$fuenteDatos</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">'mysql'</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">        $mensajeFuente</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'Datos obtenidos de MySQL: jquery_escuelait_classicmodels.products'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        $claseFuente</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'ajax-low__source ajax-low__source--mysql'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    } </span><span style="color:#C586C0">elseif</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">$fuenteDatos</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">'json'</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">        $mensajeFuente</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'Datos obtenidos del fallback local: products.json'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        $claseFuente</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'ajax-low__source ajax-low__source--json'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    } </span><span style="color:#C586C0">else</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        $mensajeFuente</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'No se pudo consultar MySQL ni products.json'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        $claseFuente</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'ajax-low__source ajax-low__source--error'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">?></span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">&#x3C;p </span><span style="color:#569CD6">class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"&#x3C;?php echo </span><span style="color:#9CDCFE">$claseFuente</span><span style="color:#CE9178">; ?>"</span><span style="color:#D4D4D4">></span></span>
+<span class="line"><span style="color:#D4D4D4">    &#x3C;?php </span><span style="color:#DCDCAA">echo</span><span style="color:#DCDCAA"> htmlspecialchars</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$mensajeFuente</span><span style="color:#D4D4D4">); ?></span></span>
+<span class="line"><span style="color:#D4D4D4">&#x3C;/p></span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">&#x3C;table </span><span style="color:#569CD6">class</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"ajax-low__table"</span><span style="color:#D4D4D4"> align=</span><span style="color:#CE9178">"center"</span><span style="color:#D4D4D4"> border=</span><span style="color:#CE9178">"1"</span><span style="color:#D4D4D4"> cellspacing=</span><span style="color:#CE9178">"0"</span><span style="color:#D4D4D4">></span></span>
+<span class="line"><span style="color:#D4D4D4">    &#x3C;tr></span></span>
+<span class="line"><span style="color:#D4D4D4">        &#x3C;th width=</span><span style="color:#CE9178">"30%"</span><span style="color:#D4D4D4">>Producto&#x3C;/th></span></span>
+<span class="line"><span style="color:#D4D4D4">        &#x3C;th width=</span><span style="color:#CE9178">"70%"</span><span style="color:#D4D4D4">>Descripción&#x3C;/th></span></span>
+<span class="line"><span style="color:#D4D4D4">    &#x3C;/tr></span></span>
+<span class="line"><span style="color:#D4D4D4">    &#x3C;?php </span><span style="color:#C586C0">if</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">empty</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$filas</span><span style="color:#D4D4D4">)): ?></span></span>
+<span class="line"><span style="color:#D4D4D4">        &#x3C;tr></span></span>
+<span class="line"><span style="color:#D4D4D4">            &#x3C;td colspan=</span><span style="color:#CE9178">"2"</span><span style="color:#D4D4D4">></span><span style="color:#569CD6">No</span><span style="color:#D4D4D4"> se encontraron productos para esa busqueda</span><span style="color:#D4D4D4">.</span><span style="color:#D4D4D4">&#x3C;/td></span></span>
+<span class="line"><span style="color:#D4D4D4">        &#x3C;/tr></span></span>
+<span class="line"><span style="color:#D4D4D4">    &#x3C;?php </span><span style="color:#C586C0">else</span><span style="color:#D4D4D4">: ?></span></span>
+<span class="line"><span style="color:#D4D4D4">        &#x3C;?php </span><span style="color:#C586C0">foreach</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">$filas</span><span style="color:#D4D4D4"> as </span><span style="color:#9CDCFE">$row</span><span style="color:#D4D4D4">): ?></span></span>
+<span class="line"><span style="color:#D4D4D4">            &#x3C;tr></span></span>
+<span class="line"><span style="color:#D4D4D4">                &#x3C;td>&#x3C;?php </span><span style="color:#DCDCAA">echo</span><span style="color:#DCDCAA"> htmlspecialchars</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$row</span><span style="color:#D4D4D4">[</span><span style="color:#CE9178">'productName'</span><span style="color:#D4D4D4">]); ?>&#x3C;/td></span></span>
+<span class="line"><span style="color:#D4D4D4">                &#x3C;td>&#x3C;?php </span><span style="color:#DCDCAA">echo</span><span style="color:#DCDCAA"> htmlspecialchars</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$row</span><span style="color:#D4D4D4">[</span><span style="color:#CE9178">'productDescription'</span><span style="color:#D4D4D4">]); ?>&#x3C;/td></span></span>
+<span class="line"><span style="color:#D4D4D4">            &#x3C;/tr></span></span>
+<span class="line"><span style="color:#D4D4D4">        &#x3C;?php </span><span style="color:#C586C0">endforeach</span><span style="color:#D4D4D4">; ?></span></span>
+<span class="line"><span style="color:#D4D4D4">    &#x3C;?php </span><span style="color:#C586C0">endif</span><span style="color:#D4D4D4">; ?></span></span>
+<span class="line"><span style="color:#D4D4D4">&#x3C;/table></span></span>
+<span class="line"></span></code></pre>

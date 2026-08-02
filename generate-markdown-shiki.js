@@ -9,7 +9,7 @@
     *                                                                                   *
     *  Cada entrada del contrato MarkdownShikiEntry indica:                            *
     *    - fileName:      nombre del .html a generar.                                   *
-    *    - fileExtension: tipo/lenguaje a resaltar ('html' | 'css' | 'scss' | 'js').    *
+    *    - fileExtension: tipo/lenguaje a resaltar ('html' | 'css' | 'scss' | 'js' | 'php'). *
     *    - urlInput:      URL (con base) del archivo fuente a renderizar (debe existir). *
     *    - urlOutput:     URL (con base) de la CARPETA donde se guarda el .html generado.*
     *    - target:        selector CSS destino (informativo).                           *
@@ -60,6 +60,7 @@ const mapLang = (fileExtension) => {
     if (ext === 'css') return 'css';
     if (ext === 'scss') return 'scss';
     if (ext === 'js' || ext === 'javascript') return 'javascript';
+    if (ext === 'php') return 'php';
     return null;
 };
 
