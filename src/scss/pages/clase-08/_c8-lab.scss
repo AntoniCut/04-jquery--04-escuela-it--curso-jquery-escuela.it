@@ -6,6 +6,7 @@
     *  ----------------------------------------------------------------------  *
 */
 
+@use 'sass:color';
 
 $c8-ink: #1c1917;
 $c8-amber: #d97706;
@@ -35,7 +36,7 @@ $c8-muted: #57534e;
             padding: 1.8rem 2rem;
             background:
                 radial-gradient(circle at 0% 0%, rgba($c8-amber, 0.18), transparent 42%),
-                linear-gradient(145deg, $c8-panel 0%, darken($c8-paper, 2%) 100%);
+                linear-gradient(145deg, $c8-panel 0%, color.adjust($c8-paper, $lightness: -2%) 100%);
             border: 1px solid $c8-line;
             border-left: 6px solid $c8-amber;
             border-radius: 1.2rem;
