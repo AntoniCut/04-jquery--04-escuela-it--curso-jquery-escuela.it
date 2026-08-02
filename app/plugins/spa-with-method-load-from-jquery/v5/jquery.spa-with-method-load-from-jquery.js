@@ -1111,44 +1111,44 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
             */
 
 
-            /**
+           /**
              *  -----------------------------------
              *  -----  `enableDraggables()`   -----
              *  -----------------------------------
+             *  
              * - Habilita la funcionalidad de elementos arrastrables.
              * - Busca cualquier elemento con la clase `.draggable` y aplica .draggable() (jQuery UI).
              * - Esto evita depender de selectores rígidos.
              */
 
-            const enableDraggables = () => {
+           const enableDraggables = () => {
 
-                try {
+            try {
 
-                    //  -----  Iterar sobre cada elemento con clase .draggable y aplicar jQuery UI draggable.  -----
-                    $('.draggable').each(function () {
+                //  -----  Iterar sobre cada elemento con clase .draggable y aplicar jQuery UI draggable.  -----
+                $('.draggable').each(function () {
 
-                        //  -----  Si el método draggable está disponible, aplicarlo al elemento actual  -----
-                        if ($(this).draggable) {
+                    //  -----  Si el método draggable está disponible, aplicarlo al elemento actual  -----
+                    if ($(this).draggable) {
 
-                            //  -----  Aplicar draggable con scroll desactivado para evitar problemas de scroll durante el arrastre  -----
-                            $(this).draggable({
-                                scroll: false
-                            });
-                        }
+                        //  -----  Aplicar draggable con scroll desactivado para evitar problemas de scroll durante el arrastre  -----
+                        $(this).draggable({
+                            scroll: false
+                        });
+                    }
 
-                    });
+                });
 
-                } catch (err) {
+            } catch (err) {
 
-                    //  -----  si jQuery UI no está presente, no hacer nada  -----
-                    console.log('\n');
-                    console.warn('jQuery UI draggable no disponible o falló la inicialización.', err);
-                    console.log('\n');
+                //  -----  si jQuery UI no está presente, no hacer nada  -----
+                console.log('\n');
+                console.warn('jQuery UI draggable no disponible o falló la inicialización.', err);
+                console.log('\n');
 
-                }
+            }
 
-            };
-
+        };
 
             /**
              * -------------------------------
@@ -1220,6 +1220,23 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
                 // ---------- FUNCIONES ----------
 
+                /** @type {number} Duración de apertura/cierre del menú (ms) */
+                const menuAnimDuration = 500;
+
+
+                /**
+                 * -------------------------------------------------
+                 * -----  `getHeaderHeight()`  -----
+                 * -------------------------------------------------
+                 *
+                 * @returns {number} Altura real de `.header__container` en px
+                 */
+
+                const getHeaderHeight = () => {
+                    return $('.header__container').outerHeight() || 0;
+                };
+
+
                 /**
                  * ------------------------------
                  * -----  `openMenu(menu)`  -----
@@ -1235,7 +1252,38 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                  */
 
                 const openMenu = (menu) => {
-                    menu.container.stop(true, true).slideDown(250);
+
+                    if (menu === menuMain) {
+                        //  -----  animate height → altura del header (slideDown + min-height fijo = salto)  -----
+                        const headerHeight = getHeaderHeight();
+
+                        menu.container
+                            .stop(true, true)
+                            .css({
+                                display: 'flex',
+                                height: 0,
+                                minHeight: 0,
+                                maxHeight: 'none',
+                                overflow: 'hidden'
+                            })
+                            .animate(
+                                { height: headerHeight },
+                                menuAnimDuration,
+                                function () {
+                                    $(this).css({
+                                        display: 'flex',
+                                        height: headerHeight,
+                                        maxHeight: headerHeight,
+                                        overflow: ''
+                                    });
+                                }
+                            );
+                    } else {
+                        menu.container
+                            .stop(true, true)
+                            .slideDown(menuAnimDuration);
+                    }
+
                     menu.btnOpen.hide();
                     menu.btnClose.show();
                 }
@@ -1256,9 +1304,39 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                  */
 
                 const closeMenu = (menu) => {
-                    menu.container.stop(true, true).slideUp(250);
+
+                    if (menu === menuMain) {
+                        menu.container
+                            .stop(true, true)
+                            .css({ overflow: 'hidden', minHeight: 0 })
+                            .animate(
+                                { height: 0 },
+                                menuAnimDuration,
+                                function () {
+                                    $(this)
+                                        .hide()
+                                        .css({
+                                            height: '',
+                                            maxHeight: '',
+                                            minHeight: '',
+                                            overflow: ''
+                                        });
+                                }
+                            );
+                    } else {
+                        menu.container.stop(true, true).slideUp(menuAnimDuration);
+                    }
+
                     menu.btnOpen.show();
                     menu.btnClose.hide();
+
+                    //  -----  Colapsar acordeones del menú principal al cerrar  -----
+                    if (menu === menuMain) {
+                        menuMain.container.find('.navbar__clase.is-open')
+                            .removeClass('is-open')
+                            .find('.navbar__clase-toggle')
+                            .attr('aria-expanded', 'false');
+                    }
                 }
 
 
@@ -1290,6 +1368,23 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 // ---------- EVENTOS ----------
                 //  -----  Evitar handlers duplicados al recargar o navegar entre rutas  -----
                 $(document).off('.spaNavbar');
+                $(window).off('.spaNavbar');
+
+                //  -----  Si el menú está abierto y cambia el viewport, reajustar altura al header  -----
+                $(window).on('resize.spaNavbar', function () {
+                    if (!menuMain.container.is(':visible')) {
+                        return;
+                    }
+
+                    const headerHeight = getHeaderHeight();
+
+                    menuMain.container
+                        .stop(true, true)
+                        .css({
+                            height: headerHeight,
+                            maxHeight: headerHeight
+                        });
+                });
 
                 //  -----  Abrir menú principal  -----
                 $(document).on("click.spaNavbar", ".navbar__btn-open", function (e) {
@@ -1369,6 +1464,31 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
                     if (!clickThemes)
                         closeMenu(menuThemes);
+
+                });
+
+
+                // -----  Acordeón: desplegar páginas de cada clase  -----
+                $(document).on('click.spaNavbar', '.navbar__clase-toggle', function (e) {
+
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    /** @type {JQuery<HTMLElement>} */
+                    const $toggle = $(this);
+                    
+                    /** @type {JQuery<HTMLElement>} */
+                    const $clase = $toggle.closest('.navbar__clase');
+                    const willOpen = !$clase.hasClass('is-open');
+
+                    menuMain.container.find('.navbar__clase.is-open')
+                        .not($clase)
+                        .removeClass('is-open')
+                        .find('.navbar__clase-toggle')
+                        .attr('aria-expanded', 'false');
+
+                    $clase.toggleClass('is-open', willOpen);
+                    $toggle.attr('aria-expanded', willOpen ? 'true' : 'false');
 
                 });
 

@@ -1,6 +1,6 @@
 /*
     *  ----------------------------------------------------------------------------------------  *
-    *  -----  _layout-navbar.scss  --  /src/styles/components/layout/_layout-navbar.scss  -----  *
+    *  -----  _layout-navbar.scss  --  /src/scss/components/layout/_layout-navbar.scss  -----  *
     *  ----------------------------------------------------------------------------------------  *
 */
 
@@ -18,8 +18,10 @@
 .layout__navbar {
     
     width: 100%;
+    max-width: 100%;
     position: absolute;
-    top: 8.5rem;
+    //  -----  Misma alineación superior que .header__container  -----
+    top: 0;
     left: 0;
 
     display: flex;
@@ -27,48 +29,53 @@
     align-self: center;
     
     z-index: 1000;
-
-    @include mix.tablet {
-        top: 0;
-    }
 }
 
 
 /*  
-    ----------------------------
-    -----  Menú principal  -----  
-    ----------------------------
+    ---------------------------------------------------------
+    -----  Menú principal (altura = .header__container)  -----
+    ---------------------------------------------------------
 */
 
 .navbar__container {
     
-    position: fixed;
-    
+    position: relative;
     width: 100%;
-    max-height: 90dvh;
+    //  -----  Altura = header: la gestiona JS con animate (height/min-height fijos rompen slide*)  -----
     
+    overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(var.$bg-scrollbar, 0.75) transparent;
     
     padding: 1rem;
     
     display: none;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
+    align-items: stretch;
+    gap: 0.8rem;
     
-    background: radial-gradient(125% 125% at 50% 10%, #fff 40%, #6366f1 100%);
+    border-radius: 0 0 2rem 2rem;
+    background-color: var.$bg-white;
+    background-image: var.$bg-grid-pattern-header;
+    background-size: var.$bg-grid-size-48x48;
     background-repeat: repeat;
-    box-shadow: 1px 1px 10px rgb(209, 220, 235);
+    box-shadow: 0 8px 28px rgba(15, 23, 42, 0.18);
+
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(var.$bg-scrollbar, 0.75);
+        border-radius: 4px;
+    }
 
     @include mix.tablet {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: start;
-        gap: 2rem;
+        padding: 1.2rem 1.4rem;
+        gap: 1rem;
     }
 }
 
@@ -81,43 +88,404 @@
 
 .navbar-jquery-icon,
 .navbar-jquery-ui-icon {
-    width: 2rem;
-    height: 2rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    transition: transform 250ms ease;
+
+    &:hover {
+        transform: scale(1.08);
+    }
 }
 
 .navbar__title {
     width: 100%;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    gap: 2rem;
-    /* margin-top: 2rem; */
-    margin-top: 0;
-    margin-bottom: 3rem;
-    padding: 2rem;
+    gap: 1rem;
+    padding: 0.7rem 1.2rem;
+    flex-shrink: 0;
+    cursor: grab;
     
-    border-radius: 0 15px 50px 15px;
+    border-radius: 0 1rem 3rem 1rem;
     background: var.$bg-title-main-last;
-    box-shadow: 10px 10px 10px rgb(209, 220, 235);
+    box-shadow: 4px 4px 12px rgba(209, 220, 235, 0.9);
+
+    &:active {
+        cursor: grabbing;
+    }
 }
 
 .navbar__title--first {
     margin-top: 0;
 }
 
-.navbar__title h3,
-.navbar-themes-jquery-ui__title h3 {
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: #036AAD;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+.navbar__title-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+
+    h3 {
+        margin: 0;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var.$color-primary;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    p {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: #3a5672;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
 }
 
+.navbar__title h3,
+.navbar-themes-jquery-ui__title h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #036AAD;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+
 /*
-    ---------------------------------------------
-    -----  Lista e Items del menú (navbar)  -----
-    ---------------------------------------------
+    -----------------------------
+    -----  Accesos rápidos  -----
+    -----------------------------
+*/
+
+.navbar__quick {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
+}
+
+.navbar__quick-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.6rem;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, var.$color-primary 0%, #024f82 100%);
+    box-shadow: 0 3px 10px rgba(3, 106, 173, 0.25);
+    transition: transform 200ms ease, box-shadow 200ms ease;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 14px rgba(3, 106, 173, 0.32);
+    }
+
+    &:nth-child(2) {
+        background: linear-gradient(135deg, var.$color-header-subtitle 0%, #b33a2d 100%);
+        box-shadow: 0 3px 10px rgba(217, 77, 61, 0.25);
+
+        &:hover {
+            box-shadow: 0 6px 14px rgba(217, 77, 61, 0.32);
+        }
+    }
+}
+
+
+/*
+    -----------------------------------------
+    -----  Grid de clases (equal height)  -----
+    -----------------------------------------
+*/
+
+.navbar__grid {
+    width: 100%;
+    margin: 0 auto;
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: minmax(4.4rem, auto);
+    align-items: stretch;
+    align-content: start;
+    gap: 0.6rem;
+
+    @include mix.tablet {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.7rem;
+    }
+
+    @include mix.desktopSM {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    @include mix.desktop {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 0.8rem;
+    }
+}
+
+
+/*
+    ------------------------------
+    -----  Card / Accordion  -----
+    ------------------------------
+*/
+
+.navbar__clase {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 4.4rem;
+    height: 100%;
+    border-radius: 0.7rem;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(var.$color-primary, 0.16);
+    box-shadow: 0 3px 10px rgba(3, 106, 173, 0.1);
+    overflow: visible;
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0 0 auto 0;
+        height: 2px;
+        background: linear-gradient(90deg, var.$color-primary, #F89C15, var.$color-header-subtitle);
+        opacity: 0.85;
+    }
+
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(3, 106, 173, 0.14);
+        border-color: rgba(var.$color-primary, 0.3);
+    }
+
+    &.is-open {
+        z-index: 2;
+        border-color: rgba(var.$color-primary, 0.45);
+        box-shadow: 0 8px 20px rgba(3, 106, 173, 0.18);
+
+        .navbar__clase-chevron {
+            transform: rotate(180deg);
+            background-color: var.$color-primary;
+        }
+
+        .navbar__clase-toggle {
+            background: linear-gradient(180deg, rgba(3, 106, 173, 0.08), transparent);
+        }
+    }
+
+    &--soon {
+        opacity: 0.78;
+
+        .navbar__clase-num {
+            background: #94a3b8;
+        }
+    }
+}
+
+.navbar__clase-toggle {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    width: 100%;
+    min-height: 4.4rem;
+    height: 100%;
+    padding: 0.55rem 0.7rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.55rem;
+    cursor: pointer;
+    text-align: left;
+    color: inherit;
+}
+
+.navbar__clase-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 0.55rem;
+    font-family: monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(145deg, var.$color-primary, #02507f);
+    box-shadow: 0 2px 6px rgba(3, 106, 173, 0.25);
+}
+
+.navbar__clase-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    min-width: 0;
+}
+
+.navbar__clase-kicker {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var.$color-header-subtitle;
+}
+
+.navbar__clase-label {
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #163152;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.navbar__clase-chevron {
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    background-color: rgba(var.$color-primary, 0.15);
+    position: relative;
+    transition: transform 250ms ease, background-color 250ms ease;
+    flex-shrink: 0;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0.4rem;
+        left: 0.38rem;
+        width: 0.55rem;
+        height: 0.55rem;
+        border-right: 2px solid var.$color-primary;
+        border-bottom: 2px solid var.$color-primary;
+        transform: rotate(45deg);
+    }
+}
+
+
+/*
+    -------------------------
+    -----  Submenú  -----
+    -------------------------
+*/
+
+.navbar__submenu {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0.6rem 0.7rem;
+    display: none;
+    flex-direction: column;
+    gap: 0.3rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% - 0.2rem);
+    z-index: 20;
+    max-height: 18rem;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    border: 1px solid rgba(var.$color-primary, 0.18);
+    border-top: 1px solid rgba(var.$color-primary, 0.1);
+    border-radius: 0 0 0.7rem 0.7rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(238, 246, 251, 0.96));
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.14);
+}
+
+.navbar__clase.is-open .navbar__submenu {
+    display: flex;
+    animation: navbar-submenu-in 220ms ease;
+}
+
+@keyframes navbar-submenu-in {
+    from {
+        opacity: 0;
+        transform: translateY(-0.6rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.navbar__submenu-item {
+    a {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        width: 100%;
+        padding: 0.45rem 0.6rem;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        font-size: 1.05rem;
+        line-height: 1.3;
+        color: #1f3551;
+        background-color: rgba(255, 255, 255, 0.85);
+        border: 1px solid transparent;
+        transition: background-color 180ms ease, color 180ms ease, transform 180ms ease, border-color 180ms ease;
+        cursor: pointer;
+
+        &::before {
+            content: '';
+            width: 0.4rem;
+            height: 0.4rem;
+            border-radius: 50%;
+            background: var.$color-primary;
+            flex-shrink: 0;
+            opacity: 0.55;
+        }
+
+        &:hover {
+            background-color: rgba(var.$color-primary, 0.1);
+            color: var.$color-primary;
+            border-color: rgba(var.$color-primary, 0.22);
+            transform: translateX(2px);
+
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+
+    &--disabled {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        padding: 0.45rem 0.6rem;
+        border-radius: 0.5rem;
+        font-size: 1.05rem;
+        color: #7b8ea3;
+        background: rgba(148, 163, 184, 0.12);
+
+        em {
+            font-style: normal;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #F89C15;
+        }
+    }
+}
+
+
+/*
+    -------------------------------------------------
+    -----  Legacy (compat themes / old markup)  -----
+    -------------------------------------------------
 */
 
 .navbar__list {
@@ -137,7 +505,6 @@
         margin-top: -3rem;
     }
 }
-
 
 .navbar__item {
     width: 100%;
