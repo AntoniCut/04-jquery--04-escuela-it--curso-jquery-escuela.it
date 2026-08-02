@@ -4,7 +4,9 @@
 node_modules/
 pnpm-lock.yaml
 .env
+.env.production
 .env.*
+!.env.example
 
 # Carpeta de distribución / compilados
 dist/

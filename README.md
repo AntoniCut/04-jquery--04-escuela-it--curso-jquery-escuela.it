@@ -47,14 +47,26 @@ pnpm install
 | `pnpm run preview` | Sirve el build de producción en `http://localhost:4173` |
 | `pnpm run stop:dev` | Detiene el servidor de desarrollo de forma limpia |
 
-### Variables de entorno opcionales (`.env`)
+### Variables de entorno (`.env`)
+
+Copia `.env.example` a `.env` y rellena los valores. El archivo `.env` está en `.gitignore` y no se sube al repositorio.
 
 ```dotenv
 DEV_SERVER_PORT=3000        # Puerto público del servidor dev (BrowserSync)
 PREVIEW_SERVER_PORT=4173    # Puerto del servidor preview
 CHOKIDAR_USEPOLLING=false   # true en entornos WSL/Docker con problemas de watch
 CHOKIDAR_INTERVAL=250       # Intervalo de polling en ms
+
+# MySQL (buscar.php / php-cgi)
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_USER=jquery_user
+DB_PASS=tu_password_aqui
+DB_NAME=jquery_escuelait_classicmodels
 ```
+
+- **Desarrollo / preview:** `server/dev-server.js` y `server/preview-server.js` cargan `dotenv` y pasan las vars a `php-cgi`.
+- **Producción (Nginx/PHP-FPM):** sube un `.env` a la raíz del despliegue (junto a `index.html`). `buscar.php` lo carga con `app/services/load-env.php` (no sobrescribe vars ya definidas).
 
 ---
 
@@ -166,24 +178,41 @@ Los AVIF se generan con **sharp**. El PNG actúa de fallback para navegadores si
 ```bash
 pnpm run build
 # Copiar dist/ a /var/www/jquery.antonydev.tech/escuelait/curso-jquery-escuelait/
+# Copiar .env.production al servidor como .env (misma raíz que index.html):
+#   scp .env.production user@host:/var/www/jquery.antonydev.tech/escuelait/curso-jquery-escuelait/.env
 ```
 
-Bloque Nginx requerido para el soporte PHP con `alias`:
+Plantilla local (gitignored): `.env.production`  
+En el VPS debe existir como `.env` en `/var/www/jquery.antonydev.tech/escuelait/curso-jquery-escuelait/.env`
+
+Bloque Nginx (con `root`) y bloqueo de `.env`:
 
 ```nginx
 location ^~ /escuelait/curso-jquery-escuelait/ {
-    alias /var/www/jquery.antonydev.tech/escuelait/curso-jquery-escuelait/;
+    root /var/www/jquery.antonydev.tech;
     try_files $uri $uri/ /escuelait/curso-jquery-escuelait/index.html;
 
+    location ~ /\.env {
+        deny all;
+        return 404;
+    }
+
     location ~ \.php$ {
+        try_files $uri =404;
         fastcgi_pass unix:/run/php/php8.3-fpm.sock;
         fastcgi_index index.php;
         include fastcgi_params;
-        fastcgi_param SCRIPT_FILENAME $request_filename;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_param QUERY_STRING    $query_string;
     }
 }
 ```
+
+El `.env` de producción va en:
+
+`/var/www/jquery.antonydev.tech/escuelait/curso-jquery-escuelait/.env`
+
+(junto al `index.html` desplegado; no dentro de `app/services/`).
 
 ---
 

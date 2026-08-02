@@ -18,6 +18,12 @@
     $filas = [];
     $consultaMysqlOk = false;
     $fuenteDatos = 'ninguna';
+    $errorMysql = '';
+
+    // En producción (Nginx/PHP-FPM) no hay dotenv de Node: cargar .env del proyecto.
+    // En dev/preview, si Node ya inyectó las vars, load_dotenv no las sobrescribe.
+    require_once dirname(__DIR__) . '/load-env.php';
+    load_dotenv(__DIR__);
 
 
     //  -----  Intentar consulta MySQL (jquery_escuelait_classicmodels)  -----
@@ -25,9 +31,12 @@
     //  Con "localhost", el PHP del sistema busca /var/run/mysqld/mysqld.sock
     //  y falla si MySQL corre en XAMPP (/opt/lampp/var/mysql/mysql.sock).
     
-    if (function_exists('mysqli_connect')) {
+    if (!function_exists('mysqli_connect')) {
+        $errorMysql = 'Extension mysqli no disponible en PHP del servidor';
+    } else {
         mysqli_report(MYSQLI_REPORT_OFF);
 
+        // Credenciales solo desde entorno / .env. Nunca hardcodear DB_PASS.
         $host = getenv('DB_HOST') ?: '127.0.0.1';
         $user = getenv('DB_USER') ?: 'root';
         $pass = getenv('DB_PASS') !== false ? getenv('DB_PASS') : '';
@@ -36,7 +45,9 @@
 
         $conn = mysqli_connect($host, $user, $pass, $db, $port);
 
-        if ($conn) {
+        if (!$conn) {
+            $errorMysql = 'Conexion MySQL fallida: ' . mysqli_connect_error();
+        } else {
             $productoEsc = mysqli_real_escape_string($conn, $producto);
             $descripcionEsc = mysqli_real_escape_string($conn, $descripcion);
 
@@ -56,6 +67,8 @@
                 }
 
                 mysqli_free_result($result);
+            } else {
+                $errorMysql = 'Consulta MySQL fallida: ' . mysqli_error($conn);
             }
 
             mysqli_close($conn);
@@ -93,9 +106,15 @@
         $claseFuente = 'ajax-low__source ajax-low__source--mysql';
     } elseif ($fuenteDatos === 'json') {
         $mensajeFuente = 'Datos obtenidos del fallback local: products.json';
+        if ($errorMysql !== '') {
+            $mensajeFuente .= ' | Motivo MySQL: ' . $errorMysql;
+        }
         $claseFuente = 'ajax-low__source ajax-low__source--json';
     } else {
         $mensajeFuente = 'No se pudo consultar MySQL ni products.json';
+        if ($errorMysql !== '') {
+            $mensajeFuente .= ' | Motivo MySQL: ' . $errorMysql;
+        }
         $claseFuente = 'ajax-low__source ajax-low__source--error';
     }
 

@@ -14,6 +14,12 @@
 <span class="line"><span style="color:#9CDCFE">    $filas</span><span style="color:#D4D4D4"> = [];</span></span>
 <span class="line"><span style="color:#9CDCFE">    $consultaMysqlOk</span><span style="color:#D4D4D4"> = </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">;</span></span>
 <span class="line"><span style="color:#9CDCFE">    $fuenteDatos</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'ninguna'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    $errorMysql</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    // En producción (Nginx/PHP-FPM) no hay dotenv de Node: cargar .env del proyecto.</span></span>
+<span class="line"><span style="color:#6A9955">    // En dev/preview, si Node ya inyectó las vars, load_dotenv no las sobrescribe.</span></span>
+<span class="line"><span style="color:#C586C0">    require_once</span><span style="color:#DCDCAA"> dirname</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">__DIR__</span><span style="color:#D4D4D4">) </span><span style="color:#D4D4D4">.</span><span style="color:#CE9178"> '/load-env.php'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#DCDCAA">    load_dotenv</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">__DIR__</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
 <span class="line"></span>
 <span class="line"><span style="color:#6A9955">    //  -----  Intentar consulta MySQL (jquery_escuelait_classicmodels)  -----</span></span>
@@ -21,9 +27,12 @@
 <span class="line"><span style="color:#6A9955">    //  Con "localhost", el PHP del sistema busca /var/run/mysqld/mysqld.sock</span></span>
 <span class="line"><span style="color:#6A9955">    //  y falla si MySQL corre en XAMPP (/opt/lampp/var/mysql/mysql.sock).</span></span>
 <span class="line"><span style="color:#D4D4D4">    </span></span>
-<span class="line"><span style="color:#C586C0">    if</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">function_exists</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'mysqli_connect'</span><span style="color:#D4D4D4">)) {</span></span>
+<span class="line"><span style="color:#C586C0">    if</span><span style="color:#D4D4D4"> (!</span><span style="color:#DCDCAA">function_exists</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'mysqli_connect'</span><span style="color:#D4D4D4">)) {</span></span>
+<span class="line"><span style="color:#9CDCFE">        $errorMysql</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'Extension mysqli no disponible en PHP del servidor'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    } </span><span style="color:#C586C0">else</span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"><span style="color:#DCDCAA">        mysqli_report</span><span style="color:#D4D4D4">(MYSQLI_REPORT_OFF);</span></span>
 <span class="line"></span>
+<span class="line"><span style="color:#6A9955">        // Credenciales solo desde entorno / .env. Nunca hardcodear DB_PASS.</span></span>
 <span class="line"><span style="color:#9CDCFE">        $host</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">getenv</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'DB_HOST'</span><span style="color:#D4D4D4">) ?: </span><span style="color:#CE9178">'127.0.0.1'</span><span style="color:#D4D4D4">;</span></span>
 <span class="line"><span style="color:#9CDCFE">        $user</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">getenv</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'DB_USER'</span><span style="color:#D4D4D4">) ?: </span><span style="color:#CE9178">'root'</span><span style="color:#D4D4D4">;</span></span>
 <span class="line"><span style="color:#9CDCFE">        $pass</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">getenv</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'DB_PASS'</span><span style="color:#D4D4D4">) !== </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4"> ? </span><span style="color:#DCDCAA">getenv</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'DB_PASS'</span><span style="color:#D4D4D4">) : </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">;</span></span>
@@ -32,7 +41,9 @@
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">        $conn</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">mysqli_connect</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$host</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$user</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$pass</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$db</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$port</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">$conn</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (!</span><span style="color:#9CDCFE">$conn</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">            $errorMysql</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'Conexion MySQL fallida: '</span><span style="color:#D4D4D4"> .</span><span style="color:#DCDCAA"> mysqli_connect_error</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">        } </span><span style="color:#C586C0">else</span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"><span style="color:#9CDCFE">            $productoEsc</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">mysqli_real_escape_string</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$conn</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$producto</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#9CDCFE">            $descripcionEsc</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">mysqli_real_escape_string</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$conn</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$descripcion</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
@@ -52,6 +63,8 @@
 <span class="line"><span style="color:#D4D4D4">                }</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#DCDCAA">                mysqli_free_result</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$result</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">            } </span><span style="color:#C586C0">else</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">                $errorMysql</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'Consulta MySQL fallida: '</span><span style="color:#D4D4D4"> .</span><span style="color:#DCDCAA"> mysqli_error</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$conn</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#D4D4D4">            }</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#DCDCAA">            mysqli_close</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$conn</span><span style="color:#D4D4D4">);</span></span>
@@ -89,9 +102,15 @@
 <span class="line"><span style="color:#9CDCFE">        $claseFuente</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'ajax-low__source ajax-low__source--mysql'</span><span style="color:#D4D4D4">;</span></span>
 <span class="line"><span style="color:#D4D4D4">    } </span><span style="color:#C586C0">elseif</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">$fuenteDatos</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">'json'</span><span style="color:#D4D4D4">) {</span></span>
 <span class="line"><span style="color:#9CDCFE">        $mensajeFuente</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'Datos obtenidos del fallback local: products.json'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">$errorMysql</span><span style="color:#D4D4D4"> !== </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">            $mensajeFuente</span><span style="color:#D4D4D4"> .=</span><span style="color:#CE9178"> ' | Motivo MySQL: '</span><span style="color:#D4D4D4"> .</span><span style="color:#9CDCFE"> $errorMysql</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
 <span class="line"><span style="color:#9CDCFE">        $claseFuente</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'ajax-low__source ajax-low__source--json'</span><span style="color:#D4D4D4">;</span></span>
 <span class="line"><span style="color:#D4D4D4">    } </span><span style="color:#C586C0">else</span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"><span style="color:#9CDCFE">        $mensajeFuente</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'No se pudo consultar MySQL ni products.json'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">$errorMysql</span><span style="color:#D4D4D4"> !== </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">            $mensajeFuente</span><span style="color:#D4D4D4"> .=</span><span style="color:#CE9178"> ' | Motivo MySQL: '</span><span style="color:#D4D4D4"> .</span><span style="color:#9CDCFE"> $errorMysql</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
 <span class="line"><span style="color:#9CDCFE">        $claseFuente</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'ajax-low__source ajax-low__source--error'</span><span style="color:#D4D4D4">;</span></span>
 <span class="line"><span style="color:#D4D4D4">    }</span></span>
 <span class="line"></span>
