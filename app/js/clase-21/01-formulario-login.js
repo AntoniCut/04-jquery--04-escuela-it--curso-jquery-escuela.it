@@ -92,14 +92,26 @@
      */
     const ajustarPosicionesLogin = () => {
 
+        /** @type {number} - `Alto de la ventana` */
+        const altoVentana = $ventana.height() || 0;
+
+        /** @type {number} - `Ancho de la ventana` */
+        const anchoVentana = $ventana.width() || 0;
+
+        /** @type {number} - `Alto de la caja de login` */
+        const altoCaja = $cajalogin.outerHeight() || 0;
+
+        /** @type {number} - `Ancho de la caja de login` */
+        const anchoCaja = $cajalogin.outerWidth() || 0;
+
         $cajalogin.css({
-            top: (($ventana.height() - $cajalogin.outerHeight()) / 2) + 'px',
-            left: (($ventana.width() - $cajalogin.outerWidth()) / 2) + 'px',
+            top: ((altoVentana - altoCaja) / 2) + 'px',
+            left: ((anchoVentana - anchoCaja) / 2) + 'px',
         });
 
         $capamodal.css({
-            width: $doc.width(),
-            height: $doc.height(),
+            width: ($doc.width() || 0) + 'px',
+            height: ($doc.height() || 0) + 'px',
         });
     };
 
@@ -136,8 +148,8 @@
      * @returns {void}
      */
     const mostrarVistaDentro = () => {
-        $vistaLogin.attr('hidden', true);
-        $vistaDentro.removeAttr('hidden');
+        $vistaLogin.prop('hidden', true);
+        $vistaDentro.prop('hidden', false);
     };
 
 
@@ -150,8 +162,8 @@
      * @returns {void}
      */
     const mostrarVistaLogin = () => {
-        $vistaDentro.attr('hidden', true);
-        $vistaLogin.removeAttr('hidden');
+        $vistaDentro.prop('hidden', true);
+        $vistaLogin.prop('hidden', false);
         resetearLogin();
     };
 
@@ -227,8 +239,8 @@
 
         event.preventDefault();
 
-        $cajalogin.removeAttr('hidden');
-        $capamodal.removeAttr('hidden');
+        $cajalogin.prop('hidden', false);
+        $capamodal.prop('hidden', false);
 
         ajustarPosicionesLogin();
 
@@ -244,6 +256,12 @@
         *  -----------------------------
     */
 
+    /** @type {number} - `Ancho del documento para el overlay` */
+    const anchoDocumento = $doc.width() || 0;
+
+    /** @type {number} - `Alto del documento para el overlay` */
+    const altoDocumento = $doc.height() || 0;
+
     $cajalogin
         .css({
             position: 'fixed',
@@ -255,8 +273,8 @@
         .css({
             opacity: 0.80,
             'z-index': 900,
-            width: $doc.width(),
-            height: $doc.height(),
+            width: anchoDocumento + 'px',
+            height: altoDocumento + 'px',
             backgroundColor: '#33ffcc',
             position: 'fixed',
             top: '0px',
@@ -285,7 +303,12 @@
 
     //  -----  al volver desde cache del navegador, resetear el login  -----
     $ventana.on('pageshow.loginPractica', (e) => {
-        if (e.originalEvent && e.originalEvent.persisted) {
+
+        /** @type {PageTransitionEvent | undefined} - `Evento nativo pageshow` */
+        const eventoNativo = /** @type {PageTransitionEvent | undefined} */ (e.originalEvent);
+
+        //  -----  si la pagina viene de bfcache, resetear el login  -----
+        if (eventoNativo?.persisted) {
             resetearLogin();
         }
     });

@@ -116,8 +116,9 @@
      */
 
     const buscarProductos = (e) => {
-
+        
         e.preventDefault();
+
         mostrarLoading();
 
         $.ajax({
