@@ -1,0 +1,115 @@
+<!--
+    *  --------------------------------------------------------------------------------------------------------------  *
+    *  -----  /01-formulario-login-demo.html  --  /src/pages-components/clase-21/01-formulario-login-demo.html  -----  *
+    *  --------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__demo">
+
+
+    <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+    <div class="login-practica">
+
+        <!--  -----  Vista publica con enlace de login  -----  -->
+        <div class="login-practica__vista" id="vista-login">
+
+            <div class="login-practica__layout" id="contenedor">
+
+                <h3 class="login-practica__title">Mi sitio web</h3>
+
+                <section class="login-practica__section">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies
+                        elementum arcu, a consectetur mauris vestibulum sit amet. Sed euismod,
+                        mauris sit amet pulvinar placerat, eros neque rutrum purus, vitae
+                        imperdiet purus odio lacinia tortor.
+                    </p>
+                    <p>
+                        Quisque molestie ante eu erat vehicula eu ullamcorper dui sagittis.
+                        Quisque tempor sodales ultricies. Donec eget ante eget nulla tempor
+                        imperdiet a at risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                    <p>
+                        Pellentesque placerat, libero eu hendrerit sollicitudin, mi nisi bibendum
+                        metus, rutrum vulputate nulla justo eu nisl. Quisque sed diam tortor,
+                        vel varius elit.
+                    </p>
+                </section>
+
+                <aside class="login-practica__aside">
+                    <p>
+                        Proin eu urna porttitor elit pulvinar tempus. Morbi quis sollicitudin
+                        metus. Cum sociis natoque penatibus et magnis dis parturient montes,
+                        nascetur ridiculus mus.
+                    </p>
+                    <p>
+                        <a href="#" id="enlacelogin">Hacer login</a>
+                    </p>
+                </aside>
+
+            </div>
+
+            <!--  -----  Overlay modal  -----  -->
+            <div id="capamodal" class="login-practica__modal" hidden></div>
+
+            <!--  -----  Caja modal de login  -----  -->
+            <div id="cajalogin" class="login-practica__caja" hidden>
+
+                <p class="login-practica__caja-msg">Login de usuarios</p>
+
+                <form class="login-practica__form" action="login.php" method="post">
+
+                    <label class="login-practica__label">
+                        <span>User:</span>
+                        <input type="text" name="user" class="login-practica__input campotexto" autocomplete="username">
+                    </label>
+
+                    <label class="login-practica__label">
+                        <span>Passwd:</span>
+                        <input type="text" name="pass" class="login-practica__input campotexto" autocomplete="current-password">
+                    </label>
+
+                    <input type="hidden" name="urlorigen" value="login.html">
+                    <input type="submit" class="login-practica__submit" value="Login">
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <!--  -----  Vista privada tras login correcto  -----  -->
+        <div class="login-practica__vista login-practica__vista--dentro" id="vista-dentro" hidden>
+
+            <div class="login-practica__layout">
+
+                <h3 class="login-practica__title">Estás dentro!!!</h3>
+
+                <section class="login-practica__section">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies
+                        elementum arcu, a consectetur mauris vestibulum sit amet. Sed euismod,
+                        mauris sit amet pulvinar placerat, eros neque rutrum purus, vitae
+                        imperdiet purus odio lacinia tortor.
+                    </p>
+                </section>
+
+                <aside class="login-practica__aside">
+                    <p>
+                        Ya estás dentro del sistema!!
+                    </p>
+                    <p>
+                        <a href="#" id="enlace-cerrar-sesion">Cerrar sesión</a>
+                    </p>
+                </aside>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>

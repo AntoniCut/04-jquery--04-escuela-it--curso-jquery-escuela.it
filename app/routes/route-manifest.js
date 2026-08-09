@@ -121,6 +121,9 @@ export const routeManifest = [
     { id: 'clase20Buscador', path: 'clase20-ajax-low-level/03-buscador', file: 'route-clase20-buscador' },
     { id: 'clase20SelectCombinado', path: 'clase20-ajax-low-level/04-select-combinado', file: 'route-clase20-select-combinado' },
     { id: 'clase20SelectCombinadoJsonp', path: 'clase20-ajax-low-level/05-select-combinado-jsonp', file: 'route-clase20-select-combinado-jsonp' },
+
+    { id: 'clase21', path: 'clase21-practica-1-formulario-login', file: 'route-clase21' },
+    { id: 'clase21FormularioLogin', path: 'clase21-practica-1-formulario-login/01-formulario-login', file: 'route-clase21-formulario-login' },
     
     { id: '404NotFoundPage', path: '404', file: 'route-404-not-found-page' },
 

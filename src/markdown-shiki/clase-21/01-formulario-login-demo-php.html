@@ -1,0 +1,22 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">        *  -----  /login</span><span style="color:#D4D4D4">.</span><span style="color:#D4D4D4">php  --  /src/services/clase-</span><span style="color:#B5CEA8">21</span><span style="color:#D4D4D4">/login</span><span style="color:#D4D4D4">.</span><span style="color:#D4D4D4">php  -----  *</span></span>
+<span class="line"><span style="color:#D4D4D4">        *  --------------------------------------------------------------  *</span></span>
+<span class="line"><span style="color:#D4D4D4">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">    sleep</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">3</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">    header</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Content-Type: application/json; charset=utf-8'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $user</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$_REQUEST</span><span style="color:#D4D4D4">[</span><span style="color:#CE9178">'user'</span><span style="color:#D4D4D4">] ?? </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">    if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">$user</span><span style="color:#D4D4D4"> != </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#DCDCAA">        echo</span><span style="color:#DCDCAA"> json_encode</span><span style="color:#D4D4D4">([</span></span>
+<span class="line"><span style="color:#CE9178">            'valido'</span><span style="color:#D4D4D4"> => </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">            'mensaje'</span><span style="color:#D4D4D4"> => </span><span style="color:#CE9178">'Entrando...'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">        ]);</span></span>
+<span class="line"><span style="color:#D4D4D4">    } </span><span style="color:#C586C0">else</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#DCDCAA">        echo</span><span style="color:#DCDCAA"> json_encode</span><span style="color:#D4D4D4">([</span></span>
+<span class="line"><span style="color:#CE9178">            'valido'</span><span style="color:#D4D4D4"> => </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">            'mensaje'</span><span style="color:#D4D4D4"> => </span><span style="color:#CE9178">'No se corresponde el usuario o la clave'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">        ]);</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span></code></pre>
