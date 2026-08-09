@@ -16,7 +16,7 @@
 
 /*  -----  Scrollbar general  -----  */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
     height: 6px;
 }
 
@@ -28,7 +28,7 @@
 /*  -----  Thumb (la parte que se mueve)  -----  */
 ::-webkit-scrollbar-thumb {
     background-color: var.$bg-scrollbar;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 /*  -----  Hover  -----  */

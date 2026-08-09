@@ -1225,15 +1225,16 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
 
                 /**
-                 * -------------------------------------------------
-                 * -----  `getHeaderHeight()`  -----
-                 * -------------------------------------------------
+                 * ---------------------------------------------------
+                 * -----  `getMenuMainHeight()`  -----
+                 * ---------------------------------------------------
                  *
-                 * @returns {number} Altura real de `.header__container` en px
+                 * - Obtiene la altura completa del viewport para el menú principal.
+                 * @returns {number} - Altura del menú principal en píxeles.
                  */
 
-                const getHeaderHeight = () => {
-                    return $('.header__container').outerHeight() || 0;
+                const getMenuMainHeight = () => {
+                    return window.innerHeight;
                 };
 
 
@@ -1254,8 +1255,18 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 const openMenu = (menu) => {
 
                     if (menu === menuMain) {
-                        //  -----  animate height → altura del header (slideDown + min-height fijo = salto)  -----
-                        const headerHeight = getHeaderHeight();
+                        //  -----  desactivar el scroll del documento mientras el navbar está abierto  -----
+                        $('html').addClass('navbar-scroll-disabled');
+
+                        //  -----  mostrar todos los submenús al abrir el navbar  -----
+                        menu.container
+                            .find('.navbar__clase')
+                            .addClass('is-open')
+                            .find('.navbar__clase-toggle')
+                            .attr('aria-expanded', 'true');
+
+                        //  -----  animar hasta la altura responsive del menú principal  -----
+                        const menuMainHeight = getMenuMainHeight();
 
                         menu.container
                             .stop(true, true)
@@ -1267,13 +1278,13 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                                 overflow: 'hidden'
                             })
                             .animate(
-                                { height: headerHeight },
+                                { height: menuMainHeight },
                                 menuAnimDuration,
                                 function () {
                                     $(this).css({
                                         display: 'flex',
-                                        height: headerHeight,
-                                        maxHeight: headerHeight,
+                                        height: menuMainHeight,
+                                        maxHeight: menuMainHeight,
                                         overflow: ''
                                     });
                                 }
@@ -1306,6 +1317,9 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 const closeMenu = (menu) => {
 
                     if (menu === menuMain) {
+                        //  -----  reactivar el scroll del documento al cerrar el navbar  -----
+                        $('html').removeClass('navbar-scroll-disabled');
+
                         menu.container
                             .stop(true, true)
                             .css({ overflow: 'hidden', minHeight: 0 })
@@ -1370,19 +1384,19 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 $(document).off('.spaNavbar');
                 $(window).off('.spaNavbar');
 
-                //  -----  Si el menú está abierto y cambia el viewport, reajustar altura al header  -----
+                //  -----  si el menú está abierto y cambia el viewport, reajustar su altura  -----
                 $(window).on('resize.spaNavbar', function () {
                     if (!menuMain.container.is(':visible')) {
                         return;
                     }
 
-                    const headerHeight = getHeaderHeight();
+                    const menuMainHeight = getMenuMainHeight();
 
                     menuMain.container
                         .stop(true, true)
                         .css({
-                            height: headerHeight,
-                            maxHeight: headerHeight
+                            height: menuMainHeight,
+                            maxHeight: menuMainHeight
                         });
                 });
 
@@ -1468,7 +1482,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 });
 
 
-                // -----  Acordeón: desplegar páginas de cada clase  -----
+                // -----  Toggle individual: no cierra el resto de submenús  -----
                 $(document).on('click.spaNavbar', '.navbar__clase-toggle', function (e) {
 
                     e.preventDefault();
@@ -1476,16 +1490,10 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
                     /** @type {JQuery<HTMLElement>} */
                     const $toggle = $(this);
-                    
+
                     /** @type {JQuery<HTMLElement>} */
                     const $clase = $toggle.closest('.navbar__clase');
                     const willOpen = !$clase.hasClass('is-open');
-
-                    menuMain.container.find('.navbar__clase.is-open')
-                        .not($clase)
-                        .removeClass('is-open')
-                        .find('.navbar__clase-toggle')
-                        .attr('aria-expanded', 'false');
 
                     $clase.toggleClass('is-open', willOpen);
                     $toggle.attr('aria-expanded', willOpen ? 'true' : 'false');
@@ -1496,6 +1504,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
 
             /**
+             * 
              * --------------------------------------
              * -----  `changeThemesJQueryUI()`  -----
              * --------------------------------------
@@ -2040,6 +2049,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
                 //  -----  ocultar menus tipo navbar compact  -----
                 $('.navbar__container').slideUp();
+                $('html').removeClass('navbar-scroll-disabled');
 
                 //  -----  Carga directa por data-route (import dinámico por nombre de archivo)  -----
                 if (routeFile) {
