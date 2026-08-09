@@ -43,13 +43,30 @@
 
             </div>
 
+
             <!--  -----  Overlay modal  -----  -->
-            <div id="capamodal-auth" class="login-practica__modal" hidden></div>
+            <div 
+                id="capamodal-auth" 
+                class="login-practica__modal" 
+                hidden
+            > </div>
 
             <!--  -----  Caja modal login / registro  -----  -->
-            <div id="caja-auth" class="login-practica__caja login-practica__caja--auth" hidden>
+            <div 
+                id="caja-auth" 
+                class="login-practica__caja login-practica__caja--auth draggable" 
+                title="Arrastra y suelta para mover el formulario de login"
+                hidden
+            >
 
                 <p class="login-practica__caja-msg" id="msg-auth">Iniciar sesion</p>
+
+                <div
+                    class="login-practica__errores"
+                    id="errores-auth"
+                    role="alert"
+                    aria-live="polite"
+                ></div>
 
                 <div class="login-practica__tabs" role="tablist" aria-label="Modo de autenticacion">
                     <button type="button" class="login-practica__tab is-active" id="tab-login-auth" data-modo="login">
@@ -74,7 +91,12 @@
                         <input type="password" name="pass" id="pass-auth" class="login-practica__input" autocomplete="current-password">
                     </label>
 
-                    <input type="submit" class="login-practica__submit" id="submit-auth" value="Entrar">
+                    <div class="login-practica__acciones">
+                        <input type="submit" class="login-practica__submit" id="submit-auth" value="Entrar">
+                        <button type="button" class="login-practica__cancelar" id="btn-cancelar-auth">
+                            Cancelar
+                        </button>
+                    </div>
 
                 </form>
 

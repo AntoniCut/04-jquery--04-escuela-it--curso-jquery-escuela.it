@@ -42,6 +42,12 @@
     /** @type {JQuery<Document>} - `Documento` */
     const $doc = $(document);
 
+    /** @type {JQuery<HTMLDivElement>} - `Boton azul del navbar` */
+    const $btnNavbar = $('#btnNavbar');
+
+    /** @type {JQuery<HTMLDivElement>} - `Boton naranja de themes jQuery UI` */
+    const $btnNavbarThemes = $('#btnNavbarThemesJQueryUI');
+
     /** @type {JQuery<HTMLDivElement>} - `Caja modal de auth` */
     const $cajaAuth = $('#caja-auth');
 
@@ -57,8 +63,14 @@
     /** @type {JQuery<HTMLFormElement>} - `Formulario de auth` */
     const $form = /** @type {JQuery<HTMLFormElement>} */ ($('#form-auth'));
 
-    /** @type {JQuery<HTMLParagraphElement>} - `Parrafo de estado` */
-    const $parrafo = /** @type {JQuery<HTMLParagraphElement>} */ ($('#msg-auth'));
+    /** @type {JQuery<HTMLParagraphElement>} - `Titulo de la caja` */
+    const $titulo = /** @type {JQuery<HTMLParagraphElement>} */ ($('#msg-auth'));
+
+    /** @type {JQuery<HTMLDivElement>} - `Contenedor de errores` */
+    const $errores = $('#errores-auth');
+
+    /** @type {JQuery<HTMLButtonElement>} - `Boton cancelar` */
+    const $btnCancelar = /** @type {JQuery<HTMLButtonElement>} */ ($('#btn-cancelar-auth'));
 
     /** @type {JQuery<HTMLInputElement>} - `Campo modo oculto` */
     const $modo = /** @type {JQuery<HTMLInputElement>} */ ($('#modo-auth'));
@@ -101,6 +113,79 @@
      * @return {string}
      */
     const construirUrl = (endpoint) => `${URL_BASE}/${endpoint}`;
+
+
+
+    /**
+     * -----------------------------------
+     * -----  `ocultarBotonesNav()`  -----
+     * -----------------------------------
+     * - Oculta los botones azul y naranja del layout.
+     * @return {void}
+     */
+    const ocultarBotonesNav = () => {
+        $btnNavbar.hide();
+        $btnNavbarThemes.hide();
+    };
+
+
+
+    /**
+     * -----------------------------------
+     * -----  `mostrarBotonesNav()`  -----
+     * -----------------------------------
+     * - Muestra de nuevo los botones azul y naranja del layout.
+     * @return {void}
+     */
+    const mostrarBotonesNav = () => {
+        $btnNavbar.show();
+        $btnNavbarThemes.show();
+    };
+
+
+
+    /**
+     * --------------------------------
+     * -----  `limpiarErrores()`  -----
+     * --------------------------------
+     * - Vacia el contenedor de errores.
+     * @return {void}
+     */
+    const limpiarErrores = () => {
+        $errores.text('').removeClass('login-practica__errores--ok');
+    };
+
+
+
+    /**
+     * --------------------------------------
+     * -----  `mostrarError(mensaje)`  -----
+     * --------------------------------------
+     * - Muestra un mensaje de error o servidor en el contenedor.
+     * @param {string} mensaje - Texto del error
+     * @return {void}
+     */
+    const mostrarError = (mensaje) => {
+        $errores
+            .removeClass('login-practica__errores--ok')
+            .text(mensaje);
+    };
+
+
+
+    /**
+     * ---------------------------------------
+     * -----  `mostrarExito(mensaje)`  -----
+     * ---------------------------------------
+     * - Muestra un mensaje de exito en el contenedor de avisos.
+     * @param {string} mensaje - Texto del mensaje
+     * @return {void}
+     */
+    const mostrarExito = (mensaje) => {
+        $errores
+            .addClass('login-practica__errores--ok')
+            .text(mensaje);
+    };
 
 
 
@@ -168,18 +253,18 @@
 
         //  -----  actualizar textos segun modo  -----
         if (modo === 'registro') {
-            $parrafo.text('Registro de usuarios').css('color', '#fff');
+            $titulo.text('Registro de usuarios').css('color', '#fff');
             $submit.val('Registrarse');
             $form.attr('action', ENDPOINT_REGISTRO);
             $('#pass-auth').attr('autocomplete', 'new-password');
         } else {
-            $parrafo.text('Iniciar sesion').css('color', '#fff');
+            $titulo.text('Iniciar sesion').css('color', '#fff');
             $submit.val('Entrar');
             $form.attr('action', ENDPOINT_LOGIN);
             $('#pass-auth').attr('autocomplete', 'current-password');
         }
 
-        $parrafo.removeClass('cargando');
+        $titulo.removeClass('cargando');
         ajustarPosicionesAuth();
     };
 
@@ -187,23 +272,27 @@
 
     /**
      * -------------------------------
-     * -----  `resetearAuth()`  -----
+     * -----  `cerrarModal()`  -----
      * -------------------------------
-     * - Restaura el estado inicial de la caja modal.
+     * - Cierra la caja modal, limpia estado y restaura los botones del layout.
      * @return {void}
      */
-    const resetearAuth = () => {
+    const cerrarModal = () => {
 
         $cajaAuth.hide().stop(true, true);
         $capaModal.hide().stop(true, true);
 
-        $parrafo
+        $titulo
             .text(obtenerModoActual() === 'registro' ? 'Registro de usuarios' : 'Iniciar sesion')
             .css('color', '#fff')
             .removeClass('cargando');
 
+        limpiarErrores();
+
         $form.find('input[type="submit"]').prop('disabled', false);
         $form.find('input[name="user"], input[name="pass"]').val('');
+
+        mostrarBotonesNav();
     };
 
 
@@ -236,7 +325,7 @@
         $vistaLogin.prop('hidden', false);
         $usuarioDentro.text('');
         cambiarModo('login');
-        resetearAuth();
+        cerrarModal();
     };
 
 
@@ -251,7 +340,9 @@
      */
     const mostrarCajaAuth = (modo) => {
 
+        limpiarErrores();
         cambiarModo(modo);
+        ocultarBotonesNav();
 
         $cajaAuth.prop('hidden', false);
         $capaModal.prop('hidden', false);
@@ -275,6 +366,7 @@
     const procesaFormulario = (event) => {
 
         event.preventDefault();
+        limpiarErrores();
 
         /** @type {'login' | 'registro'} - `Modo del formulario` */
         const modo = obtenerModoActual();
@@ -290,36 +382,36 @@
 
             beforeSend: () => {
                 $form.find('input[type="submit"]').prop('disabled', true);
-                $parrafo.css('color', '#fff');
-                $parrafo.text('Cargando...');
-                $parrafo.addClass('cargando');
+                $titulo.css('color', '#fff');
+                $titulo.text('Cargando...');
+                $titulo.addClass('cargando');
             },
 
             success: (respuesta) => {
                 console.log(respuesta);
-                $parrafo.text(respuesta.mensaje);
 
                 //  -----  registro correcto: pasar a modo login  -----
                 if (modo === 'registro') {
+                    $titulo.text('Registro de usuarios');
+
                     if (respuesta.valido) {
-                        $parrafo.css('color', '#0a7a3e');
                         cambiarModo('login');
-                        $parrafo.text(respuesta.mensaje).css('color', '#0a7a3e');
+                        mostrarExito(respuesta.mensaje || 'Registro correcto. Ya puedes iniciar sesion.');
                     } else {
-                        $parrafo.css('color', '#c33');
+                        mostrarError(respuesta.mensaje || 'No se pudo completar el registro');
                     }
                     return;
                 }
 
                 //  -----  login correcto: entrar a zona privada  -----
                 if (respuesta.valido) {
-                    $parrafo.css('color', '#fff');
-                    resetearAuth();
+                    cerrarModal();
                     mostrarVistaDentro(respuesta.username || '');
                 }
                 //  -----  login invalido / no registrado  -----
                 else {
-                    $parrafo.css('color', '#c33');
+                    $titulo.text('Iniciar sesion');
+                    mostrarError(respuesta.mensaje || 'No se corresponde el usuario o la clave');
 
                     //  -----  si no esta dado de alta, sugerir registro  -----
                     if (respuesta.codigo === 'no_registrado') {
@@ -330,15 +422,13 @@
 
             error: (xhr, status, error) => {
                 console.error('error:', status, error);
-                $parrafo
-                    .text(`Error en la peticion: ${status}`)
-                    .css('color', '#c33')
-                    .removeClass('cargando');
+                $titulo.text(obtenerModoActual() === 'registro' ? 'Registro de usuarios' : 'Iniciar sesion');
+                mostrarError(`Error del servidor: ${status}`);
             },
 
             complete: () => {
                 $form.find('input[type="submit"]').prop('disabled', false);
-                $parrafo.removeClass('cargando');
+                $titulo.removeClass('cargando');
             },
         });
     };
@@ -361,6 +451,7 @@
         .css({
             position: 'fixed',
             'z-index': 1000,
+            cursor: 'pointer',
         })
         .hide();
 
@@ -395,6 +486,7 @@
     $form.off('.loginAuth');
     $tabLogin.off('.loginAuth');
     $tabRegistro.off('.loginAuth');
+    $btnCancelar.off('.loginAuth');
     $enlaceCerrarSesion.off('.loginAuth');
 
     $enlaceLogin.on('click.loginAuth', (event) => {
@@ -409,11 +501,13 @@
 
     $tabLogin.on('click.loginAuth', (event) => {
         event.preventDefault();
+        limpiarErrores();
         cambiarModo('login');
     });
 
     $tabRegistro.on('click.loginAuth', (event) => {
         event.preventDefault();
+        limpiarErrores();
         cambiarModo('registro');
     });
 
@@ -427,11 +521,16 @@
 
         //  -----  si la pagina viene de bfcache, resetear  -----
         if (eventoNativo?.persisted) {
-            resetearAuth();
+            cerrarModal();
         }
     });
 
     $form.on('submit.loginAuth', procesaFormulario);
+
+    $btnCancelar.on('click.loginAuth', (event) => {
+        event.preventDefault();
+        cerrarModal();
+    });
 
     $enlaceCerrarSesion.on('click.loginAuth', (event) => {
         event.preventDefault();

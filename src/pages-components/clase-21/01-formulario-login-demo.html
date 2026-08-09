@@ -52,12 +52,29 @@
             </div>
 
             <!--  -----  Overlay modal  -----  -->
-            <div id="capamodal" class="login-practica__modal" hidden></div>
+            <div 
+                id="capamodal" 
+                class="login-practica__modal" 
+                hidden
+            >  </div>
+
 
             <!--  -----  Caja modal de login  -----  -->
-            <div id="cajalogin" class="login-practica__caja" hidden>
+            <div 
+                id="cajalogin" 
+                class="login-practica__caja draggable" 
+                title="Arrastra y suelta para mover el formulario de login"
+                hidden
+            >
 
-                <p class="login-practica__caja-msg">Login de usuarios</p>
+                <p class="login-practica__caja-msg" id="msg-login">Login de usuarios</p>
+
+                <div
+                    class="login-practica__errores"
+                    id="errores-login"
+                    role="alert"
+                    aria-live="polite"
+                ></div>
 
                 <form class="login-practica__form" action="login.php" method="post">
 
@@ -72,7 +89,13 @@
                     </label>
 
                     <input type="hidden" name="urlorigen" value="login.html">
-                    <input type="submit" class="login-practica__submit" value="Login">
+
+                    <div class="login-practica__acciones">
+                        <input type="submit" class="login-practica__submit" value="Login">
+                        <button type="button" class="login-practica__cancelar" id="btn-cancelar-login">
+                            Cancelar
+                        </button>
+                    </div>
 
                 </form>
 

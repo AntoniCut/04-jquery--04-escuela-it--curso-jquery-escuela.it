@@ -131,9 +131,37 @@
         font-size: 1.4rem;
     }
 
-    &__submit {
-        align-self: flex-start;
+    &__errores {
+        min-height: 1.6rem;
+        margin: 0 0 1rem;
+        padding: 0.6rem 0.8rem;
+        border-radius: 4px;
+        font-size: 1.3rem;
+        font-weight: 600;
+        line-height: 1.4;
+        color: #8a1f1f;
+        background: rgba(255, 255, 255, 0.55);
+        border: 1px solid rgba(195, 51, 51, 0.35);
+
+        &:empty {
+            display: none;
+        }
+
+        &--ok {
+            color: #0a7a3e;
+            border-color: rgba(10, 122, 62, 0.35);
+        }
+    }
+
+    &__acciones {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.8rem;
         margin-top: 0.4rem;
+    }
+
+    &__submit {
         padding: 0.5rem 1.4rem;
         border: 1px solid #1d4d94;
         border-radius: 4px;
@@ -150,6 +178,21 @@
         &:disabled {
             opacity: 0.65;
             cursor: not-allowed;
+        }
+    }
+
+    &__cancelar {
+        padding: 0.5rem 1.4rem;
+        border: 1px solid #5f89a3;
+        border-radius: 4px;
+        background: #fff;
+        color: #1d4d94;
+        font-size: 1.4rem;
+        font-weight: 600;
+        cursor: pointer;
+
+        &:hover {
+            background: #eef4fb;
         }
     }
 

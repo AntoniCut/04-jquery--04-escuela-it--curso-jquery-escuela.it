@@ -39,6 +39,12 @@
     /** @type {JQuery<Document>} - `Documento` */
     const $doc = $(document);
 
+    /** @type {JQuery<HTMLDivElement>} - `Boton azul del navbar` */
+    const $btnNavbar = $('#btnNavbar');
+
+    /** @type {JQuery<HTMLDivElement>} - `Boton naranja de themes jQuery UI` */
+    const $btnNavbarThemes = $('#btnNavbarThemesJQueryUI');
+
     /** @type {JQuery<HTMLDivElement>} - `Caja modal de login` */
     const $cajalogin = $('#cajalogin');
 
@@ -51,8 +57,14 @@
     /** @type {JQuery<HTMLFormElement>} - `Formulario de login` */
     const $form = /** @type {JQuery<HTMLFormElement>} */ ($('form', '#cajalogin'));
 
-    /** @type {JQuery<HTMLParagraphElement>} - `Parrafo de estado del login` */
-    const $parrafo = /** @type {JQuery<HTMLParagraphElement>} */ ($form.prev());
+    /** @type {JQuery<HTMLParagraphElement>} - `Titulo de la caja de login` */
+    const $titulo = /** @type {JQuery<HTMLParagraphElement>} */ ($('#msg-login'));
+
+    /** @type {JQuery<HTMLDivElement>} - `Contenedor de errores` */
+    const $errores = $('#errores-login');
+
+    /** @type {JQuery<HTMLButtonElement>} - `Boton cancelar` */
+    const $btnCancelar = /** @type {JQuery<HTMLButtonElement>} */ ($('#btn-cancelar-login'));
 
     /** @type {JQuery<HTMLDivElement>} - `Vista publica con el sitio` */
     const $vistaLogin = $('#vista-login');
@@ -77,9 +89,66 @@
      * --------------------------------------
      * - Construye la URL absoluta del servicio PHP.
      * @param {string} endpoint - Nombre del archivo PHP
-     * @returns {string}
+     * @return {string}
      */
     const construirUrl = (endpoint) => `${URL_BASE}/${endpoint}`;
+
+
+
+    /**
+     * -----------------------------------
+     * -----  `ocultarBotonesNav()`  -----
+     * -----------------------------------
+     * - Oculta los botones azul y naranja del layout.
+     * @return {void}
+     */
+    const ocultarBotonesNav = () => {
+        $btnNavbar.hide();
+        $btnNavbarThemes.hide();
+    };
+
+
+
+    /**
+     * -----------------------------------
+     * -----  `mostrarBotonesNav()`  -----
+     * -----------------------------------
+     * - Muestra de nuevo los botones azul y naranja del layout.
+     * @return {void}
+     */
+    const mostrarBotonesNav = () => {
+        $btnNavbar.show();
+        $btnNavbarThemes.show();
+    };
+
+
+
+    /**
+     * --------------------------------
+     * -----  `limpiarErrores()`  -----
+     * --------------------------------
+     * - Vacia el contenedor de errores.
+     * @return {void}
+     */
+    const limpiarErrores = () => {
+        $errores.text('').removeClass('login-practica__errores--ok');
+    };
+
+
+
+    /**
+     * --------------------------------------
+     * -----  `mostrarError(mensaje)`  -----
+     * --------------------------------------
+     * - Muestra un mensaje de error o servidor en el contenedor.
+     * @param {string} mensaje - Texto del error
+     * @return {void}
+     */
+    const mostrarError = (mensaje) => {
+        $errores
+            .removeClass('login-practica__errores--ok')
+            .text(mensaje);
+    };
 
 
 
@@ -88,7 +157,7 @@
      * -----  `ajustarPosicionesLogin()`  -----
      * -----------------------------------------
      * - Centra la caja de login y ajusta el tamaño del overlay.
-     * @returns {void}
+     * @return {void}
      */
     const ajustarPosicionesLogin = () => {
 
@@ -119,23 +188,27 @@
 
     /**
      * --------------------------------
-     * -----  `resetearLogin()`  -----
+     * -----  `cerrarModal()`  -----
      * --------------------------------
-     * - Restaura el estado inicial de la caja de login y el overlay.
-     * @returns {void}
+     * - Cierra la caja modal, limpia estado y restaura los botones del layout.
+     * @return {void}
      */
-    const resetearLogin = () => {
+    const cerrarModal = () => {
 
         $cajalogin.hide().stop(true, true);
         $capamodal.hide().stop(true, true);
 
-        $parrafo
+        $titulo
             .text('Login de usuarios')
             .css('color', '#fff')
             .removeClass('cargando');
 
+        limpiarErrores();
+
         $form.find('input[type="submit"]').prop('disabled', false);
         $form.find('input[type="text"]').val('');
+
+        mostrarBotonesNav();
     };
 
 
@@ -145,7 +218,7 @@
      * -----  `mostrarVistaDentro()`  -----
      * ---------------------------------------
      * - Muestra la zona privada y oculta la vista publica.
-     * @returns {void}
+     * @return {void}
      */
     const mostrarVistaDentro = () => {
         $vistaLogin.prop('hidden', true);
@@ -159,12 +232,12 @@
      * -----  `mostrarVistaLogin()`  -----
      * --------------------------------------
      * - Vuelve a la vista publica tras cerrar sesion.
-     * @returns {void}
+     * @return {void}
      */
     const mostrarVistaLogin = () => {
         $vistaDentro.prop('hidden', true);
         $vistaLogin.prop('hidden', false);
-        resetearLogin();
+        cerrarModal();
     };
 
 
@@ -175,11 +248,12 @@
      * -------------------------------------------
      * - Envia el formulario por Ajax y gestiona la respuesta JSON.
      * @param {JQuery.SubmitEvent} event - Evento submit del formulario
-     * @returns {void}
+     * @return {void}
      */
     const procesaFormulario = (event) => {
 
         event.preventDefault();
+        limpiarErrores();
 
         $.ajax({
             data: $form.serialize(),
@@ -189,38 +263,35 @@
 
             beforeSend: () => {
                 $form.find('input[type="submit"]').prop('disabled', true);
-                $parrafo.css('color', '#fff');
-                $parrafo.text('Cargando...');
-                $parrafo.addClass('cargando');
+                $titulo.css('color', '#fff');
+                $titulo.text('Cargando...');
+                $titulo.addClass('cargando');
             },
 
             success: (respuesta) => {
                 console.log(respuesta);
-                $parrafo.text(respuesta.mensaje);
 
                 //  -----  login valido: entrar a zona privada  -----
                 if (respuesta.valido) {
-                    $parrafo.css('color', '#fff');
-                    resetearLogin();
+                    cerrarModal();
                     mostrarVistaDentro();
                 }
-                //  -----  login invalido: mostrar error en rojo  -----
+                //  -----  login invalido: mostrar error  -----
                 else {
-                    $parrafo.css('color', '#c33');
+                    $titulo.text('Login de usuarios');
+                    mostrarError(respuesta.mensaje || 'No se corresponde el usuario o la clave');
                 }
             },
 
             error: (xhr, status, error) => {
                 console.error('error:', status, error);
-                $parrafo
-                    .text(`Error en la peticion: ${status}`)
-                    .css('color', '#c33')
-                    .removeClass('cargando');
+                $titulo.text('Login de usuarios');
+                mostrarError(`Error del servidor: ${status}`);
             },
 
             complete: () => {
                 $form.find('input[type="submit"]').prop('disabled', false);
-                $parrafo.removeClass('cargando');
+                $titulo.removeClass('cargando');
             },
         });
     };
@@ -233,11 +304,14 @@
      * ---------------------------------------
      * - Muestra la caja de login y el overlay con fundido.
      * @param {JQuery.ClickEvent} event - Evento click del enlace
-     * @returns {void}
+     * @return {void}
      */
     const mostrarLogin = (event) => {
 
         event.preventDefault();
+
+        limpiarErrores();
+        ocultarBotonesNav();
 
         $cajalogin.prop('hidden', false);
         $capamodal.prop('hidden', false);
@@ -266,6 +340,7 @@
         .css({
             position: 'fixed',
             'z-index': 1000,
+            cursor: 'pointer',
         })
         .hide();
 
@@ -295,6 +370,7 @@
     $ventana.off('.loginPractica');
     $enlacelogin.off('.loginPractica');
     $form.off('.loginPractica');
+    $btnCancelar.off('.loginPractica');
     $enlaceCerrarSesion.off('.loginPractica');
 
     $enlacelogin.on('click.loginPractica', mostrarLogin);
@@ -309,11 +385,16 @@
 
         //  -----  si la pagina viene de bfcache, resetear el login  -----
         if (eventoNativo?.persisted) {
-            resetearLogin();
+            cerrarModal();
         }
     });
 
     $form.on('submit.loginPractica', procesaFormulario);
+
+    $btnCancelar.on('click.loginPractica', (event) => {
+        event.preventDefault();
+        cerrarModal();
+    });
 
     $enlaceCerrarSesion.on('click.loginPractica', (event) => {
         event.preventDefault();
