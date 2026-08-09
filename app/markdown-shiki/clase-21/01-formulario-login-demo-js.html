@@ -35,6 +35,12 @@
 <span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;Document>}</span><span style="color:#6A9955"> - `Documento` */</span></span>
 <span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $doc</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Boton azul del navbar` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $btnNavbar</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#btnNavbar'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Boton naranja de themes jQuery UI` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $btnNavbarThemes</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#btnNavbarThemesJQueryUI'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
 <span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Caja modal de login` */</span></span>
 <span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $cajalogin</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#cajalogin'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
@@ -47,8 +53,14 @@
 <span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLFormElement>}</span><span style="color:#6A9955"> - `Formulario de login` */</span></span>
 <span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $form</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLFormElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'form'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'#cajalogin'</span><span style="color:#D4D4D4">));</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLParagraphElement>}</span><span style="color:#6A9955"> - `Parrafo de estado del login` */</span></span>
-<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $parrafo</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLParagraphElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">$form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prev</span><span style="color:#D4D4D4">());</span></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLParagraphElement>}</span><span style="color:#6A9955"> - `Titulo de la caja de login` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $titulo</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLParagraphElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#msg-login'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Contenedor de errores` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $errores</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#errores-login'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> - `Boton cancelar` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $btnCancelar</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#btn-cancelar-login'</span><span style="color:#D4D4D4">));</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Vista publica con el sitio` */</span></span>
 <span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $vistaLogin</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#vista-login'</span><span style="color:#D4D4D4">);</span></span>
@@ -73,9 +85,66 @@
 <span class="line"><span style="color:#6A9955">     * --------------------------------------</span></span>
 <span class="line"><span style="color:#6A9955">     * - Construye la URL absoluta del servicio PHP.</span></span>
 <span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> endpoint</span><span style="color:#6A9955"> - Nombre del archivo PHP</span></span>
-<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@returns</span><span style="color:#4EC9B0"> {string}</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {string}</span></span>
 <span class="line"><span style="color:#6A9955">     */</span></span>
 <span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> construirUrl</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">endpoint</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#CE9178"> `</span><span style="color:#569CD6">${</span><span style="color:#4FC1FF">URL_BASE</span><span style="color:#569CD6">}</span><span style="color:#CE9178">/</span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">endpoint</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * -----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `ocultarBotonesNav()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * -----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Oculta los botones azul y naranja del layout.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> ocultarBotonesNav</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        $btnNavbar</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">hide</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#9CDCFE">        $btnNavbarThemes</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">hide</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * -----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `mostrarBotonesNav()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * -----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Muestra de nuevo los botones azul y naranja del layout.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> mostrarBotonesNav</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        $btnNavbar</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">show</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#9CDCFE">        $btnNavbarThemes</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">show</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * --------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `limpiarErrores()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * --------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Vacia el contenedor de errores.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> limpiarErrores</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        $errores</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'login-practica__errores--ok'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * --------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `mostrarError(mensaje)`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * --------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Muestra un mensaje de error o servidor en el contenedor.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> mensaje</span><span style="color:#6A9955"> - Texto del error</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> mostrarError</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">mensaje</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        $errores</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'login-practica__errores--ok'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">mensaje</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
 <span class="line"></span>
 <span class="line"></span>
 <span class="line"></span>
@@ -84,7 +153,7 @@
 <span class="line"><span style="color:#6A9955">     * -----  `ajustarPosicionesLogin()`  -----</span></span>
 <span class="line"><span style="color:#6A9955">     * -----------------------------------------</span></span>
 <span class="line"><span style="color:#6A9955">     * - Centra la caja de login y ajusta el tamaño del overlay.</span></span>
-<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@returns</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
 <span class="line"><span style="color:#6A9955">     */</span></span>
 <span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> ajustarPosicionesLogin</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"></span>
@@ -115,23 +184,27 @@
 <span class="line"></span>
 <span class="line"><span style="color:#6A9955">    /**</span></span>
 <span class="line"><span style="color:#6A9955">     * --------------------------------</span></span>
-<span class="line"><span style="color:#6A9955">     * -----  `resetearLogin()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `cerrarModal()`  -----</span></span>
 <span class="line"><span style="color:#6A9955">     * --------------------------------</span></span>
-<span class="line"><span style="color:#6A9955">     * - Restaura el estado inicial de la caja de login y el overlay.</span></span>
-<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@returns</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">     * - Cierra la caja modal, limpia estado y restaura los botones del layout.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
 <span class="line"><span style="color:#6A9955">     */</span></span>
-<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> resetearLogin</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> cerrarModal</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">        $cajalogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">hide</span><span style="color:#D4D4D4">().</span><span style="color:#DCDCAA">stop</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#9CDCFE">        $capamodal</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">hide</span><span style="color:#D4D4D4">().</span><span style="color:#DCDCAA">stop</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#9CDCFE">        $parrafo</span></span>
+<span class="line"><span style="color:#9CDCFE">        $titulo</span></span>
 <span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Login de usuarios'</span><span style="color:#D4D4D4">)</span></span>
 <span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'color'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'#fff'</span><span style="color:#D4D4D4">)</span></span>
 <span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'cargando'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">        limpiarErrores</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">        $form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'input[type="submit"]'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'disabled'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#9CDCFE">        $form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'input[type="text"]'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">        mostrarBotonesNav</span><span style="color:#D4D4D4">();</span></span>
 <span class="line"><span style="color:#D4D4D4">    };</span></span>
 <span class="line"></span>
 <span class="line"></span>
@@ -141,7 +214,7 @@
 <span class="line"><span style="color:#6A9955">     * -----  `mostrarVistaDentro()`  -----</span></span>
 <span class="line"><span style="color:#6A9955">     * ---------------------------------------</span></span>
 <span class="line"><span style="color:#6A9955">     * - Muestra la zona privada y oculta la vista publica.</span></span>
-<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@returns</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
 <span class="line"><span style="color:#6A9955">     */</span></span>
 <span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> mostrarVistaDentro</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"><span style="color:#9CDCFE">        $vistaLogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'hidden'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">);</span></span>
@@ -155,12 +228,12 @@
 <span class="line"><span style="color:#6A9955">     * -----  `mostrarVistaLogin()`  -----</span></span>
 <span class="line"><span style="color:#6A9955">     * --------------------------------------</span></span>
 <span class="line"><span style="color:#6A9955">     * - Vuelve a la vista publica tras cerrar sesion.</span></span>
-<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@returns</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
 <span class="line"><span style="color:#6A9955">     */</span></span>
 <span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> mostrarVistaLogin</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"><span style="color:#9CDCFE">        $vistaDentro</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'hidden'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#9CDCFE">        $vistaLogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'hidden'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">);</span></span>
-<span class="line"><span style="color:#DCDCAA">        resetearLogin</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#DCDCAA">        cerrarModal</span><span style="color:#D4D4D4">();</span></span>
 <span class="line"><span style="color:#D4D4D4">    };</span></span>
 <span class="line"></span>
 <span class="line"></span>
@@ -171,11 +244,12 @@
 <span class="line"><span style="color:#6A9955">     * -------------------------------------------</span></span>
 <span class="line"><span style="color:#6A9955">     * - Envia el formulario por Ajax y gestiona la respuesta JSON.</span></span>
 <span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {JQuery.SubmitEvent}</span><span style="color:#9CDCFE"> event</span><span style="color:#6A9955"> - Evento submit del formulario</span></span>
-<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@returns</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
 <span class="line"><span style="color:#6A9955">     */</span></span>
 <span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> procesaFormulario</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">        event</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">preventDefault</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#DCDCAA">        limpiarErrores</span><span style="color:#D4D4D4">();</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">        $</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">ajax</span><span style="color:#D4D4D4">({</span></span>
 <span class="line"><span style="color:#9CDCFE">            data:</span><span style="color:#9CDCFE"> $form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">serialize</span><span style="color:#D4D4D4">(),</span></span>
@@ -185,38 +259,35 @@
 <span class="line"></span>
 <span class="line"><span style="color:#DCDCAA">            beforeSend</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"><span style="color:#9CDCFE">                $form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'input[type="submit"]'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'disabled'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">);</span></span>
-<span class="line"><span style="color:#9CDCFE">                $parrafo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'color'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'#fff'</span><span style="color:#D4D4D4">);</span></span>
-<span class="line"><span style="color:#9CDCFE">                $parrafo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Cargando...'</span><span style="color:#D4D4D4">);</span></span>
-<span class="line"><span style="color:#9CDCFE">                $parrafo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'cargando'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">                $titulo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'color'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'#fff'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">                $titulo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Cargando...'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">                $titulo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'cargando'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#D4D4D4">            },</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#DCDCAA">            success</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">respuesta</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"><span style="color:#9CDCFE">                console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">respuesta</span><span style="color:#D4D4D4">);</span></span>
-<span class="line"><span style="color:#9CDCFE">                $parrafo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">respuesta</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">mensaje</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#6A9955">                //  -----  login valido: entrar a zona privada  -----</span></span>
 <span class="line"><span style="color:#C586C0">                if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">respuesta</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">valido</span><span style="color:#D4D4D4">) {</span></span>
-<span class="line"><span style="color:#9CDCFE">                    $parrafo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'color'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'#fff'</span><span style="color:#D4D4D4">);</span></span>
-<span class="line"><span style="color:#DCDCAA">                    resetearLogin</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#DCDCAA">                    cerrarModal</span><span style="color:#D4D4D4">();</span></span>
 <span class="line"><span style="color:#DCDCAA">                    mostrarVistaDentro</span><span style="color:#D4D4D4">();</span></span>
 <span class="line"><span style="color:#D4D4D4">                }</span></span>
-<span class="line"><span style="color:#6A9955">                //  -----  login invalido: mostrar error en rojo  -----</span></span>
+<span class="line"><span style="color:#6A9955">                //  -----  login invalido: mostrar error  -----</span></span>
 <span class="line"><span style="color:#C586C0">                else</span><span style="color:#D4D4D4"> {</span></span>
-<span class="line"><span style="color:#9CDCFE">                    $parrafo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'color'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'#c33'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">                    $titulo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Login de usuarios'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">                    mostrarError</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">respuesta</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">mensaje</span><span style="color:#D4D4D4"> || </span><span style="color:#CE9178">'No se corresponde el usuario o la clave'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#D4D4D4">                }</span></span>
 <span class="line"><span style="color:#D4D4D4">            },</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#DCDCAA">            error</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">xhr</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">status</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">error</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"><span style="color:#9CDCFE">                console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">error</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'error:'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">status</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">error</span><span style="color:#D4D4D4">);</span></span>
-<span class="line"><span style="color:#9CDCFE">                $parrafo</span></span>
-<span class="line"><span style="color:#D4D4D4">                    .</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`Error en la peticion: </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">status</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span><span style="color:#D4D4D4">)</span></span>
-<span class="line"><span style="color:#D4D4D4">                    .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'color'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'#c33'</span><span style="color:#D4D4D4">)</span></span>
-<span class="line"><span style="color:#D4D4D4">                    .</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'cargando'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">                $titulo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Login de usuarios'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">                mostrarError</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`Error del servidor: </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">status</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#D4D4D4">            },</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#DCDCAA">            complete</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"><span style="color:#9CDCFE">                $form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'input[type="submit"]'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'disabled'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">);</span></span>
-<span class="line"><span style="color:#9CDCFE">                $parrafo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'cargando'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">                $titulo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'cargando'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#D4D4D4">            },</span></span>
 <span class="line"><span style="color:#D4D4D4">        });</span></span>
 <span class="line"><span style="color:#D4D4D4">    };</span></span>
@@ -229,11 +300,14 @@
 <span class="line"><span style="color:#6A9955">     * ---------------------------------------</span></span>
 <span class="line"><span style="color:#6A9955">     * - Muestra la caja de login y el overlay con fundido.</span></span>
 <span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {JQuery.ClickEvent}</span><span style="color:#9CDCFE"> event</span><span style="color:#6A9955"> - Evento click del enlace</span></span>
-<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@returns</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
 <span class="line"><span style="color:#6A9955">     */</span></span>
 <span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> mostrarLogin</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">        event</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">preventDefault</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">        limpiarErrores</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#DCDCAA">        ocultarBotonesNav</span><span style="color:#D4D4D4">();</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">        $cajalogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'hidden'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#9CDCFE">        $capamodal</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'hidden'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">);</span></span>
@@ -292,6 +366,7 @@
 <span class="line"><span style="color:#9CDCFE">    $ventana</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">off</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.loginPractica'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#9CDCFE">    $enlacelogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">off</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.loginPractica'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#9CDCFE">    $form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">off</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.loginPractica'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    $btnCancelar</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">off</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.loginPractica'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#9CDCFE">    $enlaceCerrarSesion</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">off</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.loginPractica'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">    $enlacelogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click.loginPractica'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">mostrarLogin</span><span style="color:#D4D4D4">);</span></span>
@@ -306,11 +381,16 @@
 <span class="line"></span>
 <span class="line"><span style="color:#6A9955">        //  -----  si la pagina viene de bfcache, resetear el login  -----</span></span>
 <span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">eventoNativo</span><span style="color:#D4D4D4">?.</span><span style="color:#9CDCFE">persisted</span><span style="color:#D4D4D4">) {</span></span>
-<span class="line"><span style="color:#DCDCAA">            resetearLogin</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#DCDCAA">            cerrarModal</span><span style="color:#D4D4D4">();</span></span>
 <span class="line"><span style="color:#D4D4D4">        }</span></span>
 <span class="line"><span style="color:#D4D4D4">    });</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">    $form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'submit.loginPractica'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">procesaFormulario</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $btnCancelar</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click.loginPractica'</span><span style="color:#D4D4D4">, (</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        event</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">preventDefault</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#DCDCAA">        cerrarModal</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">    $enlaceCerrarSesion</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click.loginPractica'</span><span style="color:#D4D4D4">, (</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"><span style="color:#9CDCFE">        event</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">preventDefault</span><span style="color:#D4D4D4">();</span></span>

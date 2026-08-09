@@ -148,6 +148,11 @@
     background: var.$bg-title-layout-main;
     box-shadow: 4px 4px 10px rgba(209, 220, 235, 0.8);
 
+    //  -----  Mantiene visible la cabecera al desplazarse por el menú  -----
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
     h3 {
         margin: 0;
         font-size: 1.6rem;
