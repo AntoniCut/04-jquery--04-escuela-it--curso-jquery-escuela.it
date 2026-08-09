@@ -165,6 +165,55 @@
     &__caja[hidden] {
         display: none !important;
     }
+
+    &__caja--auth {
+        width: 36rem;
+    }
+
+    &__aside-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    &__tabs {
+        display: flex;
+        gap: 0.6rem;
+        margin: 0 0 1.2rem;
+    }
+
+    &__tab {
+        flex: 1;
+        padding: 0.5rem 0.8rem;
+        border: 1px solid #1d4d94;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.55);
+        color: #102a43;
+        font-size: 1.3rem;
+        font-weight: 600;
+        cursor: pointer;
+
+        &.is-active {
+            background: #1d4d94;
+            color: #fff;
+        }
+
+        &:hover:not(.is-active) {
+            background: rgba(255, 255, 255, 0.85);
+        }
+    }
+
+    &__user {
+        display: block;
+        margin-top: 0.4rem;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #486581;
+    }
+
+    kbd {
+        font-size: 1.25rem;
+    }
 }
 
 
@@ -174,8 +223,9 @@
             grid-template-columns: 1fr;
         }
 
-        &__caja {
-            width: min(32rem, calc(100vw - 2rem));
+        &__caja,
+        &__caja--auth {
+            width: min(36rem, calc(100vw - 2rem));
         }
 
         &__label {
@@ -189,6 +239,10 @@
 
         &__input {
             width: 100%;
+        }
+
+        &__tabs {
+            flex-direction: column;
         }
     }
 }

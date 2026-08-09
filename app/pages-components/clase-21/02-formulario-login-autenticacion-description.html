@@ -1,0 +1,63 @@
+<!--
+    *  --------------------------------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /02-formulario-login-autenticacion-description.html  --  /src/pages-components/clase-21/02-formulario-login-autenticacion-description.html  -----  *
+    *  --------------------------------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
+
+            <p class="demo-page__intro-text">
+                Amplia el login modal con autenticacion real contra MySQL
+                (<kbd>jquery_escuelait_classicmodels.login_users</kbd>).
+                El usuario puede <kbd>registrarse</kbd> o <kbd>iniciar sesion</kbd>;
+                si intenta entrar sin estar dado de alta, se le indica que debe registrarse.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> combinar Ajax + JSON con consultas
+                <kbd>mysqli</kbd> (SELECT / INSERT) y contraseñas hasheadas con
+                <kbd>password_hash</kbd> / <kbd>password_verify</kbd>.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Registro: inserta usuario y clave (hash) en <kbd>login_users</kbd>.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Login: consulta la BD; si no existe, pide registrarse.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Login correcto: entra a la zona privada sin recargar la pagina.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>

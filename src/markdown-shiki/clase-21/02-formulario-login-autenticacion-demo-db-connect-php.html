@@ -1,0 +1,69 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">        *  -----  /db-connect</span><span style="color:#D4D4D4">.</span><span style="color:#D4D4D4">php  --  /src/services/clase-</span><span style="color:#B5CEA8">21</span><span style="color:#D4D4D4">/db-connect</span><span style="color:#D4D4D4">.</span><span style="color:#D4D4D4">php  -----  *</span></span>
+<span class="line"><span style="color:#D4D4D4">        *  ------------------------------------------------------------------------  *</span></span>
+<span class="line"><span style="color:#D4D4D4">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    </span></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        - Conexion mysqli a jquery_escuelait_classicmodels.      </span></span>
+<span class="line"><span style="color:#6A9955">        - Reutilizable por login-auth.php y register-auth.php.</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">    require_once</span><span style="color:#DCDCAA"> dirname</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">__DIR__</span><span style="color:#D4D4D4">) </span><span style="color:#D4D4D4">.</span><span style="color:#CE9178"> '/load-env.php'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#DCDCAA">    load_dotenv</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">__DIR__</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * -------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `clase21_obtener_conexion()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * -------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Abre una conexion mysqli usando variables de entorno / .env.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#569CD6"> array</span><span style="color:#6A9955">{0: mysqli|null, 1: string} [conexion, mensajeError]</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    function</span><span style="color:#DCDCAA"> clase21_obtener_conexion</span><span style="color:#D4D4D4">(): </span><span style="color:#569CD6">array</span></span>
+<span class="line"><span style="color:#D4D4D4">    {</span></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (!</span><span style="color:#DCDCAA">function_exists</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'mysqli_connect'</span><span style="color:#D4D4D4">)) {</span></span>
+<span class="line"><span style="color:#C586C0">            return</span><span style="color:#D4D4D4"> [</span><span style="color:#569CD6">null</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'Extension mysqli no disponible en PHP del servidor'</span><span style="color:#D4D4D4">];</span></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">        mysqli_report</span><span style="color:#D4D4D4">(MYSQLI_REPORT_OFF);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $host</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">getenv</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'DB_HOST'</span><span style="color:#D4D4D4">) ?: </span><span style="color:#CE9178">'127.0.0.1'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        $user</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">getenv</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'DB_USER'</span><span style="color:#D4D4D4">) ?: </span><span style="color:#CE9178">'root'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        $pass</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">getenv</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'DB_PASS'</span><span style="color:#D4D4D4">) !== </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4"> ? </span><span style="color:#DCDCAA">getenv</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'DB_PASS'</span><span style="color:#D4D4D4">) : </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        $db</span><span style="color:#D4D4D4">   = </span><span style="color:#DCDCAA">getenv</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'DB_NAME'</span><span style="color:#D4D4D4">) ?: </span><span style="color:#CE9178">'jquery_escuelait_classicmodels'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">        $port</span><span style="color:#D4D4D4"> = (</span><span style="color:#569CD6">int</span><span style="color:#D4D4D4">) (</span><span style="color:#DCDCAA">getenv</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'DB_PORT'</span><span style="color:#D4D4D4">) ?: </span><span style="color:#B5CEA8">3306</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $conn</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">mysqli_connect</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$host</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$user</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$pass</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$db</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$port</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (!</span><span style="color:#9CDCFE">$conn</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#C586C0">            return</span><span style="color:#D4D4D4"> [</span><span style="color:#569CD6">null</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'Conexion MySQL fallida: '</span><span style="color:#D4D4D4"> .</span><span style="color:#DCDCAA"> mysqli_connect_error</span><span style="color:#D4D4D4">()];</span></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">        mysqli_set_charset</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$conn</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'utf8mb4'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">        return</span><span style="color:#D4D4D4"> [</span><span style="color:#9CDCFE">$conn</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">];</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * --------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `clase21_json_response()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * --------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Envia una respuesta JSON y termina el script.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#569CD6"> bool</span><span style="color:#6A9955"> $valido</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#569CD6"> string</span><span style="color:#6A9955"> $mensaje</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#569CD6"> array</span><span style="color:#6A9955">&#x3C;</span><span style="color:#569CD6">string</span><span style="color:#6A9955">, mixed> $extra</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> never</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    function</span><span style="color:#DCDCAA"> clase21_json_response</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">bool</span><span style="color:#9CDCFE"> $valido</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">string</span><span style="color:#9CDCFE"> $mensaje</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">array</span><span style="color:#9CDCFE"> $extra</span><span style="color:#D4D4D4"> = []): </span><span style="color:#569CD6">void</span></span>
+<span class="line"><span style="color:#D4D4D4">    {</span></span>
+<span class="line"><span style="color:#DCDCAA">        header</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Content-Type: application/json; charset=utf-8'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">        echo</span><span style="color:#DCDCAA"> json_encode</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">array_merge</span><span style="color:#D4D4D4">([</span></span>
+<span class="line"><span style="color:#CE9178">            'valido'</span><span style="color:#D4D4D4"> => </span><span style="color:#9CDCFE">$valido</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">            'mensaje'</span><span style="color:#D4D4D4"> => </span><span style="color:#9CDCFE">$mensaje</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">        ], </span><span style="color:#9CDCFE">$extra</span><span style="color:#D4D4D4">), JSON_UNESCAPED_UNICODE);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">        exit</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span></code></pre>

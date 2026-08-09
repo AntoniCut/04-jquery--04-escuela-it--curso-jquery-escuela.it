@@ -1,0 +1,118 @@
+<!--
+    *  ------------------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /02-formulario-login-autenticacion-demo.html  --  /src/pages-components/clase-21/02-formulario-login-autenticacion-demo.html  -----  *
+    *  ------------------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__demo">
+
+
+    <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+    <div class="login-practica login-practica--auth" id="login-auth-root">
+
+        <!--  -----  Vista publica  -----  -->
+        <div class="login-practica__vista" id="vista-login-auth">
+
+            <div class="login-practica__layout">
+
+                <h3 class="login-practica__title">Mi sitio web (Auth MySQL)</h3>
+
+                <section class="login-practica__section">
+                    <p>
+                        Este ejercicio autentica contra la base de datos
+                        <kbd>jquery_escuelait_classicmodels</kbd> y la tabla
+                        <kbd>login_users</kbd>. Puedes registrarte o iniciar sesion.
+                    </p>
+                    <p>
+                        Si intentas iniciar sesion con un usuario que no existe,
+                        el servidor te indicara que debes registrarte primero.
+                    </p>
+                </section>
+
+                <aside class="login-practica__aside">
+                    <p>
+                        Elige una accion para abrir la caja modal:
+                    </p>
+                    <p class="login-practica__aside-actions">
+                        <a href="#" id="enlace-login-auth">Iniciar sesion</a>
+                        <a href="#" id="enlace-registro-auth">Registrarse</a>
+                    </p>
+                </aside>
+
+            </div>
+
+            <!--  -----  Overlay modal  -----  -->
+            <div id="capamodal-auth" class="login-practica__modal" hidden></div>
+
+            <!--  -----  Caja modal login / registro  -----  -->
+            <div id="caja-auth" class="login-practica__caja login-practica__caja--auth" hidden>
+
+                <p class="login-practica__caja-msg" id="msg-auth">Iniciar sesion</p>
+
+                <div class="login-practica__tabs" role="tablist" aria-label="Modo de autenticacion">
+                    <button type="button" class="login-practica__tab is-active" id="tab-login-auth" data-modo="login">
+                        Iniciar sesion
+                    </button>
+                    <button type="button" class="login-practica__tab" id="tab-registro-auth" data-modo="registro">
+                        Registrarse
+                    </button>
+                </div>
+
+                <form class="login-practica__form" id="form-auth" action="login-auth.php" method="post">
+
+                    <input type="hidden" name="modo" id="modo-auth" value="login">
+
+                    <label class="login-practica__label">
+                        <span>User:</span>
+                        <input type="text" name="user" id="user-auth" class="login-practica__input" autocomplete="username">
+                    </label>
+
+                    <label class="login-practica__label">
+                        <span>Passwd:</span>
+                        <input type="password" name="pass" id="pass-auth" class="login-practica__input" autocomplete="current-password">
+                    </label>
+
+                    <input type="submit" class="login-practica__submit" id="submit-auth" value="Entrar">
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <!--  -----  Vista privada tras login correcto  -----  -->
+        <div class="login-practica__vista login-practica__vista--dentro" id="vista-dentro-auth" hidden>
+
+            <div class="login-practica__layout">
+
+                <h3 class="login-practica__title">
+                    Estás dentro!!!
+                    <span class="login-practica__user" id="usuario-dentro-auth"></span>
+                </h3>
+
+                <section class="login-practica__section">
+                    <p>
+                        Has iniciado sesion correctamente. Los datos se validaron
+                        contra la tabla <kbd>login_users</kbd> de MySQL.
+                    </p>
+                </section>
+
+                <aside class="login-practica__aside">
+                    <p>
+                        Ya estás dentro del sistema!!
+                    </p>
+                    <p>
+                        <a href="#" id="enlace-cerrar-sesion-auth">Cerrar sesión</a>
+                    </p>
+                </aside>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>

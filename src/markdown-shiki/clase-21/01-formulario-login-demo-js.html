@@ -88,14 +88,26 @@
 <span class="line"><span style="color:#6A9955">     */</span></span>
 <span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> ajustarPosicionesLogin</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Alto de la ventana` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> altoVentana</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$ventana</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">height</span><span style="color:#D4D4D4">() || </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Ancho de la ventana` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> anchoVentana</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$ventana</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">width</span><span style="color:#D4D4D4">() || </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Alto de la caja de login` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> altoCaja</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$cajalogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">outerHeight</span><span style="color:#D4D4D4">() || </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Ancho de la caja de login` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> anchoCaja</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$cajalogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">outerWidth</span><span style="color:#D4D4D4">() || </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">        $cajalogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">({</span></span>
-<span class="line"><span style="color:#9CDCFE">            top:</span><span style="color:#D4D4D4"> ((</span><span style="color:#9CDCFE">$ventana</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">height</span><span style="color:#D4D4D4">() - </span><span style="color:#9CDCFE">$cajalogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">outerHeight</span><span style="color:#D4D4D4">()) / </span><span style="color:#B5CEA8">2</span><span style="color:#D4D4D4">) + </span><span style="color:#CE9178">'px'</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#9CDCFE">            left:</span><span style="color:#D4D4D4"> ((</span><span style="color:#9CDCFE">$ventana</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">width</span><span style="color:#D4D4D4">() - </span><span style="color:#9CDCFE">$cajalogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">outerWidth</span><span style="color:#D4D4D4">()) / </span><span style="color:#B5CEA8">2</span><span style="color:#D4D4D4">) + </span><span style="color:#CE9178">'px'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            top:</span><span style="color:#D4D4D4"> ((</span><span style="color:#9CDCFE">altoVentana</span><span style="color:#D4D4D4"> - </span><span style="color:#9CDCFE">altoCaja</span><span style="color:#D4D4D4">) / </span><span style="color:#B5CEA8">2</span><span style="color:#D4D4D4">) + </span><span style="color:#CE9178">'px'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            left:</span><span style="color:#D4D4D4"> ((</span><span style="color:#9CDCFE">anchoVentana</span><span style="color:#D4D4D4"> - </span><span style="color:#9CDCFE">anchoCaja</span><span style="color:#D4D4D4">) / </span><span style="color:#B5CEA8">2</span><span style="color:#D4D4D4">) + </span><span style="color:#CE9178">'px'</span><span style="color:#D4D4D4">,</span></span>
 <span class="line"><span style="color:#D4D4D4">        });</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">        $capamodal</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">({</span></span>
-<span class="line"><span style="color:#9CDCFE">            width:</span><span style="color:#9CDCFE"> $doc</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">width</span><span style="color:#D4D4D4">(),</span></span>
-<span class="line"><span style="color:#9CDCFE">            height:</span><span style="color:#9CDCFE"> $doc</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">height</span><span style="color:#D4D4D4">(),</span></span>
+<span class="line"><span style="color:#9CDCFE">            width:</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">$doc</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">width</span><span style="color:#D4D4D4">() || </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">) + </span><span style="color:#CE9178">'px'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            height:</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">$doc</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">height</span><span style="color:#D4D4D4">() || </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">) + </span><span style="color:#CE9178">'px'</span><span style="color:#D4D4D4">,</span></span>
 <span class="line"><span style="color:#D4D4D4">        });</span></span>
 <span class="line"><span style="color:#D4D4D4">    };</span></span>
 <span class="line"></span>
@@ -132,8 +144,8 @@
 <span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@returns</span><span style="color:#4EC9B0"> {void}</span></span>
 <span class="line"><span style="color:#6A9955">     */</span></span>
 <span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> mostrarVistaDentro</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
-<span class="line"><span style="color:#9CDCFE">        $vistaLogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">attr</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'hidden'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">);</span></span>
-<span class="line"><span style="color:#9CDCFE">        $vistaDentro</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeAttr</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'hidden'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $vistaLogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'hidden'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $vistaDentro</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'hidden'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#D4D4D4">    };</span></span>
 <span class="line"></span>
 <span class="line"></span>
@@ -146,8 +158,8 @@
 <span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@returns</span><span style="color:#4EC9B0"> {void}</span></span>
 <span class="line"><span style="color:#6A9955">     */</span></span>
 <span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> mostrarVistaLogin</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
-<span class="line"><span style="color:#9CDCFE">        $vistaDentro</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">attr</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'hidden'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">);</span></span>
-<span class="line"><span style="color:#9CDCFE">        $vistaLogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeAttr</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'hidden'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $vistaDentro</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'hidden'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $vistaLogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'hidden'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#DCDCAA">        resetearLogin</span><span style="color:#D4D4D4">();</span></span>
 <span class="line"><span style="color:#D4D4D4">    };</span></span>
 <span class="line"></span>
@@ -223,8 +235,8 @@
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">        event</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">preventDefault</span><span style="color:#D4D4D4">();</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#9CDCFE">        $cajalogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeAttr</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'hidden'</span><span style="color:#D4D4D4">);</span></span>
-<span class="line"><span style="color:#9CDCFE">        $capamodal</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeAttr</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'hidden'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $cajalogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'hidden'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $capamodal</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'hidden'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#DCDCAA">        ajustarPosicionesLogin</span><span style="color:#D4D4D4">();</span></span>
 <span class="line"></span>
@@ -240,6 +252,12 @@
 <span class="line"><span style="color:#6A9955">        *  -----------------------------</span></span>
 <span class="line"><span style="color:#6A9955">    */</span></span>
 <span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Ancho del documento para el overlay` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> anchoDocumento</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$doc</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">width</span><span style="color:#D4D4D4">() || </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Alto del documento para el overlay` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> altoDocumento</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$doc</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">height</span><span style="color:#D4D4D4">() || </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">    $cajalogin</span></span>
 <span class="line"><span style="color:#D4D4D4">        .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">({</span></span>
 <span class="line"><span style="color:#9CDCFE">            position:</span><span style="color:#CE9178"> 'fixed'</span><span style="color:#D4D4D4">,</span></span>
@@ -251,8 +269,8 @@
 <span class="line"><span style="color:#D4D4D4">        .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">({</span></span>
 <span class="line"><span style="color:#9CDCFE">            opacity:</span><span style="color:#B5CEA8"> 0.80</span><span style="color:#D4D4D4">,</span></span>
 <span class="line"><span style="color:#CE9178">            'z-index'</span><span style="color:#9CDCFE">:</span><span style="color:#B5CEA8"> 900</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#9CDCFE">            width:</span><span style="color:#9CDCFE"> $doc</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">width</span><span style="color:#D4D4D4">(),</span></span>
-<span class="line"><span style="color:#9CDCFE">            height:</span><span style="color:#9CDCFE"> $doc</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">height</span><span style="color:#D4D4D4">(),</span></span>
+<span class="line"><span style="color:#9CDCFE">            width:</span><span style="color:#9CDCFE"> anchoDocumento</span><span style="color:#D4D4D4"> + </span><span style="color:#CE9178">'px'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            height:</span><span style="color:#9CDCFE"> altoDocumento</span><span style="color:#D4D4D4"> + </span><span style="color:#CE9178">'px'</span><span style="color:#D4D4D4">,</span></span>
 <span class="line"><span style="color:#9CDCFE">            backgroundColor:</span><span style="color:#CE9178"> '#33ffcc'</span><span style="color:#D4D4D4">,</span></span>
 <span class="line"><span style="color:#9CDCFE">            position:</span><span style="color:#CE9178"> 'fixed'</span><span style="color:#D4D4D4">,</span></span>
 <span class="line"><span style="color:#9CDCFE">            top:</span><span style="color:#CE9178"> '0px'</span><span style="color:#D4D4D4">,</span></span>
@@ -269,20 +287,31 @@
 <span class="line"><span style="color:#6A9955">        *  -----------------------------</span></span>
 <span class="line"><span style="color:#6A9955">    */</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#9CDCFE">    $enlacelogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">mostrarLogin</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#6A9955">    //  -----  limpiar listeners previos al recargar el ejercicio en la SPA  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    $ventana</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">off</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.loginPractica'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    $enlacelogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">off</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.loginPractica'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    $form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">off</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.loginPractica'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    $enlaceCerrarSesion</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">off</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.loginPractica'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $enlacelogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click.loginPractica'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">mostrarLogin</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#9CDCFE">    $ventana</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'resize.loginPractica'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">ajustarPosicionesLogin</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#9CDCFE">    $ventana</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'scroll.loginPractica'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">ajustarPosicionesLogin</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#6A9955">    //  -----  al volver desde cache del navegador, resetear el login  -----</span></span>
 <span class="line"><span style="color:#9CDCFE">    $ventana</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'pageshow.loginPractica'</span><span style="color:#D4D4D4">, (</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
-<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">originalEvent</span><span style="color:#D4D4D4"> &#x26;&#x26; </span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">originalEvent</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">persisted</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {PageTransitionEvent | undefined}</span><span style="color:#6A9955"> - `Evento nativo pageshow` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> eventoNativo</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {PageTransitionEvent | undefined}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">originalEvent</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  si la pagina viene de bfcache, resetear el login  -----</span></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">eventoNativo</span><span style="color:#D4D4D4">?.</span><span style="color:#9CDCFE">persisted</span><span style="color:#D4D4D4">) {</span></span>
 <span class="line"><span style="color:#DCDCAA">            resetearLogin</span><span style="color:#D4D4D4">();</span></span>
 <span class="line"><span style="color:#D4D4D4">        }</span></span>
 <span class="line"><span style="color:#D4D4D4">    });</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#9CDCFE">    $form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'submit'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">procesaFormulario</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    $form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'submit.loginPractica'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">procesaFormulario</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#9CDCFE">    $enlaceCerrarSesion</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, (</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">    $enlaceCerrarSesion</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click.loginPractica'</span><span style="color:#D4D4D4">, (</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"><span style="color:#9CDCFE">        event</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">preventDefault</span><span style="color:#D4D4D4">();</span></span>
 <span class="line"><span style="color:#DCDCAA">        mostrarVistaLogin</span><span style="color:#D4D4D4">();</span></span>
 <span class="line"><span style="color:#D4D4D4">    });</span></span>

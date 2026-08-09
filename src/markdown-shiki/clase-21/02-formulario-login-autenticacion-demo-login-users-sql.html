@@ -1,0 +1,21 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">    *</span></span>
+<span class="line"><span style="color:#D4D4D4">    *  Tabla de usuarios para el </span><span style="color:#569CD6">login</span><span style="color:#D4D4D4"> con autenticacion (clase </span><span style="color:#B5CEA8">21</span><span style="color:#D4D4D4"> - ejercicio </span><span style="color:#B5CEA8">02</span><span style="color:#D4D4D4">).</span></span>
+<span class="line"><span style="color:#D4D4D4">    *  Base de datos: jquery_escuelait_classicmodels</span></span>
+<span class="line"><span style="color:#D4D4D4">    *</span></span>
+<span class="line"><span style="color:#D4D4D4">    *  Ejemplo de importacion:</span></span>
+<span class="line"><span style="color:#D4D4D4">    *  mysql -u </span><span style="color:#569CD6">root</span><span style="color:#D4D4D4"> jquery_escuelait_classicmodels &#x3C; src/services/clase-</span><span style="color:#B5CEA8">21</span><span style="color:#D4D4D4">/</span><span style="color:#569CD6">login</span><span style="color:#D4D4D4">-users.sql</span></span>
+<span class="line"><span style="color:#D4D4D4">    *</span></span>
+<span class="line"><span style="color:#D4D4D4">    *  Nota produccion: el usuario MySQL necesita </span><span style="color:#569CD6">SELECT</span><span style="color:#D4D4D4"> + </span><span style="color:#569CD6">INSERT</span><span style="color:#D4D4D4"> sobre login_users.</span></span>
+<span class="line"><span style="color:#D4D4D4">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">USE</span><span style="color:#D4D4D4"> jquery_escuelait_classicmodels;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">CREATE</span><span style="color:#569CD6"> TABLE</span><span style="color:#DCDCAA"> IF</span><span style="color:#569CD6"> NOT</span><span style="color:#569CD6"> EXISTS</span><span style="color:#D4D4D4"> login_users (</span></span>
+<span class="line"><span style="color:#D4D4D4">    id </span><span style="color:#569CD6">INT</span><span style="color:#D4D4D4"> UNSIGNED </span><span style="color:#569CD6">NOT NULL</span><span style="color:#D4D4D4"> AUTO_INCREMENT,</span></span>
+<span class="line"><span style="color:#D4D4D4">    username </span><span style="color:#569CD6">VARCHAR</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">100</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">NOT NULL</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">    password_hash </span><span style="color:#569CD6">VARCHAR</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">255</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">NOT NULL</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">    created_at </span><span style="color:#569CD6">TIMESTAMP</span><span style="color:#569CD6"> NOT NULL</span><span style="color:#569CD6"> DEFAULT</span><span style="color:#D4D4D4"> CURRENT_TIMESTAMP,</span></span>
+<span class="line"><span style="color:#569CD6">    PRIMARY KEY</span><span style="color:#D4D4D4"> (id),</span></span>
+<span class="line"><span style="color:#569CD6">    UNIQUE</span><span style="color:#569CD6"> KEY</span><span style="color:#D4D4D4"> uq_login_users_username (username)</span></span>
+<span class="line"><span style="color:#D4D4D4">) ENGINE=InnoDB </span><span style="color:#569CD6">DEFAULT</span><span style="color:#D4D4D4"> CHARSET=utf8mb4 </span><span style="color:#569CD6">COLLATE</span><span style="color:#D4D4D4">=utf8mb4_unicode_ci;</span></span>
+<span class="line"></span></code></pre>

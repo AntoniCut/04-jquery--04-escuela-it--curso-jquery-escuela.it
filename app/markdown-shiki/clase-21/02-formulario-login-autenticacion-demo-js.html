@@ -1,0 +1,439 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">*/</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">warn</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'-----  02-formulario-login-autenticacion.js  -----'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  ------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  Constantes  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  ------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {string}</span><span style="color:#6A9955"> - `URL base para los servicios` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> URL_BASE</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'/escuelait/curso-jquery-escuelait/app/services/clase-21'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {string}</span><span style="color:#6A9955"> - `Endpoint de login` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> ENDPOINT_LOGIN</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'login-auth.php'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {string}</span><span style="color:#6A9955"> - `Endpoint de registro` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> ENDPOINT_REGISTRO</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'register-auth.php'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  Referencias al HTML  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;Window>}</span><span style="color:#6A9955"> - `Ventana del navegador` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $ventana</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">window</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;Document>}</span><span style="color:#6A9955"> - `Documento` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $doc</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Caja modal de auth` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $cajaAuth</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#caja-auth'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Capa modal de fondo` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $capaModal</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#capamodal-auth'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLAnchorElement>}</span><span style="color:#6A9955"> - `Enlace iniciar sesion` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $enlaceLogin</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#enlace-login-auth'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLAnchorElement>}</span><span style="color:#6A9955"> - `Enlace registrarse` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $enlaceRegistro</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#enlace-registro-auth'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLFormElement>}</span><span style="color:#6A9955"> - `Formulario de auth` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $form</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLFormElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#form-auth'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLParagraphElement>}</span><span style="color:#6A9955"> - `Parrafo de estado` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $parrafo</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLParagraphElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#msg-auth'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLInputElement>}</span><span style="color:#6A9955"> - `Campo modo oculto` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $modo</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLInputElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#modo-auth'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLInputElement>}</span><span style="color:#6A9955"> - `Boton submit` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $submit</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLInputElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#submit-auth'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> - `Tab login` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $tabLogin</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#tab-login-auth'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> - `Tab registro` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $tabRegistro</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#tab-registro-auth'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Vista publica` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $vistaLogin</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#vista-login-auth'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Vista privada` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $vistaDentro</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#vista-dentro-auth'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLSpanElement>}</span><span style="color:#6A9955"> - `Nombre de usuario en zona privada` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $usuarioDentro</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLSpanElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#usuario-dentro-auth'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLAnchorElement>}</span><span style="color:#6A9955"> - `Enlace cerrar sesion` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $enlaceCerrarSesion</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#enlace-cerrar-sesion-auth'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  Funciones  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * --------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `construirUrl(endpoint)`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * --------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Construye la URL absoluta del servicio PHP.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> endpoint</span><span style="color:#6A9955"> - Nombre del archivo PHP</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {string}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> construirUrl</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">endpoint</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#CE9178"> `</span><span style="color:#569CD6">${</span><span style="color:#4FC1FF">URL_BASE</span><span style="color:#569CD6">}</span><span style="color:#CE9178">/</span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">endpoint</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * -----------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `ajustarPosicionesAuth()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * -----------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Centra la caja de auth y ajusta el overlay.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> ajustarPosicionesAuth</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Alto de la ventana` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> altoVentana</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$ventana</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">height</span><span style="color:#D4D4D4">() || </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Ancho de la ventana` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> anchoVentana</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$ventana</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">width</span><span style="color:#D4D4D4">() || </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Alto de la caja` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> altoCaja</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$cajaAuth</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">outerHeight</span><span style="color:#D4D4D4">() || </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Ancho de la caja` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> anchoCaja</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$cajaAuth</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">outerWidth</span><span style="color:#D4D4D4">() || </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $cajaAuth</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">({</span></span>
+<span class="line"><span style="color:#9CDCFE">            top:</span><span style="color:#D4D4D4"> ((</span><span style="color:#9CDCFE">altoVentana</span><span style="color:#D4D4D4"> - </span><span style="color:#9CDCFE">altoCaja</span><span style="color:#D4D4D4">) / </span><span style="color:#B5CEA8">2</span><span style="color:#D4D4D4">) + </span><span style="color:#CE9178">'px'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            left:</span><span style="color:#D4D4D4"> ((</span><span style="color:#9CDCFE">anchoVentana</span><span style="color:#D4D4D4"> - </span><span style="color:#9CDCFE">anchoCaja</span><span style="color:#D4D4D4">) / </span><span style="color:#B5CEA8">2</span><span style="color:#D4D4D4">) + </span><span style="color:#CE9178">'px'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">        });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $capaModal</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">({</span></span>
+<span class="line"><span style="color:#9CDCFE">            width:</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">$doc</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">width</span><span style="color:#D4D4D4">() || </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">) + </span><span style="color:#CE9178">'px'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            height:</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">$doc</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">height</span><span style="color:#D4D4D4">() || </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">) + </span><span style="color:#CE9178">'px'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">        });</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * -----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `obtenerModoActual()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * -----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Devuelve el modo actual del formulario.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {'login' | 'registro'}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> obtenerModoActual</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#C586C0">        return</span><span style="color:#6A9955"> /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {'login' | 'registro'}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">$modo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">() === </span><span style="color:#CE9178">'registro'</span><span style="color:#D4D4D4"> ? </span><span style="color:#CE9178">'registro'</span><span style="color:#D4D4D4"> : </span><span style="color:#CE9178">'login'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `cambiarModo(modo)`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Cambia entre login y registro (tabs + textos).</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {'login' | 'registro'}</span><span style="color:#9CDCFE"> modo</span><span style="color:#6A9955"> - Modo a activar</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> cambiarModo</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">modo</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $modo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">modo</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $tabLogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">toggleClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-active'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">modo</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">'login'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $tabRegistro</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">toggleClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-active'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">modo</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">'registro'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  actualizar textos segun modo  -----</span></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">modo</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">'registro'</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">            $parrafo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Registro de usuarios'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'color'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'#fff'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">            $submit</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Registrarse'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">            $form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">attr</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'action'</span><span style="color:#D4D4D4">, </span><span style="color:#4FC1FF">ENDPOINT_REGISTRO</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#pass-auth'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">attr</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'autocomplete'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'new-password'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        } </span><span style="color:#C586C0">else</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">            $parrafo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Iniciar sesion'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'color'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'#fff'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">            $submit</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Entrar'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">            $form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">attr</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'action'</span><span style="color:#D4D4D4">, </span><span style="color:#4FC1FF">ENDPOINT_LOGIN</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#pass-auth'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">attr</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'autocomplete'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'current-password'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $parrafo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'cargando'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        ajustarPosicionesAuth</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * -------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `resetearAuth()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * -------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Restaura el estado inicial de la caja modal.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> resetearAuth</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $cajaAuth</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">hide</span><span style="color:#D4D4D4">().</span><span style="color:#DCDCAA">stop</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $capaModal</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">hide</span><span style="color:#D4D4D4">().</span><span style="color:#DCDCAA">stop</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $parrafo</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">obtenerModoActual</span><span style="color:#D4D4D4">() === </span><span style="color:#CE9178">'registro'</span><span style="color:#D4D4D4"> ? </span><span style="color:#CE9178">'Registro de usuarios'</span><span style="color:#D4D4D4"> : </span><span style="color:#CE9178">'Iniciar sesion'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'color'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'#fff'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'cargando'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'input[type="submit"]'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'disabled'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'input[name="user"], input[name="pass"]'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">val</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * ---------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `mostrarVistaDentro()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * ---------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Muestra la zona privada tras login correcto.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> username</span><span style="color:#6A9955"> - Usuario autenticado</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> mostrarVistaDentro</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">username</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        $usuarioDentro</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">username</span><span style="color:#D4D4D4"> ? </span><span style="color:#CE9178">`(</span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">username</span><span style="color:#569CD6">}</span><span style="color:#CE9178">)`</span><span style="color:#D4D4D4"> : </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $vistaLogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'hidden'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $vistaDentro</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'hidden'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * --------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `mostrarVistaPublica()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * --------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Vuelve a la vista publica tras cerrar sesion.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> mostrarVistaPublica</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        $vistaDentro</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'hidden'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $vistaLogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'hidden'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $usuarioDentro</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        cambiarModo</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'login'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        resetearAuth</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * -------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `mostrarCajaAuth(modo)`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * -------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Abre la caja modal en el modo indicado.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {'login' | 'registro'}</span><span style="color:#9CDCFE"> modo</span><span style="color:#6A9955"> - Modo inicial</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> mostrarCajaAuth</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">modo</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">        cambiarModo</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">modo</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $cajaAuth</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'hidden'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $capaModal</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'hidden'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">        ajustarPosicionesAuth</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $cajaAuth</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">fadeIn</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">600</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $capaModal</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">fadeIn</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">600</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * -------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `procesaFormulario(event)`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * -------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Envia login o registro por Ajax segun el modo.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {JQuery.SubmitEvent}</span><span style="color:#9CDCFE"> event</span><span style="color:#6A9955"> - Evento submit</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> procesaFormulario</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        event</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">preventDefault</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {'login' | 'registro'}</span><span style="color:#6A9955"> - `Modo del formulario` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> modo</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">obtenerModoActual</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {string}</span><span style="color:#6A9955"> - `Endpoint segun modo` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> endpoint</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">modo</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">'registro'</span><span style="color:#D4D4D4"> ? </span><span style="color:#4FC1FF">ENDPOINT_REGISTRO</span><span style="color:#D4D4D4"> : </span><span style="color:#4FC1FF">ENDPOINT_LOGIN</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">ajax</span><span style="color:#D4D4D4">({</span></span>
+<span class="line"><span style="color:#9CDCFE">            data:</span><span style="color:#9CDCFE"> $form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">serialize</span><span style="color:#D4D4D4">(),</span></span>
+<span class="line"><span style="color:#9CDCFE">            type:</span><span style="color:#CE9178"> 'post'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            dataType:</span><span style="color:#CE9178"> 'json'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            url:</span><span style="color:#DCDCAA"> construirUrl</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">endpoint</span><span style="color:#D4D4D4">),</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">            beforeSend</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">                $form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'input[type="submit"]'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'disabled'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">                $parrafo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'color'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'#fff'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">                $parrafo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Cargando...'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">                $parrafo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'cargando'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">            },</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">            success</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">respuesta</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">                console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">respuesta</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">                $parrafo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">respuesta</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">mensaje</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">                //  -----  registro correcto: pasar a modo login  -----</span></span>
+<span class="line"><span style="color:#C586C0">                if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">modo</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">'registro'</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#C586C0">                    if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">respuesta</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">valido</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">                        $parrafo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'color'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'#0a7a3e'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">                        cambiarModo</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'login'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">                        $parrafo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">respuesta</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">mensaje</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'color'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'#0a7a3e'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">                    } </span><span style="color:#C586C0">else</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">                        $parrafo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'color'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'#c33'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">                    }</span></span>
+<span class="line"><span style="color:#C586C0">                    return</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">                }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">                //  -----  login correcto: entrar a zona privada  -----</span></span>
+<span class="line"><span style="color:#C586C0">                if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">respuesta</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">valido</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">                    $parrafo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'color'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'#fff'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">                    resetearAuth</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#DCDCAA">                    mostrarVistaDentro</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">respuesta</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">username</span><span style="color:#D4D4D4"> || </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">                }</span></span>
+<span class="line"><span style="color:#6A9955">                //  -----  login invalido / no registrado  -----</span></span>
+<span class="line"><span style="color:#C586C0">                else</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">                    $parrafo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'color'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'#c33'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">                    //  -----  si no esta dado de alta, sugerir registro  -----</span></span>
+<span class="line"><span style="color:#C586C0">                    if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">respuesta</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">codigo</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">'no_registrado'</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">                        $tabRegistro</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">trigger</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'focus'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">                    }</span></span>
+<span class="line"><span style="color:#D4D4D4">                }</span></span>
+<span class="line"><span style="color:#D4D4D4">            },</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">            error</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">xhr</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">status</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">error</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">                console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">error</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'error:'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">status</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">error</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">                $parrafo</span></span>
+<span class="line"><span style="color:#D4D4D4">                    .</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`Error en la peticion: </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">status</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                    .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'color'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'#c33'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                    .</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'cargando'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">            },</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">            complete</span><span style="color:#9CDCFE">:</span><span style="color:#D4D4D4"> () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">                $form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'input[type="submit"]'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'disabled'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">                $parrafo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'cargando'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">            },</span></span>
+<span class="line"><span style="color:#D4D4D4">        });</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  Inicializacion  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Ancho del documento para el overlay` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> anchoDocumento</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$doc</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">width</span><span style="color:#D4D4D4">() || </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Alto del documento para el overlay` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> altoDocumento</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$doc</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">height</span><span style="color:#D4D4D4">() || </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $cajaAuth</span></span>
+<span class="line"><span style="color:#D4D4D4">        .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">({</span></span>
+<span class="line"><span style="color:#9CDCFE">            position:</span><span style="color:#CE9178"> 'fixed'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">            'z-index'</span><span style="color:#9CDCFE">:</span><span style="color:#B5CEA8"> 1000</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">        })</span></span>
+<span class="line"><span style="color:#D4D4D4">        .</span><span style="color:#DCDCAA">hide</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $capaModal</span></span>
+<span class="line"><span style="color:#D4D4D4">        .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">({</span></span>
+<span class="line"><span style="color:#9CDCFE">            opacity:</span><span style="color:#B5CEA8"> 0.80</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">            'z-index'</span><span style="color:#9CDCFE">:</span><span style="color:#B5CEA8"> 900</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            width:</span><span style="color:#9CDCFE"> anchoDocumento</span><span style="color:#D4D4D4"> + </span><span style="color:#CE9178">'px'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            height:</span><span style="color:#9CDCFE"> altoDocumento</span><span style="color:#D4D4D4"> + </span><span style="color:#CE9178">'px'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            backgroundColor:</span><span style="color:#CE9178"> '#33ffcc'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            position:</span><span style="color:#CE9178"> 'fixed'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            top:</span><span style="color:#CE9178"> '0px'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            left:</span><span style="color:#CE9178"> '0px'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">            overflow:</span><span style="color:#CE9178"> 'hidden'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">        })</span></span>
+<span class="line"><span style="color:#D4D4D4">        .</span><span style="color:#DCDCAA">hide</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">    cambiarModo</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'login'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  Event Listeners  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  limpiar listeners previos al recargar el ejercicio en la SPA  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">    $ventana</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">off</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.loginAuth'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    $enlaceLogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">off</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.loginAuth'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    $enlaceRegistro</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">off</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.loginAuth'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    $form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">off</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.loginAuth'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    $tabLogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">off</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.loginAuth'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    $tabRegistro</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">off</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.loginAuth'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    $enlaceCerrarSesion</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">off</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.loginAuth'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $enlaceLogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click.loginAuth'</span><span style="color:#D4D4D4">, (</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        event</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">preventDefault</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#DCDCAA">        mostrarCajaAuth</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'login'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $enlaceRegistro</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click.loginAuth'</span><span style="color:#D4D4D4">, (</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        event</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">preventDefault</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#DCDCAA">        mostrarCajaAuth</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'registro'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $tabLogin</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click.loginAuth'</span><span style="color:#D4D4D4">, (</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        event</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">preventDefault</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#DCDCAA">        cambiarModo</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'login'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $tabRegistro</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click.loginAuth'</span><span style="color:#D4D4D4">, (</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        event</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">preventDefault</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#DCDCAA">        cambiarModo</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'registro'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $ventana</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'resize.loginAuth'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">ajustarPosicionesAuth</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    $ventana</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'scroll.loginAuth'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">ajustarPosicionesAuth</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $ventana</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'pageshow.loginAuth'</span><span style="color:#D4D4D4">, (</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {PageTransitionEvent | undefined}</span><span style="color:#6A9955"> - `Evento nativo pageshow` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> eventoNativo</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {PageTransitionEvent | undefined}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">e</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">originalEvent</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  si la pagina viene de bfcache, resetear  -----</span></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">eventoNativo</span><span style="color:#D4D4D4">?.</span><span style="color:#9CDCFE">persisted</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#DCDCAA">            resetearAuth</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $form</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'submit.loginAuth'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">procesaFormulario</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $enlaceCerrarSesion</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click.loginAuth'</span><span style="color:#D4D4D4">, (</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        event</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">preventDefault</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#DCDCAA">        mostrarVistaPublica</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">})(</span><span style="color:#9CDCFE">jQuery</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span></code></pre>

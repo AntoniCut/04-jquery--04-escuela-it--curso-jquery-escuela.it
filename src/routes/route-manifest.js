@@ -124,6 +124,7 @@ export const routeManifest = [
 
     { id: 'clase21', path: 'clase21-practica-1-formulario-login', file: 'route-clase21' },
     { id: 'clase21FormularioLogin', path: 'clase21-practica-1-formulario-login/01-formulario-login', file: 'route-clase21-formulario-login' },
+    { id: 'clase21FormularioLoginAutenticacion', path: 'clase21-practica-1-formulario-login/02-formulario-login-autenticacion', file: 'route-clase21-formulario-login-autenticacion' },
     
     { id: '404NotFoundPage', path: '404', file: 'route-404-not-found-page' },
 

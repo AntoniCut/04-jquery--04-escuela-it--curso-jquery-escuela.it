@@ -1,0 +1,60 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">        *  -----  /login-auth</span><span style="color:#D4D4D4">.</span><span style="color:#D4D4D4">php  --  /src/services/clase-</span><span style="color:#B5CEA8">21</span><span style="color:#D4D4D4">/login-auth</span><span style="color:#D4D4D4">.</span><span style="color:#D4D4D4">php  -----  *</span></span>
+<span class="line"><span style="color:#D4D4D4">        *  ------------------------------------------------------------------------  *</span></span>
+<span class="line"><span style="color:#D4D4D4">        *                                                                             *</span></span>
+<span class="line"><span style="color:#D4D4D4">        *  - Autentica un usuario contra la tabla login_users</span><span style="color:#D4D4D4">.</span><span style="color:#D4D4D4">                        *</span></span>
+<span class="line"><span style="color:#D4D4D4">        *                                                                             *</span></span>
+<span class="line"><span style="color:#D4D4D4">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">    sleep</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">1</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">    require_once</span><span style="color:#569CD6"> __DIR__</span><span style="color:#D4D4D4"> .</span><span style="color:#CE9178"> '/db-connect.php'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $user</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">trim</span><span style="color:#D4D4D4">((</span><span style="color:#569CD6">string</span><span style="color:#D4D4D4">) (</span><span style="color:#9CDCFE">$_POST</span><span style="color:#D4D4D4">[</span><span style="color:#CE9178">'user'</span><span style="color:#D4D4D4">] ?? </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"><span style="color:#9CDCFE">    $pass</span><span style="color:#D4D4D4"> = (</span><span style="color:#569CD6">string</span><span style="color:#D4D4D4">) (</span><span style="color:#9CDCFE">$_POST</span><span style="color:#D4D4D4">[</span><span style="color:#CE9178">'pass'</span><span style="color:#D4D4D4">] ?? </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">    if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">$user</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4"> || </span><span style="color:#9CDCFE">$pass</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#DCDCAA">        clase21_json_response</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'Usuario y clave son obligatorios'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">    [</span><span style="color:#9CDCFE">$conn</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$errorMysql</span><span style="color:#D4D4D4">] = </span><span style="color:#DCDCAA">clase21_obtener_conexion</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">    if</span><span style="color:#D4D4D4"> (!</span><span style="color:#9CDCFE">$conn</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#DCDCAA">        clase21_json_response</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$errorMysql</span><span style="color:#D4D4D4"> !== </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4"> ? </span><span style="color:#9CDCFE">$errorMysql</span><span style="color:#D4D4D4"> : </span><span style="color:#CE9178">'No se pudo conectar a la base de datos'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $sql</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'</span><span style="color:#569CD6">SELECT</span><span style="color:#CE9178"> id, username, password_hash </span><span style="color:#569CD6">FROM</span><span style="color:#CE9178"> login_users </span><span style="color:#569CD6">WHERE</span><span style="color:#CE9178"> username </span><span style="color:#D4D4D4">=</span><span style="color:#CE9178"> ? </span><span style="color:#569CD6">LIMIT</span><span style="color:#B5CEA8"> 1</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    $stmt</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">mysqli_prepare</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$conn</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$sql</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">    if</span><span style="color:#D4D4D4"> (!</span><span style="color:#9CDCFE">$stmt</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">        $error</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">mysqli_error</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$conn</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        mysqli_close</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$conn</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        clase21_json_response</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'Error al preparar la consulta: '</span><span style="color:#D4D4D4"> .</span><span style="color:#9CDCFE"> $error</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">    mysqli_stmt_bind_param</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$stmt</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'s'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$user</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">    mysqli_stmt_execute</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$stmt</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    $result</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">mysqli_stmt_get_result</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$stmt</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    $row</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$result</span><span style="color:#D4D4D4"> ? </span><span style="color:#DCDCAA">mysqli_fetch_assoc</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$result</span><span style="color:#D4D4D4">) : </span><span style="color:#569CD6">null</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">    mysqli_stmt_close</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$stmt</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">    mysqli_close</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$conn</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  usuario no registrado: hay que registrarse  -----</span></span>
+<span class="line"><span style="color:#C586C0">    if</span><span style="color:#D4D4D4"> (!</span><span style="color:#9CDCFE">$row</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#DCDCAA">        clase21_json_response</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'El usuario no esta dado de alta. Debes registrarte.'</span><span style="color:#D4D4D4">, [</span></span>
+<span class="line"><span style="color:#CE9178">            'codigo'</span><span style="color:#D4D4D4"> => </span><span style="color:#CE9178">'no_registrado'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">        ]);</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  usuario existe pero la clave no coincide  -----</span></span>
+<span class="line"><span style="color:#C586C0">    if</span><span style="color:#D4D4D4"> (!</span><span style="color:#DCDCAA">password_verify</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$pass</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$row</span><span style="color:#D4D4D4">[</span><span style="color:#CE9178">'password_hash'</span><span style="color:#D4D4D4">])) {</span></span>
+<span class="line"><span style="color:#DCDCAA">        clase21_json_response</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'No se corresponde el usuario o la clave'</span><span style="color:#D4D4D4">, [</span></span>
+<span class="line"><span style="color:#CE9178">            'codigo'</span><span style="color:#D4D4D4"> => </span><span style="color:#CE9178">'credenciales_invalidas'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">        ]);</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">    clase21_json_response</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'Entrando...'</span><span style="color:#D4D4D4">, [</span></span>
+<span class="line"><span style="color:#CE9178">        'codigo'</span><span style="color:#D4D4D4"> => </span><span style="color:#CE9178">'ok'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">        'username'</span><span style="color:#D4D4D4"> => </span><span style="color:#9CDCFE">$row</span><span style="color:#D4D4D4">[</span><span style="color:#CE9178">'username'</span><span style="color:#D4D4D4">],</span></span>
+<span class="line"><span style="color:#D4D4D4">    ]);</span></span>
+<span class="line"></span></code></pre>
