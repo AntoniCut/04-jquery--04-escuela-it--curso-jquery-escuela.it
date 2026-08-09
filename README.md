@@ -16,7 +16,7 @@ Implementado como una **SPA** (Single Page Application) con enrutamiento propio,
 | Express 5 | 5.x | Servidor dev y preview |
 | BrowserSync | 3.x | Live reload |
 | php-cgi / PHP-FPM | 8.x | Servicios PHP (AJAX) |
-| MySQL / MariaDB | — | Buscador clase 20 (`buscar.php`) |
+| MySQL / MariaDB | — | Buscador clase 20 (`buscar.php`) y login clase 21 (`login_users`) |
 | Shiki | 4.x | Resaltado de código en demos |
 | sharp | 0.34.x | Conversión/optimización de imágenes |
 | pnpm | 9.x | Gestor de paquetes |
@@ -74,7 +74,7 @@ DB_NAME=jquery_escuelait_classicmodels
 ```
 
 - **Desarrollo / preview:** Node carga `dotenv` y pasa las vars a `php-cgi`.
-- **Producción (Nginx/PHP-FPM):** el `.env` del despliegue lo lee `app/services/load-env.php` desde `buscar.php`.
+- **Producción (Nginx/PHP-FPM):** el `.env` del despliegue lo lee `app/services/load-env.php` (p. ej. desde `buscar.php` o los PHP de clase 21).
 
 ---
 
@@ -99,12 +99,12 @@ curso-jquery-escuelait/
 │   ├── main.js                       # Entrada de la SPA
 │   ├── pages/                        # Página de cada ruta (layout principal)
 │   │   ├── 00-home.html
-│   │   ├── clase-01/ … clase-20/
+│   │   ├── clase-01/ … clase-21/
 │   │   └── 404/
 │   ├── pages-components/             # Fragmentos de página (demo + description)
-│   │   └── clase-01/ … clase-20/
+│   │   └── clase-01/ … clase-21/
 │   ├── markdown-shiki/               # HTML resaltado con Shiki (generado)
-│   │   └── clase-01/ … clase-20/
+│   │   └── clase-01/ … clase-21/
 │   ├── scripts/                      # JS por clase
 │   ├── scss/                         # Estilos SCSS → app/css/
 │   ├── components/                   # Layout reutilizable (header, navbar, footer…)
@@ -114,7 +114,8 @@ curso-jquery-escuelait/
 │   │   ├── load-env.php              # Carga .env (producción / fallback)
 │   │   ├── clase-16/
 │   │   ├── clase-18/
-│   │   └── clase-20/                 # buscar.php, products.json, SQL…
+│   │   ├── clase-20/                 # buscar.php, products.json, SQL…
+│   │   └── clase-21/                 # login.php, login-auth, register-auth, SQL…
 │   ├── effects/
 │   ├── libs/                         # jQuery, jQuery UI
 │   ├── plugins/
@@ -213,6 +214,9 @@ CREATE USER IF NOT EXISTS 'jquery_user'@'localhost' IDENTIFIED BY 'tu_password';
 CREATE USER IF NOT EXISTS 'jquery_user'@'127.0.0.1' IDENTIFIED BY 'tu_password';
 GRANT SELECT ON jquery_escuelait_classicmodels.* TO 'jquery_user'@'localhost';
 GRANT SELECT ON jquery_escuelait_classicmodels.* TO 'jquery_user'@'127.0.0.1';
+-- Clase 21 (registro de usuarios en login_users):
+GRANT SELECT, INSERT ON jquery_escuelait_classicmodels.login_users TO 'jquery_user'@'localhost';
+GRANT SELECT, INSERT ON jquery_escuelait_classicmodels.login_users TO 'jquery_user'@'127.0.0.1';
 FLUSH PRIVILEGES;
 ```
 
@@ -243,6 +247,52 @@ Si ves *Datos obtenidos del fallback…*, mira el **Motivo MySQL:** en la págin
 
 ---
 
+## Base de datos (clase 21 — login con autenticación)
+
+La práctica 02 usa la misma BD `jquery_escuelait_classicmodels` y la tabla `login_users` (registro + login con hash).
+
+### 1. Crear la tabla
+
+Con la BD ya creada (ver sección clase 20):
+
+```bash
+mysql -u root jquery_escuelait_classicmodels < src/services/clase-21/login-users.sql
+```
+
+Comprueba:
+
+```sql
+USE jquery_escuelait_classicmodels;
+SHOW TABLES;                 -- debe existir login_users
+DESCRIBE login_users;
+```
+
+### 2. Privilegios MySQL
+
+- **Local (XAMPP):** `root` suele bastar.
+- **Producción:** el usuario necesita `SELECT` + `INSERT` sobre `login_users` (ver `GRANT` en la sección clase 20).
+
+### 3. Archivos relacionados
+
+| Archivo | Rol |
+|---|---|
+| `src/services/clase-21/login.php` | Login simulado (JSON fijo; demo 01) |
+| `src/services/clase-21/login-auth.php` | Login real con MySQL + `password_verify` |
+| `src/services/clase-21/register-auth.php` | Registro con `password_hash` + INSERT |
+| `src/services/clase-21/db-connect.php` | Conexión mysqli y respuesta JSON |
+| `src/services/clase-21/login-users.sql` | Esquema de `login_users` |
+| `.env` / `.env.production` | Mismas credenciales que el buscador |
+
+Rutas SPA:
+
+| Ruta | Demo |
+|---|---|
+| `/clase21-practica-1-formulario-login` | Índice de la práctica |
+| `…/01-formulario-login` | Modal + Ajax/JSON simulado |
+| `…/02-formulario-login-autenticacion` | Registro / login contra MySQL |
+
+---
+
 ## Contenido del curso
 
 | Clase | Tema |
@@ -267,6 +317,7 @@ Si ves *Datos obtenidos del fallback…*, mira el **Motivo MySQL:** en la págin
 | 18 | Formularios AJAX — POST, validación cliente/servidor |
 | 19 | Eventos avanzados — delegación, disparar eventos, eventos personalizados |
 | 20 | AJAX low-level — `$.post`/PHP, `.load` scripts, buscador MySQL, selects + JSONP |
+| 21 | Práctica 1 — Login modal (Ajax/JSON) y autenticación MySQL (`login_users`) |
 
 Cada demo suele repartirse así:
 
