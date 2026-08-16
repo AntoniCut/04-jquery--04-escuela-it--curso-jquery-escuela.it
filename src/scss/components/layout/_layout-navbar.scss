@@ -76,8 +76,23 @@
 
     @include mix.tablet {
         padding: 1.2rem 1.4rem;
-        gap: 1rem;
+        gap: 5rem;
     }
+}
+
+
+/*
+    -----------------------------------------------------------------
+    -----  Bloquear scroll de la página con el menú abierto  -----
+    -----------------------------------------------------------------
+    El plugin pone `display: flex` en línea al abrir el menú.
+    El scroll queda en `.navbar__container`; html, body y .layout no.
+*/
+
+:is(html, body, .layout):has(.navbar__container[style*="display: flex"]),
+:is(html, body, .layout):has(.navbar__container[style*="display:flex"]) {
+    overflow: hidden;
+    overscroll-behavior: none;
 }
 
 
@@ -224,27 +239,27 @@
     //  -----  masonry compatible: flujo en columnas  -----
     display: block;
     column-count: 1;
-    column-gap: 0.6rem;
+    column-gap: 1rem;
 
     @include mix.mobile {
         column-count: 2;
-        column-gap: 0.7rem;
+        column-gap: 1.5rem;
     }
 
     @include mix.tablet {
         column-count: 3;
-        column-gap: 0.8rem;
+        column-gap: 2.5rem;
     }
 
     @include mix.desktopSM {
         width: 80%;
         column-count: 4;
-        column-gap: 0.8rem;
+        column-gap: 4rem;
     }
 
     @include mix.desktopXL {
         column-count: 5;
-        column-gap: 1rem;
+        column-gap: 5rem;
     }
 
     //  -----  masonry nativo cuando el navegador lo soporta  -----
