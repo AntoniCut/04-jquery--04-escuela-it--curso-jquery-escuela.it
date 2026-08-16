@@ -34,7 +34,7 @@
 
 /*  
     ---------------------------------------------------------
-    -----  Menú principal (altura = .header__container)  -----
+    -----  Menú principal (altura = 100% del viewport)  -----
     ---------------------------------------------------------
 */
 
@@ -42,7 +42,8 @@
     
     position: relative;
     width: 100%;
-    //  -----  Altura = header: la gestiona JS con animate (height/min-height fijos rompen slide*)  -----
+    height: 100dvh;
+    max-height: 100dvh;
     
     overflow-x: hidden;
     overflow-y: auto;
@@ -203,57 +204,120 @@
 
 
 /*
-    -----------------------------------------
-    -----  Grid de clases (equal height)  -----
-    -----------------------------------------
+    ---------------------------------------------
+    -----  Grid de clases (masonry)  -----
+    ---------------------------------------------
+    Mobile-first:
+    - < 480px            1 columna
+    - $mobile 480px      2 columnas
+    - $tablet 768px      3 columnas
+    - $desktop-sm 1024px 4 columnas · width 80%
+    - $desktop 1200px    4 columnas · width 80%
+    - $desktop-xl 1400px 5 columnas · width 80%
 */
 
 .navbar__grid {
     width: 100%;
     margin: 0 auto;
-    flex: 1;
-    min-height: 0;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-rows: minmax(4.4rem, auto);
-    align-items: stretch;
-    align-content: start;
-    gap: 0.6rem;
+    flex: 0 0 auto;
+
+    //  -----  masonry compatible: flujo en columnas  -----
+    display: block;
+    column-count: 1;
+    column-gap: 0.6rem;
+
+    @include mix.mobile {
+        column-count: 2;
+        column-gap: 0.7rem;
+    }
 
     @include mix.tablet {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 0.7rem;
+        column-count: 3;
+        column-gap: 0.8rem;
     }
 
     @include mix.desktopSM {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+        width: 80%;
+        column-count: 4;
+        column-gap: 0.8rem;
     }
 
-    @include mix.desktop {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
-        gap: 0.8rem;
+    @include mix.desktopXL {
+        column-count: 5;
+        column-gap: 1rem;
+    }
+
+    //  -----  masonry nativo cuando el navegador lo soporta  -----
+    @supports (grid-template-rows: masonry) {
+        display: grid;
+        column-count: unset;
+        column-gap: unset;
+        grid-template-rows: masonry;
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: 0.6rem;
+
+        @include mix.mobile {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.7rem;
+        }
+
+        @include mix.tablet {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.8rem;
+        }
+
+        @include mix.desktopSM {
+            width: 80%;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.8rem;
+        }
+
+        @include mix.desktopXL {
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 1rem;
+        }
     }
 }
 
 
 /*
-    ------------------------------
-    -----  Card / Accordion  -----
-    ------------------------------
+    ---------------------------------
+    -----  Card / Lista de clase  -----
+    ---------------------------------
 */
 
 .navbar__clase {
     position: relative;
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
-    min-height: 4.4rem;
-    height: 100%;
+    width: 100%;
+    min-height: auto;
+    height: auto;
+    flex-shrink: 0;
+    margin-bottom: 0.6rem;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
     border-radius: 0.7rem;
     background: rgba(255, 255, 255, 0.92);
     border: 1px solid rgba(var.$color-primary, 0.16);
     box-shadow: 0 3px 10px rgba(3, 106, 173, 0.1);
     overflow: visible;
     transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+
+    @include mix.mobile {
+        margin-bottom: 0.7rem;
+    }
+
+    @include mix.tablet {
+        margin-bottom: 0.8rem;
+    }
+
+    @supports (grid-template-rows: masonry) {
+        display: flex;
+        margin-bottom: 0;
+    }
 
     &::before {
         content: '';
@@ -270,21 +334,6 @@
         border-color: rgba(var.$color-primary, 0.3);
     }
 
-    &.is-open {
-        z-index: 2;
-        border-color: rgba(var.$color-primary, 0.45);
-        box-shadow: 0 8px 20px rgba(3, 106, 173, 0.18);
-
-        .navbar__clase-chevron {
-            transform: rotate(180deg);
-            background-color: var.$color-primary;
-        }
-
-        .navbar__clase-toggle {
-            background: linear-gradient(180deg, rgba(3, 106, 173, 0.08), transparent);
-        }
-    }
-
     &--soon {
         opacity: 0.78;
 
@@ -297,16 +346,17 @@
 .navbar__clase-toggle {
     appearance: none;
     border: 0;
-    background: transparent;
+    background: linear-gradient(180deg, rgba(3, 106, 173, 0.08), transparent);
     width: 100%;
     min-height: 4.4rem;
-    height: 100%;
+    height: auto;
     padding: 0.55rem 0.7rem;
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto 1fr;
     align-items: center;
     gap: 0.55rem;
-    cursor: pointer;
+    cursor: default;
+    pointer-events: none;
     text-align: left;
     color: inherit;
 }
@@ -354,25 +404,7 @@
 }
 
 .navbar__clase-chevron {
-    width: 1.4rem;
-    height: 1.4rem;
-    border-radius: 50%;
-    background-color: rgba(var.$color-primary, 0.15);
-    position: relative;
-    transition: transform 250ms ease, background-color 250ms ease;
-    flex-shrink: 0;
-
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0.4rem;
-        left: 0.38rem;
-        width: 0.55rem;
-        height: 0.55rem;
-        border-right: 2px solid var.$color-primary;
-        border-bottom: 2px solid var.$color-primary;
-        transform: rotate(45deg);
-    }
+    display: none;
 }
 
 
@@ -385,39 +417,20 @@
 .navbar__submenu {
     list-style: none;
     margin: 0;
-    padding: 0.5rem 0.6rem 0.7rem;
-    display: none;
+    padding: 0.5rem 0.6rem 0.9rem;
+    display: flex !important;
     flex-direction: column;
+    flex-shrink: 0;
     gap: 0.3rem;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: calc(100% - 0.2rem);
-    z-index: 20;
-    max-height: 18rem;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    border: 1px solid rgba(var.$color-primary, 0.18);
+    position: static;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    border: 0;
     border-top: 1px solid rgba(var.$color-primary, 0.1);
-    border-radius: 0 0 0.7rem 0.7rem;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(238, 246, 251, 0.96));
-    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.14);
-}
-
-.navbar__clase.is-open .navbar__submenu {
-    display: flex;
-    animation: navbar-submenu-in 220ms ease;
-}
-
-@keyframes navbar-submenu-in {
-    from {
-        opacity: 0;
-        transform: translateY(-0.6rem);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
 }
 
 .navbar__submenu-item {

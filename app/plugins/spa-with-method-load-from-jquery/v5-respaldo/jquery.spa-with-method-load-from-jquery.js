@@ -1,6 +1,6 @@
 /*
     *  ----------------------------------------------------------------------------------------------------------------------------------------------------------  *
-    *  -----  /jquery.spa-with-method-load-from-jquery.js  --  /src/plugins/spa-with-method-load-from-jquery/v4/jquery.spa-with-method-load-from-jquery.js  -----  *
+    *  -----  /jquery.spa-with-method-load-from-jquery.js  --  /src/plugins/spa-with-method-load-from-jquery/v5/jquery.spa-with-method-load-from-jquery.js  -----  *
     *  ----------------------------------------------------------------------------------------------------------------------------------------------------------  *
 */
 
@@ -1111,44 +1111,44 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
             */
 
 
-            /**
+           /**
              *  -----------------------------------
              *  -----  `enableDraggables()`   -----
              *  -----------------------------------
+             *  
              * - Habilita la funcionalidad de elementos arrastrables.
              * - Busca cualquier elemento con la clase `.draggable` y aplica .draggable() (jQuery UI).
              * - Esto evita depender de selectores rígidos.
              */
 
-            const enableDraggables = () => {
+           const enableDraggables = () => {
 
-                try {
+            try {
 
-                    //  -----  Iterar sobre cada elemento con clase .draggable y aplicar jQuery UI draggable.  -----
-                    $('.draggable').each(function () {
+                //  -----  Iterar sobre cada elemento con clase .draggable y aplicar jQuery UI draggable.  -----
+                $('.draggable').each(function () {
 
-                        //  -----  Si el método draggable está disponible, aplicarlo al elemento actual  -----
-                        if ($(this).draggable) {
+                    //  -----  Si el método draggable está disponible, aplicarlo al elemento actual  -----
+                    if ($(this).draggable) {
 
-                            //  -----  Aplicar draggable con scroll desactivado para evitar problemas de scroll durante el arrastre  -----
-                            $(this).draggable({
-                                scroll: false
-                            });
-                        }
+                        //  -----  Aplicar draggable con scroll desactivado para evitar problemas de scroll durante el arrastre  -----
+                        $(this).draggable({
+                            scroll: false
+                        });
+                    }
 
-                    });
+                });
 
-                } catch (err) {
+            } catch (err) {
 
-                    //  -----  si jQuery UI no está presente, no hacer nada  -----
-                    console.log('\n');
-                    console.warn('jQuery UI draggable no disponible o falló la inicialización.', err);
-                    console.log('\n');
+                //  -----  si jQuery UI no está presente, no hacer nada  -----
+                console.log('\n');
+                console.warn('jQuery UI draggable no disponible o falló la inicialización.', err);
+                console.log('\n');
 
-                }
+            }
 
-            };
-
+        };
 
             /**
              * -------------------------------
@@ -1220,19 +1220,20 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
                 // ---------- FUNCIONES ----------
 
-                /** @type {number} - `Duración de apertura/cierre del menú (ms)` */
-                const menuAnimDuration = 250;
+                /** @type {number} Duración de apertura/cierre del menú (ms) */
+                const menuAnimDuration = 500;
 
 
                 /**
-                 * ------------------------------------
-                 * -----  `getNavbarFullHeight()`  -----
-                 * ------------------------------------
-                 * - Devuelve la altura visible del viewport para el menú principal.
-                 * @return {number} - Altura en píxeles.
+                 * -------------------------------------------------
+                 * -----  `getHeaderHeight()`  -----
+                 * -------------------------------------------------
+                 *
+                 * @returns {number} Altura real de `.header__container` en px
                  */
-                const getNavbarFullHeight = () => {
-                    return window.innerHeight;
+
+                const getHeaderHeight = () => {
+                    return $('.header__container').outerHeight() || 0;
                 };
 
 
@@ -1252,10 +1253,9 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
                 const openMenu = (menu) => {
 
-                    //  -----  el menú principal ocupa el 100% de la altura del viewport  -----
                     if (menu === menuMain) {
-
-                        const fullHeight = getNavbarFullHeight();
+                        //  -----  animate height → altura del header (slideDown + min-height fijo = salto)  -----
+                        const headerHeight = getHeaderHeight();
 
                         menu.container
                             .stop(true, true)
@@ -1264,35 +1264,24 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                                 height: 0,
                                 minHeight: 0,
                                 maxHeight: 'none',
-                                overflowX: 'hidden',
-                                overflowY: 'hidden'
+                                overflow: 'hidden'
                             })
                             .animate(
-                                { height: fullHeight },
+                                { height: headerHeight },
                                 menuAnimDuration,
                                 function () {
-                                    const $menu = $(this);
-
-                                    $menu.css({
+                                    $(this).css({
                                         display: 'flex',
-                                        height: fullHeight,
-                                        maxHeight: fullHeight,
-                                        overflowX: 'hidden',
-                                        overflowY: 'auto'
+                                        height: headerHeight,
+                                        maxHeight: headerHeight,
+                                        overflow: ''
                                     });
-
-                                    //  -----  jQuery.animate restaura overflow:hidden después del complete  -----
-                                    window.setTimeout(() => {
-                                        $menu.css({
-                                            overflowX: 'hidden',
-                                            overflowY: 'auto'
-                                        });
-                                    }, 0);
                                 }
                             );
-
                     } else {
-                        menu.container.stop(true, true).slideDown(menuAnimDuration);
+                        menu.container
+                            .stop(true, true)
+                            .slideDown(menuAnimDuration);
                     }
 
                     menu.btnOpen.hide();
@@ -1316,9 +1305,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
                 const closeMenu = (menu) => {
 
-                    //  -----  el menú principal anima de 100dvh a 0  -----
                     if (menu === menuMain) {
-
                         menu.container
                             .stop(true, true)
                             .css({ overflow: 'hidden', minHeight: 0 })
@@ -1336,13 +1323,20 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                                         });
                                 }
                             );
-
                     } else {
                         menu.container.stop(true, true).slideUp(menuAnimDuration);
                     }
 
                     menu.btnOpen.show();
                     menu.btnClose.hide();
+
+                    //  -----  Colapsar acordeones del menú principal al cerrar  -----
+                    if (menu === menuMain) {
+                        menuMain.container.find('.navbar__clase.is-open')
+                            .removeClass('is-open')
+                            .find('.navbar__clase-toggle')
+                            .attr('aria-expanded', 'false');
+                    }
                 }
 
 
@@ -1376,24 +1370,20 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 $(document).off('.spaNavbar');
                 $(window).off('.spaNavbar');
 
-                //  -----  si el menú está abierto y cambia el viewport, reajustar a 100% de altura  -----
+                //  -----  Si el menú está abierto y cambia el viewport, reajustar altura al header  -----
                 $(window).on('resize.spaNavbar', function () {
-
                     if (!menuMain.container.is(':visible')) {
                         return;
                     }
 
-                    const fullHeight = getNavbarFullHeight();
+                    const headerHeight = getHeaderHeight();
 
                     menuMain.container
                         .stop(true, true)
                         .css({
-                            height: fullHeight,
-                            maxHeight: fullHeight,
-                            overflowX: 'hidden',
-                            overflowY: 'auto'
+                            height: headerHeight,
+                            maxHeight: headerHeight
                         });
-
                 });
 
                 //  -----  Abrir menú principal  -----
@@ -1474,6 +1464,31 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
                     if (!clickThemes)
                         closeMenu(menuThemes);
+
+                });
+
+
+                // -----  Acordeón: desplegar páginas de cada clase  -----
+                $(document).on('click.spaNavbar', '.navbar__clase-toggle', function (e) {
+
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    /** @type {JQuery<HTMLElement>} */
+                    const $toggle = $(this);
+                    
+                    /** @type {JQuery<HTMLElement>} */
+                    const $clase = $toggle.closest('.navbar__clase');
+                    const willOpen = !$clase.hasClass('is-open');
+
+                    menuMain.container.find('.navbar__clase.is-open')
+                        .not($clase)
+                        .removeClass('is-open')
+                        .find('.navbar__clase-toggle')
+                        .attr('aria-expanded', 'false');
+
+                    $clase.toggleClass('is-open', willOpen);
+                    $toggle.attr('aria-expanded', willOpen ? 'true' : 'false');
 
                 });
 
@@ -2023,26 +2038,8 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 const entry = dataId ? findManifestEntryById(String(dataId)) : undefined;
 
 
-                //  -----  ocultar menú principal a altura 0 y restaurar el botón hamburguesa  -----
-                $('.navbar__container')
-                    .stop(true, true)
-                    .css({ overflow: 'hidden', minHeight: 0 })
-                    .animate(
-                        { height: 0 },
-                        250,
-                        function () {
-                            $(this)
-                                .hide()
-                                .css({
-                                    height: '',
-                                    maxHeight: '',
-                                    minHeight: '',
-                                    overflow: ''
-                                });
-                        }
-                    );
-                $('.navbar__btn-open').show();
-                $('.navbar__btn-close').hide();
+                //  -----  ocultar menus tipo navbar compact  -----
+                $('.navbar__container').slideUp();
 
                 //  -----  Carga directa por data-route (import dinámico por nombre de archivo)  -----
                 if (routeFile) {
