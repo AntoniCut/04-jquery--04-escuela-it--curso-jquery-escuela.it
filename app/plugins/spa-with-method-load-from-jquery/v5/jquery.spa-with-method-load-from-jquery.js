@@ -1237,6 +1237,46 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
 
                 /**
+                 * --------------------------------
+                 * -----  `getHeaderHeight()`  -----
+                 * --------------------------------
+                 * - Devuelve la altura real de `.header__container`.
+                 * @return {number} - Altura en píxeles.
+                 */
+                const getHeaderHeight = () => {
+                    return $('.header__container').outerHeight() || 0;
+                };
+
+
+                /**
+                 * --------------------------------------
+                 * -----  `isThemesFullViewport()`  -----
+                 * --------------------------------------
+                 * - Indica si el menú themes debe ocupar el 100% del viewport.
+                 * @return {boolean} - True en pantallas menores de 480px.
+                 */
+                const isThemesFullViewport = () => {
+                    return window.matchMedia('(max-width: 479px)').matches;
+                };
+
+
+                /**
+                 * --------------------------------------
+                 * -----  `getThemesMenuHeight()`  -----
+                 * --------------------------------------
+                 * - Altura del menú themes: viewport completo bajo 480px, si no la del header.
+                 * @return {number} - Altura en píxeles.
+                 */
+                const getThemesMenuHeight = () => {
+                    if (isThemesFullViewport()) {
+                        return getNavbarFullHeight();
+                    }
+
+                    return getHeaderHeight();
+                };
+
+
+                /**
                  * ------------------------------
                  * -----  `openMenu(menu)`  -----
                  * ------------------------------
@@ -1292,7 +1332,37 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                             );
 
                     } else {
-                        menu.container.stop(true, true).slideDown(menuAnimDuration);
+
+                        //  -----  < 480px: 100% del viewport · desde 480px: altura del header  -----
+                        const themesHeight = getThemesMenuHeight();
+
+                        menu.container
+                            .stop(true, true)
+                            .css({
+                                display: 'flex',
+                                width: '100%',
+                                height: 0,
+                                minHeight: 0,
+                                maxHeight: 'none',
+                                overflowX: 'hidden',
+                                overflowY: 'hidden'
+                            })
+                            .animate(
+                                { height: themesHeight },
+                                menuAnimDuration,
+                                function () {
+                                    const $menu = $(this);
+
+                                    $menu.css({
+                                        display: 'flex',
+                                        width: '100%',
+                                        height: themesHeight,
+                                        maxHeight: themesHeight,
+                                        overflow: 'hidden'
+                                    });
+                                }
+                            );
+
                     }
 
                     menu.btnOpen.hide();
@@ -1338,7 +1408,27 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                             );
 
                     } else {
-                        menu.container.stop(true, true).slideUp(menuAnimDuration);
+
+                        //  -----  el menú themes anima desde la altura del header a 0  -----
+                        menu.container
+                            .stop(true, true)
+                            .css({ overflow: 'hidden', minHeight: 0 })
+                            .animate(
+                                { height: 0 },
+                                menuAnimDuration,
+                                function () {
+                                    $(this)
+                                        .hide()
+                                        .css({
+                                            height: '',
+                                            maxHeight: '',
+                                            minHeight: '',
+                                            overflow: '',
+                                            width: ''
+                                        });
+                                }
+                            );
+
                     }
 
                     menu.btnOpen.show();
@@ -1376,23 +1466,40 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                 $(document).off('.spaNavbar');
                 $(window).off('.spaNavbar');
 
-                //  -----  si el menú está abierto y cambia el viewport, reajustar a 100% de altura  -----
+                //  -----  si un menú está abierto y cambia el viewport, reajustar su altura  -----
                 $(window).on('resize.spaNavbar', function () {
 
-                    if (!menuMain.container.is(':visible')) {
-                        return;
+                    //  -----  menú principal: 100% de la altura del viewport  -----
+                    if (menuMain.container.is(':visible')) {
+
+                        const fullHeight = getNavbarFullHeight();
+
+                        menuMain.container
+                            .stop(true, true)
+                            .css({
+                                height: fullHeight,
+                                maxHeight: fullHeight,
+                                overflowX: 'hidden',
+                                overflowY: 'auto'
+                            });
+
                     }
 
-                    const fullHeight = getNavbarFullHeight();
+                    //  -----  menú themes: 100% viewport < 480px, si no altura del header  -----
+                    if (menuThemes.container.is(':visible')) {
 
-                    menuMain.container
-                        .stop(true, true)
-                        .css({
-                            height: fullHeight,
-                            maxHeight: fullHeight,
-                            overflowX: 'hidden',
-                            overflowY: 'auto'
-                        });
+                        const themesHeight = getThemesMenuHeight();
+
+                        menuThemes.container
+                            .stop(true, true)
+                            .css({
+                                width: '100%',
+                                height: themesHeight,
+                                maxHeight: themesHeight,
+                                overflow: 'hidden'
+                            });
+
+                    }
 
                 });
 

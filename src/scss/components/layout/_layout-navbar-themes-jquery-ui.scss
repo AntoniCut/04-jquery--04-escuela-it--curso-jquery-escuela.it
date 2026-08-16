@@ -17,26 +17,42 @@
 
 .navbar-themes-jquery-ui__container {
     position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
     width: 100%;
-    padding: 1rem;
+    max-width: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    padding: 1.2rem;
     display: none;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 2rem;
+    gap: 1.2rem;
+    overflow: hidden;
     background: var.$bg-main;
     background-repeat: repeat;
     box-shadow: 1px 1px 10px rgb(209, 220, 235);
 
+    //  -----  desde 480px la altura la iguala el JS a la del header  -----
+    @include mix.mobile {
+        height: auto;
+        max-height: none;
+        padding: 1.2rem 1.6rem;
+        gap: 1.4rem;
+    }
+
     @include mix.tablet {
-        width: 65rem;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: start;
+        padding: 1.5rem 2.4rem;
+        gap: 1.6rem;
+    }
+
+    //  -----  misma altura mínima que .header__container en pantallas grandes  -----
+    @include mix.desktop {
+        min-height: 30rem;
+        padding: 2rem 3rem;
         gap: 2rem;
-        padding: 2rem;
     }
 }
 
@@ -50,19 +66,25 @@
 .navbar-themes-jquery-ui__title {
     
     width: 100%;
+    flex-shrink: 0;
     
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     
     text-align: center;
-    margin-bottom: 3rem;
-    padding: 2rem;
+    margin-bottom: 0;
+    padding: 0.6rem 1rem;
 
     border-radius: 0 15px 50px 15px;
     background: var.$bg-title-page;
     box-shadow: 10px 10px 10px rgb(209, 220, 235);
+
+    @include mix.tablet {
+        gap: 2rem;
+        padding: 0.8rem 1.5rem;
+    }
 }
 
 
@@ -75,27 +97,31 @@
 .navbar-themes-jquery-ui__btns {
     
     position: relative;
-    width: 100%;
+    width: 80%;
+    flex: 1 1 auto;
+    min-height: 0;
     
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 2rem;
-    row-gap: 2rem;
-    justify-items: center;
-    align-items: center;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(9, minmax(0, 1fr));
+    gap: 1.2rem;
+    justify-items: stretch;
+    align-items: stretch;
     
-    margin-bottom: 2rem;
-    
+    margin-bottom: 0;
+
     @include mix.mobile {
-        grid-template-columns: repeat(4, 1fr);
-        column-gap: 2rem;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-rows: repeat(5, minmax(0, 1fr));
+        gap: 1.6rem;
     }
 
     @include mix.tablet {
-        width: 65rem;
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        column-gap: 2rem;
+        gap: 2rem;
+    }
+
+    @include mix.desktop {
+        gap: 2.4rem;
     }
 
 }
@@ -109,15 +135,21 @@
 
 .boton-ui {
     
-    width: 9rem;
-    max-height: 3rem;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
     
-    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    font-size: clamp(0.7rem, 1.4vw, 0.9rem);
     font-weight: bold;
     text-align: center;
+    line-height: 1.15;
     
-    padding: 5px;
-    margin-bottom: 5px;
+    padding: 0.4rem 0.3rem;
+    margin-bottom: 0;
     border: none;
     
     cursor: pointer;
