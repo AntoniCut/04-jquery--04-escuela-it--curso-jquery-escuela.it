@@ -111,7 +111,7 @@ const paths = {
         spa: path.posix.join('src', 'spa', '**/*'),
 
         servicesDir: path.join('src', 'services'),
-        services: path.posix.join('src', 'services', '**/*.{php,js,json,sql}'),
+        services: path.posix.join('src', 'services', '**/*.{php,js,json,sql,html}'),
 
         scriptsDir: path.join('src', 'scripts'),
         scripts: path.posix.join('src', 'scripts', '**/*.js'),

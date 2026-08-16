@@ -1,0 +1,57 @@
+<!--
+    *  ----------------------------------------------------------------------------------------------  *
+    *  -----  /02-promesas-demo.html  --  /src/pages-components/clase-22/02-promesas-demo.html  -----  *
+    *  ----------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__demo">
+
+
+    <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+    <div class="deferred">
+
+        <h3 class="deferred__title">
+            Promesas
+        </h3>
+
+        <p class="deferred__hint">
+            Cada boton carga fragments HTML con una tecnica distinta:
+            <kbd>$.get</kbd>, <kbd>$.when</kbd> con una peticion y <kbd>$.when</kbd> con varias.
+        </p>
+
+        <section class="deferred__panel">
+            <h4 class="deferred__panel-title">$.get</h4>
+            <button type="button" class="deferred__button" id="mybutton">
+                Recoger contenido de _partial con $.get
+            </button>
+            <div class="deferred__output" id="mydiv" role="status" aria-live="polite">
+                Texto de ejemplo con $.get
+            </div>
+        </section>
+
+        <section class="deferred__panel">
+            <h4 class="deferred__panel-title">$.when con una funcion</h4>
+            <button type="button" class="deferred__button" id="mybutton2">
+                Recoger contenido de _partial con $.when una funcion
+            </button>
+            <div class="deferred__output" id="mydiv2" role="status" aria-live="polite">
+                Texto de ejemplo con $.when una funcion
+            </div>
+        </section>
+
+        <section class="deferred__panel">
+            <h4 class="deferred__panel-title">$.when con varias funciones</h4>
+            <button type="button" class="deferred__button" id="mybutton3">
+                Recoger contenido de _partial con $.when varias funciones
+            </button>
+            <div class="deferred__output" id="mydiv3" role="status" aria-live="polite">
+                Texto de ejemplo con $.when varias funciones
+            </div>
+        </section>
+
+    </div>
+
+
+</div>

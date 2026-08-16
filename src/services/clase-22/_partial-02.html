@@ -1,0 +1,36 @@
+<!--
+    *  ---------------------------------------------------------------------------  *
+    *  -----  _partial-02.html  --  /src/services/clase-22/_partial-02.html  -----  *
+    *  ---------------------------------------------------------------------------  *
+-->
+
+
+<article class="deferred__partial">
+
+    <h2>Contenido recogido de _partial-02</h2>
+
+    <p>
+        Este segundo fragmento sirve para practicar <kbd>$.when()</kbd>:
+        jQuery espera a que terminen una o varias promesas y entonces
+        dispara un unico <kbd>.done()</kbd> (o <kbd>.fail()</kbd> si
+        alguna se rechaza).
+    </p>
+
+    <p>
+        Con varias peticiones, cada argumento del <kbd>.done()</kbd>
+        corresponde a una de ellas:
+    </p>
+
+    <ul>
+        <li><kbd>$.when($.get(...))</kbd> envuelve una sola peticion</li>
+        <li><kbd>$.when(get1, get2)</kbd> espera a las dos en paralelo</li>
+        <li>el HTML de cada partial llega como primer valor de cada retorno</li>
+        <li><kbd>.then(exito, fallo)</kbd> separa el camino correcto del error</li>
+    </ul>
+
+    <p>
+        Si una de las URLs no existe, <kbd>$.when()</kbd> se rechaza y
+        puedes mostrar el error en el contenedor sin anidar callbacks.
+    </p>
+
+</article>

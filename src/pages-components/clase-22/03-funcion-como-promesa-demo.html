@@ -1,0 +1,48 @@
+<!--
+    *  ----------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /03-funcion-como-promesa-demo.html  --  /src/pages-components/clase-22/03-funcion-como-promesa-demo.html  -----  *
+    *  ----------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__demo">
+
+
+    <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+    <div class="deferred">
+
+        <h3 class="deferred__title">
+            Función como Promesa
+        </h3>
+
+        <p class="deferred__hint">
+            Esta funcion devuelve una promesa. Se resuelve si el numero es par
+            y se rechaza si es impar o si el valor no es un numero.
+            Cambia el valor del input y pulsa Enter o sal del campo.
+        </p>
+
+        <section class="deferred__panel" id="demo-principal">
+            <h4 class="deferred__panel-title">Prueba con un numero</h4>
+
+            <label class="deferred__label" for="number">
+                Numero
+                <input
+                    type="text"
+                    class="deferred__input"
+                    id="number"
+                    name="number"
+                    placeholder="Introduce un numero"
+                    inputmode="numeric"
+                >
+            </label>
+
+            <div class="deferred__output" id="result" role="status" aria-live="polite">
+                Aqui se mostrara si el numero es par o impar...
+            </div>
+        </section>
+
+    </div>
+
+
+</div>

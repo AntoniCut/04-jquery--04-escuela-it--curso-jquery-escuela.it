@@ -1,0 +1,458 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">*/</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">warn</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'-----  04-aplicando-conceptos.js  -----'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  ------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  Constantes  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  ------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {string}</span><span style="color:#6A9955"> - `URL base para los partials HTML` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> URL_BASE</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'/escuelait/curso-jquery-escuelait/app/services/clase-22'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {string}</span><span style="color:#6A9955"> - `Partial 1` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> PARTIAL_01</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'_partial-01.html'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {string}</span><span style="color:#6A9955"> - `Partial inexistente para forzar fallo` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> PARTIAL_NO_EXISTE</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'_partial-no-existe.html'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  Referencias al HTML  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Salida ejemplo 1` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $resultEjemplo1</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#result-ejemplo-1'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Salida ejemplo 2` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $resultEjemplo2</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#result-ejemplo-2'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Salida ejemplo 3 exito` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $resultEjemplo3Ok</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#result-ejemplo-3-ok'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Salida ejemplo 3 fallo` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $resultEjemplo3Fail</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#result-ejemplo-3-fail'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Salida ejemplo 4` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $resultEjemplo4</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#result-ejemplo-4'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLInputElement>}</span><span style="color:#6A9955"> - `Input animado ejemplo 5` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $numberEjemplo5</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLInputElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#number-ejemplo-5'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLParagraphElement>}</span><span style="color:#6A9955"> - `Texto ejemplo 5` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $resultEjemplo5</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLParagraphElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#result-ejemplo-5'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLInputElement>}</span><span style="color:#6A9955"> - `Input CSS ejemplo 6` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $numberEjemplo6</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLInputElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#number-ejemplo-6'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLInputElement>}</span><span style="color:#6A9955"> - `Input margen ejemplo 7` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $numberEjemplo7</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLInputElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#number-ejemplo-7'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Salida fuente ejemplo 7` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $resultEjemplo7</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#result-ejemplo-7'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Salida ejemplo 8` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $resultEjemplo8</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#result-ejemplo-8'</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {HTMLElement | null}</span><span style="color:#6A9955"> - `Panel ejemplo 5` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> panelEjemplo5</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">getElementById</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'ejemplo-5'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {HTMLElement | null}</span><span style="color:#6A9955"> - `Panel ejemplo 6` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> panelEjemplo6</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">getElementById</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'ejemplo-6'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {HTMLElement | null}</span><span style="color:#6A9955"> - `Panel ejemplo 7` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> panelEjemplo7</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">getElementById</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'ejemplo-7'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {string}</span><span style="color:#6A9955"> - `Margen izquierdo original del input del ejemplo 7` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> margenOriginalEjemplo7</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$numberEjemplo7</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'margin-left'</span><span style="color:#D4D4D4">) || </span><span style="color:#CE9178">'0px'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {string}</span><span style="color:#6A9955"> - `Tamano de fuente original del ejemplo 7` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> fuenteOriginalEjemplo7</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$resultEjemplo7</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'font-size'</span><span style="color:#D4D4D4">) || </span><span style="color:#CE9178">'1.5rem'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLElement>}</span><span style="color:#6A9955"> - `Contenedor de la demo` */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> $demo</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.deferred'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  Funciones  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * --------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `construirUrl(endpoint)`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * --------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Construye la URL absoluta del partial.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> endpoint</span><span style="color:#6A9955"> - Nombre del archivo HTML</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {string}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> construirUrl</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">endpoint</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#CE9178"> `</span><span style="color:#569CD6">${</span><span style="color:#4FC1FF">URL_BASE</span><span style="color:#569CD6">}</span><span style="color:#CE9178">/</span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">endpoint</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * ----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `htmlDeGet(retorno)`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * ----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Extrae el HTML de la resolucion de $.get / $.when.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {unknown}</span><span style="color:#9CDCFE"> retorno</span><span style="color:#6A9955"> - Valor resuelto por jQuery</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {string}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> htmlDeGet</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">retorno</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">Array</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">isArray</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">retorno</span><span style="color:#D4D4D4">)) {</span></span>
+<span class="line"><span style="color:#C586C0">            return</span><span style="color:#DCDCAA"> String</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">retorno</span><span style="color:#D4D4D4">[</span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">] ?? </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">        return</span><span style="color:#DCDCAA"> String</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">retorno</span><span style="color:#D4D4D4"> ?? </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * ------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `esPar(n)`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * ------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Devuelve una promesa que se resuelve si n es par y se rechaza si es impar o no numerico.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {string|number}</span><span style="color:#9CDCFE"> n</span><span style="color:#6A9955"> - Valor a comprobar</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {JQuery.Promise&#x3C;string, string, string>}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> esPar</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">n</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> deferred</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">Deferred</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        deferred</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">notify</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Comprobando si el numero es par...'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> valor</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">Number</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">n</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  no es un numero  -----</span></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">n</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">''</span><span style="color:#D4D4D4"> || </span><span style="color:#9CDCFE">Number</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">isNaN</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">valor</span><span style="color:#D4D4D4">)) {</span></span>
+<span class="line"><span style="color:#9CDCFE">            deferred</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">reject</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Error: El numero no es un numero'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"><span style="color:#6A9955">        //  -----  es par  -----</span></span>
+<span class="line"><span style="color:#C586C0">        else</span><span style="color:#C586C0"> if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">valor</span><span style="color:#D4D4D4"> % </span><span style="color:#B5CEA8">2</span><span style="color:#D4D4D4"> === </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">            deferred</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">resolve</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'¡¡Es par!!'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"><span style="color:#6A9955">        //  -----  es impar  -----</span></span>
+<span class="line"><span style="color:#C586C0">        else</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">            deferred</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">reject</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Mal!!!'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        deferred</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">notify</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Fin de la comprobacion...'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">        return</span><span style="color:#9CDCFE"> deferred</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">promise</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * -----------------------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `mostrarMensaje($contenedor, mensaje, color)`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * -----------------------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Anade un mensaje de color al contenedor.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLElement>}</span><span style="color:#9CDCFE"> $contenedor</span><span style="color:#6A9955"> - Contenedor de salida</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> mensaje</span><span style="color:#6A9955"> - Texto a mostrar</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> [color</span><span style="color:#D4D4D4">=</span><span style="color:#9CDCFE">'blue']</span><span style="color:#6A9955"> - Color del texto</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> mostrarMensaje</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">$contenedor</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">mensaje</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">color</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'blue'</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $linea</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'&#x3C;p>&#x3C;/p>'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'deferred__msg'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'color'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">color</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">mensaje</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $contenedor</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">append</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$linea</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * ----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `ejecutarEjemplo5()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * ----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Reinicia el input y lanza $.when con $.get y la animacion de opacidad.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> ejecutarEjemplo5</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $numberEjemplo5</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">stop</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'opacity'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'1'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $resultEjemplo5</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">''</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">when</span><span style="color:#D4D4D4">(</span></span>
+<span class="line"><span style="color:#9CDCFE">            $</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">get</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">construirUrl</span><span style="color:#D4D4D4">(</span><span style="color:#4FC1FF">PARTIAL_01</span><span style="color:#D4D4D4">)),</span></span>
+<span class="line"><span style="color:#9CDCFE">            $numberEjemplo5</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">animate</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">opacity:</span><span style="color:#B5CEA8"> 0.5</span><span style="color:#D4D4D4"> }, </span><span style="color:#B5CEA8">1000</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">animate</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">opacity:</span><span style="color:#B5CEA8"> 1</span><span style="color:#D4D4D4"> }, </span><span style="color:#B5CEA8">1000</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">        )</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">done</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">                console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">info</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'get + animacion terminados'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">                $resultEjemplo5</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'get + animacion terminados'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">            });</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * ----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `ejecutarEjemplo6()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * ----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Aplica font-weight bold con .css(): la promesa se resuelve al instante.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> ejecutarEjemplo6</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $numberEjemplo6</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'font-weight'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'normal'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">when</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$numberEjemplo6</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">({ </span><span style="color:#CE9178">'font-weight'</span><span style="color:#9CDCFE">:</span><span style="color:#CE9178"> 'bold'</span><span style="color:#D4D4D4"> }))</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">done</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">                console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">info</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'css aplicado al instante'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">            });</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * ----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `ejecutarEjemplo7()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * ----------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Reinicia margen y fuente y lanza las dos animaciones en paralelo.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> ejecutarEjemplo7</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $numberEjemplo7</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">stop</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'margin-left'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">margenOriginalEjemplo7</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        $resultEjemplo7</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">stop</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'font-size'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">fuenteOriginalEjemplo7</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">when</span><span style="color:#D4D4D4">(</span></span>
+<span class="line"><span style="color:#9CDCFE">            $numberEjemplo7</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">animate</span><span style="color:#D4D4D4">({ </span><span style="color:#CE9178">'margin-left'</span><span style="color:#9CDCFE">:</span><span style="color:#CE9178"> '+=10'</span><span style="color:#D4D4D4"> }, </span><span style="color:#B5CEA8">500</span><span style="color:#D4D4D4">),</span></span>
+<span class="line"><span style="color:#9CDCFE">            $resultEjemplo7</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">animate</span><span style="color:#D4D4D4">({ </span><span style="color:#CE9178">'font-size'</span><span style="color:#9CDCFE">:</span><span style="color:#CE9178"> '+=2'</span><span style="color:#D4D4D4"> }, </span><span style="color:#B5CEA8">500</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">        )</span></span>
+<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">done</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">                console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">info</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'animaciones terminadas'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">            });</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * ------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `observarEjemplosAnimados()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * ------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Observa los paneles 5, 6 y 7 y lanza su efecto al entrar en el viewport.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> observarEjemplosAnimados</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {IntersectionObserver | undefined}</span><span style="color:#6A9955"> - `Observer previo de la demo` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> observerPrevio</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$demo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'observerAnimaciones'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  desconectar observer anterior al recargar el ejercicio en la SPA  -----</span></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">observerPrevio</span><span style="color:#569CD6"> instanceof</span><span style="color:#4EC9B0"> IntersectionObserver</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">            observerPrevio</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">disconnect</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {Record&#x3C;string, () => void>}</span><span style="color:#6A9955"> - `Accion de cada panel observado` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> acciones</span><span style="color:#D4D4D4"> = {</span></span>
+<span class="line"><span style="color:#CE9178">            'ejemplo-5'</span><span style="color:#9CDCFE">:</span><span style="color:#9CDCFE"> ejecutarEjemplo5</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">            'ejemplo-6'</span><span style="color:#9CDCFE">:</span><span style="color:#9CDCFE"> ejecutarEjemplo6</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">            'ejemplo-7'</span><span style="color:#9CDCFE">:</span><span style="color:#9CDCFE"> ejecutarEjemplo7</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">        };</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {Set&#x3C;string>}</span><span style="color:#6A9955"> - `Paneles que ya estan visibles en este ciclo` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> visibles</span><span style="color:#D4D4D4"> = </span><span style="color:#569CD6">new</span><span style="color:#DCDCAA"> Set</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {HTMLElement | null}</span><span style="color:#6A9955"> - `Contenedor de scroll del layout` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> layout</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">querySelector</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.layout'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> observer</span><span style="color:#D4D4D4"> = </span><span style="color:#569CD6">new</span><span style="color:#DCDCAA"> IntersectionObserver</span><span style="color:#D4D4D4">(</span></span>
+<span class="line"><span style="color:#D4D4D4">            (</span><span style="color:#9CDCFE">entries</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">                for</span><span style="color:#D4D4D4"> (</span><span style="color:#569CD6">const</span><span style="color:#4FC1FF"> entry</span><span style="color:#569CD6"> of</span><span style="color:#9CDCFE"> entries</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">                    const</span><span style="color:#4FC1FF"> id</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">entry</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">target</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">id</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#569CD6">                    const</span><span style="color:#4FC1FF"> accion</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">acciones</span><span style="color:#D4D4D4">[</span><span style="color:#9CDCFE">id</span><span style="color:#D4D4D4">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">                    if</span><span style="color:#D4D4D4"> (!</span><span style="color:#9CDCFE">accion</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#C586C0">                        continue</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">                    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">                    //  -----  al salir, olvidar el ciclo para poder repetir al volver  -----</span></span>
+<span class="line"><span style="color:#C586C0">                    if</span><span style="color:#D4D4D4"> (!</span><span style="color:#9CDCFE">entry</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">isIntersecting</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">                        visibles</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">delete</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">id</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">                        //  -----  ejemplo 6: quitar la negrita para notar el cambio al volver  -----</span></span>
+<span class="line"><span style="color:#C586C0">                        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">id</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">'ejemplo-6'</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">                            $numberEjemplo6</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'font-weight'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'normal'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">                        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">                        continue</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">                    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">                    //  -----  evitar relanzar mientras sigue a la vista  -----</span></span>
+<span class="line"><span style="color:#C586C0">                    if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">visibles</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">has</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">id</span><span style="color:#D4D4D4">)) {</span></span>
+<span class="line"><span style="color:#C586C0">                        continue</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">                    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">                    visibles</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">add</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">id</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">                    accion</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">                }</span></span>
+<span class="line"><span style="color:#D4D4D4">            },</span></span>
+<span class="line"><span style="color:#D4D4D4">            {</span></span>
+<span class="line"><span style="color:#9CDCFE">                root:</span><span style="color:#9CDCFE"> layout</span><span style="color:#569CD6"> instanceof</span><span style="color:#4EC9B0"> HTMLElement</span><span style="color:#D4D4D4"> ? </span><span style="color:#9CDCFE">layout</span><span style="color:#D4D4D4"> : </span><span style="color:#569CD6">null</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">                threshold:</span><span style="color:#B5CEA8"> 0.35</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">                rootMargin:</span><span style="color:#CE9178"> '0px 0px -8% 0px'</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">            }</span></span>
+<span class="line"><span style="color:#D4D4D4">        );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> paneles</span><span style="color:#D4D4D4"> = [</span><span style="color:#9CDCFE">panelEjemplo5</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">panelEjemplo6</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">panelEjemplo7</span><span style="color:#D4D4D4">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">        for</span><span style="color:#D4D4D4"> (</span><span style="color:#569CD6">const</span><span style="color:#4FC1FF"> panel</span><span style="color:#569CD6"> of</span><span style="color:#9CDCFE"> paneles</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#C586C0">            if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">panel</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">                observer</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">observe</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">panel</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">            }</span></span>
+<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        $demo</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">data</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'observerAnimaciones'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">observer</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  ----------------------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  ejemplo 1: $.when con promesa propia y $.get  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  ----------------------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  Con varios deferreds, cada argumento del .done() es un array</span></span>
+<span class="line"><span style="color:#6A9955">        *  [valor, textStatus, jqXHR] o el valor resuelto segun jQuery.</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">when</span><span style="color:#D4D4D4">(</span></span>
+<span class="line"><span style="color:#DCDCAA">        esPar</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">2</span><span style="color:#D4D4D4">),</span></span>
+<span class="line"><span style="color:#9CDCFE">        $</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">get</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">construirUrl</span><span style="color:#D4D4D4">(</span><span style="color:#4FC1FF">PARTIAL_01</span><span style="color:#D4D4D4">))</span></span>
+<span class="line"><span style="color:#D4D4D4">    )</span></span>
+<span class="line"><span style="color:#D4D4D4">        .</span><span style="color:#DCDCAA">done</span><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">_isPairReturn</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">getReturn</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#569CD6">            const</span><span style="color:#4FC1FF"> html</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">htmlDeGet</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">getReturn</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#569CD6">            const</span><span style="color:#4FC1FF"> nodos</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">parseHTML</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">html</span><span style="color:#D4D4D4">) || [];</span></span>
+<span class="line"><span style="color:#9CDCFE">            $resultEjemplo1</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">append</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">nodos</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        })</span></span>
+<span class="line"><span style="color:#D4D4D4">        .</span><span style="color:#DCDCAA">fail</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#DCDCAA">            mostrarMensaje</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$resultEjemplo1</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'Error'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'red'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        })</span></span>
+<span class="line"><span style="color:#D4D4D4">        .</span><span style="color:#DCDCAA">always</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">            console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">info</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'always: esPar + get finalizado'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----------------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  ejemplo 2: $.when con un valor no diferido  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----------------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  jQuery envuelve el 2 en una promesa ya resuelta</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">when</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">2</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">        .</span><span style="color:#DCDCAA">done</span><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">n</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">            console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'$.when(2):'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">n</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">            mostrarMensaje</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$resultEjemplo2</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">`$.when(2) devolvio: </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">n</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  -------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  ejemplo 3: .then con exito y fallo  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  -------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">when</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">get</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">construirUrl</span><span style="color:#D4D4D4">(</span><span style="color:#4FC1FF">PARTIAL_01</span><span style="color:#D4D4D4">)))</span></span>
+<span class="line"><span style="color:#D4D4D4">        .</span><span style="color:#DCDCAA">then</span><span style="color:#D4D4D4">(</span></span>
+<span class="line"><span style="color:#D4D4D4">            (</span><span style="color:#9CDCFE">html</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">                console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">info</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'then exito:'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">html</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">                mostrarMensaje</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$resultEjemplo3Ok</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'Peticion correcta a _partial-01.html'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">            },</span></span>
+<span class="line"><span style="color:#D4D4D4">            () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">                console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">info</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'then fallo'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">                mostrarMensaje</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$resultEjemplo3Ok</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'Fallo inesperado'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'red'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">            }</span></span>
+<span class="line"><span style="color:#D4D4D4">        );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    $</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">when</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">get</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">construirUrl</span><span style="color:#D4D4D4">(</span><span style="color:#4FC1FF">PARTIAL_NO_EXISTE</span><span style="color:#D4D4D4">)))</span></span>
+<span class="line"><span style="color:#D4D4D4">        .</span><span style="color:#DCDCAA">then</span><span style="color:#D4D4D4">(</span></span>
+<span class="line"><span style="color:#D4D4D4">            (</span><span style="color:#9CDCFE">html</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">                console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">info</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'then exito:'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">html</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">                mostrarMensaje</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$resultEjemplo3Fail</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'Exito inesperado'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">            },</span></span>
+<span class="line"><span style="color:#D4D4D4">            () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">                console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">info</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'then fallo: partial no encontrado'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">                mostrarMensaje</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$resultEjemplo3Fail</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'Fallo esperado: partial no encontrado'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'red'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">            }</span></span>
+<span class="line"><span style="color:#D4D4D4">        );</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  ---------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  ejemplo 4: esPar con .progress  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  ---------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">    esPar</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">2</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">        .</span><span style="color:#DCDCAA">progress</span><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">notification</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">            console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">info</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'progress:'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">notification</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">            mostrarMensaje</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$resultEjemplo4</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">notification</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'#555'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        })</span></span>
+<span class="line"><span style="color:#D4D4D4">        .</span><span style="color:#DCDCAA">done</span><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">message</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">            console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">info</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'done:'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">message</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">            mostrarMensaje</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$resultEjemplo4</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">message</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        })</span></span>
+<span class="line"><span style="color:#D4D4D4">        .</span><span style="color:#DCDCAA">fail</span><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">message</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">            console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">info</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'fail:'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">message</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">            mostrarMensaje</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$resultEjemplo4</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">message</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'red'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  ejemplos 5, 6 y 7: se lanzan al entrar en pantalla  -----</span></span>
+<span class="line"><span style="color:#DCDCAA">    observarEjemplosAnimados</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  --------------------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  ejemplo 8: varios .done en la misma promesa  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  --------------------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> pairPromise</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">esPar</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">2</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    pairPromise</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">done</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'done 1'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        mostrarMensaje</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$resultEjemplo8</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'done 1'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"><span style="color:#9CDCFE">    pairPromise</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">done</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'done 2'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        mostrarMensaje</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$resultEjemplo8</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'done 2'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"><span style="color:#9CDCFE">    pairPromise</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">always</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'always'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        mostrarMensaje</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$resultEjemplo8</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'always'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'#555'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"><span style="color:#9CDCFE">    pairPromise</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">done</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'done 3'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#DCDCAA">        mostrarMensaje</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$resultEjemplo8</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'done 3'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">})(</span><span style="color:#9CDCFE">jQuery</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span></code></pre>

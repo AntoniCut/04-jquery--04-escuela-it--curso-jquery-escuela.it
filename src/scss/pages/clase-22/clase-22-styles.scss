@@ -1,0 +1,210 @@
+/*
+    *  --------------------------------------------------------------------------------------  *
+    *  -----  /clase-22-styles.scss  --  /src/scss/pages/clase-22/clase-22-styles.scss  -----  *
+    *  --------------------------------------------------------------------------------------  *
+*/
+
+
+/*
+    ------------------------
+    -----  deferred  -----
+    ------------------------
+*/
+
+.deferred {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    max-width: 72rem;
+    margin: 0 auto;
+
+    &__title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #102a43;
+        margin: 0 0 0.4rem;
+        padding-bottom: 1rem;
+        border-bottom: 3px solid transparent;
+        border-image: linear-gradient(135deg, #4338ca 0%, #7c3aed 100%) 1;
+    }
+
+    &__hint {
+        margin: 0;
+        font-size: 1.5rem;
+        color: #486581;
+        line-height: 1.6;
+
+        kbd {
+            font-size: 1.3rem;
+        }
+    }
+
+    &__panel {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 2rem 2.4rem;
+        background: linear-gradient(145deg, #ffffff 0%, #f5f3ff 100%);
+        border-radius: 16px;
+        border: 1px solid rgba(67, 56, 202, 0.14);
+        box-shadow:
+            0 4px 6px rgba(0, 0, 0, 0.04),
+            0 10px 40px rgba(67, 56, 202, 0.08);
+    }
+
+    &__panel-title {
+        margin: 0;
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #312e81;
+    }
+
+    &__button {
+        display: inline-block;
+        align-self: flex-start;
+        padding: 1.2rem 2.4rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #fff;
+        text-align: center;
+        background: linear-gradient(135deg, #4338ca 0%, #7c3aed 100%);
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 300ms ease;
+        letter-spacing: 0.02em;
+
+        &:hover {
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(67, 56, 202, 0.35);
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+
+        &:focus-visible {
+            outline: 3px solid rgba(124, 58, 237, 0.35);
+            outline-offset: 3px;
+        }
+    }
+
+    &__label {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #334e68;
+        letter-spacing: 0.02em;
+    }
+
+    &__input {
+        width: 100%;
+        max-width: 32rem;
+        padding: 1.2rem 1.6rem;
+        font-size: 1.5rem;
+        color: #102a43;
+        background: #fff;
+        border: 2px solid #d9e2ec;
+        border-radius: 8px;
+        transition: all 250ms ease;
+
+        &::placeholder {
+            color: #9fb3c8;
+        }
+
+        &:hover {
+            border-color: #bcccdc;
+        }
+
+        &:focus {
+            outline: none;
+            border-color: #4338ca;
+            box-shadow: 0 0 0 4px rgba(67, 56, 202, 0.12);
+        }
+
+        &[readonly] {
+            background: #f8fafc;
+        }
+    }
+
+    &__output {
+        display: block;
+        width: 100%;
+        min-height: 6rem;
+        padding: 1.6rem 2rem;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #4338ca;
+        line-height: 1.6;
+        background: linear-gradient(145deg, #f5f3ff 0%, #ede9fe 100%);
+        border-left: 4px solid #4338ca;
+        border-radius: 12px;
+
+        h2 {
+            margin: 0 0 0.6rem;
+            font-size: 1.7rem;
+            color: #312e81;
+        }
+
+        p {
+            margin: 0 0 1rem;
+            font-size: 1.45rem;
+            font-weight: 500;
+            color: #334e68;
+        }
+
+        ul {
+            margin: 0 0 1rem;
+            padding-left: 1.8rem;
+        }
+
+        li {
+            margin: 0 0 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #334e68;
+        }
+
+        kbd {
+            font-size: 1.25rem;
+        }
+
+        &:empty::before {
+            content: 'Esperando resultado...';
+            color: #9fb3c8;
+            font-weight: 500;
+        }
+    }
+
+    &__msg {
+        margin: 0 0 0.6rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        line-height: 1.5;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &--error {
+            color: #991b1b;
+        }
+    }
+}
+
+
+@media (max-width: 700px) {
+    .deferred {
+        &__panel {
+            padding: 1.6rem;
+        }
+
+        &__input {
+            max-width: 100%;
+        }
+    }
+}

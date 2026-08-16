@@ -1,0 +1,35 @@
+<!--
+    *  ---------------------------------------------------------------------------  *
+    *  -----  _partial-01.html  --  /src/services/clase-22/_partial-01.html  -----  *
+    *  ---------------------------------------------------------------------------  *
+-->
+
+
+<article class="deferred__partial">
+
+    <h2>Contenido recogido de _partial-01</h2>
+
+    <p>
+        Este fragmento se carga con <kbd>$.get</kbd>. El objeto que devuelve
+        la peticion es una promesa: puedes encadenar <kbd>.done()</kbd>,
+        <kbd>.fail()</kbd> y <kbd>.always()</kbd> sin pasar un callback
+        en la propia llamada.
+    </p>
+
+    <p>
+        Un <kbd>$.Deferred()</kbd> empieza en <kbd>pending</kbd> y solo
+        cambia de estado una vez:
+    </p>
+
+    <ul>
+        <li><kbd>resolve()</kbd> → estado <kbd>resolved</kbd> → corre <kbd>done</kbd></li>
+        <li><kbd>reject()</kbd> → estado <kbd>rejected</kbd> → corre <kbd>fail</kbd></li>
+        <li><kbd>always()</kbd> se ejecuta en ambos casos</li>
+    </ul>
+
+    <p>
+        Si despues de <kbd>reject()</kbd> llamas a <kbd>resolve()</kbd>,
+        el estado no cambia: el Deferred ya esta sellado.
+    </p>
+
+</article>

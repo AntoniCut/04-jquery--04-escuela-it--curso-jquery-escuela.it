@@ -1,0 +1,62 @@
+<!--
+    *  ------------------------------------------------------------------------------------------------------------  *
+    *  -----  /02-promesas-description.html  --  /src/pages-components/clase-22/02-promesas-description.html  -----  *
+    *  ------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
+
+            <p class="demo-page__intro-text">
+                <kbd>$.get</kbd> devuelve una promesa. Aqui se cargan fragments HTML
+                (<kbd>_partial-01.html</kbd> y <kbd>_partial-02.html</kbd>) de tres formas:
+                callback clasico, <kbd>.done()</kbd> y <kbd>$.when()</kbd> con una o varias peticiones.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> pasar del callback de <kbd>$.get</kbd>
+                a encadenar <kbd>.done()</kbd> / <kbd>.fail()</kbd> y a esperar
+                varias peticiones a la vez con <kbd>$.when()</kbd>.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        El primer boton combina callback, <kbd>.done()</kbd> y los tres argumentos de <kbd>$.get</kbd>.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        <kbd>$.when($.get(...))</kbd> envuelve una sola peticion en una promesa.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Con varias peticiones, cada argumento de <kbd>.done()</kbd> es el retorno de un <kbd>$.get</kbd>.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>

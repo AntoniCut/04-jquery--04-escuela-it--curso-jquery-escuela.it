@@ -125,6 +125,12 @@ export const routeManifest = [
     { id: 'clase21', path: 'clase21-practica-1-formulario-login', file: 'route-clase21' },
     { id: 'clase21FormularioLogin', path: 'clase21-practica-1-formulario-login/01-formulario-login', file: 'route-clase21-formulario-login' },
     { id: 'clase21FormularioLoginAutenticacion', path: 'clase21-practica-1-formulario-login/02-formulario-login-autenticacion', file: 'route-clase21-formulario-login-autenticacion' },
+
+    { id: 'clase22', path: 'clase22-deferred-y-promesas', file: 'route-clase22' },
+    { id: 'clase22Deferred', path: 'clase22-deferred-y-promesas/01-deferred', file: 'route-clase22-deferred' },
+    { id: 'clase22Promesas', path: 'clase22-deferred-y-promesas/02-promesas', file: 'route-clase22-promesas' },
+    { id: 'clase22FuncionComoPromesa', path: 'clase22-deferred-y-promesas/03-funcion-como-promesa', file: 'route-clase22-funcion-como-promesa' },
+    { id: 'clase22AplicandoConceptos', path: 'clase22-deferred-y-promesas/04-aplicando-conceptos', file: 'route-clase22-aplicando-conceptos' },
     
     { id: '404NotFoundPage', path: '404', file: 'route-404-not-found-page' },
 

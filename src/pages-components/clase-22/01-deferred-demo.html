@@ -1,0 +1,36 @@
+<!--
+    *  ----------------------------------------------------------------------------------------------  *
+    *  -----  /01-deferred-demo.html  --  /src/pages-components/clase-22/01-deferred-demo.html  -----  *
+    *  ----------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__demo">
+
+
+    <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+    <div class="deferred">
+
+        <h3 class="deferred__title">
+            Deferred
+        </h3>
+
+        <p class="deferred__hint">
+            Pulsa el boton para crear un <kbd>$.Deferred()</kbd>, registrar
+            <kbd>done</kbd> / <kbd>fail</kbd> / <kbd>always</kbd> y rechazarlo.
+            Despues se intenta <kbd>resolve()</kbd>: el estado ya no cambia.
+        </p>
+
+        <button type="button" class="deferred__button" id="btn-deferred">
+            Ejecutar Deferred
+        </button>
+
+        <div class="deferred__output" id="message" role="status" aria-live="polite">
+            Aqui se mostrara el resultado del Deferred...
+        </div>
+
+    </div>
+
+
+</div>

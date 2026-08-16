@@ -1,0 +1,63 @@
+<!--
+    *  ------------------------------------------------------------------------------------------------------------  *
+    *  -----  /01-deferred-description.html  --  /src/pages-components/clase-22/01-deferred-description.html  -----  *
+    *  ------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
+
+            <p class="demo-page__intro-text">
+                Crea un objeto <kbd>$.Deferred()</kbd>, registra callbacks de
+                <kbd>done</kbd>, <kbd>fail</kbd> y <kbd>always</kbd>, y despues
+                lo rechaza con <kbd>reject()</kbd>. Un <kbd>resolve()</kbd>
+                posterior no cambia el estado: el Deferred solo se resuelve una vez.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> ver los tres estados
+                (<kbd>pending</kbd>, <kbd>resolved</kbd>, <kbd>rejected</kbd>)
+                y que <kbd>always</kbd> se ejecuta tanto en exito como en fallo.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        <kbd>done</kbd> solo corre si el Deferred se resuelve.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        <kbd>fail</kbd> corre al rechazar; aqui se llama a <kbd>reject()</kbd> primero.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        <kbd>always</kbd> se registra dos veces y ambas se ejecutan.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>

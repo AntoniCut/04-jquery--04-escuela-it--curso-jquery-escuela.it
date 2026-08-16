@@ -1,0 +1,124 @@
+<!--
+    *  --------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /04-aplicando-conceptos-demo.html  --  /src/pages-components/clase-22/04-aplicando-conceptos-demo.html  -----  *
+    *  --------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__demo">
+
+
+    <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+    <div class="deferred">
+
+        <h3 class="deferred__title">
+            Aplicando conceptos
+        </h3>
+
+        <p class="deferred__hint">
+            Los ejemplos 1 a 4 y el 8 se ejecutan al cargar. Los ejemplos 5, 6 y 7
+            esperan a entrar en pantalla: al hacer scroll se ven la animacion,
+            el <kbd>.css()</kbd> instantaneo y las dos animaciones en paralelo.
+        </p>
+
+        <section class="deferred__panel" id="ejemplo-1">
+            <h4 class="deferred__panel-title">Ejemplo 1: $.when con promesa propia y $.get</h4>
+            <p class="deferred__hint">
+                Al cargar, espera a <kbd>esPar(2)</kbd> y a la peticion de <kbd>_partial-01.html</kbd>.
+            </p>
+            <div class="deferred__output" id="result-ejemplo-1" role="status" aria-live="polite"></div>
+        </section>
+
+        <section class="deferred__panel" id="ejemplo-2">
+            <h4 class="deferred__panel-title">Ejemplo 2: $.when con un valor no diferido</h4>
+            <p class="deferred__hint">
+                jQuery envuelve el <kbd>2</kbd> en una promesa ya resuelta.
+            </p>
+            <div class="deferred__output" id="result-ejemplo-2" role="status" aria-live="polite"></div>
+        </section>
+
+        <section class="deferred__panel" id="ejemplo-3">
+            <h4 class="deferred__panel-title">Ejemplo 3: .then con exito y fallo</h4>
+            <p class="deferred__hint">
+                Una peticion correcta y otra a un archivo que no existe.
+            </p>
+            <p class="deferred__label">Exito:</p>
+            <div class="deferred__output" id="result-ejemplo-3-ok" role="status" aria-live="polite"></div>
+            <p class="deferred__label">Fallo:</p>
+            <div class="deferred__output" id="result-ejemplo-3-fail" role="status" aria-live="polite"></div>
+        </section>
+
+        <section class="deferred__panel" id="ejemplo-4">
+            <h4 class="deferred__panel-title">Ejemplo 4: esPar con .progress</h4>
+            <p class="deferred__hint">
+                Muestra las notificaciones de progreso antes del resultado final.
+            </p>
+            <div class="deferred__output" id="result-ejemplo-4" role="status" aria-live="polite"></div>
+        </section>
+
+        <section class="deferred__panel" id="ejemplo-5">
+            <h4 class="deferred__panel-title">Ejemplo 5: $.when con $.get y animacion</h4>
+            <p class="deferred__hint">
+                El input de abajo parpadea cuando este panel entra en pantalla.
+            </p>
+            <label class="deferred__label" for="number-ejemplo-5">
+                Animacion
+                <input
+                    type="text"
+                    class="deferred__input"
+                    id="number-ejemplo-5"
+                    value="Animacion + $.get"
+                    readonly
+                >
+            </label>
+            <p class="deferred__hint" id="result-ejemplo-5"></p>
+        </section>
+
+        <section class="deferred__panel" id="ejemplo-6">
+            <h4 class="deferred__panel-title">Ejemplo 6: $.when con .css (no es diferido)</h4>
+            <p class="deferred__hint">
+                El <kbd>.css()</kbd> no anima: la promesa se resuelve al instante.
+            </p>
+            <label class="deferred__label" for="number-ejemplo-6">
+                CSS inmediato
+                <input
+                    type="text"
+                    class="deferred__input"
+                    id="number-ejemplo-6"
+                    value="Se pondra en negrita al aparecer"
+                    readonly
+                >
+            </label>
+        </section>
+
+        <section class="deferred__panel" id="ejemplo-7">
+            <h4 class="deferred__panel-title">Ejemplo 7: $.when con varias animaciones</h4>
+            <p class="deferred__hint">
+                Dos animaciones en paralelo al entrar en pantalla: margen y tamano de fuente.
+            </p>
+            <label class="deferred__label" for="number-ejemplo-7">
+                Margen
+                <input
+                    type="text"
+                    class="deferred__input"
+                    id="number-ejemplo-7"
+                    value="Margen"
+                    readonly
+                >
+            </label>
+            <div class="deferred__output" id="result-ejemplo-7">Tamano de fuente</div>
+        </section>
+
+        <section class="deferred__panel" id="ejemplo-8">
+            <h4 class="deferred__panel-title">Ejemplo 8: varios .done en la misma promesa</h4>
+            <p class="deferred__hint">
+                Varios callbacks registrados sobre la misma promesa de <kbd>esPar(2)</kbd>.
+            </p>
+            <div class="deferred__output" id="result-ejemplo-8" role="status" aria-live="polite"></div>
+        </section>
+
+    </div>
+
+
+</div>

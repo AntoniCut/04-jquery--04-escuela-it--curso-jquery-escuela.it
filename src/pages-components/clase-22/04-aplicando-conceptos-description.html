@@ -1,0 +1,62 @@
+<!--
+    *  ----------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /04-aplicando-conceptos-description.html  --  /src/pages-components/clase-22/04-aplicando-conceptos-description.html  -----  *
+    *  ----------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
+
+            <p class="demo-page__intro-text">
+                Reune los conceptos de la clase: <kbd>$.when</kbd> con promesa propia y
+                <kbd>$.get</kbd>, valores no diferidos, <kbd>.then</kbd> con exito y fallo,
+                <kbd>.progress</kbd>, animaciones (que si son diferidas) frente a
+                <kbd>.css()</kbd> (que no lo es) y varios <kbd>.done</kbd> sobre la misma promesa.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> ver que jQuery trata como promesa las animaciones
+                y las peticiones Ajax, y que un valor normal se envuelve en una promesa ya resuelta.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        <kbd>$.when(esPar(2), $.get(...))</kbd> espera a las dos operaciones.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        <kbd>.animate()</kbd> es diferido; <kbd>.css()</kbd> se resuelve al instante.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Varios <kbd>.done()</kbd> sobre la misma promesa se ejecutan en orden de registro.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
