@@ -20,34 +20,19 @@
         -----  Título del menú (navbar)  -----
         --------------------------------------  
     -->
-    <header class="navbar__title navbar__title--first">
+    <header class="navbar__title navbar__title--first container__title-main--first">
 
-        <a href="https://jquery.com/" target="_blank" rel="noopener noreferrer">
-            <img 
-                class="navbar-jquery-icon"
-                src="../../../assets/img/logos/jquery/jquery-icon-64x64.svg"
-                alt="Logo jQuery"
-                width="64"
-                height="64"
-                loading="lazy"
+        <h1 class="header__title-main">
+            <a
+                href="#"
+                data-id="home"
+                data-route="route-home"
+                title=" 🏡Ir a Inicio 🏡"
+                aria-label="Ir a Inicio"
             >
-        </a>
-
-        <div class="navbar__title-copy">
-            <h3> Navigation </h3>
-            <p>30 clases · Escuela.IT</p>
-        </div>
-        
-        <a href="https://jqueryui.com/" target="_blank" rel="noopener noreferrer">
-            <img 
-                class="navbar-jquery-ui-icon"
-                src="../../../assets/img/logos/jquery-ui/jquery-ui-icon.svg"
-                alt="Logo jQuery UI"
-                width="68"
-                height="59"
-                loading="lazy"
-            >
-        </a>
+                &lt; Curso jQuery Escuela.IT /&gt;
+            </a>
+        </h1>
 
     </header>
 
@@ -66,972 +51,972 @@
     <!--  -----  Grid de clases (accordion)  -----  -->
     <div class="navbar__grid" role="list">
 
-            <!--  -----  Clase 1  -----  -->
-            <article class="navbar__clase" data-clase="1">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-01">
-                    <span class="navbar__clase-num">01</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 1</span>
-                        <span class="navbar__clase-label">Que es jQuery</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-01">
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase01" data-route="route-clase01">
-                                Introducción
-                            </a>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 1  -----  -->
+        <article class="navbar__clase" data-clase="1">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-01">
+                <span class="navbar__clase-num">01</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 1</span>
+                    <span class="navbar__clase-label">Que es jQuery</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-01">
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase01" data-route="route-clase01">
+                        Introducción
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 2  -----  -->
-            <article class="navbar__clase" data-clase="2">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-02">
-                    <span class="navbar__clase-num">02</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 2</span>
-                        <span class="navbar__clase-label">Usar jQuery en la Actualidad</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-02">
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase02" data-route="route-clase02">
-                                Introducción
-                            </a>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 2  -----  -->
+        <article class="navbar__clase" data-clase="2">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-02">
+                <span class="navbar__clase-num">02</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 2</span>
+                    <span class="navbar__clase-label">Usar jQuery en la Actualidad</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-02">
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase02" data-route="route-clase02">
+                        Introducción
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 3  -----  -->
-            <article class="navbar__clase" data-clase="3">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-03">
-                    <span class="navbar__clase-num">03</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 3</span>
-                        <span class="navbar__clase-label">Practica primeros pasos</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-03">
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase03" data-route="route-clase03">
-                                Introducción
-                            </a>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 3  -----  -->
+        <article class="navbar__clase" data-clase="3">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-03">
+                <span class="navbar__clase-num">03</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 3</span>
+                    <span class="navbar__clase-label">Practica primeros pasos</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-03">
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase03" data-route="route-clase03">
+                        Introducción
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 4  -----  -->
-            <article class="navbar__clase" data-clase="4">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-04">
-                    <span class="navbar__clase-num">04</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 4</span>
-                        <span class="navbar__clase-label">Como se organiza el curso</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-04">
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase04" data-route="route-clase04">
-                                Introducción
-                            </a>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 4  -----  -->
+        <article class="navbar__clase" data-clase="4">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-04">
+                <span class="navbar__clase-num">04</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 4</span>
+                    <span class="navbar__clase-label">Como se organiza el curso</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-04">
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase04" data-route="route-clase04">
+                        Introducción
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 5  -----  -->
-            <article class="navbar__clase" data-clase="5">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-05">
-                    <span class="navbar__clase-num">05</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 5</span>
-                        <span class="navbar__clase-label">Introducción a jQuery</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-05">
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase05" data-route="route-clase05">
-                                Introducción
-                            </a>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 5  -----  -->
+        <article class="navbar__clase" data-clase="5">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-05">
+                <span class="navbar__clase-num">05</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 5</span>
+                    <span class="navbar__clase-label">Introducción a jQuery</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-05">
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase05" data-route="route-clase05">
+                        Introducción
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 6  -----  -->
-            <article class="navbar__clase" data-clase="6">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-06">
-                    <span class="navbar__clase-num">06</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 6</span>
-                        <span class="navbar__clase-label">Primeros pasos con jQuery</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-06">
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase06" data-route="route-clase06">
-                                Introducción
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase06Ejemplo1" data-route="route-clase06-ejemplo1">
-                                Ejemplo 1
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase06Ejemplo2" data-route="route-clase06-ejemplo2">
-                                Ejemplo 2
-                            </a>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 6  -----  -->
+        <article class="navbar__clase" data-clase="6">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-06">
+                <span class="navbar__clase-num">06</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 6</span>
+                    <span class="navbar__clase-label">Primeros pasos con jQuery</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-06">
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase06" data-route="route-clase06">
+                        Introducción
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase06Ejemplo1" data-route="route-clase06-ejemplo1">
+                        Ejemplo 1
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase06Ejemplo2" data-route="route-clase06-ejemplo2">
+                        Ejemplo 2
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 7  -----  -->
-            <article class="navbar__clase" data-clase="7">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-07">
-                    <span class="navbar__clase-num">07</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 7</span>
-                        <span class="navbar__clase-label">Manipulación básica de elementos</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-07">
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase07" data-route="route-clase07">
-                                Introducción
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase07HtmlText" data-route="route-clase07-html-text">
-                                Métodos html() y text()
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase07AttrProp" data-route="route-clase07-attr-prop">
-                                Métodos attr() y prop()
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase07DataRemoveData" data-route="route-clase07-data-remove-data">
-                                Métodos data() y removeData()
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase07Each" data-route="route-clase07-each">
-                                Método each() para recorrer elementos
-                            </a>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 7  -----  -->
+        <article class="navbar__clase" data-clase="7">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-07">
+                <span class="navbar__clase-num">07</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 7</span>
+                    <span class="navbar__clase-label">Manipulación básica de elementos</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-07">
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase07" data-route="route-clase07">
+                        Introducción
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase07HtmlText" data-route="route-clase07-html-text">
+                        Métodos html() y text()
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase07AttrProp" data-route="route-clase07-attr-prop">
+                        Métodos attr() y prop()
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase07DataRemoveData" data-route="route-clase07-data-remove-data">
+                        Métodos data() y removeData()
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase07Each" data-route="route-clase07-each">
+                        Método each() para recorrer elementos
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 8  -----  -->
-            <article class="navbar__clase" data-clase="8">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-08">
-                    <span class="navbar__clase-num">08</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 8</span>
-                        <span class="navbar__clase-label">Selectores jQuery y traversing</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-08">
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase08" data-route="route-clase08">
-                                Introducción
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase08SelectoresJerarquia" data-route="route-clase08-selectores-jerarquia">
-                                Selectores Jerarquia
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase08ProbarSelectores" data-route="route-clase08-probar-selectores">
-                                Probar Selectores
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase08Traversing" data-route="route-clase08-traversing">
-                                Traversing
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase08Contexto" data-route="route-clase08-contexto">
-                                Partir de un Contexto
-                            </a>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 8  -----  -->
+        <article class="navbar__clase" data-clase="8">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-08">
+                <span class="navbar__clase-num">08</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 8</span>
+                    <span class="navbar__clase-label">Selectores jQuery y traversing</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-08">
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase08" data-route="route-clase08">
+                        Introducción
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase08SelectoresJerarquia" data-route="route-clase08-selectores-jerarquia">
+                        Selectores Jerarquia
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase08ProbarSelectores" data-route="route-clase08-probar-selectores">
+                        Probar Selectores
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase08Traversing" data-route="route-clase08-traversing">
+                        Traversing
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase08Contexto" data-route="route-clase08-contexto">
+                        Partir de un Contexto
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 9  -----  -->
-            <article class="navbar__clase" data-clase="9">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-09">
-                    <span class="navbar__clase-num">09</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 9</span>
-                        <span class="navbar__clase-label">Dudas y conceptos I</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-09">
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase09" data-route="route-clase09">
-                                Introducción
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase09Ejercicio00This" data-route="route-clase09-ejercicio00-this">
-                                Ejercicio con this
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase09Ejercicio01" data-route="route-clase09-ejercicio01">
-                                Ejercicio 1
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase09Ejercicio02" data-route="route-clase09-ejercicio02">
-                                Ejercicio 2
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase09Ejercicio03" data-route="route-clase09-ejercicio03">
-                                Ejercicio 3
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase09Ejercicio04" data-route="route-clase09-ejercicio04">
-                                Ejercicio 4
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase09Ejercicio05" data-route="route-clase09-ejercicio05">
-                                Ejercicio 5
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase09Ejercicio06Date" data-route="route-clase09-ejercicio06-date">
-                                Ejercicio 6 con Date
-                            </a>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 9  -----  -->
+        <article class="navbar__clase" data-clase="9">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-09">
+                <span class="navbar__clase-num">09</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 9</span>
+                    <span class="navbar__clase-label">Dudas y conceptos I</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-09">
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase09" data-route="route-clase09">
+                        Introducción
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase09Ejercicio00This" data-route="route-clase09-ejercicio00-this">
+                        Ejercicio con this
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase09Ejercicio01" data-route="route-clase09-ejercicio01">
+                        Ejercicio 1
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase09Ejercicio02" data-route="route-clase09-ejercicio02">
+                        Ejercicio 2
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase09Ejercicio03" data-route="route-clase09-ejercicio03">
+                        Ejercicio 3
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase09Ejercicio04" data-route="route-clase09-ejercicio04">
+                        Ejercicio 4
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase09Ejercicio05" data-route="route-clase09-ejercicio05">
+                        Ejercicio 5
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase09Ejercicio06Date" data-route="route-clase09-ejercicio06-date">
+                        Ejercicio 6 con Date
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 10  -----  -->
-            <article class="navbar__clase" data-clase="10">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-10">
-                    <span class="navbar__clase-num">10</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 10</span>
-                        <span class="navbar__clase-label">Manipulación avanzada del contenido</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-10">
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase10" data-route="route-clase10">
-                                Introducción
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase10AppendPrepend" data-route="route-clase10-append-prepend">
-                                Inyección Append / Prepend / AppendTo / PrependTo
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase10AfterBefore" data-route="route-clase10-after-before">
-                                Inyección After / Before / InsertAfter / InsertBefore
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase10Dom" data-route="route-clase10-dom">
-                                Inyección DOM
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase10Envoltura" data-route="route-clase10-envoltura">
-                                Envoltura
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase10Dimensiones" data-route="route-clase10-dimensiones">
-                                Dimensiones
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase10ScrollOffset" data-route="route-clase10-scroll-offset">
-                                Scroll / Offset
-                            </a>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 10  -----  -->
+        <article class="navbar__clase" data-clase="10">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-10">
+                <span class="navbar__clase-num">10</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 10</span>
+                    <span class="navbar__clase-label">Manipulación avanzada del contenido</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-10">
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase10" data-route="route-clase10">
+                        Introducción
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase10AppendPrepend" data-route="route-clase10-append-prepend">
+                        Inyección Append / Prepend / AppendTo / PrependTo
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase10AfterBefore" data-route="route-clase10-after-before">
+                        Inyección After / Before / InsertAfter / InsertBefore
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase10Dom" data-route="route-clase10-dom">
+                        Inyección DOM
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase10Envoltura" data-route="route-clase10-envoltura">
+                        Envoltura
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase10Dimensiones" data-route="route-clase10-dimensiones">
+                        Dimensiones
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase10ScrollOffset" data-route="route-clase10-scroll-offset">
+                        Scroll / Offset
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 11  -----  -->
-            <article class="navbar__clase" data-clase="11">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-11">
-                    <span class="navbar__clase-num">11</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 11</span>
-                        <span class="navbar__clase-label">Eventos en jQuery</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-11">
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase11" data-route="route-clase11">
-                                Introducción
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase11MetodoOn" data-route="route-clase11-metodo-on">
-                                Eventos - Método On
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase11MetodoOff" data-route="route-clase11-metodo-off">
-                                Eventos - Método Off
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase11EventType" data-route="route-clase11-event-type">
-                                Eventos - Event Type
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase11PreventDefault" data-route="route-clase11-prevent-default">
-                                Eventos - Prevent Default
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase11StopPropagation" data-route="route-clase11-stop-propagation">
-                                Eventos - Stop Propagation
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase11EvitarDobleClick" data-route="route-clase11-evitar-doble-click">
-                                Eventos - Evitar Doble Click
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase11EventoPageXPageY" data-route="route-clase11-evento-page-xpage-y">
-                                Eventos - PageX / PageY
-                            </a>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 11  -----  -->
+        <article class="navbar__clase" data-clase="11">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-11">
+                <span class="navbar__clase-num">11</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 11</span>
+                    <span class="navbar__clase-label">Eventos en jQuery</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-11">
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase11" data-route="route-clase11">
+                        Introducción
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase11MetodoOn" data-route="route-clase11-metodo-on">
+                        Eventos - Método On
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase11MetodoOff" data-route="route-clase11-metodo-off">
+                        Eventos - Método Off
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase11EventType" data-route="route-clase11-event-type">
+                        Eventos - Event Type
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase11PreventDefault" data-route="route-clase11-prevent-default">
+                        Eventos - Prevent Default
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase11StopPropagation" data-route="route-clase11-stop-propagation">
+                        Eventos - Stop Propagation
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase11EvitarDobleClick" data-route="route-clase11-evitar-doble-click">
+                        Eventos - Evitar Doble Click
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase11EventoPageXPageY" data-route="route-clase11-evento-page-xpage-y">
+                        Eventos - PageX / PageY
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 12  -----  -->
-            <article class="navbar__clase" data-clase="12">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-12">
-                    <span class="navbar__clase-num">12</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 12</span>
-                        <span class="navbar__clase-label">Eventos de teclado y ratón</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-12">
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase12" data-route="route-clase12">
-                                Introducción
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase12MovimientoRaton" data-route="route-clase12-movimiento-raton">
-                                Seguir movimiento del ratón
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase12MenuContextual" data-route="route-clase12-menu-contextual">
-                                Menú contextual personalizado
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase12TextareaCuentaCaracteres" data-route="route-clase12-textarea-cuenta-caracteres">
-                                Textarea cuenta caracteres
-                            </a>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 12  -----  -->
+        <article class="navbar__clase" data-clase="12">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-12">
+                <span class="navbar__clase-num">12</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 12</span>
+                    <span class="navbar__clase-label">Eventos de teclado y ratón</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-12">
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase12" data-route="route-clase12">
+                        Introducción
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase12MovimientoRaton" data-route="route-clase12-movimiento-raton">
+                        Seguir movimiento del ratón
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase12MenuContextual" data-route="route-clase12-menu-contextual">
+                        Menú contextual personalizado
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase12TextareaCuentaCaracteres" data-route="route-clase12-textarea-cuenta-caracteres">
+                        Textarea cuenta caracteres
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 13  -----  -->
-            <article class="navbar__clase" data-clase="13">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-13">
-                    <span class="navbar__clase-num">13</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 13</span>
-                        <span class="navbar__clase-label">Efectos y Animaciones</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-13">
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase13" data-route="route-clase13">
-                                Introducción
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase13Toggle" data-route="route-clase13-toggle">
-                                Toggle
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase13Animate" data-route="route-clase13-animate">
-                                Animate
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase13PluginEase" data-route="route-clase13-plugin-ease">
-                                Plugin Ease
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase13PluginEaseAnimateColors" data-route="route-clase13-plugin-ease-animate-colors">
-                                Plugin Ease Animate Colors
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase13PluginEaseAnimateColorsOptions" data-route="route-clase13-plugin-ease-animate-colors-options">
-                                Plugin Ease Animate Colors Options
-                            </a>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 13  -----  -->
+        <article class="navbar__clase" data-clase="13">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-13">
+                <span class="navbar__clase-num">13</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 13</span>
+                    <span class="navbar__clase-label">Efectos y Animaciones</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-13">
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase13" data-route="route-clase13">
+                        Introducción
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase13Toggle" data-route="route-clase13-toggle">
+                        Toggle
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase13Animate" data-route="route-clase13-animate">
+                        Animate
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase13PluginEase" data-route="route-clase13-plugin-ease">
+                        Plugin Ease
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase13PluginEaseAnimateColors" data-route="route-clase13-plugin-ease-animate-colors">
+                        Plugin Ease Animate Colors
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase13PluginEaseAnimateColorsOptions" data-route="route-clase13-plugin-ease-animate-colors-options">
+                        Plugin Ease Animate Colors Options
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 14  -----  -->
-            <article class="navbar__clase" data-clase="14">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-14">
-                    <span class="navbar__clase-num">14</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 14</span>
-                        <span class="navbar__clase-label">Cola de efectos</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-14">
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase14" data-route="route-clase14">
-                                Introducción
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase14EncoladoEfectos" data-route="route-clase14-encolado-efectos">
-                                Encolado de Efectos
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase14EjemploStop" data-route="route-clase14-ejemplo-stop">
-                                Ejemplo Stop
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase14LongitudColaEfectos" data-route="route-clase14-longitud-cola-efectos">
-                                Longitud Cola Efectos
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase14EncolarFuncionesNoEfectos" data-route="route-clase14-encolar-funciones-no-efectos">
-                                Encolar Funciones No Efectos
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase14EncoladoRespuestasEventos" data-route="route-clase14-encolado-respuestas-eventos">
-                                Encolado Respuestas Eventos
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase14AnimacionesEnBucle" data-route="route-clase14-animaciones-en-bucle">
-                                Animaciones en Bucle
-                            </a>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 14  -----  -->
+        <article class="navbar__clase" data-clase="14">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-14">
+                <span class="navbar__clase-num">14</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 14</span>
+                    <span class="navbar__clase-label">Cola de efectos</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-14">
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase14" data-route="route-clase14">
+                        Introducción
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase14EncoladoEfectos" data-route="route-clase14-encolado-efectos">
+                        Encolado de Efectos
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase14EjemploStop" data-route="route-clase14-ejemplo-stop">
+                        Ejemplo Stop
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase14LongitudColaEfectos" data-route="route-clase14-longitud-cola-efectos">
+                        Longitud Cola Efectos
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase14EncolarFuncionesNoEfectos" data-route="route-clase14-encolar-funciones-no-efectos">
+                        Encolar Funciones No Efectos
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase14EncoladoRespuestasEventos" data-route="route-clase14-encolado-respuestas-eventos">
+                        Encolado Respuestas Eventos
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase14AnimacionesEnBucle" data-route="route-clase14-animaciones-en-bucle">
+                        Animaciones en Bucle
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 15  -----  -->
-            <article class="navbar__clase" data-clase="15">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-15">
-                    <span class="navbar__clase-num">15</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 15</span>
-                        <span class="navbar__clase-label">JSON</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-15">
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase15" data-route="route-clase15">
-                                Introducción
-                            </a>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 15  -----  -->
+        <article class="navbar__clase" data-clase="15">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-15">
+                <span class="navbar__clase-num">15</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 15</span>
+                    <span class="navbar__clase-label">JSON</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-15">
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase15" data-route="route-clase15">
+                        Introducción
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 16  -----  -->
-            <article class="navbar__clase" data-clase="16">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-16">
-                    <span class="navbar__clase-num">16</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 16</span>
-                        <span class="navbar__clase-label">Ajax: Interfaz de alto nivel</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-16">
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase16" data-route="route-clase16">
-                                Introducción
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase16Load" data-route="route-clase16-load">
-                                Load
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase16GetAjax" data-route="route-clase16-get-ajax">
-                                Get Ajax
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase16GetAjaxDatos" data-route="route-clase16-get-ajax-datos">
-                                Get Ajax Datos
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase16GetAjaxDatosObjetoAjax" data-route="route-clase16-get-ajax-datos-objeto-ajax">
-                                Get Ajax Datos Objeto Ajax
-                            </a>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 16  -----  -->
+        <article class="navbar__clase" data-clase="16">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-16">
+                <span class="navbar__clase-num">16</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 16</span>
+                    <span class="navbar__clase-label">Ajax: Interfaz de alto nivel</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-16">
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase16" data-route="route-clase16">
+                        Introducción
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase16Load" data-route="route-clase16-load">
+                        Load
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase16GetAjax" data-route="route-clase16-get-ajax">
+                        Get Ajax
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase16GetAjaxDatos" data-route="route-clase16-get-ajax-datos">
+                        Get Ajax Datos
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase16GetAjaxDatosObjetoAjax" data-route="route-clase16-get-ajax-datos-objeto-ajax">
+                        Get Ajax Datos Objeto Ajax
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 17  -----  -->
-            <article class="navbar__clase" data-clase="17">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-17">
-                    <span class="navbar__clase-num">17</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 17</span>
-                        <span class="navbar__clase-label">Dudas y conceptos II</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-17">
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase17" data-route="route-clase17">
-                                Introducción
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase17Ejercicio01" data-route="route-clase17-ejercicio01">
-                                Ejercicio 01
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase17Ejercicio02" data-route="route-clase17-ejercicio02">
-                                Ejercicio 02
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase17Ejercicio03" data-route="route-clase17-ejercicio03">
-                                Ejercicio 03
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase17Ejercicio04" data-route="route-clase17-ejercicio04">
-                                Ejercicio 04
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase17Ejercicio05" data-route="route-clase17-ejercicio05">
-                                Ejercicio 05
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase17Ejercicio05Hover" data-route="route-clase17-ejercicio05-hover">
-                                Ejercicio 05 Hover
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase17Ejercicio06" data-route="route-clase17-ejercicio06">
-                                Ejercicio 06
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase17Ejercicio07" data-route="route-clase17-ejercicio07">
-                                Ejercicio 07
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase17Ejercicio08" data-route="route-clase17-ejercicio08">
-                                Ejercicio 08
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase17Ejercicio09" data-route="route-clase17-ejercicio09">
-                                Ejercicio 09
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase17Ejercicio10" data-route="route-clase17-ejercicio10">
-                                Ejercicio 10
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase17Ejercicio10Paralax" data-route="route-clase17-ejercicio10-paralax">
-                                Ejercicio 10 Paralax
-                            </a>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 17  -----  -->
+        <article class="navbar__clase" data-clase="17">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-17">
+                <span class="navbar__clase-num">17</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 17</span>
+                    <span class="navbar__clase-label">Dudas y conceptos II</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-17">
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase17" data-route="route-clase17">
+                        Introducción
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase17Ejercicio01" data-route="route-clase17-ejercicio01">
+                        Ejercicio 01
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase17Ejercicio02" data-route="route-clase17-ejercicio02">
+                        Ejercicio 02
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase17Ejercicio03" data-route="route-clase17-ejercicio03">
+                        Ejercicio 03
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase17Ejercicio04" data-route="route-clase17-ejercicio04">
+                        Ejercicio 04
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase17Ejercicio05" data-route="route-clase17-ejercicio05">
+                        Ejercicio 05
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase17Ejercicio05Hover" data-route="route-clase17-ejercicio05-hover">
+                        Ejercicio 05 Hover
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase17Ejercicio06" data-route="route-clase17-ejercicio06">
+                        Ejercicio 06
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase17Ejercicio07" data-route="route-clase17-ejercicio07">
+                        Ejercicio 07
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase17Ejercicio08" data-route="route-clase17-ejercicio08">
+                        Ejercicio 08
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase17Ejercicio09" data-route="route-clase17-ejercicio09">
+                        Ejercicio 09
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase17Ejercicio10" data-route="route-clase17-ejercicio10">
+                        Ejercicio 10
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase17Ejercicio10Paralax" data-route="route-clase17-ejercicio10-paralax">
+                        Ejercicio 10 Paralax
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 18  -----  -->
-            <article class="navbar__clase" data-clase="18">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-18">
-                    <span class="navbar__clase-num">18</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 18</span>
-                        <span class="navbar__clase-label">Formularios Ajax</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-18">
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase18" data-route="route-clase18">
-                                Introducción
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase18EnviarDatosPostSinFormularios" data-route="route-clase18-enviar-datos-post-sin-formularios">
-                                Enviar Datos Post Sin Formularios
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase18FormulariosSinValidacion" data-route="route-clase18-formularios-sin-validacion">
-                                Formularios Sin Validacion
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase18FormularioValidacionCliente" data-route="route-clase18-formulario-validacion-cliente">
-                                Formulario Validacion Cliente
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase18FormularioValidacionClienteServidor" data-route="route-clase18-formulario-validacion-cliente-servidor">
-                                Formulario Validacion Cliente Servidor
-                            </a>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 18  -----  -->
+        <article class="navbar__clase" data-clase="18">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-18">
+                <span class="navbar__clase-num">18</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 18</span>
+                    <span class="navbar__clase-label">Formularios Ajax</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-18">
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase18" data-route="route-clase18">
+                        Introducción
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase18EnviarDatosPostSinFormularios" data-route="route-clase18-enviar-datos-post-sin-formularios">
+                        Enviar Datos Post Sin Formularios
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase18FormulariosSinValidacion" data-route="route-clase18-formularios-sin-validacion">
+                        Formularios Sin Validacion
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase18FormularioValidacionCliente" data-route="route-clase18-formulario-validacion-cliente">
+                        Formulario Validacion Cliente
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase18FormularioValidacionClienteServidor" data-route="route-clase18-formulario-validacion-cliente-servidor">
+                        Formulario Validacion Cliente Servidor
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 19  -----  -->
-            <article class="navbar__clase" data-clase="19">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-19">
-                    <span class="navbar__clase-num">19</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 19</span>
-                        <span class="navbar__clase-label">Eventos Avanzados</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-19">
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase19" data-route="route-clase19">
-                                Introducción
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase19DelegacionEventos" data-route="route-clase19-delegacion-eventos">
-                                Delegacion Eventos
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase19PasarParametrosAEventos" data-route="route-clase19-pasar-parametros-a-eventos">
-                                Pasar Parametros A Eventos
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase19DispararEventos" data-route="route-clase19-disparar-eventos">
-                                Disparar Eventos
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase19DispararManejadores" data-route="route-clase19-disparar-manejadores">
-                                Disparar Manejadores
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase19EventosPersonalizados1" data-route="route-clase19-eventos-personalizados-1">
-                                Eventos Personalizados 1
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase19EventosPersonalizados2" data-route="route-clase19-eventos-personalizados-2">
-                                Eventos Personalizados 2
-                            </a>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 19  -----  -->
+        <article class="navbar__clase" data-clase="19">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-19">
+                <span class="navbar__clase-num">19</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 19</span>
+                    <span class="navbar__clase-label">Eventos Avanzados</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-19">
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase19" data-route="route-clase19">
+                        Introducción
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase19DelegacionEventos" data-route="route-clase19-delegacion-eventos">
+                        Delegacion Eventos
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase19PasarParametrosAEventos" data-route="route-clase19-pasar-parametros-a-eventos">
+                        Pasar Parametros A Eventos
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase19DispararEventos" data-route="route-clase19-disparar-eventos">
+                        Disparar Eventos
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase19DispararManejadores" data-route="route-clase19-disparar-manejadores">
+                        Disparar Manejadores
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase19EventosPersonalizados1" data-route="route-clase19-eventos-personalizados-1">
+                        Eventos Personalizados 1
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase19EventosPersonalizados2" data-route="route-clase19-eventos-personalizados-2">
+                        Eventos Personalizados 2
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 20  -----  -->
-            <article class="navbar__clase" data-clase="20">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-20">
-                    <span class="navbar__clase-num">20</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 20</span>
-                        <span class="navbar__clase-label">Ajax Low Level</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-20">
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase20" data-route="route-clase20">
-                                Introducción
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase20AjaxPostPhp" data-route="route-clase20-ajax-post-php">
-                                Ajax POST PHP
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase20AjaxLoadScripts" data-route="route-clase20-ajax-load-scripts">
-                                Ajax Load Scripts
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase20Buscador" data-route="route-clase20-buscador">
-                                Buscador
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase20SelectCombinado" data-route="route-clase20-select-combinado">
-                                Select Combinado
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase20SelectCombinadoJsonp" data-route="route-clase20-select-combinado-jsonp">
-                                Select Combinado JSONP
-                            </a>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 20  -----  -->
+        <article class="navbar__clase" data-clase="20">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-20">
+                <span class="navbar__clase-num">20</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 20</span>
+                    <span class="navbar__clase-label">Ajax Low Level</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-20">
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase20" data-route="route-clase20">
+                        Introducción
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase20AjaxPostPhp" data-route="route-clase20-ajax-post-php">
+                        Ajax POST PHP
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase20AjaxLoadScripts" data-route="route-clase20-ajax-load-scripts">
+                        Ajax Load Scripts
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase20Buscador" data-route="route-clase20-buscador">
+                        Buscador
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase20SelectCombinado" data-route="route-clase20-select-combinado">
+                        Select Combinado
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase20SelectCombinadoJsonp" data-route="route-clase20-select-combinado-jsonp">
+                        Select Combinado JSONP
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 21  -----  -->
-            <article class="navbar__clase" data-clase="21">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-21">
-                    <span class="navbar__clase-num">21</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 21</span>
-                        <span class="navbar__clase-label">Práctica 1 Formulario Login</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-21">
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase21" data-route="route-clase21">
-                                Introducción
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase21FormularioLogin" data-route="route-clase21-formulario-login">
-                                Formulario Login
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase21FormularioLoginAutenticacion" data-route="route-clase21-formulario-login-autenticacion">
-                                Formulario Login Autenticacion
-                            </a>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 21  -----  -->
+        <article class="navbar__clase" data-clase="21">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-21">
+                <span class="navbar__clase-num">21</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 21</span>
+                    <span class="navbar__clase-label">Práctica 1 Formulario Login</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-21">
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase21" data-route="route-clase21">
+                        Introducción
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase21FormularioLogin" data-route="route-clase21-formulario-login">
+                        Formulario Login
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase21FormularioLoginAutenticacion" data-route="route-clase21-formulario-login-autenticacion">
+                        Formulario Login Autenticacion
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 22  -----  -->
-            <article class="navbar__clase" data-clase="22">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-22">
-                    <span class="navbar__clase-num">22</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 22</span>
-                        <span class="navbar__clase-label">Deferred y Promesas</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-22">
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase22" data-route="route-clase22">
-                                Introducción
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase22Deferred" data-route="route-clase22-deferred">
-                                Deferred
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase22Promesas" data-route="route-clase22-promesas">
-                                Promesas
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase22FuncionComoPromesa" data-route="route-clase22-funcion-como-promesa">
-                                Función como Promesa
-                            </a>
-                        </li>
-                        <li class="navbar__submenu-item">
-                            <a href="#" data-id="clase22AplicandoConceptos" data-route="route-clase22-aplicando-conceptos">
-                                Aplicando conceptos
-                            </a>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 22  -----  -->
+        <article class="navbar__clase" data-clase="22">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-22">
+                <span class="navbar__clase-num">22</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 22</span>
+                    <span class="navbar__clase-label">Deferred y Promesas</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-22">
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase22" data-route="route-clase22">
+                        Introducción
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase22Deferred" data-route="route-clase22-deferred">
+                        Deferred
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase22Promesas" data-route="route-clase22-promesas">
+                        Promesas
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase22FuncionComoPromesa" data-route="route-clase22-funcion-como-promesa">
+                        Función como Promesa
+                    </a>
+                </li>
+                <li class="navbar__submenu-item">
+                    <a href="#" data-id="clase22AplicandoConceptos" data-route="route-clase22-aplicando-conceptos">
+                        Aplicando conceptos
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 23  -----  -->
-            <article class="navbar__clase navbar__clase--soon" data-clase="23">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-23">
-                    <span class="navbar__clase-num">23</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 23</span>
-                        <span class="navbar__clase-label">Dudas y conceptos III</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-23">
-                        <li class="navbar__submenu-item navbar__submenu-item--disabled">
-                            <span>Introducción</span>
-                            <em>Próximamente</em>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 23  -----  -->
+        <article class="navbar__clase navbar__clase--soon" data-clase="23">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-23">
+                <span class="navbar__clase-num">23</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 23</span>
+                    <span class="navbar__clase-label">Dudas y conceptos III</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-23">
+                <li class="navbar__submenu-item navbar__submenu-item--disabled">
+                    <span>Introducción</span>
+                    <em>Próximamente</em>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 24  -----  -->
-            <article class="navbar__clase navbar__clase--soon" data-clase="24">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-24">
-                    <span class="navbar__clase-num">24</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 24</span>
-                        <span class="navbar__clase-label">Template system</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-24">
-                        <li class="navbar__submenu-item navbar__submenu-item--disabled">
-                            <span>Introducción</span>
-                            <em>Próximamente</em>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 24  -----  -->
+        <article class="navbar__clase navbar__clase--soon" data-clase="24">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-24">
+                <span class="navbar__clase-num">24</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 24</span>
+                    <span class="navbar__clase-label">Template system</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-24">
+                <li class="navbar__submenu-item navbar__submenu-item--disabled">
+                    <span>Introducción</span>
+                    <em>Próximamente</em>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 25  -----  -->
-            <article class="navbar__clase navbar__clase--soon" data-clase="25">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-25">
-                    <span class="navbar__clase-num">25</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 25</span>
-                        <span class="navbar__clase-label">jQuery plugins</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-25">
-                        <li class="navbar__submenu-item navbar__submenu-item--disabled">
-                            <span>Introducción</span>
-                            <em>Próximamente</em>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 25  -----  -->
+        <article class="navbar__clase navbar__clase--soon" data-clase="25">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-25">
+                <span class="navbar__clase-num">25</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 25</span>
+                    <span class="navbar__clase-label">jQuery plugins</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-25">
+                <li class="navbar__submenu-item navbar__submenu-item--disabled">
+                    <span>Introducción</span>
+                    <em>Próximamente</em>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 26  -----  -->
-            <article class="navbar__clase navbar__clase--soon" data-clase="26">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-26">
-                    <span class="navbar__clase-num">26</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 26</span>
-                        <span class="navbar__clase-label">Variables gestión de opciones en plugins</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-26">
-                        <li class="navbar__submenu-item navbar__submenu-item--disabled">
-                            <span>Introducción</span>
-                            <em>Próximamente</em>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 26  -----  -->
+        <article class="navbar__clase navbar__clase--soon" data-clase="26">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-26">
+                <span class="navbar__clase-num">26</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 26</span>
+                    <span class="navbar__clase-label">Variables gestión de opciones en plugins</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-26">
+                <li class="navbar__submenu-item navbar__submenu-item--disabled">
+                    <span>Introducción</span>
+                    <em>Próximamente</em>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 27  -----  -->
-            <article class="navbar__clase navbar__clase--soon" data-clase="27">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-27">
-                    <span class="navbar__clase-num">27</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 27</span>
-                        <span class="navbar__clase-label">Tecnicas para desarrollos de plugins complejos</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-27">
-                        <li class="navbar__submenu-item navbar__submenu-item--disabled">
-                            <span>Introducción</span>
-                            <em>Próximamente</em>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 27  -----  -->
+        <article class="navbar__clase navbar__clase--soon" data-clase="27">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-27">
+                <span class="navbar__clase-num">27</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 27</span>
+                    <span class="navbar__clase-label">Tecnicas para desarrollos de plugins complejos</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-27">
+                <li class="navbar__submenu-item navbar__submenu-item--disabled">
+                    <span>Introducción</span>
+                    <em>Próximamente</em>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 28  -----  -->
-            <article class="navbar__clase navbar__clase--soon" data-clase="28">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-28">
-                    <span class="navbar__clase-num">28</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 28</span>
-                        <span class="navbar__clase-label">Librerias de componentes: jQuery UI</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-28">
-                        <li class="navbar__submenu-item navbar__submenu-item--disabled">
-                            <span>Introducción</span>
-                            <em>Próximamente</em>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 28  -----  -->
+        <article class="navbar__clase navbar__clase--soon" data-clase="28">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-28">
+                <span class="navbar__clase-num">28</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 28</span>
+                    <span class="navbar__clase-label">Librerias de componentes: jQuery UI</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-28">
+                <li class="navbar__submenu-item navbar__submenu-item--disabled">
+                    <span>Introducción</span>
+                    <em>Próximamente</em>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 29  -----  -->
-            <article class="navbar__clase navbar__clase--soon" data-clase="29">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-29">
-                    <span class="navbar__clase-num">29</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 29</span>
-                        <span class="navbar__clase-label">Usando jQuery UI</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-29">
-                        <li class="navbar__submenu-item navbar__submenu-item--disabled">
-                            <span>Introducción</span>
-                            <em>Próximamente</em>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 29  -----  -->
+        <article class="navbar__clase navbar__clase--soon" data-clase="29">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-29">
+                <span class="navbar__clase-num">29</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 29</span>
+                    <span class="navbar__clase-label">Usando jQuery UI</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-29">
+                <li class="navbar__submenu-item navbar__submenu-item--disabled">
+                    <span>Introducción</span>
+                    <em>Próximamente</em>
+                </li>
+            </ul>
+        </article>
 
-            <!--  -----  Clase 30  -----  -->
-            <article class="navbar__clase navbar__clase--soon" data-clase="30">
-                <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-30">
-                    <span class="navbar__clase-num">30</span>
-                    <span class="navbar__clase-text">
-                        <span class="navbar__clase-kicker">Clase 30</span>
-                        <span class="navbar__clase-label">Práctica 2</span>
-                    </span>
-                    <span class="navbar__clase-chevron" aria-hidden="true"></span>
-                </button>
-                <ul class="navbar__submenu" id="navbar-submenu-30">
-                        <li class="navbar__submenu-item navbar__submenu-item--disabled">
-                            <span>Introducción</span>
-                            <em>Próximamente</em>
-                        </li>
-                </ul>
-            </article>
+        <!--  -----  Clase 30  -----  -->
+        <article class="navbar__clase navbar__clase--soon" data-clase="30">
+            <button type="button" class="navbar__clase-toggle" aria-expanded="true" aria-controls="navbar-submenu-30">
+                <span class="navbar__clase-num">30</span>
+                <span class="navbar__clase-text">
+                    <span class="navbar__clase-kicker">Clase 30</span>
+                    <span class="navbar__clase-label">Práctica 2</span>
+                </span>
+                <span class="navbar__clase-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="navbar__submenu" id="navbar-submenu-30">
+                <li class="navbar__submenu-item navbar__submenu-item--disabled">
+                    <span>Introducción</span>
+                    <em>Próximamente</em>
+                </li>
+            </ul>
+        </article>
 
     </div>
 
