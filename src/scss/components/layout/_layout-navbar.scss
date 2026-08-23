@@ -20,6 +20,7 @@
     width: 100%;
     max-width: 100%;
     position: absolute;
+    
     //  -----  Misma alineación superior que .header__container  -----
     top: 0;
     left: 0;
@@ -51,6 +52,7 @@
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
     scrollbar-width: thin;
     scrollbar-color: rgba(var.$bg-scrollbar, 0.75) transparent;
     

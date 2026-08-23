@@ -27,6 +27,13 @@
 <span class="line"><span style="color:#DCDCAA">        $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.main__section-practica .animate__container'</span><span style="color:#D4D4D4">)</span></span>
 <span class="line"><span style="color:#D4D4D4">    );</span></span>
 <span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /*</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----------------------</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----  Variables  -----</span></span>
+<span class="line"><span style="color:#6A9955">        *  -----------------------</span></span>
+<span class="line"><span style="color:#6A9955">    */</span></span>
+<span class="line"></span>
 <span class="line"><span style="color:#6A9955">    /** - `Texto inicial de la capa` */</span></span>
 <span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> textoInicialCapa</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$capa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">();</span></span>
 <span class="line"></span>
@@ -193,20 +200,17 @@
 <span class="line"><span style="color:#C586C0">            return</span><span style="color:#D4D4D4">;</span></span>
 <span class="line"><span style="color:#D4D4D4">        }</span></span>
 <span class="line"></span>
-<span class="line"></span>
 <span class="line"><span style="color:#6A9955">        //  -----  pausa y fade entre tramos  -----</span></span>
 <span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">fase</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">'transicion'</span><span style="color:#D4D4D4">) {</span></span>
 <span class="line"><span style="color:#DCDCAA">            encadenarTransicion</span><span style="color:#D4D4D4">();</span></span>
 <span class="line"><span style="color:#C586C0">            return</span><span style="color:#D4D4D4">;</span></span>
 <span class="line"><span style="color:#D4D4D4">        }</span></span>
 <span class="line"></span>
-<span class="line"></span>
 <span class="line"><span style="color:#6A9955">        //  -----  tramo hacia la izquierda  -----</span></span>
 <span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">fase</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">'izquierda'</span><span style="color:#D4D4D4">) {</span></span>
 <span class="line"><span style="color:#DCDCAA">            movimientoIzquierda</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">calcularDuracionRestante</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">posicionActual</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">destinoIzquierda</span><span style="color:#D4D4D4">));</span></span>
 <span class="line"><span style="color:#C586C0">            return</span><span style="color:#D4D4D4">;</span></span>
 <span class="line"><span style="color:#D4D4D4">        }</span></span>
-<span class="line"></span>
 <span class="line"></span>
 <span class="line"><span style="color:#6A9955">        //  -----  sin fase guardada: empezar desde la derecha  -----</span></span>
 <span class="line"><span style="color:#DCDCAA">        movimientoDerecha</span><span style="color:#D4D4D4">();</span></span>
@@ -223,13 +227,12 @@
 <span class="line"><span style="color:#6A9955">     */</span></span>
 <span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> mover</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">direccion</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">direccion</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">'derecha'</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">direccion</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">'derecha'</span><span style="color:#D4D4D4">)</span></span>
 <span class="line"><span style="color:#DCDCAA">            movimientoDerecha</span><span style="color:#D4D4D4">();</span></span>
-<span class="line"><span style="color:#D4D4D4">        }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">direccion</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">'izquierda'</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
+<span class="line"><span style="color:#C586C0">        if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">direccion</span><span style="color:#D4D4D4"> === </span><span style="color:#CE9178">'izquierda'</span><span style="color:#D4D4D4">) </span></span>
 <span class="line"><span style="color:#DCDCAA">            movimientoIzquierda</span><span style="color:#D4D4D4">();</span></span>
-<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"><span style="color:#D4D4D4">        </span></span>
 <span class="line"><span style="color:#D4D4D4">    };</span></span>
 <span class="line"></span>
 <span class="line"></span>
@@ -266,6 +269,7 @@
 <span class="line"></span>
 <span class="line"><span style="color:#DCDCAA">    reiniciarCapa</span><span style="color:#D4D4D4">();</span></span>
 <span class="line"></span>
+<span class="line"><span style="color:#6A9955">    //  -----  desactivar eventos anteriores  -----</span></span>
 <span class="line"><span style="color:#9CDCFE">    $btnPararReanudar</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">off</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.animacionesBucleForma2'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
 <span class="line"></span>

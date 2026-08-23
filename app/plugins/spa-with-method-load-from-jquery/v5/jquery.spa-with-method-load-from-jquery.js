@@ -719,9 +719,9 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
 
             /**
-             * ------------------------------------------
-             * -----  `fetchHtmlContent(url)`         -----
-             * ------------------------------------------
+             * -------------------------------------
+             * -----  `fetchHtmlContent(url)`  -----
+             * -------------------------------------
              * - `FASE 1` — Descarga HTML como string usando el método `.load()` de jQuery
              *   (filosofía del plugin), pero SIN provocar efectos secundarios en el DOM real:
              *   `.load()` se invoca sobre un `<div>` creado en un DOCUMENTO INERTE (vía
@@ -741,8 +741,16 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
                 return new Promise((resolve) => {
 
+                    
                     /** @type {JQuery<HTMLDivElement>} - `Buffer inerte: .load() fetch + parsea aquí, sin tocar la página real ni disparar fetches erróneos` */
                     const $buffer = $(document.implementation.createHTMLDocument('').createElement('div'));
+
+                    
+                    /*
+                        *  -------------------------------  *
+                        *  -----  .load() de jQuery  -----  *
+                        *  -------------------------------  *
+                    */
 
                     $buffer.load(url, function (responseText, textStatus, xhr) {
 
@@ -1127,15 +1135,23 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                     //  -----  Iterar sobre cada elemento con clase .draggable y aplicar jQuery UI draggable.  -----
                     $('.draggable').each(function () {
 
-                        //  -----  Si el método draggable está disponible, aplicarlo al elemento actual  -----
-                        if ($(this).draggable) {
+                        const $drag = $(this);
 
-                            //  -----  Aplicar draggable con scroll desactivado para evitar problemas de scroll durante el arrastre  -----
-                            $(this).draggable({
-                                scroll: false
-                            });
+                        //  -----  Si el método draggable está disponible, aplicarlo al elemento actual  -----
+                        if (!$drag.draggable) {
+                            return;
                         }
 
+                        //  -----  Handle: solo el título arrastra, el resto del menú permite scroll táctil  -----
+                        const handle = $drag.data('drag-handle') || '.navbar__title, .navbar-themes-jquery-ui__title';
+
+                        $drag.draggable({
+                            scroll: false,
+                            handle: handle
+                        });
+
+                        //  -----  Asegura scroll vertical nativo en táctil dentro del contenedor  -----
+                        $drag.css('touch-action', 'pan-y');
                     });
 
                 } catch (err) {
