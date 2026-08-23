@@ -8,6 +8,9 @@ pnpm-lock.yaml
 .env.*
 !.env.example
 
+# Deploy local (IP y rutas del VPS)
+deploy.sh
+
 # Carpeta de distribución / compilados
 dist/
 

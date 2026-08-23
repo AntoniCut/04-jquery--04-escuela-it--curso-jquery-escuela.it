@@ -5,7 +5,25 @@ Implementado como una **SPA** (Single Page Application) con enrutamiento propio,
 
 ---
 
-## Tecnologías
+## Índice
+
+1. [Tecnologías](#1-tecnologías)
+2. [Requisitos previos](#2-requisitos-previos)
+3. [Instalación](#3-instalación)
+4. [Comandos](#4-comandos)
+5. [URL base](#5-url-base)
+6. [Estructura del proyecto](#6-estructura-del-proyecto)
+7. [Base de datos (clase 20 — buscador)](#7-base-de-datos-clase-20--buscador)
+8. [Base de datos (clase 21 — login)](#8-base-de-datos-clase-21--login)
+9. [Contenido del curso](#9-contenido-del-curso)
+10. [Imágenes responsive](#10-imágenes-responsive)
+11. [Despliegue (producción — Nginx)](#11-despliegue-producción--nginx)
+12. [Despliegue al VPS con deploy.sh](#12-despliegue-al-vps-con-deploysh)
+13. [Autor](#13-autor)
+
+---
+
+## 1. Tecnologías
 
 | Herramienta | Versión | Rol |
 |---|---|---|
@@ -24,16 +42,17 @@ Implementado como una **SPA** (Single Page Application) con enrutamiento propio,
 
 ---
 
-## Requisitos previos
+## 2. Requisitos previos
 
 - **Node.js** ≥ 18
 - **pnpm** ≥ 9 — `npm install -g pnpm`
 - **php-cgi** (desarrollo con Express) — `sudo apt install php8.3-cgi php8.3-mysql`
 - **MySQL / MariaDB** (XAMPP o servidor) con extensión `mysqli`
+- **rsync** y **ssh** (despliegue al VPS con `deploy.sh`)
 
 ---
 
-## Instalación
+## 3. Instalación
 
 ```bash
 pnpm install
@@ -42,7 +61,7 @@ cp .env.example .env   # ajustar puertos y credenciales MySQL locales
 
 ---
 
-## Comandos
+## 4. Comandos
 
 | Comando | Descripción |
 |---|---|
@@ -51,6 +70,7 @@ cp .env.example .env   # ajustar puertos y credenciales MySQL locales
 | `pnpm run preview` | Sirve `dist/` (puerto de `.env`, por defecto 4173) |
 | `pnpm run stop:dev` | Detiene el servidor de desarrollo |
 | `pnpm run code-highlight` | Regenera los bloques Shiki en `src/markdown-shiki/` |
+| `./deploy.sh` | Build + subida de `dist/` al VPS por rsync/SSH |
 
 ### Variables de entorno
 
@@ -78,7 +98,7 @@ DB_NAME=jquery_escuelait_classicmodels
 
 ---
 
-## URL base
+## 5. URL base
 
 ```
 /escuelait/curso-jquery-escuelait/
@@ -88,9 +108,12 @@ Desarrollo (puerto según `.env`):
 [http://localhost:9876/escuelait/curso-jquery-escuelait/](http://localhost:9876/escuelait/curso-jquery-escuelait/)  
 (o el `DEV_SERVER_PORT` que tengas configurado)
 
+Producción:  
+[https://jquery.antonydev.tech/escuelait/curso-jquery-escuelait/](https://jquery.antonydev.tech/escuelait/curso-jquery-escuelait/)
+
 ---
 
-## Estructura del proyecto
+## 6. Estructura del proyecto
 
 ```
 curso-jquery-escuelait/
@@ -99,12 +122,12 @@ curso-jquery-escuelait/
 │   ├── main.js                       # Entrada de la SPA
 │   ├── pages/                        # Página de cada ruta (layout principal)
 │   │   ├── 00-home.html
-│   │   ├── clase-01/ … clase-21/
+│   │   ├── clase-01/ … clase-23/
 │   │   └── 404/
 │   ├── pages-components/             # Fragmentos de página (demo + description)
-│   │   └── clase-01/ … clase-21/
+│   │   └── clase-01/ … clase-23/
 │   ├── markdown-shiki/               # HTML resaltado con Shiki (generado)
-│   │   └── clase-01/ … clase-21/
+│   │   └── clase-01/ … clase-23/
 │   ├── scripts/                      # JS por clase
 │   ├── scss/                         # Estilos SCSS → app/css/
 │   ├── components/                   # Layout reutilizable (header, navbar, footer…)
@@ -126,6 +149,7 @@ curso-jquery-escuelait/
 │
 ├── assets/                           # img, fonts, favicon
 ├── server/                           # dev-server, preview-server, stop-dev
+├── deploy.sh                         # Deploy automatizado al VPS
 ├── types/
 │
 ├── generate-markdown-shiki.js        # Genera src/markdown-shiki/
@@ -168,7 +192,7 @@ Tras cambiar un demo (HTML/JS/CSS/PHP), vuelve a ejecutar `pnpm run code-highlig
 
 ---
 
-## Base de datos (clase 20 — buscador)
+## 7. Base de datos (clase 20 — buscador)
 
 El buscador usa MySQL (`mysqli`) sobre la tabla `products`. Si falla la conexión, hace fallback a `products.json`.
 
@@ -247,7 +271,7 @@ Si ves *Datos obtenidos del fallback…*, mira el **Motivo MySQL:** en la págin
 
 ---
 
-## Base de datos (clase 21 — login con autenticación)
+## 8. Base de datos (clase 21 — login)
 
 La práctica 02 usa la misma BD `jquery_escuelait_classicmodels` y la tabla `login_users` (registro + login con hash).
 
@@ -293,37 +317,54 @@ Rutas SPA:
 
 ---
 
-## Contenido del curso
+## 9. Contenido del curso
+
+Clases implementadas en la SPA (menú lateral `layout-aside-left.html`):
 
 | Clase | Tema |
 |---|---|
-| 01 | Introducción a jQuery |
-| 02 | Selectores básicos |
-| 03 | Eventos |
-| 04 | DOM — Manipulación |
-| 05 | Efectos y animaciones |
-| 06 | Ejemplos combinados |
-| 07 | Atributos, propiedades, `.html()`, `.text()`, `.data()`, `.each()` |
-| 08 | Contexto, selectores de jerarquía, traversing |
-| 09 | Ejercicios prácticos (`this`, fecha, eventos) |
-| 10 | Inserción DOM — `.append()`, `.prepend()`, `.after()`, `.before()`, envolturas, dimensiones |
-| 11 | Eventos de formularios — `.on()`, `.off()`, `preventDefault`, `stopPropagation` |
-| 12 | Menú contextual, movimiento del ratón, textarea |
-| 13 | Animaciones avanzadas / jQuery UI (Animate, Draggable, Tooltip…) |
-| 14 | Plugins personalizados |
-| 15 | SPA con `.load()` |
-| 16 | AJAX — Interfaz de alto nivel (`$.get`, `$.ajax`, PHP) |
-| 17 | Dudas y conceptos (parte 2) — ejercicios prácticos |
-| 18 | Formularios AJAX — POST, validación cliente/servidor |
-| 19 | Eventos avanzados — delegación, disparar eventos, eventos personalizados |
-| 20 | AJAX low-level — `$.post`/PHP, `.load` scripts, buscador MySQL, selects + JSONP |
-| 21 | Práctica 1 — Login modal (Ajax/JSON) y autenticación MySQL (`login_users`) |
+| 01 | Qué es jQuery |
+| 02 | Usar jQuery en la Actualidad |
+| 03 | Práctica primeros pasos |
+| 04 | Cómo se organiza el curso |
+| 05 | Introducción a jQuery |
+| 06 | Primeros Pasos con jQuery |
+| 07 | Manipulación Básica |
+| 08 | Selectores y Traversing |
+| 09 | Dudas y Conceptos 1 |
+| 10 | Manipulación avanzada |
+| 11 | Eventos en jQuery |
+| 12 | Eventos Teclado y Ratón |
+| 13 | Efectos y Animaciones |
+| 14 | Cola de Efectos |
+| 15 | JSON |
+| 16 | AJAX Alto Nivel |
+| 17 | Dudas y Conceptos 2 |
+| 18 | Formularios Ajax |
+| 19 | Eventos Avanzados |
+| 20 | Ajax Low Level |
+| 21 | Práctica 1 Formulario Login |
+| 22 | Deferred y Promesas |
+| 23 | Dudas y conceptos 3 |
+
+Clases previstas en el temario (aún no implementadas en la SPA):
+
+| Clase | Tema |
+|---|---|
+| 24 | Template system |
+| 25 | jQuery plugins |
+| 26 | Variables gestión de opciones en plugins |
+| 27 | Técnicas para desarrollos de plugins complejos |
+| 28 | Librerías de componentes: jQuery UI |
+| 29 | Usando jQuery UI |
+| 30 | Práctica 2 |
 
 Cada demo suele repartirse así:
 
 ```
 src/pages/clase-XX/…html              → página / slots
 src/pages-components/clase-XX/…       → description + demo
+src/components/layout/pages/clase-XX/ → aside de ejercicios (layout-aside-clase-XX.html)
 src/scripts/clase-XX/…js              → lógica jQuery
 src/scss/pages/clase-XX/…             → estilos
 src/services/clase-XX/…               → PHP/JSON si aplica
@@ -333,7 +374,7 @@ src/markdown-shiki/clase-XX/…         → código resaltado (generado)
 
 ---
 
-## Imágenes responsive
+## 10. Imágenes responsive
 
 Las imágenes ilustrativas usan `<picture>` + `srcset` con AVIF:
 
@@ -352,18 +393,34 @@ Los AVIF se generan con **sharp**. El PNG actúa de fallback.
 
 ---
 
-## Despliegue (producción — Nginx)
+## 11. Despliegue (producción — Nginx)
 
-```bash
-pnpm run build
-# Copiar dist/ a /var/www/jquery.antonydev.tech/escuelait/curso-jquery-escuelait/
-# Copiar .env.production al servidor como .env:
-#   scp .env.production user@host:/var/www/jquery.antonydev.tech/escuelait/curso-jquery-escuelait/.env
+El sitio se sirve desde el VPS con **Nginx + PHP-FPM**. La carpeta pública en el servidor es:
+
+```
+/var/www/jquery.antonydev.tech/escuelait/curso-jquery-escuelait/
+```
+
+Contenido esperado tras el build:
+
+```
+index.html
+app/
+assets/
+.env          ← no va en git; subir manualmente desde .env.production
 ```
 
 En el VPS el `.env` debe estar junto al `index.html` desplegado:
 
-`/var/www/jquery.antonydev.tech/escuelait/curso-jquery-escuelait/.env`
+```
+/var/www/jquery.antonydev.tech/escuelait/curso-jquery-escuelait/.env
+```
+
+Subir `.env` de producción (solo cuando cambien credenciales):
+
+```bash
+scp .env.production root@TU_IP:/var/www/jquery.antonydev.tech/escuelait/curso-jquery-escuelait/.env
+```
 
 Bloque Nginx (con `root`) y bloqueo de `.env`:
 
@@ -390,7 +447,101 @@ location ^~ /escuelait/curso-jquery-escuelait/ {
 
 ---
 
-## Autor
+## 12. Despliegue al VPS con deploy.sh
+
+Script en la raíz del proyecto que automatiza **build + rsync** al VPS. Sustituye el arrastre manual con FileZilla.
+
+### Configuración (`deploy.sh`)
+
+Edita las variables al inicio del archivo:
+
+```bash
+VPS_USER="root"                    # usuario SSH del VPS
+VPS_HOST="TU_IP_O_DOMINIO"         # IP pública o dominio del VPS
+VPS_PORT="22"                      # puerto SSH (22 por defecto)
+REMOTE_PATH="/var/www/jquery.antonydev.tech/escuelait/curso-jquery-escuelait"
+LOCAL_BUILD_DIR="dist"
+```
+
+| Variable | Descripción |
+|---|---|
+| `VPS_USER` | Usuario Linux con el que entras por SSH |
+| `VPS_HOST` | IP del VPS (p. ej. la de Hostinger) o dominio |
+| `VPS_PORT` | Puerto SSH (22 si no lo cambiaste) |
+| `REMOTE_PATH` | Carpeta destino en el VPS (debe coincidir con Nginx) |
+| `LOCAL_BUILD_DIR` | Carpeta generada por `pnpm run build` |
+
+### Requisitos
+
+- Acceso SSH al VPS desde tu PC: `ssh root@TU_IP`
+- `pnpm`, `rsync` y `ssh` instalados en local
+- Carpeta remota creada en el VPS (ver sección 11)
+- `.env` ya subido al VPS (el script **no** lo incluye)
+
+### Flujo de despliegue
+
+Desde tu **máquina local** (no desde la terminal SSH del VPS):
+
+```bash
+# 1. Ir al proyecto
+cd /home/antonydev/antonydev-desarrollos/04-jquery-desarrollos/jquery.antonydev.tech/escuelait/curso-jquery-escuelait
+
+# 2. Ejecutar deploy (solo la primera vez: chmod +x deploy.sh)
+./deploy.sh
+```
+
+El script:
+
+1. Ejecuta `pnpm run build` → genera `dist/`
+2. Sincroniza `dist/` al VPS con `rsync --delete`
+3. Pide la contraseña SSH de `root` (si no tienes clave configurada)
+
+### Qué sube y qué no
+
+| Sube | No sube |
+|---|---|
+| Contenido de `dist/` (`index.html`, `app/`, `assets/`) | `src/`, `node_modules/`, `.git` |
+| Archivos minificados de producción | `.env` (subir con `scp` aparte) |
+
+### Verificar el despliegue
+
+**Navegador:**
+
+```
+https://jquery.antonydev.tech/escuelait/curso-jquery-escuelait/
+```
+
+**SSH en el VPS:**
+
+```bash
+ssh root@TU_IP
+cd /var/www/jquery.antonydev.tech/escuelait/curso-jquery-escuelait
+ls -la
+```
+
+Las fechas de `index.html`, `app/` y `assets/` deben ser recientes.
+
+### Local vs VPS — no confundir rutas
+
+| Entorno | Ruta |
+|---|---|
+| **Tu PC** (donde ejecutas `./deploy.sh`) | `/home/antonydev/.../curso-jquery-escuelait` |
+| **VPS** (destino del deploy) | `/var/www/jquery.antonydev.tech/escuelait/curso-jquery-escuelait` |
+
+La terminal SSH del panel de Hostinger sirve para **administrar el servidor** (ver archivos, Nginx, `.env`). El deploy habitual se hace **desde local** con `./deploy.sh`.
+
+### FileZilla vs deploy.sh
+
+| | FileZilla | `./deploy.sh` |
+|---|---|---|
+| Build | Manual (`pnpm run build`) | Automático |
+| Origen | Lo que elijas | Siempre `dist/` |
+| Destino | Misma carpeta remota | Misma carpeta remota |
+| Uso recomendado | Revisar archivos, editar `.env` | Despliegues habituales del curso |
+
+---
+
+## 13. Autor
 
 **Antonio Francisco Cutillas García** — [AntonyDev](https://antonydev.tech)  
 Licencia: ISC

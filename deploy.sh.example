@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Copia este archivo y configúralo:
+#   cp deploy.sh.example deploy.sh
+#   chmod +x deploy.sh
+#
+# deploy.sh está en .gitignore (contiene IP/rutas de tu VPS).
+
+# ==== Configuración ====
+VPS_USER="TU_USUARIO"             # p. ej. root
+VPS_HOST="TU_IP_O_DOMINIO"        # IP pública del VPS o dominio
+VPS_PORT="22"                     # cambia si usas otro puerto SSH
+REMOTE_PATH="/var/www/TU_DOMINIO/escuelait/curso-jquery-escuelait"  # ruta en el VPS servida por nginx
+LOCAL_BUILD_DIR="dist"            # carpeta que genera Gulp/tu build
+
+# ==== Build ====
+echo "==> Generando build..."
+pnpm run build
+
+if [ ! -d "$LOCAL_BUILD_DIR" ]; then
+  echo "Error: no existe la carpeta '$LOCAL_BUILD_DIR'. Revisa LOCAL_BUILD_DIR."
+  exit 1
+fi
+
+# ==== Deploy ====
+echo "==> Subiendo al VPS ($VPS_HOST)..."
+rsync -avz --delete \
+  -e "ssh -p $VPS_PORT" \
+  --exclude 'node_modules' \
+  --exclude '.git' \
+  --exclude '.DS_Store' \
+  "$LOCAL_BUILD_DIR"/ \
+  "$VPS_USER@$VPS_HOST:$REMOTE_PATH"
+
+echo "==> Deploy completado."
