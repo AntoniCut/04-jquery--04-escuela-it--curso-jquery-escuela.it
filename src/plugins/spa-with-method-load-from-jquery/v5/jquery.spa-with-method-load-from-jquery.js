@@ -1142,7 +1142,7 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                             return;
                         }
 
-                        //  -----  Handle: solo el título arrastra, el resto del menú permite scroll táctil  -----
+                        //  -----  Handle: solo el título arrastra; scroll en `.navbar__grid`  -----
                         const handle = $drag.data('drag-handle') || '.navbar__title, .navbar-themes-jquery-ui__title';
 
                         $drag.draggable({
@@ -1150,8 +1150,16 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                             handle: handle
                         });
 
-                        //  -----  Asegura scroll vertical nativo en táctil dentro del contenedor  -----
-                        $drag.css('touch-action', 'pan-y');
+                        if ($drag.hasClass('navbar__container')) {
+                            $drag.css({
+                                overflowX: 'hidden',
+                                overflowY: 'hidden',
+                                touchAction: 'auto'
+                            });
+                            $drag.find('.navbar__grid').css('touch-action', 'pan-y');
+                        } else {
+                            $drag.css('touch-action', 'pan-y');
+                        }
                     });
 
                 } catch (err) {
@@ -1293,6 +1301,31 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
 
 
                 /**
+                 * ------------------------------------------------
+                 * -----  `applyNavbarMainScroll($container)`  -----
+                 * ------------------------------------------------
+                 * - El scroll del menú principal vive en `.navbar__grid`.
+                 * - El contenedor queda fijo sin overflow (título + accesos visibles).
+                 *
+                 * @param {JQuery<HTMLElement>} $container - `.navbar__container`
+                 */
+                const applyNavbarMainScroll = ($container) => {
+
+                    $container.css({
+                        overflowX: 'hidden',
+                        overflowY: 'hidden',
+                        touchAction: 'auto'
+                    });
+
+                    $container.find('.navbar__grid').css({
+                        overflowX: 'hidden',
+                        overflowY: 'auto',
+                        touchAction: 'pan-y',
+                        WebkitOverflowScrolling: 'touch'
+                    });
+
+                };
+                /**
                  * ------------------------------
                  * -----  `openMenu(menu)`  -----
                  * ------------------------------
@@ -1332,17 +1365,14 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                                     $menu.css({
                                         display: 'flex',
                                         height: fullHeight,
-                                        maxHeight: fullHeight,
-                                        overflowX: 'hidden',
-                                        overflowY: 'auto'
+                                        maxHeight: fullHeight
                                     });
 
-                                    //  -----  jQuery.animate restaura overflow:hidden después del complete  -----
+                                    applyNavbarMainScroll($menu);
+
+                                    //  -----  jQuery.animate puede restaurar overflow tras complete  -----
                                     window.setTimeout(() => {
-                                        $menu.css({
-                                            overflowX: 'hidden',
-                                            overflowY: 'auto'
-                                        });
+                                        applyNavbarMainScroll($menu);
                                     }, 0);
                                 }
                             );
@@ -1494,10 +1524,10 @@ export const spaWithMethodLoadFromJQueryPlugins = () => {
                             .stop(true, true)
                             .css({
                                 height: fullHeight,
-                                maxHeight: fullHeight,
-                                overflowX: 'hidden',
-                                overflowY: 'auto'
+                                maxHeight: fullHeight
                             });
+
+                        applyNavbarMainScroll(menuMain.container);
 
                     }
 

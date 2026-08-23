@@ -81,6 +81,8 @@
     background: var.$bg-title-page;
     box-shadow: 10px 10px 10px rgb(209, 220, 235);
 
+    cursor: grab;
+
     @include mix.tablet {
         gap: 2rem;
         padding: 0.8rem 1.5rem;
