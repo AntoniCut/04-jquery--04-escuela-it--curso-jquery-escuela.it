@@ -296,6 +296,56 @@ $demo-shadow-hero-title: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
 
+/*
+    -------------------------------------------------
+    -----  Galería de ejercicios (index clase)  -----
+    -------------------------------------------------
+*/
+
+.section__images-demo {
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 2rem 2rem;
+
+    @include mix.tablet {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+        padding: 0 3rem 3rem;
+    }
+}
+
+.images-demo__card-img {
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 1rem;
+    background-color: $demo-card-bg;
+    border: 1px solid $demo-card-border;
+    box-shadow: $demo-card-shadow;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: $demo-card-shadow-hover;
+
+        .card__img {
+            transform: scale(1.03);
+        }
+    }
+
+    a {
+        display: block;
+    }
+
+    .card__img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.35s ease;
+    }
+}
 
 
 .section__content {
