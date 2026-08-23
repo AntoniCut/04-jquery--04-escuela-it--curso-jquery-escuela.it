@@ -1,0 +1,66 @@
+<!--
+    *  --------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /01-validar-formulario-description.html  --  /src/pages-components/clase-23/01-validar-formulario-description.html  -----  *
+    *  --------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
+
+            <p class="demo-page__intro-text">
+                Recorre los tres <kbd>select</kbd> del pedido (producto, tipo y tamano)
+                y comprueba si todos han dejado de estar vacios. Mientras falte uno,
+                el formulario no se considera listo. Al enviar, se evita el envio nativo
+                y se muestra el resultado en el area de stock.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> validar un grupo de controles con
+                <kbd>.eq()</kbd>, <kbd>.val()</kbd> y el evento <kbd>change</kbd>,
+                sin recargar la pagina.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        <kbd>estanCambiados</kbd> recorre la coleccion y devuelve
+                        <kbd>false</kbd> en cuanto un <kbd>select</kbd> sigue vacio.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Cada <kbd>change</kbd> actualiza el area de stock con el estado
+                        del pedido, no solo con un log en consola.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        El <kbd>submit</kbd> usa <kbd>preventDefault</kbd> y solo confirma
+                        el pedido cuando los tres campos tienen valor.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>

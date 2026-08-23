@@ -1,0 +1,65 @@
+<!--
+    *  ----------------------------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /03-animaciones-en-bucle-forma-2-description.html  --  /src/pages-components/clase-23/03-animaciones-en-bucle-forma-2-description.html  -----  *
+    *  ----------------------------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
+
+            <p class="demo-page__intro-text">
+                Repite el mismo bucle de la forma 1, pero parte el recorrido en funciones
+                por fase: <kbd>movimientoDerecha</kbd>, <kbd>encadenarTransicion</kbd>
+                y <kbd>movimientoIzquierda</kbd>. Asi es mas facil reanudar solo el
+                tramo que estaba en curso.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> comparar una cadena unica frente a un bucle
+                descompuesto por fases, manteniendo pausa y reanudacion.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Cada funcion escribe su <kbd>fase</kbd> y <kbd>direccion</kbd>
+                        en <kbd>.data()</kbd> antes de animar.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        <kbd>calcularDuracionRestante</kbd> acorta el tiempo del tramo
+                        segun la distancia que queda al reanudar.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        El boton alterna <kbd>en-movimiento</kbd>: para con
+                        <kbd>stop(true, false)</kbd> o llama a <kbd>reanudar</kbd>.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>

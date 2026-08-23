@@ -1,0 +1,238 @@
+/*
+    *  --------------------------------------------------------------------------------------  *
+    *  -----  /clase-23-styles.scss  --  /src/scss/pages/clase-23/clase-23-styles.scss  -----  *
+    *  --------------------------------------------------------------------------------------  *
+*/
+
+
+/*
+    -----------------------
+    -----  form-ajax  -----
+    -----------------------
+*/
+
+.form-ajax {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    max-width: 60rem;
+    margin: 0 auto;
+
+    &__title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin: 0 0 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 3px solid transparent;
+        border-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%) 1;
+    }
+
+    &__form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 3rem;
+        background: linear-gradient(145deg, #ffffff 0%, #f8f9fc 100%);
+        border-radius: 16px;
+        box-shadow:
+            0 4px 6px rgba(0, 0, 0, 0.05),
+            0 10px 40px rgba(102, 126, 234, 0.08);
+        border: 1px solid rgba(102, 126, 234, 0.1);
+    }
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+
+        &--actions {
+            flex-direction: row;
+            padding-top: 1rem;
+            border-top: 1px solid #eef0f5;
+        }
+    }
+
+    &__label {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #3d4152;
+        letter-spacing: 0.02em;
+    }
+
+    &__select {
+        width: 100%;
+        padding: 1.2rem 1.6rem;
+        font-size: 1.5rem;
+        color: #1a1a2e;
+        background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23667eea' d='M6 8L0 0h12z'/%3E%3C/svg%3E") no-repeat right 1.6rem center;
+        background-size: 12px;
+        border: 2px solid #e1e4eb;
+        border-radius: 8px;
+        cursor: pointer;
+        appearance: none;
+        transition: all 250ms ease;
+
+        &:hover {
+            border-color: #c5c9d6;
+        }
+
+        &:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.12);
+        }
+    }
+
+    &__submit {
+        display: inline-block;
+        padding: 1.2rem 3rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #fff;
+        text-align: center;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 300ms ease;
+        letter-spacing: 0.02em;
+
+        &:hover {
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.35);
+        }
+
+        &:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
+        }
+    }
+
+    &__output {
+        position: relative;
+        width: 100%;
+        min-height: 12rem;
+        padding: 2.5rem 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(145deg, #f8f9fc 0%, #eef0f7 100%);
+        border-left: 4px solid #667eea;
+        border-radius: 12px;
+        transition: all 400ms ease;
+
+        &--error {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
+            border-left-color: #e74c3c;
+        }
+
+        &--ok {
+            background: linear-gradient(135deg, #f3faf5 0%, #e4f6ea 100%);
+            border-left-color: #2f8f4a;
+        }
+    }
+
+    &__output-info,
+    &__msg {
+        margin: 0;
+        font-size: 1.6rem;
+        font-weight: 500;
+        color: #667eea;
+        letter-spacing: 0.02em;
+        text-align: center;
+        line-height: 1.6;
+    }
+
+    &__msg--error {
+        color: #c0392b;
+    }
+
+    &__output--ok &__msg {
+        color: #2f8f4a;
+    }
+}
+
+
+/*
+    ------------------------------
+    -----  animaciones bucle  -----
+    ------------------------------
+*/
+
+.fx-stage--loop {
+    min-height: 44rem;
+    padding: 2.4rem;
+    border-radius: 1.6rem;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(63, 170, 92, 0.16), transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(3, 106, 173, 0.12), transparent 42%),
+        linear-gradient(160deg, #f5faf7 0%, #eef5f1 55%, #e8f1f8 100%);
+    border: 1px solid rgba(3, 106, 173, 0.12);
+    box-shadow: 0 12px 32px rgba(15, 40, 70, 0.08);
+}
+
+
+.animate__container {
+    width: 100%;
+    height: 30rem;
+    margin-top: 3rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.2rem;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.15) 100%),
+        repeating-linear-gradient(
+            90deg,
+            rgba(3, 106, 173, 0.06) 0,
+            rgba(3, 106, 173, 0.06) 1px,
+            transparent 1px,
+            transparent 4rem
+        ),
+        repeating-linear-gradient(
+            0deg,
+            rgba(3, 106, 173, 0.05) 0,
+            rgba(3, 106, 173, 0.05) 1px,
+            transparent 1px,
+            transparent 4rem
+        ),
+        #e9f2ea;
+    border: 1px solid rgba(63, 170, 92, 0.22);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+
+#capa {
+    width: 5.6rem;
+    height: 5.6rem;
+    position: absolute;
+    top: 2rem;
+    left: 15px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background: linear-gradient(145deg, #57c46b 0%, #3faa5c 45%, #2f8f4a 100%);
+    font-size: 2.4rem;
+    font-weight: 700;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    box-shadow:
+        0 10px 22px rgba(47, 143, 74, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+
+@media (max-width: 700px) {
+    .form-ajax {
+        &__form,
+        &__output {
+            padding: 1.6rem;
+        }
+    }
+}

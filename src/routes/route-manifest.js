@@ -131,6 +131,11 @@ export const routeManifest = [
     { id: 'clase22Promesas', path: 'clase22-deferred-y-promesas/02-promesas', file: 'route-clase22-promesas' },
     { id: 'clase22FuncionComoPromesa', path: 'clase22-deferred-y-promesas/03-funcion-como-promesa', file: 'route-clase22-funcion-como-promesa' },
     { id: 'clase22AplicandoConceptos', path: 'clase22-deferred-y-promesas/04-aplicando-conceptos', file: 'route-clase22-aplicando-conceptos' },
+
+    { id: 'clase23', path: 'clase23-dudas-y-conceptos-3', file: 'route-clase23' },
+    { id: 'clase23ValidarFormulario', path: 'clase23-dudas-y-conceptos-3/01-validar-formulario', file: 'route-clase23-validar-formulario' },
+    { id: 'clase23AnimacionesEnBucleForma1', path: 'clase23-dudas-y-conceptos-3/02-animaciones-en-bucle-forma-1', file: 'route-clase23-animaciones-en-bucle-forma-1' },
+    { id: 'clase23AnimacionesEnBucleForma2', path: 'clase23-dudas-y-conceptos-3/03-animaciones-en-bucle-forma-2', file: 'route-clase23-animaciones-en-bucle-forma-2' },
     
     { id: '404NotFoundPage', path: '404', file: 'route-404-not-found-page' },
 

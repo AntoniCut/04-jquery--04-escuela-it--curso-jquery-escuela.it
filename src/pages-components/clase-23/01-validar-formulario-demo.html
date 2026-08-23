@@ -1,0 +1,66 @@
+<!--
+    *  ------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /01-validar-formulario-demo.html  --  /src/pages-components/clase-23/01-validar-formulario-demo.html  -----  *
+    *  ------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+<div class="main__demo">
+
+
+    <!--  -----  Contenido de la Práctica, Aqui se renderiza la logica de la Página  -----  -->
+    <div class="form-ajax">
+
+        <h3 class="form-ajax__title">
+            Validar formulario de pedido
+        </h3>
+
+        <form id="pedido" class="form-ajax__form" method="post" action="#">
+
+            <div class="form-ajax__field">
+                <label class="form-ajax__label" for="producto">Producto</label>
+                <select name="producto" id="producto" class="form-ajax__select form-control">
+                    <option value="">- Selecciona un producto -</option>
+                    <option value="vino">Vino</option>
+                    <option value="cava">Cava</option>
+                </select>
+            </div>
+
+            <div class="form-ajax__field">
+                <label class="form-ajax__label" for="tipo">Tipo</label>
+                <select name="tipo" id="tipo" class="form-ajax__select form-control">
+                    <option value="">- Selecciona un tipo -</option>
+                    <option value="tinto">Tinto</option>
+                    <option value="blanco">Blanco</option>
+                </select>
+            </div>
+
+            <div class="form-ajax__field">
+                <label class="form-ajax__label" for="tamano">Tamano</label>
+                <select name="tamano" id="tamano" class="form-ajax__select form-control">
+                    <option value="">- Selecciona un tamano -</option>
+                    <option value="750ml">750ml</option>
+                    <option value="1000ml">1000ml</option>
+                    <option value="1500ml">1500ml</option>
+                </select>
+            </div>
+
+            <div class="form-ajax__field form-ajax__field--actions">
+                <button class="form-ajax__submit" type="submit">
+                    Enviar
+                </button>
+            </div>
+
+        </form>
+
+        <div class="form-ajax__output" id="stock" role="status" aria-live="polite">
+            <p class="form-ajax__output-info">
+                Aqui se mostrara el stock del producto seleccionado
+            </p>
+        </div>
+
+    </div>
+
+
+</div>

@@ -1,0 +1,64 @@
+<!--
+    *  ----------------------------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /02-animaciones-en-bucle-forma-1-description.html  --  /src/pages-components/clase-23/02-animaciones-en-bucle-forma-1-description.html  -----  *
+    *  ----------------------------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
+
+            <p class="demo-page__intro-text">
+                Mueve una capa de izquierda a derecha, la oculta con <kbd>fadeOut</kbd>,
+                la vuelve a mostrar y la regresa al origen. Al completar el ciclo incrementa
+                el contador de vueltas y vuelve a encolar el mismo recorrido.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> construir el bucle como una sola cadena de
+                <kbd>queue</kbd> y poder pausarla o reanudarla desde la fase actual.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        <kbd>moverBucle</kbd> lanza el tramo derecho y encadena el resto
+                        del ciclo en la misma cola.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Cada fase se guarda con <kbd>.data("fase")</kbd> para saber
+                        por donde continuar al reanudar.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        <kbd>stop(true, false)</kbd> pausa en la posicion actual sin
+                        vaciar el estado ni saltar al final del efecto.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
