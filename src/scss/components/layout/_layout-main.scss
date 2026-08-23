@@ -43,8 +43,8 @@ $demo-shadow-hero-title: 0 2px 8px rgba(0, 0, 0, 0.35);
 
 
 .main__container {
-    width: 95%;
-    max-width: 102.4rem;
+    width: var.$layout-main-width;
+    max-width: var.$layout-main-max-width;
     min-height: 50rem;
     overflow-x: hidden;
     display: flex;

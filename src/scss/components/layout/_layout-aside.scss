@@ -21,7 +21,8 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 0;
+    gap: 5rem;
+    padding: 0 0 2rem;
 
     @include mix.desktopSM {
         flex-direction: row;
@@ -41,46 +42,60 @@
 .layout__aside-left,
 .layout__aside-right {
     display: none;
-    width: 100%;
+    width: var.$layout-main-width;
+    max-width: var.$layout-main-max-width;
+    align-self: center;
     flex-shrink: 0;
 
     //  -----  Botones menú: top 2rem + height 4rem + gap 1rem = 7rem  -----
     $aside-sticky-top: 7rem;
     $aside-sticky-bottom-gap: 1.5rem;
 
+    &:has(.aside-left__container),
+    &:has(.aside-right__container) {
+        display: block;
+        height: var.$aside-mobile-height;
+        max-height: var.$aside-mobile-height;
+        margin-top: 5rem;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(var.$bg-scrollbar, 0.7) transparent;
+
+        &::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(var.$bg-scrollbar, 0.7);
+            border-radius: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background-color: var.$bg-scrollbar;
+        }
+    }
+
     @include mix.desktopSM {
+        width: 100%;
+        max-width: none;
+        align-self: auto;
+
         &:has(.aside-left__container),
         &:has(.aside-right__container) {
-            display: block;
             position: sticky;
             //  -----  Debajo de los botones azul / naranja al hacer scroll  -----
             top: $aside-sticky-top;
             width: 22rem;
+            height: auto;
             //  -----  Alineado con .main__container (padding-top: 5rem)  -----
             margin-top: 5rem;
             //  -----  No sobresale: viewport - top sticky - gap inferior  -----
             max-height: calc(100dvh - #{$aside-sticky-top} - #{$aside-sticky-bottom-gap});
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
-            scrollbar-color: rgba(var.$bg-scrollbar, 0.7) transparent;
-
-            &::-webkit-scrollbar {
-                width: 4px;
-            }
-
-            &::-webkit-scrollbar-track {
-                background: transparent;
-            }
-
-            &::-webkit-scrollbar-thumb {
-                background-color: rgba(var.$bg-scrollbar, 0.7);
-                border-radius: 4px;
-            }
-
-            &::-webkit-scrollbar-thumb:hover {
-                background-color: var.$bg-scrollbar;
-            }
         }
     }
 
@@ -97,9 +112,10 @@
 }
 
 .layout__main {
-    order: 2;
+    order: 3;
 
     @include mix.desktopSM {
+        order: 2;
         flex: 1;
         min-width: 0;
         width: auto;
@@ -107,7 +123,21 @@
 }
 
 .layout__aside-right {
-    order: 3;
+    order: 2;
+
+    @include mix.desktopSM {
+        order: 3;
+    }
+
+    &:has(.aside-right__container) {
+        margin-top: 0;
+    }
+
+    @include mix.desktopSM {
+        &:has(.aside-right__container) {
+            margin-top: 5rem;
+        }
+    }
 }
 
 
