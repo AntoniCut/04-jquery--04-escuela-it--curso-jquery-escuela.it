@@ -1,8 +1,12 @@
 /*
-    *  ---------------------------------------------------------------------------------------------  *
-    *  -----  /00-introduccion-jquery.js  --  /src/scripts/clase-05/00-introduccion-jquery.js  -----  *
-    *  ---------------------------------------------------------------------------------------------  *
+    *  --------------------------------------------------------------------------------------------  *
+    *  -----  00-introduccion-jquery.js  --  /src/scripts/clase-05/00-introduccion-jquery.js  -----  *
+    *  --------------------------------------------------------------------------------------------  *
 */
+
+
+/// <reference path="../../../types/global.d.ts" />
+
 
 (($) => {
 
@@ -14,9 +18,43 @@
 
     $(function () {
 
-        $("#capa")
-            .text("Hola Mundo desde Escuela IT con jQuery!!!")
-            .css("background-color", "red");
+
+        /*
+            *  ---------------------------------  *
+            *  -----  Referencias al HTML  -----  *
+            *  ---------------------------------  *
+        */
+
+        /** @type {JQuery<HTMLDivElement>} - `Capa donde se pinta el saludo` */
+        const $capa = /** @type {JQuery<HTMLDivElement>} */ (
+            $('#capa')
+        );
+
+
+        /*
+            *  -----------------------  *
+            *  -----  Funciones  -----  *
+            *  -----------------------  *
+        */
+
+
+        /**
+         * ----------------------------
+         * -----  `pintarCapa()`  -----
+         * ----------------------------
+         * - Escribe el saludo y aplica el color de fondo.
+         * @return {void}
+         */
+        const pintarCapa = () => {
+            
+            $capa
+                .text('Hola Mundo desde Escuela IT con jQuery!!!')
+                .css('background-color', 'red');
+        };
+
+
+        pintarCapa();
+
 
     });
 

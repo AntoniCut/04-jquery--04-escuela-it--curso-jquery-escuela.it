@@ -1,5 +1,9 @@
 <pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">*/</span></span>
 <span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">/// </span><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">reference</span><span style="color:#9CDCFE"> path</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"../../../types/global.d.ts"</span><span style="color:#808080"> /></span></span>
+<span class="line"></span>
+<span class="line"></span>
 <span class="line"><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"></span>
 <span class="line"></span>
@@ -10,9 +14,42 @@
 <span class="line"></span>
 <span class="line"><span style="color:#DCDCAA">    $</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#DCDCAA">        $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"#capa"</span><span style="color:#D4D4D4">)</span></span>
-<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"Hola Mundo desde Escuela IT con jQuery!!!"</span><span style="color:#D4D4D4">)</span></span>
-<span class="line"><span style="color:#D4D4D4">            .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"background-color"</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">"red"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /*</span></span>
+<span class="line"><span style="color:#6A9955">            *  ---------------------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">            *  -----  Referencias al HTML  -----  *</span></span>
+<span class="line"><span style="color:#6A9955">            *  ---------------------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">        */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Capa donde se pinta el saludo` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $capa</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#capa'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">        );</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /*</span></span>
+<span class="line"><span style="color:#6A9955">            *  -----------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">            *  -----  Funciones  -----  *</span></span>
+<span class="line"><span style="color:#6A9955">            *  -----------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">        */</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /**</span></span>
+<span class="line"><span style="color:#6A9955">         * ----------------------------</span></span>
+<span class="line"><span style="color:#6A9955">         * -----  `pintarCapa()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">         * ----------------------------</span></span>
+<span class="line"><span style="color:#6A9955">         * - Escribe el saludo y aplica el color de fondo.</span></span>
+<span class="line"><span style="color:#6A9955">         * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">         */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#DCDCAA"> pintarCapa</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">            $capa</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Hola Mundo desde Escuela IT con jQuery!!!'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'background-color'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'red'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">        };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">        pintarCapa</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
 <span class="line"></span>
 <span class="line"><span style="color:#D4D4D4">    });</span></span>
 <span class="line"></span>

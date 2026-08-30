@@ -1,8 +1,12 @@
 /*
-    *  -----------------------------------------------------------------------------------------------------  *
-    *  -----  /00-practica-primeros-pasos.js  --  /src/scripts/clase-03/00-practica-primeros-pasos.js  -----  *
-    *  -----------------------------------------------------------------------------------------------------  *
+    *  ----------------------------------------------------------------------------------------------------  *
+    *  -----  00-practica-primeros-pasos.js  --  /src/scripts/clase-03/00-practica-primeros-pasos.js  -----  *
+    *  ----------------------------------------------------------------------------------------------------  *
 */
+
+
+/// <reference path="../../../types/global.d.ts" />
+
 
 (($) => {
 
@@ -15,39 +19,106 @@
     $(function () {
 
 
-        /** @type {JQuery<HTMLElement>} */
-        const $titulo = $('.titulo');
+        /*
+            *  ---------------------------------  *
+            *  -----  Referencias al HTML  -----  *
+            *  ---------------------------------  *
+        */
 
-        /** @type {JQuery<HTMLElement>} */
-        const $playground = $('#contenido');
+        /** @type {JQuery<HTMLHeadingElement>} - `Titulo del playground` */
+        const $titulo = /** @type {JQuery<HTMLHeadingElement>} */ (
+            $('.titulo')
+        );
+
+        /** @type {JQuery<HTMLDivElement>} - `Playground del ejercicio` */
+        const $playground = /** @type {JQuery<HTMLDivElement>} */ (
+            $('#contenido')
+        );
+
+        /** @type {JQuery<HTMLButtonElement>} - `Boton anadir titular` */
+        const $btnAnnadir = /** @type {JQuery<HTMLButtonElement>} */ (
+            $('#annadir')
+        );
+
+        /** @type {JQuery<HTMLButtonElement>} - `Boton quitar titular` */
+        const $btnQuitar = /** @type {JQuery<HTMLButtonElement>} */ (
+            $('#quitar')
+        );
 
 
-        /** -----  Cambia la clase `titular` en el título  ----- */
-        function cambiarTitular() {
-            $titulo.addClass('titular');
+        /*
+            *  -----------------------  *
+            *  -----  Funciones  -----  *
+            *  -----------------------  *
+        */
+
+
+        /**
+         * ---------------------------------
+         * -----  `flashPlayground()`  -----
+         * ---------------------------------
+         * - Anima el playground con un flash breve.
+         * @return {void}
+         */
+        const flashPlayground = () => {
+            
             $playground.addClass('is-flash');
 
             window.setTimeout(() => {
                 $playground.removeClass('is-flash');
             }, 450);
-        }
+            
+        };
 
 
-        //  -----  Cambiar estilos CSS con jQuery  -----
+        /**
+         * --------------------------------
+         * -----  `cambiarTitular()`  -----
+         * --------------------------------
+         * - Anade la clase `titular` al titulo.
+         * @return {void}
+         */
+        const cambiarTitular = () => {
+            $titulo.addClass('titular');
+            flashPlayground();
+        };
+
+
+        /**
+         * -------------------------------
+         * -----  `quitarTitular()`  -----
+         * -------------------------------
+         * - Quita la clase `titular` del titulo.
+         * @return {void}
+         */
+        const quitarTitular = () => {
+            $titulo.removeClass('titular');
+            flashPlayground();
+        };
+
+
+        /*
+            *  -----------------------------  *
+            *  -----  Event Listeners  -----  *
+            *  -----------------------------  *
+        */
+
+        //  -----  estilos css iniciales con jquery  -----
         $titulo.css('color', 'orange');
         $titulo.css('background-color', '#ffc');
 
 
-        //  -----  Eventos con jQuery  -----
-        $('#annadir').on('click', cambiarTitular);
+        //  -----  click en anadir titular  -----
+        $btnAnnadir.on('click', (event) => {
+            event.preventDefault();
+            cambiarTitular();
+        });
 
-        $('#quitar').on('click', function () {
-            $titulo.removeClass('titular');
-            $playground.addClass('is-flash');
 
-            window.setTimeout(() => {
-                $playground.removeClass('is-flash');
-            }, 450);
+        //  -----  click en quitar titular  -----
+        $btnQuitar.on('click', (event) => {
+            event.preventDefault();
+            quitarTitular();
         });
 
 

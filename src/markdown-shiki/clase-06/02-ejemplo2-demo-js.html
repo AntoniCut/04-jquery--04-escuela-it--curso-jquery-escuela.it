@@ -1,5 +1,9 @@
 <pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">*/</span></span>
 <span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">/// </span><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">reference</span><span style="color:#9CDCFE"> path</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"../../../types/global.d.ts"</span><span style="color:#808080"> /></span></span>
+<span class="line"></span>
+<span class="line"></span>
 <span class="line"><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"></span>
 <span class="line"></span>
@@ -8,40 +12,69 @@
 <span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
 <span class="line"></span>
-<span class="line"></span>
 <span class="line"><span style="color:#DCDCAA">    $</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">function</span><span style="color:#D4D4D4"> () {</span></span>
 <span class="line"></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">        //  ---------------------------------</span></span>
-<span class="line"><span style="color:#6A9955">        //  -----  Referencias al HTML  -----</span></span>
-<span class="line"><span style="color:#6A9955">        //  ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">        /*</span></span>
+<span class="line"><span style="color:#6A9955">            *  ---------------------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">            *  -----  Referencias al HTML  -----  *</span></span>
+<span class="line"><span style="color:#6A9955">            *  ---------------------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">        */</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> */</span></span>
-<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $btnRunEach</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#btnRunEach'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> - `Boton recorre con each` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $btnRunEach</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#btnRunEach'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">        );</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> */</span></span>
-<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $btnResetEach</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#btnResetEach'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> - `Boton resetea el playground` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $btnResetEach</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#btnResetEach'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">        );</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLElement>}</span><span style="color:#6A9955"> */</span></span>
-<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $playground</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#contenido'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLElement>}</span><span style="color:#6A9955"> - `Playground del ejercicio` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $playground</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#contenido'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">        );</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Muestra los textos de los párrafos` */</span></span>
-<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $info1</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#info1'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Panel de textos de los parrafos` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $info1</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#info1'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">        );</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Muestra los textos de los elementos de la lista` */</span></span>
-<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $info2</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#info2'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Panel de textos de la lista` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $info2</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#info2'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">        );</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {string}</span><span style="color:#6A9955"> - `HTML original de la lista para poder resetear` */</span></span>
-<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> listaOriginal</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#lista'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLUListElement>}</span><span style="color:#6A9955"> - `Lista de elementos del playground` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $lista</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLUListElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#lista'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">        );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLLIElement>}</span><span style="color:#6A9955"> - `Copia de los li originales para resetear` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $listaOriginal</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLLIElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span></span>
+<span class="line"><span style="color:#9CDCFE">            $lista</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">children</span><span style="color:#D4D4D4">().</span><span style="color:#DCDCAA">clone</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#D4D4D4">        );</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /*</span></span>
+<span class="line"><span style="color:#6A9955">            *  -----------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">            *  -----  Funciones  -----  *</span></span>
+<span class="line"><span style="color:#6A9955">            *  -----------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">        */</span></span>
 <span class="line"></span>
 <span class="line"></span>
 <span class="line"><span style="color:#6A9955">        /**</span></span>
+<span class="line"><span style="color:#6A9955">         * ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">         * -----  `resetPlayground()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">         * ---------------------------------</span></span>
 <span class="line"><span style="color:#6A9955">         * - Limpia paneles de resultado y restaura la lista.</span></span>
+<span class="line"><span style="color:#6A9955">         * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
 <span class="line"><span style="color:#6A9955">         */</span></span>
 <span class="line"><span style="color:#569CD6">        const</span><span style="color:#DCDCAA"> resetPlayground</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"><span style="color:#9CDCFE">            $info1</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.c6-atelier__result'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">remove</span><span style="color:#D4D4D4">();</span></span>
 <span class="line"><span style="color:#9CDCFE">            $info2</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.c6-atelier__result'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">remove</span><span style="color:#D4D4D4">();</span></span>
-<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#lista'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">html</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">listaOriginal</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">            $lista</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">empty</span><span style="color:#D4D4D4">().</span><span style="color:#DCDCAA">append</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$listaOriginal</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">clone</span><span style="color:#D4D4D4">());</span></span>
 <span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.c6-atelier__item'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-highlight is-removing'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#9CDCFE">            $playground</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-flash'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#9CDCFE">            $btnRunEach</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'disabled'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">);</span></span>
@@ -49,19 +82,27 @@
 <span class="line"></span>
 <span class="line"></span>
 <span class="line"><span style="color:#6A9955">        /**</span></span>
+<span class="line"><span style="color:#6A9955">         * --------------------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">         * -----  `appendResult($panel, title, text, delay)`  -----</span></span>
+<span class="line"><span style="color:#6A9955">         * --------------------------------------------------------</span></span>
 <span class="line"><span style="color:#6A9955">         * - Inserta un resultado animado en un panel.</span></span>
-<span class="line"><span style="color:#6A9955">         * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLElement>}</span><span style="color:#9CDCFE"> $panel</span></span>
-<span class="line"><span style="color:#6A9955">         * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> title</span></span>
-<span class="line"><span style="color:#6A9955">         * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> text</span></span>
-<span class="line"><span style="color:#6A9955">         * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {number}</span><span style="color:#9CDCFE"> delay</span></span>
+<span class="line"><span style="color:#6A9955">         * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLElement>}</span><span style="color:#9CDCFE"> $panel</span><span style="color:#6A9955"> - Panel destino del resultado.</span></span>
+<span class="line"><span style="color:#6A9955">         * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> title</span><span style="color:#6A9955"> - Titulo del resultado.</span></span>
+<span class="line"><span style="color:#6A9955">         * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> text</span><span style="color:#6A9955"> - Texto del resultado.</span></span>
+<span class="line"><span style="color:#6A9955">         * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {number}</span><span style="color:#9CDCFE"> delay</span><span style="color:#6A9955"> - Retraso en ms para mostrar el resultado.</span></span>
+<span class="line"><span style="color:#6A9955">         * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
 <span class="line"><span style="color:#6A9955">         */</span></span>
 <span class="line"><span style="color:#569CD6">        const</span><span style="color:#DCDCAA"> appendResult</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">$panel</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">title</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">text</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">delay</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
-<span class="line"><span style="color:#569CD6">            const</span><span style="color:#4FC1FF"> $result</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`</span></span>
-<span class="line"><span style="color:#CE9178">                &#x3C;h3 class="c6-atelier__result"></span></span>
-<span class="line"><span style="color:#CE9178">                    &#x3C;b></span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">title</span><span style="color:#569CD6">}</span><span style="color:#CE9178">&#x3C;/b></span></span>
-<span class="line"><span style="color:#569CD6">                    ${</span><span style="color:#9CDCFE">text</span><span style="color:#569CD6">}</span></span>
-<span class="line"><span style="color:#CE9178">                &#x3C;/h3></span></span>
-<span class="line"><span style="color:#CE9178">            `</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#6A9955">            /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLElement>}</span><span style="color:#6A9955"> - `Titulo en negrita del resultado` */</span></span>
+<span class="line"><span style="color:#569CD6">            const</span><span style="color:#4FC1FF"> $titulo</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'&#x3C;b>'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">title</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">            /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLHeadingElement>}</span><span style="color:#6A9955"> - `Resultado animado del panel` */</span></span>
+<span class="line"><span style="color:#569CD6">            const</span><span style="color:#4FC1FF"> $result</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLHeadingElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span></span>
+<span class="line"><span style="color:#DCDCAA">                $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'&#x3C;h3>'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                    .</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'c6-atelier__result'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                    .</span><span style="color:#DCDCAA">append</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$titulo</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                    .</span><span style="color:#DCDCAA">append</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">text</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">            );</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">            $panel</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">append</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$result</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
@@ -72,7 +113,49 @@
 <span class="line"></span>
 <span class="line"></span>
 <span class="line"><span style="color:#6A9955">        /**</span></span>
-<span class="line"><span style="color:#6A9955">         * - Recorre párrafos y lista con each().</span></span>
+<span class="line"><span style="color:#6A9955">         * -------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">         * -----  `recorridoLista(index, elem)`  -----</span></span>
+<span class="line"><span style="color:#6A9955">         * -------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">         * - Recorre un elemento de la lista y elimina el segundo.</span></span>
+<span class="line"><span style="color:#6A9955">         * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {number}</span><span style="color:#9CDCFE"> index</span><span style="color:#6A9955"> - Indice del elemento en la lista.</span></span>
+<span class="line"><span style="color:#6A9955">         * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {HTMLElement}</span><span style="color:#9CDCFE"> elem</span><span style="color:#6A9955"> - Elemento nativo de la lista.</span></span>
+<span class="line"><span style="color:#6A9955">         * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">         */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#DCDCAA"> recorridoLista</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">index</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">elem</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#569CD6">            const</span><span style="color:#4FC1FF"> $elem</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">elem</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">            console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`Elemento de la lista </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">index</span><span style="color:#D4D4D4"> + </span><span style="color:#B5CEA8">1</span><span style="color:#569CD6">}</span><span style="color:#CE9178"> - </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">$elem</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">()</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">            //  -----  eliminar el segundo elemento de la lista  -----</span></span>
+<span class="line"><span style="color:#C586C0">            if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">$elem</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">().</span><span style="color:#DCDCAA">trim</span><span style="color:#D4D4D4">() === </span><span style="color:#CE9178">'elemento de la lista 2'</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">                $elem</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-removing is-highlight'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">                window</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">setTimeout</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">                    $elem</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">remove</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">                }, </span><span style="color:#B5CEA8">450</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">                return</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">            }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">            $elem</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-highlight'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">            appendResult</span><span style="color:#D4D4D4">(</span></span>
+<span class="line"><span style="color:#9CDCFE">                $info2</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">                `Texto del elemento </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">index</span><span style="color:#D4D4D4"> + </span><span style="color:#B5CEA8">1</span><span style="color:#569CD6">}</span><span style="color:#CE9178"> de la lista`</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">                $elem</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">().</span><span style="color:#DCDCAA">trim</span><span style="color:#D4D4D4">(),</span></span>
+<span class="line"><span style="color:#9CDCFE">                index</span><span style="color:#D4D4D4"> * </span><span style="color:#B5CEA8">120</span></span>
+<span class="line"><span style="color:#D4D4D4">            );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D4D4D4">        };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /**</span></span>
+<span class="line"><span style="color:#6A9955">         * --------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">         * -----  `runEachExample()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">         * --------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">         * - Recorre parrafos y lista con each().</span></span>
+<span class="line"><span style="color:#6A9955">         * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
 <span class="line"><span style="color:#6A9955">         */</span></span>
 <span class="line"><span style="color:#569CD6">        const</span><span style="color:#DCDCAA"> runEachExample</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"></span>
@@ -81,30 +164,27 @@
 <span class="line"><span style="color:#9CDCFE">            $playground</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-flash'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">            /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLParagraphElement>}</span><span style="color:#6A9955"> - `Todos los párrafos &#x3C;p> dentro del playground`  */</span></span>
+<span class="line"><span style="color:#6A9955">            /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLParagraphElement>}</span><span style="color:#6A9955"> - `Parrafos dentro del playground` */</span></span>
 <span class="line"><span style="color:#569CD6">            const</span><span style="color:#4FC1FF"> $p</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$playground</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'p'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">            /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLLIElement>}</span><span style="color:#6A9955"> - `elementos li dentro de la lista &#x3C;ul> con id="lista"`  */</span></span>
-<span class="line"><span style="color:#569CD6">            const</span><span style="color:#4FC1FF"> $elemLis</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#lista li'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#6A9955">            /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLLIElement>}</span><span style="color:#6A9955"> - `Elementos li de la lista` */</span></span>
+<span class="line"><span style="color:#569CD6">            const</span><span style="color:#4FC1FF"> $elemLis</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">$lista</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'li'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">            //  -----------------------------------------------------------------------</span></span>
-<span class="line"><span style="color:#6A9955">            //  -----  recorrer todos los párrafos con .each() y función callback -----</span></span>
-<span class="line"><span style="color:#6A9955">            //  -----------------------------------------------------------------------</span></span>
-<span class="line"></span>
+<span class="line"><span style="color:#6A9955">            //  -----  recorrer todos los parrafos con each  -----</span></span>
 <span class="line"><span style="color:#9CDCFE">            console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'$p => '</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$p</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(), </span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">            $p</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">each</span><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">index</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">elem</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#569CD6">                const</span><span style="color:#4FC1FF"> $elem</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">elem</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#9CDCFE">                console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`Párrafo </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">index</span><span style="color:#D4D4D4"> + </span><span style="color:#B5CEA8">1</span><span style="color:#569CD6">}</span><span style="color:#CE9178"> - </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">$elem</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">()</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">                console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`Parrafo </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">index</span><span style="color:#D4D4D4"> + </span><span style="color:#B5CEA8">1</span><span style="color:#569CD6">}</span><span style="color:#CE9178"> - </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">$elem</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">()</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">                $elem</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-highlight'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#DCDCAA">                appendResult</span><span style="color:#D4D4D4">(</span></span>
 <span class="line"><span style="color:#9CDCFE">                    $info1</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#CE9178">                    `Texto del párrafo </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">index</span><span style="color:#D4D4D4"> + </span><span style="color:#B5CEA8">1</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">                    `Texto del parrafo </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">index</span><span style="color:#D4D4D4"> + </span><span style="color:#B5CEA8">1</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span><span style="color:#D4D4D4">,</span></span>
 <span class="line"><span style="color:#9CDCFE">                    $elem</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">().</span><span style="color:#DCDCAA">trim</span><span style="color:#D4D4D4">(),</span></span>
 <span class="line"><span style="color:#9CDCFE">                    index</span><span style="color:#D4D4D4"> * </span><span style="color:#B5CEA8">120</span></span>
 <span class="line"><span style="color:#D4D4D4">                );</span></span>
@@ -112,46 +192,8 @@
 <span class="line"><span style="color:#D4D4D4">            });</span></span>
 <span class="line"></span>
 <span class="line"></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A9955">            //  -----------------------------------------------------------------</span></span>
-<span class="line"><span style="color:#6A9955">            //  -----  recorrer todos los elementos de la lista con .each() -----</span></span>
-<span class="line"><span style="color:#6A9955">            //  -----  y una función que se llame recorridoLista()          -----</span></span>
-<span class="line"><span style="color:#6A9955">            //  -----------------------------------------------------------------</span></span>
-<span class="line"></span>
+<span class="line"><span style="color:#6A9955">            //  -----  recorrer todos los elementos de la lista con each  -----</span></span>
 <span class="line"><span style="color:#9CDCFE">            console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'$elemLis =>'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">$elemLis</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">());</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A9955">            /**</span></span>
-<span class="line"><span style="color:#6A9955">             * - `Función para recorrer los elementos de la lista`-</span></span>
-<span class="line"><span style="color:#6A9955">             * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {number}</span><span style="color:#9CDCFE"> index</span><span style="color:#6A9955"> - índice del elemento en la lista</span></span>
-<span class="line"><span style="color:#6A9955">             * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {HTMLElement}</span><span style="color:#9CDCFE"> elem</span><span style="color:#6A9955"> - elemento nativo de la lista</span></span>
-<span class="line"><span style="color:#6A9955">             */</span></span>
-<span class="line"><span style="color:#569CD6">            const</span><span style="color:#DCDCAA"> recorridoLista</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">index</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">elem</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#569CD6">                const</span><span style="color:#4FC1FF"> $elem</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">elem</span><span style="color:#D4D4D4">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#9CDCFE">                console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`Elemento de la lista </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">index</span><span style="color:#D4D4D4"> + </span><span style="color:#B5CEA8">1</span><span style="color:#569CD6">}</span><span style="color:#CE9178"> - </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">$elem</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">()</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span><span style="color:#D4D4D4">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A9955">                //  -----  eliminar el segundo elemento de la lista  -----</span></span>
-<span class="line"><span style="color:#C586C0">                if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">$elem</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">().</span><span style="color:#DCDCAA">trim</span><span style="color:#D4D4D4">() === </span><span style="color:#CE9178">'elemento de la lista 2'</span><span style="color:#D4D4D4">) {</span></span>
-<span class="line"><span style="color:#9CDCFE">                    $elem</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-removing is-highlight'</span><span style="color:#D4D4D4">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#9CDCFE">                    window</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">setTimeout</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
-<span class="line"><span style="color:#9CDCFE">                        $elem</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">remove</span><span style="color:#D4D4D4">();</span></span>
-<span class="line"><span style="color:#D4D4D4">                    }, </span><span style="color:#B5CEA8">450</span><span style="color:#D4D4D4">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#C586C0">                    return</span><span style="color:#D4D4D4">;</span></span>
-<span class="line"><span style="color:#D4D4D4">                }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#9CDCFE">                $elem</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-highlight'</span><span style="color:#D4D4D4">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#DCDCAA">                appendResult</span><span style="color:#D4D4D4">(</span></span>
-<span class="line"><span style="color:#9CDCFE">                    $info2</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#CE9178">                    `Texto del elemento </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">index</span><span style="color:#D4D4D4"> + </span><span style="color:#B5CEA8">1</span><span style="color:#569CD6">}</span><span style="color:#CE9178"> de la lista`</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#9CDCFE">                    $elem</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">().</span><span style="color:#DCDCAA">trim</span><span style="color:#D4D4D4">(),</span></span>
-<span class="line"><span style="color:#9CDCFE">                    index</span><span style="color:#D4D4D4"> * </span><span style="color:#B5CEA8">120</span></span>
-<span class="line"><span style="color:#D4D4D4">                );</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D4D4D4">            };</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">            $elemLis</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">each</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">recorridoLista</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
@@ -163,8 +205,24 @@
 <span class="line"><span style="color:#D4D4D4">        };</span></span>
 <span class="line"></span>
 <span class="line"></span>
-<span class="line"><span style="color:#9CDCFE">        $btnRunEach</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">runEachExample</span><span style="color:#D4D4D4">);</span></span>
-<span class="line"><span style="color:#9CDCFE">        $btnResetEach</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">resetPlayground</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#6A9955">        /*</span></span>
+<span class="line"><span style="color:#6A9955">            *  -----------------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">            *  -----  Event Listeners  -----  *</span></span>
+<span class="line"><span style="color:#6A9955">            *  -----------------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">        */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  click en run each  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">        $btnRunEach</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, (</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">            event</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">preventDefault</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#DCDCAA">            runEachExample</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">        });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  click en resetear playground  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">        $btnResetEach</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, (</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">            event</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">preventDefault</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#DCDCAA">            resetPlayground</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">        });</span></span>
 <span class="line"></span>
 <span class="line"></span>
 <span class="line"><span style="color:#D4D4D4">    });</span></span>

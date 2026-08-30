@@ -1,5 +1,9 @@
 <pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#D4D4D4">*/</span></span>
 <span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">/// </span><span style="color:#808080">&#x3C;</span><span style="color:#569CD6">reference</span><span style="color:#9CDCFE"> path</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">"../../../types/global.d.ts"</span><span style="color:#808080"> /></span></span>
+<span class="line"></span>
+<span class="line"></span>
 <span class="line"><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">$</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"></span>
 <span class="line"></span>
@@ -10,18 +14,16 @@
 <span class="line"></span>
 <span class="line"><span style="color:#6A9955">    /**</span></span>
 <span class="line"><span style="color:#6A9955">     * ----------------------------------------------------------------</span></span>
-<span class="line"><span style="color:#6A9955">     * -----  Método Deprecado a partir de la versión jQuery 3.0  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  Metodo deprecado a partir de la version jQuery 3.0  -----</span></span>
 <span class="line"><span style="color:#6A9955">     * ----------------------------------------------------------------</span></span>
-<span class="line"><span style="color:#6A9955">     * </span></span>
-<span class="line"><span style="color:#6A9955">     * - La función pasada a `$(document).ready()` se ejecuta cuando el DOM está listo.</span></span>
+<span class="line"><span style="color:#6A9955">     * - La funcion pasada a `$(document).ready()` se ejecuta cuando el DOM esta listo.</span></span>
 <span class="line"><span style="color:#6A9955">     * - Equivalente a usar `$(function() { ... })`.</span></span>
-<span class="line"><span style="color:#6A9955">     * </span></span>
-<span class="line"><span style="color:#6A9955">     * $(document).ready( function() { </span></span>
-<span class="line"><span style="color:#6A9955">     *      ... </span></span>
-<span class="line"><span style="color:#6A9955">     *      ... Código a ejecutar cuando el DOM esté listo</span></span>
+<span class="line"><span style="color:#6A9955">     *</span></span>
+<span class="line"><span style="color:#6A9955">     * $(document).ready( function() {</span></span>
+<span class="line"><span style="color:#6A9955">     *      ...</span></span>
+<span class="line"><span style="color:#6A9955">     *      ... Codigo a ejecutar cuando el DOM este listo</span></span>
 <span class="line"><span style="color:#6A9955">     *      ...</span></span>
 <span class="line"><span style="color:#6A9955">     *  })</span></span>
-<span class="line"><span style="color:#6A9955">     * </span></span>
 <span class="line"><span style="color:#6A9955">     */</span></span>
 <span class="line"></span>
 <span class="line"></span>
@@ -29,82 +31,171 @@
 <span class="line"></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">        console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
-<span class="line"><span style="color:#9CDCFE">        console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">warn</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'-----  1º Ready  -----'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">        console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">warn</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'-----  1 Ready  -----'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#9CDCFE">        console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'</span><span style="color:#D7BA7D">\n</span><span style="color:#CE9178">'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> - `Botón inicia la logica` */</span></span>
-<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $btnRun</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#btnRun'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#6A9955">        /*</span></span>
+<span class="line"><span style="color:#6A9955">            *  ---------------------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">            *  -----  Referencias al HTML  -----  *</span></span>
+<span class="line"><span style="color:#6A9955">            *  ---------------------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">        */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> - `Boton inicia la logica` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $btnRun</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#btnRun'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">        );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> - `Boton resetea el playground` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $btnReset</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLButtonElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#btnReset'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">        );</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLElement>}</span><span style="color:#6A9955"> - `Playground del ejercicio` */</span></span>
-<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $playground</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#contenido'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $playground</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#contenido'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">        );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Contenedor de la capa inyectada` */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> $capaContainer</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#capaContainer'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">        );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {number}</span><span style="color:#6A9955"> - `Timeout del resalte de .miclase` */</span></span>
+<span class="line"><span style="color:#569CD6">        let</span><span style="color:#9CDCFE"> highlightTimeoutId</span><span style="color:#D4D4D4"> = </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** - `Token para invalidar un Run en curso si se resetea` */</span></span>
+<span class="line"><span style="color:#569CD6">        let</span><span style="color:#9CDCFE"> runToken</span><span style="color:#D4D4D4"> = </span><span style="color:#B5CEA8">0</span><span style="color:#D4D4D4">;</span></span>
 <span class="line"></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">        /** - `Función que se ejecuta toda la lógica cuando se hace clic en el botón #btnRun` */</span></span>
+<span class="line"><span style="color:#6A9955">        /*</span></span>
+<span class="line"><span style="color:#6A9955">            *  -----------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">            *  -----  Funciones  -----  *</span></span>
+<span class="line"><span style="color:#6A9955">            *  -----------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">        */</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /**</span></span>
+<span class="line"><span style="color:#6A9955">         * ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">         * -----  `resetPlayground()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">         * ---------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">         * - Restaura el playground al estado inicial.</span></span>
+<span class="line"><span style="color:#6A9955">         * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">         */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#DCDCAA"> resetPlayground</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#D4D4D4">            </span></span>
+<span class="line"><span style="color:#9CDCFE">            runToken</span><span style="color:#D4D4D4"> += </span><span style="color:#B5CEA8">1</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">            window</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">clearTimeout</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">highlightTimeoutId</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.miclase'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">stop</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">show</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-highlight'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">            </span></span>
+<span class="line"><span style="color:#9CDCFE">            $capaContainer</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">empty</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-active'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">            </span></span>
+<span class="line"><span style="color:#9CDCFE">            $playground</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-flash'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">            </span></span>
+<span class="line"><span style="color:#9CDCFE">            $btnRun</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'disabled'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">            </span></span>
+<span class="line"><span style="color:#D4D4D4">        };</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /**</span></span>
+<span class="line"><span style="color:#6A9955">         * -----------------------------</span></span>
+<span class="line"><span style="color:#6A9955">         * -----  `runExample1()`  -----</span></span>
+<span class="line"><span style="color:#6A9955">         * -----------------------------</span></span>
+<span class="line"><span style="color:#6A9955">         * - Oculta `.miclase`, inyecta una capa y vuelve a mostrar los parrafos.</span></span>
+<span class="line"><span style="color:#6A9955">         * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
+<span class="line"><span style="color:#6A9955">         */</span></span>
 <span class="line"><span style="color:#569CD6">        const</span><span style="color:#DCDCAA"> runExample1</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">            resetPlayground</span><span style="color:#D4D4D4">();</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">            //  -----  desactivar el botón mientras se ejecuta la lógica  -----</span></span>
+<span class="line"><span style="color:#6A9955">            /** - `Token de esta ejecucion de Run` */</span></span>
+<span class="line"><span style="color:#569CD6">            const</span><span style="color:#4FC1FF"> currentRun</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">runToken</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">            //  -----  desactivar el boton mientras se ejecuta la logica  -----</span></span>
 <span class="line"><span style="color:#9CDCFE">            $btnRun</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'disabled'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#9CDCFE">            $playground</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-flash'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A9955">            /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `div con id "capaContainer"`  */</span></span>
-<span class="line"><span style="color:#569CD6">            const</span><span style="color:#4FC1FF"> $capaContainer</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'#capaContainer'</span><span style="color:#D4D4D4">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A9955">            //  -----  vaciar el contenido del div #capaContainer  -----</span></span>
+<span class="line"><span style="color:#6A9955">            //  -----  vaciar el contenedor de la capa  -----</span></span>
 <span class="line"><span style="color:#9CDCFE">            $capaContainer</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">empty</span><span style="color:#D4D4D4">().</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-active'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">            //  -----  ocultar todos los párrafos con clase miclase  -----</span></span>
+<span class="line"><span style="color:#6A9955">            //  -----  ocultar todos los parrafos con clase miclase  -----</span></span>
 <span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.miclase'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">hide</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">2000</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">            //  -----  crear y añadir nuevo elemento  -----</span></span>
+<span class="line"><span style="color:#6A9955">            //  -----  crear y anadir la capa con jquery  -----</span></span>
+<span class="line"><span style="color:#6A9955">            /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLParagraphElement>}</span><span style="color:#6A9955"> - `Parrafo inyectado en la capa` */</span></span>
+<span class="line"><span style="color:#569CD6">            const</span><span style="color:#4FC1FF"> $parrafo</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLParagraphElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span></span>
+<span class="line"><span style="color:#DCDCAA">                $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'&#x3C;p>'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'parrafo - añadido con jQuery'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">            );</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">            /**</span></span>
-<span class="line"><span style="color:#6A9955">             * - Crear un nuevo elemento `&#x3C;div>` con jQuery,</span></span>
-<span class="line"><span style="color:#6A9955">             *   con clase `capa` y contenido HTML.</span></span>
-<span class="line"><span style="color:#6A9955">             * - Añadirlo al final del contenedor con id `#capaContainer`.</span></span>
-<span class="line"><span style="color:#6A9955">             * - Aplicar estilos CSS al nuevo elemento.</span></span>
-<span class="line"><span style="color:#6A9955">             * </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLElement>}</span></span>
-<span class="line"><span style="color:#6A9955">            */</span></span>
-<span class="line"><span style="color:#569CD6">            const</span><span style="color:#4FC1FF"> $capa</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`</span></span>
-<span class="line"><span style="color:#CE9178">                &#x3C;div class='capa'> </span></span>
-<span class="line"><span style="color:#CE9178">                    texto - añadido con jQuery</span></span>
-<span class="line"><span style="color:#CE9178">                    &#x3C;p> parrafo - añadido con jQuery &#x3C;/p> </span></span>
-<span class="line"><span style="color:#CE9178">                    &#x3C;b> negrita  - añadido con jQuery &#x3C;/b> </span></span>
-<span class="line"><span style="color:#CE9178">                &#x3C;/div></span></span>
-<span class="line"><span style="color:#CE9178">            `</span><span style="color:#D4D4D4">)</span></span>
-<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">appendTo</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$capaContainer</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#6A9955">            /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLElement>}</span><span style="color:#6A9955"> - `Negrita inyectada en la capa` */</span></span>
+<span class="line"><span style="color:#569CD6">            const</span><span style="color:#4FC1FF"> $negrita</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'&#x3C;b>'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'negrita  - añadido con jQuery'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A9955">            //  -----  aplicar estilos CSS al nuevo elemento  -----</span></span>
-<span class="line"><span style="color:#9CDCFE">            $capa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"color"</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">"red"</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#6A9955">            /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> - `Capa inyectada en el playground` */</span></span>
+<span class="line"><span style="color:#569CD6">            const</span><span style="color:#4FC1FF"> $capa</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLDivElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span></span>
+<span class="line"><span style="color:#DCDCAA">                $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'&#x3C;div>'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                    .</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'capa'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                    .</span><span style="color:#DCDCAA">append</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'texto - añadido con jQuery'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                    .</span><span style="color:#DCDCAA">append</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$parrafo</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                    .</span><span style="color:#DCDCAA">append</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$negrita</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                    .</span><span style="color:#DCDCAA">appendTo</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$capaContainer</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">            );</span></span>
 <span class="line"></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">            //  -----  mostrar todos los párrafos, al terminar activar el botón  -----</span></span>
+<span class="line"><span style="color:#6A9955">            //  -----  aplicar estilos css al nuevo elemento  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">            $capa</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">css</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'color'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'red'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">            //  -----  mostrar todos los parrafos, al terminar activar el boton  -----</span></span>
 <span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'p.miclase'</span><span style="color:#D4D4D4">)</span></span>
 <span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">show</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">2000</span><span style="color:#D4D4D4">)</span></span>
 <span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">promise</span><span style="color:#D4D4D4">()</span></span>
 <span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">done</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#6A9955">                    //  -----  si se pulso reset, no aplicar el cierre de este run  -----</span></span>
+<span class="line"><span style="color:#C586C0">                    if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">currentRun</span><span style="color:#D4D4D4"> !== </span><span style="color:#9CDCFE">runToken</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#C586C0">                        return</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">                    }</span></span>
+<span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">                    $btnRun</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'disabled'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#9CDCFE">                    $playground</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-flash'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#DCDCAA">                    $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.miclase'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-highlight'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#9CDCFE">                    window</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">setTimeout</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">                    highlightTimeoutId</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">window</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">setTimeout</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"><span style="color:#DCDCAA">                        $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.miclase'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-highlight'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#D4D4D4">                    }, </span><span style="color:#B5CEA8">900</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#D4D4D4">                });</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#D4D4D4">        }</span></span>
+<span class="line"><span style="color:#D4D4D4">        };</span></span>
 <span class="line"></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A9955">        //  -----  asignar la función `runExample1` al evento `click` del botón `#btnRun`  -----</span></span>
-<span class="line"><span style="color:#9CDCFE">        $btnRun</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">runExample1</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#6A9955">        /*</span></span>
+<span class="line"><span style="color:#6A9955">            *  -----------------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">            *  -----  Event Listeners  -----  *</span></span>
+<span class="line"><span style="color:#6A9955">            *  -----------------------------  *</span></span>
+<span class="line"><span style="color:#6A9955">        */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  click en run hide show  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">        $btnRun</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, (</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">            event</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">preventDefault</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#DCDCAA">            runExample1</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">        });</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        //  -----  click en resetear playground  -----</span></span>
+<span class="line"><span style="color:#9CDCFE">        $btnReset</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">on</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'click'</span><span style="color:#D4D4D4">, (</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">            event</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">preventDefault</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#DCDCAA">            resetPlayground</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">        });</span></span>
 <span class="line"></span>
 <span class="line"></span>
 <span class="line"><span style="color:#D4D4D4">    });</span></span>
-<span class="line"><span style="color:#D4D4D4">   </span></span>
+<span class="line"></span>
 <span class="line"></span>
 <span class="line"><span style="color:#D4D4D4">})(</span><span style="color:#9CDCFE">jQuery</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span></code></pre>

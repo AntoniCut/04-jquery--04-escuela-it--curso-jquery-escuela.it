@@ -1,8 +1,12 @@
 /*
-    *  -----------------------------------------------------------------------  *
-    *  -----  /01-ejemplo1.js  --  /src/scripts/clase-06/01-ejemplo1.js  -----  *
-    *  -----------------------------------------------------------------------  *
+    *  ----------------------------------------------------------------------  *
+    *  -----  01-ejemplo1.js  --  /src/scripts/clase-06/01-ejemplo1.js  -----  *
+    *  ----------------------------------------------------------------------  *
 */
+
+
+/// <reference path="../../../types/global.d.ts" />
+
 
 (($) => {
 
@@ -14,18 +18,16 @@
 
     /**
      * ----------------------------------------------------------------
-     * -----  Método Deprecado a partir de la versión jQuery 3.0  -----
+     * -----  Metodo deprecado a partir de la version jQuery 3.0  -----
      * ----------------------------------------------------------------
-     * 
-     * - La función pasada a `$(document).ready()` se ejecuta cuando el DOM está listo.
+     * - La funcion pasada a `$(document).ready()` se ejecuta cuando el DOM esta listo.
      * - Equivalente a usar `$(function() { ... })`.
-     * 
-     * $(document).ready( function() { 
-     *      ... 
-     *      ... Código a ejecutar cuando el DOM esté listo
+     *
+     * $(document).ready( function() {
+     *      ...
+     *      ... Codigo a ejecutar cuando el DOM este listo
      *      ...
      *  })
-     * 
      */
 
 
@@ -33,81 +35,174 @@
 
 
         console.log('\n');
-        console.warn('-----  1º Ready  -----');
+        console.warn('-----  1 Ready  -----');
         console.log('\n');
 
 
-        /** @type {JQuery<HTMLButtonElement>} - `Botón inicia la logica` */
-        const $btnRun = $('#btnRun');
+        /*
+            *  ---------------------------------  *
+            *  -----  Referencias al HTML  -----  *
+            *  ---------------------------------  *
+        */
+
+        /** @type {JQuery<HTMLButtonElement>} - `Boton inicia la logica` */
+        const $btnRun = /** @type {JQuery<HTMLButtonElement>} */ (
+            $('#btnRun')
+        );
+
+        /** @type {JQuery<HTMLButtonElement>} - `Boton resetea el playground` */
+        const $btnReset = /** @type {JQuery<HTMLButtonElement>} */ (
+            $('#btnReset')
+        );
 
         /** @type {JQuery<HTMLElement>} - `Playground del ejercicio` */
-        const $playground = $('#contenido');
+        const $playground = /** @type {JQuery<HTMLElement>} */ (
+            $('#contenido')
+        );
+
+        /** @type {JQuery<HTMLDivElement>} - `Contenedor de la capa inyectada` */
+        const $capaContainer = /** @type {JQuery<HTMLDivElement>} */ (
+            $('#capaContainer')
+        );
+
+        /** @type {number} - `Timeout del resalte de .miclase` */
+        let highlightTimeoutId = 0;
+
+        /** - `Token para invalidar un Run en curso si se resetea` */
+        let runToken = 0;
 
 
-        /** - `Función que se ejecuta toda la lógica cuando se hace clic en el botón #btnRun` */
+        /*
+            *  -----------------------  *
+            *  -----  Funciones  -----  *
+            *  -----------------------  *
+        */
+
+
+        /**
+         * ---------------------------------
+         * -----  `resetPlayground()`  -----
+         * ---------------------------------
+         * - Restaura el playground al estado inicial.
+         * @return {void}
+         */
+        const resetPlayground = () => {
+            
+            runToken += 1;
+            window.clearTimeout(highlightTimeoutId);
+
+            $('.miclase')
+                .stop(true, true)
+                .show()
+                .removeClass('is-highlight');
+            
+            $capaContainer
+                .empty()
+                .removeClass('is-active');
+            
+            $playground.removeClass('is-flash');
+            
+            $btnRun.prop('disabled', false);
+            
+        };
+
+
+        /**
+         * -----------------------------
+         * -----  `runExample1()`  -----
+         * -----------------------------
+         * - Oculta `.miclase`, inyecta una capa y vuelve a mostrar los parrafos.
+         * @return {void}
+         */
         const runExample1 = () => {
 
+            resetPlayground();
 
-            //  -----  desactivar el botón mientras se ejecuta la lógica  -----
+            /** - `Token de esta ejecucion de Run` */
+            const currentRun = runToken;
+
+            //  -----  desactivar el boton mientras se ejecuta la logica  -----
             $btnRun.prop('disabled', true);
             $playground.addClass('is-flash');
 
+            //  -----  vaciar el contenedor de la capa  -----
+            $capaContainer
+                .empty()
+                .addClass('is-active');
 
-            /** @type {JQuery<HTMLDivElement>} - `div con id "capaContainer"`  */
-            const $capaContainer = $('#capaContainer');
-
-            //  -----  vaciar el contenido del div #capaContainer  -----
-            $capaContainer.empty().addClass('is-active');
-
-            //  -----  ocultar todos los párrafos con clase miclase  -----
+            //  -----  ocultar todos los parrafos con clase miclase  -----
             $('.miclase').hide(2000);
 
 
-            //  -----  crear y añadir nuevo elemento  -----
+            //  -----  crear y anadir la capa con jquery  -----
+            /** @type {JQuery<HTMLParagraphElement>} - `Parrafo inyectado en la capa` */
+            const $parrafo = /** @type {JQuery<HTMLParagraphElement>} */ (
+                $('<p>').text('parrafo - añadido con jQuery')
+            );
 
-            /**
-             * - Crear un nuevo elemento `<div>` con jQuery,
-             *   con clase `capa` y contenido HTML.
-             * - Añadirlo al final del contenedor con id `#capaContainer`.
-             * - Aplicar estilos CSS al nuevo elemento.
-             * @type {JQuery<HTMLElement>}
-            */
-            const $capa = $(`
-                <div class='capa'> 
-                    texto - añadido con jQuery
-                    <p> parrafo - añadido con jQuery </p> 
-                    <b> negrita  - añadido con jQuery </b> 
-                </div>
-            `)
-                .appendTo($capaContainer);
+            /** @type {JQuery<HTMLElement>} - `Negrita inyectada en la capa` */
+            const $negrita = $('<b>').text('negrita  - añadido con jQuery');
 
-
-            //  -----  aplicar estilos CSS al nuevo elemento  -----
-            $capa.css("color", "red");
+            /** @type {JQuery<HTMLDivElement>} - `Capa inyectada en el playground` */
+            const $capa = /** @type {JQuery<HTMLDivElement>} */ (
+                $('<div>')
+                    .addClass('capa')
+                    .append('texto - añadido con jQuery')
+                    .append($parrafo)
+                    .append($negrita)
+                    .appendTo($capaContainer)
+            );
 
 
-            //  -----  mostrar todos los párrafos, al terminar activar el botón  -----
+            //  -----  aplicar estilos css al nuevo elemento  -----
+            $capa.css('color', 'red');
+
+
+            //  -----  mostrar todos los parrafos, al terminar activar el boton  -----
             $('p.miclase')
                 .show(2000)
                 .promise()
                 .done(() => {
+                    
+                    //  -----  si se pulso reset, no aplicar el cierre de este run  -----
+                    if (currentRun !== runToken) {
+                        return;
+                    }
+
                     $btnRun.prop('disabled', false);
                     $playground.removeClass('is-flash');
                     $('.miclase').addClass('is-highlight');
 
-                    window.setTimeout(() => {
+                    highlightTimeoutId = window.setTimeout(() => {
                         $('.miclase').removeClass('is-highlight');
                     }, 900);
+
                 });
 
-        }
+        };
 
 
-        //  -----  asignar la función `runExample1` al evento `click` del botón `#btnRun`  -----
-        $btnRun.on('click', runExample1);
+        /*
+            *  -----------------------------  *
+            *  -----  Event Listeners  -----  *
+            *  -----------------------------  *
+        */
+
+        //  -----  click en run hide show  -----
+        $btnRun.on('click', (event) => {
+            event.preventDefault();
+            runExample1();
+        });
+
+
+        //  -----  click en resetear playground  -----
+        $btnReset.on('click', (event) => {
+            event.preventDefault();
+            resetPlayground();
+        });
 
 
     });
-   
+
 
 })(jQuery);
