@@ -1,0 +1,62 @@
+<!--
+    *  --------------------------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /08-handlebars-built-in-helpers-description.html  --  /src/pages-components/clase-24/08-handlebars-built-in-helpers-description.html  -----  *
+    *  --------------------------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
+
+            <p class="demo-page__intro-text">
+                Usa los helpers nativos de Handlebars: <kbd>#if / else</kbd>
+                para campos opcionales y <kbd>#each</kbd> para listar
+                personas y rellenar un <kbd>select</kbd>.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> controlar flujo y repeticion sin
+                escribir helpers propios.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        <kbd>{{#if title}}</kbd> pinta el valor o un
+                        fallback si el input esta vacio.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        <kbd>{{#each people}}</kbd> recorre el array
+                        ordenado por apellido y nombre.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        El tercer panel genera un <kbd>select</kbd> con
+                        una <kbd>option</kbd> por persona.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>

@@ -1,0 +1,140 @@
+<!--
+    *  ------------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /08-handlebars-built-in-helpers-demo.html  --  /src/pages-components/clase-24/08-handlebars-built-in-helpers-demo.html  -----  *
+    *  ------------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+<div class="main__demo">
+
+
+    <div class="tpl tpl--triple">
+
+        <h3 class="tpl__title">
+            Handlebars built-in helpers
+        </h3>
+
+        <p class="tpl__hint">
+            Helpers nativos: <kbd>#if</kbd> y <kbd>#each</kbd>.
+        </p>
+
+        <form class="tpl__form" id="tplForm">
+
+            <div class="tpl__fields">
+
+                <div class="tpl__field">
+                    <label class="tpl__label" for="title">Title</label>
+                    <input type="text" id="title" class="tpl__input" placeholder="title" autocomplete="off">
+                </div>
+
+                <div class="tpl__field">
+                    <label class="tpl__label" for="id">Id</label>
+                    <input type="text" id="id" class="tpl__input" placeholder="id" autocomplete="off">
+                </div>
+
+                <div class="tpl__field">
+                    <label class="tpl__label" for="author">Author</label>
+                    <input type="text" id="author" class="tpl__input" placeholder="name" autocomplete="off">
+                </div>
+
+                <div class="tpl__field">
+                    <label class="tpl__label" for="body">Body</label>
+                    <input type="text" id="body" class="tpl__input" placeholder="body" autocomplete="off">
+                </div>
+
+            </div>
+
+            <div class="tpl__field tpl__field--actions">
+                <button type="button" id="myButton" class="tpl__submit">
+                    Generar HTML
+                </button>
+            </div>
+
+        </form>
+
+        <section class="tpl__panel" aria-label="Helper if">
+
+            <h4 class="tpl__panel-title">IF - Built In Helpers</h4>
+
+            <div id="myDiv1" class="tpl__preview">
+                <p class="tpl__preview-placeholder">
+                    Aqui se mostrara el resultado de #if.
+                </p>
+            </div>
+
+            <label class="tpl__label" for="myTextarea1">Codigo generado</label>
+            <textarea id="myTextarea1" class="tpl__source" readonly></textarea>
+
+        </section>
+
+        <section class="tpl__panel" aria-label="Helper each">
+
+            <h4 class="tpl__panel-title">EACH - Built In Helpers</h4>
+
+            <div id="myDiv2" class="tpl__preview">
+                <p class="tpl__preview-placeholder">
+                    Aqui se mostrara el listado de personas.
+                </p>
+            </div>
+
+            <label class="tpl__label" for="myTextarea2">Codigo generado</label>
+            <textarea id="myTextarea2" class="tpl__source" readonly></textarea>
+
+        </section>
+
+        <section class="tpl__panel" aria-label="Helper each select">
+
+            <h4 class="tpl__panel-title">EACH SELECT - Built In Helpers</h4>
+
+            <div id="myDiv3" class="tpl__preview">
+                <p class="tpl__preview-placeholder">
+                    Aqui se mostrara el select generado.
+                </p>
+            </div>
+
+            <label class="tpl__label" for="myTextarea3">Codigo generado</label>
+            <textarea id="myTextarea3" class="tpl__source" readonly></textarea>
+
+        </section>
+
+        <script id="myTemplate1" type="text/x-handlebars-template">
+            <h2> IF - Template Built In Helpers </h2>
+            <h3>
+                {{#if title}} Title: {{title}}
+                {{else}} No title provided {{/if}}
+            </h3>
+            <h3>
+                {{#if id}} Id: {{id}}
+                {{else}} No id provided {{/if}}
+            </h3>
+            <h3>
+                {{#if author}} Author: {{author}}
+                {{else}} No author provided {{/if}}
+            </h3>
+            <h3>
+                {{#if body}} Body: {{body}}
+                {{else}} No body provided {{/if}}
+            </h3>
+        </script>
+
+        <script id="myTemplate2" type="text/x-handlebars-template">
+            <h2> EACH - Template Built In Helpers </h2>
+            {{#each people}}
+                <h3> {{lastName}}, {{firstName}} </h3>
+            {{/each}}
+        </script>
+
+        <script id="myTemplate3" type="text/x-handlebars-template">
+            <h2> EACH SELECT - Template Built In Helpers </h2>
+            <label for="mySelect">People</label>
+            <select id="mySelect">
+                {{#each options}}
+                    <option value="{{firstName}}">{{lastName}}, {{firstName}}</option>
+                {{/each}}
+            </select>
+        </script>
+
+    </div>
+
+
+</div>

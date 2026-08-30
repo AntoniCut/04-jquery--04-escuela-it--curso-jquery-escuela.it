@@ -1,0 +1,62 @@
+<!--
+    *  ------------------------------------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /05-handlebars-template-externo-ajax-description.html  --  /src/pages-components/clase-24/05-handlebars-template-externo-ajax-description.html  -----  *
+    *  ------------------------------------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
+
+            <p class="demo-page__intro-text">
+                El template no esta en la pagina: se pide por AJAX a
+                <kbd>services/clase-24/external-template.html</kbd> con
+                <kbd>$.get</kbd> y, cuando llega, se compila y se pinta.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> reutilizar plantillas externas y
+                combinarlas con datos del formulario.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        <kbd>$.get(url, callback, "text")</kbd> trae el
+                        source como texto plano.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        La compilacion ocurre en el callback, no antes de
+                        tener el template.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Si la peticion falla, el error se muestra en el
+                        preview, no en un alert.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>

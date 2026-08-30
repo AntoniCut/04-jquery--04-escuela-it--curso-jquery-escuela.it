@@ -1,0 +1,94 @@
+<!--
+    *  --------------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /06-handlebars-block-expressions-demo.html  --  /src/pages-components/clase-24/06-handlebars-block-expressions-demo.html  -----  *
+    *  --------------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+<div class="main__demo">
+
+
+    <div class="tpl tpl--double">
+
+        <h3 class="tpl__title">
+            Handlebars block expressions
+        </h3>
+
+        <p class="tpl__hint">
+            Helpers <kbd>toH1</kbd> y <kbd>toUl</kbd> registrados con <kbd>registerHelper</kbd>.
+        </p>
+
+        <form class="tpl__form" id="tplForm">
+
+            <div class="tpl__fields">
+
+                <div class="tpl__field">
+                    <label class="tpl__label" for="title">Title</label>
+                    <input type="text" id="title" class="tpl__input" placeholder="title" autocomplete="off">
+                </div>
+
+                <div class="tpl__field">
+                    <label class="tpl__label" for="body">Body</label>
+                    <input type="text" id="body" class="tpl__input" placeholder="body" autocomplete="off">
+                </div>
+
+            </div>
+
+            <div class="tpl__field tpl__field--actions">
+                <button type="button" id="myButton" class="tpl__submit">
+                    Generar HTML
+                </button>
+            </div>
+
+        </form>
+
+        <section class="tpl__panel" aria-label="Template block 1">
+
+            <h4 class="tpl__panel-title">Template Block Expressions 1</h4>
+
+            <div id="myDiv1" class="tpl__preview">
+                <p class="tpl__preview-placeholder">
+                    Aqui se mostrara el HTML del helper toH1.
+                </p>
+            </div>
+
+            <label class="tpl__label" for="myTextarea1">Codigo generado</label>
+            <textarea id="myTextarea1" class="tpl__source" readonly></textarea>
+
+        </section>
+
+        <section class="tpl__panel" aria-label="Template block 2">
+
+            <h4 class="tpl__panel-title">Template Block Expressions 2</h4>
+
+            <div id="myDiv2" class="tpl__preview">
+                <p class="tpl__preview-placeholder">
+                    Aqui se mostrara la lista de personas.
+                </p>
+            </div>
+
+            <label class="tpl__label" for="myTextarea2">Codigo generado</label>
+            <textarea id="myTextarea2" class="tpl__source" readonly></textarea>
+
+        </section>
+
+        <script id="myTemplate1" type="text/x-handlebars-template">
+            <h2> Template Block Expressions 1 </h2>
+            <div>
+                {{toH1 title}}
+                <p>{{body}}</p>
+            </div>
+        </script>
+
+        <script id="myTemplate2" type="text/x-handlebars-template">
+            <h2> Template Block Expressions 2 </h2>
+            {{#toUl people}}
+                {{firstName}}
+                {{lastName}}
+            {{/toUl}}
+        </script>
+
+    </div>
+
+
+</div>

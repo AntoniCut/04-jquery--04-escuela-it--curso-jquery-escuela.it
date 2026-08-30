@@ -136,6 +136,16 @@ export const routeManifest = [
     { id: 'clase23ValidarFormulario', path: 'clase23-dudas-y-conceptos-3/01-validar-formulario', file: 'route-clase23-validar-formulario' },
     { id: 'clase23AnimacionesEnBucleForma1', path: 'clase23-dudas-y-conceptos-3/02-animaciones-en-bucle-forma-1', file: 'route-clase23-animaciones-en-bucle-forma-1' },
     { id: 'clase23AnimacionesEnBucleForma2', path: 'clase23-dudas-y-conceptos-3/03-animaciones-en-bucle-forma-2', file: 'route-clase23-animaciones-en-bucle-forma-2' },
+
+    { id: 'clase24', path: 'clase24-template-systems', file: 'route-clase24' },
+    { id: 'clase24HandlebarsCompilarBasico', path: 'clase24-template-systems/01-handlebars-compilar-basico', file: 'route-clase24-handlebars-compilar-basico' },
+    { id: 'clase24HandlebarsStringEnJavascript', path: 'clase24-template-systems/02-handlebars-string-en-javascript', file: 'route-clase24-handlebars-string-en-javascript' },
+    { id: 'clase24HandlebarsScriptEnHtml', path: 'clase24-template-systems/03-handlebars-script-en-html', file: 'route-clase24-handlebars-script-en-html' },
+    { id: 'clase24JqueryGenerarDom', path: 'clase24-template-systems/04-jquery-generar-dom', file: 'route-clase24-jquery-generar-dom' },
+    { id: 'clase24HandlebarsTemplateExternoAjax', path: 'clase24-template-systems/05-handlebars-template-externo-ajax', file: 'route-clase24-handlebars-template-externo-ajax' },
+    { id: 'clase24HandlebarsBlockExpressions', path: 'clase24-template-systems/06-handlebars-block-expressions', file: 'route-clase24-handlebars-block-expressions' },
+    { id: 'clase24HandlebarsPath', path: 'clase24-template-systems/07-handlebars-path', file: 'route-clase24-handlebars-path' },
+    { id: 'clase24HandlebarsBuiltInHelpers', path: 'clase24-template-systems/08-handlebars-built-in-helpers', file: 'route-clase24-handlebars-built-in-helpers' },
     
     { id: '404NotFoundPage', path: '404', file: 'route-404-not-found-page' },
 

@@ -1,0 +1,62 @@
+<!--
+    *  --------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /07-handlebars-path-description.html  --  /src/pages-components/clase-24/07-handlebars-path-description.html  -----  *
+    *  --------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
+
+            <p class="demo-page__intro-text">
+                El contexto incluye un objeto anidado <kbd>author</kbd>.
+                El template lee <kbd>{{author.id}}</kbd> y
+                <kbd>{{author.name}}</kbd> con la notacion de path.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> acceder a propiedades anidadas
+                sin aplanar el modelo de datos.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        El contexto monta <kbd>author: { id, name }</kbd>
+                        a partir de los inputs.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Handlebars resuelve el path con puntos:
+                        <kbd>{{author.name}}</kbd>.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Si un campo va vacio, se usa un valor por defecto
+                        para que el template no quede en blanco.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>

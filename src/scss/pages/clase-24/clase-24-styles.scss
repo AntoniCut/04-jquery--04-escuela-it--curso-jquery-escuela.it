@@ -1,0 +1,263 @@
+/*
+    *  --------------------------------------------------------------------------------------  *
+    *  -----  /clase-24-styles.scss  --  /src/scss/pages/clase-24/clase-24-styles.scss  -----  *
+    *  --------------------------------------------------------------------------------------  *
+*/
+
+
+/*
+    --------------------------------
+    -----  template systems  -----
+    --------------------------------
+    Alturas reservadas para que al generar HTML
+    no salte el layout (preview + textarea fijos).
+*/
+
+.tpl {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    max-width: 72rem;
+    min-height: 64rem;
+    margin: 0 auto;
+
+    &--double {
+        min-height: 108rem;
+    }
+
+    &--triple {
+        min-height: 152rem;
+    }
+
+    &__title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin: 0 0 0.4rem;
+        padding-bottom: 1rem;
+        border-bottom: 3px solid transparent;
+        border-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%) 1;
+    }
+
+    &__hint {
+        margin: 0;
+        font-size: 1.5rem;
+        color: #4a5568;
+        line-height: 1.6;
+
+        kbd {
+            font-size: 1.3rem;
+        }
+    }
+
+    &__form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        padding: 2.4rem 3rem;
+        background: linear-gradient(145deg, #ffffff 0%, #f8f9fc 100%);
+        border-radius: 16px;
+        box-shadow:
+            0 4px 6px rgba(0, 0, 0, 0.05),
+            0 10px 40px rgba(102, 126, 234, 0.08);
+        border: 1px solid rgba(102, 126, 234, 0.1);
+    }
+
+    &__fields {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+
+        @media (min-width: 700px) {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+
+        &--full {
+            grid-column: 1 / -1;
+        }
+
+        &--actions {
+            flex-direction: row;
+            padding-top: 0.6rem;
+            border-top: 1px solid #eef0f5;
+        }
+    }
+
+    &__label {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #3d4152;
+        letter-spacing: 0.02em;
+    }
+
+    &__input {
+        width: 100%;
+        padding: 1.2rem 1.6rem;
+        font-size: 1.5rem;
+        color: #1a1a2e;
+        background: #fff;
+        border: 2px solid #e1e4eb;
+        border-radius: 8px;
+        transition: all 250ms ease;
+
+        &::placeholder {
+            color: #a0a4b0;
+        }
+
+        &:hover {
+            border-color: #c5c9d6;
+        }
+
+        &:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.12);
+        }
+    }
+
+    &__submit {
+        display: inline-block;
+        padding: 1.2rem 3rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #fff;
+        text-align: center;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 300ms ease;
+        letter-spacing: 0.02em;
+
+        &:hover {
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.35);
+        }
+
+        &:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
+        }
+    }
+
+    &__panel {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        min-height: 38rem;
+    }
+
+    &__panel-title {
+        margin: 0;
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #312e81;
+    }
+
+    &__preview {
+        position: relative;
+        width: 100%;
+        min-height: 14rem;
+        padding: 2rem 2.4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background: linear-gradient(145deg, #f8f9fc 0%, #eef0f7 100%);
+        border-left: 4px solid #667eea;
+        border-radius: 12px;
+        overflow: auto;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        ul,
+        li,
+        label,
+        select {
+            margin: 0 0 0.8rem;
+            color: #1a1a2e;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+        }
+
+        ul {
+            padding-left: 2rem;
+        }
+    }
+
+    &__preview-placeholder {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #667eea;
+        letter-spacing: 0.02em;
+        line-height: 1.6;
+    }
+
+    &__source {
+        width: 100%;
+        height: 20rem;
+        min-height: 20rem;
+        padding: 1.2rem 1.6rem;
+        font-size: 1.4rem;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        color: #1a1a2e;
+        background: #fff;
+        border: 2px solid #e1e4eb;
+        border-radius: 8px;
+        resize: none;
+        box-sizing: border-box;
+    }
+
+    &__error {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #c0392b;
+        min-height: 2.2rem;
+    }
+}
+
+
+@media (max-width: 700px) {
+    .tpl {
+        min-height: 72rem;
+
+        &--double {
+            min-height: 120rem;
+        }
+
+        &--triple {
+            min-height: 168rem;
+        }
+
+        &__form {
+            padding: 1.6rem;
+        }
+
+        &__preview {
+            padding: 1.6rem;
+        }
+    }
+}

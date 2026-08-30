@@ -1,0 +1,62 @@
+<!--
+    *  ----------------------------------------------------------------------------------------------------------------------------------------------------  *
+    *  -----  /06-handlebars-block-expressions-description.html  --  /src/pages-components/clase-24/06-handlebars-block-expressions-description.html  -----  *
+    *  ----------------------------------------------------------------------------------------------------------------------------------------------------  *
+-->
+
+
+<div class="main__description">
+
+    <div class="demo-page">
+
+        <section class="demo-page__intro">
+
+            <h3 class="demo-page__features-title">
+                Que hace este ejercicio
+            </h3>
+
+            <p class="demo-page__intro-text">
+                Registra dos helpers personalizados: <kbd>toH1</kbd> envuelve
+                el titulo en un <kbd>h1</kbd> y <kbd>toUl</kbd> recorre un
+                array y pinta una lista.
+            </p>
+
+            <p class="demo-page__intro-note">
+                <kbd> Objetivo: </kbd> extender Handlebars con
+                <kbd>registerHelper</kbd> y expresiones de bloque.
+            </p>
+
+        </section>
+
+        <section class="demo-page__features">
+
+            <div class="demo-page__features-grid">
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        <kbd>{{toH1 title}}</kbd> es un helper simple: recibe
+                        un valor y devuelve HTML seguro.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        <kbd>{{#toUl people}}...{{/toUl}}</kbd> es un helper
+                        de bloque: usa <kbd>options.fn(item)</kbd>.
+                    </p>
+                </article>
+
+                <article class="demo-page__feature">
+                    <p class="demo-page__feature-text">
+                        Hay dos previews: uno para el titulo/cuerpo y otro
+                        para la lista de personas.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
