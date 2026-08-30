@@ -46,7 +46,7 @@ export const routeClase06 = {
         },
         headerTitle: 'Clase 6 - Primeros Pasos con jQuery',
         styles: [
-
+            { href: `${styles}/pages/shared/section-img.css` },
         ],
         scripts: [
             { src: `${scripts}/tooltips.js` },

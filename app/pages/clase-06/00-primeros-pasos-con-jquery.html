@@ -76,21 +76,53 @@
         </h2>
     </header>
 
-    <section class="section__images-demo">
+    <section class="section__content-img">
 
-        <article class="images-demo__card-img">
+        <article class="section__card-img">
             <a href="#" data-id="clase06Ejemplo1">
-                <img class="card__img"
-                    src="/escuelait/curso-jquery-escuelait/assets/img/clase-06/clase-06-ejemplo1.png"
-                    alt="Ejemplo 1 - hide() y show()" loading="lazy">
+                <picture>
+                    <source
+                        type="image/avif"
+                        srcset="
+                            ../../../assets/img/clase-06/01-clase-06-ejemplo1-280x247.avif  280w,
+                            ../../../assets/img/clase-06/01-clase-06-ejemplo1-560x494.avif  560w
+                        "
+                        sizes="(max-width: 600px) 280px, 560px"
+                    >
+                    <img
+                        src="../../../assets/img/clase-06/01-clase-06-ejemplo1-552x356.png"
+                        class="card__img"
+                        alt="Ejemplo 1 - hide() y show()"
+                        width="552"
+                        height="356"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                </picture>
             </a>
         </article>
 
-        <article class="images-demo__card-img">
+        <article class="section__card-img">
             <a href="#" data-id="clase06Ejemplo2">
-                <img class="card__img"
-                    src="/escuelait/curso-jquery-escuelait/assets/img/clase-06/clase-06-ejemplo2.png"
-                    alt="Ejemplo 2 - each()" loading="lazy">
+                <picture>
+                    <source
+                        type="image/avif"
+                        srcset="
+                            ../../../assets/img/clase-06/01-clase-06-ejemplo2-280x247.avif  280w,
+                            ../../../assets/img/clase-06/01-clase-06-ejemplo2-560x494.avif  560w
+                        "
+                        sizes="(max-width: 600px) 280px, 560px"
+                    >
+                    <img
+                        src="../../../assets/img/clase-06/01-clase-06-ejemplo2-552x615.png"
+                        class="card__img"
+                        alt="Ejemplo 2 - each()"
+                        width="552"
+                        height="615"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                </picture>
             </a>
         </article>
 

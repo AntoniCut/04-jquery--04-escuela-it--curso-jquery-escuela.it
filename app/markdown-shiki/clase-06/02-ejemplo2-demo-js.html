@@ -72,12 +72,25 @@
 <span class="line"><span style="color:#6A9955">         * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
 <span class="line"><span style="color:#6A9955">         */</span></span>
 <span class="line"><span style="color:#569CD6">        const</span><span style="color:#DCDCAA"> resetPlayground</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
-<span class="line"><span style="color:#9CDCFE">            $info1</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.c6-atelier__result'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">remove</span><span style="color:#D4D4D4">();</span></span>
-<span class="line"><span style="color:#9CDCFE">            $info2</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.c6-atelier__result'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">remove</span><span style="color:#D4D4D4">();</span></span>
-<span class="line"><span style="color:#9CDCFE">            $lista</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">empty</span><span style="color:#D4D4D4">().</span><span style="color:#DCDCAA">append</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$listaOriginal</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">clone</span><span style="color:#D4D4D4">());</span></span>
+<span class="line"><span style="color:#D4D4D4">            </span></span>
+<span class="line"><span style="color:#9CDCFE">            $info1</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.c6-atelier__result'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">remove</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">            </span></span>
+<span class="line"><span style="color:#9CDCFE">            $info2</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">find</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.c6-atelier__result'</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">remove</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">            </span></span>
+<span class="line"><span style="color:#9CDCFE">            $lista</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">empty</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">append</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">$listaOriginal</span></span>
+<span class="line"><span style="color:#D4D4D4">                    .</span><span style="color:#DCDCAA">clone</span><span style="color:#D4D4D4">());</span></span>
+<span class="line"><span style="color:#D4D4D4">            </span></span>
 <span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.c6-atelier__item'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-highlight is-removing'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">            </span></span>
 <span class="line"><span style="color:#9CDCFE">            $playground</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-flash'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#9CDCFE">            $btnRunEach</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'disabled'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">false</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
 <span class="line"><span style="color:#D4D4D4">        };</span></span>
 <span class="line"></span>
 <span class="line"></span>
@@ -93,6 +106,7 @@
 <span class="line"><span style="color:#6A9955">         * </span><span style="color:#569CD6">@return</span><span style="color:#4EC9B0"> {void}</span></span>
 <span class="line"><span style="color:#6A9955">         */</span></span>
 <span class="line"><span style="color:#569CD6">        const</span><span style="color:#DCDCAA"> appendResult</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">$panel</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">title</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">text</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">delay</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#D4D4D4">            </span></span>
 <span class="line"><span style="color:#6A9955">            /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLElement>}</span><span style="color:#6A9955"> - `Titulo en negrita del resultado` */</span></span>
 <span class="line"><span style="color:#569CD6">            const</span><span style="color:#4FC1FF"> $titulo</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'&#x3C;b>'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">title</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
@@ -109,6 +123,7 @@
 <span class="line"><span style="color:#9CDCFE">            window</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">setTimeout</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"><span style="color:#9CDCFE">                $result</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-visible'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#D4D4D4">            }, </span><span style="color:#9CDCFE">delay</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
 <span class="line"><span style="color:#D4D4D4">        };</span></span>
 <span class="line"></span>
 <span class="line"></span>
@@ -123,7 +138,10 @@
 <span class="line"><span style="color:#6A9955">         */</span></span>
 <span class="line"><span style="color:#569CD6">        const</span><span style="color:#DCDCAA"> recorridoLista</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">index</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">elem</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#569CD6">            const</span><span style="color:#4FC1FF"> $elem</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">elem</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#6A9955">            /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLLIElement>}</span><span style="color:#6A9955"> - `Elemento de la lista` */</span></span>
+<span class="line"><span style="color:#569CD6">            const</span><span style="color:#4FC1FF"> $elem</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLLIElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span></span>
+<span class="line"><span style="color:#DCDCAA">                $</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">elem</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">            );</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">            console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`Elemento de la lista </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">index</span><span style="color:#D4D4D4"> + </span><span style="color:#B5CEA8">1</span><span style="color:#569CD6">}</span><span style="color:#CE9178"> - </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">$elem</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">()</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
@@ -160,6 +178,7 @@
 <span class="line"><span style="color:#569CD6">        const</span><span style="color:#DCDCAA"> runEachExample</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#DCDCAA">            resetPlayground</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#D4D4D4">            </span></span>
 <span class="line"><span style="color:#9CDCFE">            $btnRunEach</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">prop</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'disabled'</span><span style="color:#D4D4D4">, </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#9CDCFE">            $playground</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-flash'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
@@ -176,7 +195,10 @@
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">            $p</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">each</span><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">index</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">elem</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#569CD6">                const</span><span style="color:#4FC1FF"> $elem</span><span style="color:#D4D4D4"> = </span><span style="color:#DCDCAA">$</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">elem</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#6A9955">                /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLParagraphElement>}</span><span style="color:#6A9955"> - `Elemento de la lista` */</span></span>
+<span class="line"><span style="color:#569CD6">                const</span><span style="color:#4FC1FF"> $elem</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {JQuery&#x3C;HTMLParagraphElement>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span></span>
+<span class="line"><span style="color:#DCDCAA">                    $</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">elem</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#D4D4D4">                );</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">                console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">`Parrafo </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">index</span><span style="color:#D4D4D4"> + </span><span style="color:#B5CEA8">1</span><span style="color:#569CD6">}</span><span style="color:#CE9178"> - </span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">$elem</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">text</span><span style="color:#D4D4D4">()</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>

@@ -19,6 +19,8 @@ import plumber from 'gulp-plumber';
 import fs from 'fs';
 import path from 'node:path';
 
+import sharp from 'sharp';
+
 import { generateMarkdownShiki } from './generate-markdown-shiki.js';
 
 
@@ -73,6 +75,7 @@ const paths = {
     root: {
         assetsDir: path.join('assets'),
         assets: path.posix.join('assets', '**/*'),
+        claseImagesPng: path.posix.join('assets', 'img', 'clase-*', '*.png'),
     },
 
     src: {
@@ -326,6 +329,171 @@ const createCopyTask = (name, opts) => {
 
 
 /*
+    ------------------------------------------
+    -----  🖼  --  IMAGENES  PNG → AVIF  -----
+    ------------------------------------------
+    Recorre assets/img/clase-* y, por cada PNG
+    de captura, genera 2 AVIF (280x247 y
+    560x494). El PNG se deja como fallback.
+*/
+
+
+/**
+ * @typedef {Object} ImageAvifSize
+ * @property {number} width  — Ancho de salida.
+ * @property {number} height — Alto de salida.
+ */
+
+
+/** @type {ImageAvifSize[]} */
+const AVIF_VARIANTS = [
+    { width: 280, height: 247 },
+    { width: 560, height: 494 },
+];
+
+
+/**
+ * -------------------------------------
+ * -----  `listClasePngSources()`  -----
+ * -------------------------------------
+ * - Lista los PNG de captura en assets/img/clase-*.
+ * @return {string[]}
+ */
+const listClasePngSources = () => {
+    const imgRoot = path.join('assets', 'img');
+
+    if (!fs.existsSync(imgRoot)) {
+        return [];
+    }
+
+    const classDirs = fs.readdirSync(imgRoot, { withFileTypes: true })
+        .filter((entry) => entry.isDirectory() && entry.name.startsWith('clase-'));
+
+    /** @type {string[]} */
+    const files = [];
+
+    for (const classDir of classDirs) {
+        const dirPath = path.join(imgRoot, classDir.name);
+        const names = fs.readdirSync(dirPath);
+
+        for (const name of names) {
+            if (!name.toLowerCase().endsWith('.png')) {
+                continue;
+            }
+
+            const base = name.slice(0, -4);
+
+            if (/-280x247$/.test(base) || /-560x494$/.test(base)) {
+                continue;
+            }
+
+            files.push(path.join(dirPath, name));
+        }
+    }
+
+    return files;
+};
+
+
+/**
+ * --------------------------------------
+ * -----  `getImageStem(fileName)`  -----
+ * --------------------------------------
+ * - Quita la extension y el sufijo -AnchoAlto del PNG.
+ * @param {string} fileName - Nombre del archivo PNG.
+ * @return {string}
+ */
+const getImageStem = (fileName) => {
+    const base = fileName.replace(/\.png$/i, '');
+    const stripped = base.replace(/-\d+x\d+$/, '');
+
+    return stripped || base;
+};
+
+
+/**
+ * -------------------------------------------------------
+ * -----  `shouldWriteAvif(inputPath, outputPath)`  -----
+ * -------------------------------------------------------
+ * - Regenera el AVIF si no existe o el PNG es mas nuevo.
+ * @param {string} inputPath - PNG de origen.
+ * @param {string} outputPath - AVIF de salida.
+ * @return {boolean}
+ */
+const shouldWriteAvif = (inputPath, outputPath) => {
+    if (!fs.existsSync(outputPath)) {
+        return true;
+    }
+
+    const inputStat = fs.statSync(inputPath);
+    const outputStat = fs.statSync(outputPath);
+
+    return inputStat.mtimeMs > outputStat.mtimeMs;
+};
+
+
+/**
+ * --------------------------------------------------------------------
+ * -----  `writeAvifImage(inputPath, outputPath, width, height)`  -----
+ * --------------------------------------------------------------------
+ * - Redimensiona un PNG y lo escribe como AVIF.
+ * @param {string} inputPath - PNG de origen.
+ * @param {string} outputPath - Ruta del AVIF de salida.
+ * @param {number} width - Ancho de salida.
+ * @param {number} height - Alto de salida.
+ * @return {Promise<void>}
+ */
+const writeAvifImage = async (inputPath, outputPath, width, height) => {
+    await sharp(inputPath)
+        .resize(width, height, {
+            fit: 'cover',
+            position: 'top',
+        })
+        .avif({ quality: 55 })
+        .toFile(outputPath);
+};
+
+
+/**
+ * --------------------------------
+ * -----  `convertImages()`  -----
+ * --------------------------------
+ * - Genera 2 AVIF por cada PNG de captura en clase-*.
+ * @return {Promise<void>}
+ */
+export const convertImages = async () => {
+    const sources = listClasePngSources();
+
+    if (sources.length === 0) {
+        console.log('ℹ️  No hay PNG en assets/img/clase-*');
+        return;
+    }
+
+    for (const inputPath of sources) {
+        const destDir = path.dirname(inputPath);
+        const stem = getImageStem(path.basename(inputPath));
+
+        for (const size of AVIF_VARIANTS) {
+            const avifPath = path.join(
+                destDir,
+                `${stem}-${size.width}x${size.height}.avif`
+            );
+
+            if (!shouldWriteAvif(inputPath, avifPath)) {
+                continue;
+            }
+
+            await writeAvifImage(inputPath, avifPath, size.width, size.height);
+            console.log(`✅  ${avifPath}`);
+        }
+    }
+};
+
+convertImages.displayName = 'convertImages';
+
+
+
+/*
     -------------------------------------
     -----  📋  --  COPY  src → app  -----
     -------------------------------------
@@ -530,6 +698,7 @@ const buildSources = parallel(
 //  generateShiki genera el HTML de Shiki desde los fuentes; copyMarkdownShiki
 //  copia el HTML recién generado a app/markdown-shiki/.
 const copyAll = series(
+    convertImages,
     buildSources,
     generateShiki,
     copyMarkdownShiki,
@@ -566,6 +735,7 @@ const watchTask = () => {
         [paths.src.scripts, copyScripts],
         [paths.src.main, copyMain],
         [paths.src.scssAll, series(styles, generateShiki, copyMarkdownShiki)],
+        [paths.root.claseImagesPng, convertImages],
     ];
 
     for (const [glob, task] of watchers) {

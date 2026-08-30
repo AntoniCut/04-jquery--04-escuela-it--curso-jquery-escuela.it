@@ -122,7 +122,9 @@
 <span class="line"><span style="color:#9CDCFE">            $playground</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-flash'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#6A9955">            //  -----  vaciar el contenedor de la capa  -----</span></span>
-<span class="line"><span style="color:#9CDCFE">            $capaContainer</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">empty</span><span style="color:#D4D4D4">().</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-active'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">            $capaContainer</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">empty</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">addClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-active'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#6A9955">            //  -----  ocultar todos los parrafos con clase miclase  -----</span></span>
 <span class="line"><span style="color:#DCDCAA">            $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.miclase'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">hide</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">2000</span><span style="color:#D4D4D4">);</span></span>
@@ -157,6 +159,7 @@
 <span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">show</span><span style="color:#D4D4D4">(</span><span style="color:#B5CEA8">2000</span><span style="color:#D4D4D4">)</span></span>
 <span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">promise</span><span style="color:#D4D4D4">()</span></span>
 <span class="line"><span style="color:#D4D4D4">                .</span><span style="color:#DCDCAA">done</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#D4D4D4">                    </span></span>
 <span class="line"><span style="color:#6A9955">                    //  -----  si se pulso reset, no aplicar el cierre de este run  -----</span></span>
 <span class="line"><span style="color:#C586C0">                    if</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">currentRun</span><span style="color:#D4D4D4"> !== </span><span style="color:#9CDCFE">runToken</span><span style="color:#D4D4D4">) {</span></span>
 <span class="line"><span style="color:#C586C0">                        return</span><span style="color:#D4D4D4">;</span></span>
@@ -169,6 +172,7 @@
 <span class="line"><span style="color:#9CDCFE">                    highlightTimeoutId</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">window</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">setTimeout</span><span style="color:#D4D4D4">(() </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"><span style="color:#DCDCAA">                        $</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'.miclase'</span><span style="color:#D4D4D4">).</span><span style="color:#DCDCAA">removeClass</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'is-highlight'</span><span style="color:#D4D4D4">);</span></span>
 <span class="line"><span style="color:#D4D4D4">                    }, </span><span style="color:#B5CEA8">900</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
 <span class="line"><span style="color:#D4D4D4">                });</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#D4D4D4">        };</span></span>

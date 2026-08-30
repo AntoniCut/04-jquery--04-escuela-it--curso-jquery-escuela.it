@@ -11,6 +11,7 @@
     "stop:dev": "node server/stop-dev-server.js",
     "server": "pnpm run serve:dev",
     "code-highlight": "node generate-markdown-shiki.js",
+    "convert-images": "gulp convertImages",
     "build": "gulp build",
     "preview": "node server/preview-server.js --open",
     "add:ts-nocheck": "cross-env NODE_ENV=development node addTsNoCheck.js",
