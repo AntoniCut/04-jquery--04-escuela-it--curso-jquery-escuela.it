@@ -1,5 +1,7 @@
-<!--  
-    *  -----  /00-introduccion-jquery-images.html  --  /src/pages-components/clase-05/00-introduccion-jquery-images.html  -----  *
+<!--
+    *  -----------------------------------------------------------------------------------------------------------------------  *
+    *  -----  00-introduccion-jquery-images.html  --  /src/pages-components/clase-05/00-introduccion-jquery-images.html  -----  *
+    *  -----------------------------------------------------------------------------------------------------------------------  *
 -->
 
 
@@ -8,23 +10,71 @@
 
     <div class="section__content-img">
 
-            <article class="section__card-img">
-                <img class="card__img"
-                    src="/escuelait/curso-jquery-escuelait/assets/img/clase-03/01-primeros-pasos.avif"
-                    alt="Primeros Pasos con jQuery" loading="lazy">
-            </article>
+        <article class="section__card-img">
+            <picture>
+                <source
+                    type="image/avif"
+                    srcset="
+                        ../../../assets/img/clase-03/01-primeros-pasos-280x247.avif  280w,
+                        ../../../assets/img/clase-03/01-primeros-pasos-560x494.avif  560w
+                    "
+                    sizes="(max-width: 600px) 280px, 560px"
+                >
+                <img
+                    src="../../../assets/img/clase-03/01-primeros-pasos.png"
+                    class="card__img"
+                    alt="Primeros Pasos con jQuery"
+                    width="1084"
+                    height="361"
+                    loading="lazy"
+                    decoding="async"
+                >
+            </picture>
+        </article>
 
-            <article class="section__card-img">
-                <img class="card__img"
-                    src="/escuelait/curso-jquery-escuelait/assets/img/clase-03/02-descargar-jquery.avif"
-                    alt="Descargar jQuery" loading="lazy">
-            </article>
+        <article class="section__card-img">
+            <picture>
+                <source
+                    type="image/avif"
+                    srcset="
+                        ../../../assets/img/clase-03/02-descargar-jquery-280x247.avif  280w,
+                        ../../../assets/img/clase-03/02-descargar-jquery-560x494.avif  560w
+                    "
+                    sizes="(max-width: 600px) 280px, 560px"
+                >
+                <img
+                    src="../../../assets/img/clase-03/02-descargar-jquery.png"
+                    class="card__img"
+                    alt="Descargar jQuery"
+                    width="907"
+                    height="388"
+                    loading="lazy"
+                    decoding="async"
+                >
+            </picture>
+        </article>
 
-            <article class="section__card-img">
-                <img class="card__img"
-                    src="/escuelait/curso-jquery-escuelait/assets/img/clase-03/03-document-ready.avif"
-                    alt="Document Ready" loading="lazy">
-            </article>
+        <article class="section__card-img">
+            <picture>
+                <source
+                    type="image/avif"
+                    srcset="
+                        ../../../assets/img/clase-03/03-document-ready-280x247.avif  280w,
+                        ../../../assets/img/clase-03/03-document-ready-560x494.avif  560w
+                    "
+                    sizes="(max-width: 600px) 280px, 560px"
+                >
+                <img
+                    src="../../../assets/img/clase-03/03-document-ready.png"
+                    class="card__img"
+                    alt="Document Ready"
+                    width="814"
+                    height="382"
+                    loading="lazy"
+                    decoding="async"
+                >
+            </picture>
+        </article>
 
     </div>
 
