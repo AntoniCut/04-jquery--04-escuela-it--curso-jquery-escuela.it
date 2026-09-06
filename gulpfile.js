@@ -1,7 +1,7 @@
 /*
-    *  --------------------------------------------  *
-    *  -----  /gulpfile.js  --  /gulpfile.js  -----  *
-    *  --------------------------------------------  *
+    *  -------------------------------------------  *
+    *  -----  gulpfile.js  --  /gulpfile.js  -----  *
+    *  -------------------------------------------  *
 */
 
 
@@ -333,8 +333,9 @@ const createCopyTask = (name, opts) => {
     -----  🖼  --  IMAGENES  PNG → AVIF  -----
     ------------------------------------------
     Recorre assets/img/clase-* y, por cada PNG
-    de captura, genera 2 AVIF (280x247 y
-    560x494). El PNG se deja como fallback.
+    de captura, genera 2 AVIF (max 280x247 y
+    560x494) sin recortar. El PNG queda de
+    fallback.
 */
 
 
@@ -436,7 +437,7 @@ const shouldWriteAvif = (inputPath, outputPath) => {
  * --------------------------------------------------------------------
  * -----  `writeAvifImage(inputPath, outputPath, width, height)`  -----
  * --------------------------------------------------------------------
- * - Redimensiona un PNG y lo escribe como AVIF.
+ * - Encaja el PNG completo en el recuadro, sin recortar, y lo escribe como AVIF.
  * @param {string} inputPath - PNG de origen.
  * @param {string} outputPath - Ruta del AVIF de salida.
  * @param {number} width - Ancho de salida.
@@ -446,8 +447,8 @@ const shouldWriteAvif = (inputPath, outputPath) => {
 const writeAvifImage = async (inputPath, outputPath, width, height) => {
     await sharp(inputPath)
         .resize(width, height, {
-            fit: 'cover',
-            position: 'top',
+            fit: 'inside',
+            withoutEnlargement: true,
         })
         .avif({ quality: 55 })
         .toFile(outputPath);

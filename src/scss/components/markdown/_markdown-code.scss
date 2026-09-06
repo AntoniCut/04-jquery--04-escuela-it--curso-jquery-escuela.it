@@ -1,6 +1,6 @@
 /*
     *  ----------------------------------------------------------------------  *
-    *  -----  /_markdown-code.scss  --  /src/scss/components/markdown/  -------  *
+    *  -----  /_markdown-code.scss  --  /src/scss/components/markdown/  -----  *
     *  ----------------------------------------------------------------------  *
     *
     *  Reglas reutilizables para los bloques de código markdown (`.markdown-code`).
@@ -10,6 +10,8 @@
     *  Portable entre proyectos: no depende de variables de tema.
     *  Para usarlo en otro proyecto basta con copiar este archivo y asignar
     *  `data-label="nombre-archivo.ext"` a cada `<article class="markdown-code">`.
+    *                                                                                *
+    *  ----------------------------------------------------------------------------  *
 */
 
 
